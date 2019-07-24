@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "style.css",
+	"sources": [
+		"../../build/scss/base.scss",
+		"../../build/scss/config/_themeinfo.scss"
+	],
+	"names": [],
+	"mappings": "ACAA;;;;;;;;EAQE"
+}
