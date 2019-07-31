@@ -35,3 +35,19 @@ function jellypress_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'jellypress_pingback_header' );
+
+/**
+ * Adds a function to display SVGs from the spritesheet.
+ */
+function jellypress_icon($icon) {
+	// Define SVG sprite file.
+	$icon_path = get_theme_file_path( '/assets/icons/'.$icon.'.svg' );
+  // If it exists, include it.
+  if ( file_exists( $icon_path ) ) {
+    $use_link = THEME_URI.'/assets/icons/icons.svg#icon-'.$icon;
+    echo '<svg class="icon"><use xlink:href="'.$use_link.'" /></use></svg>';
+  }
+  else {
+    return '';
+  }
+}
