@@ -23,7 +23,18 @@ module.exports = function (grunt) {
                 files: [
                     // NOTE: Add any site-specific files here
                 ],
-            }
+            },
+            themecss: {
+                files: [
+                  // includes all files in <%= globalConfig.dist_dir %>/css
+                  {
+                    expand: true,
+                    flatten: true, // Necessary to flatten directory, else it won't copy to root
+                    src: ['<%= globalConfig.dist_dir %>/css/*'],
+                    dest: ''
+                  },
+                ],
+            },
         },
 
         // Define which sass files should be compiled
@@ -34,11 +45,19 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: [
-                    {
-                        src: '<%= globalConfig.build_dir %>/scss/base.scss',
-                        dest: '<%= globalConfig.dist_dir %>/css/style.css'
-                    }
-                ]
+                  {
+                      src: '<%= globalConfig.build_dir %>/scss/compile.scss',
+                      dest: '<%= globalConfig.dist_dir %>/css/style.css'
+                  },
+                  {
+                      src: '<%= globalConfig.build_dir %>/scss/site/editor.scss',
+                      dest: '<%= globalConfig.dist_dir %>/css/editor-style.css'
+                  },
+                  {
+                    src: '<%= globalConfig.build_dir %>/scss/site/admin-style.scss',
+                    dest: '<%= globalConfig.dist_dir %>/css/admin-style.css'
+                }
+              ]
             }
         },
 
@@ -47,9 +66,7 @@ module.exports = function (grunt) {
             options: {
                 map: true,
                 processors: [
-                    require('autoprefixer')({
-                        browsers: 'last 5 versions'
-                    }), // add vendor prefixes
+                    require('autoprefixer')(),
                     require('postcss-pxtorem')({
                       rootValue: 16,
                       unitPrecision: 2, // Decimal places
@@ -62,8 +79,7 @@ module.exports = function (grunt) {
                 ]
             },
             dist: {
-                src: '<%= globalConfig.dist_dir %>/css/style.css',
-                dest: 'style.css'
+                  src: '<%= globalConfig.dist_dir %>/css/*.css',
             }
         },
 
@@ -125,17 +141,6 @@ module.exports = function (grunt) {
             }
           }
         },
-        express: {
-        // go to http://localhost:9000 for live reloading
-            all:{
-                options:{
-                    port:9000,
-                    hostname:'localhost',
-                    bases:['.'],
-                    livereload: true
-                }
-            }
-        },
 
         watch: {
 
@@ -144,7 +149,6 @@ module.exports = function (grunt) {
                 files: ['Gruntfile.js'],
                 tasks: ['default'],
                 options: {
-                    livereload: true,
                     event: ['changed', 'added', 'deleted']
                 }
 
@@ -153,16 +157,15 @@ module.exports = function (grunt) {
             // run 'sass' and 'postcss' tasks when any scss file is edited
             sass: {
                 options: {
-                    livereload: true,
-                    event: ['changed', 'added', 'deleted']
+                  event: ['changed', 'added', 'deleted']
                 },
                 files: ['<%= globalConfig.build_dir %>/scss/**/*.scss'],
-                tasks: [ 'sass', 'postcss']
+                tasks: [ 'sass', 'postcss', 'copy:themecss']
             },
 
             concat_js: {
                 options: {
-                    livereload: true,
+                  event: ['changed', 'added', 'deleted']
                 },
                 files: ['<%= globalConfig.build_dir %>/js/**/*.js'],
                 tasks: ['concat', 'uglify']
@@ -170,7 +173,6 @@ module.exports = function (grunt) {
 
             images: {
                 options: {
-                    livereload: true,
                     event: ['changed', 'added', 'deleted']
                 },
                 files: ['<%= globalConfig.build_dir %>/img/**/*.{png,jpg,JPG,JPEG,jpeg,svg,gif}'],
@@ -179,7 +181,6 @@ module.exports = function (grunt) {
 
             spritesheet: {
                 options: {
-                    livereload: true,
                     event: ['changed', 'added', 'deleted']
                 },
                 files: ['<%= globalConfig.build_dir %>/icons/*.svg'],
@@ -199,10 +200,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-express');
     grunt.loadNpmTasks('grunt-svgstore');
 
     // Default Grunt task, runs via $ grunt
-    grunt.registerTask('default', ['copy:npm', 'concat', 'uglify', 'sass', 'postcss', 'clean', 'imagemin', 'svgstore', 'express', 'watch']);
+    grunt.registerTask('default', ['copy:npm', 'concat', 'uglify', 'sass', 'postcss', 'copy:themecss', 'clean', 'imagemin', 'svgstore', 'watch']);
 
 };

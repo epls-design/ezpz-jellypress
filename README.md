@@ -17,12 +17,12 @@ Getting Started
 Clone the repo into your Wordpress themes directory and rename the folder into the name of your theme. You'll then need to do a five-step find and replace on the name in all the templates.
 
 1. Search for: `'jellypress'` and replace with: `'theme-name'` to capture the text domain.
-2. Search for: `jellypress_` and replace with: `theme-name_` to capture all the function names.
-3. Search for: `Text Domain: jellypress` and replace with: `Text Domain: theme-name` in `style.css`.
-4. Search for: <code>&nbsp;_s</code> and replace with: <code>&nbsp;Theme Name</code> (with a space before it) to capture DocBlocks.
-5. Search for: `jellypress-` and replace with: `theme-name-` to capture prefixed handles.
-
-Then, update the stylesheet header in `scss/config/_themeinfo.scss`, the links in `footer.php` with your own information and rename `_s.pot` from `languages` folder to use the theme's slug.
+2. Search for: `jellypress_` and replace with: `theme_name_` to capture all the function names.
+3. Search for: ` _jellypress` (include the space) and replace with: ` Theme_Name` (with a space before it) to capture DocBlocks.
+4. Search for: `jellypress-` and replace with: `theme-name-` to capture prefixed handles.
+5. Find and replace `@package jellypress` to `@package theme-name`
+6. Then, update the stylesheet header in `build/scss/config/_themeinfo.scss`, the links in `footer.php` with your own information and rename `_jellypress.pot` from `languages` folder to use the theme's slug.
+7. In the theme functions.php, search for 'hide_acf_admin' and update the URLs to the live site url, to hide ACF on production.
+8. Do a final check to see if there are any stragglers named `jellypress`
 
 Finally, add in your Jellyfish scss (currently not bundled with Jellypress, as still in development), update the Gruntfile.js and npm packages to suit your theme and start hacking away!
-

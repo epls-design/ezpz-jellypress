@@ -18,7 +18,6 @@
     "grunt-contrib-jshint": "^2.1.0",
     "grunt-contrib-uglify": "^4.0.1",
     "grunt-contrib-watch": "^1.1.0",
-    "grunt-express": "^1.4.1",
     "grunt-parallel": "^0.5.1",
     "grunt-postcss": "^0.9.0",
     "grunt-sass": "^2.1.0",

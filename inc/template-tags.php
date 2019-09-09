@@ -122,7 +122,6 @@ if ( ! function_exists( 'jellypress_post_thumbnail' ) ) :
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
 		}
-
 		if ( is_singular() ) :
 			?>
 
@@ -134,7 +133,7 @@ if ( ! function_exists( 'jellypress_post_thumbnail' ) ) :
 
 		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 			<?php
-			the_post_thumbnail( ($size, array(
+			the_post_thumbnail( $size, array(
 				'alt' => the_title_attribute( array(
 					'echo' => false,
 				) ),

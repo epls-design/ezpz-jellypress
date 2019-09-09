@@ -1,0 +1,21 @@
+/**
+ * Compiles all scss files into {theme-directory}/assets/css/editor-style.css
+ * which is then processed into {theme-directory}/editor-style.css
+ */
+
+@import "../compile";
+html .mceContentBody {
+  padding: 20px;
+  margin: 0;
+  font-size: 1em;
+  // Ensures that columns always show in the editor despite the smaller screen width
+  .two-column {
+    column-count: 2;
+  }
+  .three-column {
+    column-count: 3;
+  }
+  .four-column {
+    column-count: 4;
+  }
+}

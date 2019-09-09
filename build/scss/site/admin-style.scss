@@ -1,0 +1,13 @@
+/**
+ * Styles which are applied to the admin area of Wordpress,
+ * by being injected into wp_head
+*/
+
+@charset "UTF-8";
+@import "../settings";
+
+// ACF Flexible Content Heading
+.acf-fc-layout-handle {
+  background: $color-primary !important;
+  color: #fff !important;
+}

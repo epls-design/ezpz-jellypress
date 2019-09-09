@@ -18,8 +18,9 @@ get_header();
           the_post();
 
           get_template_part( 'template-parts/content', get_post_type() );
+          get_template_part( 'template-parts/acf-flexible-content');
 
-          the_post_navigation(); // TODO: Where is this code defined?
+          the_post_navigation();
 
           // If comments are open or we have at least one comment, load up the comment template.
           if ( comments_open() || get_comments_number() ) :
