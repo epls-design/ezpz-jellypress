@@ -1,0 +1,15 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  SECTIONS
+  Styling for site wide sections
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.section {
+    margin: $section-padding 0 $section-padding - $element-margin 0;
+}
+%section-color {
+    margin: 0;
+    padding: $section-padding 0 $section-padding - $element-margin 0;
+}
+%section-dark {
+    color: $color-background;
+}

@@ -221,7 +221,7 @@
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "50",
+                                "width": "100",
                                 "class": "",
                                 "id": ""
                             },
@@ -240,7 +240,7 @@
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "50",
+                                "width": "100",
                                 "class": "",
                                 "id": ""
                             },
@@ -410,7 +410,7 @@
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "50",
+                                "width": "75",
                                 "class": "",
                                 "id": ""
                             },
@@ -429,7 +429,7 @@
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "50",
+                                "width": "25",
                                 "class": "",
                                 "id": ""
                             },
@@ -462,7 +462,7 @@
                                 "right": "Right"
                             },
                             "default_value": [
-                                "Right"
+                                "right"
                             ],
                             "allow_null": 0,
                             "multiple": 0,
@@ -526,5 +526,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease.",
-    "modified": 1568057233
+    "modified": 1569658605
 }

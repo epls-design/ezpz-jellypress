@@ -1,2 +1,29 @@
-.acf-fc-layout-handle{background:#377089!important;color:#fff!important}
+/**
+ * Styles which are applied to the admin area of Wordpress,
+ * by being injected into wp_head
+*/
+/**
+ * USAGE: Uncomment any of the variables here to add site-specific overrides.
+ * It is not necessary to edit any of the files in /jellyfish
+ */
+/* Grid */
+/* Colours */
+/* Typefaces */
+/* Font Sizes */
+/* Global padding/margins */
+/* Global transition used in smooth() */
+/* Borders */
+/* Forms */
+/* Nav Bar */
+/* Hamburger Menu */
+/* @link https://github.com/jonsuh/hamburgers */
+/**
+ * JELLYFISH GRID SETTINGS
+ */
+/* Base Variables (used before breakpoints are applied) */
+/* Breakpoints */
+.acf-fc-layout-handle {
+  background: #7f4782 !important;
+  color: #fff !important; }
+
 /*# sourceMappingURL=admin-style.css.map */

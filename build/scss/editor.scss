@@ -3,7 +3,7 @@
  * which is then processed into {theme-directory}/editor-style.css
  */
 
-@import "../compile";
+@import "compile";
 html .mceContentBody {
   padding: 20px;
   margin: 0;

@@ -1,1 +1,10 @@
-{"version":3,"sources":["../../build/scss/site/admin-style.scss"],"names":[],"mappings":"AASA,sBACE,6BAAqC,AACrC,oBAAsB,CACvB","file":"admin-style.css"}
+{
+	"version": 3,
+	"file": "admin-style.css",
+	"sources": [
+		"../../build/scss/admin-style.scss",
+		"../../build/scss/config/_settings.scss"
+	],
+	"names": [],
+	"mappings": "AAAA;;;EAGE;ACHF;;;GAGG;AAEH,UAAU;AAMV,aAAa;AASb,eAAe;AAOf,gBAAgB;AAWhB,4BAA4B;AAK5B,wCAAwC;AAGxC,aAAa;AAOb,WAAW;AAOX,aAAa;AAkBb,oBAAoB;AACpB,gDAAgD;AAkBhD;;GAEG;AAEH,0DAA0D;AAM1D,iBAAiB;ADjGjB,AAAA,qBAAqB,CAAC;EACpB,UAAU,ECKI,OAAO,CDLM,UAAU;EACrC,KAAK,EAAE,eAAe,GACvB"
+}

@@ -23,18 +23,7 @@ module.exports = function (grunt) {
                 files: [
                     // NOTE: Add any site-specific files here
                 ],
-            },
-            themecss: {
-                files: [
-                  // includes all files in <%= globalConfig.dist_dir %>/css
-                  {
-                    expand: true,
-                    flatten: true, // Necessary to flatten directory, else it won't copy to root
-                    src: ['<%= globalConfig.dist_dir %>/css/*'],
-                    dest: ''
-                  },
-                ],
-            },
+            }
         },
 
         // Define which sass files should be compiled
@@ -50,11 +39,11 @@ module.exports = function (grunt) {
                       dest: '<%= globalConfig.dist_dir %>/css/style.css'
                   },
                   {
-                      src: '<%= globalConfig.build_dir %>/scss/site/editor.scss',
+                      src: '<%= globalConfig.build_dir %>/scss/editor.scss',
                       dest: '<%= globalConfig.dist_dir %>/css/editor-style.css'
                   },
                   {
-                    src: '<%= globalConfig.build_dir %>/scss/site/admin-style.scss',
+                    src: '<%= globalConfig.build_dir %>/scss/admin-style.scss',
                     dest: '<%= globalConfig.dist_dir %>/css/admin-style.css'
                 }
               ]
@@ -79,7 +68,20 @@ module.exports = function (grunt) {
                 ]
             },
             dist: {
-                  src: '<%= globalConfig.dist_dir %>/css/*.css',
+              files: [
+                {
+                  src: '<%= globalConfig.dist_dir %>/css/style.css',
+                  dest: 'style.css'
+                },
+                {
+                  src: '<%= globalConfig.dist_dir %>/css/editor-style.css',
+                  dest: 'editor-style.css'
+                },
+                {
+                  src: '<%= globalConfig.dist_dir %>/css/admin-style.css',
+                  dest: 'admin-style.css'
+                }
+              ]
             }
         },
 
@@ -160,7 +162,7 @@ module.exports = function (grunt) {
                   event: ['changed', 'added', 'deleted']
                 },
                 files: ['<%= globalConfig.build_dir %>/scss/**/*.scss'],
-                tasks: [ 'sass', 'postcss', 'copy:themecss']
+                tasks: [ 'sass', 'postcss']
             },
 
             concat_js: {
@@ -202,7 +204,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-svgstore');
 
-    // Default Grunt task, runs via $ grunt
-    grunt.registerTask('default', ['copy:npm', 'concat', 'uglify', 'sass', 'postcss', 'copy:themecss', 'clean', 'imagemin', 'svgstore', 'watch']);
+    grunt.registerTask('default', ['watch']);
+    grunt.registerTask('build', ['copy:npm', 'concat', 'uglify', 'sass', 'postcss', 'clean', 'imagemin', 'svgstore', 'watch']);
 
 };

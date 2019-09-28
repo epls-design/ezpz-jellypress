@@ -4,7 +4,8 @@
 */
 
 @charset "UTF-8";
-@import "../settings";
+@import "config/settings";
+//@import "jellyfish/config/settings";
 
 // ACF Flexible Content Heading
 .acf-fc-layout-handle {

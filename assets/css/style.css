@@ -1,3 +1,6 @@
+/**
+ *  Compiles all scss files into assets/css/style.css
+ */
 /*!
 Theme Name: Jellypress
 Theme URI: https://www.mattweet.com
@@ -7,4 +10,34 @@ Description: Wordpress framework based on _s and designed to work with Jellyfish
 Version: 1.0.0
 Text Domain: jellypress
 */
+/**
+ * USAGE: Uncomment any of the variables here to add site-specific overrides.
+ * It is not necessary to edit any of the files in /jellyfish
+ */
+/* Grid */
+/* Colours */
+/* Typefaces */
+/* Font Sizes */
+/* Global padding/margins */
+/* Global transition used in smooth() */
+/* Borders */
+/* Forms */
+/* Nav Bar */
+/* Hamburger Menu */
+/* @link https://github.com/jonsuh/hamburgers */
+/**
+ * JELLYFISH GRID SETTINGS
+ */
+/* Base Variables (used before breakpoints are applied) */
+/* Breakpoints */
+/**
+ * Site-specific scss files are compiled here.
+ */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  SECTIONS
+  Styling for site wide sections
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.section {
+  margin: 70px 0 40px 0; }
+
 /*# sourceMappingURL=style.css.map */

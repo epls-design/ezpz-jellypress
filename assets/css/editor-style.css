@@ -1,3 +1,10 @@
+/**
+ * Compiles all scss files into {theme-directory}/assets/css/editor-style.css
+ * which is then processed into {theme-directory}/editor-style.css
+ */
+/**
+ *  Compiles all scss files into assets/css/style.css
+ */
 /*!
 Theme Name: Jellypress
 Theme URI: https://www.mattweet.com
@@ -6,5 +13,46 @@ Author URI: https://www.mattweet.com
 Description: Wordpress framework based on _s and designed to work with Jellyfish CSS framework
 Version: 1.0.0
 Text Domain: jellypress
-*/html .mceContentBody{padding:1.25rem;margin:0;font-size:1em}html .mceContentBody .two-column{-webkit-column-count:2;column-count:2}html .mceContentBody .three-column{-webkit-column-count:3;column-count:3}html .mceContentBody .four-column{-webkit-column-count:4;column-count:4}
+*/
+/**
+ * USAGE: Uncomment any of the variables here to add site-specific overrides.
+ * It is not necessary to edit any of the files in /jellyfish
+ */
+/* Grid */
+/* Colours */
+/* Typefaces */
+/* Font Sizes */
+/* Global padding/margins */
+/* Global transition used in smooth() */
+/* Borders */
+/* Forms */
+/* Nav Bar */
+/* Hamburger Menu */
+/* @link https://github.com/jonsuh/hamburgers */
+/**
+ * JELLYFISH GRID SETTINGS
+ */
+/* Base Variables (used before breakpoints are applied) */
+/* Breakpoints */
+/**
+ * Site-specific scss files are compiled here.
+ */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  SECTIONS
+  Styling for site wide sections
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.section {
+  margin: 70px 0 40px 0; }
+
+html .mceContentBody {
+  padding: 20px;
+  margin: 0;
+  font-size: 1em; }
+  html .mceContentBody .two-column {
+    column-count: 2; }
+  html .mceContentBody .three-column {
+    column-count: 3; }
+  html .mceContentBody .four-column {
+    column-count: 4; }
+
 /*# sourceMappingURL=editor-style.css.map */
