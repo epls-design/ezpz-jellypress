@@ -4,6 +4,7 @@ module.exports = function (grunt) {
     var globalConfig = {
         build_dir: 'build',
         dist_dir: 'assets',
+        dev_url: 'http://jellypress.local',
     };
 
     // Project configuration
@@ -29,7 +30,6 @@ module.exports = function (grunt) {
         // Define which sass files should be compiled
         sass: {
             options: {
-                //outputStyle: 'expanded',
                 sourceMap: true
             },
             dist: {
@@ -149,7 +149,7 @@ module.exports = function (grunt) {
             // rerun $ grunt when the Gruntfile is edited
             gruntfile: {
                 files: ['Gruntfile.js'],
-                tasks: ['default'],
+                tasks: ['build'],
                 options: {
                     event: ['changed', 'added', 'deleted']
                 }
@@ -188,7 +188,22 @@ module.exports = function (grunt) {
                 files: ['<%= globalConfig.build_dir %>/icons/*.svg'],
                 tasks: ['clean:icons', 'imagemin:icons', 'svgstore']
             }
+        },
+        browserSync: {
+          bsFiles: {
+              src: [
+                  '<%= globalConfig.dist_dir %>/css/style.min.css',
+                  '<%= globalConfig.dist_dir %>/js/site.js',
+                  '<%= globalConfig.dist_dir %>/img/*',
+                  '*.php',
+                  '*.html'
+              ]
+          },
+          options: {
+            watchTask: true,
+            proxy: "<%= globalConfig.dev_url %>"
         }
+      },
 
 
     });
@@ -203,8 +218,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-svgstore');
+    grunt.loadNpmTasks('grunt-browser-sync');
 
-    grunt.registerTask('default', ['watch']);
+    grunt.registerTask('default', ['browserSync', 'watch']);
     grunt.registerTask('build', ['copy:npm', 'concat', 'uglify', 'sass', 'postcss', 'clean', 'imagemin', 'svgstore', 'watch']);
 
 };

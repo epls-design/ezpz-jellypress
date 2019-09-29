@@ -1,10 +1,12 @@
 <?php
 /**
- * Template part for displaying a WYSIWIG section. Uses fields from Advanced Custom Fields.
+ * Flexible layout: Image block
  *
- * @link https://www.advancedcustomfields.com/resources/
+ * A template partial that is called from acf-flexible-content.php,
+ * when the content editor uses ACF flexible content fields to create their page layout.
+ * This partial renders an image block.
  *
- * @package my_amazing_story
+ * @package jellypress
  */
 ?>
 
