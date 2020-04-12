@@ -192,11 +192,11 @@ module.exports = function (grunt) {
         browserSync: {
           bsFiles: {
               src: [
-                  '<%= globalConfig.dist_dir %>/css/style.min.css',
                   '<%= globalConfig.dist_dir %>/js/site.js',
                   '<%= globalConfig.dist_dir %>/img/*',
                   '*.php',
-                  '*.html'
+                  '*.html',
+                  'style.css',
               ]
           },
           options: {
