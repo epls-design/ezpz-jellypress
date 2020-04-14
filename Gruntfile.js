@@ -178,6 +178,18 @@ module.exports = function (grunt) {
           },
         },
 
+        // Generates a POT file to help translators translate the theme. For most builds this won't be necessary, but it's still nice - and compliant - to bundle this with the theme
+        makepot: {
+          target: {
+              options: {
+                  type: 'wp-theme',                 // Type of project (wp-plugin or wp-theme).
+                  domainPath: '/languages',         // Where to save the POT file.
+                  mainFile: 'style.css',            // Main project file.
+                  updateTimestamp: true             // Whether the POT-Creation-Date should be updated without other changes.
+              }
+          }
+         },
+
         // Task which watches files in the working directory for changes, and runs certain tasks on detection
         watch: {
             // rerun $ build when the Gruntfile is edited
@@ -251,14 +263,16 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify-es');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-svgstore');
     grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-sass-directory-import');
+    grunt.loadNpmTasks('grunt-wp-i18n');
 
     grunt.registerTask('default', ['browserSync', 'watch']);
-    grunt.registerTask('init', ['copy:npm', 'concat', 'uglify', 'sass_directory_import', 'sass', 'postcss', 'clean', 'imagemin', 'svgstore', 'browserSync', 'watch']);
-    grunt.registerTask('build', ['copy:npm', 'concat', 'uglify', 'sass_directory_import', 'sass', 'postcss', 'clean', 'imagemin', 'svgstore']);
+    grunt.registerTask('init', ['copy:npm', 'concat', 'uglify', 'sass_directory_import', 'sass', 'postcss', 'clean', 'imagemin', 'svgstore', 'makepot', 'browserSync', 'watch']);
+    grunt.registerTask('build', ['copy:npm', 'concat', 'uglify', 'sass_directory_import', 'sass', 'postcss', 'clean', 'imagemin', 'svgstore', 'makepot']);
 
 };
 

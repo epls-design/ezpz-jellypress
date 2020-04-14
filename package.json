@@ -46,6 +46,7 @@
     "grunt-sass": "^3.0.2",
     "grunt-sass-directory-import": "^0.1.4",
     "grunt-svgstore": "^2.0.0",
+    "grunt-wp-i18n": "^1.0.3",
     "node-sass": "^4.13.1",
     "postcss-pxtorem": "^4.0.1"
   },
