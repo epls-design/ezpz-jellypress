@@ -54,5 +54,5 @@ get_header();
 	</section><!-- #primary -->
 
 <?php
-get_sidebar();
+get_sidebar(); // TODO: Remove if no support for sidebars in your theme
 get_footer();

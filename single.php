@@ -18,7 +18,7 @@ get_header();
           the_post();
 
           get_template_part( 'template-parts/content', get_post_type() );
-          get_template_part( 'template-parts/acf-flexible-content');
+          get_template_part( 'template-parts/acf-flexible-content'); // Get flexible content from ACF
 
           the_post_navigation();
 
@@ -35,5 +35,5 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+get_sidebar(); // TODO: Remove if no support for sidebars in your theme
 get_footer();

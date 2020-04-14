@@ -17,7 +17,8 @@
         <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
       </header><!-- .entry-header -->
 
-      <?php jellypress_post_thumbnail(); ?> <!-- TODO: Incorporate into theme -->
+      <?php jellypress_post_thumbnail();// TODO: Incorporate into theme
+?>
 
       <div class="entry-content">
         <?php
@@ -44,7 +45,7 @@
                   ),
                 )
               ),
-              get_the_title()
+              wp_kses_post( get_the_title() )
             ),
             '<span class="edit-link">',
             '</span>'
@@ -52,7 +53,7 @@
           ?>
         </footer><!-- .entry-footer -->
       <?php endif; ?>
-      </div>
-    </div>
+      </div><!-- .col -->
+    </div><!-- .row -->
   </div><!-- .container -->
 </section><!-- .section__intro -->

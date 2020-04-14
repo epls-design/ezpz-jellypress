@@ -22,7 +22,7 @@
 // Menus
 // @link https://developer.wordpress.org/reference/functions/wp_nav_menu/
 .current-menu-item { // Currently rendered page
-    @extend .this-page;
+    @extend .current-page;
 }
 .menu-item-has-children { // Has sub-items
     @extend .has-children;

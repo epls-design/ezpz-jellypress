@@ -1,7 +1,7 @@
 <?php
 /**
  * This template part loops through all ACF flexible content rows attached to the post,
- * using a dynamic while loop to fetch the correct layout partial from template-parts/flexible-layouts
+ * using a dynamic while loop to fetch the correct layout partial from /flexible-layouts
  * Partials in that folder should be named with the same convention as in ACF.
  *
  * @package jellypress
@@ -40,7 +40,7 @@ if ( have_rows( 'sections', $id ) ) :
 
       if ( $is_disabled != 1 ) : // Display the section, if it is not disabled ?>
         <section <?php if($section_id){echo 'id="'.strtolower($section_id).'"';} ?> class="section <?php echo $classes;?>">
-          <?php get_template_part( 'template-parts/flexible-layouts/' . $layout ); ?>
+          <?php get_template_part( 'flexible-layouts/' . $layout ); ?>
         </section><!-- .section__<?php echo $layout;?> -->
       <?php endif;
     endwhile;

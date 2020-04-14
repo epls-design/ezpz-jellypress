@@ -3,8 +3,9 @@
 	"file": "admin-style.css",
 	"sources": [
 		"../../build/scss/admin-style.scss",
-		"../../build/scss/config/_settings.scss"
+		"../../build/scss/config/_settings.scss",
+		"../../build/scss/jellyfish/config/_default-settings.scss"
 	],
 	"names": [],
-	"mappings": "AAAA;;;EAGE;ACHF;;;GAGG;AAEH,UAAU;AAMV,aAAa;AASb,eAAe;AAOf,gBAAgB;AAWhB,4BAA4B;AAK5B,wCAAwC;AAGxC,aAAa;AAOb,WAAW;AAOX,aAAa;AAkBb,oBAAoB;AACpB,gDAAgD;AAkBhD;;GAEG;AAEH,0DAA0D;AAM1D,iBAAiB;ADjGjB,AAAA,qBAAqB,CAAC;EACpB,UAAU,ECKI,OAAO,CDLM,UAAU;EACrC,KAAK,EAAE,eAAe,GACvB"
+	"mappings": "ACAA,UAAU;AAMV,wBAAwB;AAMxB,aAAa;AASb,eAAe;AAOf,gBAAgB;AAUhB,4BAA4B;AAK5B,6CAA6C;AAI7C,WAAW;AAKX,4BAA4B;AAI5B,wCAAwC;AAGxC,aAAa;AAOb,WAAW;AAQX,aAAa;AAeb,YAAY;AAKZ,YAAY;AA+BZ,oBAAoB;AC7HpB,UAAU;AAMV,wBAAwB;AAMxB,aAAa;AASb,eAAe;AAOf,gBAAgB;AAUhB,6CAA6C;AAI7C,WAAW;AAKX,4BAA4B;AAI5B,wCAAwC;AAGxC,aAAa;AAOb,WAAW;AASX,aAAa;AAgBb,YAAY;AAKZ,YAAY;AA+BZ,oBAAoB;AFnHpB,AAAA,qBAAqB,CAAC;EACpB,UAAU,EESI,OAAO,CFTM,UAAU;EACrC,KAAK,EAAE,eAAe,GACvB"
 }

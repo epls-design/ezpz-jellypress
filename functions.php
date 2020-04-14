@@ -7,12 +7,22 @@
  * @package jellypress
  */
 
-// Define theme constants
-define( 'HOME_URI', home_url() );
-define( 'THEME_URI', get_template_directory_uri() );
-define( 'THEME_IMG', THEME_URI . '/assets/img' );
-define( 'THEME_JS', THEME_URI . '/assets/js' );
-define( 'THEME_FAVICONS', THEME_URI . '/assets/favicon' );
+// DEFINE THEME CONSTANTS
+if ( ! defined( 'HOME_URI' ) ) {
+	define( 'HOME_URI', home_url() );
+}
+if ( ! defined( 'THEME_URI' ) ) {
+	define( 'THEME_URI', get_template_directory_uri() );
+}
+if ( ! defined( 'THEME_IMG' ) ) {
+	define( 'THEME_IMG', THEME_URI . '/assets/img' );
+}
+if ( ! defined( 'THEME_JS' ) ) {
+	define( 'THEME_JS', THEME_URI . '/assets/js' );
+}
+if ( ! defined( 'THEME_FAVICONS' ) ) {
+	define( 'THEME_FAVICONS', THEME_URI . '/assets/favicon' );
+}
 
 if ( ! function_exists( 'jellypress_setup' ) ) :
 	/**
@@ -60,18 +70,19 @@ if ( ! function_exists( 'jellypress_setup' ) ) :
 		 */
 		add_theme_support( 'html5', array(
 			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
+      'comment-form',
+      'comment-list',
+      'gallery',
+      'caption',
+      'style',
+      'script',
 		) );
 
 		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
+    add_theme_support( 'customize-selective-refresh-widgets' );
 
     // Hook favicons into wp_head()
     // @link https://realfavicongenerator.net/ to generate the pack
-
     function jellypress_favicon_script() {
       echo '
       <link rel="apple-touch-icon" sizes="180x180" href="'.THEME_FAVICONS.'/apple-touch-icon.png">
@@ -108,16 +119,15 @@ add_action( 'after_setup_theme', 'jellypress_setup' );
 function jellypress_content_width() {
 	// This variable is intended to be overruled from themes.
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
-	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 	$GLOBALS['content_width'] = apply_filters( 'jellypress_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'jellypress_content_width', 0 );
 
-// TODO: Widgets could be laid out better - currently they go to bottom of page
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ * TODO: Remove if not required in your theme
  */
 function jellypress_widgets_init() {
 	register_sidebar( array(
@@ -145,6 +155,7 @@ function jellypress_scripts() {
 
   // Enqueue Stylesheets
   wp_enqueue_style('jellypress-style', get_stylesheet_uri(), null, $theme_version, 'all');
+  //wp_style_add_data( 'jellypress-style', 'rtl', 'replace' ); // TODO: What does this do?
 
   // Enqueue Scripts
   wp_enqueue_script('site', THEME_JS.'/site.min.js', array('jquery'),$theme_version, true);
@@ -169,8 +180,8 @@ function jellypress_hide_acf_admin() {
   $site_url = get_bloginfo( 'url' );
   // an array of protected site urls
   $protected_urls = array(
-      'http://jellypress-website-url-here.com',
-      'https://jellypress-website-url-here.com',
+      'http://jellypress-website-url-here.com', // TODO: Change for your live project
+      'https://jellypress-website-url-here.com', // TODO: Change for your live project
   );
   // check if the current site url is in the protected urls array
   if ( in_array( $site_url, $protected_urls ) ) {
@@ -198,3 +209,15 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customise editor
  */
 require_once get_template_directory() . '/inc/editor.php';
+
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Load WooCommerce compatibility file.
+ */
+if ( class_exists( 'WooCommerce' ) ) {
+	require get_template_directory() . '/inc/woocommerce.php';
+}

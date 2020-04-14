@@ -29,7 +29,8 @@
       <?php endif; ?>
     </header><!-- .entry-header -->
 
-    <?php jellypress_post_thumbnail(); ?> <!-- TODO: Incorporate into theme -->
+    <?php jellypress_post_thumbnail();// TODO: Incorporate into theme
+?>
 
     <div class="entry-content">
       <?php
@@ -43,8 +44,9 @@
             ),
           )
         ),
-        get_the_title()
-      ) );
+        wp_kses_post( get_the_title() )
+      )
+    );
 
       wp_link_pages( array(
         'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'jellypress' ),

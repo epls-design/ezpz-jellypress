@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "woocommerce.css",
+	"sources": [
+		"../../build/scss/woocommerce.scss",
+		"../../build/scss/config/_settings.scss"
+	],
+	"names": [],
+	"mappings": "ACAA,UAAU;AAMV,wBAAwB;AAMxB,aAAa;AASb,eAAe;AAOf,gBAAgB;AAUhB,4BAA4B;AAK5B,6CAA6C;AAI7C,WAAW;AAKX,4BAA4B;AAI5B,wCAAwC;AAGxC,aAAa;AAOb,WAAW;AAQX,aAAa;AAeb,YAAY;AAKZ,YAAY;AA+BZ,oBAAoB"
+}

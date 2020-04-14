@@ -23,7 +23,8 @@
       <?php endif; ?>
     </header><!-- .entry-header -->
 
-    <?php jellypress_post_thumbnail(); ?> <!-- TODO: Incorporate into theme -->
+    <?php jellypress_post_thumbnail();// TODO: Incorporate into theme
+    ?>
 
     <div class="entry-summary">
       <?php the_excerpt(); ?>

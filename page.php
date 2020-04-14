@@ -15,15 +15,15 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
-      <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-        <?php
+<div id="primary" class="content-area">
+  <main id="main" class="site-main">
+    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+      <?php
         while ( have_posts() ) :
           the_post();
 
           get_template_part( 'template-parts/content', 'page' );
-          get_template_part( 'template-parts/acf-flexible-content');
+          get_template_part( 'template-parts/acf-flexible-content'); // Get flexible content from ACF
 
           // If comments are open or we have at least one comment, load up the comment template.
           if ( comments_open() || get_comments_number() ) :
@@ -32,10 +32,10 @@ get_header();
 
         endwhile; // End of the loop.
         ?>
-      </article><!-- #post-<?php the_ID(); ?> -->
-		</main><!-- #main -->
-	</div><!-- #primary -->
+    </article><!-- #post-<?php the_ID(); ?> -->
+  </main><!-- #main -->
+</div><!-- #primary -->
 
 <?php
-get_sidebar();
+get_sidebar(); // TODO: Remove if no support for sidebars in your theme
 get_footer();

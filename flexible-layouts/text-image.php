@@ -27,10 +27,10 @@
     </header>
   <?php endif; ?>
   <div class="row align-middle">
-    <div class="col md-4 <?php if ( $image_position == 'right' ) {echo 'push-md-8';} ?>">
+    <div class="col md-4 <?php if ( $image_position == 'right' ) {echo 'order-md-2';} ?>">
       <?php echo wp_get_attachment_image( $image, $size ); ?>
     </div>
-    <div class="col md-8 <?php if ( $image_position == 'right' ) {echo 'pull-md-4';} ?>">
+    <div class="col md-8 <?php if ( $image_position == 'right' ) {echo 'order-md-1';} ?>">
       <?php the_sub_field( 'text' ); ?>
     </div>
   </div>

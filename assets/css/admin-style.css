@@ -1,29 +1,36 @@
-/**
- * Styles which are applied to the admin area of Wordpress,
- * by being injected into wp_head
-*/
-/**
- * USAGE: Uncomment any of the variables here to add site-specific overrides.
- * It is not necessary to edit any of the files in /jellyfish
- */
-/* Grid */
-/* Colours */
-/* Typefaces */
-/* Font Sizes */
+/* GRID */
+/* JELLYFISH DEFAULTS */
+/* COLOURS */
+/* TYPEFACES */
+/* FONT SIZES */
 /* Global padding/margins */
-/* Global transition used in smooth() */
-/* Borders */
-/* Forms */
-/* Nav Bar */
-/* Hamburger Menu */
-/* @link https://github.com/jonsuh/hamburgers */
-/**
- * JELLYFISH GRID SETTINGS
- */
-/* Base Variables (used before breakpoints are applied) */
-/* Breakpoints */
+/* DOCUMENT ROOT FONT SIZE AND LINE HEIGHT */
+/* LINKS */
+/* GLOBAL PADDING/MARGINS */
+/* GLOBAL TRANSITION USED IN SMOOTH() */
+/* BORDERS */
+/* FORMS */
+/* BUTTONS */
+/* TABLES */
+/* NAVBAR */
+/* HAMBURGER MENU */
+/* GRID */
+/* JELLYFISH DEFAULTS */
+/* COLOURS */
+/* TYPEFACES */
+/* FONT SIZES */
+/* DOCUMENT ROOT FONT SIZE AND LINE HEIGHT */
+/* LINKS */
+/* GLOBAL PADDING/MARGINS */
+/* GLOBAL TRANSITION USED IN SMOOTH() */
+/* BORDERS */
+/* FORMS */
+/* BUTTONS */
+/* TABLES */
+/* NAVBAR */
+/* HAMBURGER MENU */
 .acf-fc-layout-handle {
-  background: #7f4782 !important;
+  background: #b22d4f !important;
   color: #fff !important; }
 
 /*# sourceMappingURL=admin-style.css.map */

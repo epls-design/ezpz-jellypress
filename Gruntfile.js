@@ -52,6 +52,10 @@ module.exports = function (grunt) {
                       dest: '<%= globalConfig.dist_dir %>/css/style.css'
                   },
                   {
+                    src: '<%= globalConfig.build_dir %>/scss/woocommerce.scss',
+                    dest: '<%= globalConfig.dist_dir %>/css/woocommerce.css'
+                },
+                  {
                       src: '<%= globalConfig.build_dir %>/scss/editor.scss',
                       dest: '<%= globalConfig.dist_dir %>/css/editor-style.css'
                   },
@@ -85,6 +89,10 @@ module.exports = function (grunt) {
                 {
                   src: '<%= globalConfig.dist_dir %>/css/style.css',
                   dest: 'style.css'
+                },
+                {
+                  src: '<%= globalConfig.dist_dir %>/css/woocommerce.css',
+                  dest: 'woocommerce.css'
                 },
                 {
                   src: '<%= globalConfig.dist_dir %>/css/editor-style.css',
@@ -221,8 +229,8 @@ module.exports = function (grunt) {
                   '<%= globalConfig.dist_dir %>/js/site.js',
                   '<%= globalConfig.dist_dir %>/img/*',
                   '<%= globalConfig.dist_dir %>/icons/*',
-                  '*.php',
-                  '*.html',
+                  '**/*.php',
+                  '**/*.html',
                   'style.css',
               ]
           },
@@ -253,3 +261,6 @@ module.exports = function (grunt) {
     grunt.registerTask('build', ['copy:npm', 'concat', 'uglify', 'sass_directory_import', 'sass', 'postcss', 'clean', 'imagemin', 'svgstore']);
 
 };
+
+
+// TODO: Put together some basic docs - refer to Jellyfish repo, with a few tweaks

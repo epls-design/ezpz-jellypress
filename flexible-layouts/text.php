@@ -1,10 +1,10 @@
 <?php
 /**
- * Flexible layout: Text (Two Column)
+ * Flexible layout: Text block
  *
  * A template partial that is called from acf-flexible-content.php,
  * when the content editor uses ACF flexible content fields to create their page layout.
- * This partial renders two columns of WYSIWIG editors - usually used for the display of text.
+ * This partial renders a WYSIWIG editor block - usually used for the display of text.
  *
  * @package jellypress
  */
@@ -23,11 +23,8 @@
     </header>
   <?php endif; ?>
   <div class="row">
-    <div class="col md-6">
-      <?php the_sub_field( 'column_1' ); ?>
-    </div>
-    <div class="col md-6">
-      <?php the_sub_field( 'column_2' ); ?>
+    <div class="col">
+      <?php the_sub_field( 'text' ); ?>
     </div>
   </div>
 </div>

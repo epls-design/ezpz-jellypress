@@ -15,6 +15,7 @@ src/
 
 # Thumbnails
 ._*
+Icon?
 
 # Files that might appear in the root of a volume
 .DocumentRevisions-V100

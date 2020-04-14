@@ -30,7 +30,7 @@ if ( ! function_exists( 'jellypress_posted_on' ) ) :
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
-		echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
+		echo '<span class="posted-on">' . $posted_on . '</span>';
 
 	}
 endif;
@@ -46,7 +46,7 @@ if ( ! function_exists( 'jellypress_posted_by' ) ) :
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
-		echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+		echo '<span class="byline"> ' . $byline . '</span>';
 
 	}
 endif;
@@ -62,14 +62,14 @@ if ( ! function_exists( 'jellypress_entry_footer' ) ) :
 			$categories_list = get_the_category_list( esc_html__( ', ', 'jellypress' ) );
 			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'jellypress' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'jellypress' ) . '</span>', $categories_list );
 			}
 
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'jellypress' ) );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'jellypress' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'jellypress' ) . '</span>', $tags_list );
 			}
 		}
 
@@ -103,7 +103,7 @@ if ( ! function_exists( 'jellypress_entry_footer' ) ) :
 						),
 					)
 				),
-				get_the_title()
+				wp_kses_post( get_the_title() )
 			),
 			'<span class="edit-link">',
 			'</span>'
@@ -125,23 +125,93 @@ if ( ! function_exists( 'jellypress_post_thumbnail' ) ) :
 		if ( is_singular() ) :
 			?>
 
-			<div class="post-thumbnail">
-				<?php the_post_thumbnail($size); ?>
-			</div><!-- .post-thumbnail -->
+<div class="post-thumbnail">
+  <?php the_post_thumbnail($size); ?>
+</div><!-- .post-thumbnail -->
 
-		<?php else : ?>
+<?php else : ?>
 
-		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-			<?php
+<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+  <?php
 			the_post_thumbnail( $size, array(
 				'alt' => the_title_attribute( array(
 					'echo' => false,
 				) ),
 			) );
 			?>
-		</a>
+</a>
 
-		<?php
+<?php
 		endif; // End is_singular().
 	}
 endif;
+
+if ( ! function_exists( 'wp_body_open' ) ) :
+	/**
+	 * Shim for sites older than 5.2.
+	 *
+	 * @link https://core.trac.wordpress.org/ticket/12563
+	 */
+	function wp_body_open() {
+		do_action( 'wp_body_open' );
+	}
+endif;
+
+/**
+ * Adds a function to display SVGs from the spritesheet.
+ */
+function jellypress_icon($icon) {
+	// Define SVG sprite file.
+	$icon_path = get_theme_file_path( '/assets/icons/'.$icon.'.svg' );
+  // If it exists, include it.
+  if ( file_exists( $icon_path ) ) {
+    $use_link = THEME_URI.'/assets/icons/icons.svg#icon-'.$icon;
+    echo '<svg class="icon"><use xlink:href="'.$use_link.'" /></use></svg>';
+  }
+  else {
+    return '';
+  }
+}
+
+/**
+ * Obscure email addresses from spam bots
+ * Spam bots will only be able to read the email address if they are capable of executing javascript
+ * @link http://www.maurits.vdschee.nl/php_hide_email/
+ */
+function jellypress_hide_email($email) {
+  $character_set = '+-.0123456789@ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz';
+  $key = str_shuffle($character_set); $cipher_text = ''; $id = 'e'.rand(1,999999999);
+  for ($i=0;$i<strlen($email);$i+=1) $cipher_text.= $key[strpos($character_set,$email[$i])];
+  $script = 'var a="'.$key.'";var b=a.split("").sort().join("");var c="'.$cipher_text.'";var d="";';
+  $script.= 'for(var e=0;e<c.length;e++)d+=b.charAt(a.indexOf(c.charAt(e)));';
+  $script.= 'document.getElementById("'.$id.'").innerHTML="<a href=\\"mailto:"+d+"\\">"+d+"</a>"';
+  $script = "eval(\"".str_replace(array("\\",'"'),array("\\\\",'\"'), $script)."\")";
+  $script = '<script type="text/javascript">/*<![CDATA[*/'.$script.'/*]]>*/</script>';
+  echo '<span id="'.$id.'">[javascript protected email address]</span>'.$script;
+}
+
+/**
+ * Creates a more dynamic copyright notice using first and last post date.
+ * @link https://www.wpbeginner.com/wp-tutorials/how-to-add-a-dynamic-copyright-date-in-wordpress-footer/
+ */
+function jellypress_copyright() {
+  global $wpdb;
+  $copyright_dates = $wpdb->get_results("
+  SELECT
+  YEAR(min(post_date_gmt)) AS firstdate,
+  YEAR(max(post_date_gmt)) AS lastdate
+  FROM
+  $wpdb->posts
+  WHERE
+  post_status = 'publish'
+  ");
+  $output = '';
+  if($copyright_dates) {
+  $copyright = "&copy; " . get_bloginfo( 'name' ) . ' ' . $copyright_dates[0]->firstdate;
+  if($copyright_dates[0]->firstdate != $copyright_dates[0]->lastdate) {
+  $copyright .= '-' . $copyright_dates[0]->lastdate;
+  }
+  $output = $copyright;
+  }
+  return $output;
+  }
