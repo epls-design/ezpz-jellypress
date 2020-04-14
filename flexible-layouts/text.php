@@ -14,7 +14,6 @@
   $title = get_sub_field( 'title' );
 ?>
 
-<div class="container">
   <?php if ($title) : ?>
     <header class="row">
       <div class="col">
@@ -27,4 +26,3 @@
       <?php the_sub_field( 'text' ); ?>
     </div>
   </div>
-</div>

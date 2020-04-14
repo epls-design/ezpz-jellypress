@@ -11,7 +11,6 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	return;
 }
 ?>
-<!-- TODO: Put sidebar in a .col .md-3 and refactor other partials to auto resize content -->
-<aside id="secondary" class="widget-area">
+<aside id="secondary" class="widget-area col xs-12 md-3">
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
 </aside><!-- #secondary -->

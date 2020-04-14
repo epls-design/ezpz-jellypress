@@ -10,8 +10,9 @@
  */
 
 ?>
-
-	</div><!-- #content -->
+      </div><!-- .row -->
+    </div><!--  .container  -->
+	</div><!-- #content-->
 
 	<footer class="site-footer">
     <div class="container">

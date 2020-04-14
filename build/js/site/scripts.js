@@ -38,4 +38,3 @@ function jfdebug() {
 }
 
 // TODO: Can I remove dependency on jQuery?
-// FIX: Menu stopped working - probably an issue with jQuery(document) - check old version

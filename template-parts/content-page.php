@@ -10,7 +10,6 @@
 ?>
 
 <section class="section section__intro">
-  <div class="container"> <!-- TODO: Check that this is the most logical place for container, row and col -->
     <div class="row">
       <div class="col">
       <header class="entry-header">
@@ -55,5 +54,4 @@
       <?php endif; ?>
       </div><!-- .col -->
     </div><!-- .row -->
-  </div><!-- .container -->
 </section><!-- .section__intro -->

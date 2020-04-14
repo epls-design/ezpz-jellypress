@@ -6,9 +6,7 @@
  */
 
 ?>
-<!-- TODO: Make this a more useful 404 with perhaps the most visited pages, blog posts etc -->
 <section class="error-404 not-found">
-  <div class="container">
     <div class="row">
       <div class="col md-8 lg-9">
         <header class="page-header">
@@ -32,5 +30,4 @@
         ?>
       </aside>
     </div><!-- .row -->
-  </div><!-- .container -->
 </section><!-- .error-404 -->
