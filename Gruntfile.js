@@ -39,12 +39,19 @@ module.exports = function (grunt) {
             }
         },
 
-        // Validates javascript files in is/site only (doesn't validate vendor JS)
+        // Validates javascript files in js/site only (doesn't validate vendor JS)
         jshint: {
           files: [
               '<%= globalConfig.build_dir %>/js/site/**/*.js'
           ]
           },
+
+        // Validates php files
+        phplint: {
+          all: {
+            src : ['*.php', '**/*.php', '!node_modules/**/*.php'], // Ignore node_modules
+          }
+        },
 
         // Task to run sass on defined scss file(s)
         sass: {
@@ -191,8 +198,7 @@ module.exports = function (grunt) {
               options: {
                   type: 'wp-theme',                 // Type of project (wp-plugin or wp-theme).
                   domainPath: '/languages',         // Where to save the POT file.
-                  mainFile: 'style.css',            // Main project file.
-                  updateTimestamp: true             // Whether the POT-Creation-Date should be updated without other changes.
+                  mainFile: 'style.css'            // Main project file.
               }
           }
          },
@@ -207,7 +213,13 @@ module.exports = function (grunt) {
                     event: ['changed', 'added', 'deleted']
                 }
             },
-
+            phplint: {
+              options: {
+                event: ['changed', 'added', 'deleted']
+              },
+              files: ['*.php', '**/*.php', '!node_modules/**/*.php'], // Ignore node_modules
+              tasks: [ 'phplint' ]
+            },
             // run 'sass_directory_import', 'sass' and 'postcss' tasks when any scss file is edited
             sass: {
                 options: {
@@ -271,6 +283,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify-es');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-phplint');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-svgstore');
     grunt.loadNpmTasks('grunt-browser-sync');
@@ -278,8 +291,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-wp-i18n');
 
     grunt.registerTask('default', ['browserSync', 'watch']);
-    grunt.registerTask('init', ['copy:npm', 'jshint', 'concat', 'uglify', 'sass_directory_import', 'sass', 'postcss', 'clean', 'imagemin', 'svgstore', 'makepot', 'browserSync', 'watch']);
-    grunt.registerTask('build', ['copy:npm', 'jshint', 'concat', 'uglify', 'sass_directory_import', 'sass', 'postcss', 'clean', 'imagemin', 'svgstore', 'makepot']);
+    grunt.registerTask('init', ['copy:npm', 'phplint', 'jshint', 'concat', 'uglify', 'sass_directory_import', 'sass', 'postcss', 'clean', 'imagemin', 'svgstore', 'makepot', 'browserSync', 'watch']);
+    grunt.registerTask('build', ['copy:npm', 'phplint', 'jshint', 'concat', 'uglify', 'sass_directory_import', 'sass', 'postcss', 'clean', 'imagemin', 'svgstore', 'makepot' ]);
 
 };
 
