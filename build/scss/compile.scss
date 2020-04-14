@@ -1,9 +1,6 @@
-/**
- *  Compiles all scss files into assets/css/style.css
- */
-
+// Compiles all scss files into assets/css/style.css which is then processed into style.css
 @charset "UTF-8";
 @import "config/themeinfo";
 @import "config/settings";
-//@import "jellyfish/main";
-@import "site/main";
+@import "jellyfish/main";
+@import "project/all";

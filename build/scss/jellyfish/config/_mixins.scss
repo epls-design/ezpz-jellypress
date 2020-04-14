@@ -1,0 +1,92 @@
+// Convert px to em
+@function em($pixels) {
+    @return #{$pixels/16px}em;
+}
+
+@function bp-query($point, $var) {
+    // Function to query our breakpoint map
+    // Accepts args $breakpoint-size, $variable
+    @return map-get(map-get($breakpoints, $point), $var);
+}
+
+// Media queries check the breakpoint map to see if a given string exists, else they convert a given pixel value to em.
+@mixin above($min) {
+    $bp-min: $min;
+    @if map-has-key($breakpoints, $min) {
+        $bp-min: bp-query($min, breakpoint);
+    }
+    @else if (str-index(#{$min}, 'px')) {
+      // Do nothing, move to next step
+    }
+    @else {
+     @error "The specified breakpoint `#{$min}` does not exist in the breakpoint map. Compile stopping.";
+    }
+    @media (min-width: em($bp-min)) {
+        @content;
+    }
+}
+@mixin between($min, $max) {
+    $bp-min: $min;
+    @if map-has-key($breakpoints, $min) {
+        $bp-min: bp-query($min, breakpoint);
+    }
+    @else if (str-index(#{$min}, 'px')) {
+      // Do nothing, move to next step
+    }
+    @else {
+     @error "The specified breakpoint `#{$min}` does not exist in the breakpoint map. Compile stopping.";
+    }
+    $bp-max: $max;
+    @if map-has-key($breakpoints, $max) {
+        $bp-max: bp-query($max, breakpoint);
+    }
+    @else if (str-index(#{$max}, 'px')) {
+      // Do nothing, move to next step
+    }
+    @else {
+     @error "The specified breakpoint `#{$max}` does not exist in the breakpoint map. Compile stopping.";
+    }
+    @media (min-width: em($bp-min)) and (max-width: em($bp-max - 1px)) {
+        @content;
+    }
+}
+@mixin below($max) {
+    $bp-max: $max;
+    @if map-has-key($breakpoints, $max) {
+        $bp-max: bp-query($max, breakpoint);
+    }
+    @else if (str-index(#{$max}, 'px')) {
+      // Do nothing, move to next step
+    }
+    @else {
+     @error "The specified breakpoint `#{$max}` does not exist in the breakpoint map. Compile stopping.";
+    }
+    @media (max-width: em($bp-max - 1px)) {
+        @content;
+    }
+}
+
+@mixin smooth($properties...) { // Global transition
+    $result: (); // Create empty variable
+    @each $property in $properties {
+        // Loop through each argument and append to result variable
+        $result: append($result, #{$property} $global-transition, comma);
+    }
+    transition: $result;
+}
+
+// Allows us to use #{headings(1,6)} to apply css to all headings
+// TODO: Needs adding to docs
+@function headings($from:1, $to:6) {
+  @if $from == $to {
+      @return 'h#{$from}';
+  } @else {
+      @return 'h#{$from},' + headings($from+1, $to);
+  }
+}
+
+@mixin do-not-print {
+  @media print {
+    display: none;
+  }
+}

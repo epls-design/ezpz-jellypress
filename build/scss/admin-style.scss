@@ -1,11 +1,8 @@
-/**
- * Styles which are applied to the admin area of Wordpress,
- * by being injected into wp_head
-*/
+// Styles which are applied to the admin area of Wordpress, by being injected into wp_head
 
 @charset "UTF-8";
 @import "config/settings";
-//@import "jellyfish/config/settings";
+@import "jellyfish/config/default-settings";
 
 // ACF Flexible Content Heading
 .acf-fc-layout-handle {
