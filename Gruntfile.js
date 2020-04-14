@@ -39,6 +39,13 @@ module.exports = function (grunt) {
             }
         },
 
+        // Validates javascript files in is/site only (doesn't validate vendor JS)
+        jshint: {
+          files: [
+              '<%= globalConfig.build_dir %>/js/site/**/*.js'
+          ]
+          },
+
         // Task to run sass on defined scss file(s)
         sass: {
             options: {
@@ -215,7 +222,7 @@ module.exports = function (grunt) {
                   event: ['changed', 'added', 'deleted']
                 },
                 files: ['<%= globalConfig.build_dir %>/js/**/*.js'],
-                tasks: ['concat', 'uglify']
+                tasks: ['jshint', 'concat', 'uglify']
             },
             // Cleans and minifies images when changes detected
             images: {
@@ -271,8 +278,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-wp-i18n');
 
     grunt.registerTask('default', ['browserSync', 'watch']);
-    grunt.registerTask('init', ['copy:npm', 'concat', 'uglify', 'sass_directory_import', 'sass', 'postcss', 'clean', 'imagemin', 'svgstore', 'makepot', 'browserSync', 'watch']);
-    grunt.registerTask('build', ['copy:npm', 'concat', 'uglify', 'sass_directory_import', 'sass', 'postcss', 'clean', 'imagemin', 'svgstore', 'makepot']);
+    grunt.registerTask('init', ['copy:npm', 'jshint', 'concat', 'uglify', 'sass_directory_import', 'sass', 'postcss', 'clean', 'imagemin', 'svgstore', 'makepot', 'browserSync', 'watch']);
+    grunt.registerTask('build', ['copy:npm', 'jshint', 'concat', 'uglify', 'sass_directory_import', 'sass', 'postcss', 'clean', 'imagemin', 'svgstore', 'makepot']);
 
 };
 
