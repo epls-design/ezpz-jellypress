@@ -9,10 +9,12 @@
 
 get_header();
 ?>
-
-	<div id="primary" class="content-area col">
-		<main id="main" class="site-main">
-        <?php
+<div id="content" class="site-content">
+  <div class="container">
+    <div class="row">
+      <div id="primary" class="content-area col">
+        <main id="main" class="site-main">
+          <?php
         while ( have_posts() ) :
           the_post();
 
@@ -29,9 +31,9 @@ get_header();
         endwhile; // End of the loop.
         ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+        </main><!-- #main -->
+      </div><!-- #primary -->
 
-<?php
+      <?php
 get_sidebar(); // TODO: Remove if no support for sidebars in your theme
 get_footer();

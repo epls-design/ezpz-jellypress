@@ -9,11 +9,13 @@
 
 get_header();
 ?>
+<div id="content" class="site-content">
+  <div class="container">
+    <div class="row">
+      <section id="primary" class="content-area col">
+        <main id="main" class="site-main">
 
-	<section id="primary" class="content-area col">
-		<main id="main" class="site-main">
-
-        <?php if ( have_posts() ) : ?>
+          <?php if ( have_posts() ) : ?>
 
           <header class="page-header row">
             <div class="col">
@@ -48,9 +50,9 @@ get_header();
 
         endif;
         ?>
-		</main><!-- #main -->
-	</section><!-- #primary -->
+        </main><!-- #main -->
+      </section><!-- #primary -->
 
-<?php
+      <?php
 get_sidebar(); // TODO: Remove if no support for sidebars in your theme
 get_footer();
