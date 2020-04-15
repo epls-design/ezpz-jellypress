@@ -155,7 +155,7 @@ function jellypress_scripts() {
 
   // Enqueue Stylesheets
   wp_enqueue_style('jellypress-style', get_stylesheet_uri(), null, $theme_version, 'all');
-  //wp_style_add_data( 'jellypress-style', 'rtl', 'replace' ); // TODO: What does this do?
+  wp_style_add_data( 'jellypress-style', 'rtl', 'replace' );
 
   // Enqueue Scripts
   wp_enqueue_script('site', THEME_JS.'/site.min.js', array('jquery'),$theme_version, true);
