@@ -39,10 +39,13 @@ module.exports = function (grunt) {
             }
         },
 
-        // Validates javascript files in js/site only (doesn't validate vendor JS)
-        jshint: {
+
+        eslint: {
           files: [
-              '<%= globalConfig.build_dir %>/js/site/**/*.js'
+              '<%= globalConfig.build_dir %>/js/site/**/*.js' // Validates javascript files in js/site only (doesn't validate vendor JS)
+          ],
+          gruntfile: [
+            'Gruntfile.js'
           ]
           },
 
@@ -198,7 +201,8 @@ module.exports = function (grunt) {
               options: {
                   type: 'wp-theme',                 // Type of project (wp-plugin or wp-theme).
                   domainPath: '/languages',         // Where to save the POT file.
-                  mainFile: 'style.css'            // Main project file.
+                  mainFile: 'style.css',            // Main project file.
+                  updateTimestamp: false             // Whether the POT-Creation-Date should be updated without other changes.
               }
           }
          },
@@ -208,7 +212,7 @@ module.exports = function (grunt) {
             // rerun $ build when the Gruntfile is edited
             gruntfile: {
                 files: ['Gruntfile.js'],
-                tasks: ['build'],
+                tasks: ['eslint:gruntfile', 'build'],
                 options: {
                     event: ['changed', 'added', 'deleted']
                 }
@@ -218,7 +222,7 @@ module.exports = function (grunt) {
                 event: ['changed', 'added', 'deleted']
               },
               files: ['*.php', '**/*.php', '!node_modules/**/*.php'], // Ignore node_modules
-              tasks: [ 'phplint' ]
+              tasks: [ 'newer:phplint' ]
             },
             // run 'sass_directory_import', 'sass' and 'postcss' tasks when any scss file is edited
             sass: {
@@ -234,7 +238,7 @@ module.exports = function (grunt) {
                   event: ['changed', 'added', 'deleted']
                 },
                 files: ['<%= globalConfig.build_dir %>/js/**/*.js'],
-                tasks: ['jshint', 'concat', 'uglify']
+                tasks: ['newer:eslint:files', 'concat', 'uglify']
             },
             // Cleans and minifies images when changes detected
             images: {
@@ -282,17 +286,18 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify-es');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-eslint');
     grunt.loadNpmTasks('grunt-phplint');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-svgstore');
     grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-sass-directory-import');
     grunt.loadNpmTasks('grunt-wp-i18n');
+    grunt.loadNpmTasks('grunt-newer');
 
     grunt.registerTask('default', ['browserSync', 'watch']);
-    grunt.registerTask('init', ['copy:npm', 'phplint', 'jshint', 'concat', 'uglify', 'sass_directory_import', 'sass', 'postcss', 'clean', 'imagemin', 'svgstore', 'makepot', 'browserSync', 'watch']);
-    grunt.registerTask('build', ['copy:npm', 'phplint', 'jshint', 'concat', 'uglify', 'sass_directory_import', 'sass', 'postcss', 'clean', 'imagemin', 'svgstore', 'makepot' ]);
+    grunt.registerTask('init', ['newer:copy:npm', 'phplint', 'eslint', 'concat', 'uglify', 'sass_directory_import', 'sass', 'postcss', 'clean', 'imagemin', 'svgstore', 'makepot', 'browserSync', 'watch']);
+    grunt.registerTask('build', ['newer:copy:npm', 'phplint', 'eslint', 'concat', 'uglify', 'sass_directory_import', 'sass', 'postcss', 'clean', 'imagemin', 'svgstore', 'makepot' ]);
 
 };
 
