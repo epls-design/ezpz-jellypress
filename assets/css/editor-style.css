@@ -1446,7 +1446,8 @@ select::-ms-expand {
 .form-row {
   margin-left: -5px;
   margin-right: -5px;
-  display: flex; }
+  display: flex;
+  flex-wrap: wrap; }
   .form-row .col {
     padding-left: 5px;
     padding-right: 5px; }
@@ -1899,7 +1900,9 @@ Utilities
   Styling for site wide sections
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .section {
-  margin: 70px 0 40px 0; }
+  padding-top: 70px;
+  padding-bottom: 40px;
+  position: relative; }
 
 html .mceContentBody {
   padding: 20px;
