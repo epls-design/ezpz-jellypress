@@ -1,6 +1,7 @@
 // Compiles all scss files into assets/css/editor-style.css which is then processed into editor-style.css
 
 @import "compile";
+
 html .mceContentBody {
   padding: 20px;
   margin: 0;

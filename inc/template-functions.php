@@ -35,3 +35,11 @@ function jellypress_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'jellypress_pingback_header' );
+
+/**
+ * Move Yoast Meta Box to bottom of editor
+ */
+function jellypress_yoastprioritylow() {
+  return 'low';
+  }
+  add_filter( 'wpseo_metabox_prio', 'jellypress_yoastprioritylow');

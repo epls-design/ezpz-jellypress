@@ -1872,6 +1872,21 @@ Utilities
   .widget select {
     max-width: 100%; }
 
+.edit-link {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100; }
+  .edit-link a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block; }
+    .edit-link a:hover, .edit-link a:focus, .edit-link a:active {
+      color: yellow;
+      text-decoration: underline; }
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   ICONS
   Default styling for icons
