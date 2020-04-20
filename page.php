@@ -55,11 +55,11 @@ get_header();
                   '</span>'
                 );
                 ?>
-              </footer><!-- .entry-footer -->
+              </footer><!-- /.entry-footer -->
             <?php endif; ?>
-          </article><!-- #post-<?php the_ID(); ?> -->
-        </main><!-- #main -->
-      </div><!-- #primary -->
+          </article><!-- /#post-<?php the_ID(); ?> -->
+        </main><!-- /#main -->
+      </div><!-- /#primary -->
 
       <?php
 get_sidebar(); // TODO: Remove if no support for sidebars in your theme

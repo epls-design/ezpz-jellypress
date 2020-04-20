@@ -19,19 +19,19 @@
         jellypress_posted_on();
         jellypress_posted_by();
         ?>
-      </div><!-- .entry-meta -->
+      </div><!-- /.entry-meta -->
       <?php endif; ?>
-    </header><!-- .entry-header -->
+    </header><!-- /.entry-header -->
 
     <?php jellypress_post_thumbnail();// TODO: Incorporate into theme
     ?>
 
     <div class="entry-summary">
       <?php the_excerpt(); ?>
-    </div><!-- .entry-summary -->
+    </div><!-- /.entry-summary -->
 
     <footer class="entry-footer">
       <?php jellypress_entry_footer(); ?>
-    </footer><!-- .entry-footer -->
-  </article><!-- #post-<?php the_ID(); ?> -->
+    </footer><!-- /.entry-footer -->
+  </article><!-- /#post-<?php the_ID(); ?> -->
 </div>

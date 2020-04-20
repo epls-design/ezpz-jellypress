@@ -10,9 +10,9 @@
  */
 
 ?>
-      </div><!-- .row -->
+      </div><!-- /.row -->
     </div><!--  .container  -->
-	</div><!-- #content-->
+	</div><!-- /#content-->
 
 	<footer class="site-footer">
     <div class="container">
@@ -28,11 +28,11 @@
             ?>
             </span>
           </p>
-        </div><!-- #colophon -->
+        </div><!-- /#colophon -->
       </div>
     </div>
-	</footer><!-- .site-footer -->
-</div><!-- #page -->
+	</footer><!-- /.site-footer -->
+</div><!-- /#page -->
 
 <?php wp_footer(); ?>
 

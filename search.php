@@ -26,7 +26,7 @@ get_header();
                 ?>
               </h1>
             </div>
-          </header><!-- .page-header -->
+          </header><!-- /.page-header -->
 
           <?php
           /* Start the Loop */
@@ -50,8 +50,8 @@ get_header();
 
         endif;
         ?>
-        </main><!-- #main -->
-      </section><!-- #primary -->
+        </main><!-- /#main -->
+      </section><!-- /#primary -->
 
       <?php
 get_sidebar(); // TODO: Remove if no support for sidebars in your theme

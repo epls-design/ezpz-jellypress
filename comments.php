@@ -44,7 +44,7 @@ if ( post_password_required() ) {
           );
         }
         ?>
-      </h3><!-- .comments-title -->
+      </h3><!-- /.comments-title -->
 
       <?php the_comments_navigation(); ?>
 
@@ -55,7 +55,7 @@ if ( post_password_required() ) {
           'short_ping' => true,
         ) );
         ?>
-      </ol><!-- .comment-list -->
+      </ol><!-- /.comment-list -->
 
       <?php
       the_comments_navigation();
@@ -72,5 +72,5 @@ if ( post_password_required() ) {
     comment_form();
     ?>
 
-  </div><!-- #comments -->
+  </div><!-- /#comments -->
 </aside>

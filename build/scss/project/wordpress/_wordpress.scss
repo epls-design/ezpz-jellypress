@@ -39,19 +39,10 @@
 
 // Edit Post Link for administrators
 .edit-link {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  background-color: rgba(0,0,0,0.8);
-  z-index: 100;
+  display: block;
   a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    display: block;
-    &:hover, &:focus, &:active {
-      color: yellow;
-      text-decoration: underline;
-    }
+    @extend .button;
+    @extend .button__small;
+    @extend .button__outline;
   }
 }

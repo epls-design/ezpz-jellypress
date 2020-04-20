@@ -14,7 +14,7 @@
     <div class="col">
       <header class="entry-header">
         <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-      </header><!-- .entry-header -->
+      </header><!-- /.entry-header -->
 
       <?php jellypress_post_thumbnail();// TODO: Incorporate into theme
 ?>
@@ -22,7 +22,7 @@
         <?php
         the_content();
         ?>
-      </div><!-- .entry-content -->
-    </div><!-- .col -->
-  </div><!-- .row -->
-</section><!-- .section__intro -->
+      </div><!-- /.entry-content -->
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+</section><!-- /.section__intro -->

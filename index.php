@@ -51,8 +51,8 @@ get_header();
 
       endif;
       ?>
-        </main><!-- #main -->
-      </div><!-- #primary -->
+        </main><!-- /#main -->
+      </div><!-- /#primary -->
 
       <?php
 get_sidebar(); // TODO: Remove if no support for sidebars in your theme

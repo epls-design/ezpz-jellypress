@@ -44,7 +44,7 @@ if ( have_rows( 'sections', $id ) ) :
   <div class="container">
     <?php get_template_part( 'flexible-layouts/' . $layout ); ?>
   </div>
-</section><!-- .section__<?php echo $layout;?> -->
+</section><!-- /.section__<?php echo $layout;?> -->
 <?php endif;
     endwhile;
 endif;

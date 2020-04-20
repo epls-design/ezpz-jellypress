@@ -127,7 +127,7 @@ if ( ! function_exists( 'jellypress_post_thumbnail' ) ) :
 
 <div class="post-thumbnail">
   <?php the_post_thumbnail($size); ?>
-</div><!-- .post-thumbnail -->
+</div><!-- /.post-thumbnail -->
 
 <?php else : ?>
 

@@ -14,7 +14,7 @@
     <div class="col">
       <header class="page-header">
         <h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'jellypress' ); ?></h1>
-      </header><!-- .page-header -->
+      </header><!-- /.page-header -->
 
       <div class="page-content">
         <?php
@@ -49,7 +49,7 @@
 
         endif;
         ?>
-      </div><!-- .page-content -->
-    </div><!-- .col -->
-  </div><!-- .row -->
-</section><!-- .no-results -->
+      </div><!-- /.page-content -->
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+</section><!-- /.no-results -->
