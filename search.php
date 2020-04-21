@@ -9,50 +9,46 @@
 
 get_header();
 ?>
-<div id="content" class="site-content">
+<?php
+/**
+ * On search pages, the user may wish to enable a sidebar, so we wrap the whole output in a .container .row
+ * This is different to the layout of page.php
+ */
+ ?>
+<div class="section">
   <div class="container">
     <div class="row">
-      <section id="primary" class="content-area col">
-        <main id="main" class="site-main">
 
-          <?php if ( have_posts() ) : ?>
+      <div id="primary" class="content-area col">
+        <main id="main" class="site-main" role="main">
 
-          <header class="page-header row">
-            <div class="col">
-              <h1 class="page-title">
-                <?php
-                /* translators: %s: search query. */
-                printf( esc_html__( 'Search Results for: %s', 'jellypress' ), '<span>' . get_search_query() . '</span>' );
-                ?>
-              </h1>
-            </div>
-          </header><!-- /.page-header -->
+          <?php if ( have_posts() ) : // Search results found... ?>
+              <header class="page-header">
+                <h1 class="page-title">
+                  <?php
+                    /* translators: %s: search query. */
+                    printf( esc_html__( 'Search Results for: %s', 'jellypress' ), '<span>' . get_search_query() . '</span>' );
+                    ?>
+                </h1>
+              </header><!-- /.page-header -->
 
-          <?php
-          /* Start the Loop */
-          while ( have_posts() ) :
-            the_post();
+              <?php
+                /* Start the Loop */
+                while ( have_posts() ) :
+                  the_post();
+                  get_template_part( 'template-parts/content', 'search' );
+                endwhile;
+                the_posts_navigation();
 
-            /**
-             * Run the loop for the search to output the results.
-             * If you want to overload this in a child theme then include a file
-             * called content-search.php and that will be used instead.
-             */
-            get_template_part( 'template-parts/content', 'search' );
+              else :
+                get_template_part( 'template-parts/content', 'none' );
+              endif; ?>
 
-          endwhile;
-
-          the_posts_navigation();
-
-        else :
-
-          get_template_part( 'template-parts/content', 'none' );
-
-        endif;
-        ?>
-        </main><!-- /#main -->
-      </section><!-- /#primary -->
-
-      <?php
-get_sidebar(); // TODO: Remove if no support for sidebars in your theme
+          </main><!--/#main -->
+        </div><!-- /#primary .col -->
+      <?php get_sidebar(); // TODO: Remove if you don't want a sidebar on your search results page ?>
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</div><!-- /.section -->
+<?php
 get_footer();

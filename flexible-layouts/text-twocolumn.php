@@ -1,6 +1,6 @@
 <?php
 /**
- * Flexible layout: Text (Two Column)
+ * Flexible layout: Text block (two wolumn)
  *
  * A template partial that is called from acf-flexible-content.php,
  * when the content editor uses ACF flexible content fields to create their page layout.

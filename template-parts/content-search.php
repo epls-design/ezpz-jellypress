@@ -21,17 +21,11 @@
         ?>
       </div><!-- /.entry-meta -->
       <?php endif; ?>
+      <?php jellypress_post_thumbnail();// TODO: The Featured Image is kind of 'plonked' on here - on live builds it needs to be incorporated better into the overall design ?>
     </header><!-- /.entry-header -->
-
-    <?php jellypress_post_thumbnail();// TODO: Incorporate into theme
-    ?>
-
     <div class="entry-summary">
       <?php the_excerpt(); ?>
     </div><!-- /.entry-summary -->
-
-    <footer class="entry-footer">
-      <?php jellypress_entry_footer(); ?>
-    </footer><!-- /.entry-footer -->
+    <?php jellypress_entry_footer(); ?>
   </article><!-- /#post-<?php the_ID(); ?> -->
-</div>
+</div><!-- /.row -->

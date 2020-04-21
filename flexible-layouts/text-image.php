@@ -1,6 +1,6 @@
 <?php
 /**
- * Flexible layout: Text block
+ * Flexible layout: Text and image block
  *
  * A template partial that is called from acf-flexible-content.php,
  * when the content editor uses ACF flexible content fields to create their page layout.
@@ -33,10 +33,10 @@
 </header>
 <?php endif; ?>
 <div class="row align-middle">
-  <div class="col md-4 <?php if ( $image_position == 'right' ) {echo 'order-md-2';} ?>">
+  <div class="col sm-12 md-4 <?php if ( $image_position == 'right' ) {echo 'order-md-2';} ?>">
     <?php echo wp_get_attachment_image( $image, $size ); ?>
   </div>
-  <div class="col md-8 <?php if ( $image_position == 'right' ) {echo 'order-md-1';} ?>">
+  <div class="col sm-12 md-8 <?php if ( $image_position == 'right' ) {echo 'order-md-1';} ?>">
     <?php the_sub_field( 'text' ); ?>
   </div>
 </div>

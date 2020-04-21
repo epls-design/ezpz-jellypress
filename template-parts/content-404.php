@@ -6,9 +6,10 @@
  */
 
 ?>
-<section class="error-404 not-found">
+<section class="section error-404 not-found">
+  <div class="container">
     <div class="row">
-      <div class="col md-8 lg-9">
+      <article class="col sm-12 md-8 lg-9">
         <header class="page-header">
           <h1 class="page-title"><?php esc_html_e( 'Page not found', 'jellypress' ); ?></h1>
         </header><!-- /.page-header -->
@@ -21,8 +22,8 @@
             <button class="button__outline" onCLick="history.back()">Back to last page</button>
           </p>
         </div><!-- /.page-content -->
-      </div><!-- /.col -->
-      <aside class="col md-4 lg-3 sidebar">
+      </article><!-- /.col -->
+      <aside class="col sm-12 md-4 lg-3 sidebar">
         <h2>Search this website:</h2>
         <?php
           get_search_form();
@@ -30,4 +31,5 @@
         ?>
       </aside>
     </div><!-- /.row -->
-</section><!-- /.error-404 -->
+  </div><!-- /.container -->
+</section><!-- /.section .error-404 -->

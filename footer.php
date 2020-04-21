@@ -10,15 +10,12 @@
  */
 
 ?>
-      </div><!-- /.row -->
-    </div><!--  .container  -->
-	</div><!-- /#content-->
-
+	</div><!-- /#content .site-content -->
 	<footer class="site-footer">
     <div class="container">
       <div class="row">
         <div class="site-info col" id="colophon">
-        <p class="small">
+          <p class="small">
             <?php echo jellypress_copyright();?>
             <span class="sep"> | </span>
             <span class="mattweetdesign">
@@ -29,12 +26,10 @@
             </span>
           </p>
         </div><!-- /#colophon -->
-      </div>
-    </div>
+      </div><!-- /.row -->
+    </div><!-- /.container -->
 	</footer><!-- /.site-footer -->
 </div><!-- /#page -->
-
 <?php wp_footer(); ?>
-
 </body>
 </html>

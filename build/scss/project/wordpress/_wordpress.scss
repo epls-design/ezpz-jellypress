@@ -46,3 +46,8 @@
     @extend .button__outline;
   }
 }
+
+// Post entry footer
+.cat-links, .tags-links, .comments-link, .edit-link {
+  display: block;
+}

@@ -82,7 +82,7 @@ if ( ! function_exists( 'jellypress_setup' ) ) :
     add_theme_support( 'customize-selective-refresh-widgets' );
 
     // TODO: Hook favicons into wp_head()
-    // @link https://realfavicongenerator.net/ to generate the pack, replace the below with the latest standards
+    // @link https://realfavicongenerator.net/ to generate the pack, replace the below with the latest standards as these often change
     function jellypress_favicon_script() {
       echo '
       <link rel="apple-touch-icon" sizes="180x180" href="'.THEME_FAVICONS.'/apple-touch-icon.png">

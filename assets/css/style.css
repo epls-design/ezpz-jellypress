@@ -512,7 +512,8 @@ sup {
   width: 100%;
   padding: 0 15px; }
   .container .container {
-    width: 100%; }
+    width: 100%;
+    padding: 0 !important; }
 
 .row {
   display: flex;
@@ -1875,6 +1876,9 @@ Utilities
     max-width: 100%; }
 
 .edit-link {
+  display: block; }
+
+.cat-links, .tags-links, .comments-link, .edit-link {
   display: block; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*

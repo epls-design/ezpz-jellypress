@@ -1,8 +1,8 @@
 <?php
 /**
- * _s Theme Customizer
+ * Jellypress Theme Customizer
  *
- * @package _s
+ * @package jellypress
  */
 
 /**
