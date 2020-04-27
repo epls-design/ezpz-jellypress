@@ -167,6 +167,30 @@ function jellypress_scripts() {
 add_action( 'wp_enqueue_scripts', 'jellypress_scripts' );
 
 /**
+ * Prevents Wordpress from automatically adding classes to pasted text, on <span> and <p> tagds (eg. class="p1")
+ */
+function jellypress_prevent_autotags($in) {
+  $in['paste_preprocess'] = "function(pl,o){ o.content = o.content.replace(/p class=\"p[0-9]+\"/g,'p'); o.content = o.content.replace(/span class=\"s[0-9]+\"/g,'span'); }";
+  return $in;
+}
+add_filter('tiny_mce_before_init', 'jellypress_prevent_autotags');
+
+/**
+ * Unset additional image sizes created by Wordpress since 5.3
+ */
+
+function jellypress_remove_default_image_sizes( $sizes) {
+	//unset( $sizes['large']);
+	//unset( $sizes['thumbnail']);
+	//unset( $sizes['medium']);
+	unset( $sizes['medium_large']);
+	unset( $sizes['1536x1536']);
+	unset( $sizes['2048x2048']);
+	return $sizes;
+}
+add_filter('intermediate_image_sizes_advanced', 'jellypress_remove_default_image_sizes');
+
+/**
  * Hides ACF settings on the live site. Settings will still be available locally.
  * This snippet is used because we are using ACF Json to manage field groups and keep them in sync
  * When pulling the database from the live site (eg. with WP Migrate DB), it is necessary
