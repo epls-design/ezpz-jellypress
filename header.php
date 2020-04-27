@@ -47,7 +47,7 @@
                 <span class="hamburger-inner"></span>
               </span>
             </button>
-          </div><!-- .navbar-brand -->
+          </div><!-- /.navbar-brand -->
           <div id="navbar-menu" class="navbar-menu">
             <div class="navbar-start">
               <?php
@@ -60,7 +60,8 @@
             <div class="navbar-end">
               <!-- TODO: Remove .navbar-end if not required in theme -->
             </div>
-          </div><!-- #navbar-menu -->
-        </div><!-- .container -->
-      </nav><!-- .navbar -->
-    </header><!-- #masthead -->
+          </div><!-- /#navbar-menu -->
+        </div><!-- /.container -->
+      </nav><!-- /.navbar -->
+    </header><!-- /#masthead -->
+    <div id="content" class="site-content">

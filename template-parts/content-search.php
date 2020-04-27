@@ -19,19 +19,13 @@
         jellypress_posted_on();
         jellypress_posted_by();
         ?>
-      </div><!-- .entry-meta -->
+      </div><!-- /.entry-meta -->
       <?php endif; ?>
-    </header><!-- .entry-header -->
-
-    <?php jellypress_post_thumbnail();// TODO: Incorporate into theme
-    ?>
-
+      <?php jellypress_post_thumbnail();// TODO: The Featured Image is kind of 'plonked' on here - on live builds it needs to be incorporated better into the overall design ?>
+    </header><!-- /.entry-header -->
     <div class="entry-summary">
       <?php the_excerpt(); ?>
-    </div><!-- .entry-summary -->
-
-    <footer class="entry-footer">
-      <?php jellypress_entry_footer(); ?>
-    </footer><!-- .entry-footer -->
-  </article><!-- #post-<?php the_ID(); ?> -->
-</div>
+    </div><!-- /.entry-summary -->
+    <?php jellypress_entry_footer(); ?>
+  </article><!-- /#post-<?php the_ID(); ?> -->
+</div><!-- /.row -->

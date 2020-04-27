@@ -1,4 +1,5 @@
 // Styles which are applied to the admin area of Wordpress, by being injected into wp_head
+// These are used to help stylise the editing experience for better UX
 
 @charset "UTF-8";
 @import "config/settings";
@@ -8,4 +9,18 @@
 .acf-fc-layout-handle {
   background: $color-primary !important;
   color: #fff !important;
+}
+
+#mceu_71 {
+  // Styles the 'Formats' drop down
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: inset 0 1px 1px -1px rgba(0,0,0,.2);
+  padding: 2px 3px;
+  &:hover {
+    border-color: #b4b9be;
+  }
+  .mce-txt {
+    font-size: 13px;
+  }
 }

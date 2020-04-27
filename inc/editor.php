@@ -59,8 +59,8 @@ if ( !function_exists( 'jellypress_mce_before_init_insert_formats' )) {
             ),
             array(
               'title' => 'Outline Button',
-              'block' => 'button button__outline',
-              'selector' => a,
+              'classes' => 'button button__outline',
+              'block' => a,
             ),
           ),
       ),
@@ -76,29 +76,6 @@ if ( !function_exists( 'jellypress_mce_before_init_insert_formats' )) {
               'title' => 'Small',
               'classes' => 'small',
               'block' => p,
-            ),
-          ),
-      ),
-      array(
-        'title'   => 'Columns',
-        'items' => array(
-            array(
-              'title' => 'Two column',
-              'classes' => 'two-column',
-              'block' => 'section',
-              'wrapper' => true,
-            ),
-            array(
-              'title' => 'Three column',
-              'classes' => 'three-column',
-              'block' => 'section',
-              'wrapper' => true,
-            ),
-            array(
-              'title' => 'Four column',
-              'classes' => 'four-column',
-              'block' => 'section',
-              'wrapper' => true,
             ),
           ),
       ),

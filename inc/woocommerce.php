@@ -4,7 +4,7 @@
  *
  * @link https://woocommerce.com/
  *
- * @package _s
+ * @package jellypress
  */
 
 /**
@@ -135,8 +135,8 @@ if ( ! function_exists( 'jellypress_woocommerce_wrapper_after' ) ) {
 	 */
 	function jellypress_woocommerce_wrapper_after() {
 		?>
-			</main><!-- #main -->
-		</div><!-- #primary -->
+			</main><!-- /#main -->
+		</div><!-- /#primary -->
 		<?php
 	}
 }

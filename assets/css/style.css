@@ -511,6 +511,9 @@ sup {
   margin: 0 auto;
   width: 100%;
   padding: 0 15px; }
+  .container .container {
+    width: 100%;
+    padding: 0 !important; }
 
 .row {
   display: flex;
@@ -1241,7 +1244,7 @@ sup {
   BUTTONS
   Default styling for all buttons
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.button, [type=submit], a.button, a[type=submit], button, [type=submit], [type=reset], [type=button] {
+.button, [type=submit], .edit-link a, a.button, a[type=submit], .edit-link a, button, [type=submit], [type=reset], [type=button] {
   -webkit-appearance: none;
   user-select: none;
   display: inline-block;
@@ -1260,17 +1263,17 @@ sup {
   margin: 15px 5px 30px 0;
   border-radius: 6px;
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
-  .button::-moz-focus-inner, [type=submit]::-moz-focus-inner, a.button::-moz-focus-inner, a[type=submit]::-moz-focus-inner, button::-moz-focus-inner, [type=submit]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=button]::-moz-focus-inner {
+  .button::-moz-focus-inner, [type=submit]::-moz-focus-inner, .edit-link a::-moz-focus-inner, a.button::-moz-focus-inner, a[type=submit]::-moz-focus-inner, .edit-link a::-moz-focus-inner, button::-moz-focus-inner, [type=submit]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=button]::-moz-focus-inner {
     border: 0;
     padding: 0; }
-  .button:hover, :hover[type=submit], .button:focus, :focus[type=submit], .button:active, :active[type=submit], a.button:hover, a:hover[type=submit], a.button:focus, a:focus[type=submit], a.button:active, a:active[type=submit], button:hover, button:focus, button:active, [type=submit]:hover, [type=submit]:focus, [type=submit]:active, [type=reset]:hover, [type=reset]:focus, [type=reset]:active, [type=button]:hover, [type=button]:focus, [type=button]:active {
+  .button:hover, :hover[type=submit], .edit-link a:hover, .button:focus, :focus[type=submit], .edit-link a:focus, .button:active, :active[type=submit], .edit-link a:active, a.button:hover, a:hover[type=submit], .edit-link a:hover, a.button:focus, a:focus[type=submit], .edit-link a:focus, a.button:active, a:active[type=submit], .edit-link a:active, button:hover, button:focus, button:active, [type=submit]:hover, [type=submit]:focus, [type=submit]:active, [type=reset]:hover, [type=reset]:focus, [type=reset]:active, [type=button]:hover, [type=button]:focus, [type=button]:active {
     background-color: #89233d;
     border-color: #89233d;
     color: white; }
-  .button:focus, :focus[type=submit], a.button:focus, a:focus[type=submit], button:focus, [type=submit]:focus, [type=reset]:focus, [type=button]:focus {
+  .button:focus, :focus[type=submit], .edit-link a:focus, a.button:focus, a:focus[type=submit], .edit-link a:focus, button:focus, [type=submit]:focus, [type=reset]:focus, [type=button]:focus {
     outline: 0;
     box-shadow: 0px 0px 1px 3px #df8098; }
-  .button:disabled, :disabled[type=submit], a.button:disabled, a:disabled[type=submit], button:disabled, [type=submit]:disabled, [type=reset]:disabled, [type=button]:disabled {
+  .button:disabled, :disabled[type=submit], .edit-link a:disabled, a.button:disabled, a:disabled[type=submit], .edit-link a:disabled, button:disabled, [type=submit]:disabled, [type=reset]:disabled, [type=button]:disabled {
     cursor: not-allowed;
     background-color: #999999;
     border: 1px solid #999999; }
@@ -1286,11 +1289,11 @@ sup {
   .button__secondary:focus, a.button__secondary:focus {
     box-shadow: 0px 0px 1px 3px #4291b0; }
 
-.button__outline, [type=reset], a.button__outline, a[type=reset] {
+.button__outline, [type=reset], .edit-link a, a.button__outline, a[type=reset], .edit-link a {
   background: transparent;
   color: inherit;
   border-color: #b22d4f; }
-  .button__outline:hover, :hover[type=reset], .button__outline:focus, :focus[type=reset], .button__outline:active, :active[type=reset], a.button__outline:hover, a:hover[type=reset], a.button__outline:focus, a:focus[type=reset], a.button__outline:active, a:active[type=reset] {
+  .button__outline:hover, :hover[type=reset], .edit-link a:hover, .button__outline:focus, :focus[type=reset], .edit-link a:focus, .button__outline:active, :active[type=reset], .edit-link a:active, a.button__outline:hover, a:hover[type=reset], .edit-link a:hover, a.button__outline:focus, a:focus[type=reset], .edit-link a:focus, a.button__outline:active, a:active[type=reset], .edit-link a:active {
     background-color: transparent;
     border-color: #89233d;
     color: #b22d4f; }
@@ -1311,7 +1314,7 @@ sup {
 .button__large, a.button__large {
   font-size: 1.1rem; }
 
-.button__small, a.button__small {
+.button__small, .edit-link a, a.button__small, .edit-link a {
   font-size: 0.8rem; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
@@ -1446,7 +1449,8 @@ select::-ms-expand {
 .form-row {
   margin-left: -5px;
   margin-right: -5px;
-  display: flex; }
+  display: flex;
+  flex-wrap: wrap; }
   .form-row .col {
     padding-left: 5px;
     padding-right: 5px; }
@@ -1768,11 +1772,11 @@ they should be wrapped in this class to ensure consistent display
         justify-content: flex-end;
         margin-left: auto;
         padding: 0; } }
-  .navbar-menu input, .navbar-menu .button, .navbar-menu [type=submit], .navbar-menu a.button, .navbar-menu a[type=submit], .navbar-menu button, .navbar-menu [type=submit], .navbar-menu [type=reset], .navbar-menu [type=button] {
+  .navbar-menu input, .navbar-menu .button, .navbar-menu [type=submit], .navbar-menu .edit-link a, .edit-link .navbar-menu a, .navbar-menu a.button, .navbar-menu a[type=submit], .navbar-menu .edit-link a, .edit-link .navbar-menu a, .navbar-menu button, .navbar-menu [type=submit], .navbar-menu [type=reset], .navbar-menu [type=button] {
     margin: 8px 10px;
     position: relative; }
     @media (min-width: 56.25em) {
-      .navbar-menu input, .navbar-menu .button, .navbar-menu [type=submit], .navbar-menu a.button, .navbar-menu a[type=submit], .navbar-menu button, .navbar-menu [type=submit], .navbar-menu [type=reset], .navbar-menu [type=button] {
+      .navbar-menu input, .navbar-menu .button, .navbar-menu [type=submit], .navbar-menu .edit-link a, .edit-link .navbar-menu a, .navbar-menu a.button, .navbar-menu a[type=submit], .navbar-menu .edit-link a, .edit-link .navbar-menu a, .navbar-menu button, .navbar-menu [type=submit], .navbar-menu [type=reset], .navbar-menu [type=button] {
         margin: 10px 10px; } }
   .navbar-menu input {
     width: auto; }
@@ -1851,7 +1855,7 @@ Utilities
     font-size: 1.4em; }
   h3, h4, h5, h6 {
     font-size: 1.2em; }
-  .button, [type=submit], a.button, a[type=submit], button, [type=submit], [type=reset], [type=button] {
+  .button, [type=submit], .edit-link a, a.button, a[type=submit], .edit-link a, button, [type=submit], [type=reset], [type=button] {
     border: 1px solid black  !important;
     background-color: white  !important;
     color: black  !important;
@@ -1870,6 +1874,12 @@ Utilities
   /* Make sure select elements fit in widgets. */ }
   .widget select {
     max-width: 100%; }
+
+.edit-link {
+  display: block; }
+
+.cat-links, .tags-links, .comments-link, .edit-link {
+  display: block; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   ICONS
@@ -1899,6 +1909,8 @@ Utilities
   Styling for site wide sections
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .section {
-  margin: 70px 0 40px 0; }
+  padding-top: 70px;
+  padding-bottom: 40px;
+  position: relative; }
 
 /*# sourceMappingURL=style.css.map */

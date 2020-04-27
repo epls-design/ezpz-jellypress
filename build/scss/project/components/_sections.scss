@@ -4,12 +4,17 @@
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .section {
-    margin: $section-padding 0 $section-padding - $element-margin 0;
+  padding-top: $section-padding;
+  padding-bottom: $section-padding - $element-margin; // Minus element margin effectively negates the margin of last element in the section
+  position: relative;
 }
 %section-color {
     margin: 0;
     padding: $section-padding 0 $section-padding - $element-margin 0;
 }
 %section-dark {
+  color: $color-background;
+  #{headings()} {
     color: $color-background;
+  }
 }

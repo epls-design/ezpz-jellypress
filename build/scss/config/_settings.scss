@@ -2,7 +2,7 @@
 //$cols: 12;
 //$has_ordering: true;
 //$has_offset: true;
-//$debug-mode-on: false;
+$debug-mode-on: false;
 
 /* JELLYFISH DEFAULTS */
 // Base Variables (used before breakpoints are applied)
@@ -37,7 +37,6 @@
 //$font-size-xxxlarge: 2.5em;
 
 /* Global padding/margins */
-//$element-padding: 20px;
 $element-margin: 30px;
 $section-padding: 70px;
 
@@ -142,10 +141,6 @@ $section-padding: 70px;
 //$hamburger-hover-opacity: 1;
 //$hamburger-active-layer-color : $hamburger-layer-color;
 //$hamburger-active-hover-opacity: $hamburger-hover-opacity;
-// Override Vendor options with site-specific hamburger animation
-//$hamburger-types: (
-//  $primary-hamburger-type
-//);
 
 $breakpoints: (
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
