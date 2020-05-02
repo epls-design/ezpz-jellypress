@@ -1,0 +1,17 @@
+// ACF Flexible Content Heading
+.acf-fc-layout-handle {
+  background: $color-primary !important;
+  color: #fff !important;
+  font-weight: bold;
+}
+
+.acf-field-group label {
+  font-size: 1.2em; // Make the label for a group slightly larger
+}
+.acf-input label {
+  font-size: 1em;
+}
+
+#poststuff .acf-postbox .hndle {
+  font-size: 1.2em; // header tab of ACF group
+}

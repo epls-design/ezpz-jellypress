@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jellypress 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/jellypress\n"
-"POT-Creation-Date: 2020-04-14 19:03:06+00:00\n"
+"POT-Creation-Date: 2020-05-02 09:45:53+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,16 +13,16 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: comments.php:35
+#: comments.php:36
 #. translators: 1: title.
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
-#: comments.php:66
+#: comments.php:67
 msgid "Comments are closed."
 msgstr ""
 
-#: footer.php:27
+#: footer.php:24
 #. translators: 1: Theme author and link to website.
 msgid "Website design and build by %1$s."
 msgstr ""
@@ -43,27 +43,27 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: inc/template-tags.php:62
+#: inc/template-tags.php:67
 #. translators: used between list items, there is a space after the comma
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:65
+#: inc/template-tags.php:70
 #. translators: 1: list of categories.
 msgid "Posted in %1$s"
 msgstr ""
 
-#: inc/template-tags.php:72
+#: inc/template-tags.php:77
 #. translators: 1: list of tags.
 msgid "Tagged %1$s"
 msgstr ""
 
-#: inc/template-tags.php:82
+#: inc/template-tags.php:88
 #. translators: %s: post title
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
-#: inc/template-tags.php:99 template-parts/content-page.php:40
+#: inc/template-tags.php:107
 #. translators: %s: Name of current post. Only visible to screen readers
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
@@ -79,49 +79,53 @@ msgid_plural "%d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: search.php:23
+#: search.php:30
 #. translators: %s: search query.
 msgid "Search Results for: %s"
 msgstr ""
 
-#: template-parts/content-404.php:13
+#: template-parts/content-404.php:14
 msgid "Page not found"
 msgstr ""
 
-#: template-parts/content-404.php:17
+#: template-parts/content-404.php:18
 msgid ""
 "It looks like nothing was found at this location. Can we help you find the "
 "page you were looking for?"
 msgstr ""
 
-#: template-parts/content-none.php:16
+#: template-parts/content-none.php:17
 msgid "Nothing Found"
 msgstr ""
 
-#: template-parts/content-none.php:26
+#: template-parts/content-none.php:25
 #. translators: 1: link to WP admin new post page.
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: template-parts/content-none.php:39
+#: template-parts/content-none.php:37
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
 
-#: template-parts/content-none.php:46
+#: template-parts/content-none.php:45
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:27 template-parts/content.php:52
-msgid "Pages:"
+#: template-parts/content-page.php:24
+msgid "Sections:"
 msgstr ""
 
-#: template-parts/content.php:40
+#: template-parts/content.php:38
 #. translators: %s: Name of current post. Only visible to screen readers
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: template-parts/content.php:49
+msgid "Pages:"
 msgstr ""
 
 #. Theme Name of the plugin/theme
@@ -142,7 +146,7 @@ msgstr ""
 msgid "Matt Weet"
 msgstr ""
 
-#: comments.php:41
+#: comments.php:42
 #. translators: 1: comment count number, 2: title.
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
@@ -162,7 +166,7 @@ msgctxt "post author"
 msgid "by %s"
 msgstr ""
 
-#: inc/template-tags.php:69
+#: inc/template-tags.php:74
 #. translators: used between list items, there is a space after the comma
 msgctxt "list item separator"
 msgid ", "

@@ -31,7 +31,17 @@
 /* HAMBURGER MENU */
 .acf-fc-layout-handle {
   background: #b22d4f !important;
-  color: #fff !important; }
+  color: #fff !important;
+  font-weight: bold; }
+
+.acf-field-group label {
+  font-size: 1.2em; }
+
+.acf-input label {
+  font-size: 1em; }
+
+#poststuff .acf-postbox .hndle {
+  font-size: 1.2em; }
 
 #mceu_71 {
   background: #fff;

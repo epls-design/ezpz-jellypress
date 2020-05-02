@@ -167,35 +167,6 @@ function jellypress_scripts() {
 add_action( 'wp_enqueue_scripts', 'jellypress_scripts' );
 
 /**
- * Hides ACF settings on the live site. Settings will still be available locally.
- * This snippet is used because we are using ACF Json to manage field groups and keep them in sync
- * When pulling the database from the live site (eg. with WP Migrate DB), it is necessary
- * to sync the json back in - as the production site should never have the ACF fields
- * stored in the database (only the local site will have this)
- * @link https://www.awesomeacf.com/snippets/hide-the-acf-admin-menu-item-on-selected-sites/
- * @link https://support.advancedcustomfields.com/forums/topic/the-acf-json-workflow/
- */
-function jellypress_hide_acf_admin() {
-  // get the current site url
-  $site_url = get_bloginfo( 'url' );
-  // an array of protected site urls
-  $protected_urls = array(
-      'http://jellypress-website-url-here.com', // TODO: Change for your live project
-      'https://jellypress-website-url-here.com', // TODO: Change for your live project
-  );
-  // check if the current site url is in the protected urls array
-  if ( in_array( $site_url, $protected_urls ) ) {
-      // hide the acf menu item
-      return false;
-  } else {
-      // show the acf menu item
-      return true;
-  }
-}
-
-add_filter('acf/settings/show_admin', 'jellypress_hide_acf_admin');
-
-/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
@@ -204,6 +175,11 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
+
+/**
+ * Functions which hook into ACF to add additional functionality to the site.
+ */
+require get_template_directory() . '/inc/acf.php';
 
 /**
  * Customise editor

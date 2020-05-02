@@ -1,10 +1,7 @@
 <?php
 /**
  * Flexible layout: Image block
- *
- * A template partial that is called from acf-flexible-content.php,
- * when the content editor uses ACF flexible content fields to create their page layout.
- * This partial renders an image block.
+ * Renders an image section
  *
  * @package jellypress
  */

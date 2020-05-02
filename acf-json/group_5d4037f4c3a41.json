@@ -7,7 +7,7 @@
             "label": "Additional Sections",
             "name": "sections",
             "type": "flexible_content",
-            "instructions": "You can design the layout of your page by adding different section types. Click the 'Add New Section' button below to get started.",
+            "instructions": "You can design the layout of your page by adding different section types. <b>Click the 'Add New Section' button below to get started.<\/b>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -19,7 +19,7 @@
                 "layout_5d6a49999f6a8": {
                     "key": "layout_5d6a49999f6a8",
                     "name": "text",
-                    "label": "Text",
+                    "label": "<span class=\"dashicons dashicons-editor-alignleft\"><\/span> Text",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -187,7 +187,7 @@
                 "layout_5d75eff42a6a9": {
                     "key": "layout_5d75eff42a6a9",
                     "name": "text-twocolumn",
-                    "label": "Text (2 column)",
+                    "label": "<span class=\"dashicons dashicons-editor-table\"><\/span> Text (2 column)",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -282,7 +282,7 @@
                 "layout_5d769ba7a54c4": {
                     "key": "layout_5d769ba7a54c4",
                     "name": "text-image",
-                    "label": "Text & Image",
+                    "label": "<span class=\"dashicons dashicons-media-document\"><\/span> Text & Image",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -421,7 +421,7 @@
                 "layout_5d769956a449b": {
                     "key": "layout_5d769956a449b",
                     "name": "image",
-                    "label": "Image",
+                    "label": "<span class=\"dashicons dashicons-format-image\"><\/span> Image",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -516,7 +516,7 @@
             },
             "button_label": "Add New Section",
             "min": "",
-            "max": 12
+            "max": 16
         }
     ],
     "location": [
@@ -543,5 +543,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease.",
-    "modified": 1587413069
+    "modified": 1588414780
 }

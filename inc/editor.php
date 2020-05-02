@@ -50,17 +50,17 @@ if ( !function_exists( 'jellypress_mce_before_init_insert_formats' )) {
             array(
               'title' => 'Button',
               'classes' => 'button',
-              'block' => a,
+              'block' => 'a',
             ),
             array(
               'title' => 'Secondary Button',
               'classes' => 'button button__secondary',
-              'block' => a,
+              'block' => 'a',
             ),
             array(
               'title' => 'Outline Button',
               'classes' => 'button button__outline',
-              'block' => a,
+              'block' => 'a',
             ),
           ),
       ),
@@ -70,12 +70,12 @@ if ( !function_exists( 'jellypress_mce_before_init_insert_formats' )) {
             array(
               'title' => 'Standfirst',
               'classes' => 'standfirst',
-              'block' => p,
+              'block' => 'p',
             ),
             array(
               'title' => 'Small',
               'classes' => 'small',
-              'block' => p,
+              'block' => 'p',
             ),
           ),
       ),

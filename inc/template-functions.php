@@ -43,3 +43,20 @@ function jellypress_yoastprioritylow() {
   return 'low';
   }
   add_filter( 'wpseo_metabox_prio', 'jellypress_yoastprioritylow');
+
+/**
+ * Wordpress 5.3+ adds additional image sizes. All of these get generated every time an image is
+ * uploaded. This function removes some of those images, to reduce server load and storage use.
+ * Note: you may need to regenerate thumbnails to clear any using old sizes.
+ */
+
+function jellypress_unset_image_sizes($sizes) {
+	//unset($sizes['thumbnail']);    // disable thumbnail size
+	//unset($sizes['medium']);       // disable medium size
+	//unset($sizes['large']);        // disable large size
+	unset($sizes['medium_large']); // disable medium-large size
+	unset($sizes['1536x1536']);    // disable 2x medium-large size
+	unset($sizes['2048x2048']);    // disable 2x large size
+  return $sizes;
+}
+add_action('intermediate_image_sizes_advanced', 'jellypress_unset_image_sizes');

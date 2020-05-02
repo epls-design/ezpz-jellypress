@@ -1,11 +1,7 @@
 <?php
 /**
- * Flexible layout: Text and image block
- *
- * A template partial that is called from acf-flexible-content.php,
- * when the content editor uses ACF flexible content fields to create their page layout.
- * This partial renders a WYSIWIG editor in one column (for the display of text)
- * and an image in the adjacent column. The user can select whether the image is on the right or left.
+ * Flexible layout: Text and Image block
+ * Renders an section to contain Text and an Image, with an option to reorder columns
  *
  * @package jellypress
  */
@@ -23,7 +19,7 @@
     endwhile;
   endif;
 
-?>
+  ?>
 
 <?php if ($title) : ?>
 <header class="row">

@@ -180,7 +180,7 @@ function jellypress_icon($icon) {
   // If it exists, include it.
   if ( file_exists( $icon_path ) ) {
     $use_link = THEME_URI.'/assets/icons/icons.svg#icon-'.$icon;
-    echo '<svg class="icon"><use xlink:href="'.$use_link.'" /></use></svg>';
+    return '<svg class="icon"><use xlink:href="'.$use_link.'" /></use></svg>';
   }
   else {
     return '';

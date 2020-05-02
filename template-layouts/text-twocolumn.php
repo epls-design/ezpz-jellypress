@@ -1,10 +1,7 @@
 <?php
 /**
- * Flexible layout: Text block (two wolumn)
- *
- * A template partial that is called from acf-flexible-content.php,
- * when the content editor uses ACF flexible content fields to create their page layout.
- * This partial renders two columns of WYSIWIG editors - usually used for the display of text.
+ * Flexible layout: Text block (Two Column)
+ * Renders a section containing two columns of WYSIWIG text
  *
  * @package jellypress
  */
