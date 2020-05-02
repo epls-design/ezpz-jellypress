@@ -60,3 +60,12 @@ function jellypress_unset_image_sizes($sizes) {
   return $sizes;
 }
 add_action('intermediate_image_sizes_advanced', 'jellypress_unset_image_sizes');
+
+/**
+ * Prevents Wordpress from automatically adding classes to pasted text, on <span> and <p> tagds (eg. class="p1")
+ */
+function jellypress_prevent_autotags($in) {
+  $in['paste_preprocess'] = "function(pl,o){ o.content = o.content.replace(/p class=\"p[0-9]+\"/g,'p'); o.content = o.content.replace(/span class=\"s[0-9]+\"/g,'span'); }";
+  return $in;
+}
+add_filter('tiny_mce_before_init', 'jellypress_prevent_autotags');
