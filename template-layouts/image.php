@@ -15,7 +15,7 @@
 ?>
 
 <div class="row">
-  <div class="col"><?php echo $section_id; ?>
+  <div class="col">
     <?php if ( $width == 1 ){ echo '<div class="vw-100">'; }?>
       <?php echo wp_get_attachment_image( $image, $size ); ?>
     <?php if ( $width == 1 ){ echo '</div>'; }?>

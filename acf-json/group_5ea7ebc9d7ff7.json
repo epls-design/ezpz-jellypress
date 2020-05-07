@@ -6,8 +6,8 @@
             "key": "field_5ea7f0d658186",
             "label": "Contact Information",
             "name": "",
-            "type": "accordion",
-            "instructions": "Please add the key contact information for your organisation.",
+            "type": "tab",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -15,8 +15,7 @@
                 "class": "",
                 "id": ""
             },
-            "open": 1,
-            "multi_expand": 0,
+            "placement": "top",
             "endpoint": 0
         },
         {
@@ -150,8 +149,8 @@
             "key": "field_5ea7ec7de584e",
             "label": "Social Media",
             "name": "",
-            "type": "accordion",
-            "instructions": "Please add your social media channels here. The social media channels you add will appear as <b>links in your website footer<\/b>.",
+            "type": "tab",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -159,8 +158,7 @@
                 "class": "",
                 "id": ""
             },
-            "open": 0,
-            "multi_expand": 0,
+            "placement": "top",
             "endpoint": 0
         },
         {
@@ -237,8 +235,8 @@
             "key": "field_5ea7f6eed27df",
             "label": "Connected Services",
             "name": "",
-            "type": "accordion",
-            "instructions": "Please complete the fields below should you wish to add <b>connected services<\/b> to your website.",
+            "type": "tab",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -246,8 +244,7 @@
                 "class": "",
                 "id": ""
             },
-            "open": 0,
-            "multi_expand": 0,
+            "placement": "top",
             "endpoint": 0
         },
         {
@@ -306,5 +303,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "This field group allows the editor to update key business information and to connect external APIs which are added to the theme.",
-    "modified": 1588794413
+    "modified": 1588834970
 }

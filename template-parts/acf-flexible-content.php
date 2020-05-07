@@ -26,6 +26,17 @@ if ( have_rows( 'sections', $id ) ) :
     $section_id = get_sub_field( 'section_id' );
     $background_color = get_sub_field( 'background_color' );
 
+    // Scheduling
+    $show_from = get_sub_field( 'show_from' );
+    $show_until = get_sub_field( 'show_until' );
+    $current_wp_time = current_time('Y-m-d H:i:s');
+    if (($show_from == NULL OR $show_from <= $current_wp_time) AND ($show_until == NULL OR $show_until>= $current_wp_time)) {
+      $scheduled = true;
+    }
+    else {
+      $scheduled = false;
+    }
+
     $classes.= ' section__'.$layout; // Add layout to classes
 
     // Background colour and display options are optional, let's check if they exist - and if so, create the appropriate css classes
@@ -39,7 +50,9 @@ if ( have_rows( 'sections', $id ) ) :
       $classes.= ' hide-below-md';
     }
 
-    if ( $is_disabled != 1 ) : // Display the section, if it is not disabled ?>
+
+
+    if ( $is_disabled != 1 AND $scheduled == true) : // Display the section, if it is not disabled, and if the scheduling checks pass true ?>
     <section <?php if($section_id){echo 'id="'.strtolower($section_id).'"';} ?> class="<?php echo $classes;?>">
       <div class="container">
         <?php
@@ -47,8 +60,8 @@ if ( have_rows( 'sections', $id ) ) :
         get_template_part( 'template-layouts/' . $layout ); ?>
       </div>
     </section><!-- /.section__<?php echo $layout;?> -->
-    <?php endif;
-    $i++;
+    <?php $i++;
+    endif;
   endwhile;
 endif;
 ?>
