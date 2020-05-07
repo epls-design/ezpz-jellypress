@@ -8,6 +8,7 @@
 ?>
 
 <?php
+  $section_id = get_query_var('section_id');
   $title = get_sub_field( 'title' );
 ?>
 

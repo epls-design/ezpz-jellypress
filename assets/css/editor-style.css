@@ -1912,6 +1912,8 @@ Utilities
   padding-top: 70px;
   padding-bottom: 40px;
   position: relative; }
+  .section__image .vw-100 img {
+    width: 100%; }
 
 html .mceContentBody {
   padding: 20px;

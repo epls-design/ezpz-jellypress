@@ -8,13 +8,16 @@
 ?>
 
 <?php
+  $section_id = get_query_var('section_id');
   $image = get_sub_field( 'image' );
   $size = 'full';
   $width = get_sub_field( 'full_width' );
 ?>
 
-<div class="row <?php if ( $width == 1 ){ echo 'vw-100'; }?>">
-  <div class="col">
-    <?php echo wp_get_attachment_image( $image, $size ); ?>
+<div class="row">
+  <div class="col"><?php echo $section_id; ?>
+    <?php if ( $width == 1 ){ echo '<div class="vw-100">'; }?>
+      <?php echo wp_get_attachment_image( $image, $size ); ?>
+    <?php if ( $width == 1 ){ echo '</div>'; }?>
   </div>
 </div>

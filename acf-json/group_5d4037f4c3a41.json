@@ -62,7 +62,7 @@
                             "label": "Editor",
                             "name": "text",
                             "type": "wysiwyg",
-                            "instructions": "",
+                            "instructions": "Please add your text here.",
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -97,7 +97,7 @@
                             "label": "Disable Section",
                             "name": "disable",
                             "type": "true_false",
-                            "instructions": "Prevents the section from showing in the front-end, whilst keeping all of the content saved in the back-end.",
+                            "instructions": "Prevents the section from showing on the front-end, whilst keeping all of the content saved in the back-end.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -158,10 +158,10 @@
                             "name": "background_color",
                             "type": "select",
                             "instructions": "Select the background colour you would like for this section.",
-                            "required": 0,
+                            "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "66",
+                                "width": "35",
                                 "class": "",
                                 "id": ""
                             },
@@ -217,7 +217,7 @@
                             "label": "Column 1",
                             "name": "column_1",
                             "type": "wysiwyg",
-                            "instructions": "",
+                            "instructions": "Please add your text for the first column here.",
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -236,7 +236,7 @@
                             "label": "Column 2",
                             "name": "column_2",
                             "type": "wysiwyg",
-                            "instructions": "",
+                            "instructions": "Please add your text for the second column here.",
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -315,7 +315,7 @@
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "75",
+                                "width": "60",
                                 "class": "",
                                 "id": ""
                             },
@@ -334,7 +334,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "25",
+                                "width": "40",
                                 "class": "",
                                 "id": ""
                             },
@@ -499,7 +499,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "34",
+                                "width": "30",
                                 "class": "",
                                 "id": ""
                             },
@@ -540,8 +540,15 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "permalink",
+        "discussion",
+        "comments",
+        "slug",
+        "author",
+        "send-trackbacks"
+    ],
     "active": 1,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease.",
-    "modified": 1588414780
+    "modified": 1588794330
 }

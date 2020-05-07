@@ -13,10 +13,11 @@
 $id = get_the_ID();
 // check if the flexible content field has rows of data
 if ( have_rows( 'sections', $id ) ) :
+  $i = 0;
   // loop through the selected ACF layouts and display the matching partial
   while ( have_rows( 'sections', $id ) ) : the_row();
 
-    $classes = 'section'; // Reset class
+    $classes = 'section id-'.$i; // Reset class
 
     // Get common fields and save as variables
     $layout = get_row_layout();
@@ -29,7 +30,7 @@ if ( have_rows( 'sections', $id ) ) :
 
     // Background colour and display options are optional, let's check if they exist - and if so, create the appropriate css classes
     if ($background_color) {
-      $classes.= ' section__'.strtolower($background_color);
+      $classes.= ' bg-'.strtolower($background_color);
     }
     if($display_options == 'only_show') {
       $classes.= ' hide-above-md';
@@ -41,10 +42,13 @@ if ( have_rows( 'sections', $id ) ) :
     if ( $is_disabled != 1 ) : // Display the section, if it is not disabled ?>
     <section <?php if($section_id){echo 'id="'.strtolower($section_id).'"';} ?> class="<?php echo $classes;?>">
       <div class="container">
-        <?php get_template_part( 'template-layouts/' . $layout ); ?>
+        <?php
+        set_query_var('section_id', $i); // Pass current ID to template part. Useful to give unique IDs to elements contained in the section
+        get_template_part( 'template-layouts/' . $layout ); ?>
       </div>
     </section><!-- /.section__<?php echo $layout;?> -->
     <?php endif;
+    $i++;
   endwhile;
 endif;
 ?>

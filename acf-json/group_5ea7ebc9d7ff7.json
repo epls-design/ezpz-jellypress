@@ -7,7 +7,7 @@
             "label": "Contact Information",
             "name": "",
             "type": "accordion",
-            "instructions": "",
+            "instructions": "Please add the key contact information for your organisation.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -15,7 +15,7 @@
                 "class": "",
                 "id": ""
             },
-            "open": 0,
+            "open": 1,
             "multi_expand": 0,
             "endpoint": 0
         },
@@ -306,5 +306,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "This field group allows the editor to update key business information and to connect external APIs which are added to the theme.",
-    "modified": 1588415069
+    "modified": 1588794413
 }
