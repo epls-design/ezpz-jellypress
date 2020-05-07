@@ -20,7 +20,7 @@ get_header();
     <div class="row">
 
       <div id="primary" class="content-area col">
-        <main id="main" class="site-main" role="main">
+        <main id="main" class="site-main">
 
           <?php if ( have_posts() ) : // Search results found... ?>
               <header class="page-header">

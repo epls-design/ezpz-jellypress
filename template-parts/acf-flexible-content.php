@@ -26,6 +26,8 @@ if ( have_rows( 'sections', $id ) ) :
     $section_id = get_sub_field( 'section_id' );
     $background_color = get_sub_field( 'background_color' );
 
+    $classes.= ' section__'.$layout; // Add layout to classes
+
     // Scheduling
     $show_from = get_sub_field( 'show_from' );
     $show_until = get_sub_field( 'show_until' );
@@ -37,8 +39,6 @@ if ( have_rows( 'sections', $id ) ) :
       $scheduled = false;
     }
 
-    $classes.= ' section__'.$layout; // Add layout to classes
-
     // Background colour and display options are optional, let's check if they exist - and if so, create the appropriate css classes
     if ($background_color) {
       $classes.= ' bg-'.strtolower($background_color);
@@ -49,8 +49,6 @@ if ( have_rows( 'sections', $id ) ) :
     elseif($display_options == 'hide') {
       $classes.= ' hide-below-md';
     }
-
-
 
     if ( $is_disabled != 1 AND $scheduled == true) : // Display the section, if it is not disabled, and if the scheduling checks pass true ?>
     <section <?php if($section_id){echo 'id="'.strtolower($section_id).'"';} ?> class="<?php echo $classes;?>">
