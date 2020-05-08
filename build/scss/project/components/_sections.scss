@@ -4,12 +4,15 @@
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .section {
+
   padding-top: $section-padding;
-  padding-bottom: $section-padding - $element-margin; // Minus element margin effectively negates the margin of last element in the section
+  padding-bottom: $section-padding;
   position: relative;
+
   &__image {
-    .vw-100 img {
+    img {
       width: 100%; // Force image to be fullwidth
     }
   }
+
 }

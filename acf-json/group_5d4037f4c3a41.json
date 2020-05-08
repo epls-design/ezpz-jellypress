@@ -96,7 +96,7 @@
                             "key": "field_5d6a49999f6aa",
                             "label": "Background Colour",
                             "name": "background_color",
-                            "type": "select",
+                            "type": "swatch",
                             "instructions": "Select the background colour you would like for this section.",
                             "required": 1,
                             "conditional_logic": 0,
@@ -106,21 +106,19 @@
                                 "id": ""
                             },
                             "choices": {
-                                "black": "Black",
-                                "blue": "Blue",
-                                "grey": "Grey",
-                                "pink": "Pink",
-                                "white": "White"
+                                "#fff": "White",
+                                "#000": "Black",
+                                "#ff0000": "Red",
+                                "#b22d4f": "Primary",
+                                "#2d6378": "Secondary",
+                                "#5d2b50": "Tertiary"
                             },
-                            "default_value": [
-                                "white"
-                            ],
                             "allow_null": 0,
-                            "multiple": 0,
-                            "ui": 0,
-                            "return_format": "value",
-                            "ajax": 0,
-                            "placeholder": ""
+                            "default_value": "#fff",
+                            "layout": "vertical",
+                            "return_format": "label",
+                            "other_choice": 0,
+                            "save_other_choice": 0
                         },
                         {
                             "key": "field_5d7425944f9af",
@@ -910,5 +908,5 @@
     ],
     "active": 1,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease.",
-    "modified": 1588966412
+    "modified": 1588969310
 }

@@ -1,0 +1,31 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  HELPERS
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+// Example implementation - amend for live projects
+%bg-dark {
+  color: #fff;
+}
+
+@mixin remove-top-padding {
+  & + & {
+    padding-top: 0;
+  }
+}
+
+.bg-{
+  &white {
+    background-color: #fff;
+    @include remove-top-padding;
+  }
+  &black {
+    background-color: #000;
+    @extend %bg-dark;
+    @include remove-top-padding;
+  }
+  &red {
+    background-color: #ff0000;
+    @extend %bg-dark;
+    @include remove-top-padding;
+  }
+}

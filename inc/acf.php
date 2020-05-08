@@ -93,3 +93,31 @@ function jellypress_acf_dashicons_support() {
 }
 
 add_action( 'admin_init', 'jellypress_acf_dashicons_support' );
+
+/**
+ * Include ACF Color Swatch Field
+ * Makes the Section BG look a lot nicer and more intuitive for the user
+ * @link https://github.com/nickforddesign/acf-swatch
+ */
+
+add_filter('acf/swatch_settings/path', 'jellypress_acf_swatch_path', 10, 1);
+
+function jellypress_acf_swatch_path( $path ) {
+
+  $path = get_template_directory() . '/inc/acf-swatch';
+
+  return $path;
+
+}
+
+add_filter('acf/swatch_settings/url', 'jellypress_acf_swatch_url', 10, 1);
+
+function jellypress_acf_swatch_url( $url ) {
+
+  $url = get_template_directory_uri() . '/inc/acf-swatch';
+
+  return $url;
+
+}
+
+include( 'acf-swatch/acf-swatch.php' );

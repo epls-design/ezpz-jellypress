@@ -15,3 +15,13 @@
 #poststuff .acf-postbox .hndle {
   font-size: 1.2em; // header tab of ACF group
 }
+
+ul.acf-swatch-list {
+  // ACF Colour Swatch Plugin
+  label {
+    font-size: 0px;
+  }
+  &>li {
+    display: inline-block;
+  }
+}

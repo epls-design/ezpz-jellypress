@@ -43,6 +43,12 @@
 #poststuff .acf-postbox .hndle {
   font-size: 1.2em; }
 
+ul.acf-swatch-list label {
+  font-size: 0px; }
+
+ul.acf-swatch-list > li {
+  display: inline-block; }
+
 #mceu_71 {
   background: #fff;
   border: 1px solid #ddd;
