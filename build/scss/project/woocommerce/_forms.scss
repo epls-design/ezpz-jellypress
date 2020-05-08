@@ -1,0 +1,27 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  FORMS
+  Overrides default Woocommerce
+  forms styles
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+ .woocommerce {
+   form {
+    .form-row {
+      display: block; // Reset because Jellyfish has a helper for .form-row that makes display:flex
+
+      &.woocommerce-validated {
+        input.input-text {
+          border-color: $woocommerce__color-success;
+          box-shadow: inset 5px 0 0 $woocommerce__color-success;
+        }
+      }
+
+      &.woocommerce-invalid {
+        input.input-text {
+          border-color: $woocommerce__color-error;
+          box-shadow: inset 5px 0 0 $woocommerce__color-error;
+        }
+      }
+    }
+  }
+}

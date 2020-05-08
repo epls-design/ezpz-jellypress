@@ -34,42 +34,24 @@ function jellypress_woocommerce_setup() {
 	add_theme_support( 'wc-product-gallery-zoom' );
 	add_theme_support( 'wc-product-gallery-lightbox' );
 	add_theme_support( 'wc-product-gallery-slider' );
+	// TODO: FIX WOOCOMMERCE CROPPING
 }
 add_action( 'after_setup_theme', 'jellypress_woocommerce_setup' );
 
 /**
- * WooCommerce specific scripts & stylesheets.
+ * Enqueue jellypress woocommerce overrides.
  *
  * @return void
  */
 function jellypress_woocommerce_scripts() {
-	wp_enqueue_style( 'jellypress-woocommerce-style', get_template_directory_uri() . '/woocommerce.css', array(), jellypress_VERSION );
-
-	$font_path   = WC()->plugin_url() . '/assets/fonts/';
-	$inline_font = '@font-face {
-			font-family: "star";
-			src: url("' . $font_path . 'star.eot");
-			src: url("' . $font_path . 'star.eot?#iefix") format("embedded-opentype"),
-				url("' . $font_path . 'star.woff") format("woff"),
-				url("' . $font_path . 'star.ttf") format("truetype"),
-				url("' . $font_path . 'star.svg#star") format("svg");
-			font-weight: normal;
-			font-style: normal;
-		}';
-
-	wp_add_inline_style( 'jellypress-woocommerce-style', $inline_font );
+	wp_enqueue_style( 'jellypress-woocommerce-style', get_template_directory_uri() . '/woocommerce.css', null, $theme_version ); //TODO $theme_version doesn't work here
 }
 add_action( 'wp_enqueue_scripts', 'jellypress_woocommerce_scripts' );
 
 /**
- * Disable the default WooCommerce stylesheet.
- *
- * Removing the default WooCommerce stylesheet and enqueing your own will
- * protect you during WooCommerce core updates.
- *
- * @link https://docs.woocommerce.com/document/disable-the-default-stylesheet/
+ * Uncomment to disable WooCommerce default styles, for debugging
  */
-add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+//add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
 /**
  * Add 'woocommerce-active' class to the body tag.
@@ -79,7 +61,6 @@ add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
  */
 function jellypress_woocommerce_active_body_class( $classes ) {
 	$classes[] = 'woocommerce-active';
-
 	return $classes;
 }
 add_filter( 'body_class', 'jellypress_woocommerce_active_body_class' );
@@ -118,9 +99,12 @@ if ( ! function_exists( 'jellypress_woocommerce_wrapper_before' ) ) {
 	 */
 	function jellypress_woocommerce_wrapper_before() {
 		?>
-		<div id="primary" class="content-area">
-			<main id="main" class="site-main" role="main">
-			<?php
+			<div id="primary" class="content-area">
+        <main id="main" class="site-main section">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+		<?php
 	}
 }
 add_action( 'woocommerce_before_main_content', 'jellypress_woocommerce_wrapper_before' );
@@ -134,9 +118,12 @@ if ( ! function_exists( 'jellypress_woocommerce_wrapper_after' ) ) {
 	 * @return void
 	 */
 	function jellypress_woocommerce_wrapper_after() {
-		?>
-			</main><!-- /#main -->
-		</div><!-- /#primary -->
+    ?>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container -->
+      </main><!-- / #main -->
+    </div><!-- / #primary -->
 		<?php
 	}
 }
@@ -217,13 +204,22 @@ if ( ! function_exists( 'jellypress_woocommerce_header_cart' ) ) {
 			<li>
 				<?php
 				$instance = array(
-					'title' => '',
+					'title' => 'Your Basket',
 				);
-
-				the_widget( 'WC_Widget_Cart', $instance );
+        the_widget( 'WC_Widget_Cart', $instance );
 				?>
 			</li>
 		</ul>
 		<?php
 	}
 }
+
+if ( !function_exists('jellypress_disable_woocommerce_sidebar')) {
+  /**
+   * Disables the sidebar on WooCommerce pages
+   */
+  function jellypress_disable_woocommerce_sidebar() {
+    remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
+  }
+}
+add_action('init', 'jellypress_disable_woocommerce_sidebar');

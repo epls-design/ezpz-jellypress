@@ -297,6 +297,7 @@ module.exports = function (grunt) {
           '**/*.php',
           '**/*.html',
           'style.css',
+          'woocommerce.css',
         ]
       },
       options: {

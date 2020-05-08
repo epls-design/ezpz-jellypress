@@ -1,87 +1,63 @@
-table.shop_table_responsive {
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  TABLES
+  Overrides default Woocommerce
+  table styles
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.woocommerce {
 
-	thead {
-		display: none;
-	}
+  table.shop_table {
+    // Inherit from Jellyfish
+    border-radius: $border-radius;
+    border: $borders;
 
-	tbody {
+    td {
+      border-top: 0;
+    }
 
-		th {
-			display: none;
-		}
-	}
+    tfoot th,
+    tfoot td {
+      border-top: $border-width*2 solid $border-color;
+      border-bottom: 0;
+    }
+  }
 
-	tr {
+  table.shop_table_responsive {
 
-		td {
-			display: block;
-			text-align: right;
-			clear: both;
+    tr {
+      td {
+        &::before {
+          // Makes content"attr(data-title)" not crush against input fields
+          margin-right: 10px;
+        }
 
-			&::before {
-				content: attr(data-title) ": ";
-				float: left;
-			}
+        &.product-remove {
+          a {
+            text-align: left;
+            // Nicer looking remove icon
+            color: $color-text !important;
 
-			&.product-remove {
+            &:hover {
+              background: transparent;
+              color: $woocommerce__color-error !important;
+              transform: scale(1.1);
+            }
+          }
+        }
 
-				a {
-					text-align: left;
-				}
+        &.actions,
+        &.download-actions {
+          &::before {
+            display: none;
+          }
+        }
 
-				&::before {
-					display: none;
-				}
-			}
-
-			&.actions,
-			&.download-actions {
-
-				&::before {
-					display: none;
-				}
-			}
-
-			&.download-actions {
-
-				.button {
-					display: block;
-					text-align: center;
-				}
-			}
-		}
-	}
-}
-
-@media screen and (min-width: 48em) {
-
-	table.shop_table_responsive {
-
-		thead {
-			display: table-header-group;
-		}
-
-		tbody {
-
-			th {
-				display: table-cell;
-			}
-		}
-
-		tr {
-
-			th,
-			td {
-				text-align: left;
-			}
-
-			td {
-				display: table-cell;
-
-				&::before {
-					display: none;
-				}
-			}
-		}
-	}
+        &.download-actions {
+          .button {
+            display: block;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
 }

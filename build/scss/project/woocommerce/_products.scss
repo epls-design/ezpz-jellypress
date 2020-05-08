@@ -1,66 +1,53 @@
-ul.products {
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  PRODUCTS
+  Overrides default Woocommerce
+  styles for product archive page
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-	@include clearfix;
-	margin: 0;
-	padding: 0;
+.woocommerce {
+  ul.products {
+    margin: 0;
 
-	li.product {
-		list-style: none;
-		position: relative;
-		margin-bottom: 2em;
+    li.product {
+      // (Product Card)
+      margin-bottom: $element-margin*2;
 
-		.woocommerce-loop-product__title {
-			font-size: 1rem;
-		}
+      .woocommerce-loop-product__title {
+        font-size: $font-size-medium;
+      }
 
-		img {
-			display: block;
-		}
+      a img {
+        margin-bottom: 0;
+      }
 
-		.button {
-			display: block;
-		}
-	}
-}
+      .button {
+        display: block;
+      }
+      .price {
+        color: $woocommerce__color-success;
+      }
+    }
+    @include above(768px) {
+      // Aligns buttons to bottom on larger screens
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      li.product {
+        display: flex;
+        flex-direction: column;
+        .woocommerce-LoopProduct-link {
+          margin-bottom: auto;
+        }
+      }
 
-@media screen and (min-width: 48em) {
+    }
+  }
 
-	ul.products {
+  a.added_to_cart {
+    // Link which appears when an item is added to basket
+    text-decoration: underline !important;
+    text-align: center;
+    display: block;
+  }
 
-		li.product {
-
-			@include column-width(3);
-			float: left;
-			margin-right: $columns__margin;
-
-			&.first {
-				clear: both;
-			}
-
-			&.last {
-				margin-right: 0;
-			}
-		}
-	}
-
-	ul.products.columns-1 {
-
-		li.product {
-			float: none;
-			width: 100%;
-		}
-
-	}
-
-	@for $i from 2 through 6 {
-
-		ul.products.columns-#{$i} {
-
-			li.product {
-
-				@include column-width( $i );
-			}
-
-		}
-	}
 }
