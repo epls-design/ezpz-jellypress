@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_5ea7f0d658186",
-            "label": "Contact Information",
+            "label": "<span class=\"dashicons dashicons-phone\"><\/span> Contact Information",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -147,7 +147,7 @@
         },
         {
             "key": "field_5ea7ec7de584e",
-            "label": "Social Media",
+            "label": "<span class=\"dashicons dashicons-networking\"><\/span> Social Media",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -233,7 +233,7 @@
         },
         {
             "key": "field_5ea7f6eed27df",
-            "label": "Connected Services",
+            "label": "<span class=\"dashicons dashicons-rest-api\"><\/span> Connected Services",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -303,5 +303,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "This field group allows the editor to update key business information and to connect external APIs which are added to the theme.",
-    "modified": 1588834970
+    "modified": 1589010823
 }

@@ -40,14 +40,42 @@
 .acf-input label {
   font-size: 1em; }
 
+.acf-handle-right {
+  font-weight: normal;
+  position: absolute;
+  left: 70%;
+  display: inline-block;
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  padding-left: 10px; }
+
 #poststuff .acf-postbox .hndle {
   font-size: 1.2em; }
+
+.acf-field p.description {
+  margin-top: 6px;
+  border-left: 3px solid #cccccc;
+  background: #f3f4f5;
+  padding: 4px 8px;
+  color: #333333;
+  line-height: 1.3; }
+
+.acf-field .acf-input > p.description {
+  margin-top: 10px; }
+
+.acf-tab-button .dashicons {
+  font-size: 15px;
+  height: 15px;
+  width: 15px;
+  margin-top: 4px; }
 
 ul.acf-swatch-list label {
   font-size: 0px; }
 
 ul.acf-swatch-list > li {
   display: inline-block; }
+
+.acf-tooltip li a[data-layout$=image] {
+  border-top: 1px solid rgba(255, 255, 255, 0.2); }
 
 #mceu_71 {
   background: #fff;

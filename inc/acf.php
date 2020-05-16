@@ -121,3 +121,124 @@ function jellypress_acf_swatch_url( $url ) {
 }
 
 include( 'acf-swatch/acf-swatch.php' );
+
+/**
+ * jellypress_searchable_acf list all the custom fields we want to include in our search query]
+ * @return [array] [list of custom fields]
+ */
+function jellypress_searchable_acf(){
+  $jellypress_searchable_acf = array("title", "sub_title", "excerpt_short", "excerpt_long", "xyz", "myACF");
+  return $jellypress_searchable_acf;
+}
+
+/**
+ * Extend WordPress search to include custom fields
+ * @link https://adambalee.com/search-wordpress-by-custom-fields-without-a-plugin/
+ */
+
+/**
+ * Join posts and postmeta tables
+ * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_join
+ */
+function jellypress_search_acf_join( $join ) {
+  global $wpdb;
+  if ( is_search() ) {
+      $join .=' LEFT JOIN '.$wpdb->postmeta. ' ON '. $wpdb->posts . '.ID = ' . $wpdb->postmeta . '.post_id ';
+  }
+  return $join;
+}
+add_filter('posts_join', 'jellypress_search_acf_join' );
+
+/**
+* Modify the search query with posts_where
+* http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_where
+*/
+function jellypress_search_acf_where( $where ) {
+  global $pagenow, $wpdb;
+  if ( is_search() ) {
+      $where = preg_replace(
+          "/\(\s*".$wpdb->posts.".post_title\s+LIKE\s*(\'[^\']+\')\s*\)/",
+          "(".$wpdb->posts.".post_title LIKE $1) OR (".$wpdb->postmeta.".meta_value LIKE $1)", $where );
+  }
+  return $where;
+}
+add_filter( 'posts_where', 'jellypress_search_acf_where' );
+
+/**
+* Prevent duplicates
+* http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_distinct
+*/
+function jellypress_search_acf_distinct( $where ) {
+  global $wpdb;
+  if ( is_search() ) {
+      return "DISTINCT";
+  }
+  return $where;
+}
+add_filter( 'posts_distinct', 'jellypress_search_acf_distinct' );
+
+/**
+ * Hooks into Flexible Content Fields to append useful titles to header handles,
+ * so that editors can see at a glance what content is contained within a section.
+ */
+function jellypress_acf_flexible_titles($title, $field, $layout, $i) {
+	$layout = get_row_layout();
+  if($block_title = get_sub_field('title')) {
+    // If there is a title, use that as priority over anything else
+		return $block_title.'<span class="acf-handle-right">'.$title.'</span>';
+  }
+  elseif($layout == 'image') {
+    // If the layout is an image, try to use the image title or alt tag, before resorting to filename
+    $image_id = get_sub_field( 'image' );
+    if($image_title = get_the_title($image_id)){
+      // Start by looking for a title...
+    }
+    elseif ($image_title = get_post_meta($image_id, '_wp_attachment_image_alt', true)) {
+      // If that fails, look for an Alt tag....
+    }
+    else {
+      // If all else fails.... use the filename
+      $image_title = get_post_meta($image_id, '_wp_attached_file', true);
+    }
+    return $image_title.'<span class="acf-handle-right">'.$title.'</span>';
+  }
+  elseif($layout == 'gallery') {
+    // If the layout is a gallery, we want to find the first image with either a title or alt tag and append '+ $i'
+    if ( $images_images = get_sub_field( 'images' ) ) :
+      $i = 0;
+      $gallery_img_title = '';
+      foreach ( $images_images as $images_image ):
+        if(($images_image['alt']!= NULL OR $images_image['title']!= NULL) AND $gallery_img_title == NULL) {
+          // If the image has a title or alt tag, and we have not previously found a qualifying image...
+          if($gallery_img_title = $images_image['title']) {
+            // First use the title
+          }
+          else {
+            $gallery_img_title = $images_image['alt'];
+            // Otherwise use the alt text
+          }
+        };
+        $i++;
+      endforeach;
+      if($gallery_img_title AND $i==1) {
+        // We found a good title, and there is only one image - return the title
+        $images_list = $gallery_img_title;
+      }
+      elseif ($gallery_img_title AND $i>1) {
+        // We found a good title and there is more than one images - append the total number of images -1
+        $images_list = $gallery_img_title.' and '.($i - 1).' more';
+      }
+      else {
+        // No title found, echo out the amount of images
+        $images_list = $i.' images';
+      }
+    endif;
+    return $images_list.'<span class="acf-handle-right">'.$title.'</span>';
+  }
+  else {
+    // If nothing found, return the block name
+    return $title;
+  }
+}
+add_filter('acf/fields/flexible_content/layout_title', 'jellypress_acf_flexible_titles', 10, 4);
+
