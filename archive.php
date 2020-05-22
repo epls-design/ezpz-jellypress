@@ -9,13 +9,6 @@
 
 get_header();
 ?>
-<?php
-/**
- * On search pages, the user may wish to enable a sidebar, so we wrap the whole output in a .container .row
- * This is different to the layout of page.php
- */
-?>
-<div class="section">
   <div class="container">
     <div class="row">
 
@@ -41,8 +34,7 @@ get_header();
               */
               get_template_part( 'template-parts/content', get_post_type() );
             endwhile;
-            the_posts_navigation();
-
+              jellypress_numeric_pagination(); // Custom Function to display pagination with numbered pages rather than simple next/prev links
             else :
               get_template_part( 'template-parts/content', 'none' );
             endif; ?>
@@ -52,6 +44,5 @@ get_header();
       <?php get_sidebar(); // TODO: Remove if you don't want a sidebar on your archive page ?>
     </div><!-- /.row -->
   </div><!-- /.container -->
-</div><!-- /.section -->
 <?php
 get_footer();

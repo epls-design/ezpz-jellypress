@@ -51,3 +51,10 @@
 .cat-links, .tags-links, .comments-link, .edit-link {
   display: block;
 }
+
+.comment-list {
+  // Comment list is an ol element, Jellyfish removes bottom margin on nested lists, this resets that behaviour
+  ol, ul, dl {
+    margin-bottom: $element-margin;
+  }
+}

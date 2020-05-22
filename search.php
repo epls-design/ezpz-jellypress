@@ -15,7 +15,7 @@ get_header();
  * This is different to the layout of page.php
  */
  ?>
-<div class="section">
+<section class="section bg-white">
   <div class="container">
     <div class="row">
 
@@ -49,6 +49,6 @@ get_header();
       <?php get_sidebar(); // TODO: Remove if you don't want a sidebar on your search results page ?>
     </div><!-- /.row -->
   </div><!-- /.container -->
-</div><!-- /.section -->
+</section><!-- /.section -->
 <?php
 get_footer();

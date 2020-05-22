@@ -24,14 +24,15 @@ get_header();
           get_template_part( 'template-parts/acf-flexible-content'); // Get flexible content from ACF
 
           jellypress_entry_footer(); // Call function from template-tags
-
+          ?>
+          </article><!-- /#post-<?php the_ID(); ?> -->
+          <?php
           // If comments are open or we have at least one comment, load up the comment template.
           if ( comments_open() || get_comments_number() ) :
             comments_template();
           endif;
         endwhile; // End of the loop.
       ?>
-    </article><!-- /#post-<?php the_ID(); ?> -->
   </main><!-- /#main -->
 </div><!-- /#primary -->
 <?php

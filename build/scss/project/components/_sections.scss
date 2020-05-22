@@ -9,13 +9,14 @@
   padding-bottom: $section-padding;
   position: relative;
 
+  // ACF Section: Image
   &__image {
     img {
       width: 100%; // Force image to be fullwidth
     }
   }
 
-  // Image Gallery
+  // ACF Section: Image Gallery
   &__gallery {
     .gallery-item {
       display: inline-block;

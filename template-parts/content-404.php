@@ -6,7 +6,7 @@
  */
 
 ?>
-<section class="section error-404 not-found">
+<section class="section bg-white error-404 not-found">
   <div class="container">
     <div class="row">
       <article class="col sm-12 md-8 lg-9">

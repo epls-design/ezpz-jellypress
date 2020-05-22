@@ -9,7 +9,7 @@
 
 ?>
 
-<section class="no-results not-found">
+<section class="section bg-white no-results not-found">
   <div class="container">
     <div class="row">
       <div class="col">
@@ -20,7 +20,7 @@
           <?php
             if ( is_home() && current_user_can( 'publish_posts' ) ) :
             printf(
-            '<section class="section"><p>' . wp_kses(
+            '<section><p>' . wp_kses(
               /* translators: 1: link to WP admin new post page. */
               __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'jellypress' ),
               array(

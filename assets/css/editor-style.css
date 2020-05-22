@@ -1912,6 +1912,9 @@ Utilities
 .cat-links, .tags-links, .comments-link, .edit-link {
   display: block; }
 
+.comment-list ol, .comment-list ul, .comment-list dl {
+  margin-bottom: 30px; }
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   HELPERS
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -1955,6 +1958,45 @@ Utilities
   margin-left: 1em; }
   .icon-list .icon {
     margin-right: .5em; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  NUMERIC PAGINATION
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.pagination {
+  list-style-type: none;
+  margin: 30px 0;
+  display: flex; }
+  .pagination .nav-next {
+    margin-right: 0; }
+  .pagination li {
+    text-transform: uppercase; }
+    .pagination li.active a {
+      background: #807f7f;
+      color: #fff; }
+    .pagination li.nav-total,
+    .pagination li a {
+      border: 1px solid #d9dbdb;
+      padding: 6.6666666667px 10px; }
+    .pagination li.nav-total {
+      background: #b3b2b2;
+      color: #fff; }
+  .pagination a {
+    transition: background 0.2s ease, color 0.2s ease;
+    text-decoration: none;
+    background: #fff;
+    border-left: 0 !important;
+    display: block; }
+    .pagination a, .pagination a:link, .pagination a:visited {
+      color: #807f7f; }
+    .pagination a:hover, .pagination a:active, .pagination a:focus {
+      background: #b3b2b2;
+      color: #fff; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  SCAFFOLDING
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.site-content img {
+  margin-bottom: 30px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   SECTIONS
