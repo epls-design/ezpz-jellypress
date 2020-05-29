@@ -11,6 +11,7 @@ Text Domain: jellypress
 /* GRID */
 /* JELLYFISH DEFAULTS */
 /* COLOURS */
+/* THEME COLOURS */
 /* TYPEFACES */
 /* FONT SIZES */
 /* Global padding/margins */
@@ -1918,23 +1919,68 @@ Utilities
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   HELPERS
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.bg-black, .bg-red {
+.bg-black, .bg-primary, .bg-secondary, .bg-tertiary, .bg-black a, .bg-primary a, .bg-secondary a, .bg-tertiary a, .bg-black h1, .bg-primary h1, .bg-secondary h1, .bg-tertiary h1, .bg-black h2, .bg-primary h2, .bg-secondary h2, .bg-tertiary h2, .bg-black h3, .bg-primary h3, .bg-secondary h3, .bg-tertiary h3, .bg-black h4, .bg-primary h4, .bg-secondary h4, .bg-tertiary h4, .bg-black h5, .bg-primary h5, .bg-secondary h5, .bg-tertiary h5, .bg-black h6, .bg-primary h6, .bg-secondary h6, .bg-tertiary h6 {
   color: #fff; }
+
+.bg-black {
+  background-color: #333333; }
+  .bg-black + .bg-black {
+    padding-top: 0; }
+
+.colour-black {
+  color: #333333; }
 
 .bg-white {
   background-color: #fff; }
   .bg-white + .bg-white {
     padding-top: 0; }
 
-.bg-black {
-  background-color: #000; }
-  .bg-black + .bg-black {
+.colour-white {
+  color: #fff; }
+
+.bg-primary {
+  background-color: #b22d4f; }
+  .bg-primary + .bg-primary {
     padding-top: 0; }
 
-.bg-red {
-  background-color: #ff0000; }
-  .bg-red + .bg-red {
+.colour-primary {
+  color: #b22d4f; }
+
+.bg-secondary {
+  background-color: #2d6378; }
+  .bg-secondary + .bg-secondary {
     padding-top: 0; }
+
+.colour-secondary {
+  color: #2d6378; }
+
+.bg-tertiary {
+  background-color: #5d2b50; }
+  .bg-tertiary + .bg-tertiary {
+    padding-top: 0; }
+
+.colour-tertiary {
+  color: #5d2b50; }
+
+.mattweetdesign {
+  display: block;
+  height: 24px;
+  line-height: 24px;
+  text-decoration: none;
+  white-space: nowrap; }
+  @media screen {
+    .mattweetdesign a {
+      background-image: url(../../uploads/developer/mattweet-logo-full-rev.svg);
+      background-position: center center;
+      background-repeat: no-repeat;
+      display: inline-block;
+      height: 24px;
+      line-height: 24px;
+      text-indent: -9999px;
+      width: 84px; } }
+  @media print {
+    .mattweetdesign a::after {
+      content: " hello@mattweet.com"; } }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   ICONS

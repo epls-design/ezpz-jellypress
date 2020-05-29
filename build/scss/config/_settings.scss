@@ -11,13 +11,41 @@ $debug-mode-on: false;
 //$base-col-gutter: 10px; // define in px
 
 /* COLOURS */
-//$color-text: #333333;
+$color-text: #333333;
 //$color-text-light: #d9dbdb;
-//$color-background: #fff;
+$color-background: #fff;
 //$color-background-alt: #efefef;
-//$color-primary: #b22d4f;
-//$color-secondary: #2d6378;
-//$color-tertiary: #5d2b50;
+$color-primary: #b22d4f;
+$color-secondary: #2d6378;
+$color-tertiary: #5d2b50;
+
+/* THEME COLOURS */
+// These colours get looped through in _1_helpers.scss to create helper classes for .bg-* and .color-*
+// Use the boolean variable is_dark to ensure that any text that appears on a block with this bg has better contrast
+// Variables must be declared in this partial, the map will not inherit default variables
+
+$theme-colors: (
+  // If using ACF, ensure that the values of background colours match these values exactly
+  black: (
+    color: $color-text,
+    is_dark: true
+  ),
+  white: (
+    color: $color-background,
+  ),
+  primary: (
+    color: $color-primary,
+    is_dark: true
+  ),
+  secondary: (
+    color: $color-secondary,
+    is_dark: true
+  ),
+  tertiary: (
+    color: $color-tertiary,
+    is_dark: true
+  )
+);
 
 /* TYPEFACES */
 //$font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

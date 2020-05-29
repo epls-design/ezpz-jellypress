@@ -108,7 +108,6 @@
                             "choices": {
                                 "#fff": "White",
                                 "#000": "Black",
-                                "#ff0000": "Red",
                                 "#b22d4f": "Primary",
                                 "#2d6378": "Secondary",
                                 "#5d2b50": "Tertiary"
@@ -1008,5 +1007,5 @@
     ],
     "active": 1,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1590133684
+    "modified": 1590738135
 }
