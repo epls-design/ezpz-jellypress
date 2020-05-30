@@ -31,9 +31,18 @@
 /* NAVBAR */
 /* HAMBURGER MENU */
 .acf-fc-layout-handle {
-  background: #b22d4f !important;
+  padding-left: 25px !important;
+  background: #23282d !important;
   color: #fff !important;
   font-weight: bold; }
+  .acf-fc-layout-handle .swatch {
+    width: 15px;
+    display: inline-block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.5); }
 
 .acf-field-group label {
   font-size: 1.2em; }
@@ -77,6 +86,52 @@ ul.acf-swatch-list > li {
 
 .acf-tooltip li a[data-layout$=image] {
   border-top: 1px solid rgba(255, 255, 255, 0.2); }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  ADMIN HELPERS
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.bg-black, .bg-primary, .bg-secondary, .bg-tertiary, .bg-black a, .bg-primary a, .bg-secondary a, .bg-tertiary a, .bg-black h1, .bg-primary h1, .bg-secondary h1, .bg-tertiary h1, .bg-black h2, .bg-primary h2, .bg-secondary h2, .bg-tertiary h2, .bg-black h3, .bg-primary h3, .bg-secondary h3, .bg-tertiary h3, .bg-black h4, .bg-primary h4, .bg-secondary h4, .bg-tertiary h4, .bg-black h5, .bg-primary h5, .bg-secondary h5, .bg-tertiary h5, .bg-black h6, .bg-primary h6, .bg-secondary h6, .bg-tertiary h6 {
+  color: #fff; }
+
+.bg-black {
+  background-color: #333333; }
+  .bg-black + .bg-black {
+    padding-top: 0; }
+
+.colour-black {
+  color: #333333; }
+
+.bg-white {
+  background-color: #fff; }
+  .bg-white + .bg-white {
+    padding-top: 0; }
+
+.colour-white {
+  color: #fff; }
+
+.bg-primary {
+  background-color: #b22d4f; }
+  .bg-primary + .bg-primary {
+    padding-top: 0; }
+
+.colour-primary {
+  color: #b22d4f; }
+
+.bg-secondary {
+  background-color: #2d6378; }
+  .bg-secondary + .bg-secondary {
+    padding-top: 0; }
+
+.colour-secondary {
+  color: #2d6378; }
+
+.bg-tertiary {
+  background-color: #5d2b50; }
+  .bg-tertiary + .bg-tertiary {
+    padding-top: 0; }
+
+.colour-tertiary {
+  color: #5d2b50; }
 
 #mceu_71 {
   background: #fff;

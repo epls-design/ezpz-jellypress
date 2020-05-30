@@ -1,6 +1,17 @@
 // ACF Flexible Content Heading
 .acf-fc-layout-handle {
-  background: $color-primary !important;
+  .swatch {
+    // Hugs the left side of the acf-handle and shows the user what bg colour is selected
+    width: 15px;
+    display: inline-block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-right: 1px solid rgba(255,255,255,0.5);
+  }
+  padding-left: 25px !important;
+  background: #23282d !important;
   color: #fff !important;
   font-weight: bold;
 }

@@ -182,10 +182,12 @@ add_filter( 'posts_distinct', 'jellypress_search_acf_distinct' );
  * so that editors can see at a glance what content is contained within a section.
  */
 function jellypress_acf_flexible_titles($title, $field, $layout, $i) {
-	$layout = get_row_layout();
+  $layout = get_row_layout();
+  $background_color = 'bg-'.strtolower(get_sub_field( 'background_color' ));
+
   if($block_title = get_sub_field('title')) {
     // If there is a title, use that as priority over anything else
-		return $block_title.'<span class="acf-handle-right">'.$title.'</span>';
+		return '<span class="swatch '.$background_color.'"></span>'.$block_title.'<span class="acf-handle-right">'.$title.'</span>';
   }
   elseif($layout == 'image') {
     // If the layout is an image, try to use the image title or alt tag, before resorting to filename
@@ -200,7 +202,7 @@ function jellypress_acf_flexible_titles($title, $field, $layout, $i) {
       // If all else fails.... use the filename
       $image_title = get_post_meta($image_id, '_wp_attached_file', true);
     }
-    return $image_title.'<span class="acf-handle-right">'.$title.'</span>';
+    return '<span class="swatch '.$background_color.'"></span>'.$image_title.'<span class="acf-handle-right">'.$title.'</span>';
   }
   elseif($layout == 'gallery') {
     // If the layout is a gallery, we want to find the first image with either a title or alt tag and append '+ $i'
@@ -233,11 +235,11 @@ function jellypress_acf_flexible_titles($title, $field, $layout, $i) {
         $images_list = $i.' images';
       }
     endif;
-    return $images_list.'<span class="acf-handle-right">'.$title.'</span>';
+    return '<span class="swatch '.$background_color.'"></span>'.$images_list.'<span class="acf-handle-right">'.$title.'</span>';
   }
   else {
     // If nothing found, return the block name
-    return $title;
+    return '<span class="swatch '.$background_color.'"></span>'.$title;
   }
 }
 add_filter('acf/fields/flexible_content/layout_title', 'jellypress_acf_flexible_titles', 10, 4);
