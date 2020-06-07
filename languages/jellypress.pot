@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jellypress 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/jellypress\n"
-"POT-Creation-Date: 2020-05-08 10:01:24+00:00\n"
+"POT-Creation-Date: 2020-06-07 20:56:59+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,20 +27,108 @@ msgstr ""
 msgid "Website design and build by %1$s."
 msgstr ""
 
-#: functions.php:64
-msgid "Primary"
-msgstr ""
-
-#: functions.php:134
-msgid "Sidebar"
-msgstr ""
-
-#: functions.php:136
-msgid "Add widgets here."
-msgstr ""
-
 #: header.php:28
 msgid "Skip to content"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v4.php:15 inc/acf-swatch/acf-swatch-v5.php:34
+msgid "Color Swatch"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v4.php:16
+msgid "Choice"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v4.php:97
+msgid "Other"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v4.php:131 inc/acf-swatch/acf-swatch-v5.php:199
+msgid "Choices"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v4.php:132
+msgid "Enter your colors one per line"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v4.php:134 inc/acf-swatch/acf-swatch-v5.php:200
+msgid "red : Red"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v4.php:135 inc/acf-swatch/acf-swatch-v5.php:200
+msgid "#fff : White"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v4.php:136
+msgid "rgba(0,0,0, 1) : Black"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v4.php:157
+msgid "Add 'other' choice to allow for custom values"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v4.php:169
+msgid "Save 'other' values to the field's choices"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v4.php:178 inc/acf-swatch/acf-swatch-v5.php:241
+msgid "Default Value"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v4.php:194 inc/acf-swatch/acf-swatch-v5.php:249
+msgid "Layout"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v4.php:205 inc/acf-swatch/acf-swatch-v5.php:255
+msgid "Vertical"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v4.php:206 inc/acf-swatch/acf-swatch-v5.php:256
+msgid "Horizontal"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v5.php:200
+msgid "Enter each color option one per line."
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v5.php:200
+msgid "rgba(0,0,0,1) : Black"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v5.php:207
+msgid "Allow Null?"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v5.php:212
+msgid "Yes"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v5.php:213
+msgid "No"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v5.php:242
+msgid "Appears when creating a new post"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v5.php:262
+msgid "Return Value"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v5.php:263
+msgid "Specify the returned value on front end"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v5.php:268
+msgid "Value"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v5.php:269
+msgid "Label"
+msgstr ""
+
+#: inc/acf-swatch/acf-swatch-v5.php:270
+msgid "Both (Array)"
 msgstr ""
 
 #: inc/template-tags.php:67
@@ -68,11 +156,23 @@ msgstr ""
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
-#: inc/woocommerce.php:173
+#: inc/theme-setup.php:59
+msgid "Primary"
+msgstr ""
+
+#: inc/widgets.php:18
+msgid "Sidebar"
+msgstr ""
+
+#: inc/widgets.php:20
+msgid "Add your widgets here."
+msgstr ""
+
+#: inc/woocommerce.php:175
 msgid "View your shopping cart"
 msgstr ""
 
-#: inc/woocommerce.php:177
+#: inc/woocommerce.php:179
 #. translators: number of items in the mini cart.
 msgid "%d item"
 msgid_plural "%d items"
@@ -119,12 +219,12 @@ msgstr ""
 msgid "Sections:"
 msgstr ""
 
-#: template-parts/content.php:38
+#: template-parts/content.php:50
 #. translators: %s: Name of current post. Only visible to screen readers
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: template-parts/content.php:49
+#: template-parts/content.php:61
 msgid "Pages:"
 msgstr ""
 

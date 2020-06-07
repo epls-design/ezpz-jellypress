@@ -5,6 +5,17 @@
  * @package jellypress
  */
 
+
+add_action( 'admin_init', 'jellypress_add_editor_styles' );
+if ( ! function_exists( 'jellypress_add_editor_styles' ) ) {
+	/**
+	 * Registers an editor stylesheet for the theme.
+	 */
+	function jellypress_add_editor_styles() {
+		add_editor_style( 'assets/css/editor-style.min.css' );
+	}
+}
+
  /**
   * Add custom styles to the WYSIWIG
   * @link https://www.wpbeginner.com/wp-tutorials/how-to-add-custom-styles-to-wordpress-visual-editor/
@@ -89,20 +100,8 @@ if ( !function_exists( 'jellypress_mce_before_init_insert_formats' )) {
 }
 
 /**
- * Restricts TinyMCE options
- */
-function jellypress_toolbars( $toolbars ) {
-	$toolbars['Full' ] = array(
-		1 => array('formatselect', 'bold', 'italic', 'blockquote', 'bullist', 'numlist', 'link', 'unlink', 'spellchecker', 'wp_adv'),
-		2 => array('styleselect', 'forecolor', 'pastetext', 'removeformat', 'charmap', 'alignleft', 'aligncenter', 'alignright', 'undo', 'redo' )
-	);
-	return $toolbars;
-}
-add_filter( 'acf/fields/wysiwyg/toolbars' , 'jellypress_toolbars'  );
-
-/**
  * Loads a stylesheet to define styles for the admin area
  */
 add_action('admin_head', function() {
-echo '<link rel="stylesheet" href="'.get_stylesheet_directory_uri().'/admin-style.css" />';
+  echo '<link rel="stylesheet" href="'.get_stylesheet_directory_uri().'/assets/css/admin-style.min.css" />';
 });

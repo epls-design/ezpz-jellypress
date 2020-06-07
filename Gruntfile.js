@@ -167,15 +167,15 @@ module.exports = function (grunt) {
           },
           {
             src: '<%= globalConfig.dist_dir %>/css/woocommerce.css',
-            dest: 'woocommerce.css'
+            dest: '<%= globalConfig.dist_dir %>/css/woocommerce.min.css'
           },
           {
             src: '<%= globalConfig.dist_dir %>/css/editor-style.css',
-            dest: 'editor-style.css'
+            dest: '<%= globalConfig.dist_dir %>/css/editor-style.min.css'
           },
           {
             src: '<%= globalConfig.dist_dir %>/css/admin-style.css',
-            dest: 'admin-style.css'
+            dest: '<%= globalConfig.dist_dir %>/css/admin-style.min.css'
           }
         ]
       }
@@ -297,7 +297,7 @@ module.exports = function (grunt) {
           '**/*.php',
           '**/*.html',
           'style.css',
-          'woocommerce.css',
+          '<%= globalConfig.dist_dir %>/css/woocommerce.min.css',
         ]
       },
       options: {

@@ -8,10 +8,10 @@
  * @package jellypress
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+if ( ! is_active_sidebar( 'default-sidebar' ) ) {
 	return;
 }
 ?>
 <aside id="secondary" class="section widget-area col xs-12 md-3">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+	<?php dynamic_sidebar( 'default-sidebar' ); ?>
 </aside><!-- /#secondary -->

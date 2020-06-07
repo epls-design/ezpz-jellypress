@@ -7,44 +7,50 @@
  * @package jellypress
  */
 
-/**
- * WooCommerce setup function.
- *
- * @link https://docs.woocommerce.com/document/third-party-custom-theme-compatibility/
- * @link https://github.com/woocommerce/woocommerce/wiki/Enabling-product-gallery-features-(zoom,-swipe,-lightbox)
- * @link https://github.com/woocommerce/woocommerce/wiki/Declaring-WooCommerce-support-in-themes
- *
- * @return void
- */
-function jellypress_woocommerce_setup() {
-	add_theme_support(
-		'woocommerce',
-		array(
-			'thumbnail_image_width' => 150,
-			'single_image_width'    => 300,
-			'product_grid'          => array(
-				'default_rows'    => 3,
-				'min_rows'        => 1,
-				'default_columns' => 4,
-				'min_columns'     => 1,
-				'max_columns'     => 6,
-			),
-		)
-	);
-	add_theme_support( 'wc-product-gallery-zoom' );
-	add_theme_support( 'wc-product-gallery-lightbox' );
-	add_theme_support( 'wc-product-gallery-slider' );
-	// TODO: FIX WOOCOMMERCE CROPPING
+if ( ! function_exists( 'jellypress_woocommerce_setup' ) ) {
+  /**
+   * WooCommerce setup function.
+   *
+   * @link https://docs.woocommerce.com/document/third-party-custom-theme-compatibility/
+   * @link https://github.com/woocommerce/woocommerce/wiki/Enabling-product-gallery-features-(zoom,-swipe,-lightbox)
+   * @link https://github.com/woocommerce/woocommerce/wiki/Declaring-WooCommerce-support-in-themes
+   *
+   * @return void
+   */
+  function jellypress_woocommerce_setup() {
+    add_theme_support(
+      'woocommerce',
+      array(
+        'thumbnail_image_width' => 150,
+        'single_image_width'    => 300,
+        'product_grid'          => array(
+          'default_rows'    => 3,
+          'min_rows'        => 1,
+          'default_columns' => 4,
+          'min_columns'     => 1,
+          'max_columns'     => 6,
+        ),
+      )
+    );
+    add_theme_support( 'wc-product-gallery-zoom' );
+    add_theme_support( 'wc-product-gallery-lightbox' );
+    add_theme_support( 'wc-product-gallery-slider' );
+    // TODO: FIX WOOCOMMERCE CROPPING
+  }
 }
 add_action( 'after_setup_theme', 'jellypress_woocommerce_setup' );
 
-/**
- * Enqueue jellypress woocommerce overrides.
- *
- * @return void
- */
-function jellypress_woocommerce_scripts() {
-	wp_enqueue_style( 'jellypress-woocommerce-style', get_template_directory_uri() . '/woocommerce.css', null, $theme_version ); //TODO $theme_version doesn't work here
+if ( ! function_exists( 'jellypress_woocommerce_scripts' ) ) {
+  /**
+   * Enqueue jellypress woocommerce overrides.
+   *
+   * @return void
+   */
+  function jellypress_woocommerce_scripts() {
+    $theme_version = wp_get_theme()->get( 'Version' ); // Get current version of theme
+    $wc_version = $theme_version . '.' . filemtime( get_template_directory() . '/assets/css/woocommerce.min.css' ); // Appends time stamp to help with cache busting
+    wp_enqueue_style( 'jellypress-woocommerce-style', get_template_directory_uri() . '/assets/css/woocommerce.min.css', array(), $wc_version );
+  }
 }
 add_action( 'wp_enqueue_scripts', 'jellypress_woocommerce_scripts' );
 
@@ -53,33 +59,37 @@ add_action( 'wp_enqueue_scripts', 'jellypress_woocommerce_scripts' );
  */
 //add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
-/**
- * Add 'woocommerce-active' class to the body tag.
- *
- * @param  array $classes CSS classes applied to the body tag.
- * @return array $classes modified to include 'woocommerce-active' class.
- */
-function jellypress_woocommerce_active_body_class( $classes ) {
-	$classes[] = 'woocommerce-active';
-	return $classes;
+if ( ! function_exists( 'jellypress_woocommerce_active_body_class' ) ) {
+  /**
+   * Add 'woocommerce-active' class to the body tag.
+   *
+   * @param  array $classes CSS classes applied to the body tag.
+   * @return array $classes modified to include 'woocommerce-active' class.
+   */
+  function jellypress_woocommerce_active_body_class( $classes ) {
+    $classes[] = 'woocommerce-active';
+    return $classes;
+  }
 }
 add_filter( 'body_class', 'jellypress_woocommerce_active_body_class' );
 
-/**
- * Related Products Args.
- *
- * @param array $args related products args.
- * @return array $args related products args.
- */
-function jellypress_woocommerce_related_products_args( $args ) {
-	$defaults = array(
-		'posts_per_page' => 3,
-		'columns'        => 3,
-	);
+if ( ! function_exists( 'jellypress_woocommerce_related_products_args' ) ) {
+  /**
+   * Related Products Args.
+   *
+   * @param array $args related products args.
+   * @return array $args related products args.
+   */
+  function jellypress_woocommerce_related_products_args( $args ) {
+    $defaults = array(
+      'posts_per_page' => 3,
+      'columns'        => 3,
+    );
 
-	$args = wp_parse_args( $defaults, $args );
+    $args = wp_parse_args( $defaults, $args );
 
-	return $args;
+    return $args;
+  }
 }
 add_filter( 'woocommerce_output_related_products_args', 'jellypress_woocommerce_related_products_args' );
 
@@ -134,11 +144,11 @@ add_action( 'woocommerce_after_main_content', 'jellypress_woocommerce_wrapper_af
  *
  * You can add the WooCommerce Mini Cart to header.php like so ...
  *
-	<?php
-		if ( function_exists( 'jellypress_woocommerce_header_cart' ) ) {
-			jellypress_woocommerce_header_cart();
-		}
-	?>
+ * 	<?php
+ * 		if ( function_exists( 'jellypress_woocommerce_header_cart' ) ) {
+ * 			jellypress_woocommerce_header_cart();
+ * 		}
+ * 	?>
  */
 
 if ( ! function_exists( 'jellypress_woocommerce_cart_link_fragment' ) ) {
