@@ -5,6 +5,8 @@
  * @package jellypress
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 add_action( 'admin_init', 'jellypress_add_editor_styles' );
 if ( ! function_exists( 'jellypress_add_editor_styles' ) ) {

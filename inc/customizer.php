@@ -5,6 +5,9 @@
  * @package jellypress
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 if ( ! function_exists( 'jellypress_customize_register' ) ) {
   /**
    * Add postMessage support for site title and description for the Theme Customizer.

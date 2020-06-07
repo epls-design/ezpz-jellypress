@@ -5,6 +5,8 @@
  * @package jellypress
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 if ( !function_exists( 'jellypress_restrict_acf_tinymce_opts' )) {
   /**

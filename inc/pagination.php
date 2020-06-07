@@ -5,6 +5,9 @@
  * @package jellypress
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 if ( ! function_exists( 'jellypress_numeric_pagination' ) ) :
   /**
    * This function adds numeric pagination to archive pages

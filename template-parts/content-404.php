@@ -5,6 +5,9 @@
  * @package jellypress
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 ?>
 <section class="section bg-white error-404 not-found">
   <div class="container">

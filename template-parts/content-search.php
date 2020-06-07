@@ -7,6 +7,9 @@
  * @package jellypress
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 ?>
 <div class="row">
   <article id="post-<?php the_ID(); ?>" <?php post_class('col'); ?>>

@@ -5,6 +5,9 @@
  * @package jellypress
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 if ( ! function_exists( 'jellypress_content_width' ) ) {
   /**
    * Set the content width in pixels, based on the theme's design and stylesheet.

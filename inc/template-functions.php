@@ -5,6 +5,9 @@
  * @package jellypress
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 if ( ! function_exists( 'jellypress_body_classes' ) ) {
   /**
    * Adds custom classes to the array of body classes.

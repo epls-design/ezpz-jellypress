@@ -8,6 +8,9 @@
  * @package jellypress
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 $jellypress_includes = array(
 	'/theme-setup.php',             // Basic theme setup
 	'/widgets.php',                 // Register widget areas

@@ -9,6 +9,9 @@
  * @package jellypress
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 ?>
 	</div><!-- /#content .site-content -->
 	<footer class="site-footer">

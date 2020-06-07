@@ -5,6 +5,9 @@
  * @package jellypress
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 if ( ! defined( 'FAVICON_DIR' ) ) {
 	define( 'FAVICON_DIR', get_template_directory_uri() . '/assets/favicon' );
 }
