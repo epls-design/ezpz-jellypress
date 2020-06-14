@@ -1,13 +1,15 @@
-// Developer branding
-.mattweetdesign {
-    display: block;
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  DEVELOPER INFORMATION
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.bobastudio {
     height: 24px;
     line-height: 24px;
     text-decoration: none;
     white-space: nowrap;
    a {
      @media screen{
-        background-image: url(../../uploads/developer/mattweet-logo-full-rev.svg);
+        background-image: url('assets/img/boba-studio/boba-studio.svg');
         background-position: center center;
         background-repeat: no-repeat;
         display: inline-block;
@@ -15,10 +17,11 @@
         line-height: 24px;
         text-indent: -9999px;
         width: 84px;
+        margin-left: 5px;
      }
      @media print {
        &::after {
-         content: " hello@mattweet.com";
+         content: " hello@weareboba.com";
        }
      }
     }
