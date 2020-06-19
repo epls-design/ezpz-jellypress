@@ -139,7 +139,7 @@ if ( ! function_exists( 'jellypress_acf_swatch_url' ) ) {
     return $url;
   }
 }
-include( 'acf-swatch/acf-swatch.php' );
+include( 'acf-swatch/acf-swatch.php' ); // TODO: Only do this if logged in and in admin area
 
 if ( ! function_exists( 'jellypress_searchable_acf' ) ) {
   /**

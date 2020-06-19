@@ -19,15 +19,14 @@ get_header();
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
       <?php while ( have_posts() ) :
         the_post();
-
         get_template_part( 'template-parts/content', get_post_type() );
         get_template_part( 'template-parts/acf-flexible-content'); // Get flexible content from ACF
 
         jellypress_entry_footer(); // Call function from template-tags
         ?>
-        </article><!-- /#post-<?php the_ID(); ?> -->
+    </article><!-- /#post-<?php the_ID(); ?> -->
         <?php
-        the_post_navigation(); // Todo replace with a template-tag throughout
+        the_post_navigation(); // Todo replace with a template-tag throughout to style it better
 
         // If comments are open or we have at least one comment, load up the comment template.
         if ( comments_open() || get_comments_number() ) :

@@ -1913,7 +1913,7 @@ Utilities
 .cat-links, .tags-links, .comments-link, .edit-link {
   display: block; }
 
-.comment-list ol, .comment-list ul, .comment-list dl {
+.comment-list ol, .comment-list ul, .comment-list dl, .comment-list li {
   margin-bottom: 30px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*

@@ -100,7 +100,6 @@ if ( ! function_exists( 'jellypress_entry_footer' ) ) :
               );
               echo '</span>';
             }
-
             // Show the edit post button for logged in Admins
             if ( get_edit_post_link() ) :
               edit_post_link(

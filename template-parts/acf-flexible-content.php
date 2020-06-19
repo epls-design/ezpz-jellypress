@@ -17,11 +17,11 @@ defined( 'ABSPATH' ) || exit;
 $id = get_the_ID();
 // check if the flexible content field has rows of data
 if ( have_rows( 'sections', $id ) ) :
-  $i = 0;
+  $i = 1;
   // loop through the selected ACF layouts and display the matching partial
   while ( have_rows( 'sections', $id ) ) : the_row();
 
-    $classes = 'section id-'.$i; // Reset class
+    $classes = 'section section-'.$i; // Reset class
 
     // Get common fields and save as variables
     $layout = get_row_layout();

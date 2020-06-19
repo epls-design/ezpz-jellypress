@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
 
 ?>
 
-<section class="section bg-white no-results not-found">
+<section class="section section-0 section__text no-results not-found bg-white">
   <div class="container">
     <div class="row">
       <div class="col">

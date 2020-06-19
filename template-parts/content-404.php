@@ -9,7 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
-<section class="section bg-white error-404 not-found">
+<section class="section section-0 error-404 not-found bg-white">
   <div class="container">
     <div class="row">
       <article class="col sm-12 md-8 lg-9">
@@ -22,12 +22,12 @@ defined( 'ABSPATH' ) || exit;
           </p>
           <p>
             <a class="button" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">Home Page</a>
-            <button class="button__outline" onCLick="history.back()">Back to last page</button>
+            <button class="button__outline" onCLick="history.back()"><?php _e('Back to last page', 'jellypress');?></button>
           </p>
         </div><!-- /.page-content -->
       </article><!-- /.col -->
       <aside class="col sm-12 md-4 lg-3 sidebar">
-        <h2>Search this website:</h2>
+        <h2><?php _e('Search this website:', 'jellypress');?></h2>
         <?php
           get_search_form();
           the_widget( 'WP_Widget_Recent_Posts' );

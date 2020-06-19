@@ -12,11 +12,15 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+/* TODO: It might be better to break this partial into two given that archive results always get styled.
+So it could say is_single -> content-single, else content-archive
+*/
+
 ?>
 
 <?php
   if (is_singular()) {
-    echo '<section class="section bg-white"><div class="container">';
+    echo '<section class="section section-0 section__content bg-white"><div class="container">';
   }
   else { // single.php has the <article> tag included, we need to add it for archive posts ?>
   <article id="post-<?php the_ID(); ?>" <?php post_class('section bg-white'); ?>>
@@ -33,7 +37,7 @@ defined( 'ABSPATH' ) || exit;
     the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
   endif;
 
-  jellypress_post_thumbnail();// TODO: The Featured Image is kind of 'plonked' on here - on live builds it needs to be incorporated better into the overall design
+  jellypress_post_thumbnail(); // TODO: The Featured Image is kind of 'plonked' on here - on live builds it needs to be incorporated better into the overall design
 
   if ( 'post' === get_post_type() ) : // Show if post
     ?>

@@ -5,7 +5,10 @@
  * This is the most generic template file in a WordPress theme
  * and one of the two required files for a theme (the other being style.css).
  * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
+ * E.g., it puts together the home page when no home.php or page.php file exists.
+ *
+ * Note: For the majority of projects, more specific templates will be in use,
+ * so it is unlikely this template will be called or need to be edited
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -26,18 +29,31 @@ get_header();
             <h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
           </header>
         <?php endif;
+
+    // If Archive page, wrap content in a container
+    if(!is_singular()) {
+      echo '<div class="container">';
+    }
     /* Start the Loop */
     while ( have_posts() ) :
       the_post();
       /**
         * Include the Post-Type-specific template for the content.
-        * If you want to override this in a child theme, then include a file
-        * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+        * If you want to override this in a theme, then include a file
+        * called content-___.php (where ___ is the Post Type name)
+        * and that will be used instead.
         */
       get_template_part( 'template-parts/content', get_post_type() );
-      get_template_part( 'template-parts/acf-flexible-content'); // Get flexible content from ACF
+
+      if(is_singular()) {
+        // Only get ACF if it's not an archive page
+        get_template_part( 'template-parts/acf-flexible-content'); // Get flexible content from ACF
+      }
     endwhile;
-    the_posts_navigation();
+    if(!is_singular()) {
+      echo '</div>'; // .container
+    }
+    jellypress_numeric_pagination(); // Paginate if there are older posts
   else :
     get_template_part( 'template-parts/content', 'none' );
   endif;

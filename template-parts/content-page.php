@@ -11,7 +11,7 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
-<section class="section bg-white">
+<section class="section section-0 section__content bg-white">
   <div class="container">
     <div class="row">
       <div class="col">

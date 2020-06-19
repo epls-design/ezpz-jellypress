@@ -28,7 +28,7 @@ if ( ! function_exists( 'jellypress_numeric_pagination' ) ) :
       if ( !$paged ) $paged = 1;
 
     // Wrap in several containers
-    echo "\n".'<nav class="nav-links"><ul class="pagination">'."\n";
+    echo "\n".'<div class="container"><div class="row"><div class="col"><nav class="nav-links"><ul class="pagination">'."\n";
     printf( '<li class="nav-total">%s</li>' . "\n", __( 'Page '.$paged.' of '.$max_page, 'jellypress' ));
 
 		// On the first page, don't put the First page link
@@ -79,7 +79,7 @@ if ( ! function_exists( 'jellypress_numeric_pagination' ) ) :
 		if ( $paged != $max_page )
 			echo '<li class="nav-last"><a href='.get_pagenum_link($max_page).'> '.__($oldest_text, 'jellypress').'</a></li>';
 
-    echo "\n".'</ul></nav>'."\n";
+    echo "\n".'</ul></nav></div></div></div>'."\n";
 
   endif; //	if ( $max_page > 1 )
   }

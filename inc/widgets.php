@@ -1,19 +1,14 @@
 <?php
 /**
  * Declare widgets
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ * TODO: Remove this file if not required by your theme
  *
  * @package jellypress
  */
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
-
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- * TODO: Remove this file if not required by your theme
- */
 
 if ( ! function_exists( 'jellypress_widgets_init' ) ) {
   function jellypress_widgets_init() {
