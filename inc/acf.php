@@ -8,6 +8,37 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+/**
+* Move location of ACF-JSON local Json folder
+* https://www.advancedcustomfields.com/resources/local-json/
+*/
+if ( ! function_exists( 'jellypress_acf_json_load_point' ) ) {
+  function jellypress_acf_json_load_point( $paths ) {
+
+    // remove original path (optional)
+    unset($paths[0]);
+
+    // append path
+    $paths[] = get_stylesheet_directory() . '/assets/acf-json';
+
+    // return
+    return $paths;
+  }
+}
+if ( ! function_exists( 'jellypress_acf_json_save_point' ) ) {
+  function jellypress_acf_json_save_point( $path ) {
+
+    // update path
+    $path = get_stylesheet_directory() . '/assets/acf-json';
+
+    // return
+    return $path;
+  }
+}
+add_filter('acf/settings/load_json', 'jellypress_acf_json_load_point');
+add_filter('acf/settings/save_json', 'jellypress_acf_json_save_point');
+
+
 if ( !function_exists( 'jellypress_restrict_acf_tinymce_opts' )) {
   /**
    * Restricts TinyMCE options for ACF Wysiwig field

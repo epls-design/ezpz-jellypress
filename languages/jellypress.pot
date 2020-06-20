@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jellypress 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/jellypress\n"
-"POT-Creation-Date: 2020-06-19 06:36:49+00:00\n"
+"POT-Creation-Date: 2020-06-20 09:49:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -151,7 +151,7 @@ msgstr ""
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
-#: inc/template-tags.php:110
+#: inc/template-tags.php:109
 #. translators: %s: Name of current post. Only visible to screen readers
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
@@ -160,11 +160,11 @@ msgstr ""
 msgid "Primary"
 msgstr ""
 
-#: inc/widgets.php:21
+#: inc/widgets.php:16
 msgid "Sidebar"
 msgstr ""
 
-#: inc/widgets.php:23
+#: inc/widgets.php:18
 msgid "Add your widgets here."
 msgstr ""
 
@@ -179,7 +179,7 @@ msgid_plural "%d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: search.php:33
+#: search.php:32
 #. translators: %s: search query.
 msgid "Search Results for: %s"
 msgstr ""
@@ -192,6 +192,14 @@ msgstr ""
 msgid ""
 "It looks like nothing was found at this location. Can we help you find the "
 "page you were looking for?"
+msgstr ""
+
+#: template-parts/content-404.php:25
+msgid "Back to last page"
+msgstr ""
+
+#: template-parts/content-404.php:30
+msgid "Search this website:"
 msgstr ""
 
 #: template-parts/content-none.php:20
@@ -219,12 +227,12 @@ msgstr ""
 msgid "Sections:"
 msgstr ""
 
-#: template-parts/content.php:53
+#: template-parts/content.php:57
 #. translators: %s: Name of current post. Only visible to screen readers
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: template-parts/content.php:64
+#: template-parts/content.php:68
 msgid "Pages:"
 msgstr ""
 

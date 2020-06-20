@@ -178,10 +178,10 @@ endif;
  */
 function jellypress_icon($icon) {
 	// Define SVG sprite file.
-	$icon_path = get_theme_file_path( '/assets/icons/'.$icon.'.svg' );
+	$icon_path = get_theme_file_path( '/dist/icons/'.$icon.'.svg' );
   // If it exists, include it.
   if ( file_exists( $icon_path ) ) {
-    $use_link = get_template_directory_uri().'/assets/icons/icons.svg#icon-'.$icon;
+    $use_link = get_template_directory_uri().'/dist/icons/icons.svg#icon-'.$icon;
     return '<svg class="icon"><use xlink:href="'.$use_link.'" /></use></svg>';
   }
   else {

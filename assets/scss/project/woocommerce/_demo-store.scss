@@ -1,0 +1,10 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  DEMO STORE
+  Overrides default Woocommerce
+  styles for demo store notice
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.woocommerce-store-notice, p.demo_store {
+  background-color: $woocommerce__color-info;
+  z-index: 9999;
+}

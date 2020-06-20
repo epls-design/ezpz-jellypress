@@ -1,0 +1,82 @@
+// ACF Flexible Content Heading
+.acf-fc-layout-handle {
+  .swatch {
+    // Hugs the left side of the acf-handle and shows the user what bg colour is selected
+    width: 15px;
+    display: inline-block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-right: 1px solid rgba(255,255,255,0.5);
+  }
+  padding-left: 25px !important;
+  background: #23282d !important;
+  color: #fff !important;
+  font-weight: bold;
+}
+
+.acf-field-group label {
+  font-size: 1.2em; // Make the label for a group slightly larger
+}
+.acf-input label {
+  font-size: 1em;
+}
+
+.acf-handle-right {
+  font-weight: normal;
+  position: absolute;
+  left: 70%;
+  display: inline-block;
+  border-left: 1px solid rgba(255,255,255,0.5);
+  padding-left: 10px;
+}
+
+#poststuff .acf-postbox .hndle {
+  font-size: 1.2em; // header tab of ACF group
+}
+
+.acf-field {
+  // Nicer formatting of descriptions
+  p.description {
+    margin-top: 6px;
+    border-left: 3px solid rgb(204,204,204);
+    background: rgb(243,244,245);
+    padding: 4px 8px;
+    color: $color-text;
+    line-height: 1.3;
+
+  }
+  .acf-input>p.description {
+    // Description below input field
+    margin-top: 10px;
+  }
+}
+
+.acf-tab-button {
+  // Fix dashicon size in tabs
+  .dashicons {
+    font-size: 15px;
+    height: 15px;
+    width: 15px;
+    margin-top: 4px;
+  }
+}
+
+ul.acf-swatch-list {
+  // ACF Colour Swatch Plugin
+  label {
+    font-size: 0px;
+  }
+  &>li {
+    display: inline-block;
+  }
+}
+
+// Applies some dividers to help separate Flexible Content fields in the drop down selector
+
+.acf-tooltip li a {
+  &[data-layout$=image] {
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+}

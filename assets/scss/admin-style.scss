@@ -1,0 +1,8 @@
+// Styles which are applied to the admin area of Wordpress, by being injected into wp_head
+// These are used to help stylise the editing experience for better UX
+
+@charset "UTF-8";
+@import "config/settings";
+@import "jellyfish/config/default-settings";
+@import "jellyfish/config/mixins";
+@import "project/admin/all";

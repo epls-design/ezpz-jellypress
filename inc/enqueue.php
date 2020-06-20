@@ -9,7 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! defined( 'FAVICON_DIR' ) ) {
-	define( 'FAVICON_DIR', get_template_directory_uri() . '/assets/favicon' );
+	define( 'FAVICON_DIR', get_template_directory_uri() . '/dist/favicon' );
 }
 
 if ( ! function_exists( 'jellypress_scripts' ) ) {
@@ -19,14 +19,14 @@ if ( ! function_exists( 'jellypress_scripts' ) ) {
   function jellypress_scripts() {
     $theme_version = wp_get_theme()->get( 'Version' ); // Get current version of theme
     $css_version = $theme_version . '.' . filemtime( get_template_directory() . '/style.css' ); // Appends time stamp to help with cache busting
-    $js_version = $theme_version . '.' . filemtime( get_template_directory() . '/assets/js/site.min.js' ); // Appends time stamp to help with cache busting
+    $js_version = $theme_version . '.' . filemtime( get_template_directory() . '/dist/js/site.min.js' ); // Appends time stamp to help with cache busting
 
     // Enqueue Stylesheets
     wp_enqueue_style('jellypress-styles', get_stylesheet_uri(), array(), $css_version);
     wp_style_add_data( 'jellypress-styles', 'rtl', 'replace' );
 
     // Enqueue Scripts
-    wp_enqueue_script('jellypress-scripts', get_template_directory() . '/assets/js/site.min.js', array('jquery'), $js_version, true);
+    wp_enqueue_script('jellypress-scripts', get_template_directory() . '/dist/js/site.min.js', array('jquery'), $js_version, true);
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
       wp_enqueue_script( 'comment-reply' );

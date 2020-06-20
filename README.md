@@ -40,7 +40,7 @@ Rename the folder `jellypress` to the title of your theme e.g. `my-awesome-clien
 3. Search for: `Text Domain: jellypress` and replace with: `Text Domain: my-awesome-client` in `style.css`.
 4. Search for: <code>&nbsp;jellypress</code> (with a space before it) and replace with: <code>&nbsp;My_Awesome_Client</code> to capture DocBlocks.
 5. Search for: `jellypress-` and replace with: `my-awesome-client-` to capture prefixed handles.
-6. Then, update the stylesheet header in `build/scss/config/_themeinfo.scss`, the links in `footer.php` with your own information and rename `jellypress.pot` from `languages` folder to use the theme's slug.
+6. Then, update the stylesheet header in `assets/scss/config/_themeinfo.scss`, the links in `footer.php` with your own information and rename `jellypress.pot` from `languages` folder to use the theme's slug.
 7. In the theme functions.php, search for 'hide_acf_admin' and update the URLs to the live site url, to hide ACF on production.
 8. Do a final check to see if there are any stragglers named `jellypress`
 

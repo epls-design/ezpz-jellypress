@@ -1,0 +1,32 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  BASKET / CHECKOUT
+  Overrides default Woocommerce
+  basket and checkout styles
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+#add_payment_method,
+.woocommerce-cart,
+.woocommerce-checkout {
+  #payment {
+    background: $color-background-alt;
+    border-radius: $border-radius;
+    ul.payment_methods li {
+      line-height: inherit;
+    }
+  }
+  table.cart img {
+    width: 70px;
+  }
+  @include above(768px) {
+    .coupon {
+      display: flex;
+      #coupon_code {
+        margin-right: 10px;
+        width: 160px !important;
+      }
+    }
+  }
+}
+#order_comments {
+  height: 300px;
+}

@@ -1,0 +1,13 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  ADMIN HELPERS
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+// Loop through $theme-colors map and create classes for .bg-* and .colour-*
+// You can extend these later on to keep things nice and DRY
+@each $name, $color in $theme-colors {
+
+  .bg-#{$name} {
+    background-color: map-deep-get($theme-colors, $name, 'color');
+  }
+
+}

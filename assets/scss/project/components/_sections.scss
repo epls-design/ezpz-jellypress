@@ -1,0 +1,29 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  SECTIONS
+  Styling for site wide sections
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.section {
+
+  padding-top: $section-padding;
+  padding-bottom: $section-padding;
+  position: relative;
+
+  // ACF Section: Image
+  &__image {
+    img {
+      width: 100%; // Force image to be fullwidth
+    }
+  }
+
+  // ACF Section: Image Gallery
+  &__gallery {
+    .gallery-item {
+      display: inline-block;
+      text-align: center;
+      @extend .col;
+      @extend .md-4; // TODO: This can be done better, for most clients they will want a nicer looking gallery anyway
+      margin: $element-margin/2 0;
+    }
+  }
+}

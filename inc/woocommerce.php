@@ -51,8 +51,8 @@ if ( ! function_exists( 'jellypress_woocommerce_scripts' ) ) {
    */
   function jellypress_woocommerce_scripts() {
     $theme_version = wp_get_theme()->get( 'Version' ); // Get current version of theme
-    $wc_version = $theme_version . '.' . filemtime( get_template_directory() . '/assets/css/woocommerce.min.css' ); // Appends time stamp to help with cache busting
-    wp_enqueue_style( 'jellypress-woocommerce-style', get_template_directory_uri() . '/assets/css/woocommerce.min.css', array(), $wc_version );
+    $wc_version = $theme_version . '.' . filemtime( get_template_directory() . '/dist/css/woocommerce.min.css' ); // Appends time stamp to help with cache busting
+    wp_enqueue_style( 'jellypress-woocommerce-style', get_template_directory_uri() . '/dist/css/woocommerce.min.css', array(), $wc_version );
   }
 }
 add_action( 'wp_enqueue_scripts', 'jellypress_woocommerce_scripts' );

@@ -1,0 +1,99 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  BUTTONS
+  Default styling for all buttons
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+// Button stack defined in settings.scss
+#{$buttons} {
+    -webkit-appearance: none;
+    user-select: none;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: $button-text-transform;
+    font-size: 0.9rem;
+    font-weight: $button-font-weight;
+    line-height: 1.3;
+    border: $button-border-width solid $button-background;
+    background-color: $button-background;
+    color: $button-text-color;
+    padding: .75em 1.5em;
+    margin: $element-margin/2 5px $element-margin 0;
+    border-radius: $button-border-radius;
+    @include smooth(background, border-color, color);
+    &::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+    &:hover, &:focus, &:active {
+      background-color: $button-hover-background;
+      border-color: $button-hover-background;
+      color: $button-hover-color;
+    }
+    &:focus {
+        outline: 0;
+        box-shadow: 0px 0px 1px 3px lighten($button-background, 25%);
+    }
+    &:disabled {
+      cursor: not-allowed;
+      background-color: $button-disabled-background;
+      border: $button-border-width solid $button-disabled-background;
+    }
+}
+
+.button, a.button {
+    &__secondary {
+      // Secondary buttons have a different color scheme
+        background-color: $button-secondary-background;
+        border-color: $button-secondary-background;
+        color: $button-secondary-text-color;
+        &:hover, &:focus, &:active {
+          background-color: $button-secondary-hover-background;
+          border-color: $button-secondary-hover-background;
+          color: $button-secondary-hover-color;
+        }
+        &:focus {
+            box-shadow: 0px 0px 1px 3px lighten($button-secondary-background, 15%);
+        }
+    }
+    &__outline {
+      // Outline buttons have a fill and no border
+        background: transparent;
+        color: inherit;
+        border-color: $button-background;
+        &:hover, &:focus, &:active {
+          background-color: transparent;
+          border-color: $button-hover-background;
+          color: $button-background;
+        }
+    }
+    &__ghost {
+      // Ghost buttons are styled like regular links, with the height of a button
+        background: transparent;
+        color: $link-color;
+        border-color: transparent;
+        &:hover, &:focus, &:active {
+          background-color: transparent;
+          border-color: $link-active;
+          color: $link-active;
+        }
+    }
+    &__block {
+        display: block;
+        width: 100%;
+    }
+    &__large {
+        font-size: 1.1rem;
+    }
+    &__small {
+        font-size: 0.8rem;
+    }
+}
+[type=submit] {
+    @extend .button;
+}
+[type=reset] {
+    @extend .button__outline;
+}

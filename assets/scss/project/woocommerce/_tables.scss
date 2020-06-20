@@ -1,0 +1,63 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  TABLES
+  Overrides default Woocommerce
+  table styles
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.woocommerce {
+
+  table.shop_table {
+    // Inherit from Jellyfish
+    border-radius: $border-radius;
+    border: $borders;
+
+    td {
+      border-top: 0;
+    }
+
+    tfoot th,
+    tfoot td {
+      border-top: $border-width*2 solid $border-color;
+      border-bottom: 0;
+    }
+  }
+
+  table.shop_table_responsive {
+
+    tr {
+      td {
+        &::before {
+          // Makes content"attr(data-title)" not crush against input fields
+          margin-right: 10px;
+        }
+
+        &.product-remove {
+          a {
+            text-align: left;
+            // Nicer looking remove icon
+            color: $color-text !important;
+
+            &:hover {
+              background: transparent;
+              color: $woocommerce__color-error !important;
+              transform: scale(1.1);
+            }
+          }
+        }
+
+        &.actions,
+        &.download-actions {
+          &::before {
+            display: none;
+          }
+        }
+
+        &.download-actions {
+          .button {
+            display: block;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

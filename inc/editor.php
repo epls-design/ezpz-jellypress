@@ -14,7 +14,7 @@ if ( ! function_exists( 'jellypress_add_editor_styles' ) ) {
 	 * Registers an editor stylesheet for the theme.
 	 */
 	function jellypress_add_editor_styles() {
-		add_editor_style( 'assets/css/editor-style.min.css' );
+		add_editor_style( 'dist/css/editor-style.min.css' );
 	}
 }
 
@@ -105,5 +105,5 @@ if ( !function_exists( 'jellypress_mce_before_init_insert_formats' )) {
  * Loads a stylesheet to define styles for the admin area
  */
 add_action('admin_head', function() {
-  echo '<link rel="stylesheet" href="'.get_stylesheet_directory_uri().'/assets/css/admin-style.min.css" />';
+  echo '<link rel="stylesheet" href="'.get_stylesheet_directory_uri().'/dist/css/admin-style.min.css" />';
 });
