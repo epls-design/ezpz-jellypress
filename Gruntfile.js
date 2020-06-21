@@ -1,5 +1,7 @@
 module.exports = function (grunt) {
 
+  require('load-grunt-tasks')(grunt); // Replaces grunt.loadNpmTasks
+
   // Sets up global variables which will be used throughout the Gruntfile
   var globalConfig = {
     build_dir: 'assets',
@@ -307,42 +309,6 @@ module.exports = function (grunt) {
     },
 
   });
-
-  /**
-   * 7. Initialise tasks from npm
-   */
-
-  // Images and Icons
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-svgstore');
-
-  // Javascript
-  grunt.loadNpmTasks('grunt-eslint');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify-es');
-
-  // SCSS
-  grunt.loadNpmTasks('grunt-sass');
-  grunt.loadNpmTasks('grunt-postcss');
-  grunt.loadNpmTasks('grunt-sass-directory-import');
-
-  // PHP
-  grunt.loadNpmTasks('grunt-phplint');
-
-  // Wordpress
-  grunt.loadNpmTasks('grunt-wp-i18n');
-  grunt.loadNpmTasks('grunt-cssjanus');
-
-  // NPM Dependencies
-  grunt.loadNpmTasks('grunt-contrib-copy');
-
-  // Watch and Reload
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-browser-sync');
-
-  // Misc
-  grunt.loadNpmTasks('grunt-newer');
 
   /**
    * 8. Grunt Tasks
