@@ -51,7 +51,8 @@
     "grunt-wp-i18n": "^1.0.3",
     "load-grunt-tasks": "^5.1.0",
     "node-sass": "^4.13.1",
-    "postcss-pxtorem": "^4.0.1"
+    "postcss-pxtorem": "^4.0.1",
+    "time-grunt": "^2.0.0"
   },
   "dependencies": {
     "hamburgers": "^1.1.3"

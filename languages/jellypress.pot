@@ -1,10 +1,10 @@
-# <!=Copyright (C) 2020 Matt Weet
-# This file is distributed under the Proprietary - not for reuse license.=!>
+# Copyright (C) 2020 Matt Weet
+# This file is distributed under the UNLICENSED.
 msgid ""
 msgstr ""
-"Project-Id-Version: Jellypress 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/jellypress\n"
-"POT-Creation-Date: 2020-06-20 09:49:45+00:00\n"
+"Project-Id-Version: 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/jellypress\n"
+"POT-Creation-Date: 2020-06-21 10:28:14+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -246,8 +246,9 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Wordpress framework based on _s and designed to work with Jellyfish CSS "
-"framework"
+"Wordpress starter theme based on the Jellyfish CSS framework and "
+"Automattic's Underscores(_S) theme. Utilises ACF flexible content fields as "
+"a page-builder for posts and pages."
 msgstr ""
 
 #. Author of the plugin/theme
