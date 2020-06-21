@@ -1,7 +1,11 @@
 {
   "name": "jellypress-wordpress-theme",
-  "version": "1.0.0",
-  "author": "Matt Weet <hello@mattweet.com>",
+  "version": "1.0.5",
+  "author": {
+    "name": "Matt Weet",
+    "email": "hello@mattweet.com",
+    "url": "https://www.weareboba.com"
+  },
   "description": "Jellypress is a Wordpress starter theme based on the Jellyfish CSS framework and Automattic's Underscores(_S) theme.",
   "homepage": "https://github.com/unofficialmatt/jellypress",
   "main": "Gruntfile.js",
@@ -37,12 +41,13 @@
     "autoprefixer": "^9.4.9",
     "cssnano": "^4.1.10",
     "grunt": "^1.0.4",
+    "grunt-banner": "^0.6.0",
     "grunt-browser-sync": "^2.2.0",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-imagemin": "^3.1.0",
-    "grunt-contrib-uglify-es": "github:gruntjs/grunt-contrib-uglify#harmony",
+    "grunt-contrib-uglify-es": "^3.3.0",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-cssjanus": "^0.5.0",
     "grunt-eslint": "^22.0.0",

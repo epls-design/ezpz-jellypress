@@ -3,7 +3,7 @@
 	"file": "admin-style.css",
 	"sources": [
 		"../../assets/scss/admin-style.scss",
-		"../../assets/scss/config/_settings.scss",
+		"../../assets/scss/_settings.scss",
 		"../../assets/scss/jellyfish/config/_default-settings.scss",
 		"../../assets/scss/jellyfish/config/_mixins.scss",
 		"../../assets/scss/project/admin/_all.scss",

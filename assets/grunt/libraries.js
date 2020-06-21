@@ -10,7 +10,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: 'node_modules/hamburgers/_sass/hamburgers',
           src: ['**/*'],
-          dest: '<%= gruntVariables.build_dir %>/scss/jellyfish/vendor/hamburgers'
+          dest: '<%= opts.build_dir %>/scss/jellyfish/vendor/hamburgers'
         }],
       }
     }

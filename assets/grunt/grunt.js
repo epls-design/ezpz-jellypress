@@ -7,7 +7,7 @@ module.exports = function (grunt) {
     eslint: {
       gruntfiles: [
         'Gruntfile.js',
-        '<%= gruntVariables.build_dir %>/grunt/**/*.js'
+        '<%= opts.build_dir %>/grunt/**/*.js'
       ]
     }
   });
@@ -17,7 +17,7 @@ module.exports = function (grunt) {
   grunt.config.merge({
     watch: {
       gruntfile: {
-        files: ['Gruntfile.js','<%= gruntVariables.build_dir %>/grunt/**/*.js'],
+        files: ['Gruntfile.js','<%= opts.build_dir %>/grunt/**/*.js'],
         tasks: ['eslint:gruntfiles', 'build'],
         options: {
           event: ['changed', 'added', 'deleted']

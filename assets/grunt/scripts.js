@@ -6,11 +6,11 @@ module.exports = function (grunt) {
   grunt.config('concat', {
     options: {
       sourceMap: false,
-      separator: ';\n'
+      separator: ';\r\n'
     },
     dist: {
-      src: ['<%= gruntVariables.build_dir %>/js/vendor/*.js', '<%= gruntVariables.build_dir %>/js/site/*.js'],
-      dest: '<%= gruntVariables.dist_dir %>/js/site.js',
+      src: ['<%= opts.build_dir %>/js/vendor/*.js', '<%= opts.build_dir %>/js/site/*.js'],
+      dest: '<%= opts.dist_dir %>/js/site.js',
     }
   });
 
@@ -18,11 +18,12 @@ module.exports = function (grunt) {
   // Minifies javascript file(s)
   grunt.config('uglify', {
     options: {
-      mangle: false
+      mangle: false,
+      banner: '<%= opts.banner %>'
     },
     dist: {
       files: {
-        '<%= gruntVariables.dist_dir %>/js/site.min.js': ['<%= gruntVariables.dist_dir %>/js/site.js']
+        '<%= opts.dist_dir %>/js/site.min.js': ['<%= opts.dist_dir %>/js/site.js']
       }
     }
   });
@@ -32,7 +33,7 @@ module.exports = function (grunt) {
   grunt.config.merge({
     eslint: {
       site: [
-        '<%= gruntVariables.build_dir %>/js/site/**/*.js' // Validates javascript files in js/site only (doesn't validate vendor JS)
+        '<%= opts.build_dir %>/js/site/**/*.js' // Validates javascript files in js/site only (doesn't validate vendor JS)
       ],
     }
   });
@@ -45,7 +46,7 @@ module.exports = function (grunt) {
         options: {
           event: ['changed', 'added', 'deleted']
         },
-        files: ['<%= gruntVariables.build_dir %>/js/**/*.js'],
+        files: ['<%= opts.build_dir %>/js/**/*.js'],
         tasks: ['newer:eslint:site', 'concat', 'uglify']
       }
     }

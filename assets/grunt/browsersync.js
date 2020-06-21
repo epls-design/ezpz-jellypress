@@ -6,18 +6,18 @@ module.exports = function (grunt) {
   grunt.config('browserSync', {
     bsFiles: {
       src: [
-        '<%= gruntVariables.dist_dir %>/js/site.js',
-        '<%= gruntVariables.dist_dir %>/img/*',
-        '<%= gruntVariables.dist_dir %>/icons/*',
+        '<%= opts.dist_dir %>/js/site.js',
+        '<%= opts.dist_dir %>/img/*',
+        '<%= opts.dist_dir %>/icons/*',
         '**/*.php',
         '**/*.html',
         'style.css',
-        '<%= gruntVariables.dist_dir %>/css/woocommerce.min.css',
+        '<%= opts.dist_dir %>/css/woocommerce.min.css',
       ]
     },
     options: {
       watchTask: true,
-      proxy: "<%= gruntVariables.dev_url %>"
+      proxy: "<%= opts.dev_url %>"
     }
   });
 

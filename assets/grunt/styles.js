@@ -1,6 +1,8 @@
 // Important to use `grunt` as an argument in the function
 module.exports = function (grunt) {
 
+  // TODO: Auto add css banner to replace _theme.scss
+
   // Configure Sass Directory Import task
   // Watches directories for scss file name _all and imports all partials into that file
   grunt.config('sass_directory_import', {
@@ -9,7 +11,7 @@ module.exports = function (grunt) {
     },
     files: {
       // The file pattern to add @imports to.
-      src: ['<%= gruntVariables.build_dir %>/scss/**/_all.scss'] // Need to add back in globalVars
+      src: ['<%= opts.build_dir %>/scss/**/_all.scss'] // Need to add back in globalVars
     }
   });
 
@@ -21,21 +23,24 @@ module.exports = function (grunt) {
       sourceMap: true
     },
     dist: {
+      options: {
+        banner: '/*! Test */'
+      },
       files: [{
-          src: '<%= gruntVariables.build_dir %>/scss/compile.scss',
-          dest: '<%= gruntVariables.dist_dir %>/css/style.css'
+          src: '<%= opts.build_dir %>/scss/compile.scss',
+          dest: '<%= opts.dist_dir %>/css/style.css'
         },
         {
-          src: '<%= gruntVariables.build_dir %>/scss/woocommerce.scss',
-          dest: '<%= gruntVariables.dist_dir %>/css/woocommerce.css'
+          src: '<%= opts.build_dir %>/scss/woocommerce.scss',
+          dest: '<%= opts.dist_dir %>/css/woocommerce.css'
         },
         {
-          src: '<%= gruntVariables.build_dir %>/scss/editor.scss',
-          dest: '<%= gruntVariables.dist_dir %>/css/editor-style.css'
+          src: '<%= opts.build_dir %>/scss/editor.scss',
+          dest: '<%= opts.dist_dir %>/css/editor-style.css'
         },
         {
-          src: '<%= gruntVariables.build_dir %>/scss/admin-style.scss',
-          dest: '<%= gruntVariables.dist_dir %>/css/admin-style.css'
+          src: '<%= opts.build_dir %>/scss/admin-style.scss',
+          dest: '<%= opts.dist_dir %>/css/admin-style.css'
         }
       ]
     }
@@ -61,20 +66,20 @@ module.exports = function (grunt) {
     },
     dist: {
       files: [{
-          src: '<%= gruntVariables.dist_dir %>/css/style.css',
+          src: '<%= opts.dist_dir %>/css/style.css',
           dest: 'style.css'
         },
         {
-          src: '<%= gruntVariables.dist_dir %>/css/woocommerce.css',
-          dest: '<%= gruntVariables.dist_dir %>/css/woocommerce.min.css'
+          src: '<%= opts.dist_dir %>/css/woocommerce.css',
+          dest: '<%= opts.dist_dir %>/css/woocommerce.min.css'
         },
         {
-          src: '<%= gruntVariables.dist_dir %>/css/editor-style.css',
-          dest: '<%= gruntVariables.dist_dir %>/css/editor-style.min.css'
+          src: '<%= opts.dist_dir %>/css/editor-style.css',
+          dest: '<%= opts.dist_dir %>/css/editor-style.min.css'
         },
         {
-          src: '<%= gruntVariables.dist_dir %>/css/admin-style.css',
-          dest: '<%= gruntVariables.dist_dir %>/css/admin-style.min.css'
+          src: '<%= opts.dist_dir %>/css/admin-style.css',
+          dest: '<%= opts.dist_dir %>/css/admin-style.min.css'
         }
       ]
     }
@@ -90,6 +95,41 @@ module.exports = function (grunt) {
     }
   });
 
+  // Configure Usebanner task through config.merge as this task is used across multiple partials
+  // Appends a banner to the top of the outputted CSS file(s)
+  grunt.config.merge({
+    usebanner: {
+      stylesmain: {
+        options: {
+          position: 'top',
+          banner: '/*! Theme Name: <%= pkg.name %>\n' +
+          ' *  Theme URI: <%= pkg.homepage %>\n' +
+          ' *  Author: <%= pkg.author.name %> <<%= pkg.author.email %>>\n' +
+          ' *  Author URI: <%= pkg.author.url %>\n' +
+          ' *  Description: <%= pkg.description %>\n' +
+          ' *  Tags: <%= pkg.keywords %>\n' +
+          ' *  Version: <%= pkg.version %>\n' +
+          ' *  License: <%= pkg.license %>\n' +
+          ' *  Text Domain: <%= opts.text_domain %> */ \n',
+          linebreak: true
+        },
+        files: {
+          src: ['style.css']
+        }
+      },
+      stylesothers: {
+        options: {
+          position: 'top',
+          banner: '<%= opts.banner %>',
+          linebreak: true
+        },
+        files: {
+          src: ['<%= opts.dist_dir %>/css/*.css']
+        }
+      }
+    }
+  });
+
   // Configure Watch task through config.merge as this task is used across multiple partials
   // Watches scss files for changes and then runs tasks accordingly
   grunt.config.merge({
@@ -98,8 +138,8 @@ module.exports = function (grunt) {
         options: {
           event: ['changed', 'added', 'deleted']
         },
-        files: ['<%= gruntVariables.build_dir %>/scss/**/*.scss'],
-        tasks: ['sass_directory_import', 'sass', 'postcss', 'cssjanus']
+        files: ['<%= opts.build_dir %>/scss/**/*.scss'],
+        tasks: ['sass_directory_import', 'sass', 'postcss', 'usebanner:stylesmain', 'usebanner:stylesothers', 'cssjanus']
       }
     }
   });

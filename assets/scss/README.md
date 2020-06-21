@@ -14,4 +14,4 @@ The following files are compiled by Gruntfile.js, with postcss applying vendor p
 
 For the most part, you will want to make new partials in project/{sub-folder}. Any partials found within these folders are automatically included into the _all.scss partial which is loaded into the relevant top-level `{admin-style,compile,editor,woocommerce}.scss`
 
-Jellyfish files should not be edited. You can override the default variables with the settings file in config/_settings.scss
+Jellyfish files should not be edited. You can override the default variables with the settings file in `_settings.scss`

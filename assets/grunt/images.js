@@ -5,7 +5,7 @@ module.exports = function (grunt) {
   // Removes all existing images from dist directory
   grunt.config.merge({
     clean: {
-      images: ['<%= gruntVariables.dist_dir %>/img/*']
+      images: ['<%= opts.dist_dir %>/img/*']
     }
   });
 
@@ -16,9 +16,9 @@ module.exports = function (grunt) {
       images: {
         files: [{
           expand: true,
-          cwd: '<%= gruntVariables.build_dir %>/img/',
+          cwd: '<%= opts.build_dir %>/img/',
           src: ['**/*.{png,jpg,JPG,JPEG,jpeg,svg,gif}'],
-          dest: '<%= gruntVariables.dist_dir %>/img/'
+          dest: '<%= opts.dist_dir %>/img/'
         }]
       }
     }
@@ -32,7 +32,7 @@ module.exports = function (grunt) {
         options: {
           event: ['changed', 'added', 'deleted']
         },
-        files: ['<%= gruntVariables.build_dir %>/img/**/*.{png,jpg,JPG,JPEG,jpeg,svg,gif}'],
+        files: ['<%= opts.build_dir %>/img/**/*.{png,jpg,JPG,JPEG,jpeg,svg,gif}'],
         tasks: ['clean:images', 'imagemin:images']
       }
     }

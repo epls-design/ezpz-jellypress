@@ -5,7 +5,7 @@ module.exports = function (grunt) {
   // Removes all existing icons from dist directory
   grunt.config.merge({
     clean: {
-      icons: ['<%= gruntVariables.dist_dir %>/icons/*']
+      icons: ['<%= opts.dist_dir %>/icons/*']
     }
   });
 
@@ -16,9 +16,9 @@ module.exports = function (grunt) {
       icons: {
         files: [{
           expand: true,
-          cwd: '<%= gruntVariables.build_dir %>/icons/',
+          cwd: '<%= opts.build_dir %>/icons/',
           src: ['**/*.svg'],
-          dest: '<%= gruntVariables.dist_dir %>/icons/'
+          dest: '<%= opts.dist_dir %>/icons/'
         }]
       }
     }
@@ -36,7 +36,7 @@ module.exports = function (grunt) {
     },
     default: {
       files: {
-        '<%= gruntVariables.dist_dir %>/icons/icons.svg': ['<%= gruntVariables.dist_dir %>/icons/*.svg']
+        '<%= opts.dist_dir %>/icons/icons.svg': ['<%= opts.dist_dir %>/icons/*.svg']
       }
     }
   });
@@ -49,7 +49,7 @@ module.exports = function (grunt) {
         options: {
           event: ['changed', 'added', 'deleted']
         },
-        files: ['<%= gruntVariables.build_dir %>/icons/*.svg'],
+        files: ['<%= opts.build_dir %>/icons/*.svg'],
         tasks: ['clean:icons', 'imagemin:icons', 'svgstore']
       }
     }

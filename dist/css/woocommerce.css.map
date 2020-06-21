@@ -3,7 +3,7 @@
 	"file": "woocommerce.css",
 	"sources": [
 		"../../assets/scss/woocommerce.scss",
-		"../../assets/scss/config/_settings.scss",
+		"../../assets/scss/_settings.scss",
 		"../../assets/scss/jellyfish/config/_default-settings.scss",
 		"../../assets/scss/jellyfish/config/_mixins.scss",
 		"../../assets/scss/project/woocommerce/_all.scss",
