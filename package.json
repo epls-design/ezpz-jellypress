@@ -5,6 +5,10 @@
   "description": "Jellypress is a Wordpress starter theme based on the Jellyfish CSS framework and Automattic's Underscores(_S) theme.",
   "homepage": "https://github.com/unofficialmatt/jellypress",
   "main": "Gruntfile.js",
+  "scripts": {
+    "build": "grunt build",
+    "start": "grunt init"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/unofficialmatt/jellypress.git"
