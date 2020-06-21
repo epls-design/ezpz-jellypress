@@ -90,5 +90,3 @@ function jfdebug() {
   var docBody = document.getElementsByTagName('body')[0];
   docBody.classList.toggle('jf-debug');
 }
-
-// TODO: Can I remove dependency on jQuery?
