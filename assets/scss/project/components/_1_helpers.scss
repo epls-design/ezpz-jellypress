@@ -23,12 +23,10 @@
     }
     &+& {
       padding-top: 0;  // Remove padding top if it follows a section with the same bg color
-      // TODO: There needs to be a better way to do this, as it often crushes
     }
   }
 
   .colour-#{$name} {
     color: map-deep-get($theme-colors, $name, 'color');
   }
-
 }

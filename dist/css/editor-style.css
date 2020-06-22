@@ -1,3 +1,6 @@
+/*! jellypress-wordpress-theme 1.0.5
+ * © 2020-06-22 Matt Weet - https://www.weareboba.com */
+
 /* GRID */
 /* JELLYFISH DEFAULTS */
 /* COLOURS */
@@ -2043,10 +2046,15 @@ Utilities
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .section {
   padding-top: 70px;
-  padding-bottom: 70px;
+  padding-bottom: 40px;
   position: relative; }
   .section__image img {
     width: 100%; }
+  .section__full-width {
+    padding-top: 0;
+    padding-bottom: 0; }
+    .section__full-width img, .section__full-width .embed-container {
+      margin-bottom: 0; }
   .section__gallery .gallery-item {
     display: inline-block;
     text-align: center;

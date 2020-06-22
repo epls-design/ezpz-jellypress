@@ -170,9 +170,8 @@ if ( ! function_exists( 'jellypress_acf_swatch_url' ) ) {
     return $url;
   }
 }
-if ( is_admin() ) {
-  include( 'acf-swatch/acf-swatch.php' );
-};
+
+include( 'acf-swatch/acf-swatch.php' );
 
 if ( ! function_exists( 'jellypress_searchable_acf' ) ) {
   /**

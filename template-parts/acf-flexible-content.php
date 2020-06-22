@@ -54,6 +54,13 @@ if ( have_rows( 'sections', $id ) ) :
       $classes.= ' hide-below-md';
     }
 
+    // Check for full-width setting
+    if ($layout === 'image' || $layout === 'video' ) {
+      if( get_sub_field( 'full_width' ) == 1) {
+        $classes.= ' section__full-width';
+      };
+    }
+
     if ( $is_disabled != 1 AND $scheduled == true) : // Display the section, if it is not disabled, and if the scheduling checks pass true ?>
     <section <?php if($section_id){echo 'id="'.strtolower($section_id).'"';} ?> class="<?php echo $classes;?>">
       <div class="container">

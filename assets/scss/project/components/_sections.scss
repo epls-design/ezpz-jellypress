@@ -6,13 +6,22 @@
 .section {
 
   padding-top: $section-padding;
-  padding-bottom: $section-padding;
+  padding-bottom: $section-padding - $element-margin;
   position: relative;
 
   // ACF Section: Image
   &__image {
     img {
       width: 100%; // Force image to be fullwidth
+    }
+  }
+
+  &__full-width {
+    // Fixes issues of letterboxing
+    padding-top: 0;
+    padding-bottom: 0;
+    img, .embed-container {
+      margin-bottom: 0;
     }
   }
 
