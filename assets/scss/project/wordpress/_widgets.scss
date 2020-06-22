@@ -1,0 +1,28 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  WIDGETS
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.widget {
+
+  // Audio and Video Widget
+  .mejs-container, .mejs-container .mejs-controls, .mejs-embed, .mejs-embed body {
+    background: $color-text;
+  }
+  .mejs-controls .mejs-time-rail .mejs-time-current {
+    background: $color-primary;
+  }
+  .mejs-controls button:hover {
+    background-color: transparent;
+  }
+  .mejs-container {
+    margin-bottom: $element-margin;
+  }
+
+  // Gallery
+  .gallery-item {
+    margin-bottom: $element-margin;
+    img {
+      margin-bottom: 0;
+    }
+  }
+}

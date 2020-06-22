@@ -1890,6 +1890,26 @@ Utilities
     width: 100%; } }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  WIDGETS
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.widget .mejs-container, .widget .mejs-container .mejs-controls, .widget .mejs-embed, .widget .mejs-embed body {
+  background: #333333; }
+
+.widget .mejs-controls .mejs-time-rail .mejs-time-current {
+  background: #b22d4f; }
+
+.widget .mejs-controls button:hover {
+  background-color: transparent; }
+
+.widget .mejs-container {
+  margin-bottom: 30px; }
+
+.widget .gallery-item {
+  margin-bottom: 30px; }
+  .widget .gallery-item img {
+    margin-bottom: 0; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   WORDPRESS
   Styling for elements that
   follow Wordpress' naming
