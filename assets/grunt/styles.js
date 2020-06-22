@@ -1,8 +1,6 @@
 // Important to use `grunt` as an argument in the function
 module.exports = function (grunt) {
 
-  // TODO: Auto add css banner to replace _theme.scss
-
   // Configure Sass Directory Import task
   // Watches directories for scss file name _all and imports all partials into that file
   grunt.config('sass_directory_import', {
@@ -11,7 +9,7 @@ module.exports = function (grunt) {
     },
     files: {
       // The file pattern to add @imports to.
-      src: ['<%= opts.build_dir %>/scss/**/_all.scss'] // Need to add back in globalVars
+      src: ['<%= opts.build_dir %>/scss/**/_all.scss']
     }
   });
 

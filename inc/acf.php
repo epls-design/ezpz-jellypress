@@ -170,13 +170,9 @@ if ( ! function_exists( 'jellypress_acf_swatch_url' ) ) {
     return $url;
   }
 }
-add_action( 'admin_init', 'jellypress_inc_acfswatch_admin' );
-if ( ! function_exists( 'jellypress_inc_acfswatch_admin' ) ) {
-  // Only include this file if the user is in the admin area
-  function jellypress_inc_acfswatch_admin() {
-    include( 'acf-swatch/acf-swatch.php' );
-  }
-}
+if ( is_admin() ) {
+  include( 'acf-swatch/acf-swatch.php' );
+};
 
 if ( ! function_exists( 'jellypress_searchable_acf' ) ) {
   /**

@@ -34,11 +34,11 @@ module.exports = function (grunt) {
 
   // Register tasks
   grunt.registerTask('default', [ 'browserSync', 'watch' ]);
-  grunt.registerTask('build', [ 'newer:copy:npm', 'phplint', 'eslint', 'concat', 'uglify', 'sass_directory_import', 'sass', 'postcss', 'cssjanus', 'usebanner', 'clean', 'imagemin', 'svgstore', 'newer:addtextdomain', 'makepot' ]);
+  grunt.registerTask('build', [ 'newer:copy:npm', 'phplint', 'eslint', 'concat', 'uglify', 'sass_directory_import', 'sass', 'postcss', 'cssjanus', 'usebanner', 'clean', 'imagemin', 'svgstore', 'makepot'  ]);
   grunt.registerTask('init', [ 'build', 'default' ]);
+  grunt.registerTask('bundle', [ 'build', 'newer:addtextdomain' ]);
 
 };
 
 // TODO: Put together some basic docs - refer to Jellyfish repo, with a few tweaks
-// TODO: Add phpcodesniffing at some stage
 // TODO: Add Grunt Bump?
