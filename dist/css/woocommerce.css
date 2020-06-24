@@ -1,5 +1,5 @@
 /*! jellypress-wordpress-theme 1.0.5
- * © 2020-06-22 Matt Weet - https://www.weareboba.com */
+ * © 2020-06-24 Matt Weet - https://www.weareboba.com */
 
 /* GRID */
 /* JELLYFISH DEFAULTS */
@@ -450,12 +450,12 @@
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .woocommerce table.shop_table {
   border-radius: 4px;
-  border: 1px solid #d9dbdb; }
+  border: 1px solid #aaaaaa; }
   .woocommerce table.shop_table td {
     border-top: 0; }
   .woocommerce table.shop_table tfoot th,
   .woocommerce table.shop_table tfoot td {
-    border-top: 2px solid #d9dbdb;
+    border-top: 2px solid #aaaaaa;
     border-bottom: 0; }
 
 .woocommerce table.shop_table_responsive tr td::before {
@@ -484,9 +484,9 @@
 .woocommerce div.product .woocommerce-tabs ul.tabs {
   margin: 0 0 30px 0; }
   .woocommerce div.product .woocommerce-tabs ul.tabs::before {
-    border-bottom: 1px solid #d9dbdb; }
+    border-bottom: 1px solid #aaaaaa; }
   .woocommerce div.product .woocommerce-tabs ul.tabs li {
-    border: 1px solid #d9dbdb;
+    border: 1px solid #aaaaaa;
     background-color: #efefef;
     border-radius: 4px 4px 0 0; }
     .woocommerce div.product .woocommerce-tabs ul.tabs li::after {
@@ -502,7 +502,7 @@
   .woocommerce div.product .woocommerce-tabs {
     background-color: #f7f7f7; }
     .woocommerce div.product .woocommerce-tabs .panel {
-      border-bottom: 1px solid #d9dbdb;
+      border-bottom: 1px solid #aaaaaa;
       padding: 0 20px; }
     .woocommerce div.product .woocommerce-tabs ul.tabs {
       padding: 0; }
@@ -511,7 +511,7 @@
         .woocommerce div.product .woocommerce-tabs ul.tabs li::before, .woocommerce div.product .woocommerce-tabs ul.tabs li::after {
           display: none; }
         .woocommerce div.product .woocommerce-tabs ul.tabs li.active {
-          border-bottom-color: #d9dbdb; } }
+          border-bottom-color: #aaaaaa; } }
 
 /**
  * WooCommerce Price Filter

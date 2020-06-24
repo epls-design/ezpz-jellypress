@@ -17,7 +17,9 @@ module.exports = function (grunt) {
     },
     options: {
       watchTask: true,
-      proxy: "<%= opts.dev_url %>"
+      proxy: "<%= opts.dev_url %>",
+      hostname: "<%= opts.dev_url %>",
+      injectChanges: false // TODO: BrowserSync stopped injecting changes June 2020. This forces a page refresh
     }
   });
 

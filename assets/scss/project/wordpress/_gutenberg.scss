@@ -1,0 +1,430 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  GUTENBERG
+  Styles used by Gutenberg blocks
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/************************************************
+  Align Classes and Helpers
+************************************************/
+%caption {
+  color: $color-text-light;
+  margin-bottom: $element-margin;
+}
+
+.alignfull {
+  margin-top: $element-margin;
+  margin-bottom: $element-margin;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  max-width: 100vw;
+  width: 100vw;
+
+}
+
+.alignwide {
+  margin-top: $element-margin;
+  margin-bottom: $element-margin;
+  margin-left: calc(25% - 25vw) !important;
+  margin-right: calc(25% - 25vw) !important;
+  max-width: 100vw;
+  //width: 100vw;
+}
+
+.alignfull,
+.alignwide {
+
+  &>figcaption,
+  &>.wp-caption-text {
+    // Pull captions back into the container
+    margin-left: auto;
+    margin-right: auto;
+    width: calc(100% - #{$base-container-gutter}*2);
+
+    @each $point,
+    $i in $breakpoints {
+      @include above($point) {
+        $width: map-deep-get($breakpoints, $point, 'container-width');
+        $margin: map-deep-get($breakpoints, $point, 'container-gutter');
+
+        @if $margin {
+          width: calc(#{$width} - #{$margin}*2);
+        }
+
+        @else {
+          width: $width;
+        }
+      }
+    }
+  }
+}
+
+/************************************************
+  Audio Blocks
+************************************************/
+.wp-block-audio {
+  margin-bottom: $element-margin;
+
+  figcaption {
+    @extend %caption;
+  }
+}
+
+/************************************************
+  Blockquotes
+************************************************/
+.wp-block-quote.is-large,
+.wp-block-quote.is-style-large {
+  font-size: 1em; // reset
+  margin-bottom: $element-margin;
+  padding: 0;
+  border-left: 0;
+
+  p {
+    font-style: inherit;
+    line-height: inherit;
+    font-size: $font-size-xlarge;
+  }
+
+  cite {
+    font-size: $font-size-medium;
+  }
+}
+
+.wp-block-pullquote {
+  margin: $element-margin*2 auto;
+  width: 80%;
+  padding: 0;
+
+  blockquote {
+    border: 0;
+    padding: 0;
+    text-align: center;
+
+    p {
+      font-size: inherit;
+      line-height: inherit;
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    &::before {
+      content: '"';
+      font-size: $font-size-xxlarge;
+      font-family: $font-secondary;
+      line-height: 1;
+      display: block;
+      color: $color-primary;
+    }
+  }
+
+  cite {
+    text-align: center;
+  }
+
+  &.alignwide,
+  &.alignfull {
+    width: auto;
+
+    blockquote {
+      &::before {
+        font-size: 4em;
+      }
+
+      p {
+        font-size: $font-size-xxlarge;
+        line-height: 1.3;
+      }
+    }
+  }
+
+}
+
+/************************************************
+  Buttons
+************************************************/
+
+.wp-block-button {
+  color: $button-text-color; // Reset to Jellyfish
+
+  a {
+    @extend .button;
+  }
+
+  &.is-style-outline {
+    color: inherit;
+
+    a {
+      @extend .button__outline;
+    }
+  }
+}
+
+/************************************************
+  Categories
+************************************************/
+
+.wp-block-categories, .wp-block-latest-posts {
+  list-style: none;
+  margin-left: 0;
+  li {
+    font-size: $font-size-large;
+    color: $color-text-light;
+  }
+  a {
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
+
+.wp-block-latest-posts {
+  li {
+    margin-bottom: $element-margin/2;
+  }
+}
+
+.wp-block-latest-posts__post-date {
+  font-weight: bold;
+  font-size: 1rem;
+  color: $color-text-light;
+}
+
+// TODO: Add support for posts/categories columns - it will work out of the box but it should inherit gutters from Jellyfish Grid
+
+/************************************************
+  Columns
+************************************************/
+
+// Ensure that Columns inherit gutters from Jellyfish Grid settings
+$gutenberg-collapse-cols: 600px;
+
+.wp-block-text-columns, .wp-block-columns  {
+  flex-wrap: wrap;
+}
+
+.columns-2 .wp-block-column {
+  @include above($gutenberg-collapse-cols) {
+    width: 50%;
+  }
+}
+
+.columns-3 .wp-block-column {
+  @include above($gutenberg-collapse-cols) {
+    width: 33.333333%;
+  }
+}
+
+.columns-4 .wp-block-column {
+  @include above($gutenberg-collapse-cols) {
+    width: 25%;
+  }
+}
+
+.wp-block-text-columns, .wp-block-columns {
+   .wp-block-column {
+    @include below($gutenberg-collapse-cols) {
+      margin: 0 !important;
+    }
+
+    width: 100%;
+
+    @include above($gutenberg-collapse-cols) {
+      flex: 1;
+    }
+
+    @each $point,
+    $i in $breakpoints {
+      @include above($point) {
+        $gutter: map-deep-get($breakpoints, $point, 'col-gutter')/2;
+        margin: 0 $gutter;
+      }
+    }
+
+    @include above($gutenberg-collapse-cols) {
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+/************************************************
+  Cover Images
+************************************************/
+
+.wp-block-cover,
+.wp-block-cover-image {
+  margin-bottom: $element-margin;
+}
+
+.wp-block-cover-image .wp-block-cover__inner-container,
+.wp-block-cover .wp-block-cover__inner-container {
+  color: $color-background;
+}
+
+.wp-block-cover {
+
+  &.alignwide,
+  &.alignfull {
+    width: auto;
+  }
+}
+
+/************************************************
+  Gallery Blocks
+************************************************/
+
+// TODO: make the gutters inherit from Jellyfish
+// TODO: Fix Caption position over image
+
+/************************************************
+  Images
+************************************************/
+
+.wp-block-image {
+  //clear: both; // Clear floats
+  img+figcaption {
+    margin-top: -$element-margin + 10px;
+    @extend %caption;
+  }
+}
+
+/************************************************
+  Seperators
+************************************************/
+
+.wp-block-separator.is-style-wide {
+  border-bottom: 0;
+  margin-left: calc(25% - 25vw) !important;
+  margin-right: calc(25% - 25vw) !important;
+  max-width: 100vw;
+}
+
+.wp-block-separator.is-style-dots:before {
+  content: "\00b7 \00b7 \00b7 \00b7 \00b7 \00b7";
+  color: $border-color;
+}
+
+/************************************************
+  Tables
+************************************************/
+
+.wp-block-table {
+  &.alignwide {
+    // TODO: Make this actually allow .alignwide - can't use auto width on table or it will collapse
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+
+.wp-block-cover {
+
+  &.alignwide,
+  &.alignfull {
+    width: auto;
+  }
+}
+
+/************************************************
+  Twitter Embed
+************************************************/
+
+.wp-block-embed.alignleft {
+  margin-right: $element-margin;
+}
+.wp-block-embed.alignright {
+  margin-right: $element-margin;
+}
+
+/************************************************
+  Typography
+************************************************/
+
+// Subheading
+p.wp-block-subhead {
+  opacity: 1;
+  @extend h5;
+}
+
+// Dropcap
+.has-drop-cap:not(:focus) {
+  &:after {
+    padding-top: 0;
+  }
+
+  &:first-letter {
+    font-family: $font-headings;
+    color: $color-primary;
+    font-weight: bold;
+    initial-letter: 3;
+    font-size: 5.3em;
+  }
+}
+
+// Font Sizes
+.has-small-font-size {
+  @extend .small;
+}
+
+.has-normal-font-size,
+.has-regular-font-size {
+  font-size: $font-size-normal;
+}
+
+.has-large-font-size {
+  font-size: $font-size-large;
+}
+
+.has-larger-font-size {
+  font-size: $font-size-xlarge;
+  line-height: 1.3;
+}
+
+// Paragraph with Background
+p.has-background {
+  padding: $element-padding;
+}
+
+/************************************************
+  VIDEO
+************************************************/
+
+// TODO: Does alignright, alignleft work OK here?
+.is-type-video .wp-block-embed__wrapper {
+  @extend .embed-container;
+}
+.wp-block-embed {
+  margin-bottom: 0;
+}
+.wp-block-embed.alignfull iframe,
+.wp-block-embed.alignwide iframe,
+.wp-block-video.alignfull video,
+.wp-block-video.alignwide video {
+    width: 100%;
+}
+
+.wp-block-video {
+  margin-bottom: $element-margin;
+  figcaption {
+    @extend %caption;
+  }
+}
+.wp-block-embed figcaption {
+  @extend %caption;
+}
+
+
+/************************************************
+  TODO: BLOCKS TO ADD
+  • YouTube needs align classes to work
+  • Twitter Align classes need to work
+  • Facebook Embed
+  • Instagram Embed
+  • Wordpress Embed
+  • File Block
+************************************************/
+

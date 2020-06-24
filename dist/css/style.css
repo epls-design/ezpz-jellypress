@@ -1,6 +1,7 @@
 /*! jellypress-wordpress-theme 1.0.5
- * © 2020-06-22 Matt Weet - https://www.weareboba.com */
+ * © 2020-06-24 Matt Weet - https://www.weareboba.com */
 
+@charset "UTF-8";
 /* GRID */
 /* JELLYFISH DEFAULTS */
 /* COLOURS */
@@ -43,7 +44,7 @@ SCSS FRAMEWORK BY MATT WEET
    License: none (public domain)
 */
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+h1, h2, h3, h4, h5, p.wp-block-subhead, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -115,7 +116,7 @@ body {
   @media (min-width: 31.25em) {
     body {
       font-size: 16px;
-      line-height: 1.48em; } }
+      line-height: 1.48; } }
 
 a {
   transition: color 0.2s ease;
@@ -161,7 +162,7 @@ pre, samp, kbd, :not(pre) > code, var {
 hr {
   height: 0;
   border: 0;
-  border-top: 1px solid #d9dbdb;
+  border-top: 1px solid #aaaaaa;
   margin: 30px 0; }
 
 pre {
@@ -170,7 +171,7 @@ pre {
   padding: 20px;
   margin: 0 0 30px 0;
   background-color: #efefef;
-  border: 1px solid #d9dbdb;
+  border: 1px solid #aaaaaa;
   line-height: 1.2; }
 
 blockquote {
@@ -194,7 +195,6 @@ img.align-left, img.alignleft, img.align-right, img.alignright, img.align-none, 
   display: block; }
 
 img {
-  width: auto;
   max-width: 100%;
   height: auto;
   vertical-align: top; }
@@ -220,11 +220,11 @@ img {
   as semantic elements eg. code,
   mark, small, var, strong, etc
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, p.wp-block-subhead, h6 {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   margin: 0 0 .4em 0;
   line-height: 1.2; }
-  h1:not(:first-child), h2:not(:first-child), h3:not(:first-child), h4:not(:first-child), h5:not(:first-child), h6:not(:first-child) {
+  h1:not(:first-child), h2:not(:first-child), h3:not(:first-child), h4:not(:first-child), h5:not(:first-child), p.wp-block-subhead:not(:first-child), h6:not(:first-child) {
     margin-top: 30px; }
 
 h1 {
@@ -239,14 +239,14 @@ h3 {
 h4 {
   font-size: 1.5em; }
 
-h5 {
+h5, p.wp-block-subhead {
   font-size: 1.25em; }
 
 h6 {
   font-size: 1em; }
 
 /* TEXT TRANSFORM */
-small, .small {
+small, .small, .has-small-font-size {
   font-size: 0.8em; }
 
 strong, .bold, b {
@@ -296,7 +296,7 @@ kbd {
   color: white; }
 
 :not(pre) > code {
-  border: 1px solid #d9dbdb; }
+  border: 1px solid #aaaaaa; }
 
 var {
   font-style: italic;
@@ -410,7 +410,7 @@ sup {
   margin-left: -50vw !important;
   margin-right: -50vw !important; }
 
-.embed-container {
+.embed-container, .is-type-video .wp-block-embed__wrapper {
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
@@ -418,9 +418,11 @@ sup {
   max-width: 100%;
   margin: 0.25px 0 30px 0; }
 
-.embed-container iframe,
+.embed-container iframe, .is-type-video .wp-block-embed__wrapper iframe,
 .embed-container object,
-.embed-container embed {
+.is-type-video .wp-block-embed__wrapper object,
+.embed-container embed,
+.is-type-video .wp-block-embed__wrapper embed {
   position: absolute;
   top: 0;
   left: 0;
@@ -1269,7 +1271,7 @@ sup {
   BUTTONS
   Default styling for all buttons
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.button, [type=submit], .edit-link a, a.button, a[type=submit], .edit-link a, button, [type=submit], [type=reset], [type=button] {
+.button, [type=submit], .wp-block-button a, .edit-link a, a.button, a[type=submit], .wp-block-button a, .edit-link a, button, [type=submit], [type=reset], [type=button] {
   -webkit-appearance: none;
   user-select: none;
   display: inline-block;
@@ -1288,17 +1290,17 @@ sup {
   margin: 15px 5px 30px 0;
   border-radius: 6px;
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
-  .button::-moz-focus-inner, [type=submit]::-moz-focus-inner, .edit-link a::-moz-focus-inner, a.button::-moz-focus-inner, a[type=submit]::-moz-focus-inner, .edit-link a::-moz-focus-inner, button::-moz-focus-inner, [type=submit]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=button]::-moz-focus-inner {
+  .button::-moz-focus-inner, [type=submit]::-moz-focus-inner, .wp-block-button a::-moz-focus-inner, .edit-link a::-moz-focus-inner, a.button::-moz-focus-inner, a[type=submit]::-moz-focus-inner, .wp-block-button a::-moz-focus-inner, .edit-link a::-moz-focus-inner, button::-moz-focus-inner, [type=submit]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=button]::-moz-focus-inner {
     border: 0;
     padding: 0; }
-  .button:hover, :hover[type=submit], .edit-link a:hover, .button:focus, :focus[type=submit], .edit-link a:focus, .button:active, :active[type=submit], .edit-link a:active, a.button:hover, a:hover[type=submit], .edit-link a:hover, a.button:focus, a:focus[type=submit], .edit-link a:focus, a.button:active, a:active[type=submit], .edit-link a:active, button:hover, button:focus, button:active, [type=submit]:hover, [type=submit]:focus, [type=submit]:active, [type=reset]:hover, [type=reset]:focus, [type=reset]:active, [type=button]:hover, [type=button]:focus, [type=button]:active {
+  .button:hover, :hover[type=submit], .wp-block-button a:hover, .edit-link a:hover, .button:focus, :focus[type=submit], .wp-block-button a:focus, .edit-link a:focus, .button:active, :active[type=submit], .wp-block-button a:active, .edit-link a:active, a.button:hover, a:hover[type=submit], .wp-block-button a:hover, .edit-link a:hover, a.button:focus, a:focus[type=submit], .wp-block-button a:focus, .edit-link a:focus, a.button:active, a:active[type=submit], .wp-block-button a:active, .edit-link a:active, button:hover, button:focus, button:active, [type=submit]:hover, [type=submit]:focus, [type=submit]:active, [type=reset]:hover, [type=reset]:focus, [type=reset]:active, [type=button]:hover, [type=button]:focus, [type=button]:active {
     background-color: #89233d;
     border-color: #89233d;
     color: white; }
-  .button:focus, :focus[type=submit], .edit-link a:focus, a.button:focus, a:focus[type=submit], .edit-link a:focus, button:focus, [type=submit]:focus, [type=reset]:focus, [type=button]:focus {
+  .button:focus, :focus[type=submit], .wp-block-button a:focus, .edit-link a:focus, a.button:focus, a:focus[type=submit], .wp-block-button a:focus, .edit-link a:focus, button:focus, [type=submit]:focus, [type=reset]:focus, [type=button]:focus {
     outline: 0;
     box-shadow: 0px 0px 1px 3px #df8098; }
-  .button:disabled, :disabled[type=submit], .edit-link a:disabled, a.button:disabled, a:disabled[type=submit], .edit-link a:disabled, button:disabled, [type=submit]:disabled, [type=reset]:disabled, [type=button]:disabled {
+  .button:disabled, :disabled[type=submit], .wp-block-button a:disabled, .edit-link a:disabled, a.button:disabled, a:disabled[type=submit], .wp-block-button a:disabled, .edit-link a:disabled, button:disabled, [type=submit]:disabled, [type=reset]:disabled, [type=button]:disabled {
     cursor: not-allowed;
     background-color: #999999;
     border: 1px solid #999999; }
@@ -1314,11 +1316,11 @@ sup {
   .button__secondary:focus, a.button__secondary:focus {
     box-shadow: 0px 0px 1px 3px #4291b0; }
 
-.button__outline, [type=reset], .edit-link a, a.button__outline, a[type=reset], .edit-link a {
+.button__outline, [type=reset], .wp-block-button.is-style-outline a, .edit-link a, a.button__outline, a[type=reset], .wp-block-button.is-style-outline a, .edit-link a {
   background: transparent;
   color: inherit;
   border-color: #b22d4f; }
-  .button__outline:hover, :hover[type=reset], .edit-link a:hover, .button__outline:focus, :focus[type=reset], .edit-link a:focus, .button__outline:active, :active[type=reset], .edit-link a:active, a.button__outline:hover, a:hover[type=reset], .edit-link a:hover, a.button__outline:focus, a:focus[type=reset], .edit-link a:focus, a.button__outline:active, a:active[type=reset], .edit-link a:active {
+  .button__outline:hover, :hover[type=reset], .wp-block-button.is-style-outline a:hover, .edit-link a:hover, .button__outline:focus, :focus[type=reset], .wp-block-button.is-style-outline a:focus, .edit-link a:focus, .button__outline:active, :active[type=reset], .wp-block-button.is-style-outline a:active, .edit-link a:active, a.button__outline:hover, a:hover[type=reset], .wp-block-button.is-style-outline a:hover, .edit-link a:hover, a.button__outline:focus, a:focus[type=reset], .wp-block-button.is-style-outline a:focus, .edit-link a:focus, a.button__outline:active, a:active[type=reset], .wp-block-button.is-style-outline a:active, .edit-link a:active {
     background-color: transparent;
     border-color: #89233d;
     color: #b22d4f; }
@@ -1352,7 +1354,7 @@ table {
   width: 100%; }
 
 td {
-  border-bottom: 1px solid #d9dbdb; }
+  border-bottom: 1px solid #aaaaaa; }
 
 th {
   font-weight: bold; }
@@ -1363,16 +1365,16 @@ td {
   padding: .5em .8em; }
 
 thead th {
-  border-bottom: 2px solid #d9dbdb; }
+  border-bottom: 2px solid #aaaaaa; }
 
 tfoot th {
-  border-top: 2px solid #d9dbdb; }
+  border-top: 2px solid #aaaaaa; }
 
 .table__striped tr:nth-child(odd) td {
-  background: #e6e7e7; }
+  background: #b7b7b7; }
 
 .table__border, .table__border td, .table__border th {
-  border: 1px solid #d9dbdb; }
+  border: 1px solid #aaaaaa; }
 
 .table__hoverable tr:hover td {
   background: #b22d4f !important;
@@ -1388,7 +1390,7 @@ tfoot th {
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 [type=color], [type=date], [type=datetime], [type=datetime-local], [type=email], [type=month], [type=number], [type=password], [type=search], [type=tel], [type=text], [type=url], [type=week], [type=time], select, textarea {
   display: block;
-  border: 1px solid #d9dbdb;
+  border: 1px solid #aaaaaa;
   border-radius: 4px;
   background: white;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -1402,7 +1404,7 @@ tfoot th {
   opacity: 1; }
 
 [type=color]:hover, [type=date]:hover, [type=datetime]:hover, [type=datetime-local]:hover, [type=email]:hover, [type=month]:hover, [type=number]:hover, [type=password]:hover, [type=search]:hover, [type=tel]:hover, [type=text]:hover, [type=url]:hover, [type=week]:hover, [type=time]:hover, select:hover, textarea:hover {
-  border-color: #717777; }
+  border-color: #444444; }
 
 [type=color]:focus, [type=color]:active, [type=date]:focus, [type=date]:active, [type=datetime]:focus, [type=datetime]:active, [type=datetime-local]:focus, [type=datetime-local]:active, [type=email]:focus, [type=email]:active, [type=month]:focus, [type=month]:active, [type=number]:focus, [type=number]:active, [type=password]:focus, [type=password]:active, [type=search]:focus, [type=search]:active, [type=tel]:focus, [type=tel]:active, [type=text]:focus, [type=text]:active, [type=url]:focus, [type=url]:active, [type=week]:focus, [type=week]:active, [type=time]:focus, [type=time]:active, select:focus, select:active, textarea:focus, textarea:active {
   border-color: #b22d4f;
@@ -1410,7 +1412,7 @@ tfoot th {
 
 [type=color]:disabled, [type=date]:disabled, [type=datetime]:disabled, [type=datetime-local]:disabled, [type=email]:disabled, [type=month]:disabled, [type=number]:disabled, [type=password]:disabled, [type=search]:disabled, [type=tel]:disabled, [type=text]:disabled, [type=url]:disabled, [type=week]:disabled, [type=time]:disabled, select:disabled, textarea:disabled, [type=month]:disabled {
   cursor: not-allowed;
-  border: 1px solid #d9dbdb;
+  border: 1px solid #aaaaaa;
   box-shadow: none;
   opacity: 0.5; }
 
@@ -1427,7 +1429,7 @@ input[type=checkbox], input[type=radio] {
   margin-right: 5px; }
 
 fieldset {
-  border: 1px solid #d9dbdb;
+  border: 1px solid #aaaaaa;
   border-radius: 4px;
   padding: 20px;
   margin: 30px 0; }
@@ -1460,7 +1462,7 @@ select::-ms-expand {
 ::-moz-placeholder,
 :-moz-placeholder,
 :-ms-input-placeholder {
-  color: #d9dbdb; }
+  color: #aaaaaa; }
 
 .form-group, .form-group-inline {
   margin: 3px 0 15px 0; }
@@ -1797,11 +1799,11 @@ they should be wrapped in this class to ensure consistent display
         justify-content: flex-end;
         margin-left: auto;
         padding: 0; } }
-  .navbar-menu input, .navbar-menu .button, .navbar-menu [type=submit], .navbar-menu .edit-link a, .edit-link .navbar-menu a, .navbar-menu a.button, .navbar-menu a[type=submit], .navbar-menu .edit-link a, .edit-link .navbar-menu a, .navbar-menu button, .navbar-menu [type=submit], .navbar-menu [type=reset], .navbar-menu [type=button] {
+  .navbar-menu input, .navbar-menu .button, .navbar-menu [type=submit], .navbar-menu .wp-block-button a, .wp-block-button .navbar-menu a, .navbar-menu .edit-link a, .edit-link .navbar-menu a, .navbar-menu a.button, .navbar-menu a[type=submit], .navbar-menu .wp-block-button a, .wp-block-button .navbar-menu a, .navbar-menu .edit-link a, .edit-link .navbar-menu a, .navbar-menu button, .navbar-menu [type=submit], .navbar-menu [type=reset], .navbar-menu [type=button] {
     margin: 8px 10px;
     position: relative; }
     @media (min-width: 56.25em) {
-      .navbar-menu input, .navbar-menu .button, .navbar-menu [type=submit], .navbar-menu .edit-link a, .edit-link .navbar-menu a, .navbar-menu a.button, .navbar-menu a[type=submit], .navbar-menu .edit-link a, .edit-link .navbar-menu a, .navbar-menu button, .navbar-menu [type=submit], .navbar-menu [type=reset], .navbar-menu [type=button] {
+      .navbar-menu input, .navbar-menu .button, .navbar-menu [type=submit], .navbar-menu .wp-block-button a, .wp-block-button .navbar-menu a, .navbar-menu .edit-link a, .edit-link .navbar-menu a, .navbar-menu a.button, .navbar-menu a[type=submit], .navbar-menu .wp-block-button a, .wp-block-button .navbar-menu a, .navbar-menu .edit-link a, .edit-link .navbar-menu a, .navbar-menu button, .navbar-menu [type=submit], .navbar-menu [type=reset], .navbar-menu [type=button] {
         margin: 10px 10px; } }
   .navbar-menu input {
     width: auto; }
@@ -1871,16 +1873,16 @@ Utilities
     font-size: 9pt;
     line-height: 1.2;
     font-family: Arial; }
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, h5, p.wp-block-subhead, h6 {
     font-weight: bold;
     margin-bottom: .2em; }
   h1 {
     font-size: 1.6em; }
   h2 {
     font-size: 1.4em; }
-  h3, h4, h5, h6 {
+  h3, h4, h5, p.wp-block-subhead, h6 {
     font-size: 1.2em; }
-  .button, [type=submit], .edit-link a, a.button, a[type=submit], .edit-link a, button, [type=submit], [type=reset], [type=button] {
+  .button, [type=submit], .wp-block-button a, .edit-link a, a.button, a[type=submit], .wp-block-button a, .edit-link a, button, [type=submit], [type=reset], [type=button] {
     border: 1px solid black  !important;
     background-color: white  !important;
     color: black  !important;
@@ -1889,6 +1891,300 @@ Utilities
   .container {
     width: 100%; } }
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  GUTENBERG
+  Styles used by Gutenberg blocks
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/************************************************
+  Align Classes and Helpers
+************************************************/
+.wp-block-audio figcaption, .wp-block-image img + figcaption, .wp-block-video figcaption, .wp-block-embed figcaption {
+  color: #aaaaaa;
+  margin-bottom: 30px; }
+
+.alignfull {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  max-width: 100vw;
+  width: 100vw; }
+
+.alignwide {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: calc(25% - 25vw) !important;
+  margin-right: calc(25% - 25vw) !important;
+  max-width: 100vw; }
+
+.alignfull > figcaption,
+.alignfull > .wp-caption-text,
+.alignwide > figcaption,
+.alignwide > .wp-caption-text {
+  margin-left: auto;
+  margin-right: auto;
+  width: calc(100% - 15px*2); }
+  @media (min-width: 31.25em) {
+    .alignfull > figcaption,
+    .alignfull > .wp-caption-text,
+    .alignwide > figcaption,
+    .alignwide > .wp-caption-text {
+      width: calc(96% - 50px*2); } }
+  @media (min-width: 56.25em) {
+    .alignfull > figcaption,
+    .alignfull > .wp-caption-text,
+    .alignwide > figcaption,
+    .alignwide > .wp-caption-text {
+      width: calc(94% - 0px*2); } }
+  @media (min-width: 75em) {
+    .alignfull > figcaption,
+    .alignfull > .wp-caption-text,
+    .alignwide > figcaption,
+    .alignwide > .wp-caption-text {
+      width: 1080px; } }
+  @media (min-width: 100em) {
+    .alignfull > figcaption,
+    .alignfull > .wp-caption-text,
+    .alignwide > figcaption,
+    .alignwide > .wp-caption-text {
+      width: 1480px; } }
+
+/************************************************
+  Audio Blocks
+************************************************/
+.wp-block-audio {
+  margin-bottom: 30px; }
+
+/************************************************
+  Blockquotes
+************************************************/
+.wp-block-quote.is-large,
+.wp-block-quote.is-style-large {
+  font-size: 1em;
+  margin-bottom: 30px;
+  padding: 0;
+  border-left: 0; }
+  .wp-block-quote.is-large p,
+  .wp-block-quote.is-style-large p {
+    font-style: inherit;
+    line-height: inherit;
+    font-size: 1.75em; }
+  .wp-block-quote.is-large cite,
+  .wp-block-quote.is-style-large cite {
+    font-size: 1.25em; }
+
+.wp-block-pullquote {
+  margin: 60px auto;
+  width: 80%;
+  padding: 0; }
+  .wp-block-pullquote blockquote {
+    border: 0;
+    padding: 0;
+    text-align: center; }
+    .wp-block-pullquote blockquote p {
+      font-size: inherit;
+      line-height: inherit;
+      font-weight: bold;
+      font-style: normal; }
+    .wp-block-pullquote blockquote::before {
+      content: '"';
+      font-size: 2em;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      line-height: 1;
+      display: block;
+      color: #b22d4f; }
+  .wp-block-pullquote cite {
+    text-align: center; }
+  .wp-block-pullquote.alignwide, .wp-block-pullquote.alignfull {
+    width: auto; }
+    .wp-block-pullquote.alignwide blockquote::before, .wp-block-pullquote.alignfull blockquote::before {
+      font-size: 4em; }
+    .wp-block-pullquote.alignwide blockquote p, .wp-block-pullquote.alignfull blockquote p {
+      font-size: 2em;
+      line-height: 1.3; }
+
+/************************************************
+  Buttons
+************************************************/
+.wp-block-button {
+  color: white; }
+  .wp-block-button.is-style-outline {
+    color: inherit; }
+
+/************************************************
+  Categories
+************************************************/
+.wp-block-categories, .wp-block-latest-posts {
+  list-style: none;
+  margin-left: 0; }
+  .wp-block-categories li, .wp-block-latest-posts li {
+    font-size: 1.5em;
+    color: #aaaaaa; }
+  .wp-block-categories a, .wp-block-latest-posts a {
+    text-decoration: none;
+    font-weight: bold; }
+
+.wp-block-latest-posts li {
+  margin-bottom: 15px; }
+
+.wp-block-latest-posts__post-date {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #aaaaaa; }
+
+/************************************************
+  Columns
+************************************************/
+.wp-block-text-columns, .wp-block-columns {
+  flex-wrap: wrap; }
+
+@media (min-width: 37.5em) {
+  .columns-2 .wp-block-column {
+    width: 50%; } }
+
+@media (min-width: 37.5em) {
+  .columns-3 .wp-block-column {
+    width: 33.333333%; } }
+
+@media (min-width: 37.5em) {
+  .columns-4 .wp-block-column {
+    width: 25%; } }
+
+.wp-block-text-columns .wp-block-column, .wp-block-columns .wp-block-column {
+  width: 100%; }
+  @media (max-width: 37.4375em) {
+    .wp-block-text-columns .wp-block-column, .wp-block-columns .wp-block-column {
+      margin: 0 !important; } }
+  @media (min-width: 37.5em) {
+    .wp-block-text-columns .wp-block-column, .wp-block-columns .wp-block-column {
+      flex: 1; } }
+  @media (min-width: 31.25em) {
+    .wp-block-text-columns .wp-block-column, .wp-block-columns .wp-block-column {
+      margin: 0 10px; } }
+  @media (min-width: 56.25em) {
+    .wp-block-text-columns .wp-block-column, .wp-block-columns .wp-block-column {
+      margin: 0 15px; } }
+  @media (min-width: 75em) {
+    .wp-block-text-columns .wp-block-column, .wp-block-columns .wp-block-column {
+      margin: 0 15px; } }
+  @media (min-width: 100em) {
+    .wp-block-text-columns .wp-block-column, .wp-block-columns .wp-block-column {
+      margin: 0 17.5px; } }
+  @media (min-width: 37.5em) {
+    .wp-block-text-columns .wp-block-column:first-child, .wp-block-columns .wp-block-column:first-child {
+      margin-left: 0; }
+    .wp-block-text-columns .wp-block-column:last-child, .wp-block-columns .wp-block-column:last-child {
+      margin-right: 0; } }
+
+/************************************************
+  Cover Images
+************************************************/
+.wp-block-cover,
+.wp-block-cover-image {
+  margin-bottom: 30px; }
+
+.wp-block-cover-image .wp-block-cover__inner-container,
+.wp-block-cover .wp-block-cover__inner-container {
+  color: #fff; }
+
+.wp-block-cover.alignwide, .wp-block-cover.alignfull {
+  width: auto; }
+
+/************************************************
+  Gallery Blocks
+************************************************/
+/************************************************
+  Images
+************************************************/
+.wp-block-image img + figcaption {
+  margin-top: -20px; }
+
+/************************************************
+  Seperators
+************************************************/
+.wp-block-separator.is-style-wide {
+  border-bottom: 0;
+  margin-left: calc(25% - 25vw) !important;
+  margin-right: calc(25% - 25vw) !important;
+  max-width: 100vw; }
+
+.wp-block-separator.is-style-dots:before {
+  content: "\00b7 \00b7 \00b7 \00b7 \00b7 \00b7";
+  color: #aaaaaa; }
+
+/************************************************
+  Tables
+************************************************/
+.wp-block-table.alignwide {
+  margin-left: 0 !important;
+  margin-right: 0 !important; }
+
+.wp-block-cover.alignwide, .wp-block-cover.alignfull {
+  width: auto; }
+
+/************************************************
+  Twitter Embed
+************************************************/
+.wp-block-embed.alignleft {
+  margin-right: 30px; }
+
+.wp-block-embed.alignright {
+  margin-right: 30px; }
+
+/************************************************
+  Typography
+************************************************/
+p.wp-block-subhead {
+  opacity: 1; }
+
+.has-drop-cap:not(:focus):after {
+  padding-top: 0; }
+
+.has-drop-cap:not(:focus):first-letter {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #b22d4f;
+  font-weight: bold;
+  initial-letter: 3;
+  font-size: 5.3em; }
+
+.has-normal-font-size,
+.has-regular-font-size {
+  font-size: 1em; }
+
+.has-large-font-size {
+  font-size: 1.5em; }
+
+.has-larger-font-size {
+  font-size: 1.75em;
+  line-height: 1.3; }
+
+p.has-background {
+  padding: 20px; }
+
+/************************************************
+  VIDEO
+************************************************/
+.wp-block-embed {
+  margin-bottom: 0; }
+
+.wp-block-embed.alignfull iframe,
+.wp-block-embed.alignwide iframe,
+.wp-block-video.alignfull video,
+.wp-block-video.alignwide video {
+  width: 100%; }
+
+.wp-block-video {
+  margin-bottom: 30px; }
+
+/************************************************
+  TODO: BLOCKS TO ADD
+  • YouTube needs align classes to work
+  • Twitter Align classes need to work
+  • Facebook Embed
+  • Instagram Embed
+  • Wordpress Embed
+  • File Block
+************************************************/
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   WIDGETS
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -1932,7 +2228,7 @@ Utilities
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   HELPERS
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.bg-black, .bg-primary, .bg-secondary, .bg-tertiary, .bg-black a, .bg-primary a, .bg-secondary a, .bg-tertiary a, .bg-black h1, .bg-primary h1, .bg-secondary h1, .bg-tertiary h1, .bg-black h2, .bg-primary h2, .bg-secondary h2, .bg-tertiary h2, .bg-black h3, .bg-primary h3, .bg-secondary h3, .bg-tertiary h3, .bg-black h4, .bg-primary h4, .bg-secondary h4, .bg-tertiary h4, .bg-black h5, .bg-primary h5, .bg-secondary h5, .bg-tertiary h5, .bg-black h6, .bg-primary h6, .bg-secondary h6, .bg-tertiary h6 {
+.bg-black, .bg-primary, .bg-secondary, .bg-tertiary, .bg-black a, .bg-primary a, .bg-secondary a, .bg-tertiary a, .bg-black h1, .bg-primary h1, .bg-secondary h1, .bg-tertiary h1, .bg-black h2, .bg-primary h2, .bg-secondary h2, .bg-tertiary h2, .bg-black h3, .bg-primary h3, .bg-secondary h3, .bg-tertiary h3, .bg-black h4, .bg-primary h4, .bg-secondary h4, .bg-tertiary h4, .bg-black h5, .bg-primary h5, .bg-secondary h5, .bg-tertiary h5, .bg-black p.wp-block-subhead, .bg-primary p.wp-block-subhead, .bg-secondary p.wp-block-subhead, .bg-tertiary p.wp-block-subhead, .bg-black h6, .bg-primary h6, .bg-secondary h6, .bg-tertiary h6 {
   color: #fff; }
 
 .bg-black {
@@ -2037,7 +2333,7 @@ Utilities
       color: #fff; }
     .pagination li.nav-total,
     .pagination li a {
-      border: 1px solid #d9dbdb;
+      border: 1px solid #aaaaaa;
       padding: 6.6666666667px 10px; }
     .pagination li.nav-total {
       background: #b3b2b2;
@@ -2073,7 +2369,7 @@ Utilities
   .section__full-width {
     padding-top: 0;
     padding-bottom: 0; }
-    .section__full-width img, .section__full-width .embed-container {
+    .section__full-width img, .section__full-width .embed-container, .section__full-width .is-type-video .wp-block-embed__wrapper, .is-type-video .section__full-width .wp-block-embed__wrapper {
       margin-bottom: 0; }
   .section__gallery .gallery-item {
     display: inline-block;

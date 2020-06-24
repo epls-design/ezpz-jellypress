@@ -12,7 +12,7 @@ $debug-mode-on: false;
 
 /* COLOURS */
 $color-text: #333333;
-//$color-text-light: #d9dbdb;
+$color-text-light: #aaaaaa;
 $color-background: #fff;
 //$color-background-alt: #efefef;
 $color-primary: #b22d4f;
@@ -184,7 +184,7 @@ $breakpoints: (
         container-gutter: 50px,
         col-gutter: 20px,
         root-font-size: 16px,
-        root-line-height: 1.48em
+        root-line-height: 1.48
         ),
     md: (
         breakpoint: 900px,
