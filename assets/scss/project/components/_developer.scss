@@ -21,7 +21,7 @@
      }
      @media print {
        &::after {
-         content: " hello@weareboba.com";
+         @include pseudo(" hello@weareboba.com",inline-block);
        }
      }
     }

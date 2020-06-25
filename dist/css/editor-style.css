@@ -1,5 +1,5 @@
 /*! jellypress-wordpress-theme 1.0.5
- * © 2020-06-24 Matt Weet - https://www.weareboba.com */
+ * © 2020-06-25 Matt Weet - https://www.weareboba.com */
 
 @charset "UTF-8";
 /* GRID */
@@ -1725,10 +1725,10 @@ they should be wrapped in this class to ensure consistent display
       *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
         padding-right: 30px !important; }
         .navbar-menu ul li.has-children > a::after, .navbar-menu ul li.menu-item-has-children > a::after {
-          content: " ";
-          pointer-events: none;
-          position: absolute;
+          content: "";
           display: block;
+          position: absolute;
+          pointer-events: none;
           height: 12px;
           width: 12px;
           border: 3px solid #b22d4f;
@@ -2292,7 +2292,9 @@ p.has-background {
       margin-left: 5px; } }
   @media print {
     .bobastudio a::after {
-      content: " hello@weareboba.com"; } }
+      content: " hello@weareboba.com";
+      display: inline-block;
+      position: absolute; } }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   ICONS
