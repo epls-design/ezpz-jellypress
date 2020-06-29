@@ -1,3 +1,7 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  USEFUL MIXINS AND FUNCTIONS
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 // Convert px to em
 @function em($pixels) {
     @return #{$pixels/16px}em;

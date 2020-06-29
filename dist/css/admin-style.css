@@ -17,6 +17,9 @@
 /* TABLES */
 /* NAVBAR */
 /* HAMBURGER MENU */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  DEFAULT SETTINGS
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /* GRID */
 /* JELLYFISH DEFAULTS */
 /* DOCUMENT ROOT FONT SIZE AND LINE HEIGHT AT SMALLEST DEVICE WIDTH */
@@ -32,6 +35,9 @@
 /* TABLES */
 /* NAVBAR */
 /* HAMBURGER MENU */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  USEFUL MIXINS AND FUNCTIONS
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .acf-fc-layout-handle {
   padding-left: 25px !important;
   background: #23282d !important;
