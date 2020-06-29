@@ -1,7 +1,7 @@
 // Compiles all scss files into dist/css/editor-style.css which is then processed into editor-style.css
 // editor-style.css is applied to TinyMCE boxes in the admin area
 
-@import "compile";
+@import "main";
 
 html .mceContentBody {
   padding: 20px;

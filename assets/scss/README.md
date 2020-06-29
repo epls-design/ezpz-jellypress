@@ -5,9 +5,9 @@ At it's core, Jellypress uses the [Jellyfish](https://unofficialmatt.github.io/j
 ## SCSS Compile
 The following files are compiled by Gruntfile.js, with postcss applying vendor prefixes, pxtorem and minifying the output:
 
-- <b>Admin Stylesheet, used in WP Admin</b>: `admin-style.scss` -> `dist/css/admin-style.css`
-- <b>Main Stylesheet for front-end of theme</b>: `compile.scss` -> `style.css`
-- <b>Additional Editor styles for TinyMCE</b>: `editor.scss` -> `dist/css/editor-style.css`
+- <b>Admin Stylesheet, used in WP Admin</b>: `compile/admin-style.scss` -> `dist/css/admin-style.css`
+- <b>Main Stylesheet for front-end of theme</b>: `compile/main.scss` -> `style.css`
+- <b>Additional Editor styles for TinyMCE</b>: `compile/editor.scss` -> `dist/css/editor-style.css`
 - <b>Woocommerce specific styles - loaded when WooCommerce is active</b>: `woocommerce.scss` -> `dist/css/woocommerce.css`
 
 ## Customising the theme

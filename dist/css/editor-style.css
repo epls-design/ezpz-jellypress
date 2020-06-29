@@ -1,17 +1,16 @@
 /*! jellypress-wordpress-theme 1.0.5
- * © 2020-06-25 Matt Weet - https://www.weareboba.com */
+ * © 2020-06-29 Matt Weet - https://www.weareboba.com */
 
 @charset "UTF-8";
 /* GRID */
 /* JELLYFISH DEFAULTS */
+/* DOCUMENT ROOT FONT SIZE AND LINE HEIGHT AT SMALLEST DEVICE WIDTH */
+/* GLOBAL PADDING/MARGINS */
 /* COLOURS */
 /* THEME COLOURS */
 /* TYPEFACES */
 /* FONT SIZES */
-/* Global padding/margins */
-/* DOCUMENT ROOT FONT SIZE AND LINE HEIGHT */
 /* LINKS */
-/* GLOBAL PADDING/MARGINS */
 /* GLOBAL TRANSITION USED IN SMOOTH() */
 /* BORDERS */
 /* FORMS */
@@ -26,12 +25,12 @@ SCSS FRAMEWORK BY MATT WEET
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /* GRID */
 /* JELLYFISH DEFAULTS */
+/* DOCUMENT ROOT FONT SIZE AND LINE HEIGHT AT SMALLEST DEVICE WIDTH */
+/* GLOBAL PADDING/MARGINS */
 /* COLOURS */
 /* TYPEFACES */
 /* FONT SIZES */
-/* DOCUMENT ROOT FONT SIZE AND LINE HEIGHT */
 /* LINKS */
-/* GLOBAL PADDING/MARGINS */
 /* GLOBAL TRANSITION USED IN SMOOTH() */
 /* BORDERS */
 /* FORMS */
@@ -109,14 +108,17 @@ html {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 14px;
+  line-height: 1.4;
   color: #333333;
   background-color: #fff; }
-  @media (min-width: 31.25em) {
+  @media (min-width: 33.75em) {
     body {
-      font-size: 16px;
+      font-size: 15px;
       line-height: 1.48; } }
+  @media (min-width: 48em) {
+    body {
+      font-size: 16px; } }
 
 a {
   transition: color 0.2s ease;
@@ -198,7 +200,7 @@ img {
   max-width: 100%;
   height: auto;
   vertical-align: top; }
-  @media (min-width: 31.25em) {
+  @media (min-width: 33.75em) {
     img.align-left, img.alignleft {
       margin: 0 30px 30px 0;
       float: left !important; }
@@ -483,16 +485,16 @@ sup {
   font-size: 12px;
   color: #555555;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
-  @media (min-width: 31.25em) {
+  @media (min-width: 33.75em) {
     .jf-debug::before {
       content: "sm"; } }
-  @media (min-width: 56.25em) {
+  @media (min-width: 48em) {
     .jf-debug::before {
       content: "md"; } }
-  @media (min-width: 75em) {
+  @media (min-width: 80em) {
     .jf-debug::before {
       content: "lg"; } }
-  @media (min-width: 100em) {
+  @media (min-width: 106.25em) {
     .jf-debug::before {
       content: "xl"; } }
 
@@ -659,9 +661,9 @@ sup {
 .offset-xs-0 {
   margin-left: 0%; }
 
-@media (min-width: 31.25em) {
+@media (min-width: 33.75em) {
   .container {
-    width: 96%;
+    width: 94%;
     padding-left: 50px;
     padding-right: 50px; }
   .row {
@@ -802,21 +804,22 @@ sup {
   .jf-debug [class*='offset-sm-0'] {
     outline: 0; } }
 
-@media (max-width: 31.1875em) {
+@media (max-width: 33.6875em) {
   .hide-below-sm {
     display: none !important; } }
 
-@media (min-width: 31.25em) {
+@media (min-width: 33.75em) {
   .hide-above-sm {
     display: none !important; } }
 
-@media (min-width: 31.25em) and (max-width: 56.1875em) {
+@media (min-width: 33.75em) and (max-width: 47.9375em) {
   .hide-sm {
     display: none !important; } }
 
-@media (min-width: 56.25em) {
+@media (min-width: 48em) {
   .container {
-    width: 94%;
+    width: 90%;
+    max-width: 1080px;
     padding-left: 0px;
     padding-right: 0px; }
   .row {
@@ -955,24 +958,25 @@ sup {
   .jf-debug [class*='offset-md-0'] {
     outline: 0; } }
 
-@media (max-width: 56.1875em) {
+@media (max-width: 47.9375em) {
   .hide-below-md {
     display: none !important; } }
 
-@media (min-width: 56.25em) {
+@media (min-width: 48em) {
   .hide-above-md {
     display: none !important; } }
 
-@media (min-width: 56.25em) and (max-width: 74.9375em) {
+@media (min-width: 48em) and (max-width: 79.9375em) {
   .hide-md {
     display: none !important; } }
 
-@media (min-width: 75em) {
+@media (min-width: 80em) {
   .container {
-    width: 1080px; }
+    width: 1220px;
+    max-width: none; }
   .row {
-    margin-left: -15px;
-    margin-right: -15px; }
+    margin-left: -17.5px;
+    margin-right: -17.5px; }
   .row.collapse-lg {
     margin-left: 0;
     margin-right: 0; }
@@ -980,8 +984,8 @@ sup {
       padding-left: 0 !important;
       padding-right: 0 !important; }
   .col, .section__gallery .gallery-item {
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 17.5px;
+    padding-right: 17.5px; }
   .col.lg-auto, .section__gallery .lg-auto.gallery-item {
     max-width: none;
     flex: 0 0 auto;
@@ -1106,24 +1110,24 @@ sup {
   .jf-debug [class*='offset-lg-0'] {
     outline: 0; } }
 
-@media (max-width: 74.9375em) {
+@media (max-width: 79.9375em) {
   .hide-below-lg {
     display: none !important; } }
 
-@media (min-width: 75em) {
+@media (min-width: 80em) {
   .hide-above-lg {
     display: none !important; } }
 
-@media (min-width: 75em) and (max-width: 99.9375em) {
+@media (min-width: 80em) and (max-width: 106.1875em) {
   .hide-lg {
     display: none !important; } }
 
-@media (min-width: 100em) {
+@media (min-width: 106.25em) {
   .container {
-    width: 1480px; }
+    width: 1640px; }
   .row {
-    margin-left: -17.5px;
-    margin-right: -17.5px; }
+    margin-left: -22.5px;
+    margin-right: -22.5px; }
   .row.collapse-xl {
     margin-left: 0;
     margin-right: 0; }
@@ -1131,8 +1135,8 @@ sup {
       padding-left: 0 !important;
       padding-right: 0 !important; }
   .col, .section__gallery .gallery-item {
-    padding-left: 17.5px;
-    padding-right: 17.5px; }
+    padding-left: 22.5px;
+    padding-right: 22.5px; }
   .col.xl-auto, .section__gallery .xl-auto.gallery-item {
     max-width: none;
     flex: 0 0 auto;
@@ -1259,11 +1263,11 @@ sup {
   .hide-xl {
     display: none !important; } }
 
-@media (max-width: 99.9375em) {
+@media (max-width: 106.1875em) {
   .hide-below-xl {
     display: none !important; } }
 
-@media (min-width: 100em) {
+@media (min-width: 106.25em) {
   .hide-above-xl {
     display: none !important; } }
 
@@ -1286,7 +1290,7 @@ sup {
   border: 1px solid #b22d4f;
   background-color: #b22d4f;
   color: white;
-  padding: .75em 1.5em;
+  padding: 0.75em 1.5em;
   margin: 15px 5px 30px 0;
   border-radius: 6px;
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
@@ -1924,30 +1928,30 @@ Utilities
   margin-left: auto;
   margin-right: auto;
   width: calc(100% - 15px*2); }
-  @media (min-width: 31.25em) {
+  @media (min-width: 33.75em) {
     .alignfull > figcaption,
     .alignfull > .wp-caption-text,
     .alignwide > figcaption,
     .alignwide > .wp-caption-text {
-      width: calc(96% - 50px*2); } }
-  @media (min-width: 56.25em) {
+      width: calc(94% - 50px*2); } }
+  @media (min-width: 48em) {
     .alignfull > figcaption,
     .alignfull > .wp-caption-text,
     .alignwide > figcaption,
     .alignwide > .wp-caption-text {
-      width: calc(94% - 0px*2); } }
-  @media (min-width: 75em) {
+      width: calc(90% - 0px*2); } }
+  @media (min-width: 80em) {
     .alignfull > figcaption,
     .alignfull > .wp-caption-text,
     .alignwide > figcaption,
     .alignwide > .wp-caption-text {
-      width: 1080px; } }
-  @media (min-width: 100em) {
+      width: 1220px; } }
+  @media (min-width: 106.25em) {
     .alignfull > figcaption,
     .alignfull > .wp-caption-text,
     .alignwide > figcaption,
     .alignwide > .wp-caption-text {
-      width: 1480px; } }
+      width: 1640px; } }
 
 /************************************************
   Audio Blocks
@@ -2058,18 +2062,18 @@ Utilities
   @media (min-width: 37.5em) {
     .wp-block-text-columns .wp-block-column, .wp-block-columns .wp-block-column {
       flex: 1; } }
-  @media (min-width: 31.25em) {
+  @media (min-width: 33.75em) {
     .wp-block-text-columns .wp-block-column, .wp-block-columns .wp-block-column {
       margin: 0 10px; } }
-  @media (min-width: 56.25em) {
+  @media (min-width: 48em) {
     .wp-block-text-columns .wp-block-column, .wp-block-columns .wp-block-column {
       margin: 0 15px; } }
-  @media (min-width: 75em) {
-    .wp-block-text-columns .wp-block-column, .wp-block-columns .wp-block-column {
-      margin: 0 15px; } }
-  @media (min-width: 100em) {
+  @media (min-width: 80em) {
     .wp-block-text-columns .wp-block-column, .wp-block-columns .wp-block-column {
       margin: 0 17.5px; } }
+  @media (min-width: 106.25em) {
+    .wp-block-text-columns .wp-block-column, .wp-block-columns .wp-block-column {
+      margin: 0 22.5px; } }
   @media (min-width: 37.5em) {
     .wp-block-text-columns .wp-block-column:first-child, .wp-block-columns .wp-block-column:first-child {
       margin-left: 0; }
@@ -2363,8 +2367,8 @@ p.has-background {
   Styling for site wide sections
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .section {
-  padding-top: 70px;
-  padding-bottom: 40px;
+  padding-top: 15px;
+  padding-bottom: -15px;
   position: relative; }
   .section__image img {
     width: 100%; }

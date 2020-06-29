@@ -25,19 +25,19 @@ module.exports = function (grunt) {
         banner: '/*! Test */'
       },
       files: [{
-          src: '<%= opts.build_dir %>/scss/compile.scss',
+          src: '<%= opts.build_dir %>/scss/compile/main.scss',
           dest: '<%= opts.dist_dir %>/css/style.css'
         },
         {
-          src: '<%= opts.build_dir %>/scss/woocommerce.scss',
+          src: '<%= opts.build_dir %>/scss/compile/woocommerce.scss',
           dest: '<%= opts.dist_dir %>/css/woocommerce.css'
         },
         {
-          src: '<%= opts.build_dir %>/scss/editor.scss',
+          src: '<%= opts.build_dir %>/scss/compile/editor.scss',
           dest: '<%= opts.dist_dir %>/css/editor-style.css'
         },
         {
-          src: '<%= opts.build_dir %>/scss/admin-style.scss',
+          src: '<%= opts.build_dir %>/scss/compile/admin-style.scss',
           dest: '<%= opts.dist_dir %>/css/admin-style.css'
         }
       ]
