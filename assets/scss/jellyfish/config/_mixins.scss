@@ -105,7 +105,6 @@
 }
 
 // Allows us to use #{headings(1,6)} to apply css to all headings
-// TODO: Needs adding to docs
 @function headings($from:1, $to:6) {
   @if $from == $to {
       @return 'h#{$from}';

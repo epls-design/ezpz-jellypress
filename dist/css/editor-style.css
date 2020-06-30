@@ -1,5 +1,5 @@
 /*! jellypress-wordpress-theme 1.0.5
- * © 2020-06-29 Matt Weet - https://www.weareboba.com */
+ * © 2020-06-30 Matt Weet - https://www.weareboba.com */
 
 @charset "UTF-8";
 /* GRID */
@@ -139,10 +139,10 @@ a {
 
 p,
 table {
-  margin: 0 0 30px 0; }
+  margin: 0 0 16px 0; }
 
 ul, ol {
-  margin: 0 0 30px 2.5em;
+  margin: 0 0 16px 2.5em;
   list-style-position: outside; }
   ul ul, ol ul, ul ol, ol ol {
     margin-bottom: 0; }
@@ -158,11 +158,11 @@ ol {
     list-style-type: lower-alpha; }
 
 dl {
-  margin: 0 0 30px 0; }
+  margin: 0 0 16px 0; }
   dl dt {
     font-weight: bold; }
   dl dd {
-    margin-bottom: 15px; }
+    margin-bottom: 8px; }
 
 pre, samp, kbd, :not(pre) > code, var {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
@@ -171,27 +171,27 @@ hr {
   height: 0;
   border: 0;
   border-top: 1px solid #aaaaaa;
-  margin: 30px 0; }
+  margin: 16px 0; }
 
 pre {
   white-space: pre-wrap;
   tab-size: 2;
   padding: 20px;
-  margin: 0 0 30px 0;
+  margin: 0 0 16px 0;
   background-color: #efefef;
   border: 1px solid #aaaaaa;
   line-height: 1.2; }
 
 blockquote {
-  margin: 0 0 30px 0;
-  padding: 0 0 0 30px;
-  border-left: 10px solid #efefef;
+  margin: 0 0 16px 0;
+  padding: 0 0 0 16px;
+  border-left: 5.3333333333px solid #efefef;
   font-size: 1.5em;
   font-style: italic;
   line-height: 1.4; }
   blockquote cite {
     display: block;
-    margin-top: 15px;
+    margin-top: 8px;
     font-size: 0.6em;
     font-style: normal;
     font-weight: bold;
@@ -199,7 +199,7 @@ blockquote {
 
 img.align-left, img.alignleft, img.align-right, img.alignright, img.align-none, img.alignnone, img.align-center, img.aligncenter {
   float: none !important;
-  margin: 30px auto;
+  margin: 16px auto;
   display: block; }
 
 img {
@@ -208,15 +208,15 @@ img {
   vertical-align: top; }
   @media (min-width: 33.75em) {
     img.align-left, img.alignleft {
-      margin: 0 30px 30px 0;
+      margin: 0 16px 16px 0;
       float: left !important; }
     img.align-right, img.alignright {
-      margin: 0 0 30px 30px;
+      margin: 0 0 16px 16px;
       float: right !important; }
     img.align-none, img.alignnone {
-      margin: 0 0 30px 0; }
+      margin: 0 0 16px 0; }
     img.align-center, img.aligncenter {
-      margin: 0 auto 30px auto; } }
+      margin: 0 auto 16px auto; } }
 
 ::selection {
   background: #eebdc9; }
@@ -233,7 +233,7 @@ h1, h2, h3, h4, h5, p.wp-block-subhead, h6 {
   margin: 0 0 .4em 0;
   line-height: 1.2; }
   h1:not(:first-child), h2:not(:first-child), h3:not(:first-child), h4:not(:first-child), h5:not(:first-child), p.wp-block-subhead:not(:first-child), h6:not(:first-child) {
-    margin-top: 30px; }
+    margin-top: 16px; }
 
 h1 {
   font-size: 2.5em; }
@@ -424,7 +424,7 @@ sup {
   height: 0;
   overflow: hidden;
   max-width: 100%;
-  margin: 0.25px 0 30px 0; }
+  margin: 0.25px 0 16px 0; }
 
 .embed-container iframe, .is-type-video .wp-block-embed__wrapper iframe,
 .embed-container object,
@@ -1300,7 +1300,7 @@ sup {
   background-color: #b22d4f;
   color: white;
   padding: 0.75em 1.5em;
-  margin: 15px 5px 30px 0;
+  margin: 8px 5px 16px 0;
   border-radius: 6px;
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
   .button::-moz-focus-inner, [type=submit]::-moz-focus-inner, .wp-block-button a::-moz-focus-inner, .edit-link a::-moz-focus-inner, a.button::-moz-focus-inner, a[type=submit]::-moz-focus-inner, .wp-block-button a::-moz-focus-inner, .edit-link a::-moz-focus-inner, button::-moz-focus-inner, [type=submit]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=button]::-moz-focus-inner {
@@ -1409,7 +1409,7 @@ tfoot th {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   padding: 10px;
   outline: none;
-  margin: 3px 0 15px 0;
+  margin: 3px 0 8px 0;
   width: 100%;
   max-width: 100%;
   line-height: 1;
@@ -1445,7 +1445,7 @@ fieldset {
   border: 1px solid #aaaaaa;
   border-radius: 4px;
   padding: 20px;
-  margin: 30px 0; }
+  margin: 16px 0; }
 
 legend {
   padding: 0 10px;
@@ -1478,13 +1478,13 @@ select::-ms-expand {
   color: #aaaaaa; }
 
 .form-group, .form-group-inline {
-  margin: 3px 0 15px 0; }
+  margin: 3px 0 8px 0; }
 
 .form-group-inline * {
   display: inline-block; }
 
 .form-group-inline label {
-  margin-right: 15px; }
+  margin-right: 8px; }
 
 .form-row {
   margin-left: -5px;
@@ -1913,19 +1913,19 @@ Utilities
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .wp-block-audio figcaption, .wp-block-image img + figcaption, .wp-block-video figcaption, .wp-block-embed figcaption {
   color: #aaaaaa;
-  margin-bottom: 30px; }
+  margin-bottom: 16px; }
 
 .alignfull {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 16px;
+  margin-bottom: 16px;
   margin-left: calc(50% - 50vw) !important;
   margin-right: calc(50% - 50vw) !important;
   max-width: 100vw;
   width: 100vw; }
 
 .alignwide {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 16px;
+  margin-bottom: 16px;
   margin-left: calc(25% - 25vw) !important;
   margin-right: calc(25% - 25vw) !important;
   max-width: 100vw; }
@@ -1966,7 +1966,7 @@ Utilities
   Audio Blocks
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .wp-block-audio {
-  margin-bottom: 30px; }
+  margin-bottom: 16px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   Blockquotes
@@ -1974,7 +1974,7 @@ Utilities
 .wp-block-quote.is-large,
 .wp-block-quote.is-style-large {
   font-size: 1em;
-  margin-bottom: 30px;
+  margin-bottom: 16px;
   padding: 0;
   border-left: 0; }
   .wp-block-quote.is-large p,
@@ -1987,7 +1987,7 @@ Utilities
     font-size: 1.25em; }
 
 .wp-block-pullquote {
-  margin: 60px auto;
+  margin: 32px auto;
   width: 80%;
   padding: 0; }
   .wp-block-pullquote blockquote {
@@ -2038,7 +2038,7 @@ Utilities
     font-weight: bold; }
 
 .wp-block-latest-posts li {
-  margin-bottom: 15px; }
+  margin-bottom: 8px; }
 
 .wp-block-latest-posts__post-date {
   font-weight: bold;
@@ -2094,7 +2094,7 @@ Utilities
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .wp-block-cover,
 .wp-block-cover-image {
-  margin-bottom: 30px; }
+  margin-bottom: 16px; }
 
 .wp-block-cover-image .wp-block-cover__inner-container,
 .wp-block-cover .wp-block-cover__inner-container {
@@ -2110,7 +2110,7 @@ Utilities
   Images
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .wp-block-image img + figcaption {
-  margin-top: -20px; }
+  margin-top: -6px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   Seperators
@@ -2139,10 +2139,10 @@ Utilities
   Twitter Embed
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .wp-block-embed.alignleft {
-  margin-right: 30px; }
+  margin-right: 16px; }
 
 .wp-block-embed.alignright {
-  margin-right: 30px; }
+  margin-right: 16px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   Typography
@@ -2187,7 +2187,7 @@ p.has-background {
   width: 100%; }
 
 .wp-block-video {
-  margin-bottom: 30px; }
+  margin-bottom: 16px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   TODO: BLOCKS TO ADD
@@ -2211,10 +2211,10 @@ p.has-background {
   background-color: transparent; }
 
 .widget .mejs-container {
-  margin-bottom: 30px; }
+  margin-bottom: 16px; }
 
 .widget .gallery-item {
-  margin-bottom: 30px; }
+  margin-bottom: 16px; }
   .widget .gallery-item img {
     margin-bottom: 0; }
 
@@ -2236,7 +2236,7 @@ p.has-background {
   display: block; }
 
 .comment-list ol, .comment-list ul, .comment-list dl, .comment-list li {
-  margin-bottom: 30px; }
+  margin-bottom: 16px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   HELPERS
@@ -2337,7 +2337,7 @@ p.has-background {
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .pagination {
   list-style-type: none;
-  margin: 30px 0;
+  margin: 16px 0;
   display: flex; }
   .pagination .nav-next {
     margin-right: 0; }
@@ -2369,7 +2369,7 @@ p.has-background {
   SCAFFOLDING
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .site-content img {
-  margin-bottom: 30px; }
+  margin-bottom: 16px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   SECTIONS
@@ -2377,7 +2377,7 @@ p.has-background {
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .section {
   padding-top: 15px;
-  padding-bottom: -15px;
+  padding-bottom: -1px;
   position: relative; }
   .section__image img {
     width: 100%; }
@@ -2389,7 +2389,7 @@ p.has-background {
   .section__gallery .gallery-item {
     display: inline-block;
     text-align: center;
-    margin: 15px 0; }
+    margin: 8px 0; }
 
 html .mceContentBody {
   padding: 20px;
