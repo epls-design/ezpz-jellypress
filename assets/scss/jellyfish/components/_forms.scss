@@ -25,8 +25,8 @@
 }
 
 %forms-focus {
-    border-color: $form-border-focus;
-    box-shadow: inset 0 2px 2px rgba(0, 0, 0, .1), 0 0 1px 3px lighten($form-border-focus, 30%);
+    border-color: $color-primary;
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, .1), 0 0 1px 3px call(get-function($ui-hover-function), $color-primary, $ui-focus-highlight-amount );
 }
 
 // Forms stack defined in _settings.scss
@@ -146,3 +146,4 @@ vertical-align: middle;
 // TODO: add a field-group container
 // TODO: Add input groups and input addons https://www.shoelace.style/docs/forms.html
 // TODO: Add validation?
+// TODO: Add Input Group https://getbootstrap.com/docs/4.0/components/input-group/
