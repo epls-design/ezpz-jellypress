@@ -6,7 +6,7 @@
 .section {
 
   padding-top: $section-padding;
-  padding-bottom: $section-padding - $element-margin;
+  padding-bottom: $section-padding - $element-margin; // Negates for the last element in a section, rather than using :last-of-type
   position: relative;
 
   // ACF Section: Image
@@ -33,6 +33,15 @@
       @extend .col;
       @extend .md-4; // TODO: This can be done better, for most clients they will want a nicer looking gallery anyway
       margin: $element-margin/2 0;
+    }
+  }
+}
+
+// If two sections follow with the same bg color, remove the top padding so that there is not a chasm of space
+@each $name, $color in $theme-colors {
+  .section.bg-#{$name} {
+    &+& {
+      padding-top: 0;  // Remove padding top if it follows a section with the same bg color
     }
   }
 }

@@ -1,20 +1,25 @@
 /*! jellypress-wordpress-theme 1.0.5
- * © 2020-06-30 Matt Weet - https://www.weareboba.com */
+ * © 2020-08-25 Matt Weet - https://www.weareboba.com */
 
 /* GRID */
 /* JELLYFISH DEFAULTS */
 /* DOCUMENT ROOT FONT SIZE AND LINE HEIGHT AT SMALLEST DEVICE WIDTH */
 /* GLOBAL PADDING/MARGINS */
 /* COLOURS */
-/* THEME COLOURS */
+/* THEME COLORS */
 /* TYPEFACES */
 /* FONT SIZES */
 /* LINKS */
+/* ACCESSIBILITY */
 /* GLOBAL TRANSITION USED IN SMOOTH() */
 /* BORDERS */
+/* USER INTERFACE */
+/* CALLOUTS */
 /* FORMS */
 /* BUTTONS */
+/* LABELS */
 /* TABLES */
+/* CARDS */
 /* NAVBAR */
 /* HAMBURGER MENU */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
@@ -28,16 +33,34 @@
 /* TYPEFACES */
 /* FONT SIZES */
 /* LINKS */
+/* ACCESSIBILITY */
 /* GLOBAL TRANSITION USED IN SMOOTH() */
 /* BORDERS */
+/* USER INTERFACE */
+/* CALLOUTS */
 /* FORMS */
 /* BUTTONS */
+/* LABELS */
 /* TABLES */
+/* CARDS */
 /* NAVBAR */
 /* HAMBURGER MENU */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   USEFUL MIXINS AND FUNCTIONS
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/**
+ * Calculate the luminance for a color.
+ * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+ * @link https://medium.com/dev-channel/using-sass-to-automatically-pick-text-colors-4ba7645d2796
+ */
+/**
+ * Calculate the contrast ratio between two colors.
+ * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+ * @link https://medium.com/dev-channel/using-sass-to-automatically-pick-text-colors-4ba7645d2796
+ */
+/**
+ * Determine whether to use dark or light text on top of given color.
+ */
 .acf-fc-layout-handle {
   padding-left: 25px !important;
   background: #23282d !important;
@@ -98,20 +121,23 @@ ul.acf-swatch-list > li {
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   ADMIN HELPERS
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.bg-black {
-  background-color: #333333; }
-
-.bg-white {
-  background-color: #fff; }
-
 .bg-primary {
-  background-color: #b22d4f; }
+  background-color: #001496; }
 
 .bg-secondary {
-  background-color: #2d6378; }
+  background-color: #a62579; }
 
 .bg-tertiary {
-  background-color: #5d2b50; }
+  background-color: #8e1b1f; }
+
+.bg-success {
+  background-color: #77de65; }
+
+.bg-warning {
+  background-color: #FCCf14; }
+
+.bg-error {
+  background-color: #FF4200; }
 
 #mceu_71 {
   background: #fff;

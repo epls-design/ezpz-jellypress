@@ -1,5 +1,5 @@
 /*! jellypress-wordpress-theme 1.0.5
- * © 2020-06-30 Matt Weet - https://www.weareboba.com */
+ * © 2020-08-25 Matt Weet - https://www.weareboba.com */
 
 @charset "UTF-8";
 /* GRID */
@@ -7,15 +7,20 @@
 /* DOCUMENT ROOT FONT SIZE AND LINE HEIGHT AT SMALLEST DEVICE WIDTH */
 /* GLOBAL PADDING/MARGINS */
 /* COLOURS */
-/* THEME COLOURS */
+/* THEME COLORS */
 /* TYPEFACES */
 /* FONT SIZES */
 /* LINKS */
+/* ACCESSIBILITY */
 /* GLOBAL TRANSITION USED IN SMOOTH() */
 /* BORDERS */
+/* USER INTERFACE */
+/* CALLOUTS */
 /* FORMS */
 /* BUTTONS */
+/* LABELS */
 /* TABLES */
+/* CARDS */
 /* NAVBAR */
 /* HAMBURGER MENU */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
@@ -26,6 +31,19 @@ SCSS FRAMEWORK BY MATT WEET
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   USEFUL MIXINS AND FUNCTIONS
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/**
+ * Calculate the luminance for a color.
+ * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+ * @link https://medium.com/dev-channel/using-sass-to-automatically-pick-text-colors-4ba7645d2796
+ */
+/**
+ * Calculate the contrast ratio between two colors.
+ * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+ * @link https://medium.com/dev-channel/using-sass-to-automatically-pick-text-colors-4ba7645d2796
+ */
+/**
+ * Determine whether to use dark or light text on top of given color.
+ */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   DEFAULT SETTINGS
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -37,11 +55,16 @@ SCSS FRAMEWORK BY MATT WEET
 /* TYPEFACES */
 /* FONT SIZES */
 /* LINKS */
+/* ACCESSIBILITY */
 /* GLOBAL TRANSITION USED IN SMOOTH() */
 /* BORDERS */
+/* USER INTERFACE */
+/* CALLOUTS */
 /* FORMS */
 /* BUTTONS */
+/* LABELS */
 /* TABLES */
+/* CARDS */
 /* NAVBAR */
 /* HAMBURGER MENU */
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -110,19 +133,25 @@ table {
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px; }
+  @media (min-width: 37.5em) {
+    html {
+      font-size: 15px; } }
+  @media (min-width: 56.25em) {
+    html {
+      font-size: 16px; } }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 14px;
-  line-height: 1.4;
   color: #333333;
-  background-color: #fff; }
-  @media (min-width: 33.75em) {
+  background-color: #fff;
+  line-height: 1.4; }
+  @media (min-width: 37.5em) {
     body {
       font-size: 15px;
       line-height: 1.48; } }
-  @media (min-width: 48em) {
+  @media (min-width: 56.25em) {
     body {
       font-size: 16px; } }
 
@@ -130,19 +159,19 @@ a {
   transition: color 0.2s ease;
   text-decoration: underline; }
   a, a:link {
-    color: #b22d4f; }
+    color: #001496; }
   a:visited {
-    color: #5d2b50;
+    color: #8e1b1f;
     text-decoration: none; }
   a:hover, a:active, a:focus {
-    color: #2d6378; }
+    color: #a62579; }
 
 p,
 table {
-  margin: 0 0 16px 0; }
+  margin: 0 0 24px 0; }
 
 ul, ol {
-  margin: 0 0 16px 2.5em;
+  margin: 0 0 24px 2.5em;
   list-style-position: outside; }
   ul ul, ol ul, ul ol, ol ol {
     margin-bottom: 0; }
@@ -158,11 +187,11 @@ ol {
     list-style-type: lower-alpha; }
 
 dl {
-  margin: 0 0 16px 0; }
+  margin: 0 0 24px 0; }
   dl dt {
     font-weight: bold; }
   dl dd {
-    margin-bottom: 8px; }
+    margin-bottom: 12px; }
 
 pre, samp, kbd, :not(pre) > code, var {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
@@ -170,28 +199,28 @@ pre, samp, kbd, :not(pre) > code, var {
 hr {
   height: 0;
   border: 0;
-  border-top: 1px solid #aaaaaa;
-  margin: 16px 0; }
+  border-top: 1px solid #cbcccc;
+  margin: 24px 0; }
 
 pre {
   white-space: pre-wrap;
   tab-size: 2;
   padding: 20px;
-  margin: 0 0 16px 0;
+  margin: 0 0 24px 0;
   background-color: #efefef;
-  border: 1px solid #aaaaaa;
+  border: 1px solid #cbcccc;
   line-height: 1.2; }
 
 blockquote {
-  margin: 0 0 16px 0;
-  padding: 0 0 0 16px;
-  border-left: 5.3333333333px solid #efefef;
+  margin: 0 0 24px 0;
+  padding: 0 0 0 24px;
+  border-left: 8px solid #efefef;
   font-size: 1.5em;
   font-style: italic;
   line-height: 1.4; }
   blockquote cite {
     display: block;
-    margin-top: 8px;
+    margin-top: 12px;
     font-size: 0.6em;
     font-style: normal;
     font-weight: bold;
@@ -199,27 +228,27 @@ blockquote {
 
 img.align-left, img.alignleft, img.align-right, img.alignright, img.align-none, img.alignnone, img.align-center, img.aligncenter {
   float: none !important;
-  margin: 16px auto;
+  margin: 24px auto;
   display: block; }
 
 img {
   max-width: 100%;
   height: auto;
   vertical-align: top; }
-  @media (min-width: 33.75em) {
+  @media (min-width: 37.5em) {
     img.align-left, img.alignleft {
-      margin: 0 16px 16px 0;
+      margin: 0 24px 24px 0;
       float: left !important; }
     img.align-right, img.alignright {
-      margin: 0 0 16px 16px;
+      margin: 0 0 24px 24px;
       float: right !important; }
     img.align-none, img.alignnone {
-      margin: 0 0 16px 0; }
+      margin: 0 0 24px 0; }
     img.align-center, img.aligncenter {
-      margin: 0 auto 16px auto; } }
+      margin: 0 auto 24px auto; } }
 
 ::selection {
-  background: #eebdc9; }
+  background: #ccd0ea; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   TYPOGRAPHY
@@ -230,30 +259,33 @@ img {
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 h1, h2, h3, h4, h5, p.wp-block-subhead, h6 {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  margin: 0 0 .4em 0;
+  margin: 0 0 12px 0;
   line-height: 1.2; }
   h1:not(:first-child), h2:not(:first-child), h3:not(:first-child), h4:not(:first-child), h5:not(:first-child), p.wp-block-subhead:not(:first-child), h6:not(:first-child) {
-    margin-top: 16px; }
+    margin-top: 24px; }
 
 h1 {
-  font-size: 2.5em; }
+  font-size: 3em; }
 
 h2 {
-  font-size: 2em; }
+  font-size: 2.5em; }
 
 h3 {
-  font-size: 1.75em; }
+  font-size: 2em; }
 
 h4 {
-  font-size: 1.5em; }
+  font-size: 1.75em; }
 
 h5, p.wp-block-subhead {
-  font-size: 1.25em; }
+  font-size: 1.5em; }
 
 h6 {
-  font-size: 1em; }
+  font-size: 1.5em; }
 
 /* TEXT TRANSFORM */
+small {
+  display: block; }
+
 small, .small, .has-small-font-size {
   font-size: 0.8em; }
 
@@ -264,7 +296,7 @@ em, .italic, i {
   font-style: italic; }
 
 .standfirst {
-  font-size: 1.25em; }
+  font-size: 1.5em; }
 
 mark {
   background: yellow;
@@ -296,20 +328,19 @@ kbd, :not(pre) > code, var {
   font-size: 0.8em;
   line-height: 1;
   border-radius: 4px;
-  padding: .5em;
-  display: inline-block; }
+  padding: .3em .35em; }
 
 kbd {
-  background-color: #222;
-  color: white; }
+  background-color: #333333;
+  color: #fff; }
 
 :not(pre) > code {
-  border: 1px solid #aaaaaa; }
+  background-color: #efefef; }
 
 var {
+  background-color: #efefef;
   font-style: italic;
-  color: white;
-  background-color: #2d6378; }
+  color: #a62579; }
 
 sub, sup {
   font-size: 0.6em;
@@ -424,7 +455,7 @@ sup {
   height: 0;
   overflow: hidden;
   max-width: 100%;
-  margin: 0.25px 0 16px 0; }
+  margin: 0.25px 0 24px 0; }
 
 .embed-container iframe, .is-type-video .wp-block-embed__wrapper iframe,
 .embed-container object,
@@ -436,6 +467,35 @@ sup {
   left: 0;
   width: 100%;
   height: 100%; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  DARK MODE
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+body.dark-ui, body.dark-ui * {
+  background-color: #222222 !important;
+  color: #e6e6e6 !important; }
+
+body.dark-ui img {
+  filter: grayscale(50%);
+  transition: filter 0.2s ease; }
+
+body.dark-ui .button, body.dark-ui [type=submit], body.dark-ui .wp-block-button a, .wp-block-button body.dark-ui a, body.dark-ui .edit-link a, .edit-link body.dark-ui a, body.dark-ui a.button, body.dark-ui a[type=submit], body.dark-ui .wp-block-button a, .wp-block-button body.dark-ui a, body.dark-ui .edit-link a, .edit-link body.dark-ui a, body.dark-ui button, body.dark-ui [type=submit], body.dark-ui [type=reset], body.dark-ui [type=button], body.dark-ui .button, body.dark-ui [type=submit], body.dark-ui .wp-block-button a, .wp-block-button body.dark-ui a, body.dark-ui .edit-link a, .edit-link body.dark-ui a, body.dark-ui a.button, body.dark-ui a[type=submit], body.dark-ui .wp-block-button a, .wp-block-button body.dark-ui a, body.dark-ui .edit-link a, .edit-link body.dark-ui a, body.dark-ui button, body.dark-ui [type=submit], body.dark-ui [type=reset], body.dark-ui [type=button] *, body.dark-ui a, body.dark-ui a * {
+  color: #58cdf1 !important; }
+  body.dark-ui .button svg path, body.dark-ui [type=submit] svg path, body.dark-ui .wp-block-button a svg path, .wp-block-button body.dark-ui a svg path, body.dark-ui .edit-link a svg path, .edit-link body.dark-ui a svg path, body.dark-ui a.button svg path, body.dark-ui a[type=submit] svg path, body.dark-ui .wp-block-button a svg path, .wp-block-button body.dark-ui a svg path, body.dark-ui .edit-link a svg path, .edit-link body.dark-ui a svg path, body.dark-ui button svg path, body.dark-ui [type=submit] svg path, body.dark-ui [type=reset] svg path, body.dark-ui [type=button] svg path, body.dark-ui .button svg path, body.dark-ui [type=submit] svg path, body.dark-ui .wp-block-button a svg path, .wp-block-button body.dark-ui a svg path, body.dark-ui .edit-link a svg path, .edit-link body.dark-ui a svg path, body.dark-ui a.button svg path, body.dark-ui a[type=submit] svg path, body.dark-ui .wp-block-button a svg path, .wp-block-button body.dark-ui a svg path, body.dark-ui .edit-link a svg path, .edit-link body.dark-ui a svg path, body.dark-ui button svg path, body.dark-ui [type=submit] svg path, body.dark-ui [type=reset] svg path, body.dark-ui [type=button] * svg path, body.dark-ui a svg path, body.dark-ui a * svg path {
+    fill: #58cdf1; }
+  body.dark-ui .button:hover, body.dark-ui :hover[type=submit], body.dark-ui .wp-block-button a:hover, .wp-block-button body.dark-ui a:hover, body.dark-ui .edit-link a:hover, .edit-link body.dark-ui a:hover, body.dark-ui .button:focus, body.dark-ui :focus[type=submit], body.dark-ui .wp-block-button a:focus, .wp-block-button body.dark-ui a:focus, body.dark-ui .edit-link a:focus, .edit-link body.dark-ui a:focus, body.dark-ui .button:active, body.dark-ui :active[type=submit], body.dark-ui .wp-block-button a:active, .wp-block-button body.dark-ui a:active, body.dark-ui .edit-link a:active, .edit-link body.dark-ui a:active, body.dark-ui a.button:hover, body.dark-ui a:hover[type=submit], body.dark-ui .wp-block-button a:hover, .wp-block-button body.dark-ui a:hover, body.dark-ui .edit-link a:hover, .edit-link body.dark-ui a:hover, body.dark-ui a.button:focus, body.dark-ui a:focus[type=submit], body.dark-ui .wp-block-button a:focus, .wp-block-button body.dark-ui a:focus, body.dark-ui .edit-link a:focus, .edit-link body.dark-ui a:focus, body.dark-ui a.button:active, body.dark-ui a:active[type=submit], body.dark-ui .wp-block-button a:active, .wp-block-button body.dark-ui a:active, body.dark-ui .edit-link a:active, .edit-link body.dark-ui a:active, body.dark-ui button:hover, body.dark-ui button:focus, body.dark-ui button:active, body.dark-ui [type=submit]:hover, body.dark-ui [type=submit]:focus, body.dark-ui [type=submit]:active, body.dark-ui [type=reset]:hover, body.dark-ui [type=reset]:focus, body.dark-ui [type=reset]:active, body.dark-ui [type=button]:hover, body.dark-ui [type=button]:focus, body.dark-ui [type=button]:active, body.dark-ui .button:hover, body.dark-ui :hover[type=submit], body.dark-ui .wp-block-button a:hover, .wp-block-button body.dark-ui a:hover, body.dark-ui .edit-link a:hover, .edit-link body.dark-ui a:hover, body.dark-ui .button:focus, body.dark-ui :focus[type=submit], body.dark-ui .wp-block-button a:focus, .wp-block-button body.dark-ui a:focus, body.dark-ui .edit-link a:focus, .edit-link body.dark-ui a:focus, body.dark-ui .button:active, body.dark-ui :active[type=submit], body.dark-ui .wp-block-button a:active, .wp-block-button body.dark-ui a:active, body.dark-ui .edit-link a:active, .edit-link body.dark-ui a:active, body.dark-ui a.button:hover, body.dark-ui a:hover[type=submit], body.dark-ui .wp-block-button a:hover, .wp-block-button body.dark-ui a:hover, body.dark-ui .edit-link a:hover, .edit-link body.dark-ui a:hover, body.dark-ui a.button:focus, body.dark-ui a:focus[type=submit], body.dark-ui .wp-block-button a:focus, .wp-block-button body.dark-ui a:focus, body.dark-ui .edit-link a:focus, .edit-link body.dark-ui a:focus, body.dark-ui a.button:active, body.dark-ui a:active[type=submit], body.dark-ui .wp-block-button a:active, .wp-block-button body.dark-ui a:active, body.dark-ui .edit-link a:active, .edit-link body.dark-ui a:active, body.dark-ui button:hover, body.dark-ui button:focus, body.dark-ui button:active, body.dark-ui [type=submit]:hover, body.dark-ui [type=submit]:focus, body.dark-ui [type=submit]:active, body.dark-ui [type=reset]:hover, body.dark-ui [type=reset]:focus, body.dark-ui [type=reset]:active, body.dark-ui [type=button] *:hover, body.dark-ui [type=button] *:focus, body.dark-ui [type=button] *:active, body.dark-ui a:hover, body.dark-ui a:focus, body.dark-ui a:active, body.dark-ui a *:hover, body.dark-ui a *:focus, body.dark-ui a *:active {
+    color: #f1b835 !important; }
+    body.dark-ui .button:hover svg path, body.dark-ui :hover[type=submit] svg path, body.dark-ui .wp-block-button a:hover svg path, .wp-block-button body.dark-ui a:hover svg path, body.dark-ui .edit-link a:hover svg path, .edit-link body.dark-ui a:hover svg path, body.dark-ui .button:focus svg path, body.dark-ui :focus[type=submit] svg path, body.dark-ui .wp-block-button a:focus svg path, .wp-block-button body.dark-ui a:focus svg path, body.dark-ui .edit-link a:focus svg path, .edit-link body.dark-ui a:focus svg path, body.dark-ui .button:active svg path, body.dark-ui :active[type=submit] svg path, body.dark-ui .wp-block-button a:active svg path, .wp-block-button body.dark-ui a:active svg path, body.dark-ui .edit-link a:active svg path, .edit-link body.dark-ui a:active svg path, body.dark-ui a.button:hover svg path, body.dark-ui a:hover[type=submit] svg path, body.dark-ui .wp-block-button a:hover svg path, .wp-block-button body.dark-ui a:hover svg path, body.dark-ui .edit-link a:hover svg path, .edit-link body.dark-ui a:hover svg path, body.dark-ui a.button:focus svg path, body.dark-ui a:focus[type=submit] svg path, body.dark-ui .wp-block-button a:focus svg path, .wp-block-button body.dark-ui a:focus svg path, body.dark-ui .edit-link a:focus svg path, .edit-link body.dark-ui a:focus svg path, body.dark-ui a.button:active svg path, body.dark-ui a:active[type=submit] svg path, body.dark-ui .wp-block-button a:active svg path, .wp-block-button body.dark-ui a:active svg path, body.dark-ui .edit-link a:active svg path, .edit-link body.dark-ui a:active svg path, body.dark-ui button:hover svg path, body.dark-ui button:focus svg path, body.dark-ui button:active svg path, body.dark-ui [type=submit]:hover svg path, body.dark-ui [type=submit]:focus svg path, body.dark-ui [type=submit]:active svg path, body.dark-ui [type=reset]:hover svg path, body.dark-ui [type=reset]:focus svg path, body.dark-ui [type=reset]:active svg path, body.dark-ui [type=button]:hover svg path, body.dark-ui [type=button]:focus svg path, body.dark-ui [type=button]:active svg path, body.dark-ui .button:hover svg path, body.dark-ui :hover[type=submit] svg path, body.dark-ui .wp-block-button a:hover svg path, .wp-block-button body.dark-ui a:hover svg path, body.dark-ui .edit-link a:hover svg path, .edit-link body.dark-ui a:hover svg path, body.dark-ui .button:focus svg path, body.dark-ui :focus[type=submit] svg path, body.dark-ui .wp-block-button a:focus svg path, .wp-block-button body.dark-ui a:focus svg path, body.dark-ui .edit-link a:focus svg path, .edit-link body.dark-ui a:focus svg path, body.dark-ui .button:active svg path, body.dark-ui :active[type=submit] svg path, body.dark-ui .wp-block-button a:active svg path, .wp-block-button body.dark-ui a:active svg path, body.dark-ui .edit-link a:active svg path, .edit-link body.dark-ui a:active svg path, body.dark-ui a.button:hover svg path, body.dark-ui a:hover[type=submit] svg path, body.dark-ui .wp-block-button a:hover svg path, .wp-block-button body.dark-ui a:hover svg path, body.dark-ui .edit-link a:hover svg path, .edit-link body.dark-ui a:hover svg path, body.dark-ui a.button:focus svg path, body.dark-ui a:focus[type=submit] svg path, body.dark-ui .wp-block-button a:focus svg path, .wp-block-button body.dark-ui a:focus svg path, body.dark-ui .edit-link a:focus svg path, .edit-link body.dark-ui a:focus svg path, body.dark-ui a.button:active svg path, body.dark-ui a:active[type=submit] svg path, body.dark-ui .wp-block-button a:active svg path, .wp-block-button body.dark-ui a:active svg path, body.dark-ui .edit-link a:active svg path, .edit-link body.dark-ui a:active svg path, body.dark-ui button:hover svg path, body.dark-ui button:focus svg path, body.dark-ui button:active svg path, body.dark-ui [type=submit]:hover svg path, body.dark-ui [type=submit]:focus svg path, body.dark-ui [type=submit]:active svg path, body.dark-ui [type=reset]:hover svg path, body.dark-ui [type=reset]:focus svg path, body.dark-ui [type=reset]:active svg path, body.dark-ui [type=button] *:hover svg path, body.dark-ui [type=button] *:focus svg path, body.dark-ui [type=button] *:active svg path, body.dark-ui a:hover svg path, body.dark-ui a:focus svg path, body.dark-ui a:active svg path, body.dark-ui a *:hover svg path, body.dark-ui a *:focus svg path, body.dark-ui a *:active svg path {
+      fill: #f1b835; }
+
+body.dark-ui ::placeholder {
+  color: #a1a1a1 !important; }
+
+body.dark-ui .hamburger {
+  border: 0; }
+
+body.dark-ui .hamburger-inner, body.dark-ui .hamburger-inner:after, body.dark-ui .hamburger-inner:before {
+  background-color: #58cdf1 !important; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   ACCESSIBILITY
@@ -459,7 +519,7 @@ sup {
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
     clip: auto !important;
     clip-path: none;
-    color: #b22d4f;
+    color: #001496;
     display: block;
     font-size: .8em;
     font-weight: bold;
@@ -477,6 +537,52 @@ sup {
 #content[tabindex="-1"]:focus {
   outline: 0; }
 
+body.font-size-sm {
+  font-size: 14px; }
+
+body.font-size-md {
+  font-size: 16px; }
+
+body.font-size-lg {
+  font-size: 18px; }
+
+button.font-size, button.toggle-contrast {
+  background-color: transparent;
+  color: #7e7f7f;
+  padding: 0 0 2px 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  line-height: 1; }
+  button.font-size:hover, button.toggle-contrast:hover, button.font-size:focus, button.toggle-contrast:focus, button.font-size:active, button.toggle-contrast:active {
+    background: transparent;
+    color: #a62579; }
+  button.font-size:focus, button.toggle-contrast:focus {
+    box-shadow: none; }
+
+button.font-size {
+  font-weight: normal;
+  border-bottom: 2px solid transparent;
+  vertical-align: baseline; }
+  button.font-size:hover, button.font-size:focus, button.font-size:active {
+    border-bottom-color: #a62579; }
+  button.font-size.active {
+    color: inherit;
+    border-bottom-color: #001496; }
+  button.font-size-sm {
+    font-size: .8em; }
+  button.font-size-md {
+    font-size: 1em; }
+  button.font-size-lg {
+    font-size: 1.2em; }
+
+button.toggle-contrast path {
+  fill: currentColor; }
+
+button.toggle-contrast svg {
+  width: 1.2em;
+  height: 1.2em; }
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   GRID
   Contains the logic that builds
@@ -490,20 +596,20 @@ sup {
   left: 0;
   padding: 10px;
   z-index: 10000;
-  background: white;
+  background: #fff;
   font-size: 12px;
   color: #555555;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
-  @media (min-width: 33.75em) {
+  @media (min-width: 37.5em) {
     .jf-debug::before {
       content: "sm"; } }
-  @media (min-width: 48em) {
+  @media (min-width: 56.25em) {
     .jf-debug::before {
       content: "md"; } }
-  @media (min-width: 80em) {
+  @media (min-width: 75em) {
     .jf-debug::before {
       content: "lg"; } }
-  @media (min-width: 106.25em) {
+  @media (min-width: 112.5em) {
     .jf-debug::before {
       content: "xl"; } }
 
@@ -520,7 +626,7 @@ sup {
 .container {
   margin: 0 auto;
   width: 100%;
-  padding: 0 15px; }
+  padding: 0 30px; }
   .container .container {
     width: 100%;
     padding: 0 !important; }
@@ -529,14 +635,14 @@ sup {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-left: -5px;
-  margin-right: -5px; }
+  margin-left: -10px;
+  margin-right: -10px; }
 
 .col, .section__gallery .gallery-item {
   width: 100%;
   position: relative;
-  padding-left: 5px;
-  padding-right: 5px; }
+  padding-left: 10px;
+  padding-right: 10px; }
 
 .col-auto {
   flex: 0 0 auto !important;
@@ -670,9 +776,9 @@ sup {
 .offset-xs-0 {
   margin-left: 0%; }
 
-@media (min-width: 33.75em) {
+@media (min-width: 37.5em) {
   .container {
-    width: 94%;
+    width: 100%;
     padding-left: 50px;
     padding-right: 50px; }
   .row {
@@ -813,22 +919,22 @@ sup {
   .jf-debug [class*='offset-sm-0'] {
     outline: 0; } }
 
-@media (max-width: 33.6875em) {
+@media (max-width: 37.4375em) {
   .hide-below-sm {
     display: none !important; } }
 
-@media (min-width: 33.75em) {
+@media (min-width: 37.5em) {
   .hide-above-sm {
     display: none !important; } }
 
-@media (min-width: 33.75em) and (max-width: 47.9375em) {
+@media (min-width: 37.5em) and (max-width: 56.1875em) {
   .hide-sm {
     display: none !important; } }
 
-@media (min-width: 48em) {
+@media (min-width: 56.25em) {
   .container {
     width: 90%;
-    max-width: 1080px;
+    max-width: 1140px;
     padding-left: 0px;
     padding-right: 0px; }
   .row {
@@ -967,21 +1073,21 @@ sup {
   .jf-debug [class*='offset-md-0'] {
     outline: 0; } }
 
-@media (max-width: 47.9375em) {
+@media (max-width: 56.1875em) {
   .hide-below-md {
     display: none !important; } }
 
-@media (min-width: 48em) {
+@media (min-width: 56.25em) {
   .hide-above-md {
     display: none !important; } }
 
-@media (min-width: 48em) and (max-width: 79.9375em) {
+@media (min-width: 56.25em) and (max-width: 74.9375em) {
   .hide-md {
     display: none !important; } }
 
-@media (min-width: 80em) {
+@media (min-width: 75em) {
   .container {
-    width: 1220px;
+    width: 1140px;
     max-width: none; }
   .row {
     margin-left: -17.5px;
@@ -1119,24 +1225,24 @@ sup {
   .jf-debug [class*='offset-lg-0'] {
     outline: 0; } }
 
-@media (max-width: 79.9375em) {
+@media (max-width: 74.9375em) {
   .hide-below-lg {
     display: none !important; } }
 
-@media (min-width: 80em) {
+@media (min-width: 75em) {
   .hide-above-lg {
     display: none !important; } }
 
-@media (min-width: 80em) and (max-width: 106.1875em) {
+@media (min-width: 75em) and (max-width: 112.4375em) {
   .hide-lg {
     display: none !important; } }
 
-@media (min-width: 106.25em) {
+@media (min-width: 112.5em) {
   .container {
-    width: 1640px; }
+    width: 1280px; }
   .row {
-    margin-left: -22.5px;
-    margin-right: -22.5px; }
+    margin-left: -20px;
+    margin-right: -20px; }
   .row.collapse-xl {
     margin-left: 0;
     margin-right: 0; }
@@ -1144,8 +1250,8 @@ sup {
       padding-left: 0 !important;
       padding-right: 0 !important; }
   .col, .section__gallery .gallery-item {
-    padding-left: 22.5px;
-    padding-right: 22.5px; }
+    padding-left: 20px;
+    padding-right: 20px; }
   .col.xl-auto, .section__gallery .xl-auto.gallery-item {
     max-width: none;
     flex: 0 0 auto;
@@ -1272,13 +1378,58 @@ sup {
   .hide-xl {
     display: none !important; } }
 
-@media (max-width: 106.1875em) {
+@media (max-width: 112.4375em) {
   .hide-below-xl {
     display: none !important; } }
 
-@media (min-width: 106.25em) {
+@media (min-width: 112.5em) {
   .hide-above-xl {
     display: none !important; } }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  THEME COLORS
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.bg-primary {
+  background-color: #001496;
+  color: #fff; }
+
+.text-primary {
+  color: #001496; }
+
+.bg-secondary {
+  background-color: #a62579;
+  color: #fff; }
+
+.text-secondary {
+  color: #a62579; }
+
+.bg-tertiary {
+  background-color: #8e1b1f;
+  color: #fff; }
+
+.text-tertiary {
+  color: #8e1b1f; }
+
+.bg-success {
+  background-color: #77de65;
+  color: #333333; }
+
+.text-success {
+  color: #77de65; }
+
+.bg-warning {
+  background-color: #FCCf14;
+  color: #333333; }
+
+.text-warning {
+  color: #FCCf14; }
+
+.bg-error {
+  background-color: #FF4200;
+  color: #333333; }
+
+.text-error {
+  color: #FF4200; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   BUTTONS
@@ -1289,63 +1440,134 @@ sup {
   user-select: none;
   display: inline-block;
   vertical-align: middle;
-  text-align: center;
   cursor: pointer;
   text-decoration: none;
   text-transform: none;
+  text-align: center;
   font-size: 0.9rem;
   font-weight: bold;
-  line-height: 1.3;
-  border: 1px solid #b22d4f;
-  background-color: #b22d4f;
-  color: white;
-  padding: 0.75em 1.5em;
-  margin: 8px 5px 16px 0;
+  border-width: 1px;
+  border-style: solid;
   border-radius: 6px;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
+  line-height: 1.3;
+  padding: 1em 1.5em;
+  margin: 12px 5px 24px 0;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  background-color: #001496;
+  border-color: #001496;
+  color: #fff; }
+  .button:hover, :hover[type=submit], .wp-block-button a:hover, .edit-link a:hover, .button:focus, :focus[type=submit], .wp-block-button a:focus, .edit-link a:focus, .button:active, :active[type=submit], .wp-block-button a:active, .edit-link a:active, a.button:hover, a:hover[type=submit], .wp-block-button a:hover, .edit-link a:hover, a.button:focus, a:focus[type=submit], .wp-block-button a:focus, .edit-link a:focus, a.button:active, a:active[type=submit], .wp-block-button a:active, .edit-link a:active, button:hover, button:focus, button:active, [type=submit]:hover, [type=submit]:focus, [type=submit]:active, [type=reset]:hover, [type=reset]:focus, [type=reset]:active, [type=button]:hover, [type=button]:focus, [type=button]:active {
+    background-color: #3343ab;
+    border-color: #3343ab;
+    color: #fff; }
+  .button:focus, :focus[type=submit], .wp-block-button a:focus, .edit-link a:focus, a.button:focus, a:focus[type=submit], .wp-block-button a:focus, .edit-link a:focus, button:focus, [type=submit]:focus, [type=reset]:focus, [type=button]:focus {
+    box-shadow: 0px 0px 1px 3px #99a1d5; }
+  .button.button__outline:hover, .button__outline:hover[type=submit], :hover[type=submit][type=reset], .button:hover[type=reset], .wp-block-button a:hover[type=reset], .wp-block-button a.button__outline:hover, .wp-block-button.is-style-outline a:hover, .edit-link a:hover, .button.button__outline:focus, .button__outline:focus[type=submit], :focus[type=submit][type=reset], .button:focus[type=reset], .wp-block-button a:focus[type=reset], .wp-block-button a.button__outline:focus, .wp-block-button.is-style-outline a:focus, .edit-link a:focus, .button.button__outline:active, .button__outline:active[type=submit], :active[type=submit][type=reset], .button:active[type=reset], .wp-block-button a:active[type=reset], .wp-block-button a.button__outline:active, .wp-block-button.is-style-outline a:active, .edit-link a:active, a.button.button__outline:hover, a.button__outline:hover[type=submit], a:hover[type=submit][type=reset], a.button:hover[type=reset], .wp-block-button a:hover[type=reset], .wp-block-button a.button__outline:hover, .wp-block-button.is-style-outline a:hover, .edit-link a:hover, a.button.button__outline:focus, a.button__outline:focus[type=submit], a:focus[type=submit][type=reset], a.button:focus[type=reset], .wp-block-button a:focus[type=reset], .wp-block-button a.button__outline:focus, .wp-block-button.is-style-outline a:focus, .edit-link a:focus, a.button.button__outline:active, a.button__outline:active[type=submit], a:active[type=submit][type=reset], a.button:active[type=reset], .wp-block-button a:active[type=reset], .wp-block-button a.button__outline:active, .wp-block-button.is-style-outline a:active, .edit-link a:active, button.button__outline:hover, button:hover[type=reset], button.button__outline:focus, button:focus[type=reset], button.button__outline:active, button:active[type=reset], [type=submit].button__outline:hover, [type=submit]:hover[type=reset], .wp-block-button.is-style-outline a[type=submit]:hover, .edit-link a[type=submit]:hover, [type=submit].button__outline:focus, [type=submit]:focus[type=reset], .wp-block-button.is-style-outline a[type=submit]:focus, .edit-link a[type=submit]:focus, [type=submit].button__outline:active, [type=submit]:active[type=reset], .wp-block-button.is-style-outline a[type=submit]:active, .edit-link a[type=submit]:active, [type=reset].button__outline:hover, [type=reset]:hover, .wp-block-button.is-style-outline a[type=reset]:hover, [type=reset].button__outline:focus, [type=reset]:focus, .wp-block-button.is-style-outline a[type=reset]:focus, [type=reset].button__outline:active, [type=reset]:active, .wp-block-button.is-style-outline a[type=reset]:active, [type=button].button__outline:hover, [type=button]:hover[type=reset], .wp-block-button.is-style-outline a[type=button]:hover, .edit-link a[type=button]:hover, [type=button].button__outline:focus, [type=button]:focus[type=reset], .wp-block-button.is-style-outline a[type=button]:focus, .edit-link a[type=button]:focus, [type=button].button__outline:active, [type=button]:active[type=reset], .wp-block-button.is-style-outline a[type=button]:active, .edit-link a[type=button]:active {
+    color: #001496; }
   .button::-moz-focus-inner, [type=submit]::-moz-focus-inner, .wp-block-button a::-moz-focus-inner, .edit-link a::-moz-focus-inner, a.button::-moz-focus-inner, a[type=submit]::-moz-focus-inner, .wp-block-button a::-moz-focus-inner, .edit-link a::-moz-focus-inner, button::-moz-focus-inner, [type=submit]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=button]::-moz-focus-inner {
     border: 0;
     padding: 0; }
-  .button:hover, :hover[type=submit], .wp-block-button a:hover, .edit-link a:hover, .button:focus, :focus[type=submit], .wp-block-button a:focus, .edit-link a:focus, .button:active, :active[type=submit], .wp-block-button a:active, .edit-link a:active, a.button:hover, a:hover[type=submit], .wp-block-button a:hover, .edit-link a:hover, a.button:focus, a:focus[type=submit], .wp-block-button a:focus, .edit-link a:focus, a.button:active, a:active[type=submit], .wp-block-button a:active, .edit-link a:active, button:hover, button:focus, button:active, [type=submit]:hover, [type=submit]:focus, [type=submit]:active, [type=reset]:hover, [type=reset]:focus, [type=reset]:active, [type=button]:hover, [type=button]:focus, [type=button]:active {
-    background-color: #89233d;
-    border-color: #89233d;
-    color: white; }
   .button:focus, :focus[type=submit], .wp-block-button a:focus, .edit-link a:focus, a.button:focus, a:focus[type=submit], .wp-block-button a:focus, .edit-link a:focus, button:focus, [type=submit]:focus, [type=reset]:focus, [type=button]:focus {
-    outline: 0;
-    box-shadow: 0px 0px 1px 3px #df8098; }
+    outline: 0; }
   .button:disabled, :disabled[type=submit], .wp-block-button a:disabled, .edit-link a:disabled, a.button:disabled, a:disabled[type=submit], .wp-block-button a:disabled, .edit-link a:disabled, button:disabled, [type=submit]:disabled, [type=reset]:disabled, [type=button]:disabled {
     cursor: not-allowed;
-    background-color: #999999;
-    border: 1px solid #999999; }
+    background-color: #adadad;
+    border-color: #adadad; }
+    .button:disabled:hover, :disabled:hover[type=submit], .wp-block-button a:disabled:hover, .edit-link a:disabled:hover, .button:disabled:focus, :disabled:focus[type=submit], .wp-block-button a:disabled:focus, .edit-link a:disabled:focus, .button:disabled:active, :disabled:active[type=submit], .wp-block-button a:disabled:active, .edit-link a:disabled:active, a.button:disabled:hover, a:disabled:hover[type=submit], .wp-block-button a:disabled:hover, .edit-link a:disabled:hover, a.button:disabled:focus, a:disabled:focus[type=submit], .wp-block-button a:disabled:focus, .edit-link a:disabled:focus, a.button:disabled:active, a:disabled:active[type=submit], .wp-block-button a:disabled:active, .edit-link a:disabled:active, button:disabled:hover, button:disabled:focus, button:disabled:active, [type=submit]:disabled:hover, [type=submit]:disabled:focus, [type=submit]:disabled:active, [type=reset]:disabled:hover, [type=reset]:disabled:focus, [type=reset]:disabled:active, [type=button]:disabled:hover, [type=button]:disabled:focus, [type=button]:disabled:active {
+      background-color: #adadad;
+      border-color: #adadad; }
+
+.button__primary, a.button__primary {
+  background-color: #001496;
+  border-color: #001496;
+  color: #fff; }
+  .button__primary:hover, .button__primary:focus, .button__primary:active, a.button__primary:hover, a.button__primary:focus, a.button__primary:active {
+    background-color: #3343ab;
+    border-color: #3343ab;
+    color: #fff; }
+  .button__primary:focus, a.button__primary:focus {
+    box-shadow: 0px 0px 1px 3px #99a1d5; }
+  .button__primary.button__outline:hover, .button__primary:hover[type=reset], .wp-block-button.is-style-outline a.button__primary:hover, .edit-link a.button__primary:hover, .button__primary.button__outline:focus, .button__primary:focus[type=reset], .wp-block-button.is-style-outline a.button__primary:focus, .edit-link a.button__primary:focus, .button__primary.button__outline:active, .button__primary:active[type=reset], .wp-block-button.is-style-outline a.button__primary:active, .edit-link a.button__primary:active, a.button__primary.button__outline:hover, a.button__primary:hover[type=reset], .wp-block-button.is-style-outline a.button__primary:hover, .edit-link a.button__primary:hover, a.button__primary.button__outline:focus, a.button__primary:focus[type=reset], .wp-block-button.is-style-outline a.button__primary:focus, .edit-link a.button__primary:focus, a.button__primary.button__outline:active, a.button__primary:active[type=reset], .wp-block-button.is-style-outline a.button__primary:active, .edit-link a.button__primary:active {
+    color: #001496; }
 
 .button__secondary, a.button__secondary {
-  background-color: #2d6378;
-  border-color: #2d6378;
-  color: white; }
+  background-color: #a62579;
+  border-color: #a62579;
+  color: #fff; }
   .button__secondary:hover, .button__secondary:focus, .button__secondary:active, a.button__secondary:hover, a.button__secondary:focus, a.button__secondary:active {
-    background-color: #1f4453;
-    border-color: #1f4453;
-    color: white; }
+    background-color: #b85194;
+    border-color: #b85194;
+    color: #fff; }
   .button__secondary:focus, a.button__secondary:focus {
-    box-shadow: 0px 0px 1px 3px #4291b0; }
+    box-shadow: 0px 0px 1px 3px #dba8c9; }
+  .button__secondary.button__outline:hover, .button__secondary:hover[type=reset], .wp-block-button.is-style-outline a.button__secondary:hover, .edit-link a.button__secondary:hover, .button__secondary.button__outline:focus, .button__secondary:focus[type=reset], .wp-block-button.is-style-outline a.button__secondary:focus, .edit-link a.button__secondary:focus, .button__secondary.button__outline:active, .button__secondary:active[type=reset], .wp-block-button.is-style-outline a.button__secondary:active, .edit-link a.button__secondary:active, a.button__secondary.button__outline:hover, a.button__secondary:hover[type=reset], .wp-block-button.is-style-outline a.button__secondary:hover, .edit-link a.button__secondary:hover, a.button__secondary.button__outline:focus, a.button__secondary:focus[type=reset], .wp-block-button.is-style-outline a.button__secondary:focus, .edit-link a.button__secondary:focus, a.button__secondary.button__outline:active, a.button__secondary:active[type=reset], .wp-block-button.is-style-outline a.button__secondary:active, .edit-link a.button__secondary:active {
+    color: #a62579; }
+
+.button__tertiary, a.button__tertiary {
+  background-color: #8e1b1f;
+  border-color: #8e1b1f;
+  color: #fff; }
+  .button__tertiary:hover, .button__tertiary:focus, .button__tertiary:active, a.button__tertiary:hover, a.button__tertiary:focus, a.button__tertiary:active {
+    background-color: #a5494c;
+    border-color: #a5494c;
+    color: #fff; }
+  .button__tertiary:focus, a.button__tertiary:focus {
+    box-shadow: 0px 0px 1px 3px #d2a4a5; }
+  .button__tertiary.button__outline:hover, .button__tertiary:hover[type=reset], .wp-block-button.is-style-outline a.button__tertiary:hover, .edit-link a.button__tertiary:hover, .button__tertiary.button__outline:focus, .button__tertiary:focus[type=reset], .wp-block-button.is-style-outline a.button__tertiary:focus, .edit-link a.button__tertiary:focus, .button__tertiary.button__outline:active, .button__tertiary:active[type=reset], .wp-block-button.is-style-outline a.button__tertiary:active, .edit-link a.button__tertiary:active, a.button__tertiary.button__outline:hover, a.button__tertiary:hover[type=reset], .wp-block-button.is-style-outline a.button__tertiary:hover, .edit-link a.button__tertiary:hover, a.button__tertiary.button__outline:focus, a.button__tertiary:focus[type=reset], .wp-block-button.is-style-outline a.button__tertiary:focus, .edit-link a.button__tertiary:focus, a.button__tertiary.button__outline:active, a.button__tertiary:active[type=reset], .wp-block-button.is-style-outline a.button__tertiary:active, .edit-link a.button__tertiary:active {
+    color: #8e1b1f; }
+
+.button__success, a.button__success {
+  background-color: #77de65;
+  border-color: #77de65;
+  color: #333333; }
+  .button__success:hover, .button__success:focus, .button__success:active, a.button__success:hover, a.button__success:focus, a.button__success:active {
+    background-color: #92e584;
+    border-color: #92e584;
+    color: #333333; }
+  .button__success:focus, a.button__success:focus {
+    box-shadow: 0px 0px 1px 3px #c9f2c1; }
+  .button__success.button__outline:hover, .button__success:hover[type=reset], .wp-block-button.is-style-outline a.button__success:hover, .edit-link a.button__success:hover, .button__success.button__outline:focus, .button__success:focus[type=reset], .wp-block-button.is-style-outline a.button__success:focus, .edit-link a.button__success:focus, .button__success.button__outline:active, .button__success:active[type=reset], .wp-block-button.is-style-outline a.button__success:active, .edit-link a.button__success:active, a.button__success.button__outline:hover, a.button__success:hover[type=reset], .wp-block-button.is-style-outline a.button__success:hover, .edit-link a.button__success:hover, a.button__success.button__outline:focus, a.button__success:focus[type=reset], .wp-block-button.is-style-outline a.button__success:focus, .edit-link a.button__success:focus, a.button__success.button__outline:active, a.button__success:active[type=reset], .wp-block-button.is-style-outline a.button__success:active, .edit-link a.button__success:active {
+    color: #77de65; }
+
+.button__warning, a.button__warning {
+  background-color: #FCCf14;
+  border-color: #FCCf14;
+  color: #333333; }
+  .button__warning:hover, .button__warning:focus, .button__warning:active, a.button__warning:hover, a.button__warning:focus, a.button__warning:active {
+    background-color: #fdd943;
+    border-color: #fdd943;
+    color: #333333; }
+  .button__warning:focus, a.button__warning:focus {
+    box-shadow: 0px 0px 1px 3px #feeca1; }
+  .button__warning.button__outline:hover, .button__warning:hover[type=reset], .wp-block-button.is-style-outline a.button__warning:hover, .edit-link a.button__warning:hover, .button__warning.button__outline:focus, .button__warning:focus[type=reset], .wp-block-button.is-style-outline a.button__warning:focus, .edit-link a.button__warning:focus, .button__warning.button__outline:active, .button__warning:active[type=reset], .wp-block-button.is-style-outline a.button__warning:active, .edit-link a.button__warning:active, a.button__warning.button__outline:hover, a.button__warning:hover[type=reset], .wp-block-button.is-style-outline a.button__warning:hover, .edit-link a.button__warning:hover, a.button__warning.button__outline:focus, a.button__warning:focus[type=reset], .wp-block-button.is-style-outline a.button__warning:focus, .edit-link a.button__warning:focus, a.button__warning.button__outline:active, a.button__warning:active[type=reset], .wp-block-button.is-style-outline a.button__warning:active, .edit-link a.button__warning:active {
+    color: #FCCf14; }
+
+.button__error, a.button__error {
+  background-color: #FF4200;
+  border-color: #FF4200;
+  color: #333333; }
+  .button__error:hover, .button__error:focus, .button__error:active, a.button__error:hover, a.button__error:focus, a.button__error:active {
+    background-color: #ff6833;
+    border-color: #ff6833;
+    color: #333333; }
+  .button__error:focus, a.button__error:focus {
+    box-shadow: 0px 0px 1px 3px #ffb399; }
+  .button__error.button__outline:hover, .button__error:hover[type=reset], .wp-block-button.is-style-outline a.button__error:hover, .edit-link a.button__error:hover, .button__error.button__outline:focus, .button__error:focus[type=reset], .wp-block-button.is-style-outline a.button__error:focus, .edit-link a.button__error:focus, .button__error.button__outline:active, .button__error:active[type=reset], .wp-block-button.is-style-outline a.button__error:active, .edit-link a.button__error:active, a.button__error.button__outline:hover, a.button__error:hover[type=reset], .wp-block-button.is-style-outline a.button__error:hover, .edit-link a.button__error:hover, a.button__error.button__outline:focus, a.button__error:focus[type=reset], .wp-block-button.is-style-outline a.button__error:focus, .edit-link a.button__error:focus, a.button__error.button__outline:active, a.button__error:active[type=reset], .wp-block-button.is-style-outline a.button__error:active, .edit-link a.button__error:active {
+    color: #FF4200; }
 
 .button__outline, [type=reset], .wp-block-button.is-style-outline a, .edit-link a, a.button__outline, a[type=reset], .wp-block-button.is-style-outline a, .edit-link a {
-  background: transparent;
-  color: inherit;
-  border-color: #b22d4f; }
+  background-color: transparent !important;
+  color: inherit; }
   .button__outline:hover, :hover[type=reset], .wp-block-button.is-style-outline a:hover, .edit-link a:hover, .button__outline:focus, :focus[type=reset], .wp-block-button.is-style-outline a:focus, .edit-link a:focus, .button__outline:active, :active[type=reset], .wp-block-button.is-style-outline a:active, .edit-link a:active, a.button__outline:hover, a:hover[type=reset], .wp-block-button.is-style-outline a:hover, .edit-link a:hover, a.button__outline:focus, a:focus[type=reset], .wp-block-button.is-style-outline a:focus, .edit-link a:focus, a.button__outline:active, a:active[type=reset], .wp-block-button.is-style-outline a:active, .edit-link a:active {
-    background-color: transparent;
-    border-color: #89233d;
-    color: #b22d4f; }
+    background-color: transparent !important; }
 
 .button__ghost, a.button__ghost {
-  background: transparent;
-  color: #b22d4f;
+  background-color: transparent;
+  color: #001496;
   border-color: transparent; }
   .button__ghost:hover, .button__ghost:focus, .button__ghost:active, a.button__ghost:hover, a.button__ghost:focus, a.button__ghost:active {
     background-color: transparent;
-    border-color: #2d6378;
-    color: #2d6378; }
+    color: #a62579; }
 
 .button__block, a.button__block {
   display: block;
@@ -1358,6 +1580,167 @@ sup {
   font-size: 0.8rem; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  CALLOUTS
+  Default styling for callout elements
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.callout {
+  border: 1px solid #cbcccc;
+  margin-bottom: 24px;
+  padding: 20px;
+  border-radius: 4px; }
+  .callout a.callout-link {
+    font-weight: bold; }
+  .callout > :last-child {
+    margin-bottom: 0; }
+  .callout__primary {
+    border-color: #001496;
+    background-color: #ccd0ea; }
+    .callout__primary a.callout-link {
+      color: #001496; }
+      .callout__primary a.callout-link:hover, .callout__primary a.callout-link:focus, .callout__primary a.callout-link:active {
+        color: #001078; }
+  .callout__secondary {
+    border-color: #a62579;
+    background-color: #edd3e4; }
+    .callout__secondary a.callout-link {
+      color: #a62579; }
+      .callout__secondary a.callout-link:hover, .callout__secondary a.callout-link:focus, .callout__secondary a.callout-link:active {
+        color: #851e61; }
+  .callout__tertiary {
+    border-color: #8e1b1f;
+    background-color: #e8d1d2; }
+    .callout__tertiary a.callout-link {
+      color: #8e1b1f; }
+      .callout__tertiary a.callout-link:hover, .callout__tertiary a.callout-link:focus, .callout__tertiary a.callout-link:active {
+        color: #721619; }
+  .callout__success {
+    border-color: #77de65;
+    background-color: #e4f8e0; }
+    .callout__success a.callout-link {
+      color: #77de65; }
+      .callout__success a.callout-link:hover, .callout__success a.callout-link:focus, .callout__success a.callout-link:active {
+        color: #5fb251; }
+  .callout__warning {
+    border-color: #FCCf14;
+    background-color: #fef5d0; }
+    .callout__warning a.callout-link {
+      color: #FCCf14; }
+      .callout__warning a.callout-link:hover, .callout__warning a.callout-link:focus, .callout__warning a.callout-link:active {
+        color: #caa610; }
+  .callout__error {
+    border-color: #FF4200;
+    background-color: #ffd9cc; }
+    .callout__error a.callout-link {
+      color: #FF4200; }
+      .callout__error a.callout-link:hover, .callout__error a.callout-link:focus, .callout__error a.callout-link:active {
+        color: #cc3500; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  CARDS
+  Default styling for card elements
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.card {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+  border-radius: 0px;
+  border: 1px solid #cbcccc;
+  margin-bottom: 24px;
+  background: #fff; }
+  .card > :last-child {
+    margin-bottom: 0; }
+  .card-img {
+    width: 100%; }
+  .card-section {
+    padding: 20px; }
+    .card-section > :last-child {
+      margin-bottom: 0; }
+    .card-section .card-img {
+      margin-bottom: 24px; }
+    .card-section + .card-section {
+      padding-top: 0; }
+  .card-footer {
+    margin-top: auto; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  LABELS
+  Default styling for label elements
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.label {
+  padding: .35em .5em;
+  display: inline-flex;
+  font-size: 0.85em;
+  font-weight: bold;
+  margin-left: 1rem;
+  line-height: 1;
+  position: relative;
+  top: -.2em;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #001496;
+  background-color: #001496;
+  color: #fff; }
+  h1 .label, h2 .label, h3 .label, h4 .label, h5 .label, p.wp-block-subhead .label, h6 .label, p .label {
+    font-size: 0.6em; }
+  .label.label__outline {
+    color: #001496; }
+  .label .label {
+    margin-left: .5em; }
+  .label__outline {
+    border-style: dashed;
+    background-color: transparent !important; }
+  .label__primary {
+    border-color: #001496;
+    background-color: #001496;
+    color: #fff; }
+    .label__primary.label__outline {
+      color: #001496; }
+  .label__secondary {
+    border-color: #a62579;
+    background-color: #a62579;
+    color: #fff; }
+    .label__secondary.label__outline {
+      color: #a62579; }
+  .label__tertiary {
+    border-color: #8e1b1f;
+    background-color: #8e1b1f;
+    color: #fff; }
+    .label__tertiary.label__outline {
+      color: #8e1b1f; }
+  .label__success {
+    border-color: #77de65;
+    background-color: #77de65;
+    color: #333333; }
+    .label__success.label__outline {
+      color: #77de65; }
+  .label__warning {
+    border-color: #FCCf14;
+    background-color: #FCCf14;
+    color: #333333; }
+    .label__warning.label__outline {
+      color: #FCCf14; }
+  .label__error {
+    border-color: #FF4200;
+    background-color: #FF4200;
+    color: #333333; }
+    .label__error.label__outline {
+      color: #FF4200; }
+
+.label-group {
+  display: inline-flex;
+  margin: 12px 0.5rem 24px 0; }
+  .label-group .label {
+    margin-left: 0; }
+  .label-group .label:not(:last-of-type) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0; }
+  .label-group .label:not(:first-of-type) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   TABLES
   Default styling table elements
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -1367,7 +1750,7 @@ table {
   width: 100%; }
 
 td {
-  border-bottom: 1px solid #aaaaaa; }
+  border-bottom: 1px solid #cbcccc; }
 
 th {
   font-weight: bold; }
@@ -1378,20 +1761,20 @@ td {
   padding: .5em .8em; }
 
 thead th {
-  border-bottom: 2px solid #aaaaaa; }
+  border-bottom: 2px solid #cbcccc; }
 
 tfoot th {
-  border-top: 2px solid #aaaaaa; }
+  border-top: 2px solid #cbcccc; }
 
 .table__striped tr:nth-child(odd) td {
-  background: #b7b7b7; }
+  background: #efefef; }
 
 .table__border, .table__border td, .table__border th {
-  border: 1px solid #aaaaaa; }
+  border: 1px solid #cbcccc; }
 
 .table__hoverable tr:hover td {
-  background: #b22d4f !important;
-  color: white; }
+  background: #7e7f7f !important;
+  color: #fff; }
 
 .table-container {
   overflow-x: auto;
@@ -1403,13 +1786,13 @@ tfoot th {
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 [type=color], [type=date], [type=datetime], [type=datetime-local], [type=email], [type=month], [type=number], [type=password], [type=search], [type=tel], [type=text], [type=url], [type=week], [type=time], select, textarea {
   display: block;
-  border: 1px solid #aaaaaa;
+  border: 1px solid #cbcccc;
   border-radius: 4px;
-  background: white;
+  background: #fff;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   padding: 10px;
   outline: none;
-  margin: 3px 0 8px 0;
+  margin: 3px 0 12px 0;
   width: 100%;
   max-width: 100%;
   line-height: 1;
@@ -1417,15 +1800,15 @@ tfoot th {
   opacity: 1; }
 
 [type=color]:hover, [type=date]:hover, [type=datetime]:hover, [type=datetime-local]:hover, [type=email]:hover, [type=month]:hover, [type=number]:hover, [type=password]:hover, [type=search]:hover, [type=tel]:hover, [type=text]:hover, [type=url]:hover, [type=week]:hover, [type=time]:hover, select:hover, textarea:hover {
-  border-color: #444444; }
+  border-color: #7a7a7a; }
 
 [type=color]:focus, [type=color]:active, [type=date]:focus, [type=date]:active, [type=datetime]:focus, [type=datetime]:active, [type=datetime-local]:focus, [type=datetime-local]:active, [type=email]:focus, [type=email]:active, [type=month]:focus, [type=month]:active, [type=number]:focus, [type=number]:active, [type=password]:focus, [type=password]:active, [type=search]:focus, [type=search]:active, [type=tel]:focus, [type=tel]:active, [type=text]:focus, [type=text]:active, [type=url]:focus, [type=url]:active, [type=week]:focus, [type=week]:active, [type=time]:focus, [type=time]:active, select:focus, select:active, textarea:focus, textarea:active {
-  border-color: #b22d4f;
-  box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.1), 0 0 1px 3px #e494a8; }
+  border-color: #001496;
+  box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.1), 0 0 1px 3px #99a1d5; }
 
 [type=color]:disabled, [type=date]:disabled, [type=datetime]:disabled, [type=datetime-local]:disabled, [type=email]:disabled, [type=month]:disabled, [type=number]:disabled, [type=password]:disabled, [type=search]:disabled, [type=tel]:disabled, [type=text]:disabled, [type=url]:disabled, [type=week]:disabled, [type=time]:disabled, select:disabled, textarea:disabled, [type=month]:disabled {
   cursor: not-allowed;
-  border: 1px solid #aaaaaa;
+  border: 1px solid #cbcccc;
   box-shadow: none;
   opacity: 0.5; }
 
@@ -1442,10 +1825,10 @@ input[type=checkbox], input[type=radio] {
   margin-right: 5px; }
 
 fieldset {
-  border: 1px solid #aaaaaa;
+  border: 1px solid #cbcccc;
   border-radius: 4px;
   padding: 20px;
-  margin: 16px 0; }
+  margin: 24px 0; }
 
 legend {
   padding: 0 10px;
@@ -1459,7 +1842,7 @@ select {
   color: #333333;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background: white url("data:image/svg+xml;charset=utf-8,%3Csvg width='41' height='26' viewBox='0 0 41 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='#999999' d='M0 5.382l19.983 19.983L40.14 5.208 34.932 0 19.869 15.062 4.84.032z' fill-rule='evenodd'/%3E%3C/svg%3E") right 10px center no-repeat;
+  background: #fff url("data:image/svg+xml;charset=utf-8,%3Csvg width='41' height='26' viewBox='0 0 41 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='#999999' d='M0 5.382l19.983 19.983L40.14 5.208 34.932 0 19.869 15.062 4.84.032z' fill-rule='evenodd'/%3E%3C/svg%3E") right 10px center no-repeat;
   background-size: .75rem;
   line-height: 1.4; }
 
@@ -1475,16 +1858,16 @@ select::-ms-expand {
 ::-moz-placeholder,
 :-moz-placeholder,
 :-ms-input-placeholder {
-  color: #aaaaaa; }
+  color: #7e7f7f; }
 
 .form-group, .form-group-inline {
-  margin: 3px 0 8px 0; }
+  margin: 3px 0 12px 0; }
 
 .form-group-inline * {
   display: inline-block; }
 
 .form-group-inline label {
-  margin-right: 8px; }
+  margin-right: 12px; }
 
 .form-row {
   margin-left: -5px;
@@ -1523,7 +1906,7 @@ select::-ms-expand {
   .hamburger.is-active .hamburger-inner,
   .hamburger.is-active .hamburger-inner::before,
   .hamburger.is-active .hamburger-inner::after {
-    background-color: #b22d4f; }
+    background-color: #fff; }
 
 .hamburger-box {
   width: 20px;
@@ -1538,7 +1921,7 @@ select::-ms-expand {
   .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
     width: 20px;
     height: 3px;
-    background-color: #b22d4f;
+    background-color: #fff;
     border-radius: 3px;
     position: absolute;
     transition-property: transform;
@@ -1587,24 +1970,26 @@ select::-ms-expand {
   text-transform: none;
   transition: color 0.2s ease, background-color 0.2s ease, font-weight 0.2s ease; }
   .navbar-brand a:not(.img-link), .navbar-menu ul li a, .navbar-brand a:visited:not(.img-link), .navbar-menu ul li a:visited {
-    color: #b22d4f;
-    background-color: #efefef; }
+    color: #fff;
+    background-color: #001496; }
   .navbar-brand a:hover:not(.img-link), .navbar-menu ul li a:hover, .navbar-brand a:focus:not(.img-link), .navbar-menu ul li a:focus, .navbar-brand a:active:not(.img-link), .navbar-menu ul li a:active {
-    color: #2d6378;
-    background-color: #d6d5d5;
-    font-weight: normal; }
+    color: #fff;
+    background-color: #000a4b;
+    font-weight: bold; }
 
 .navbar {
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
 .navbar is the parent of all navbar items
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-  background: #efefef;
-  color: #b22d4f;
+  background: #001496;
+  color: #fff;
   position: relative; }
   .navbar > .container {
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   Container
   *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    width: inherit;
+    max-width: 100%;
     display: flex; }
     @media (max-width: 56.1875em) {
       .navbar > .container {
@@ -1629,8 +2014,8 @@ they should be wrapped in this class to ensure consistent display
   display: flex;
   align-items: center;
   position: relative;
-  font-size: 0.9em;
-  font-weight: normal;
+  font-size: 0.8em;
+  font-weight: bold;
   flex: 0 1 auto;
   padding: 8px 10px;
   margin: 0; }
@@ -1643,7 +2028,7 @@ they should be wrapped in this class to ensure consistent display
 .navbar-menu contains the main website navigation
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   display: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.4); }
+  border-top: 1px solid rgba(255, 255, 255, 0.1); }
   @media (min-width: 56.25em) {
     .navbar-menu {
       border-top: 0;
@@ -1674,12 +2059,12 @@ they should be wrapped in this class to ensure consistent display
         /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
       Link Styles
       *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-        font-size: 0.9em;
-        font-weight: normal;
+        font-size: 0.8em;
+        font-weight: bold;
         display: block;
         position: relative;
         padding: 8px 10px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.4); }
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
         @media (min-width: 56.25em) {
           .navbar-menu ul li a {
             padding: 10px 10px;
@@ -1695,7 +2080,7 @@ they should be wrapped in this class to ensure consistent display
         display: none; }
         .navbar-menu ul li ul a {
           text-transform: none;
-          font-weight: normal; }
+          font-weight: bold; }
           @media (max-width: 56.1875em) {
             .navbar-menu ul li ul a {
               padding-left: 24px; } }
@@ -1711,7 +2096,7 @@ they should be wrapped in this class to ensure consistent display
               padding-left: 56px; } }
         @media (min-width: 56.25em) {
           .navbar-menu ul li ul {
-            background: #efefef;
+            background: #001496;
             position: absolute;
             z-index: 9999;
             top: 100%;
@@ -1724,7 +2109,7 @@ they should be wrapped in this class to ensure consistent display
             transition: transform 0.1s linear, opacity 0.1s linear; }
             .navbar-menu ul li ul li {
               display: none;
-              border-top: 1px solid rgba(255, 255, 255, 0.4); }
+              border-top: 1px solid rgba(255, 255, 255, 0.1); }
               .navbar-menu ul li ul li ul {
                 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
             Deeply Nested Nav
@@ -1744,7 +2129,7 @@ they should be wrapped in this class to ensure consistent display
           pointer-events: none;
           height: 12px;
           width: 12px;
-          border: 3px solid #b22d4f;
+          border: 3px solid #fff;
           border-radius: 3px;
           border-left: 0;
           border-top: 0;
@@ -1791,12 +2176,12 @@ they should be wrapped in this class to ensure consistent display
   Styles the currently active page
   *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/ }
     .navbar-menu .current-page a, .navbar-menu .current-menu-item a, .navbar-menu .current-menu-parent a, .navbar-menu .current-page a:visited, .navbar-menu .current-menu-item a:visited, .navbar-menu .current-menu-parent a:visited {
-      background: inherit;
-      color: #2d6378;
+      background: #a62579;
+      color: #fff;
       font-weight: bold !important; }
     .navbar-menu .current-page a:hover, .navbar-menu .current-menu-item a:hover, .navbar-menu .current-menu-parent a:hover, .navbar-menu .current-page a:focus, .navbar-menu .current-menu-item a:focus, .navbar-menu .current-menu-parent a:focus, .navbar-menu .current-page a:active, .navbar-menu .current-menu-item a:active, .navbar-menu .current-menu-parent a:active {
-      color: #2d6378;
-      background-color: #d6d5d5; }
+      color: #fff;
+      background-color: #000a4b; }
   @media (min-width: 56.25em) {
     .navbar-menu .navbar-start {
       display: flex;
@@ -1828,8 +2213,8 @@ they should be wrapped in this class to ensure consistent display
   margin-left: auto;
   margin-top: inherit;
   margin-bottom: inherit;
-  background-color: #efefef;
-  border: 1px solid #efefef;
+  background-color: #001496;
+  border: 1px solid #001496;
   border-radius: 0px;
   text-align: right;
   display: flex;
@@ -1839,20 +2224,20 @@ they should be wrapped in this class to ensure consistent display
     .hamburger {
       display: none; } }
   .hamburger:hover, .hamburger:focus, .hamburger:active {
-    background-color: #d6d5d5;
-    border: 1px solid #d6d5d5; }
+    background-color: #000a4b;
+    border: 1px solid #000a4b; }
   .hamburger:focus {
     outline: 0;
     box-shadow: none !important; }
 
 .hamburger-label {
-  font-weight: normal;
-  font-size: 0.9em;
+  font-weight: bold;
+  font-size: 0.8em;
   text-transform: uppercase;
-  color: #b22d4f;
+  color: #fff;
   margin: 0 8px; }
   .is-active .hamburger-label {
-    color: #b22d4f; }
+    color: #fff; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
 Utilities
@@ -1875,7 +2260,7 @@ Utilities
 
 @media print {
   a {
-    color: #b22d4f !important;
+    color: #001496 !important;
     text-decoration: underline; }
     a ::after {
       content: "(" attr(href) ")";
@@ -1897,7 +2282,7 @@ Utilities
     font-size: 1.2em; }
   .button, [type=submit], .wp-block-button a, .edit-link a, a.button, a[type=submit], .wp-block-button a, .edit-link a, button, [type=submit], [type=reset], [type=button] {
     border: 1px solid black  !important;
-    background-color: white  !important;
+    background-color: #fff !important;
     color: black  !important;
     display: inline-block !important;
     width: auto !important; }
@@ -1912,20 +2297,20 @@ Utilities
   Align Classes and Helpers
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .wp-block-audio figcaption, .wp-block-image img + figcaption, .wp-block-video figcaption, .wp-block-embed figcaption {
-  color: #aaaaaa;
-  margin-bottom: 16px; }
+  color: #7e7f7f;
+  margin-bottom: 24px; }
 
 .alignfull {
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-top: 24px;
+  margin-bottom: 24px;
   margin-left: calc(50% - 50vw) !important;
   margin-right: calc(50% - 50vw) !important;
   max-width: 100vw;
   width: 100vw; }
 
 .alignwide {
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-top: 24px;
+  margin-bottom: 24px;
   margin-left: calc(25% - 25vw) !important;
   margin-right: calc(25% - 25vw) !important;
   max-width: 100vw; }
@@ -1936,37 +2321,37 @@ Utilities
 .alignwide > .wp-caption-text {
   margin-left: auto;
   margin-right: auto;
-  width: calc(100% - 15px*2); }
-  @media (min-width: 33.75em) {
+  width: calc(100% - 30px*2); }
+  @media (min-width: 37.5em) {
     .alignfull > figcaption,
     .alignfull > .wp-caption-text,
     .alignwide > figcaption,
     .alignwide > .wp-caption-text {
-      width: calc(94% - 50px*2); } }
-  @media (min-width: 48em) {
+      width: calc(100% - 50px*2); } }
+  @media (min-width: 56.25em) {
     .alignfull > figcaption,
     .alignfull > .wp-caption-text,
     .alignwide > figcaption,
     .alignwide > .wp-caption-text {
       width: calc(90% - 0px*2); } }
-  @media (min-width: 80em) {
+  @media (min-width: 75em) {
     .alignfull > figcaption,
     .alignfull > .wp-caption-text,
     .alignwide > figcaption,
     .alignwide > .wp-caption-text {
-      width: 1220px; } }
-  @media (min-width: 106.25em) {
+      width: 1140px; } }
+  @media (min-width: 112.5em) {
     .alignfull > figcaption,
     .alignfull > .wp-caption-text,
     .alignwide > figcaption,
     .alignwide > .wp-caption-text {
-      width: 1640px; } }
+      width: 1280px; } }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   Audio Blocks
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .wp-block-audio {
-  margin-bottom: 16px; }
+  margin-bottom: 24px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   Blockquotes
@@ -1974,7 +2359,7 @@ Utilities
 .wp-block-quote.is-large,
 .wp-block-quote.is-style-large {
   font-size: 1em;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   padding: 0;
   border-left: 0; }
   .wp-block-quote.is-large p,
@@ -1984,10 +2369,10 @@ Utilities
     font-size: 1.75em; }
   .wp-block-quote.is-large cite,
   .wp-block-quote.is-style-large cite {
-    font-size: 1.25em; }
+    font-size: 1.5em; }
 
 .wp-block-pullquote {
-  margin: 32px auto;
+  margin: 48px auto;
   width: 80%;
   padding: 0; }
   .wp-block-pullquote blockquote {
@@ -2005,7 +2390,7 @@ Utilities
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
       line-height: 1;
       display: block;
-      color: #b22d4f; }
+      color: #001496; }
   .wp-block-pullquote cite {
     text-align: center; }
   .wp-block-pullquote.alignwide, .wp-block-pullquote.alignfull {
@@ -2020,7 +2405,7 @@ Utilities
   Buttons
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .wp-block-button {
-  color: white; }
+  color: #fff; }
   .wp-block-button.is-style-outline {
     color: inherit; }
 
@@ -2032,18 +2417,18 @@ Utilities
   margin-left: 0; }
   .wp-block-categories li, .wp-block-latest-posts li {
     font-size: 1.5em;
-    color: #aaaaaa; }
+    color: #7e7f7f; }
   .wp-block-categories a, .wp-block-latest-posts a {
     text-decoration: none;
     font-weight: bold; }
 
 .wp-block-latest-posts li {
-  margin-bottom: 8px; }
+  margin-bottom: 12px; }
 
 .wp-block-latest-posts__post-date {
   font-weight: bold;
   font-size: 1rem;
-  color: #aaaaaa; }
+  color: #7e7f7f; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   Columns
@@ -2071,18 +2456,18 @@ Utilities
   @media (min-width: 37.5em) {
     .wp-block-text-columns .wp-block-column, .wp-block-columns .wp-block-column {
       flex: 1; } }
-  @media (min-width: 33.75em) {
+  @media (min-width: 37.5em) {
     .wp-block-text-columns .wp-block-column, .wp-block-columns .wp-block-column {
       margin: 0 10px; } }
-  @media (min-width: 48em) {
+  @media (min-width: 56.25em) {
     .wp-block-text-columns .wp-block-column, .wp-block-columns .wp-block-column {
       margin: 0 15px; } }
-  @media (min-width: 80em) {
+  @media (min-width: 75em) {
     .wp-block-text-columns .wp-block-column, .wp-block-columns .wp-block-column {
       margin: 0 17.5px; } }
-  @media (min-width: 106.25em) {
+  @media (min-width: 112.5em) {
     .wp-block-text-columns .wp-block-column, .wp-block-columns .wp-block-column {
-      margin: 0 22.5px; } }
+      margin: 0 20px; } }
   @media (min-width: 37.5em) {
     .wp-block-text-columns .wp-block-column:first-child, .wp-block-columns .wp-block-column:first-child {
       margin-left: 0; }
@@ -2094,7 +2479,7 @@ Utilities
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .wp-block-cover,
 .wp-block-cover-image {
-  margin-bottom: 16px; }
+  margin-bottom: 24px; }
 
 .wp-block-cover-image .wp-block-cover__inner-container,
 .wp-block-cover .wp-block-cover__inner-container {
@@ -2110,7 +2495,7 @@ Utilities
   Images
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .wp-block-image img + figcaption {
-  margin-top: -6px; }
+  margin-top: -14px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   Seperators
@@ -2123,7 +2508,7 @@ Utilities
 
 .wp-block-separator.is-style-dots:before {
   content: "\00b7 \00b7 \00b7 \00b7 \00b7 \00b7";
-  color: #aaaaaa; }
+  color: #cbcccc; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   Tables
@@ -2139,10 +2524,10 @@ Utilities
   Twitter Embed
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .wp-block-embed.alignleft {
-  margin-right: 16px; }
+  margin-right: 24px; }
 
 .wp-block-embed.alignright {
-  margin-right: 16px; }
+  margin-right: 24px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   Typography
@@ -2155,7 +2540,7 @@ p.wp-block-subhead {
 
 .has-drop-cap:not(:focus):first-letter {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  color: #b22d4f;
+  color: #001496;
   font-weight: bold;
   initial-letter: 3;
   font-size: 5.3em; }
@@ -2187,7 +2572,7 @@ p.has-background {
   width: 100%; }
 
 .wp-block-video {
-  margin-bottom: 16px; }
+  margin-bottom: 24px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   TODO: BLOCKS TO ADD
@@ -2205,16 +2590,16 @@ p.has-background {
   background: #333333; }
 
 .widget .mejs-controls .mejs-time-rail .mejs-time-current {
-  background: #b22d4f; }
+  background: #001496; }
 
 .widget .mejs-controls button:hover {
   background-color: transparent; }
 
 .widget .mejs-container {
-  margin-bottom: 16px; }
+  margin-bottom: 24px; }
 
 .widget .gallery-item {
-  margin-bottom: 16px; }
+  margin-bottom: 24px; }
   .widget .gallery-item img {
     margin-bottom: 0; }
 
@@ -2236,53 +2621,7 @@ p.has-background {
   display: block; }
 
 .comment-list ol, .comment-list ul, .comment-list dl, .comment-list li {
-  margin-bottom: 16px; }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  HELPERS
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.bg-black, .bg-primary, .bg-secondary, .bg-tertiary, .bg-black a, .bg-primary a, .bg-secondary a, .bg-tertiary a, .bg-black h1, .bg-primary h1, .bg-secondary h1, .bg-tertiary h1, .bg-black h2, .bg-primary h2, .bg-secondary h2, .bg-tertiary h2, .bg-black h3, .bg-primary h3, .bg-secondary h3, .bg-tertiary h3, .bg-black h4, .bg-primary h4, .bg-secondary h4, .bg-tertiary h4, .bg-black h5, .bg-primary h5, .bg-secondary h5, .bg-tertiary h5, .bg-black p.wp-block-subhead, .bg-primary p.wp-block-subhead, .bg-secondary p.wp-block-subhead, .bg-tertiary p.wp-block-subhead, .bg-black h6, .bg-primary h6, .bg-secondary h6, .bg-tertiary h6 {
-  color: #fff; }
-
-.bg-black {
-  background-color: #333333; }
-  .bg-black + .bg-black {
-    padding-top: 0; }
-
-.colour-black {
-  color: #333333; }
-
-.bg-white {
-  background-color: #fff; }
-  .bg-white + .bg-white {
-    padding-top: 0; }
-
-.colour-white {
-  color: #fff; }
-
-.bg-primary {
-  background-color: #b22d4f; }
-  .bg-primary + .bg-primary {
-    padding-top: 0; }
-
-.colour-primary {
-  color: #b22d4f; }
-
-.bg-secondary {
-  background-color: #2d6378; }
-  .bg-secondary + .bg-secondary {
-    padding-top: 0; }
-
-.colour-secondary {
-  color: #2d6378; }
-
-.bg-tertiary {
-  background-color: #5d2b50; }
-  .bg-tertiary + .bg-tertiary {
-    padding-top: 0; }
-
-.colour-tertiary {
-  color: #5d2b50; }
+  margin-bottom: 24px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   DEVELOPER INFORMATION
@@ -2337,7 +2676,7 @@ p.has-background {
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .pagination {
   list-style-type: none;
-  margin: 16px 0;
+  margin: 24px 0;
   display: flex; }
   .pagination .nav-next {
     margin-right: 0; }
@@ -2348,7 +2687,7 @@ p.has-background {
       color: #fff; }
     .pagination li.nav-total,
     .pagination li a {
-      border: 1px solid #aaaaaa;
+      border: 1px solid #cbcccc;
       padding: 6.6666666667px 10px; }
     .pagination li.nav-total {
       background: #b3b2b2;
@@ -2369,15 +2708,15 @@ p.has-background {
   SCAFFOLDING
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .site-content img {
-  margin-bottom: 16px; }
+  margin-bottom: 24px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   SECTIONS
   Styling for site wide sections
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .section {
-  padding-top: 15px;
-  padding-bottom: -1px;
+  padding-top: 70px;
+  padding-bottom: 46px;
   position: relative; }
   .section__image img {
     width: 100%; }
@@ -2389,6 +2728,24 @@ p.has-background {
   .section__gallery .gallery-item {
     display: inline-block;
     text-align: center;
-    margin: 8px 0; }
+    margin: 12px 0; }
+
+.section.bg-primary + .section.bg-primary {
+  padding-top: 0; }
+
+.section.bg-secondary + .section.bg-secondary {
+  padding-top: 0; }
+
+.section.bg-tertiary + .section.bg-tertiary {
+  padding-top: 0; }
+
+.section.bg-success + .section.bg-success {
+  padding-top: 0; }
+
+.section.bg-warning + .section.bg-warning {
+  padding-top: 0; }
+
+.section.bg-error + .section.bg-error {
+  padding-top: 0; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,20 +1,25 @@
 /*! jellypress-wordpress-theme 1.0.5
- * © 2020-06-30 Matt Weet - https://www.weareboba.com */
+ * © 2020-08-25 Matt Weet - https://www.weareboba.com */
 
 /* GRID */
 /* JELLYFISH DEFAULTS */
 /* DOCUMENT ROOT FONT SIZE AND LINE HEIGHT AT SMALLEST DEVICE WIDTH */
 /* GLOBAL PADDING/MARGINS */
 /* COLOURS */
-/* THEME COLOURS */
+/* THEME COLORS */
 /* TYPEFACES */
 /* FONT SIZES */
 /* LINKS */
+/* ACCESSIBILITY */
 /* GLOBAL TRANSITION USED IN SMOOTH() */
 /* BORDERS */
+/* USER INTERFACE */
+/* CALLOUTS */
 /* FORMS */
 /* BUTTONS */
+/* LABELS */
 /* TABLES */
+/* CARDS */
 /* NAVBAR */
 /* HAMBURGER MENU */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
@@ -28,16 +33,34 @@
 /* TYPEFACES */
 /* FONT SIZES */
 /* LINKS */
+/* ACCESSIBILITY */
 /* GLOBAL TRANSITION USED IN SMOOTH() */
 /* BORDERS */
+/* USER INTERFACE */
+/* CALLOUTS */
 /* FORMS */
 /* BUTTONS */
+/* LABELS */
 /* TABLES */
+/* CARDS */
 /* NAVBAR */
 /* HAMBURGER MENU */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   USEFUL MIXINS AND FUNCTIONS
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/**
+ * Calculate the luminance for a color.
+ * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+ * @link https://medium.com/dev-channel/using-sass-to-automatically-pick-text-colors-4ba7645d2796
+ */
+/**
+ * Calculate the contrast ratio between two colors.
+ * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+ * @link https://medium.com/dev-channel/using-sass-to-automatically-pick-text-colors-4ba7645d2796
+ */
+/**
+ * Determine whether to use dark or light text on top of given color.
+ */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   BASKET / CHECKOUT
   Overrides default Woocommerce
@@ -103,8 +126,8 @@
   .woocommerce a.button.alt,
   .woocommerce button.button.alt,
   .woocommerce input.button.alt {
-    background-color: #b22d4f;
-    color: white; }
+    background-color: #001496;
+    color: #fff; }
     .woocommerce #respond input#submit.alt:hover, .woocommerce #respond input#submit.alt:focus, .woocommerce #respond input#submit.alt:active,
     .woocommerce a.button.alt:hover,
     .woocommerce a.button.alt:focus,
@@ -115,8 +138,8 @@
     .woocommerce input.button.alt:hover,
     .woocommerce input.button.alt:focus,
     .woocommerce input.button.alt:active {
-      background-color: #89233d;
-      color: white; }
+      background-color: gold;
+      color: #fff; }
   .woocommerce #respond input#submit.single_add_to_cart_button, .woocommerce #respond input#submit.checkout-button,
   .woocommerce a.button.single_add_to_cart_button,
   .woocommerce a.button.checkout-button,
@@ -167,7 +190,7 @@
   styles for demo store notice
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .woocommerce-store-notice, p.demo_store {
-  background-color: #5d2b50;
+  background-color: #8e1b1f;
   z-index: 9999; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
@@ -253,14 +276,14 @@
 
 .woocommerce-info, .woocommerce-noreviews,
 .woocommerce p.no-comments {
-  background-color: #5d2b50;
-  border-top-color: #3a1b32; }
+  background-color: #8e1b1f;
+  border-top-color: #631316; }
 
 .woocommerce-noreviews {
   padding: 20px; }
 
 .woocommerce-info::before {
-  color: #3a1b32; }
+  color: #631316; }
 
 .woocommerce-error {
   background-color: #e2401c;
@@ -274,7 +297,7 @@
   on sale styles
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .woocommerce span.onsale {
-  background-color: #b22d4f;
+  background-color: #001496;
   min-height: 50px;
   min-width: 50px; }
 
@@ -290,7 +313,7 @@
   .woocommerce-password-strength.bad {
     color: #e2401c; }
   .woocommerce-password-strength.good {
-    color: #5d2b50; }
+    color: #8e1b1f; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   PRODUCTS
@@ -300,9 +323,9 @@
 .woocommerce ul.products {
   margin: 0; }
   .woocommerce ul.products li.product {
-    margin-bottom: 32px; }
+    margin-bottom: 48px; }
     .woocommerce ul.products li.product .woocommerce-loop-product__title {
-      font-size: 1.25em; }
+      font-size: 1.5em; }
     .woocommerce ul.products li.product a img {
       margin-bottom: 0; }
     .woocommerce ul.products li.product .button {
@@ -345,7 +368,7 @@
 .single-product div.product span.price {
   display: block;
   color: #0f834d;
-  margin-bottom: 16px; }
+  margin-bottom: 24px; }
 
 .single-product div.product form.cart:not(.grouped_form):not(.variations_form),
 .single-product div.product form.cart .variations_button {
@@ -393,11 +416,11 @@
   opacity: 0.25; }
 
 .woocommerce p.stars:hover a::before {
-  color: #b22d4f;
+  color: #001496;
   opacity: 1; }
 
 .woocommerce p.stars.selected a.active::before {
-  color: #b22d4f;
+  color: #001496;
   opacity: 1; }
 
 .woocommerce p.stars.selected a.active ~ a::before {
@@ -405,7 +428,7 @@
   opacity: 0.25; }
 
 .woocommerce p.stars.selected a:not(.active)::before {
-  color: #b22d4f;
+  color: #001496;
   opacity: 1; }
 
 /**
@@ -455,12 +478,12 @@
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .woocommerce table.shop_table {
   border-radius: 4px;
-  border: 1px solid #aaaaaa; }
+  border: 1px solid tint(#7e7f7f, 40%); }
   .woocommerce table.shop_table td {
     border-top: 0; }
   .woocommerce table.shop_table tfoot th,
   .woocommerce table.shop_table tfoot td {
-    border-top: 2px solid #aaaaaa;
+    border-top: 2px solid tint(#7e7f7f, 40%);
     border-bottom: 0; }
 
 .woocommerce table.shop_table_responsive tr td::before {
@@ -487,11 +510,11 @@
   tab styles
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .woocommerce div.product .woocommerce-tabs ul.tabs {
-  margin: 0 0 16px 0; }
+  margin: 0 0 24px 0; }
   .woocommerce div.product .woocommerce-tabs ul.tabs::before {
-    border-bottom: 1px solid #aaaaaa; }
+    border-bottom: 1px solid tint(#7e7f7f, 40%); }
   .woocommerce div.product .woocommerce-tabs ul.tabs li {
-    border: 1px solid #aaaaaa;
+    border: 1px solid tint(#7e7f7f, 40%);
     background-color: #efefef;
     border-radius: 4px 4px 0 0; }
     .woocommerce div.product .woocommerce-tabs ul.tabs li::after {
@@ -507,7 +530,7 @@
   .woocommerce div.product .woocommerce-tabs {
     background-color: #f7f7f7; }
     .woocommerce div.product .woocommerce-tabs .panel {
-      border-bottom: 1px solid #aaaaaa;
+      border-bottom: 1px solid tint(#7e7f7f, 40%);
       padding: 0 20px; }
     .woocommerce div.product .woocommerce-tabs ul.tabs {
       padding: 0; }
@@ -516,7 +539,7 @@
         .woocommerce div.product .woocommerce-tabs ul.tabs li::before, .woocommerce div.product .woocommerce-tabs ul.tabs li::after {
           display: none; }
         .woocommerce div.product .woocommerce-tabs ul.tabs li.active {
-          border-bottom-color: #aaaaaa; } }
+          border-bottom-color: tint(#7e7f7f, 40%); } }
 
 /**
  * WooCommerce Price Filter
@@ -541,7 +564,7 @@
   height: 1em;
   cursor: ew-resize;
   outline: none;
-  background: #b22d4f;
+  background: #001496;
   box-sizing: border-box;
   margin-top: -0.25em;
   opacity: 1; }
@@ -555,7 +578,7 @@
   z-index: 1;
   display: block;
   border: 0;
-  background: #b22d4f; }
+  background: #001496; }
 
 .widget_price_filter .price_slider_wrapper .ui-widget-content {
   background: rgba(0, 0, 0, 0.1); }
