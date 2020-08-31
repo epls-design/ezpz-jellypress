@@ -4,50 +4,52 @@
   button styles
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-.woocommerce{
+.woocommerce {
+
   #respond input#submit,
   a.button,
   button.button,
   input.button {
-    border-radius: $button-border-radius;
-    font-weight: $button-font-weight;
-    color: $color-text;
-    background-color: $woocommerce__button-default-color;
-    font-size: 0.9rem;
-    line-height: 1.3;
 
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: darken($woocommerce__button-default-color, 10%);
-      color: $color-text;
+    // Make consistent with Jellyfish...
+    padding: $button-padding;
+    text:{
+      decoration: none;
+      transform: $button-text-transform;
+      align: center;
     }
+    font:{
+      size: 0.9rem;
+      weight: $button-font-weight;
+    }
+    border:{
+      width: $button-border-width;
+      style: solid;
+      radius: $button-border-radius;
+    }
+
+
+    @include create_button($color-text-light);
 
     &.alt {
-      background-color: $color-primary;
-      color: $button-text-color;
-
-      &:hover,
-      &:focus,
-      &:active {
-        background-color: $button-hover-background;
-        color: $button-hover-color;
-      }
+      @include create_button($color-primary);
     }
 
-    &.single_add_to_cart_button, &.checkout-button, {
-      background-color: $woocommerce__color-success;
+    &.single_add_to_cart_button,
+    &.checkout-button,
+      {
+      @include create_button($color-success);
 
-      &:hover,
-      &:focus,
-      &:active {
-        background-color: darken($woocommerce__color-success, 5%);
-      }
     }
-    &.disabled, &.disabled.alt {
-      &, &:hover {
-        background-color: $woocommerce__button-default-color;
-        color: lighten($color-text, 20%);
+
+    &.disabled,
+    &.disabled.alt,
+    &:disabled {
+      opacity: 1;
+      @include create_button($button-disabled-background);
+
+      &:hover {
+        background-color: $button-disabled-background !important;
       }
     }
   }

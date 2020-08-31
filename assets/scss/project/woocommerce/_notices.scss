@@ -4,6 +4,29 @@
   notice styles
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+@mixin create_woomessage($bgcolor) {
+  @include create_callout($bgcolor);
+  border-top-color: shade($bgcolor, 90%);
+
+  a {
+    color: $bgcolor;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: shade($bgcolor, 80%)
+    }
+  }
+
+  &::before {
+    color: shade($bgcolor, 80%);
+  }
+
+  a.button {
+    @include create_button($bgcolor);
+  }
+}
+
 .woocommerce {
 
   &-message,
@@ -11,38 +34,29 @@
   &-error,
   &-noreviews,
   p.no-comments {
-    background-color: $woocommerce__color-success;
     clear: both;
-    border-top-color: darken($woocommerce__color-success, 10%);
-    &, a {
-      color: $color-background;
-    }
-  }
-
-  &-message::before {
-    color: darken($woocommerce__color-success, 10%);
+    border: $borders;
+    padding: $element-padding;
+    border-radius: $callout-border-radius;
+    @include create_woomessage($color-success);
   }
 
   &-info,
   &-noreviews,
   p.no-comments {
-    background-color: $woocommerce__color-info;
-    border-top-color: darken($woocommerce__color-info, 10%);
-  }
-  &-noreviews {
-    padding: $element-padding;
-  }
-
-  &-info::before {
-    color: darken($woocommerce__color-info, 10%);
+    @include create_woomessage($color-primary);
   }
 
   &-error {
-    background-color: $woocommerce__color-error;
-    border-top-color: darken($woocommerce__color-error, 10%);
+    @include create_woomessage($color-error);
+  }
 
+  &-error,
+  &-message,
+  &-info {
     &::before {
-      color: darken($woocommerce__color-error, 10%);
+      top: $element-padding;
     }
+    padding-left: $element-padding + 30px; // 30px adds some space after the icon
   }
 }

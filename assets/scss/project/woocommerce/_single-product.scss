@@ -8,29 +8,51 @@
   div.product {
 
     .stock {
-
+      font-weight: bold;
+      margin: 0;
       &:empty::before {
         display: none;
       }
 
       &.in-stock {
-        color: $woocommerce__color-success;
+        color: $color-warning;
       }
 
       &.out-of-stock {
-        color: $woocommerce__color-error;
+        color: $color-error;
       }
     }
 
     p.price {
-      color: $woocommerce__color-success;
+      color: $color-text;
+      ins {
+        color: $color-success;
+      }
     }
 
     span.price {
       // Variable product price
       display: block;
-      color: $woocommerce__color-success;
+      color: $color-text;
       margin-bottom: $element-margin;
+      ins {
+        color: $color-success;
+        font-weight: bold;
+      }
+    }
+
+    .woocommerce-grouped-product-list-item__price {
+      ins {
+        color: $color-success;
+        font-weight: bold;
+      }
+    }
+
+    td.label {
+      all: unset;
+      display: table-cell;
+      padding-top: 1em;
+
     }
 
     form.cart {
@@ -38,13 +60,13 @@
       &:not(.grouped_form):not(.variations_form),
       .variations_button {
         display: flex;
-        align-items: center;
+        align-items: stretch;
 
         div.quantity {
           margin-right: 10px;
 
           .qty {
-            margin-bottom: 0;
+            margin: 0;
           }
         }
       }
@@ -63,6 +85,7 @@
 
     .product_meta {
 
+      font-size: $font-size--1;
       .sku_wrapper,
       .posted_in {
         display: block;
@@ -72,14 +95,14 @@
     div.woocommerce-product-gallery {
 
       .flex-viewport {
-        margin-bottom: .5em;
+        //margin-bottom: .5em;
       }
 
       .flex-control-thumbs {
-        margin: 0 -.5em !important;
+        margin: 0 nh($element-margin) !important;
 
         li {
-          padding: 0 .5em;
+          padding: 0 h($element-margin);
           img {
             @include smooth(opacity);
           }

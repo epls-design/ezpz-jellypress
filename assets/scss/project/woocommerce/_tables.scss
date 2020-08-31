@@ -10,15 +10,24 @@
     border-radius: $border-radius;
     border: $borders;
 
-    td {
-      border-top: 0;
+    td,
+    th {
+      border-top: 0 !important; // Fix default behaviour to prevent clash with JellyFish
     }
 
     tfoot th,
     tfoot td {
-      border-top: $border-width*2 solid $border-color;
+      border-top: $border-width*2 solid $border-color !important;
       border-bottom: 0;
     }
+  }
+
+  table tr:last-of-type td {
+    border-bottom: 0; // Fix default behaviour to prevent clash with JellyFish
+  }
+
+  .cart-subtotal th {
+    border-bottom: $borders; // Fix default behaviour to prevent clash with JellyFish
   }
 
   table.shop_table_responsive {
@@ -38,7 +47,7 @@
 
             &:hover {
               background: transparent;
-              color: $woocommerce__color-error !important;
+              color: $color-error !important;
               transform: scale(1.1);
             }
           }
@@ -58,6 +67,14 @@
           }
         }
       }
+    }
+  }
+
+  table.shop_attributes {
+    border-top: $borders;
+
+    td, th {
+      border-bottom: $borders !important
     }
   }
 }

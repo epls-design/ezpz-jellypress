@@ -6,7 +6,8 @@
 
 .woocommerce {
   span.onsale {
-    background-color: $color-primary;
+    background-color: $color-success;
+    color: choose-contrast-color($color-success);
     min-height: 50px;
     min-width: 50px;
   }

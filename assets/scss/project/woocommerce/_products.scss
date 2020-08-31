@@ -22,9 +22,13 @@
 
       .button {
         display: block;
+        order: 2;
       }
       .price {
-        color: $woocommerce__color-success;
+        color: $color-text;
+        ins {
+          color: $color-success;
+        }
       }
     }
     @include above(768px) {
@@ -46,8 +50,9 @@
   a.added_to_cart {
     // Link which appears when an item is added to basket
     text-decoration: underline !important;
-    text-align: center;
+    //text-align: center;
     display: block;
+    order: 1;
   }
 
 }

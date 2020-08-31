@@ -15,7 +15,7 @@
     text-transform: uppercase;
 
     &.active a {
-      background: lighten($color-text, 30%);
+      background: tint($color-text, 70%);
       color: $color-background;
     }
 
@@ -26,7 +26,7 @@
     }
 
     &.nav-total {
-      background: lighten($color-text, 50%);
+      background: tint($color-text, 50%);
       color: $color-background;
     }
   }
@@ -41,13 +41,13 @@
     &,
     &:link,
     &:visited {
-      color: lighten($color-text, 30%);
+      color: tint($color-text, 70%);
     }
 
     &:hover,
     &:active,
     &:focus {
-      background: lighten($color-text, 50%);
+      background: tint($color-text, 50%);
       color: $color-background;
     }
   }

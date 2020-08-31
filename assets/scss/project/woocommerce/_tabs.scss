@@ -29,7 +29,7 @@
           }
 
           a {
-            color: lighten($color-text, 10%);
+            color: tint($color-text, 80%);
 
             &:hover,
             &:active,
@@ -42,7 +42,7 @@
       @include below(768px){
         // Make additional product information look better on smaller devices
         // Match WooCommerce breakpoint
-        background-color: lighten($color-background-alt, 3%);
+        background-color: tint($color-background-alt, 50%);
         .panel {
           border-bottom: $borders;
           padding: 0 $element-padding;

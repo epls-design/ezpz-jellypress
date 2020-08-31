@@ -1,5 +1,5 @@
-/*! jellypress-wordpress-theme 1.0.5
- * © 2020-08-25 Matt Weet - https://www.weareboba.com */
+/*! jellypress-wordpress-theme 1.1.0
+ * © 2020-08-31 Matt Weet - https://www.weareboba.com */
 
 @charset "UTF-8";
 /* GRID */
@@ -2683,14 +2683,14 @@ p.has-background {
   .pagination li {
     text-transform: uppercase; }
     .pagination li.active a {
-      background: #807f7f;
+      background: #707070;
       color: #fff; }
     .pagination li.nav-total,
     .pagination li a {
       border: 1px solid #cbcccc;
       padding: 6.6666666667px 10px; }
     .pagination li.nav-total {
-      background: #b3b2b2;
+      background: #999999;
       color: #fff; }
   .pagination a {
     transition: background 0.2s ease, color 0.2s ease;
@@ -2699,9 +2699,9 @@ p.has-background {
     border-left: 0 !important;
     display: block; }
     .pagination a, .pagination a:link, .pagination a:visited {
-      color: #807f7f; }
+      color: #707070; }
     .pagination a:hover, .pagination a:active, .pagination a:focus {
-      background: #b3b2b2;
+      background: #999999;
       color: #fff; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*

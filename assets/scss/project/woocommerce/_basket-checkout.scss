@@ -16,6 +16,7 @@
   }
   table.cart img {
     width: 70px;
+    margin-bottom: 0;
   }
   @include above(768px) {
     .coupon {

@@ -143,8 +143,7 @@
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .wp-block-button {
-  color: $button-text-color; // Reset to Jellyfish
-
+  color: choose-contrast-color($color-primary,$button-text-color-light,$button-text-color-dark);
   a {
     @extend .button;
   }
