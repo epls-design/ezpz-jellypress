@@ -1,5 +1,5 @@
 /*! jellypress-wordpress-theme 1.1.0
- * © 2020-08-31 Matt Weet - https://www.weareboba.com */
+ * © 2020-09-07 Matt Weet - https://www.weareboba.com */
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   USEFUL MIXINS AND FUNCTIONS
@@ -129,12 +129,12 @@
   .woocommerce input.button:active {
     background-color: #989999;
     border-color: #989999;
-    color: #fff; }
+    color: #333333; }
   .woocommerce #respond input#submit:focus,
   .woocommerce a.button:focus,
   .woocommerce button.button:focus,
   .woocommerce input.button:focus {
-    box-shadow: 0px 0px 1px 3px #cbcccc; }
+    box-shadow: 0px 0px 1px 3px #d6d6d6; }
   .woocommerce #respond input#submit.button__outline:hover, .woocommerce #respond input#submit.button__outline:focus, .woocommerce #respond input#submit.button__outline:active,
   .woocommerce a.button.button__outline:hover,
   .woocommerce a.button.button__outline:focus,
@@ -170,7 +170,7 @@
     .woocommerce a.button.alt:focus,
     .woocommerce button.button.alt:focus,
     .woocommerce input.button.alt:focus {
-      box-shadow: 0px 0px 1px 3px #99a1d5; }
+      box-shadow: 0px 0px 1px 3px #adb4dd; }
     .woocommerce #respond input#submit.alt.button__outline:hover, .woocommerce #respond input#submit.alt.button__outline:focus, .woocommerce #respond input#submit.alt.button__outline:active,
     .woocommerce a.button.alt.button__outline:hover,
     .woocommerce a.button.alt.button__outline:focus,
@@ -221,7 +221,7 @@
     .woocommerce button.button.checkout-button:focus,
     .woocommerce input.button.single_add_to_cart_button:focus,
     .woocommerce input.button.checkout-button:focus {
-      box-shadow: 0px 0px 1px 3px #c9f2c1; }
+      box-shadow: 0px 0px 1px 3px #d3f5ce; }
     .woocommerce #respond input#submit.single_add_to_cart_button.button__outline:hover, .woocommerce #respond input#submit.single_add_to_cart_button.button__outline:focus, .woocommerce #respond input#submit.single_add_to_cart_button.button__outline:active, .woocommerce #respond input#submit.checkout-button.button__outline:hover, .woocommerce #respond input#submit.checkout-button.button__outline:focus, .woocommerce #respond input#submit.checkout-button.button__outline:active,
     .woocommerce a.button.single_add_to_cart_button.button__outline:hover,
     .woocommerce a.button.single_add_to_cart_button.button__outline:focus,
@@ -297,7 +297,7 @@
     .woocommerce input.button.disabled:focus,
     .woocommerce input.button.disabled.alt:focus,
     .woocommerce input.button:disabled:focus {
-      box-shadow: 0px 0px 1px 3px #dedede; }
+      box-shadow: 0px 0px 1px 3px #e5e5e5; }
     .woocommerce #respond input#submit.disabled.button__outline:hover, .woocommerce #respond input#submit.disabled.button__outline:focus, .woocommerce #respond input#submit.disabled.button__outline:active, .woocommerce #respond input#submit.disabled.alt.button__outline:hover, .woocommerce #respond input#submit.disabled.alt.button__outline:focus, .woocommerce #respond input#submit.disabled.alt.button__outline:active, .woocommerce #respond input#submit:disabled.button__outline:hover, .woocommerce #respond input#submit:disabled.button__outline:focus, .woocommerce #respond input#submit:disabled.button__outline:active,
     .woocommerce a.button.disabled.button__outline:hover,
     .woocommerce a.button.disabled.button__outline:focus,
@@ -456,7 +456,7 @@
       color: #333333; }
     .woocommerce-message a.button:focus, .woocommerce-info a.button:focus, .woocommerce-error a.button:focus, .woocommerce-noreviews a.button:focus,
     .woocommerce p.no-comments a.button:focus {
-      box-shadow: 0px 0px 1px 3px #c9f2c1; }
+      box-shadow: 0px 0px 1px 3px #d3f5ce; }
     .woocommerce-message a.button.button__outline:hover, .woocommerce-message a.button.button__outline:focus, .woocommerce-message a.button.button__outline:active, .woocommerce-info a.button.button__outline:hover, .woocommerce-info a.button.button__outline:focus, .woocommerce-info a.button.button__outline:active, .woocommerce-error a.button.button__outline:hover, .woocommerce-error a.button.button__outline:focus, .woocommerce-error a.button.button__outline:active, .woocommerce-noreviews a.button.button__outline:hover, .woocommerce-noreviews a.button.button__outline:focus, .woocommerce-noreviews a.button.button__outline:active,
     .woocommerce p.no-comments a.button.button__outline:hover,
     .woocommerce p.no-comments a.button.button__outline:focus,
@@ -501,7 +501,7 @@
       color: #fff; }
     .woocommerce-info a.button:focus, .woocommerce-noreviews a.button:focus,
     .woocommerce p.no-comments a.button:focus {
-      box-shadow: 0px 0px 1px 3px #99a1d5; }
+      box-shadow: 0px 0px 1px 3px #adb4dd; }
     .woocommerce-info a.button.button__outline:hover, .woocommerce-info a.button.button__outline:focus, .woocommerce-info a.button.button__outline:active, .woocommerce-noreviews a.button.button__outline:hover, .woocommerce-noreviews a.button.button__outline:focus, .woocommerce-noreviews a.button.button__outline:active,
     .woocommerce p.no-comments a.button.button__outline:hover,
     .woocommerce p.no-comments a.button.button__outline:focus,
@@ -531,7 +531,7 @@
       border-color: #ff6833;
       color: #333333; }
     .woocommerce-error a.button:focus {
-      box-shadow: 0px 0px 1px 3px #ffb399; }
+      box-shadow: 0px 0px 1px 3px #ffc3ad; }
     .woocommerce-error a.button.button__outline:hover, .woocommerce-error a.button.button__outline:focus, .woocommerce-error a.button.button__outline:active {
       color: #FF4200; }
 

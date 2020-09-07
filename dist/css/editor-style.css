@@ -1,5 +1,5 @@
 /*! jellypress-wordpress-theme 1.1.0
- * © 2020-08-31 Matt Weet - https://www.weareboba.com */
+ * © 2020-09-07 Matt Weet - https://www.weareboba.com */
 
 @charset "UTF-8";
 /* GRID */
@@ -1461,7 +1461,7 @@ button.toggle-contrast svg {
     border-color: #3343ab;
     color: #fff; }
   .button:focus, :focus[type=submit], .wp-block-button a:focus, .edit-link a:focus, a.button:focus, a:focus[type=submit], .wp-block-button a:focus, .edit-link a:focus, button:focus, [type=submit]:focus, [type=reset]:focus, [type=button]:focus {
-    box-shadow: 0px 0px 1px 3px #99a1d5; }
+    box-shadow: 0px 0px 1px 3px #adb4dd; }
   .button.button__outline:hover, .button__outline:hover[type=submit], :hover[type=submit][type=reset], .button:hover[type=reset], .wp-block-button a:hover[type=reset], .wp-block-button a.button__outline:hover, .wp-block-button.is-style-outline a:hover, .edit-link a:hover, .button.button__outline:focus, .button__outline:focus[type=submit], :focus[type=submit][type=reset], .button:focus[type=reset], .wp-block-button a:focus[type=reset], .wp-block-button a.button__outline:focus, .wp-block-button.is-style-outline a:focus, .edit-link a:focus, .button.button__outline:active, .button__outline:active[type=submit], :active[type=submit][type=reset], .button:active[type=reset], .wp-block-button a:active[type=reset], .wp-block-button a.button__outline:active, .wp-block-button.is-style-outline a:active, .edit-link a:active, a.button.button__outline:hover, a.button__outline:hover[type=submit], a:hover[type=submit][type=reset], a.button:hover[type=reset], .wp-block-button a:hover[type=reset], .wp-block-button a.button__outline:hover, .wp-block-button.is-style-outline a:hover, .edit-link a:hover, a.button.button__outline:focus, a.button__outline:focus[type=submit], a:focus[type=submit][type=reset], a.button:focus[type=reset], .wp-block-button a:focus[type=reset], .wp-block-button a.button__outline:focus, .wp-block-button.is-style-outline a:focus, .edit-link a:focus, a.button.button__outline:active, a.button__outline:active[type=submit], a:active[type=submit][type=reset], a.button:active[type=reset], .wp-block-button a:active[type=reset], .wp-block-button a.button__outline:active, .wp-block-button.is-style-outline a:active, .edit-link a:active, button.button__outline:hover, button:hover[type=reset], button.button__outline:focus, button:focus[type=reset], button.button__outline:active, button:active[type=reset], [type=submit].button__outline:hover, [type=submit]:hover[type=reset], .wp-block-button.is-style-outline a[type=submit]:hover, .edit-link a[type=submit]:hover, [type=submit].button__outline:focus, [type=submit]:focus[type=reset], .wp-block-button.is-style-outline a[type=submit]:focus, .edit-link a[type=submit]:focus, [type=submit].button__outline:active, [type=submit]:active[type=reset], .wp-block-button.is-style-outline a[type=submit]:active, .edit-link a[type=submit]:active, [type=reset].button__outline:hover, [type=reset]:hover, .wp-block-button.is-style-outline a[type=reset]:hover, [type=reset].button__outline:focus, [type=reset]:focus, .wp-block-button.is-style-outline a[type=reset]:focus, [type=reset].button__outline:active, [type=reset]:active, .wp-block-button.is-style-outline a[type=reset]:active, [type=button].button__outline:hover, [type=button]:hover[type=reset], .wp-block-button.is-style-outline a[type=button]:hover, .edit-link a[type=button]:hover, [type=button].button__outline:focus, [type=button]:focus[type=reset], .wp-block-button.is-style-outline a[type=button]:focus, .edit-link a[type=button]:focus, [type=button].button__outline:active, [type=button]:active[type=reset], .wp-block-button.is-style-outline a[type=button]:active, .edit-link a[type=button]:active {
     color: #001496; }
   .button::-moz-focus-inner, [type=submit]::-moz-focus-inner, .wp-block-button a::-moz-focus-inner, .edit-link a::-moz-focus-inner, a.button::-moz-focus-inner, a[type=submit]::-moz-focus-inner, .wp-block-button a::-moz-focus-inner, .edit-link a::-moz-focus-inner, button::-moz-focus-inner, [type=submit]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=button]::-moz-focus-inner {
@@ -1486,7 +1486,7 @@ button.toggle-contrast svg {
     border-color: #3343ab;
     color: #fff; }
   .button__primary:focus, a.button__primary:focus {
-    box-shadow: 0px 0px 1px 3px #99a1d5; }
+    box-shadow: 0px 0px 1px 3px #adb4dd; }
   .button__primary.button__outline:hover, .button__primary:hover[type=reset], .wp-block-button.is-style-outline a.button__primary:hover, .edit-link a.button__primary:hover, .button__primary.button__outline:focus, .button__primary:focus[type=reset], .wp-block-button.is-style-outline a.button__primary:focus, .edit-link a.button__primary:focus, .button__primary.button__outline:active, .button__primary:active[type=reset], .wp-block-button.is-style-outline a.button__primary:active, .edit-link a.button__primary:active, a.button__primary.button__outline:hover, a.button__primary:hover[type=reset], .wp-block-button.is-style-outline a.button__primary:hover, .edit-link a.button__primary:hover, a.button__primary.button__outline:focus, a.button__primary:focus[type=reset], .wp-block-button.is-style-outline a.button__primary:focus, .edit-link a.button__primary:focus, a.button__primary.button__outline:active, a.button__primary:active[type=reset], .wp-block-button.is-style-outline a.button__primary:active, .edit-link a.button__primary:active {
     color: #001496; }
 
@@ -1499,7 +1499,7 @@ button.toggle-contrast svg {
     border-color: #b85194;
     color: #fff; }
   .button__secondary:focus, a.button__secondary:focus {
-    box-shadow: 0px 0px 1px 3px #dba8c9; }
+    box-shadow: 0px 0px 1px 3px #e3b9d4; }
   .button__secondary.button__outline:hover, .button__secondary:hover[type=reset], .wp-block-button.is-style-outline a.button__secondary:hover, .edit-link a.button__secondary:hover, .button__secondary.button__outline:focus, .button__secondary:focus[type=reset], .wp-block-button.is-style-outline a.button__secondary:focus, .edit-link a.button__secondary:focus, .button__secondary.button__outline:active, .button__secondary:active[type=reset], .wp-block-button.is-style-outline a.button__secondary:active, .edit-link a.button__secondary:active, a.button__secondary.button__outline:hover, a.button__secondary:hover[type=reset], .wp-block-button.is-style-outline a.button__secondary:hover, .edit-link a.button__secondary:hover, a.button__secondary.button__outline:focus, a.button__secondary:focus[type=reset], .wp-block-button.is-style-outline a.button__secondary:focus, .edit-link a.button__secondary:focus, a.button__secondary.button__outline:active, a.button__secondary:active[type=reset], .wp-block-button.is-style-outline a.button__secondary:active, .edit-link a.button__secondary:active {
     color: #a62579; }
 
@@ -1512,7 +1512,7 @@ button.toggle-contrast svg {
     border-color: #a5494c;
     color: #fff; }
   .button__tertiary:focus, a.button__tertiary:focus {
-    box-shadow: 0px 0px 1px 3px #d2a4a5; }
+    box-shadow: 0px 0px 1px 3px #dbb6b7; }
   .button__tertiary.button__outline:hover, .button__tertiary:hover[type=reset], .wp-block-button.is-style-outline a.button__tertiary:hover, .edit-link a.button__tertiary:hover, .button__tertiary.button__outline:focus, .button__tertiary:focus[type=reset], .wp-block-button.is-style-outline a.button__tertiary:focus, .edit-link a.button__tertiary:focus, .button__tertiary.button__outline:active, .button__tertiary:active[type=reset], .wp-block-button.is-style-outline a.button__tertiary:active, .edit-link a.button__tertiary:active, a.button__tertiary.button__outline:hover, a.button__tertiary:hover[type=reset], .wp-block-button.is-style-outline a.button__tertiary:hover, .edit-link a.button__tertiary:hover, a.button__tertiary.button__outline:focus, a.button__tertiary:focus[type=reset], .wp-block-button.is-style-outline a.button__tertiary:focus, .edit-link a.button__tertiary:focus, a.button__tertiary.button__outline:active, a.button__tertiary:active[type=reset], .wp-block-button.is-style-outline a.button__tertiary:active, .edit-link a.button__tertiary:active {
     color: #8e1b1f; }
 
@@ -1525,7 +1525,7 @@ button.toggle-contrast svg {
     border-color: #92e584;
     color: #333333; }
   .button__success:focus, a.button__success:focus {
-    box-shadow: 0px 0px 1px 3px #c9f2c1; }
+    box-shadow: 0px 0px 1px 3px #d3f5ce; }
   .button__success.button__outline:hover, .button__success:hover[type=reset], .wp-block-button.is-style-outline a.button__success:hover, .edit-link a.button__success:hover, .button__success.button__outline:focus, .button__success:focus[type=reset], .wp-block-button.is-style-outline a.button__success:focus, .edit-link a.button__success:focus, .button__success.button__outline:active, .button__success:active[type=reset], .wp-block-button.is-style-outline a.button__success:active, .edit-link a.button__success:active, a.button__success.button__outline:hover, a.button__success:hover[type=reset], .wp-block-button.is-style-outline a.button__success:hover, .edit-link a.button__success:hover, a.button__success.button__outline:focus, a.button__success:focus[type=reset], .wp-block-button.is-style-outline a.button__success:focus, .edit-link a.button__success:focus, a.button__success.button__outline:active, a.button__success:active[type=reset], .wp-block-button.is-style-outline a.button__success:active, .edit-link a.button__success:active {
     color: #77de65; }
 
@@ -1538,7 +1538,7 @@ button.toggle-contrast svg {
     border-color: #fdd943;
     color: #333333; }
   .button__warning:focus, a.button__warning:focus {
-    box-shadow: 0px 0px 1px 3px #feeca1; }
+    box-shadow: 0px 0px 1px 3px #fef0b4; }
   .button__warning.button__outline:hover, .button__warning:hover[type=reset], .wp-block-button.is-style-outline a.button__warning:hover, .edit-link a.button__warning:hover, .button__warning.button__outline:focus, .button__warning:focus[type=reset], .wp-block-button.is-style-outline a.button__warning:focus, .edit-link a.button__warning:focus, .button__warning.button__outline:active, .button__warning:active[type=reset], .wp-block-button.is-style-outline a.button__warning:active, .edit-link a.button__warning:active, a.button__warning.button__outline:hover, a.button__warning:hover[type=reset], .wp-block-button.is-style-outline a.button__warning:hover, .edit-link a.button__warning:hover, a.button__warning.button__outline:focus, a.button__warning:focus[type=reset], .wp-block-button.is-style-outline a.button__warning:focus, .edit-link a.button__warning:focus, a.button__warning.button__outline:active, a.button__warning:active[type=reset], .wp-block-button.is-style-outline a.button__warning:active, .edit-link a.button__warning:active {
     color: #FCCf14; }
 
@@ -1551,7 +1551,7 @@ button.toggle-contrast svg {
     border-color: #ff6833;
     color: #333333; }
   .button__error:focus, a.button__error:focus {
-    box-shadow: 0px 0px 1px 3px #ffb399; }
+    box-shadow: 0px 0px 1px 3px #ffc3ad; }
   .button__error.button__outline:hover, .button__error:hover[type=reset], .wp-block-button.is-style-outline a.button__error:hover, .edit-link a.button__error:hover, .button__error.button__outline:focus, .button__error:focus[type=reset], .wp-block-button.is-style-outline a.button__error:focus, .edit-link a.button__error:focus, .button__error.button__outline:active, .button__error:active[type=reset], .wp-block-button.is-style-outline a.button__error:active, .edit-link a.button__error:active, a.button__error.button__outline:hover, a.button__error:hover[type=reset], .wp-block-button.is-style-outline a.button__error:hover, .edit-link a.button__error:hover, a.button__error.button__outline:focus, a.button__error:focus[type=reset], .wp-block-button.is-style-outline a.button__error:focus, .edit-link a.button__error:focus, a.button__error.button__outline:active, a.button__error:active[type=reset], .wp-block-button.is-style-outline a.button__error:active, .edit-link a.button__error:active {
     color: #FF4200; }
 
