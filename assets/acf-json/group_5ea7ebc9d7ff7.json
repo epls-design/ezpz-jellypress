@@ -1,6 +1,6 @@
 {
     "key": "group_5ea7ebc9d7ff7",
-    "title": "Business Information",
+    "title": "Organisation Information",
     "fields": [
         {
             "key": "field_5ea7f0d658186",
@@ -302,6 +302,6 @@
     "instruction_placement": "field",
     "hide_on_screen": "",
     "active": 1,
-    "description": "This field group allows the editor to update key business information and to connect external APIs which are added to the theme.",
-    "modified": 1589010823
+    "description": "This field group allows the editor to update key organisation information and to connect external APIs which are added to the theme.",
+    "modified": 1600975202
 }

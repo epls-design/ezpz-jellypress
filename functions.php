@@ -16,6 +16,7 @@ $jellypress_includes = array(
 	'/widgets.php',                 // Register widget areas
   '/enqueue.php',                 // Enqueue scripts and styles.
   '/editor.php',                  // Customise editor
+  '/helpers.php',                 // Useful helper functions
   '/template-tags.php',           // Custom template tags for this theme.
   '/template-functions.php',      // Functions which enhance the theme by hooking into WordPress.
 	'/pagination.php',              // Custom pagination for this theme.

@@ -21,7 +21,7 @@ defined( 'ABSPATH' ) || exit;
 <?php if ($title) : ?>
 <header class="row">
   <div class="col">
-    <h2 class="section-header"><?php echo $title; ?></h2>
+    <h2 class="section-header"><?php echo jellypress_bracket_tag_replace($title); ?></h2>
   </div>
 </header>
 <?php endif; ?>

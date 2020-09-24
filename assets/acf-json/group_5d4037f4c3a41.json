@@ -55,7 +55,7 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": "",
-                            "maxlength": 40
+                            "maxlength": 120
                         },
                         {
                             "key": "field_5d7430db7f2f4",
@@ -1007,5 +1007,5 @@
     ],
     "active": 1,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1592856655
+    "modified": 1600974501
 }
