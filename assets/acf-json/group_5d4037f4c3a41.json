@@ -1084,6 +1084,135 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_5f6fac4cb7c01": {
+                    "key": "layout_5f6fac4cb7c01",
+                    "name": "iframe",
+                    "label": "<span class=\"dashicons dashicons-admin-site-alt3\"><\/span> iFrame",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5f6fac4cb7c02",
+                            "label": "Clone Content",
+                            "name": "clone_content",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5d75eff42a6aa"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5f6facb5b7c07",
+                            "label": "Preamble",
+                            "name": "preamble",
+                            "type": "wysiwyg",
+                            "instructions": "If you'd like to add a preamble to this section, you can do so here.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "100",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 0,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_5f6fac4cb7c03",
+                            "label": "Website Address",
+                            "name": "website_url",
+                            "type": "url",
+                            "instructions": "Please enter the web page URL",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "70",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_5f6fac4cb7c04",
+                            "label": "Clone Design",
+                            "name": "clone_design",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5eb3b7f9bbf71"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5f6fac4cb7c05",
+                            "label": "Full Width Clone",
+                            "name": "full_width_clone",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "30",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5d76a6af8d30a"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5f6fac4cb7c06",
+                            "label": "Clone Settings",
+                            "name": "clone_settings",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5d75eff42a6ac"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add New Section",
