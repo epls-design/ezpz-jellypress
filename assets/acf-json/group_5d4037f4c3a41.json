@@ -7,7 +7,7 @@
             "label": "Page Sections",
             "name": "sections",
             "type": "flexible_content",
-            "instructions": "You can design the layout of your page by adding different section types. <b>Click the 'Add New Section' button below to get started.<\/b>",
+            "instructions": "You can design the layout of your page by adding different section types. <strong>Click the 'Add New Section' button below to get started.<\/strong>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -43,7 +43,7 @@
                             "label": "Section Title",
                             "name": "title",
                             "type": "textarea",
-                            "instructions": "If you'd like to add a title to the section, you can do so here. <strong>You can enclose text in an <code>[accent]<\/code> tag to emphasise certain words. For example <code>[accent]I am emphasised![\/accent] I am not!<\/code>",
+                            "instructions": "If you'd like to add a title to the section, you can do so here. <strong>You can enclose text in an <code>[accent]<\/code> tag to emphasise certain words. For example <code>[accent]I am emphasised![\/accent] I am not!<\/code><\/strong>",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -73,7 +73,7 @@
                             "default_value": "",
                             "tabs": "all",
                             "toolbar": "full",
-                            "media_upload": 0,
+                            "media_upload": 1,
                             "delay": 0
                         },
                         {
@@ -286,7 +286,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "message": "If you'd like this section to only show at a certain time, you can schedule it here. <b>All times are relative to the Timezone setting defined in Wordpress.<\/b>",
+                            "message": "If you'd like this section to only show at a certain time, you can schedule it here. <strong>All times are relative to the Timezone setting defined in Wordpress.<\/strong>",
                             "new_lines": "wpautop",
                             "esc_html": 0
                         },
@@ -355,6 +355,46 @@
                             "layout": "block",
                             "prefix_label": 0,
                             "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5f6ef1568db9d",
+                            "label": "Columns",
+                            "name": "columns",
+                            "type": "repeater",
+                            "instructions": "Please add your text columns here. You can add between two and four columns to a section.\r\n\r\n<strong>Please be mindful of putting too much text in a column as you do not want your users to have to scroll up and down to read each column in turn.<\/strong>",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 2,
+                            "max": 4,
+                            "layout": "table",
+                            "button_label": "Add Column",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5f6ef1a08db9e",
+                                    "label": "Text",
+                                    "name": "editor",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "100",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 0,
+                                    "delay": 0
+                                }
+                            ]
                         },
                         {
                             "key": "field_5f6e4539d9407",
@@ -509,9 +549,7 @@
                                         "image": "Image",
                                         "video": "Video"
                                     },
-                                    "default_value": [
-                                        "image"
-                                    ],
+                                    "default_value": "image",
                                     "allow_null": 0,
                                     "multiple": 0,
                                     "ui": 0,
@@ -592,9 +630,7 @@
                                         "left": "Left",
                                         "right": "Right"
                                     },
-                                    "default_value": [
-                                        "right"
-                                    ],
+                                    "default_value": "right",
                                     "allow_null": 0,
                                     "multiple": 0,
                                     "ui": 0,
@@ -664,9 +700,7 @@
                                 "middle": "To the middle",
                                 "bottom": "To the bottom"
                             },
-                            "default_value": [
-                                "top"
-                            ],
+                            "default_value": "top",
                             "allow_null": 0,
                             "multiple": 0,
                             "ui": 0,
@@ -679,7 +713,7 @@
                             "label": "Column Split",
                             "name": "column_split",
                             "type": "select",
-                            "instructions": "How would you like the columns to be split? <b>Applies to larger screen sizes only<\/b>.",
+                            "instructions": "How would you like the columns to be split? <strong>Applies to larger screen sizes only<\/strong>.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -692,9 +726,7 @@
                                 "equal": "Equally",
                                 "large-media": "Larger Media"
                             },
-                            "default_value": [
-                                "equal"
-                            ],
+                            "default_value": "equal",
                             "allow_null": 0,
                             "multiple": 0,
                             "ui": 0,
@@ -1090,5 +1122,5 @@
     ],
     "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1601105693
+    "modified": 1601106710
 }

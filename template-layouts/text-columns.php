@@ -1,7 +1,7 @@
 <?php
 /**
- * Flexible layout: Text block (Two Column)
- * Renders a section containing two columns of WYSIWIG text
+ * Flexible layout: Text Columns
+ * Renders a section containing between two and four columns of WYSIWIG text
  *
  * @package jellypress
  */
@@ -24,14 +24,15 @@ defined( 'ABSPATH' ) || exit;
 </header>
 <?php endif; ?>
 
-<div class="row">
-  <div class="col xs-12 md-6">
-    <?php the_sub_field( 'column_1' ); ?>
+<?php if ( have_rows( 'columns' ) ) : ?>
+  <div class="row">
+    <?php while ( have_rows( 'columns' ) ) : the_row(); ?>
+      <div class="col xs-12 md-0">
+        <?php the_sub_field( 'editor' ); ?>
+      </div>
+    <?php endwhile; ?>
   </div>
-  <div class="col xs-12 md-6">
-    <?php the_sub_field( 'column_2' ); ?>
-  </div>
-</div>
+<?php endif; ?>
 
 <?php if ( have_rows( 'buttons' ) ) : ?>
   <div class="row">
