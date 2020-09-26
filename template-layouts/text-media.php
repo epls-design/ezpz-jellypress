@@ -61,6 +61,7 @@ if ( $media_position == 'right' ) {
     </div>
   </header>
 <?php endif; ?>
+
 <div class="row align-<?php echo $align;?>">
   <div class="col sm-12 <?php echo $media_class; ?>">
     <?php if ($type == 'image'){
@@ -73,5 +74,6 @@ if ( $media_position == 'right' ) {
   </div>
   <div class="col sm-12 <?php echo $text_class; ?>">
     <?php the_sub_field( 'text' ); ?>
+    <?php jellypress_show_cta_buttons(); ?>
   </div>
 </div>

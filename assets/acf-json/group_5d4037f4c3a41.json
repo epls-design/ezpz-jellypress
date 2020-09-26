@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_5d403805052c2",
-            "label": "Additional Sections",
+            "label": "Page Sections",
             "name": "sections",
             "type": "flexible_content",
             "instructions": "You can design the layout of your page by adding different section types. <b>Click the 'Add New Section' button below to get started.<\/b>",
@@ -42,8 +42,8 @@
                             "key": "field_5d6a49999f6a9",
                             "label": "Section Title",
                             "name": "title",
-                            "type": "text",
-                            "instructions": "If you'd like to add a title to the section, you can do so here.",
+                            "type": "textarea",
+                            "instructions": "If you'd like to add a title to the section, you can do so here. <strong>You can enclose text in an <code>[accent]<\/code> tag to emphasise certain words. For example <code>[accent]I am emphasised![\/accent] I am not!<\/code>",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -53,9 +53,9 @@
                             },
                             "default_value": "",
                             "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": 120
+                            "maxlength": "",
+                            "rows": 2,
+                            "new_lines": ""
                         },
                         {
                             "key": "field_5d7430db7f2f4",
@@ -75,6 +75,84 @@
                             "toolbar": "full",
                             "media_upload": 0,
                             "delay": 0
+                        },
+                        {
+                            "key": "field_5f6dee6e93d94",
+                            "label": "<span class=\"dashicons dashicons-arrow-right-alt\"><\/span> Call to Actions",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
+                            "key": "field_5f6eee9d835b9",
+                            "label": "Buttons",
+                            "name": "buttons",
+                            "type": "repeater",
+                            "instructions": "You can add up to three Call to Action buttons to this block.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "table",
+                            "button_label": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5f6eeeca835ba",
+                                    "label": "Button Link",
+                                    "name": "button_link",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "70",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array"
+                                },
+                                {
+                                    "key": "field_5f6eeee0835bb",
+                                    "label": "Button Style",
+                                    "name": "button_style",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "30",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "filled": "Filled",
+                                        "outline": "Border",
+                                        "ghost": "No Fill or Border"
+                                    },
+                                    "default_value": "filled",
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "ui": 0,
+                                    "return_format": "value",
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                }
+                            ]
                         },
                         {
                             "key": "field_5eb3b7b903856",
@@ -252,8 +330,8 @@
                 },
                 "layout_5d75eff42a6a9": {
                     "key": "layout_5d75eff42a6a9",
-                    "name": "text-twocolumn",
-                    "label": "<span class=\"dashicons dashicons-editor-table\"><\/span> Text (2 column)",
+                    "name": "text-columns",
+                    "label": "<span class=\"dashicons dashicons-editor-table\"><\/span> Text Columns",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -279,42 +357,26 @@
                             "prefix_name": 0
                         },
                         {
-                            "key": "field_5d75f0022a6ad",
-                            "label": "Column 1",
-                            "name": "column_1",
-                            "type": "wysiwyg",
-                            "instructions": "Please add your text for the first column here.",
-                            "required": 1,
+                            "key": "field_5f6e4539d9407",
+                            "label": "Clone CTA",
+                            "name": "clone_cta",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "50",
+                                "width": "",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "tabs": "all",
-                            "toolbar": "full",
-                            "media_upload": 0,
-                            "delay": 0
-                        },
-                        {
-                            "key": "field_5d75f0a8346e2",
-                            "label": "Column 2",
-                            "name": "column_2",
-                            "type": "wysiwyg",
-                            "instructions": "Please add your text for the second column here.",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "tabs": "all",
-                            "toolbar": "full",
-                            "media_upload": 0,
-                            "delay": 0
+                            "clone": [
+                                "field_5f6dee6e93d94",
+                                "field_5f6eee9d835b9"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
                         },
                         {
                             "key": "field_5eb3b7f9bbf71",
@@ -541,6 +603,27 @@
                                     "placeholder": ""
                                 }
                             ]
+                        },
+                        {
+                            "key": "field_5f6e454ad9408",
+                            "label": "Clone CTA",
+                            "name": "clone_cta",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5f6e4539d9407"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
                         },
                         {
                             "key": "field_5eb3b824bbf72",
@@ -1005,7 +1088,7 @@
         "author",
         "send-trackbacks"
     ],
-    "active": 1,
+    "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1600974501
+    "modified": 1601105693
 }

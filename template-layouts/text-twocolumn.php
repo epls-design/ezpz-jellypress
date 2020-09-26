@@ -23,6 +23,7 @@ defined( 'ABSPATH' ) || exit;
   </div>
 </header>
 <?php endif; ?>
+
 <div class="row">
   <div class="col xs-12 md-6">
     <?php the_sub_field( 'column_1' ); ?>
@@ -31,3 +32,11 @@ defined( 'ABSPATH' ) || exit;
     <?php the_sub_field( 'column_2' ); ?>
   </div>
 </div>
+
+<?php if ( have_rows( 'buttons' ) ) : ?>
+  <div class="row">
+    <div class="col text-center">
+      <?php jellypress_show_cta_buttons(); ?>
+    </div>
+  </div>
+<?php endif; ?>

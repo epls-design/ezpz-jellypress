@@ -1,0 +1,9 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  TYPOGRAPHY
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.text-accent {
+  // TODO: You may want to override this for your project with a different treatment eg. color, typeface.
+  @extend em;
+  @extend strong;
+}

@@ -21,6 +21,7 @@ $jellypress_includes = array(
   '/template-functions.php',      // Functions which enhance the theme by hooking into WordPress.
 	'/pagination.php',              // Custom pagination for this theme.
   '/acf.php',                     // Functions which hook into ACF to add additional functionality to the site.
+  '/dry.php',                     // Don't repeat yourself! Functions which reduce repetition in the theme code.
 	'/customizer.php',              // Customizer additions.
 	'/woocommerce.php',             // Load WooCommerce functions.
 );
