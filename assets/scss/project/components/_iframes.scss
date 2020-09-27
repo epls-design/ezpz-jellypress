@@ -1,0 +1,11 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  IFRAMES
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.embedded-iframe {
+  margin-bottom: $element-margin;
+  border: $borders;
+  .embed-container & {
+    margin-bottom: 0;
+  }
+}

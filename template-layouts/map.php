@@ -47,7 +47,7 @@ defined( 'ABSPATH' ) || exit;
   <div class="col">
     <?php if ( $width == 1 ){ echo '<div class="vw-100">'; }
         if (get_field('google_maps_api_key', 'option')) : ?>
-          <div class="load-map">
+          <div class="google-map">
             <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
           </div>
         <?php elseif(current_user_can( 'publish_posts' )):

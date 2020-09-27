@@ -22,6 +22,7 @@ $align = get_sub_field( 'vertical_align' );
 if ($align == NULL) {
   $align = 'top';
 }
+$row_class = 'align-'.$align;
 
 $column_split = get_sub_field( 'column_split' );
 if ($column_split == 'large-text') {
@@ -44,6 +45,8 @@ if ( have_rows( 'media_item' ) ) :
     $media_position = get_sub_field( 'media_position' );
     $image = get_sub_field( 'image' );
     $video = get_sub_field( 'video' );
+    $website_url = get_sub_field( 'website_url' );
+    $location = get_sub_field( 'location' );
   endwhile;
 endif;
 
@@ -51,6 +54,14 @@ if ( $media_position == 'right' ) {
   $text_class .= ' order-md-1';
   $media_class .= ' order-md-2';
 }
+
+echo '<br>ALIGN SETTING: '.$align;
+
+if ($type == 'iframe' || $type == 'map'){
+  $row_class="equal-height";
+  $text_class .= ' align-self-'.$align;
+}
+echo '<br>ROW CLASS: '.$row_class;
 
 ?>
 
@@ -62,13 +73,30 @@ if ( $media_position == 'right' ) {
   </header>
 <?php endif; ?>
 
-<div class="row align-<?php echo $align;?>">
+<div class="row <?php echo $row_class;?>">
   <div class="col sm-12 <?php echo $media_class; ?>">
     <?php if ($type == 'image'){
         echo wp_get_attachment_image( $image, $size );
       }
       elseif ($type == 'video'){
         echo '<div class="embed-container">'.$video.'</div>';
+      }
+      elseif ($type == 'map'){
+        if ( !$location ) {
+          // If no location get it from ACF options page.
+          $location = get_field( 'address', 'option' );
+        }
+        if (get_field('google_maps_api_key', 'option')) : ?>
+          <div class="google-map">
+            <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+          </div>
+        <?php elseif(current_user_can( 'publish_posts' )):
+        // Show a warning for the admin to add an API key
+          _e('<div class="callout callout__error">You need to <a href="'.get_admin_url(null, 'admin.php?page=organisation-information').'" class="callout-link">add a Google Maps API key</a> in order to display a map on your website.</div>','jellypress');
+        endif; // google_maps_api_key
+      }
+      elseif ($type == 'iframe'){
+        echo '<iframe class="embedded-iframe" src="'.$website_url.'"></iframe>';
       }
     ?>
   </div>

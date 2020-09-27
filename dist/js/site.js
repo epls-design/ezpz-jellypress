@@ -292,7 +292,7 @@ function centerMap( map ) {
 
 // Render maps on page load.
 $(document).ready(function(){
-    $('.load-map').each(function(){
+    $('.google-map').each(function(){
         var map = initMap( $(this) );
     });
 });

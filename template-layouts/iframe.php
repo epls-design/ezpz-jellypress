@@ -39,7 +39,7 @@ defined( 'ABSPATH' ) || exit;
   <div class="col">
     <?php if ( $width == 1 ){ echo '<div class="vw-100">'; }?>
       <div class="embed-container">
-        <iframe src="<?php echo $website_url; ?>"></iframe>
+        <iframe class="embedded-iframe" src="<?php echo $website_url; ?>"></iframe>
       </div><!-- /.embed-container -->
     <?php if ( $width == 1 ){ echo '</div>'; }?>
   </div>

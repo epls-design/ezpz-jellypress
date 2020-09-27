@@ -286,7 +286,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "message": "If you'd like this section to only show at a certain time, you can schedule it here. <strong>All times are relative to the Timezone setting defined in Wordpress.<\/strong>",
+                            "message": "If you'd like this section to only show at a certain time, you can schedule it here. <strong>Current Server Time: September 09, 2020 08:07 am<\/strong>",
                             "new_lines": "wpautop",
                             "esc_html": 0
                         },
@@ -547,7 +547,9 @@
                                     },
                                     "choices": {
                                         "image": "Image",
-                                        "video": "Video"
+                                        "video": "Video",
+                                        "map": "Map",
+                                        "iframe": "iFrame"
                                     },
                                     "default_value": "image",
                                     "allow_null": 0,
@@ -612,6 +614,56 @@
                                     "max_height": "",
                                     "max_size": "",
                                     "mime_types": ""
+                                },
+                                {
+                                    "key": "field_5f70324fae4e7",
+                                    "label": "Website Address",
+                                    "name": "website_url",
+                                    "type": "url",
+                                    "instructions": "Please enter the web page URL",
+                                    "required": 1,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5eb59a10540b3",
+                                                "operator": "==",
+                                                "value": "iframe"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "100",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_5f703283ae4e8",
+                                    "label": "Map",
+                                    "name": "location",
+                                    "type": "google_map",
+                                    "instructions": "Please select a location for the marker on this map. <strong>If you choose not to add a marker, the organisation address defined in your \"About\" settings will be used.<\/strong>",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5eb59a10540b3",
+                                                "operator": "==",
+                                                "value": "map"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "100",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "center_lat": "",
+                                    "center_lng": "",
+                                    "zoom": "",
+                                    "height": ""
                                 },
                                 {
                                     "key": "field_5d76a5207ea62",
@@ -1384,5 +1436,5 @@
     ],
     "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1601155362
+    "modified": 1601188666
 }
