@@ -29,6 +29,11 @@ if (! function_exists('jellypress_scripts') ) {
         // Enqueue Scripts
         wp_enqueue_script('jellypress-scripts', get_template_directory_uri() . '/dist/js/site.min.js', array('jquery'), $js_version, true);
 
+        $get_gmaps_api = get_field('google_maps_api_key', 'option');
+        if ($get_gmaps_api) {
+          wp_enqueue_script('googlemaps', 'https://maps.googleapis.com/maps/api/js?key='.$get_gmaps_api.'"',null,null,null);
+        }
+
         if (is_singular() && comments_open() && get_option('thread_comments') ) {
             wp_enqueue_script('comment-reply');
         }

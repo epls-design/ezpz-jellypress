@@ -1140,7 +1140,7 @@
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "70",
+                                "width": "100",
                                 "class": "",
                                 "id": ""
                             },
@@ -1213,6 +1213,139 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_5f6faff304977": {
+                    "key": "layout_5f6faff304977",
+                    "name": "map",
+                    "label": "<span class=\"dashicons dashicons-location-alt\"><\/span> Map",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5f6faff304978",
+                            "label": "Clone Content",
+                            "name": "clone_content",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5d75eff42a6aa"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5f6faff304979",
+                            "label": "Preamble Clone",
+                            "name": "preamble_clone",
+                            "type": "clone",
+                            "instructions": "If you'd like to add a preamble to this section, you can do so here.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "100",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5f6facb5b7c07"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5f6faff30497a",
+                            "label": "Location",
+                            "name": "location",
+                            "type": "google_map",
+                            "instructions": "Please select a location for the marker on this map. <strong>If you choose not to add a marker, the organisation address defined in your \"About\" settings will be used.<\/strong>",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "100",
+                                "class": "",
+                                "id": ""
+                            },
+                            "center_lat": "",
+                            "center_lng": "",
+                            "zoom": "",
+                            "height": ""
+                        },
+                        {
+                            "key": "field_5f6faff30497b",
+                            "label": "Clone Design",
+                            "name": "clone_design",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5eb3b7f9bbf71"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5f6faff30497c",
+                            "label": "Full Width Clone",
+                            "name": "full_width_clone",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "30",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5d76a6af8d30a"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5f6faff30497d",
+                            "label": "Clone Settings",
+                            "name": "clone_settings",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5d75eff42a6ac"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add New Section",
@@ -1251,5 +1384,5 @@
     ],
     "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1601106710
+    "modified": 1601155362
 }

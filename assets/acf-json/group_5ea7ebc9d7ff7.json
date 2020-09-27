@@ -291,7 +291,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "business-information"
+                "value": "organisation-information"
             }
         ]
     ],
@@ -303,5 +303,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "This field group allows the editor to update key organisation information and to connect external APIs which are added to the theme.",
-    "modified": 1600975202
+    "modified": 1601187608
 }

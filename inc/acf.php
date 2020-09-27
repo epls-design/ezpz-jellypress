@@ -65,7 +65,7 @@ if(function_exists('acf_add_options_page') ) {
         array(
         'page_title'     => __('About Jellypress', 'jellypress'),
         'menu_title'    => __('About Jellypress', 'jellypress'),
-        'menu_slug'     => 'business-information',
+        'menu_slug'     => 'organisation-information',
         'capability'    => 'edit_posts',
         'icon_url' => 'dashicons-info',
         'position' => 20,
