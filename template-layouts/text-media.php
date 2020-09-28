@@ -41,7 +41,7 @@ elseif ($column_split == 'equal' OR $column_split == NULL) {
 // These fields are in a field group we have to loop through
 if ( have_rows( 'media_item' ) ) :
   while ( have_rows( 'media_item' ) ) : the_row();
-    $type = get_sub_field( 'type' );
+    $media_type = get_sub_field( 'media_type' );
     $media_position = get_sub_field( 'media_position' );
     $image = get_sub_field( 'image' );
     $video = get_sub_field( 'video' );
@@ -55,13 +55,10 @@ if ( $media_position == 'right' ) {
   $media_class .= ' order-md-2';
 }
 
-echo '<br>ALIGN SETTING: '.$align;
-
-if ($type == 'iframe' || $type == 'map'){
+if ($media_type == 'iframe' || $media_type == 'map'){
   $row_class="equal-height";
   $text_class .= ' align-self-'.$align;
 }
-echo '<br>ROW CLASS: '.$row_class;
 
 ?>
 
@@ -75,13 +72,13 @@ echo '<br>ROW CLASS: '.$row_class;
 
 <div class="row <?php echo $row_class;?>">
   <div class="col sm-12 <?php echo $media_class; ?>">
-    <?php if ($type == 'image'){
+    <?php if ($media_type == 'image'){
         echo wp_get_attachment_image( $image, $size );
       }
-      elseif ($type == 'video'){
+      elseif ($media_type == 'video'){
         echo '<div class="embed-container">'.$video.'</div>';
       }
-      elseif ($type == 'map'){
+      elseif ($media_type == 'map'){
         if ( !$location ) {
           // If no location get it from ACF options page.
           $location = get_field( 'address', 'option' );
@@ -95,7 +92,7 @@ echo '<br>ROW CLASS: '.$row_class;
           _e('<div class="callout callout__error">You need to <a href="'.get_admin_url(null, 'admin.php?page=organisation-information').'" class="callout-link">add a Google Maps API key</a> in order to display a map on your website.</div>','jellypress');
         endif; // google_maps_api_key
       }
-      elseif ($type == 'iframe'){
+      elseif ($media_type == 'iframe'){
         echo '<iframe class="embedded-iframe" src="'.$website_url.'"></iframe>';
       }
     ?>

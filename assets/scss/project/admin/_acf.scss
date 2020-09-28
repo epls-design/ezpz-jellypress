@@ -1,5 +1,13 @@
+$handle_color: #23282d;
+
 // ACF Flexible Content Heading
 .acf-fc-layout-handle {
+
+  padding-left: 25px !important;
+  background: $handle_color !important;
+  color: #fff !important;
+  font-weight: bold;
+
   .swatch {
     // Hugs the left side of the acf-handle and shows the user what bg colour is selected
     width: 15px;
@@ -8,14 +16,12 @@
     position: absolute;
     top: 0;
     left: 0;
-    border-right: 1px solid rgba(255,255,255,0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
   }
-  padding-left: 25px !important;
-  background: #23282d !important;
-  color: #fff !important;
-  font-weight: bold;
+
 }
 
+// Removes borders from groups with class seamless applied
 .acf-field-group {
   &.seamless {
     .acf-fields {
@@ -25,6 +31,27 @@
     }
   }
 }
+
+// Nicer styling of handle icons
+.acf-fc-layout-controls .acf-icon {
+  background: $color-white !important;
+  &:hover {
+    background-color: #0071a1 !important;
+    border-color: #0071a1;
+    color: choose-contrast-color(#0071a1, $color-white, $handle_color);
+  }
+  &.-minus:hover {
+    background-color: $color-error !important;
+    border-color: $color-error;
+    color: choose-contrast-color($color-error, $color-white, $handle_color);
+  }
+  &.-plus:hover {
+    background-color: $color-success !important;
+    border-color: $color-success;
+    color: choose-contrast-color($color-success, $color-white, $handle_color);
+  }
+}
+
 .acf-input label {
   font-size: 1em;
 }
@@ -34,7 +61,7 @@
   position: absolute;
   left: 70%;
   display: inline-block;
-  border-left: 1px solid rgba(255,255,255,0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
   padding-left: 10px;
 }
 
@@ -43,21 +70,37 @@
 }
 
 .acf-field {
+
   // Nicer formatting of descriptions
   p.description {
     margin-top: 6px;
-    border: 1px solid rgb(243,244,245);
-    border-left: 3px solid rgb(204,204,204);
+    border: 1px solid rgb(243, 244, 245);
+    border-left: 3px solid rgb(204, 204, 204);
     padding: 8px 12px;
     color: $color-text;
   }
+
   .acf-input>p.description {
     // Description below input field
     margin-top: 10px;
   }
 }
 
+.acf-range-wrap {
+  // Nicer range field format
+  input[type="range"] {
+    width: 75%;
+
+  }
+
+  input[type="number"] {
+    width: 20% !important;
+    max-width: 70px;
+  }
+}
+
 .acf-tab-button {
+
   // Fix dashicon size in tabs
   .dashicons {
     font-size: 15px;
@@ -68,10 +111,12 @@
 }
 
 ul.acf-swatch-list {
+
   // ACF Colour Swatch Plugin
   label {
     font-size: 0px;
   }
+
   &>li {
     display: inline-block;
   }
@@ -80,8 +125,23 @@ ul.acf-swatch-list {
 // Applies some dividers to help separate Flexible Content fields in the drop down selector
 
 .acf-tooltip li a {
-  &[data-layout$=image] {
-    border-top: 1px solid rgba(255,255,255,0.2);
+  &[data-layout$=image], &[data-layout$=linked-posts] {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
 }
 
+// Nicer formatting for button group with icons
+.acf-has-icons {
+  .acf-button-group {
+    min-width: 140px;
+    label {
+      text-align: left;
+    }
+  }
+}
+
+// Hide Settings Cog from field group headers
+.postbox-header .acf-hndle-cog {
+  display: none !important;
+  visibility: hidden !important;
+}
