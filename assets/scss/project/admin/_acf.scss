@@ -16,8 +16,14 @@
   font-weight: bold;
 }
 
-.acf-field-group label {
-  font-size: 1.2em; // Make the label for a group slightly larger
+.acf-field-group {
+  &.seamless {
+    .acf-fields {
+      border: 0;
+      margin-left: -12px;
+      margin-right: -12px;
+    }
+  }
 }
 .acf-input label {
   font-size: 1em;
@@ -78,3 +84,4 @@ ul.acf-swatch-list {
     border-top: 1px solid rgba(255,255,255,0.2);
   }
 }
+

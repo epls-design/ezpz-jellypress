@@ -286,7 +286,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "message": "If you'd like this section to only show at a certain time, you can schedule it here. <strong>Current Server Time: September 09, 2020 08:07 am<\/strong>",
+                            "message": "If you'd like this section to only show at a certain time, you can schedule it here.",
                             "new_lines": "wpautop",
                             "esc_html": 0
                         },
@@ -527,7 +527,7 @@
                             "conditional_logic": 0,
                             "wrapper": {
                                 "width": "50",
-                                "class": "",
+                                "class": "seamless",
                                 "id": ""
                             },
                             "layout": "block",
@@ -1436,5 +1436,5 @@
     ],
     "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1601188666
+    "modified": 1601275336
 }

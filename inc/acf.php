@@ -351,3 +351,11 @@ if (! function_exists('jellypress_kses_acf') ) :
     }
 endif;
 add_filter('acf/update_value', 'jellypress_kses_acf', 10, 1);
+
+/**
+ * Speed up the post edit page
+ * @link https://www.advancedcustomfields.com/blog/acf-pro-5-5-13-update/
+ */
+add_filter('acf/settings/remove_wp_meta_box', '__return_true');
+
+// TODO: Add a variable to Server Time message displaying current server time. https://saika.li/snippets-acf-hooks/ gets part way but the field updates with the replaced value on save.
