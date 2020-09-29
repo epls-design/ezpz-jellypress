@@ -16,6 +16,7 @@ defined( 'ABSPATH' ) || exit;
 So it could say is_single -> content-single, else content-archive
 */
 
+// TODO: I don't think that !is_singular is relevant anymore now that the card partial is being used
 ?>
 
 <?php

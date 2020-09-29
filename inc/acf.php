@@ -91,13 +91,13 @@ if (! function_exists('jellypress_hide_acf_admin') ) {
     {
         // get the current site url
         $site_url = get_bloginfo('url');
-        // an array of protected site urls
-        $protected_urls = array(
-        'http://YOURURL.com', // TODO: Change for your live project
-        'https://YOURURL.com', // TODO: Change for your live project
+        // an array of development environment URLs
+        $dev_urls = array(
+        'https://jellypress.local', // TODO: Change for your project
+        'http://jellypress.local',
         );
         // check if the current site url is in the protected urls array
-        if (in_array($site_url, $protected_urls) ) {
+        if (!in_array($site_url, $dev_urls) ) {
             // hide the acf menu item
             return false;
         } else {

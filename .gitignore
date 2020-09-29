@@ -4,9 +4,10 @@ node_modules/
 # ignore Git folder
 _.git/
 
-# ignore src folder
+# ignore src folder and working files
 src/
 deprecated/
+*.old
 
 ### macOS ###
 # General

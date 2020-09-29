@@ -15,11 +15,9 @@ defined( 'ABSPATH' ) || exit;
 
 <?php
   $section_id = get_query_var('section_id');
-
   $title = get_sub_field( 'title' );
   $width = get_sub_field( 'full_width' );
   $preamble = get_sub_field('preamble');
-
 ?>
 
 <?php if ($title) : ?>
@@ -49,7 +47,7 @@ defined( 'ABSPATH' ) || exit;
           </div>
         <?php elseif(current_user_can( 'publish_posts' )):
         // Show a warning for the admin to add an API key
-          _e('<div class="callout callout__error">You need to <a href="'.get_admin_url(null, 'admin.php?page=organisation-information').'" class="callout-link">add a Google Maps API key</a> in order to display a map on your website.</div>','jellypress');
+        _e('<div class="callout callout__error">You need to <a href="'.get_admin_url(null, 'admin.php?page=organisation-information').'" class="callout-link">add a Google Maps API key</a> in order to display a map on your website.</div>','jellypress');
         endif; // google_maps_api_key
     if ( $width == 1 ){ echo '</div>'; }?>
   </div>

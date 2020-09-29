@@ -80,7 +80,7 @@ if($posts_array) :
       $post = $queried_post; // Set $post global variable to the current post object
       setup_postdata( $post ); // Set up "environment" for template tags
 
-      echo '<article class="col xs-12 sm-6 md-4 xl-3" id="post-'.get_the_ID().'">';
+      echo '<article class="col xs-12 sm-6 md-4 xl-3">';
         get_template_part( 'template-components/card', get_post_type() ); // Display the post information
       echo '</article><!-- /#post-'.get_the_ID().' -->';
 

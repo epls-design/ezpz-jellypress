@@ -26,6 +26,6 @@ if ($image_ids ) :
     $gallery_shortcode = sprintf('[gallery ids="%1$s" size="%2$s" columns="%3$s" link="none"]', $images_string, $size, $columns);
     ?>
 <div class="row">
-    <?php echo do_shortcode($gallery_shortcode); ?> <!-- TODO: Can this be styled better by default ? -->
+    <?php echo do_shortcode($gallery_shortcode); ?> <?php // TODO: Can this be styled better by default ?>
 </div>
 <?php endif; ?>

@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
 
 ?>
 
-<div class="card">
+<div <?php post_class('card');?> id="post-<?php the_ID(); ?>">
 
   <?php
   // TODO: Replace this with a template tag, or modify jellypress_post_thumbnail so it is more useful in the future
@@ -30,6 +30,15 @@ defined( 'ABSPATH' ) || exit;
   <div class="card-section entry-content">
     <?php jellypress_excerpt(); ?>
   </div><!-- /.card-section -->
+
+  <?php if ( 'post' === get_post_type() ) : // Show if post ?>
+    <div class="card-section entry-meta">
+      <?php
+      jellypress_posted_on();
+      jellypress_posted_by();
+      ?>
+    </div><!-- /.entry-meta -->
+  <?php endif; ?>
 
   <footer class="card-section card-footer">
     <a class="button button__small" href="<?php the_permalink();?>" rel="bookmark"><?php _e('Continue Reading <span class="screen-reader-text">'.get_the_title().'</span>', 'jellypress');?></a>
