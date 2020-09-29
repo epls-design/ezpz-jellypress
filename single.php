@@ -26,7 +26,7 @@ get_header();
         ?>
     </article><!-- /#post-<?php the_ID(); ?> -->
         <?php
-        the_post_navigation(); // Todo replace with a template-tag throughout to style it better
+        jellypress_post_navigation();
 
         // If comments are open or we have at least one comment, load up the comment template.
         if ( comments_open() || get_comments_number() ) :

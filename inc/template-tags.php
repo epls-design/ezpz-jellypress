@@ -225,3 +225,34 @@ if ( ! function_exists( 'jellypress_excerpt' ) ) :
     }
   }
 endif;
+
+/**
+ * This function effectively does the same job as the_post_navigation() but wraps the navigation in Jellyfish compliant classes.
+ * It will only display the_post_navigation() if there are posts to show.
+ *
+ * @return void
+ */
+if ( ! function_exists( 'jellypress_post_navigation' ) ) :
+  function jellypress_post_navigation() {
+    $prev_post = get_previous_post();
+    $prev_id = $prev_post->ID;
+    $prev_permalink = get_permalink($prev_id);
+    $next_post = get_next_post();
+    $next_id = $next_post->ID;
+    $next_permalink = get_permalink($next_id);
+    $postType = get_post_type_object(get_post_type());
+
+    if($prev_id || $next_id):
+      echo '<nav class="post-navigation section bg-white"><div class="container"><div class="row"><div class="col">';
+      _e('<h2 class="screen-reader-text">'.$postType->labels->singular_name.' navigation</h2>', 'jellypress');
+      echo '<div class="nav-links">';
+      if($prev_id)
+        _e('<div class="nav-previous">Previous<span class="screen-reader-text"> '.$postType->labels->singular_name.'</span>: <a href="'.$prev_permalink.'" rel="prev">'.$prev_post->post_title.'</a></div>','jellypress');
+      if($next_id)
+        _e('<div class="nav-next">Next<span class="screen-reader-text"> '.$postType->labels->singular_name.'</span>: <a href="'.$next_permalink.'" rel="next">'.$next_post->post_title.'</a></div>','jellypress');
+      echo '</div></div></div></div></nav>';
+    endif;
+  }
+endif;
+
+// TODO: Add a function to get a list of terms attached to a post. Option to pass an array of term names or get all terms https://developer.wordpress.org/reference/functions/get_the_terms/

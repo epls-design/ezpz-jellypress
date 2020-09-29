@@ -362,4 +362,14 @@ add_filter('acf/update_value', 'jellypress_kses_acf', 10, 1);
  */
 add_filter('acf/settings/remove_wp_meta_box', '__return_true');
 
+/**
+ * Remove support for WP Editor if you are using ACF exlusively for content
+ */
+if (! function_exists('jellypress_remove_wp_editor') ) :
+  function jellypress_remove_wp_editor() {
+    //remove_post_type_support( 'page', 'editor' );
+  }
+  add_action('init', 'jellypress_remove_wp_editor');
+endif;
+
 // TODO: Add a variable to Server Time message displaying current server time. https://saika.li/snippets-acf-hooks/ gets part way but the field updates with the replaced value on save.
