@@ -22,7 +22,7 @@ $element-margin: 24px;
 /* COLOURS */
 //$color-text: #333333;
 //$color-text-light: #7e7f7f;
-//$color-white: #fff;
+$color-white: #fff;
 //$color-background: $color-white;
 //$color-background-alt: #efefef;
 //$color-primary: #001496;
@@ -36,10 +36,12 @@ $element-margin: 24px;
 /* THEME COLORS */
 // Any variable you add here will have the following classes automatically created: .text-*, .bg-*, .label__*, .button__* and .callout__*
 $theme-colors: (
+  "white": $color-white,
   // Eg.
   // "tomato": tomato,
   // "black": #000,
   // "white": #fff
+  // TODO: Possible to use a text file config for ACF colour settings and dynamically populate? https://www.advancedcustomfields.com/resources/dynamically-populate-a-select-fields-choices/
 );
 
 /* TYPEFACES */
