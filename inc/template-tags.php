@@ -141,9 +141,9 @@ if ( ! function_exists( 'jellypress_post_thumbnail' ) ) :
 		if ( is_singular() ) :
 			?>
 
-    <div class="post-thumbnail">
+    <figure class="post-thumbnail">
       <?php the_post_thumbnail($size); ?>
-    </div><!-- /.post-thumbnail -->
+    </figure><!-- /.post-thumbnail -->
 
     <?php else : ?>
 

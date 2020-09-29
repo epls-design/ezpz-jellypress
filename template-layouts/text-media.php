@@ -43,6 +43,7 @@ if ( have_rows( 'media_item' ) ) :
   while ( have_rows( 'media_item' ) ) : the_row();
     $media_type = get_sub_field( 'media_type' );
     $media_position = get_sub_field( 'media_position' );
+    $media_post = get_sub_field( 'media_post' );
     $image = get_sub_field( 'image' );
     $video = get_sub_field( 'video' );
     $website_url = get_sub_field( 'website_url' );
@@ -50,7 +51,17 @@ if ( have_rows( 'media_item' ) ) :
   endwhile;
 endif;
 
-if ( $media_position == 'right' ) {
+// We only want the image to appear before the text on smaller devices, everything else needs an explanation before it is seen on screen
+if ($media_type == 'image' ){
+  $text_class .= ' order-xs-2';
+  $media_class .= ' order-xs-1';
+}
+
+if ( $media_position == 'left' ) {
+  $text_class .= ' order-md-2';
+  $media_class .= ' order-md-1';
+}
+elseif ( $media_position == 'right' ) {
   $text_class .= ' order-md-1';
   $media_class .= ' order-md-2';
 }
@@ -71,9 +82,22 @@ if ($media_type == 'iframe' || $media_type == 'map'){
 <?php endif; ?>
 
 <div class="row <?php echo $row_class;?>">
+
+  <div class="col sm-12 <?php echo $text_class; ?>">
+    <?php the_sub_field( 'text' ); ?>
+    <?php jellypress_show_cta_buttons(); ?>
+  </div>
+
   <div class="col sm-12 <?php echo $media_class; ?>">
     <?php if ($media_type == 'image'){
         echo wp_get_attachment_image( $image, $size );
+      }
+      elseif ($media_type == 'post'){
+        global $post; // Call global $post variable
+        $post = $media_post[0]; // Set $post global variable to the current post object
+        setup_postdata( $post ); // Set up "environment" for template tags
+          get_template_part( 'template-components/card' ); // Display the post information
+        wp_reset_postdata();
       }
       elseif ($media_type == 'video'){
         echo '<div class="embed-container">'.$video.'</div>';
@@ -97,8 +121,5 @@ if ($media_type == 'iframe' || $media_type == 'map'){
       }
     ?>
   </div>
-  <div class="col sm-12 <?php echo $text_class; ?>">
-    <?php the_sub_field( 'text' ); ?>
-    <?php jellypress_show_cta_buttons(); ?>
-  </div>
+
 </div>

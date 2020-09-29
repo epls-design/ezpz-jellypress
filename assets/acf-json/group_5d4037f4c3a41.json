@@ -545,6 +545,7 @@
                                     "choices": {
                                         "image": "<i class=\"dashicons dashicons-format-image\"><\/i> Image",
                                         "video": "<i class=\"dashicons dashicons-format-video\"><\/i> Video",
+                                        "post": "<i class=\"dashicons dashicons-randomize\"><\/i> Post",
                                         "map": "<i class=\"dashicons dashicons-admin-site-alt3\"><\/i> Map",
                                         "iframe": "<i class=\"dashicons dashicons-location-alt\"><\/i> iFrame"
                                     },
@@ -552,6 +553,44 @@
                                     "default_value": "image",
                                     "layout": "horizontal",
                                     "return_format": "value"
+                                },
+                                {
+                                    "key": "field_5f72dc3f4f0b3",
+                                    "label": "Post",
+                                    "name": "media_post",
+                                    "type": "relationship",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5eb59a10540b3",
+                                                "operator": "==",
+                                                "value": "post"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "100",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "post_type": [
+                                        "post",
+                                        "page"
+                                    ],
+                                    "taxonomy": "",
+                                    "filters": [
+                                        "search",
+                                        "post_type",
+                                        "taxonomy"
+                                    ],
+                                    "elements": [
+                                        "featured_image"
+                                    ],
+                                    "min": 1,
+                                    "max": 1,
+                                    "return_format": "id"
                                 },
                                 {
                                     "key": "field_5eb59aa2540b4",

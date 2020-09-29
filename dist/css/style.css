@@ -1,5 +1,5 @@
 /*! jellypress-wordpress-theme 1.1.0
- * © 2020-09-27 Matt Weet - https://www.weareboba.com */
+ * © 2020-09-28 Matt Weet - https://www.weareboba.com */
 
 @charset "UTF-8";
 /* GRID */
@@ -1650,13 +1650,14 @@ button.toggle-contrast svg {
   background: #fff; }
   .card > :last-child {
     margin-bottom: 0; }
-  .card-img {
-    width: 100%; }
+  .card .card-image, .card .card-image img {
+    width: 100%;
+    margin-bottom: 0; }
   .card-section {
     padding: 20px; }
     .card-section > :last-child {
       margin-bottom: 0; }
-    .card-section .card-img {
+    .card-section .card-image {
       margin-bottom: 24px; }
     .card-section + .card-section {
       padding-top: 0; }
