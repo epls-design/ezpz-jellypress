@@ -28,7 +28,7 @@ defined( 'ABSPATH' ) || exit;
           <?php jellypress_post_thumbnail();// TODO: The Featured Image is kind of 'plonked' on here - on live builds it needs to be incorporated better into the overall design ?>
         </header><!-- /.entry-header -->
         <div class="entry-summary">
-          <?php the_excerpt(); ?>
+          <?php jellypress_excerpt(); ?>
         </div><!-- /.entry-summary -->
         <?php jellypress_entry_footer(); ?>
         </div><!-- /.col -->

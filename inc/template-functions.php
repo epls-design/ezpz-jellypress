@@ -74,7 +74,7 @@ add_action('intermediate_image_sizes_advanced', 'jellypress_unset_image_sizes');
 
 if ( ! function_exists( 'jellypress_prevent_autotags' ) ) {
   /**
-   * Prevents Wordpress from automatically adding classes to pasted text, on <span> and <p> tagds (eg. class="p1")
+   * Prevents Wordpress from automatically adding classes to pasted text, on <span> and <p> tags (eg. class="p1")
    */
   function jellypress_prevent_autotags($in) {
     $in['paste_preprocess'] = "function(pl,o){ o.content = o.content.replace(/p class=\"p[0-9]+\"/g,'p'); o.content = o.content.replace(/span class=\"s[0-9]+\"/g,'span'); }";

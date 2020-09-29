@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 <div class="card">
 
   <?php
-  // TODO: Replace this with a template tag, or modify jellypress_post_thumbnail so it is better in the future
+  // TODO: Replace this with a template tag, or modify jellypress_post_thumbnail so it is more useful in the future
   if(has_post_thumbnail()) : ?>
     <figure class="post-thumbnail card-image">
       <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
@@ -28,7 +28,7 @@ defined( 'ABSPATH' ) || exit;
 
   <?php // TODO: If has excerpt ?>
   <div class="card-section entry-content">
-    <?php the_excerpt(); // TODO: Write a new function for this, to trimpara and if no excerpt generate some dynamically - maybe from first ACF block? ?>
+    <?php jellypress_excerpt(); ?>
   </div><!-- /.card-section -->
 
   <footer class="card-section card-footer">
