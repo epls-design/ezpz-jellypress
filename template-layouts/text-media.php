@@ -47,7 +47,6 @@ if ( have_rows( 'media_item' ) ) :
     $image = get_sub_field( 'image' );
     $video = get_sub_field( 'video' );
     $website_url = get_sub_field( 'website_url' );
-    $location = get_sub_field( 'location' );
   endwhile;
 endif;
 
@@ -103,13 +102,14 @@ if ($media_type == 'iframe' || $media_type == 'map'){
         echo '<div class="embed-container">'.$video.'</div>';
       }
       elseif ($media_type == 'map'){
-        if ( !$location ) {
-          // If no location get it from ACF options page.
-          $location = get_field( 'address', 'option' );
-        }
         if (get_field('google_maps_api_key', 'option')) : ?>
           <div class="google-map">
-            <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+            <?php
+            if ( have_rows( 'media_item' ) ) :
+              while ( have_rows( 'media_item' ) ) : the_row();
+                jellypress_display_map_markers();
+              endwhile;
+            endif; ?>
           </div>
         <?php elseif(current_user_can( 'publish_posts' )):
         // Show a warning for the admin to add an API key

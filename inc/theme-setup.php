@@ -87,6 +87,12 @@ if (! function_exists('jellypress_setup') ) :
         add_theme_support('customize-selective-refresh-widgets');
 
         /**
+         * Register Image Sizes
+         */
+
+        add_image_size( 'icon', 40, 40, true );
+
+        /**
          * Gutenberg Supports
          * If the theme is going to heavily rely on Gutenberg block builder,
          * You can add a custom colour pallette and more

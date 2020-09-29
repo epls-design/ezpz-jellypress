@@ -233,11 +233,13 @@ function initMarker( $marker, map ) {
         lat: parseFloat( lat ),
         lng: parseFloat( lng )
     };
+    var icon = $marker.attr('data-icon');
 
     // Create marker instance.
     var marker = new google.maps.Marker({
         position : latLng,
-        map: map
+        map: map,
+        icon: icon
     });
 
     // Append to reference for later use.

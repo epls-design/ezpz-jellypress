@@ -16,11 +16,6 @@ defined( 'ABSPATH' ) || exit;
 <?php
   $section_id = get_query_var('section_id');
 
-  // TODO: Eventually could look to replace this with a repeater allowing multiple location pins and titles
-  $location = get_sub_field( 'location' );
-  if ( !$location ) {
-    $location = get_field( 'address', 'option' );
-  }
   $title = get_sub_field( 'title' );
   $width = get_sub_field( 'full_width' );
   $preamble = get_sub_field('preamble');
@@ -46,9 +41,11 @@ defined( 'ABSPATH' ) || exit;
 <div class="row">
   <div class="col">
     <?php if ( $width == 1 ){ echo '<div class="vw-100">'; }
-        if (get_field('google_maps_api_key', 'option')) : ?>
+        if (get_field('google_maps_api_key', 'option') && ( have_rows( 'locations' ) )) : ?>
           <div class="google-map">
-            <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+            <?php while ( have_rows( 'locations' ) ) : the_row();
+              jellypress_display_map_markers();
+            endwhile; ?>
           </div>
         <?php elseif(current_user_can( 'publish_posts' )):
         // Show a warning for the admin to add an API key

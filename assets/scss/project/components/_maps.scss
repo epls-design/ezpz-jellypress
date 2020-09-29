@@ -13,3 +13,20 @@
 .google-map img {
  max-width: inherit !important;
 }
+
+.gm-style {
+  font: {
+    family: inherit;
+    weight: inherit;
+    size: inherit;
+  }
+  .gm-style-iw {
+    font: {
+      weight: inherit;
+      size: inherit;
+    }
+  }
+  .address {
+    font-size: $font-size--1;
+  }
+}
