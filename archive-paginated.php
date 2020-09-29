@@ -1,7 +1,7 @@
 <?php
 /**
- * The template for displaying archive pages.
- * This template uses AJAX to load new posts. For a paginated approach, use the alternative archive-paginated.php template
+ * The template for displaying archive pages
+ * This template uses pagination to load new posts. For an ajax approach, use the archive.php template
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -10,8 +10,6 @@
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
-
-$loading_type = 'button';
 
 /**
  * On archive pages, the user may wish to enable a sidebar, so we wrap the whole output in a .container .row
@@ -43,13 +41,8 @@ get_header();
                 get_template_part( 'template-components/card', get_post_type() );
               echo '</article>';
             endwhile;
-
-            if (  $wp_query->max_num_pages > 1 && $loading_type == 'button' ) {
-              _e('<div class="col xs-12"><button class="button-loadmore">Load More...</button></div>','jellypress');
-            };
-
             echo '</div>';
-
+            jellypress_numeric_pagination(); // Paginate if there are older posts
             else :
               get_template_part( 'template-parts/content', 'none' );
             endif; ?>
@@ -60,6 +53,4 @@ get_header();
     </div><!-- /.row -->
   </div><!-- /.container -->
 <?php
-jellypress_initialize_ajax_posts(null, $loading_type); // Initialise on $wp_query
 get_footer();
-?>

@@ -23,7 +23,8 @@ $jellypress_includes = array(
   '/acf.php',                     // Functions which hook into ACF to add additional functionality to the site.
   '/dry.php',                     // Don't repeat yourself! Functions which reduce repetition in the theme code.
 	'/customizer.php',              // Customizer additions.
-	'/woocommerce.php',             // Load WooCommerce functions.
+  '/woocommerce.php',             // Load WooCommerce functions.
+  '/ajax-loadmore/loadmore.php', // Uses Wordpress AJAX to lazyload more posts.
 );
 
 foreach ( $jellypress_includes as $file ) {

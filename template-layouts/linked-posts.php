@@ -19,10 +19,8 @@ defined( 'ABSPATH' ) || exit;
   $section_id = get_query_var('section_id');
   $title = get_sub_field( 'title' );
   $preamble = get_sub_field('preamble');
-
   $query_type = get_sub_field('query_type');
   $posts_array = array(); // Create an empty array to store posts ready for the loop
-
 ?>
 
 <?php if ($title) : ?>
@@ -83,7 +81,7 @@ if($posts_array) :
       setup_postdata( $post ); // Set up "environment" for template tags
 
       echo '<article class="col xs-12 sm-6 md-4 xl-3" id="post-'.get_the_ID().'">';
-        get_template_part( 'template-components/card' ); // Display the post information
+        get_template_part( 'template-components/card', get_post_type() ); // Display the post information
       echo '</article><!-- /#post-'.get_the_ID().' -->';
 
     endforeach;
