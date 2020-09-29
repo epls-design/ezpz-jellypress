@@ -2,8 +2,8 @@
 /**
  * Flexible layout: Map
  * Renders a section using Google Maps.
- * If no location is set with the ACF field,
- * use the value from the theme's options page.
+ * The editor can add multiple markers and customise
+ * the tooltip and marker icon
  *
  * @package jellypress
  */

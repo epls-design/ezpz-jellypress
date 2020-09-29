@@ -1,5 +1,5 @@
 /*! jellypress-wordpress-theme 1.1.0
- * © 2020-09-28 Matt Weet - https://www.weareboba.com */
+ * © 2020-09-29 Matt Weet - https://www.weareboba.com */
 
 @charset "UTF-8";
 /* GRID */
@@ -2692,6 +2692,16 @@ p.has-background {
 
 .google-map img {
   max-width: inherit !important; }
+
+.gm-style {
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit; }
+  .gm-style .gm-style-iw {
+    font-weight: inherit;
+    font-size: inherit; }
+  .gm-style .address {
+    font-size: 0.8em; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   NUMERIC PAGINATION

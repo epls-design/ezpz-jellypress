@@ -320,6 +320,10 @@ if (! function_exists('jellypress_acf_flexible_titles') ) {
             endif;
             return '<span class="swatch '.$background_color.'"></span>'.jellypress_trimpara($images_list,50).'<span class="acf-handle-right">'.$title.'</span>';
         }
+        elseif($layout == 'iframe') {
+          $website_url = get_sub_field( 'website_url' );
+          return '<span class="swatch '.$background_color.'"></span>'.$website_url.'<span class="acf-handle-right">'.$title.'</span>';
+      }
         else {
             // If nothing found, return the block name
             return '<span class="swatch '.$background_color.'"></span>'.$title;

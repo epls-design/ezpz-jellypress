@@ -2,7 +2,7 @@
 /**
  * Flexible layout: Text and Media block
  * Renders a section to contain Text and a Media element
- * (image or video) with the option to reorder columns
+ * (image, video, iframe, post, map) with the option to reorder columns
  * and change the ratio split of columns
  *
  * @package jellypress

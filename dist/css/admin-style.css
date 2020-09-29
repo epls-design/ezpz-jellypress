@@ -1,5 +1,5 @@
 /*! jellypress-wordpress-theme 1.1.0
- * © 2020-09-28 Matt Weet - https://www.weareboba.com */
+ * © 2020-09-29 Matt Weet - https://www.weareboba.com */
 
 /* GRID */
 /* JELLYFISH DEFAULTS */
@@ -79,6 +79,9 @@
   border: 0;
   margin-left: -12px;
   margin-right: -12px; }
+  .-table .acf-field-group.seamless .acf-fields {
+    margin-left: -8px;
+    margin-right: -8px; }
 
 .acf-fc-layout-controls .acf-icon {
   background: #fff !important; }

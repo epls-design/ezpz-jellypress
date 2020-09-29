@@ -34,6 +34,18 @@ if ( !function_exists( 'jellypress_additional_styles' )) {
   add_filter( 'mce_buttons', 'jellypress_additional_styles' );
 }
 
+/**
+ *  Remove the h1 tag from the WordPress editor.
+ *
+ *  @param   array  $settings  The array of editor settings
+ *  @return  array             The modified edit settings
+ */
+function jellypress_remove_h1_tinymce( $settings ) {
+  $settings['block_formats'] = 'Paragraph=p;Heading 2=h2;Heading 3=h3;Heading 4=h4;Heading 5=h5;Heading 6=h6;Preformatted=pre;Code=code';
+  return $settings;
+}
+add_filter( 'tiny_mce_before_init', 'jellypress_remove_h1_tinymce' );
+
 // Callback function to filter the MCE settings
 if ( !function_exists( 'jellypress_mce_before_init_insert_formats' )) {
 
@@ -57,40 +69,15 @@ if ( !function_exists( 'jellypress_mce_before_init_insert_formats' )) {
      * exact – Disables the merge similar styles feature when used. This is needed for some CSS inheritance issues such as text-decoration for underline/strikethrough.
      * wrapper – State that tells that the current format is a container format for block elements. For example a div wrapper or blockquote.
      */
-        array(
-          'title'   => 'Buttons',
-          'items' => array(
-            array(
-              'title' => 'Button',
-              'classes' => 'button',
-              'block' => 'a',
-            ),
-            array(
-              'title' => 'Secondary Button',
-              'classes' => 'button button__secondary',
-              'block' => 'a',
-            ),
-            array(
-              'title' => 'Outline Button',
-              'classes' => 'button button__outline',
-              'block' => 'a',
-            ),
-          ),
+      array(
+        'title' => 'Standfirst',
+        'classes' => 'standfirst',
+        'block' => 'p',
       ),
       array(
-        'title'   => 'Text Size',
-        'items' => array(
-            array(
-              'title' => 'Standfirst',
-              'classes' => 'standfirst',
-              'block' => 'p',
-            ),
-            array(
-              'title' => 'Small',
-              'classes' => 'small',
-              'block' => 'p',
-            ),
-          ),
+        'title' => 'Small',
+        'classes' => 'small',
+        'block' => 'p',
       ),
     );
     // Insert the array, JSON ENCODED, into 'style_formats'
