@@ -1665,6 +1665,243 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_5f718bfbcc200": {
+                    "key": "layout_5f718bfbcc200",
+                    "name": "linked-posts",
+                    "label": "<span class=\"dashicons dashicons-randomize\"><\/span> Linked Post(s)",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5f718bfbcc201",
+                            "label": "Clone Content",
+                            "name": "clone_content",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5d75eff42a6aa"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5f718bfbcc202",
+                            "label": "Preamble Clone",
+                            "name": "preamble_clone",
+                            "type": "clone",
+                            "instructions": "If you'd like to add a preamble to this section, you can do so here.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "100",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5f6facb5b7c07"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5f718cd9cc208",
+                            "label": "Type",
+                            "name": "query_type",
+                            "type": "button_group",
+                            "instructions": "How would you like to determine the posts to show?",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "acf-has-icons",
+                                "id": ""
+                            },
+                            "choices": {
+                                "specified": "<i class=\"dashicons dashicons-saved\"><\/i> Specified",
+                                "rand": "<i class=\"dashicons dashicons-randomize\"><\/i> Random",
+                                "date": "<i class=\"dashicons dashicons-calendar-alt\"><\/i> Latest"
+                            },
+                            "allow_null": 0,
+                            "default_value": "specified",
+                            "layout": "vertical",
+                            "return_format": "value"
+                        },
+                        {
+                            "key": "field_5f718d20cc209",
+                            "label": "Posts",
+                            "name": "specified_posts",
+                            "type": "relationship",
+                            "instructions": "Please select all of the posts you would like to feature. <strong>Posts will display in the order added.<\/strong>",
+                            "required": 1,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_5f718cd9cc208",
+                                        "operator": "==",
+                                        "value": "specified"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "75",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "post",
+                                "page"
+                            ],
+                            "taxonomy": "",
+                            "filters": [
+                                "search",
+                                "post_type",
+                                "taxonomy"
+                            ],
+                            "elements": "",
+                            "min": "",
+                            "max": 12,
+                            "return_format": "object"
+                        },
+                        {
+                            "key": "field_5f718da9cc20a",
+                            "label": "Post Type",
+                            "name": "query_post_type",
+                            "type": "select",
+                            "instructions": "Please select the post type you would like to display.",
+                            "required": 1,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_5f718cd9cc208",
+                                        "operator": "!=",
+                                        "value": "specified"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "post": "Posts",
+                                "page": "Pages"
+                            },
+                            "default_value": [
+                                "post"
+                            ],
+                            "allow_null": 0,
+                            "multiple": 1,
+                            "ui": 1,
+                            "ajax": 0,
+                            "return_format": "value",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_5f718e85cc20b",
+                            "label": "Quantity",
+                            "name": "query_quantity",
+                            "type": "range",
+                            "instructions": "How many posts would you like to show?",
+                            "required": 1,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_5f718cd9cc208",
+                                        "operator": "!=",
+                                        "value": "specified"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "min": 1,
+                            "max": 20,
+                            "step": 1,
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_5f718f1c177b5",
+                            "label": "Clone CTA",
+                            "name": "clone_cta",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5f6e4539d9407"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5f718bfbcc204",
+                            "label": "Clone Design",
+                            "name": "clone_design",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5eb3b7f9bbf71"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5f718bfbcc206",
+                            "label": "Clone Settings",
+                            "name": "clone_settings",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5d75eff42a6ac"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add New Section",
