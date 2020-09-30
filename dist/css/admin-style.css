@@ -160,11 +160,11 @@ ul.acf-swatch-list > li {
   position: fixed;
   display: block;
   line-height: 1;
-  font-size: .8em;
+  font-size: 13px;
   top: 20%;
   right: 2em;
   padding: .5em;
-  background-color: #FF4200;
+  background-color: #FF00FF;
   color: black;
   font-weight: bold;
   transform-origin: top right;

@@ -128,3 +128,6 @@ if ( ! function_exists( 'jellypress_show_dev_flag' ) ) :
   }
   }
 endif;
+// Hook into footer and admin footer
+add_action('wp_footer', 'jellypress_show_dev_flag');
+add_action('admin_footer', 'jellypress_show_dev_flag');

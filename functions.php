@@ -35,5 +35,3 @@ $jellypress_includes = array(
 foreach ( $jellypress_includes as $file ) {
 	require_once get_template_directory() . '/inc' . $file;
 }
-
-add_action('init', 'jellypress_show_dev_flag');

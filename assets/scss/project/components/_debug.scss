@@ -7,12 +7,12 @@
   position: fixed;
   display: block;
   line-height: 1;
-  font-size: .8em;
+  font-size: 13px;
   top: 20%;
   right: 2em;
   padding: .5em;
-  background-color: $color-error;
-  color: choose-contrast-color($color-error, black, white);
+  background-color: #FF00FF;
+  color: choose-contrast-color(#FF00FF, black, white);
   font-weight: bold;
   transform-origin: top right;
   transform: rotate(-90deg);
