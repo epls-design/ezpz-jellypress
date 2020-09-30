@@ -11,12 +11,17 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+// Define Dev URL
+if (! defined('DEV_URL') ) {
+  define('DEV_URL', 'https://jellypress.local', true);
+}
+
 $jellypress_includes = array(
+  '/helpers.php',                 // Useful helper functions
 	'/theme-setup.php',             // Basic theme setup
 	'/widgets.php',                 // Register widget areas
   '/enqueue.php',                 // Enqueue scripts and styles.
   '/editor.php',                  // Customise editor
-  '/helpers.php',                 // Useful helper functions
   '/template-tags.php',           // Custom template tags for this theme.
   '/template-functions.php',      // Functions which enhance the theme by hooking into WordPress.
 	'/pagination.php',              // Custom pagination for this theme.
@@ -30,3 +35,5 @@ $jellypress_includes = array(
 foreach ( $jellypress_includes as $file ) {
 	require_once get_template_directory() . '/inc' . $file;
 }
+
+add_action('init', 'jellypress_show_dev_flag');

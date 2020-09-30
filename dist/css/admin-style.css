@@ -1,5 +1,5 @@
 /*! jellypress-wordpress-theme 1.1.0
- * © 2020-09-29 Matt Weet - https://www.weareboba.com */
+ * © 2020-09-30 Matt Weet - https://www.weareboba.com */
 
 /* GRID */
 /* JELLYFISH DEFAULTS */
@@ -152,6 +152,24 @@ ul.acf-swatch-list > li {
 .postbox-header .acf-hndle-cog {
   display: none !important;
   visibility: hidden !important; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  DEBUG
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.dev-flag {
+  position: fixed;
+  display: block;
+  line-height: 1;
+  font-size: .8em;
+  top: 20%;
+  right: 2em;
+  padding: .5em;
+  background-color: #FF4200;
+  color: black;
+  font-weight: bold;
+  transform-origin: top right;
+  transform: rotate(-90deg);
+  z-index: 99999999; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   ADMIN HELPERS

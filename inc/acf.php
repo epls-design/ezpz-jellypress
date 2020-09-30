@@ -93,8 +93,8 @@ if (! function_exists('jellypress_hide_acf_admin') ) {
         $site_url = get_bloginfo('url');
         // an array of development environment URLs
         $dev_urls = array(
-        'https://jellypress.local', // TODO: Change for your project
-        'http://jellypress.local',
+         DEV_URL, // Constant defined in functions.php
+        // 'http://jellypress.local',
         );
         // check if the current site url is in the protected urls array
         if (!in_array($site_url, $dev_urls) ) {

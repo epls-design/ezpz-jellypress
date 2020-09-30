@@ -1,0 +1,20 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  DEBUG
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.dev-flag {
+  // Shows a dev flag on the local development website
+  position: fixed;
+  display: block;
+  line-height: 1;
+  font-size: .8em;
+  top: 20%;
+  right: 2em;
+  padding: .5em;
+  background-color: $color-error;
+  color: choose-contrast-color($color-error, black, white);
+  font-weight: bold;
+  transform-origin: top right;
+  transform: rotate(-90deg);
+  z-index: 99999999;
+}

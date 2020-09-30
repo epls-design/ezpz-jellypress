@@ -93,3 +93,38 @@ if ( ! function_exists( 'jellypress_icon' ) ) {
     }
   }
 }
+
+/**
+ * Gets the full URL of the current page
+ *
+ * @return void
+ */
+if ( ! function_exists( 'jellypress_get_full_url' ) ) :
+  function jellypress_get_full_url() {
+    if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+      $url = "https://";
+    else
+      $url = "http://";
+    // Append the host(domain name, ip) to the URL.
+    $url.= $_SERVER['HTTP_HOST'];
+
+    // Append the requested resource location to the URL
+    $url.= $_SERVER['REQUEST_URI'];
+    return $url;
+  }
+endif;
+
+/**
+ * Displays a Development flag if the website is local dev environment
+ *
+ * @return void
+ */
+if ( ! function_exists( 'jellypress_show_dev_flag' ) ) :
+  function jellypress_show_dev_flag() {
+    $url1 = parse_url(DEV_URL); // Defined in functions.php
+    $url2 = parse_url(jellypress_get_full_url());
+    if ($url1['host'] == $url2['host']){
+      _e('<div class="dev-flag">Development Site</div>', 'jellypress');
+  }
+  }
+endif;
