@@ -29,7 +29,8 @@ $jellypress_includes = array(
   '/dry.php',                     // Don't repeat yourself! Functions which reduce repetition in the theme code.
 	'/customizer.php',              // Customizer additions.
   '/woocommerce.php',             // Load WooCommerce functions.
-  '/ajax-loadmore/loadmore.php', // Uses Wordpress AJAX to lazyload more posts.
+  '/ajax-loadmore/loadmore.php',  // Uses Wordpress AJAX to lazyload more posts.
+  '/shortcodes.php',              // Custom shortcodes used by the theme
 );
 
 foreach ( $jellypress_includes as $file ) {
