@@ -6,6 +6,7 @@
   list-style-type: none;
   margin: $element-margin 0;
   display: flex;
+  flex-wrap: wrap;
 
   .nav-next {
     margin-right: 0;

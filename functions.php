@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 
 // Define Dev URL
 if (! defined('DEV_URL') ) {
-  define('DEV_URL', 'https://jellypress.local', true);
+  define('DEV_URL', 'https://jellypress.local');
 }
 
 $jellypress_includes = array(

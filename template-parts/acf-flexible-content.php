@@ -55,7 +55,7 @@ if ( have_rows( 'sections', $id ) ) :
     }
 
     // Check for full-width setting
-    if ($layout === 'image' || $layout === 'video' ) {
+    if ($layout === 'image' || $layout === 'video' || $layout === 'map' || $layout === 'iframe' ) {
       if( get_sub_field( 'full_width' ) == 1) {
         $classes.= ' section__full-width';
       };

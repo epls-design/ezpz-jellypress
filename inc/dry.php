@@ -60,6 +60,9 @@ if ( ! function_exists( 'jellypress_display_map_markers' ) ) :
       $thumb = $location_icon['sizes'][ 'icon' ];
       $data_icon = 'data-icon="'.$thumb.'"';
     }
+    else {
+      $data_icon = '';
+    }
 
     // Construct Address HTML with valid schema.
     $address = '<div class="address" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">';

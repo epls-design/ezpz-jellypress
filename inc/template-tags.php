@@ -219,7 +219,7 @@ if ( ! function_exists( 'jellypress_excerpt' ) ) :
       $clean_excerpt = apply_filters('the_excerpt', $trimmed_content); // Apply the excerpt filter
       echo $clean_excerpt; // Output the result
     }
-    elseif(!$custom_field_excerpt) {
+    else {
       // If the field is empty, show the normal excerpt from Wordpress
       the_excerpt();
     }

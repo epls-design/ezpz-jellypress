@@ -1,5 +1,5 @@
 /*! jellypress-wordpress-theme 1.1.0
- * © 2020-09-30 Matt Weet - https://www.weareboba.com */
+ * © 2020-10-03 Matt Weet - https://www.weareboba.com */
 
 @charset "UTF-8";
 /* GRID */
@@ -461,6 +461,11 @@ sup {
   left: 0;
   width: 100%;
   height: 100%; }
+
+.mb, .callout, .card, .card-section .card-image, .wp-block-audio figcaption, .wp-block-image img + figcaption, .wp-block-video figcaption, .wp-block-embed figcaption, .alignfull, .alignwide, .wp-block-audio, .wp-block-quote.is-large,
+.wp-block-quote.is-style-large, .wp-block-cover,
+.wp-block-cover-image, .wp-block-video, .widget .mejs-container, .widget .gallery-item, .comment-list ol, .comment-list ul, .comment-list dl, .comment-list li, .embedded-iframe, .google-map, .site-content img {
+  margin-bottom: 24px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   DARK MODE
@@ -1599,7 +1604,6 @@ button.toggle-contrast svg {
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .callout {
   border: 1px solid #cbcccc;
-  margin-bottom: 24px;
   padding: 20px;
   border-radius: 4px; }
   .callout a.callout-link {
@@ -1667,7 +1671,6 @@ button.toggle-contrast svg {
   overflow: hidden;
   border-radius: 0px;
   border: 1px solid #cbcccc;
-  margin-bottom: 24px;
   background: #fff; }
   .card > :last-child {
     margin-bottom: 0; }
@@ -1678,8 +1681,6 @@ button.toggle-contrast svg {
     padding: 20px; }
     .card-section > :last-child {
       margin-bottom: 0; }
-    .card-section .card-image {
-      margin-bottom: 24px; }
     .card-section + .card-section {
       padding-top: 0; }
   .card-footer {
@@ -2335,12 +2336,10 @@ Utilities
   Align Classes and Helpers
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .wp-block-audio figcaption, .wp-block-image img + figcaption, .wp-block-video figcaption, .wp-block-embed figcaption {
-  color: #7e7f7f;
-  margin-bottom: 24px; }
+  color: #7e7f7f; }
 
 .alignfull {
   margin-top: 24px;
-  margin-bottom: 24px;
   margin-left: calc(50% - 50vw) !important;
   margin-right: calc(50% - 50vw) !important;
   max-width: 100vw;
@@ -2348,7 +2347,6 @@ Utilities
 
 .alignwide {
   margin-top: 24px;
-  margin-bottom: 24px;
   margin-left: calc(25% - 25vw) !important;
   margin-right: calc(25% - 25vw) !important;
   max-width: 100vw; }
@@ -2388,16 +2386,12 @@ Utilities
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   Audio Blocks
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.wp-block-audio {
-  margin-bottom: 24px; }
-
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   Blockquotes
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .wp-block-quote.is-large,
 .wp-block-quote.is-style-large {
   font-size: 1em;
-  margin-bottom: 24px;
   padding: 0;
   border-left: 0; }
   .wp-block-quote.is-large p,
@@ -2515,10 +2509,6 @@ Utilities
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   Cover Images
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.wp-block-cover,
-.wp-block-cover-image {
-  margin-bottom: 24px; }
-
 .wp-block-cover-image .wp-block-cover__inner-container,
 .wp-block-cover .wp-block-cover__inner-container {
   color: #fff; }
@@ -2609,9 +2599,6 @@ p.has-background {
 .wp-block-video.alignwide video {
   width: 100%; }
 
-.wp-block-video {
-  margin-bottom: 24px; }
-
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   TODO: BLOCKS TO ADD
   • YouTube needs align classes to work
@@ -2633,13 +2620,8 @@ p.has-background {
 .widget .mejs-controls button:hover {
   background-color: transparent; }
 
-.widget .mejs-container {
-  margin-bottom: 24px; }
-
-.widget .gallery-item {
-  margin-bottom: 24px; }
-  .widget .gallery-item img {
-    margin-bottom: 0; }
+.widget .gallery-item img {
+  margin-bottom: 0; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   WORDPRESS
@@ -2657,9 +2639,6 @@ p.has-background {
 
 .cat-links, .tags-links, .comments-link, .edit-link {
   display: block; }
-
-.comment-list ol, .comment-list ul, .comment-list dl, .comment-list li {
-  margin-bottom: 24px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   DEBUG
@@ -2731,7 +2710,6 @@ p.has-background {
   IFRAMES
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .embedded-iframe {
-  margin-bottom: 24px;
   border: 1px solid #cbcccc; }
   .embed-container .embedded-iframe, .is-type-video .wp-block-embed__wrapper .embedded-iframe {
     margin-bottom: 0; }
@@ -2742,7 +2720,6 @@ p.has-background {
 .google-map {
   width: 100%;
   height: 600px;
-  margin-bottom: 24px;
   border: 1px solid #cbcccc; }
 
 .google-map img {
@@ -2764,7 +2741,8 @@ p.has-background {
 .pagination {
   list-style-type: none;
   margin: 24px 0;
-  display: flex; }
+  display: flex;
+  flex-wrap: wrap; }
   .pagination .nav-next {
     margin-right: 0; }
   .pagination li {
@@ -2794,9 +2772,6 @@ p.has-background {
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   SCAFFOLDING
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.site-content img {
-  margin-bottom: 24px; }
-
 #page {
   overflow: hidden; }
 
@@ -2852,6 +2827,12 @@ p.has-background {
 
 .section.bg-white + .section.bg-white {
   padding-top: 0; }
+
+.section__full-width .section-header, .section__full-width p:first-of-type {
+  margin-top: 70px; }
+
+.section__full-width header + .row p:first-of-type {
+  margin-top: 0 !important; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   TYPOGRAPHY

@@ -15,12 +15,12 @@
     background-color: transparent;
   }
   .mejs-container {
-    margin-bottom: $element-margin;
+    @extend %mb;
   }
 
   // Gallery
   .gallery-item {
-    margin-bottom: $element-margin;
+    @extend %mb;
     img {
       margin-bottom: 0;
     }

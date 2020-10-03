@@ -68,6 +68,17 @@ table {
         margin-bottom: 0;
     }
 }
+// TODO: Document in Jellyfish Docs
+%no-bullets {
+  margin-left: 0;
+  list-style-type: none;
+}
+%inline {
+  @extend %no-bullets;
+  li {
+    display: inline-block;
+  }
+}
 ul {
     @extend %lists;
     list-style-type: disc;

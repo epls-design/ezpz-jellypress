@@ -1,5 +1,5 @@
 /*! jellypress-wordpress-theme 1.1.0
- * © 2020-09-30 Matt Weet - https://www.weareboba.com */
+ * © 2020-10-03 Matt Weet - https://www.weareboba.com */
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   USEFUL MIXINS AND FUNCTIONS
@@ -402,6 +402,12 @@
       transform: scale(1.1); }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  HELPERS
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.single-product div.product span.price {
+  margin-bottom: 24px; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   MY ACCOUNT
   Overrides default Woocommerce
   My Account (login) styles
@@ -623,8 +629,7 @@
 
 .single-product div.product span.price {
   display: block;
-  color: #333333;
-  margin-bottom: 24px; }
+  color: #333333; }
   .single-product div.product span.price ins {
     color: #77de65;
     font-weight: bold; }

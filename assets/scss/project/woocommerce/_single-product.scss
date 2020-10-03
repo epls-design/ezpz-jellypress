@@ -34,7 +34,7 @@
       // Variable product price
       display: block;
       color: $color-text;
-      margin-bottom: $element-margin;
+      @extend %mb;
       ins {
         color: $color-success;
         font-weight: bold;

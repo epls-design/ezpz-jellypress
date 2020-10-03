@@ -141,6 +141,7 @@
                                     },
                                     "choices": {
                                         "filled": "Filled",
+                                        "secondary": "Alternate Colour",
                                         "outline": "Border",
                                         "ghost": "No Fill or Border"
                                     },
@@ -555,6 +556,28 @@
                                     "return_format": "value"
                                 },
                                 {
+                                    "key": "field_5d76a5207ea62",
+                                    "label": "Position",
+                                    "name": "media_position",
+                                    "type": "button_group",
+                                    "instructions": "Would you like the media to be on the left or right of the section?",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "100",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "left": "<i class=\"dashicons dashicons-arrow-left-alt\"><\/i> Left",
+                                        "right": "<i class=\"dashicons dashicons-arrow-right-alt\"><\/i> Right"
+                                    },
+                                    "allow_null": 0,
+                                    "default_value": "right",
+                                    "layout": "horizontal",
+                                    "return_format": "value"
+                                },
+                                {
                                     "key": "field_5f72dc3f4f0b3",
                                     "label": "Post",
                                     "name": "media_post",
@@ -801,28 +824,6 @@
                                             "ui_off_text": ""
                                         }
                                     ]
-                                },
-                                {
-                                    "key": "field_5d76a5207ea62",
-                                    "label": "Position",
-                                    "name": "media_position",
-                                    "type": "button_group",
-                                    "instructions": "Would you like the media to be on the left or right of the section?",
-                                    "required": 1,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "100",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "choices": {
-                                        "left": "<i class=\"dashicons dashicons-arrow-left-alt\"><\/i> Left",
-                                        "right": "<i class=\"dashicons dashicons-arrow-right-alt\"><\/i> Right"
-                                    },
-                                    "allow_null": 0,
-                                    "default_value": "right",
-                                    "layout": "horizontal",
-                                    "return_format": "value"
                                 }
                             ]
                         },
@@ -985,9 +986,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "",
-                            "preview_size": "large",
-                            "library": "",
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
                             "min_width": 1280,
                             "min_height": "",
                             "min_size": "",
@@ -1901,7 +1902,7 @@
                         }
                     ],
                     "min": "",
-                    "max": ""
+                    "max": "1"
                 },
                 "layout_5f7355d68f5de": {
                     "key": "layout_5f7355d68f5de",
@@ -2067,7 +2068,7 @@
             },
             "button_label": "Add New Section",
             "min": "",
-            "max": 16
+            "max": 24
         }
     ],
     "location": [
@@ -2101,5 +2102,5 @@
     ],
     "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1601400784
+    "modified": 1601735105
 }

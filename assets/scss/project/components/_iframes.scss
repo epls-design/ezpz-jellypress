@@ -3,7 +3,7 @@
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .embedded-iframe {
-  margin-bottom: $element-margin;
+  @extend %mb;
   border: $borders;
   .embed-container & {
     margin-bottom: 0;

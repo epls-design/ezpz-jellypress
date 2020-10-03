@@ -4,7 +4,7 @@
 
 .site-content {
   img {
-    margin-bottom: $element-margin;
+    @extend %mb;
   }
 }
 

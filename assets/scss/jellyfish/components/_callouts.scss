@@ -5,7 +5,7 @@
 
 .callout {
   border: $borders;
-  margin-bottom: $element-margin;
+  @extend %mb;
   padding: $element-padding;
   border-radius: $callout-border-radius;
   a.callout-link {

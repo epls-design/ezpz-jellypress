@@ -45,3 +45,16 @@
     }
   }
 }
+
+// Some full width sections have headers or preambles - reinstate the top padding on these to open them back up and prevent crashing
+.section__full-width {
+  .section-header, p:first-of-type {
+    margin-top: $section-padding;
+  }
+  header+.row {
+    // If there is a header we don't want the top margin
+    p:first-of-type {
+      margin-top: 0 !important;
+    }
+  }
+}
