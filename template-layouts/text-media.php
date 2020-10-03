@@ -82,7 +82,7 @@ if ($media_type == 'iframe' || $media_type == 'map'){
 
 <div class="row <?php echo $row_class;?>">
 
-  <div class="col sm-12 <?php echo $text_class; ?>">
+  <div class="col sm-12 <?php echo $text_class; ?> flex-column">
     <?php the_sub_field( 'text' ); ?>
     <?php jellypress_show_cta_buttons(); ?>
   </div>

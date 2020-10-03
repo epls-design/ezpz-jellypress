@@ -17,12 +17,18 @@ if ( ! function_exists( 'jellypress_numeric_pagination' ) ) :
    * @param string $newest_text = Text to appear in 'First' link
    *
    */
-  function jellypress_numeric_pagination( $oldest_text = 'Oldest posts', $newest_text = 'Newest posts', $range = 5 ) {
+  function jellypress_numeric_pagination( $oldest_text = 'Oldest posts', $newest_text = 'Newest posts', $range = 5, $query = 'default' ) {
     // $paged - number of the active page
     global $paged, $wp_query;
+    if ($query == 'default') {
+      $search = $wp_query;
+    }
+    else {
+      $search = $query; // This is so that we can use the numeric pagination on search and filter, because it uses $query and not $wp_query
+    }
     // How many pages do we have?
     if ( !$max_page )
-      $max_page = $wp_query->max_num_pages;
+      $max_page = $search->max_num_pages;
     // We need the pagination only if there is more than 1 page
     if ( $max_page > 1 ) :
       if ( !$paged ) $paged = 1;

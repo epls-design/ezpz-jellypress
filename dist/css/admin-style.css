@@ -9,6 +9,7 @@
 /* THEME COLORS */
 /* TYPEFACES */
 /* FONT SIZES */
+/* FONT WEIGHTS */
 /* LINKS */
 /* ACCESSIBILITY */
 /* GLOBAL TRANSITION USED IN SMOOTH() */
@@ -32,6 +33,7 @@
 /* COLOURS */
 /* TYPEFACES */
 /* FONT SIZES */
+/* FONT WEIGHTS */
 /* LINKS */
 /* ACCESSIBILITY */
 /* GLOBAL TRANSITION USED IN SMOOTH() */
@@ -194,6 +196,9 @@ ul.acf-swatch-list > li {
 
 .bg-white {
   background-color: #fff; }
+
+.bg-black {
+  background-color: #000; }
 
 #mceu_71 {
   background: #fff;

@@ -25,6 +25,7 @@ if (! function_exists('jellypress_scripts') ) {
         // Enqueue Stylesheets
         wp_enqueue_style('jellypress-styles', get_stylesheet_uri(), array(), $css_version);
         wp_style_add_data('jellypress-styles', 'rtl', 'replace');
+        //wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap', null, null, 'all');
 
         // Enqueue Scripts
         wp_enqueue_script('jellypress-scripts', get_template_directory_uri() . '/dist/js/site.min.js', array('jquery'), $js_version, true);

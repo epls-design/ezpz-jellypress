@@ -29,7 +29,7 @@ defined( 'ABSPATH' ) || exit;
 <?php endif; ?>
 
 <?php if ($preamble) : ?>
-  <div class="row">
+  <div class="row preamble">
     <div class="col">
       <?php echo $preamble; ?>
     </div>

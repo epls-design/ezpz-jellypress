@@ -4,13 +4,9 @@
 
 .section__text-media  {
   // We want iFrames and Google Maps to take the full row height, with a minimum height
-  .embedded-iframe {
-    height: 100%;
+  .embedded-iframe, .google-map {
+    height: auto;
     width: 100%;
-    min-height: 300px;
-  }
-  .google-map {
-    height: 100%;
     min-height: 300px;
   }
 }

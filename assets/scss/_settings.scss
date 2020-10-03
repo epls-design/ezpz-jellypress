@@ -33,14 +33,16 @@ $color-white: #fff;
 //$color-warning: #FCCf14;
 //$color-error: #FF4200;
 
+//$color-headings-preferred: $color-primary;
+
 /* THEME COLORS */
 // Any variable you add here will have the following classes automatically created: .text-*, .bg-*, .label__*, .button__* and .callout__*
 $theme-colors: (
   "white": $color-white,
   // Eg.
   // "tomato": tomato,
-  // "black": #000,
-  // "white": #fff
+  "black": #000,
+  "white": #fff
   // TODO: Possible to use a text file config for ACF colour settings and dynamically populate? https://www.advancedcustomfields.com/resources/dynamically-populate-a-select-fields-choices/
 );
 
@@ -68,6 +70,11 @@ $theme-colors: (
 //$font-size-h4: $font-size-3;
 //$font-size-h5: $font-size-2;
 //$font-size-h6: $font-size-1;
+
+/* FONT WEIGHTS */
+//$weight-light: lighter;
+//$weight-normal: normal;
+//$weight-bold: bold;
 
 /* LINKS */
 //$link-color: $color-primary;

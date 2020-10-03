@@ -10,6 +10,7 @@
 /* THEME COLORS */
 /* TYPEFACES */
 /* FONT SIZES */
+/* FONT WEIGHTS */
 /* LINKS */
 /* ACCESSIBILITY */
 /* GLOBAL TRANSITION USED IN SMOOTH() */
@@ -54,6 +55,7 @@ SCSS FRAMEWORK BY MATT WEET
 /* COLOURS */
 /* TYPEFACES */
 /* FONT SIZES */
+/* FONT WEIGHTS */
 /* LINKS */
 /* ACCESSIBILITY */
 /* GLOBAL TRANSITION USED IN SMOOTH() */
@@ -368,6 +370,10 @@ sup {
 
 .flex {
   display: flex; }
+
+.flex-column {
+  display: flex;
+  flex-direction: column; }
 
 .align-top {
   align-items: flex-start !important; }
@@ -1391,6 +1397,8 @@ button.toggle-contrast svg {
 .bg-primary {
   background-color: #001496;
   color: #fff; }
+  .bg-primary h1, .bg-primary h2, .bg-primary h3, .bg-primary h4, .bg-primary h5, .bg-primary p.wp-block-subhead, .bg-primary h6 {
+    color: #fff; }
 
 .text-primary {
   color: #001496 !important; }
@@ -1398,6 +1406,8 @@ button.toggle-contrast svg {
 .bg-secondary {
   background-color: #a62579;
   color: #fff; }
+  .bg-secondary h1, .bg-secondary h2, .bg-secondary h3, .bg-secondary h4, .bg-secondary h5, .bg-secondary p.wp-block-subhead, .bg-secondary h6 {
+    color: #fff; }
 
 .text-secondary {
   color: #a62579 !important; }
@@ -1405,6 +1415,8 @@ button.toggle-contrast svg {
 .bg-tertiary {
   background-color: #8e1b1f;
   color: #fff; }
+  .bg-tertiary h1, .bg-tertiary h2, .bg-tertiary h3, .bg-tertiary h4, .bg-tertiary h5, .bg-tertiary p.wp-block-subhead, .bg-tertiary h6 {
+    color: #fff; }
 
 .text-tertiary {
   color: #8e1b1f !important; }
@@ -1412,6 +1424,8 @@ button.toggle-contrast svg {
 .bg-success {
   background-color: #77de65;
   color: #333333; }
+  .bg-success h1, .bg-success h2, .bg-success h3, .bg-success h4, .bg-success h5, .bg-success p.wp-block-subhead, .bg-success h6 {
+    color: #001496; }
 
 .text-success {
   color: #77de65 !important; }
@@ -1419,6 +1433,8 @@ button.toggle-contrast svg {
 .bg-warning {
   background-color: #FCCf14;
   color: #333333; }
+  .bg-warning h1, .bg-warning h2, .bg-warning h3, .bg-warning h4, .bg-warning h5, .bg-warning p.wp-block-subhead, .bg-warning h6 {
+    color: #001496; }
 
 .text-warning {
   color: #FCCf14 !important; }
@@ -1426,6 +1442,8 @@ button.toggle-contrast svg {
 .bg-error {
   background-color: #FF4200;
   color: #333333; }
+  .bg-error h1, .bg-error h2, .bg-error h3, .bg-error h4, .bg-error h5, .bg-error p.wp-block-subhead, .bg-error h6 {
+    color: #001496; }
 
 .text-error {
   color: #FF4200 !important; }
@@ -1433,9 +1451,20 @@ button.toggle-contrast svg {
 .bg-white {
   background-color: #fff;
   color: #333333; }
+  .bg-white h1, .bg-white h2, .bg-white h3, .bg-white h4, .bg-white h5, .bg-white p.wp-block-subhead, .bg-white h6 {
+    color: #001496; }
 
 .text-white {
   color: #fff !important; }
+
+.bg-black {
+  background-color: #000;
+  color: #fff; }
+  .bg-black h1, .bg-black h2, .bg-black h3, .bg-black h4, .bg-black h5, .bg-black p.wp-block-subhead, .bg-black h6 {
+    color: #fff; }
+
+.text-black {
+  color: #000 !important; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   BUTTONS
@@ -1574,6 +1603,19 @@ button.toggle-contrast svg {
   .button__white.button__outline:hover, .button__white:hover[type=reset], .wp-block-button.is-style-outline a.button__white:hover, .edit-link a.button__white:hover, .button__white.button__outline:focus, .button__white:focus[type=reset], .wp-block-button.is-style-outline a.button__white:focus, .edit-link a.button__white:focus, .button__white.button__outline:active, .button__white:active[type=reset], .wp-block-button.is-style-outline a.button__white:active, .edit-link a.button__white:active, a.button__white.button__outline:hover, a.button__white:hover[type=reset], .wp-block-button.is-style-outline a.button__white:hover, .edit-link a.button__white:hover, a.button__white.button__outline:focus, a.button__white:focus[type=reset], .wp-block-button.is-style-outline a.button__white:focus, .edit-link a.button__white:focus, a.button__white.button__outline:active, a.button__white:active[type=reset], .wp-block-button.is-style-outline a.button__white:active, .edit-link a.button__white:active {
     color: #fff; }
 
+.button__black, a.button__black {
+  background-color: #000;
+  border-color: #000;
+  color: #fff; }
+  .button__black:hover, .button__black:focus, .button__black:active, a.button__black:hover, a.button__black:focus, a.button__black:active {
+    background-color: #333333;
+    border-color: #333333;
+    color: #fff; }
+  .button__black:focus, a.button__black:focus {
+    box-shadow: 0px 0px 1px 3px #adadad; }
+  .button__black.button__outline:hover, .button__black:hover[type=reset], .wp-block-button.is-style-outline a.button__black:hover, .edit-link a.button__black:hover, .button__black.button__outline:focus, .button__black:focus[type=reset], .wp-block-button.is-style-outline a.button__black:focus, .edit-link a.button__black:focus, .button__black.button__outline:active, .button__black:active[type=reset], .wp-block-button.is-style-outline a.button__black:active, .edit-link a.button__black:active, a.button__black.button__outline:hover, a.button__black:hover[type=reset], .wp-block-button.is-style-outline a.button__black:hover, .edit-link a.button__black:hover, a.button__black.button__outline:focus, a.button__black:focus[type=reset], .wp-block-button.is-style-outline a.button__black:focus, .edit-link a.button__black:focus, a.button__black.button__outline:active, a.button__black:active[type=reset], .wp-block-button.is-style-outline a.button__black:active, .edit-link a.button__black:active {
+    color: #000; }
+
 .button__outline, [type=reset], .wp-block-button.is-style-outline a, .edit-link a, a.button__outline, a[type=reset], .wp-block-button.is-style-outline a, .edit-link a {
   background-color: transparent !important;
   color: inherit; }
@@ -1659,6 +1701,13 @@ button.toggle-contrast svg {
       color: #fff; }
       .callout__white a.callout-link:hover, .callout__white a.callout-link:focus, .callout__white a.callout-link:active {
         color: #cccccc; }
+  .callout__black {
+    border-color: #000;
+    background-color: #cccccc; }
+    .callout__black a.callout-link {
+      color: #000; }
+      .callout__black a.callout-link:hover, .callout__black a.callout-link:focus, .callout__black a.callout-link:active {
+        color: black; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   CARDS
@@ -1756,6 +1805,12 @@ button.toggle-contrast svg {
     color: #333333; }
     .label__white.label__outline {
       color: #fff; }
+  .label__black {
+    border-color: #000;
+    background-color: #000;
+    color: #fff; }
+    .label__black.label__outline {
+      color: #000; }
 
 .label-group {
   display: inline-flex;
@@ -2826,6 +2881,9 @@ p.has-background {
   padding-top: 0; }
 
 .section.bg-white + .section.bg-white {
+  padding-top: 0; }
+
+.section.bg-black + .section.bg-black {
   padding-top: 0; }
 
 .section__full-width .section-header, .section__full-width p:first-of-type {

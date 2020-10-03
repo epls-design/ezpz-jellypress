@@ -90,7 +90,7 @@ if (! function_exists('jellypress_setup') ) :
          * Register Image Sizes
          */
 
-        add_image_size( 'icon', 40, 40, true );
+        add_image_size( 'icon', 40, 40, true ); // Used by Google Maps
 
         /**
          * Gutenberg Supports

@@ -36,6 +36,9 @@ $color-success: #77de65 !default;
 $color-warning: #FCCf14 !default;
 $color-error: #FF4200 !default;
 
+// TODO: Documentation
+$color-headings-preferred: $color-primary !default;
+
 // Create an empty map. This allows the map to be defined in the project's settings file to include any colors as required
 $theme-colors: () !default;
 
@@ -76,6 +79,12 @@ $font-size-h3: $font-size-4 !default;
 $font-size-h4: $font-size-3 !default;
 $font-size-h5: $font-size-2 !default;
 $font-size-h6: $font-size-1 !default;
+
+/* FONT WEIGHTS */
+// TODO: Need documenting
+$weight-light: lighter !default;
+$weight-normal: normal !default;
+$weight-bold: bold !default;
 
 /* LINKS */
 $link-color: $color-primary !default;

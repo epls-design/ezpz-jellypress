@@ -7,6 +7,9 @@
   .bg-#{$name} {
     background-color: $color;
     color: choose-contrast-color($color,$color-text, $color-white);
+    #{headings()} {
+      color: choose-contrast-color($color, $color-white, $color-headings-preferred);
+    }
   }
   .text-#{$name} {
     color: $color !important;
