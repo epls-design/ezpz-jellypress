@@ -41,13 +41,12 @@ function jellypress_trimpara($text, $maxchar, $end='...') {
 }
 
 /**
- * Preg match search for [accent] and replace with a span with class .text-accent
+ * Preg match search for [[$string]] and replace with a span with class .text-accent
  */
 if ( ! function_exists( 'jellypress_bracket_tag_replace' ) ) {
   function jellypress_bracket_tag_replace($text) {
-    // TODO: Eventually replace this with a script that searches for what is in the square bracket and then uses that as a css .class
-    if (preg_match("~\[accent\](.*?)\[\/accent\]~",$text,$m)) {
-      $find = ['(\[accent\])', '(\[\/accent\])'];
+    if (preg_match("~\[\[(.*?)\]\]~",$text,$m)) {
+      $find = ['(\[\[)', '(\]\])'];
       $replace = ['<span class="text-accent">', '</span>'];
       return preg_replace($find, $replace,  $text);
     }

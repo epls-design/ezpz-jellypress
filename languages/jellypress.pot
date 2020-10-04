@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jellypress-wordpress-theme 1.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/unofficialmatt/jellypress/issues\n"
-"POT-Creation-Date: 2020-10-04 14:56:17+00:00\n"
+"POT-Creation-Date: 2020-10-04 15:01:59+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -119,10 +119,10 @@ msgstr[1] ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: template-layouts/map.php:53
+#: template-layouts/map.php:53 template-layouts/text-media.php:119
 #. translators: %s link to theme options page.
 msgid ""
-"You need to <a href=\"%s\" class=\"callout-link\">add af Google Maps API "
+"You need to <a href=\"%s\" class=\"callout-link\">add a Google Maps API "
 "key</a> in order to display a map on your website."
 msgstr ""
 

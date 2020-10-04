@@ -43,7 +43,7 @@
                             "label": "Section Title",
                             "name": "title",
                             "type": "textarea",
-                            "instructions": "If you'd like to add a title to the section, you can do so here. <strong>You can enclose text in an <code>[accent]<\/code> tag to emphasise certain words. For example <code>[accent]I am emphasised![\/accent] I am not!<\/code><\/strong>",
+                            "instructions": "If you'd like to add a title to the section, you can do so here. <strong>You can enclose text in double square brackets <code>[[  ]]<\/code> to emphasise certain words. For example <code>[[I am emphasised!]] I am not!<\/code><\/strong>",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -2102,5 +2102,5 @@
     ],
     "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1601735105
+    "modified": 1601746476
 }
