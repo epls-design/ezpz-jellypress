@@ -10,15 +10,21 @@ module.exports = function (grunt) {
         type: 'wp-theme', // Type of project (wp-plugin or wp-theme).
         domainPath: '/languages', // Where to save the POT file.
         exclude: [
-          'inc/acf-swatch/*' // Exclude ACF Swatch files
+          'node_modules/**/*.*',
+          'inc/tgm-plugin-activation.php',
+          'inc/plugins.php',
         ],
+        potFilename: 'jellypress.pot',
         potHeaders: {
           poedit: true,
           'x-poedit-keywordslist': true,
-          'Report-Msgid-Bugs-To': '<%= pkg.bugs.url %>'
+          'Report-Msgid-Bugs-To': '<%= pkg.bugs.url %>',
+          'X-Poedit-Country': 'United Kingdom',
+          'Last-Translator': '<%= pkg.author.name %> <<%= pkg.author.email %>>',
+          'Language-Team': '<%= pkg.author.name %> <<%= pkg.author.email %>>'
         },
         mainFile: 'style.css', // Main project file.
-        updateTimestamp: false // Whether the POT-Creation-Date should be updated without other changes.
+        updateTimestamp: false, // Whether the POT-Creation-Date should be updated without other changes.
       }
     }
   });
@@ -36,7 +42,6 @@ module.exports = function (grunt) {
           '*.php',
           '**/*.php',
           '!node_modules/*',
-          '!inc/acf-swatch/*'
         ]
       }
     }

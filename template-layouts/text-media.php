@@ -112,9 +112,14 @@ if ($media_type == 'iframe' || $media_type == 'map'){
             endif; ?>
           </div>
         <?php elseif(current_user_can( 'publish_posts' )):
-        // Show a warning for the admin to add an API key
-          _e('<div class="callout callout__error">You need to <a href="'.get_admin_url(null, 'admin.php?page=organisation-information').'" class="callout-link">add a Google Maps API key</a> in order to display a map on your website.</div>','jellypress');
-        endif; // google_maps_api_key
+          // Show a warning for the admin to add an API key
+          echo '<div class="callout callout__error">' .
+          sprintf(
+            /* translators: %s link to theme options page. */
+            __( 'You need to <a href="%s" class="callout-link">add a Google Maps API key</a> in order to display a map on your website.', 'jellypress' ),
+            esc_url( get_admin_url(null, 'admin.php?page=organisation-information' ) )
+          )
+          . '</div>';        endif; // google_maps_api_key
       }
       elseif ($media_type == 'iframe'){
         echo '<iframe class="embedded-iframe" src="'.$website_url.'"></iframe>';

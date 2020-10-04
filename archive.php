@@ -45,7 +45,7 @@ get_header();
             endwhile;
 
             if (  $wp_query->max_num_pages > 1 && $loading_type == 'button' ) {
-              _e('<div class="col xs-12"><button class="button-loadmore">Load More...</button></div>','jellypress');
+              echo '<div class="col xs-12"><button class="button-loadmore">' . __( 'Load More...', 'jellypress' ) . '</button></div>';
             };
 
             echo '</div>';

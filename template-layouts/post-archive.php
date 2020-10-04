@@ -57,11 +57,11 @@ defined( 'ABSPATH' ) || exit;
       }
 
       if ( $archive_query->max_num_pages > 1 && $loading_type == 'button' ) {
-        _e('<div class="col xs-12"><button class="button-loadmore">Load More...</button></div>','jellypress');
+        echo '<div class="col xs-12"><button class="button-loadmore">' . __( 'Load More...', 'jellypress' ) . '</button></div>';
       };
 
     } else {
-      _e('<div class="col">No posts matched your criteria.</div>', 'jellypress');
+      echo'<div class="col">' . __('No posts matched your criteria.', 'jellypress') . '</div>';
     }
   echo '</div>';
   wp_reset_postdata();

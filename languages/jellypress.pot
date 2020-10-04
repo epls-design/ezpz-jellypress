@@ -1,19 +1,19 @@
-# <!=Copyright (C) 2020
-# This file is distributed under the same license as the  package.=!>
+# <!=Copyright (C) 2020 Matt Weet <matt@weareboba.com>
+# This file is distributed under the UNLICENSED.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: jellypress-wordpress-theme 1.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/unofficialmatt/jellypress/issues\n"
-"POT-Creation-Date: 2020-06-21 12:20:46+00:00\n"
+"POT-Creation-Date: 2020-10-04 14:56:17+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: Matt Weet <matt@weareboba.com>\n"
+"Language-Team: Matt Weet <matt@weareboba.com>\n"
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-Country: United States\n"
+"X-Poedit-Country: United Kingdom\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: "
 "__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
@@ -23,6 +23,10 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: archive.php:48 template-layouts/post-archive.php:60
+msgid "Load More..."
+msgstr ""
 
 #: comments.php:39
 #. translators: 1: title.
@@ -40,6 +44,26 @@ msgstr ""
 
 #: header.php:31
 msgid "Skip to content"
+msgstr ""
+
+#: inc/acf.php:66 inc/acf.php:67
+msgid "About Jellypress"
+msgstr ""
+
+#: inc/acf.php:73
+msgid "Save updates"
+msgstr ""
+
+#: inc/acf.php:74
+msgid "Successfully updated organisation information"
+msgstr ""
+
+#: inc/helpers.php:126
+msgid "Development Site"
+msgstr ""
+
+#: inc/template-functions.php:112
+msgid "%1$s"
 msgstr ""
 
 #: inc/template-tags.php:70
@@ -67,7 +91,7 @@ msgstr ""
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
-#: inc/theme-setup.php:62
+#: inc/theme-setup.php:66
 msgid "Primary"
 msgstr ""
 
@@ -93,6 +117,17 @@ msgstr[1] ""
 #: search.php:32
 #. translators: %s: search query.
 msgid "Search Results for: %s"
+msgstr ""
+
+#: template-layouts/map.php:53
+#. translators: %s link to theme options page.
+msgid ""
+"You need to <a href=\"%s\" class=\"callout-link\">add af Google Maps API "
+"key</a> in order to display a map on your website."
+msgstr ""
+
+#: template-layouts/post-archive.php:64
+msgid "No posts matched your criteria."
 msgstr ""
 
 #: template-parts/content-404.php:17
@@ -138,13 +173,35 @@ msgstr ""
 msgid "Sections:"
 msgstr ""
 
-#: template-parts/content.php:57
+#: template-parts/content.php:58
 #. translators: %s: Name of current post. Only visible to screen readers
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: template-parts/content.php:68
+#: template-parts/content.php:69
 msgid "Pages:"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "jellypress-wordpress-theme"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "https://github.com/unofficialmatt/jellypress"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Jellypress is a Wordpress starter theme based on the Jellyfish CSS "
+"framework and Automattic's Underscores(_S) theme."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Matt Weet <matt@weareboba.com>"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.weareboba.com"
 msgstr ""
 
 #: comments.php:45

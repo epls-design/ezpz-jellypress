@@ -124,7 +124,7 @@ if ( ! function_exists( 'jellypress_show_dev_flag' ) ) :
     $url1 = parse_url(DEV_URL); // Defined in functions.php
     $url2 = parse_url(jellypress_get_full_url());
     if ($url1['host'] == $url2['host']){
-      _e('<div class="dev-flag">Development Site</div>', 'jellypress');
+      echo '<div class="dev-flag">' . __('Development Site', 'jellypress') . '</div>';
   }
   }
 endif;
