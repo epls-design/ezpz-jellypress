@@ -159,34 +159,6 @@ if (! function_exists('jellypress_acf_dashicons_support') ) {
 }
 add_action('admin_init', 'jellypress_acf_dashicons_support');
 
-/**
- * Include ACF Color Swatch Field
- * Makes the Section BG look a lot nicer and more intuitive for the user
- *
- * @link https://github.com/nickforddesign/acf-swatch
- */
-
-add_filter('acf/swatch_settings/path', 'jellypress_acf_swatch_path', 10, 1);
-
-if (! function_exists('jellypress_acf_swatch_path') ) {
-    function jellypress_acf_swatch_path( $path )
-    {
-        $path = get_template_directory() . '/inc/acf-swatch';
-        return $path;
-    }
-}
-add_filter('acf/swatch_settings/url', 'jellypress_acf_swatch_url', 10, 1);
-
-if (! function_exists('jellypress_acf_swatch_url') ) {
-    function jellypress_acf_swatch_url( $url )
-    {
-        $url = get_template_directory_uri() . '/inc/acf-swatch';
-        return $url;
-    }
-}
-
-require 'acf-swatch/acf-swatch.php';
-
 if (! function_exists('jellypress_searchable_acf') ) {
     /**
      * jellypress_searchable_acf list all the custom fields we want to include in our search query]

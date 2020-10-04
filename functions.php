@@ -17,6 +17,8 @@ if (! defined('DEV_URL') ) {
 }
 
 $jellypress_includes = array(
+  '/tgm-plugin-activation.php',   // Third party script to allow required/recommended plugins
+  '/plugins.php',                 // Require and recommend plugins for this theme
   '/helpers.php',                 // Useful helper functions
 	'/theme-setup.php',             // Basic theme setup
 	'/widgets.php',                 // Register widget areas
