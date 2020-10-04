@@ -1,5 +1,5 @@
 /*! jellypress-wordpress-theme 1.1.0
- * © 2020-10-03 Matt Weet - https://www.weareboba.com */
+ * © 2020-10-04 Matt Weet - https://www.weareboba.com */
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   USEFUL MIXINS AND FUNCTIONS
@@ -430,6 +430,7 @@
   border-radius: 4px;
   border-color: #77de65;
   background-color: #e4f8e0;
+  color: #333333;
   border-top-color: #6bc85b; }
   .woocommerce-message a.callout-link, .woocommerce-info a.callout-link, .woocommerce-error a.callout-link, .woocommerce-noreviews a.callout-link,
   .woocommerce p.no-comments a.callout-link {
@@ -475,6 +476,7 @@
 .woocommerce p.no-comments {
   border-color: #001496;
   background-color: #ccd0ea;
+  color: #333333;
   border-top-color: #001287; }
   .woocommerce-info a.callout-link, .woocommerce-noreviews a.callout-link,
   .woocommerce p.no-comments a.callout-link {
@@ -519,6 +521,7 @@
 .woocommerce-error {
   border-color: #FF4200;
   background-color: #ffd9cc;
+  color: #333333;
   border-top-color: #e63b00; }
   .woocommerce-error a.callout-link {
     color: #FF4200; }

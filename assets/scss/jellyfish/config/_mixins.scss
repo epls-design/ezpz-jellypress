@@ -157,6 +157,7 @@
 @mixin create_callout($callout-color) {
   border-color: $callout-color;
   background-color: tint($callout-color, $callout-tint-perc);
+  color: choose-contrast-color(tint($callout-color, $callout-tint-perc),$color-text,$color-white);
   a.callout-link {
     color: $callout-color;
     &:hover, &:focus, &:active {
