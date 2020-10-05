@@ -35,14 +35,6 @@ function jellypress_register_required_plugins() {
      * Plugins required by the theme
      */
 
-		// Include from the WordPress Plugin Repository.
-		array(
-			'name'      => 'ACF Color Swatches',
-			'slug'      => 'acf-color-swatches',
-      'required'  => true,
-      'force_activation'  => true,
-    ),
-
     // Include from an external source
 		array(
 			'name'         => 'ACF Field Group Values',

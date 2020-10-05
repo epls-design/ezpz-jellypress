@@ -169,31 +169,29 @@
                             "endpoint": 0
                         },
                         {
-                            "key": "field_5d6a49999f6aa",
+                            "key": "field_5f79f27510540",
                             "label": "Background Colour",
                             "name": "background_color",
-                            "type": "swatch",
+                            "type": "button_group",
                             "instructions": "Select the background colour you would like for this section.",
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
                                 "width": "34",
-                                "class": "",
+                                "class": "swatches",
                                 "id": ""
                             },
                             "choices": {
-                                "#fff": "White",
-                                "#000": "Black",
-                                "#b22d4f": "Primary",
-                                "#2d6378": "Secondary",
-                                "#5d2b50": "Tertiary"
+                                "white": "<span class=\"swatch bg-white\"><\/span>",
+                                "black": "<span class=\"swatch bg-black\"><\/span>",
+                                "primary": "<span class=\"swatch bg-primary\"><\/span>",
+                                "secondary": "<span class=\"swatch bg-secondary\"><\/span>",
+                                "tertiary": "<span class=\"swatch bg-tertiary\"><\/span>"
                             },
                             "allow_null": 0,
-                            "default_value": "#fff",
-                            "layout": "vertical",
-                            "return_format": "label",
-                            "other_choice": 0,
-                            "save_other_choice": 0
+                            "default_value": "white",
+                            "layout": "horizontal",
+                            "return_format": "value"
                         },
                         {
                             "key": "field_5d7425944f9af",
@@ -431,7 +429,7 @@
                             },
                             "clone": [
                                 "field_5eb3b7b903856",
-                                "field_5d6a49999f6aa"
+                                "field_5f79f27510540"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -2102,5 +2100,5 @@
     ],
     "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1601746476
+    "modified": 1601878711
 }

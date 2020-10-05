@@ -1,5 +1,5 @@
 /*! jellypress-wordpress-theme 1.1.0
- * © 2020-10-04 Matt Weet - https://www.weareboba.com */
+ * © 2020-10-05 Matt Weet - https://www.weareboba.com */
 
 /* GRID */
 /* JELLYFISH DEFAULTS */
@@ -137,11 +137,26 @@
   width: 15px;
   margin-top: 4px; }
 
-ul.acf-swatch-list label {
-  font-size: 0px; }
+.swatches label {
+  padding: 0;
+  border: 0;
+  margin-right: 6px;
+  border-radius: 0px !important; }
+  .swatches label.selected {
+    border: 0 !important;
+    background: none !important; }
+    .swatches label.selected .swatch {
+      border: 3px solid #1e8cbe !important; }
+  .swatches label:hover .swatch {
+    border: 1px solid #1e8cbe !important; }
 
-ul.acf-swatch-list > li {
-  display: inline-block; }
+.swatches .swatch {
+  width: 30px;
+  height: 30px;
+  display: block;
+  box-sizing: border-box;
+  border-radius: 6px !important;
+  border: 1px solid #eee; }
 
 .acf-tooltip li a[data-layout$=image], .acf-tooltip li a[data-layout$=linked-posts] {
   border-top: 1px solid rgba(255, 255, 255, 0.2); }

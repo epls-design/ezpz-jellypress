@@ -114,15 +114,34 @@ $handle_color: #23282d;
   }
 }
 
-ul.acf-swatch-list {
 
-  // ACF Colour Swatch Plugin
+// Wrap a button group in .swatches and use a span with class .swatch for the button to make the buttons appear as block colours
+.swatches {
   label {
-    font-size: 0px;
+    padding: 0;
+    border: 0;
+    margin-right: 6px;
+    border-radius: 0px !important;
+    &.selected {
+      border: 0 !important;
+      background: none !important;
+      .swatch {
+        border: 3px solid #1e8cbe !important;
+      }
+    }
+    &:hover {
+      .swatch {
+        border: 1px solid #1e8cbe !important;
+      }
+    }
   }
-
-  &>li {
-    display: inline-block;
+  .swatch {
+    width: 30px;
+    height: 30px;
+    display: block;
+    box-sizing: border-box;
+    border-radius: 6px !important;
+    border: 1px solid #eee;
   }
 }
 
