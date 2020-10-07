@@ -42,6 +42,7 @@ function jellypress_register_required_plugins() {
 			'source'       => 'https://github.com/timothyjensen/acf-field-group-values/archive/master.zip',
       'required'     => true,
       'force_activation'  => true,
+      'force_deactivation'  => true,
       'external_url' => 'https://github.com/timothyjensen/acf-field-group-values',
     ),
 
@@ -53,7 +54,16 @@ function jellypress_register_required_plugins() {
       'force_activation'  => true,
 			'external_url' => 'https://github.com/wp-premium/advanced-custom-fields-pro',
     ),
-    // TODO: Add ezpz Clean up plugin - linked to Github repo. Not sure how this wrks when updated so test it.
+
+    array(
+      //
+			'name'         => 'EZPZ Wordpress Starter',
+			'slug'         => 'ezpz-setup',
+			'source'       => 'https://github.com/epls-design/ezpz-cleanup/archive/master.zip',
+      'required'     => true,
+      //'force_activation'  => true, // TODO:  Comment this in before site launch. There is a conflict between TGMPA activation and DISALLOW_FILE_EDIT. If DISALLOW_FILE_EDIT is set, TGMPA can not seem to activate plugins. The EZPZ plugin sets DISALLOW_FILE_EDIT to true.
+			'external_url' => 'https://github.com/epls-design/ezpz-cleanup',
+    ),
 
     /**
      * Plugins recommended by the theme

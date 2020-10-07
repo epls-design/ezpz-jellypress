@@ -214,6 +214,7 @@ if ( ! function_exists( 'jellypress_excerpt' ) ) :
     // TODO: Extend this function so that if neither the excerpt or custom field exists, it will try to find some text on the page and use this
     // Could possibly be improved with https://www.charlyanderson.co.uk/blog/acf-snippets/
     if($custom_field) {
+      // TODO: Rewrite so it is no longer using get_field but instead takes a passed value. See Oasis for some fall back stuff
       $custom_field_excerpt = get_field( $custom_field ); // Get the field from ACF
       $trimmed_content = wp_trim_words($custom_field_excerpt); // Strip images and tags
       $clean_excerpt = apply_filters('the_excerpt', $trimmed_content); // Apply the excerpt filter
@@ -221,10 +222,12 @@ if ( ! function_exists( 'jellypress_excerpt' ) ) :
     }
     else {
       // If the field is empty, show the normal excerpt from Wordpress
-      the_excerpt();
+      the_excerpt(); // Can I hook into the excerpt filter, eg. to use this for Yoast Desc?
     }
   }
 endif;
+
+// TODO: Hook into featured image and replace with a ACF image? Eg. for Yoast SEO
 
 /**
  * This function effectively does the same job as the_post_navigation() but wraps the navigation in Jellyfish compliant classes.
