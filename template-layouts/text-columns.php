@@ -9,11 +9,9 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-?>
-
-<?php
-  $section_id = get_query_var('section_id');
-  $title = get_sub_field( 'title' );
+$section_id = get_query_var('section_id');
+$section = get_query_var('section');
+$title = $section['title'];
 ?>
 
 <?php if ($title) : ?>
@@ -24,20 +22,20 @@ defined( 'ABSPATH' ) || exit;
 </header>
 <?php endif; ?>
 
-<?php if ( have_rows( 'columns' ) ) : ?>
+<?php if ( $columns = $section['columns'] ) : ?>
   <div class="row">
-    <?php while ( have_rows( 'columns' ) ) : the_row(); ?>
+    <?php foreach ($columns as $column): ?>
       <div class="col xs-12 md-0">
-        <?php the_sub_field( 'editor' ); ?>
+        <?php jellypress_content($column['editor']); ?>
       </div>
-    <?php endwhile; ?>
+    <?php endforeach; ?>
   </div>
 <?php endif; ?>
 
-<?php if ( have_rows( 'buttons' ) ) : ?>
+<?php if ( $section['buttons'] ) : ?>
   <div class="row">
     <div class="col text-center">
-      <?php jellypress_show_cta_buttons(); ?>
+      <?php jellypress_show_cta_buttons($section['buttons']); ?>
     </div>
   </div>
 <?php endif; ?>

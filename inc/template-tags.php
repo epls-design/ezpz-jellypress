@@ -256,3 +256,17 @@ if ( ! function_exists( 'jellypress_post_navigation' ) ) :
 endif;
 
 // TODO: Add a function to get a list of terms attached to a post. Option to pass an array of term names or get all terms https://developer.wordpress.org/reference/functions/get_the_terms/
+
+if ( ! function_exists( 'jellypress_content' ) ) :
+  /* @Recreate the default filters on the_content so we can pull formatted content with get_post_meta and get_all_custom_field_meta */
+  add_filter( 'meta_content', 'wptexturize'        );
+  add_filter( 'meta_content', 'convert_smilies'    );
+  add_filter( 'meta_content', 'convert_chars'      );
+  add_filter( 'meta_content', 'wpautop'            );
+  add_filter( 'meta_content', 'shortcode_unautop'  );
+  add_filter( 'meta_content', 'prepend_attachment' );
+
+  function jellypress_content($unformatted_content) {
+    echo apply_filters('meta_content', $unformatted_content);
+  }
+endif;

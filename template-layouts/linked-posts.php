@@ -13,14 +13,12 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-?>
-
-<?php
-  $section_id = get_query_var('section_id');
-  $title = get_sub_field( 'title' );
-  $preamble = get_sub_field('preamble');
-  $query_type = get_sub_field('query_type');
-  $posts_array = array(); // Create an empty array to store posts ready for the loop
+$section_id = get_query_var('section_id');
+$section = get_query_var('section');
+$title = $section['title'];
+$preamble = $section['preamble'];
+$query_type = $section['query_type'];
+$posts_array = array(); // Create an empty array to store posts ready for the loop
 ?>
 
 <?php if ($title) : ?>
@@ -34,7 +32,7 @@ defined( 'ABSPATH' ) || exit;
 <?php if ($preamble) : ?>
   <div class="row preamble">
     <div class="col">
-      <?php echo $preamble; ?>
+      <?php jellypress_content($preamble); ?>
     </div>
   </div>
 <?php endif; ?>
@@ -46,15 +44,15 @@ defined( 'ABSPATH' ) || exit;
  */
 
 if($query_type == 'rand' || $query_type == 'date') {
-  $query_post_type = get_sub_field( 'query_post_type' );
-  $query_quantity = get_sub_field( 'query_quantity' );
+  $query_post_type = $section['query_post_type'];
+  $query_quantity = $section['query_quantity'];
 }
 
 if($query_type == 'specified'):
-  $queried_posts = get_sub_field( 'specified_posts' );
+  $queried_posts = $section['specified_posts'];
     if ( $queried_posts ):
       foreach ( $queried_posts as $post_to_display ):
-        array_push($posts_array, $post_to_display->ID);
+        array_push($posts_array, $post_to_display);
       endforeach;
     endif;
 elseif($query_type == 'rand' || $query_type == 'date'):
@@ -63,6 +61,7 @@ elseif($query_type == 'rand' || $query_type == 'date'):
     'posts_per_page' => $query_quantity,
     'orderby' => $query_type
   ) );
+
   if ( $query_posts_from_db->have_posts() ) :
     while ( $query_posts_from_db->have_posts() ) :
       // Not sure if this is the most efficient way to do this ... seems like an expensive query
@@ -91,10 +90,10 @@ endif;
 
 ?>
 
-<?php if ( have_rows( 'buttons' ) ) : ?>
+<?php if ( $section['buttons'] ) : ?>
   <div class="row">
     <div class="col text-center">
-      <?php jellypress_show_cta_buttons(); ?>
+      <?php jellypress_show_cta_buttons($section['buttons']); ?>
     </div>
   </div>
 <?php endif; ?>

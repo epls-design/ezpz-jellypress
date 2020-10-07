@@ -12,14 +12,12 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-?>
-
-<?php
-  $section_id = get_query_var('section_id');
-  $title = get_sub_field( 'title' );
-  $preamble = get_sub_field('preamble');
-  $post_type = get_sub_field( 'query_post_type' );
-  $loading_type = get_sub_field( 'loading_type' );
+$section_id = get_query_var('section_id');
+$section = get_query_var('section');
+$title = $section['title'];
+$preamble = $section['preamble'];
+$post_type = $section['query_post_type'];
+$loading_type = $section['loading_type'];
 ?>
 
 <?php if ($title) : ?>
@@ -33,7 +31,7 @@ defined( 'ABSPATH' ) || exit;
 <?php if ($preamble) : ?>
   <div class="row preamble">
     <div class="col">
-      <?php echo $preamble; ?>
+      <?php jellypress_content($preamble); ?>
     </div>
   </div>
 <?php endif; ?>
@@ -67,13 +65,14 @@ defined( 'ABSPATH' ) || exit;
   wp_reset_postdata();
   ?>
 
-<?php if ( have_rows( 'buttons' ) ) : ?>
+<?php if ( $section['buttons'] ) : ?>
   <div class="row">
     <div class="col text-center">
-      <?php jellypress_show_cta_buttons(); ?>
+      <?php jellypress_show_cta_buttons($section['buttons']); ?>
     </div>
   </div>
 <?php endif; ?>
+
 <?php
 jellypress_initialize_ajax_posts($archive_query, $loading_type);
  ?>

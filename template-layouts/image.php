@@ -9,13 +9,11 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-?>
-
-<?php
-  $section_id = get_query_var('section_id');
-  $image = get_sub_field( 'image' );
-  $size = 'full';
-  $width = get_sub_field( 'full_width' );
+$section_id = get_query_var('section_id');
+$section = get_query_var('section');
+$image = $section['image'];
+$size = 'full';
+$width = $section['full_width'];
 ?>
 
 <div class="row">

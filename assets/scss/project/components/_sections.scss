@@ -37,6 +37,8 @@
   }
 }
 
+
+// TODO: This needs some more work. Need to test full_width and different/same preceding before bg colour
 // If two sections follow with the same bg color, remove the top padding so that there is not a chasm of space
 @each $name, $color in $theme-colors {
   .section.bg-#{$name} {
@@ -48,13 +50,11 @@
 
 // Some full width sections have headers or preambles - reinstate the top padding on these to open them back up and prevent crashing
 .section__full-width {
-  .section-header, p:first-of-type {
+  .section-header, .preamble {
     margin-top: $section-padding;
   }
-  header+.row {
+  header+.preamble {
     // If there is a header we don't want the top margin
-    p:first-of-type {
-      margin-top: 0 !important;
-    }
+    margin-top: 0 !important;
   }
 }

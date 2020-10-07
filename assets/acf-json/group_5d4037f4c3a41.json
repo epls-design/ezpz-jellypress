@@ -107,7 +107,7 @@
                             },
                             "collapsed": "",
                             "min": 0,
-                            "max": 0,
+                            "max": 4,
                             "layout": "table",
                             "button_label": "",
                             "sub_fields": [
@@ -694,12 +694,12 @@
                                     "placeholder": ""
                                 },
                                 {
-                                    "key": "field_5f730763e1935",
+                                    "key": "field_5f7d6893c4962",
                                     "label": "Location",
-                                    "name": "location_group",
-                                    "type": "group",
+                                    "name": "location",
+                                    "type": "repeater",
                                     "instructions": "",
-                                    "required": 0,
+                                    "required": 1,
                                     "conditional_logic": [
                                         [
                                             {
@@ -710,36 +710,22 @@
                                         ]
                                     ],
                                     "wrapper": {
-                                        "width": "100",
-                                        "class": "seamless",
+                                        "width": "",
+                                        "class": "",
                                         "id": ""
                                     },
-                                    "layout": "block",
+                                    "collapsed": "",
+                                    "min": 1,
+                                    "max": 1,
+                                    "layout": "table",
+                                    "button_label": "",
                                     "sub_fields": [
                                         {
-                                            "key": "field_5f730763e1936",
-                                            "label": "Location",
-                                            "name": "location_marker",
-                                            "type": "google_map",
-                                            "instructions": "Please select a location for the marker on this map.",
-                                            "required": 1,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "center_lat": "",
-                                            "center_lng": "",
-                                            "zoom": "",
-                                            "height": ""
-                                        },
-                                        {
-                                            "key": "field_5f730763e1937",
-                                            "label": "Location Icon",
-                                            "name": "location_icon",
-                                            "type": "image",
-                                            "instructions": "Add an optional image for the marker, if you want to override the default.",
+                                            "key": "field_5f7d6937b63e8",
+                                            "label": "Maps Clone",
+                                            "name": "maps_clone",
+                                            "type": "clone",
+                                            "instructions": "",
                                             "required": 0,
                                             "conditional_logic": 0,
                                             "wrapper": {
@@ -747,79 +733,14 @@
                                                 "class": "",
                                                 "id": ""
                                             },
-                                            "return_format": "array",
-                                            "preview_size": "icon",
-                                            "library": "all",
-                                            "min_width": 40,
-                                            "min_height": 40,
-                                            "min_size": "",
-                                            "max_width": "",
-                                            "max_height": "",
-                                            "max_size": "",
-                                            "mime_types": "png, jpg, jpeg"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "key": "field_5f7307c0e1938",
-                                    "label": "Tooltip",
-                                    "name": "tooltip_information",
-                                    "type": "group",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": [
-                                        [
-                                            {
-                                                "field": "field_5eb59a10540b3",
-                                                "operator": "==",
-                                                "value": "map"
-                                            }
-                                        ]
-                                    ],
-                                    "wrapper": {
-                                        "width": "100",
-                                        "class": "seamless",
-                                        "id": ""
-                                    },
-                                    "layout": "block",
-                                    "sub_fields": [
-                                        {
-                                            "key": "field_5f7307c0e1939",
-                                            "label": "Tooltip Text",
-                                            "name": "location_tooltip_text",
-                                            "type": "wysiwyg",
-                                            "instructions": "Please add some optional text for this location's tooltip.",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "tabs": "all",
-                                            "toolbar": "full",
-                                            "media_upload": 0,
-                                            "delay": 0
-                                        },
-                                        {
-                                            "key": "field_5f7307c0e193a",
-                                            "label": "Display Address",
-                                            "name": "display_address",
-                                            "type": "true_false",
-                                            "instructions": "Would you like to display the address information on the tooltip?",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "message": "",
-                                            "default_value": 1,
-                                            "ui": 1,
-                                            "ui_on_text": "",
-                                            "ui_off_text": ""
+                                            "clone": [
+                                                "field_5f72f0a8ca719",
+                                                "field_5f72f11aca71b"
+                                            ],
+                                            "display": "seamless",
+                                            "layout": "block",
+                                            "prefix_label": 0,
+                                            "prefix_name": 0
                                         }
                                     ]
                                 }
@@ -2100,5 +2021,5 @@
     ],
     "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1601878711
+    "modified": 1602054495
 }

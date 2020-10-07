@@ -9,14 +9,12 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-?>
-
-<?php
-  $section_id = get_query_var('section_id');
-  $title = get_sub_field( 'title' );
-  $website_url = get_sub_field( 'website_url' );
-  $width = get_sub_field( 'full_width' );
-  $preamble = get_sub_field('preamble');
+$section_id = get_query_var('section_id');
+$section = get_query_var('section');
+$title = $section['title'];
+$website_url = $section['website_url'];
+$width = $section['full_width'];
+$preamble = $section['preamble'];
 ?>
 
 <?php if ($title) : ?>
@@ -30,7 +28,7 @@ defined( 'ABSPATH' ) || exit;
 <?php if ($preamble) : ?>
   <div class="row preamble">
     <div class="col">
-      <?php echo $preamble; ?>
+      <?php jellypress_content($preamble); ?>
     </div>
   </div>
 <?php endif; ?>

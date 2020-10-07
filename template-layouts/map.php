@@ -11,13 +11,12 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-?>
-
-<?php
-  $section_id = get_query_var('section_id');
-  $title = get_sub_field( 'title' );
-  $width = get_sub_field( 'full_width' );
-  $preamble = get_sub_field('preamble');
+$section_id = get_query_var('section_id');
+$section = get_query_var('section');
+$title = $section['title'];
+$width = $section['full_width'];
+$preamble = $section['preamble'];
+//var_dump($section);
 ?>
 
 <?php if ($title) : ?>
@@ -31,7 +30,7 @@ defined( 'ABSPATH' ) || exit;
 <?php if ($preamble) : ?>
   <div class="row preamble">
     <div class="col">
-      <?php echo $preamble; ?>
+      <?php jellypress_content($preamble); ?>
     </div>
   </div>
 <?php endif; ?>
@@ -39,13 +38,10 @@ defined( 'ABSPATH' ) || exit;
 <div class="row">
   <div class="col">
     <?php if ( $width == 1 ){ echo '<div class="vw-100">'; }
-        if (get_field('google_maps_api_key', 'option') && ( have_rows( 'locations' ) )) : ?>
-          <div class="google-map">
-            <?php while ( have_rows( 'locations' ) ) : the_row();
-              jellypress_display_map_markers();
-            endwhile; ?>
-          </div>
-        <?php elseif(current_user_can( 'publish_posts' )):
+    // TODO: Replace all calls to get option with some more efficient way - cache or set constant
+        if (get_field('google_maps_api_key', 'option') && ($locations = $section['locations'])) :
+          jellypress_display_map_markers($locations);
+        elseif(current_user_can( 'publish_posts' )):
           // Show a warning for the admin to add an API key
           echo '<div class="callout callout__error">' .
           sprintf(

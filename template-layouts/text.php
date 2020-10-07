@@ -9,11 +9,9 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-?>
-
-<?php
-  $section_id = get_query_var('section_id');
-  $title = get_sub_field( 'title' );
+$section_id = get_query_var('section_id');
+$section = get_query_var('section');
+$title = $section['title'];
 ?>
 
 <?php if ($title) : ?>
@@ -26,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
 
 <div class="row">
   <div class="col">
-    <?php the_sub_field( 'text' ); ?>
-    <?php jellypress_show_cta_buttons(); ?>
+    <?php jellypress_content($section['text']); ?>
+    <?php jellypress_show_cta_buttons($section['buttons']); ?>
   </div>
 </div>

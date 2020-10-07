@@ -1,5 +1,5 @@
 /*! jellypress-wordpress-theme 1.1.0
- * © 2020-10-05 Matt Weet - https://www.weareboba.com */
+ * © 2020-10-07 Matt Weet - https://www.weareboba.com */
 
 @charset "UTF-8";
 /* GRID */
@@ -2890,10 +2890,10 @@ p.has-background {
 .section.bg-black + .section.bg-black {
   padding-top: 0; }
 
-.section__full-width .section-header, .section__full-width p:first-of-type {
+.section__full-width .section-header, .section__full-width .preamble {
   margin-top: 70px; }
 
-.section__full-width header + .row p:first-of-type {
+.section__full-width header + .preamble {
   margin-top: 0 !important; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
