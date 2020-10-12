@@ -32,7 +32,7 @@ get_header();
 
             jellypress_entry_footer(); // Call function from template-tags
             ?>
-            </article><!-- /#post-<?php the_ID(); ?> -->
+            </article>
             <?php
             jellypress_post_navigation();
 
@@ -41,10 +41,10 @@ get_header();
               comments_template();
             endif;
           endwhile; // End of the loop. ?>
-        </main><!-- /#main -->
-      </div><!-- /#primary .col -->
+        </main>
+      </div>
       <?php get_sidebar(); ?>
-    </div><!-- /.row -->
-  </div><!-- /.container -->
+    </div>
+  </div>
 <?php
 get_footer();

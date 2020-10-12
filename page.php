@@ -28,7 +28,7 @@ get_header();
 
           jellypress_entry_footer(); // Call function from template-tags
           ?>
-    </article><!-- /#post-<?php the_ID(); ?> -->
+    </article>
           <?php
           // If comments are open or we have at least one comment, load up the comment template.
           if ( comments_open() || get_comments_number() ) :
@@ -36,8 +36,8 @@ get_header();
           endif;
         endwhile; // End of the loop.
       ?>
-  </main><!-- /#main -->
-</div><!-- /#primary -->
+  </main>
+</div>
 <?php
 // get_sidebar(); // By default, Jellypress does not support sidebars on page templates
 get_footer();

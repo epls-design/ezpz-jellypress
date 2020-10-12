@@ -17,4 +17,4 @@ if ( ! is_active_sidebar( 'default-sidebar' ) ) {
 ?>
 <aside id="secondary" class="section widget-area col xs-12 md-3">
 	<?php dynamic_sidebar( 'default-sidebar' ); ?>
-</aside><!-- /#secondary -->
+</aside>

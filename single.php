@@ -24,7 +24,7 @@ get_header();
 
         jellypress_entry_footer(); // Call function from template-tags
         ?>
-    </article><!-- /#post-<?php the_ID(); ?> -->
+    </article>
         <?php
         jellypress_post_navigation();
 
@@ -33,8 +33,8 @@ get_header();
           comments_template();
         endif;
       endwhile; // End of the loop. ?>
-  </main><!-- /#main -->
-</div><!-- /#primary -->
+  </main>
+</div>
 <?php
 // get_sidebar(); // By default, Jellypress does not support sidebars on post templates. You can re-enable this if you like, but it will be quicker to use the template single-sidebar instead
 get_footer();

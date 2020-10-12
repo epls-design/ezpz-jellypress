@@ -13,7 +13,7 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
-	</div><!-- /#content .site-content -->
+	</div><?php //#content .site-content ?>
 	<footer class="site-footer">
     <div class="container">
       <div class="row">
@@ -28,11 +28,11 @@ defined( 'ABSPATH' ) || exit;
             ?>
             </span>
           </p>
-        </div><!-- /#colophon -->
-      </div><!-- /.row -->
-    </div><!-- /.container -->
-	</footer><!-- /.site-footer -->
-</div><!-- /#page -->
+        </div>
+      </div>
+    </div>
+	</footer>
+</div>
 <?php wp_footer(); ?>
 </body>
 </html>

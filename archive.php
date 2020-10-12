@@ -32,7 +32,7 @@ get_header();
               the_archive_title( '<h1 class="page-title">', '</h1>' );
               the_archive_description( '<div class="archive-description">', '</div>' );
               ?>
-            </header><!-- /.page-header -->
+            </header>
 
             <?php
             echo '<div class="row equal-height archive-feed feed-'.$post_type.'" id="feed-'.$post_type.'">';
@@ -54,11 +54,11 @@ get_header();
               get_template_part( 'template-parts/content', 'none' );
             endif; ?>
 
-          </main><!-- /#main -->
-        </div><!-- /#primary .col -->
+          </main>
+        </div>
       <?php get_sidebar(); // TODO: Remove if you don't want a sidebar on your archive page ?>
-    </div><!-- /.row -->
-  </div><!-- /.container -->
+    </div>
+  </div>
 <?php
 jellypress_initialize_ajax_posts(null, $loading_type); // Initialise on $wp_query
 get_footer();

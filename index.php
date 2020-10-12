@@ -58,8 +58,8 @@ get_header();
     get_template_part( 'template-parts/content', 'none' );
   endif;
   ?>
-  </main><!-- /#main -->
-</div><!-- /#primary -->
+  </main>
+</div>
 <?php
 // get_sidebar(); // By default, Jellypress does not support sidebars on page templates
 get_footer();

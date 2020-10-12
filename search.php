@@ -32,7 +32,7 @@ get_header();
                   printf( esc_html__( 'Search Results for: %s', 'jellypress' ), '<span>' . get_search_query() . '</span>' );
                   ?>
               </h1>
-            </header><!-- /.page-header -->
+            </header>
 
             <?php
               /* Start the Loop */
@@ -47,9 +47,9 @@ get_header();
             endif; ?>
 
         </main><!--/#main -->
-      </div><!-- /#primary .col -->
+      </div>
     <?php get_sidebar(); // TODO: Remove if you don't want a sidebar on your search results page ?>
-  </div><!-- /.row -->
-</div><!-- /.container -->
+  </div>
+</div>
 <?php
 get_footer();

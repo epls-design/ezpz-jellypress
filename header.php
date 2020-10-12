@@ -50,7 +50,7 @@ defined( 'ABSPATH' ) || exit;
                 <span class="hamburger-inner"></span>
               </span>
             </button>
-          </div><!-- /.navbar-brand -->
+          </div>
           <div id="navbar-menu" class="navbar-menu">
             <div class="navbar-start">
               <?php
@@ -63,8 +63,8 @@ defined( 'ABSPATH' ) || exit;
             <div class="navbar-end">
               <!-- TODO: Remove .navbar-end if not required in theme -->
             </div>
-          </div><!-- /#navbar-menu -->
-        </div><!-- /.container -->
-      </nav><!-- /.navbar -->
-    </header><!-- /#masthead -->
+          </div>
+        </div>
+      </nav>
+    </header>
     <div id="content" class="site-content">
