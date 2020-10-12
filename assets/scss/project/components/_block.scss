@@ -1,15 +1,16 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  SECTIONS
-  Styling for site wide sections
+  BLOCS
+  Styling for ACF flexible content
+  blocks
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-.section {
+.block {
 
-  padding-top: $section-padding;
-  padding-bottom: $section-padding - $element-margin; // Negates for the last element in a section, rather than using :last-of-type
+  padding-top: $block-padding;
+  padding-bottom: $block-padding - $element-margin; // Negates for the last element in a block, rather than using :last-of-type
   position: relative;
 
-  // ACF Section: Image
+  // ACF Block: Image
   &__image {
     img {
       width: 100%; // Force image to be fullwidth
@@ -25,7 +26,7 @@
     }
   }
 
-  // ACF Section: Image Gallery
+  // ACF Block: Image Gallery
   &__gallery {
     .gallery-item {
       display: inline-block;
@@ -39,21 +40,23 @@
 
 
 // TODO: This needs some more work. Need to test full_width and different/same preceding before bg colour
-// If two sections follow with the same bg color, remove the top padding so that there is not a chasm of space
+// If two blocks follow with the same bg color, remove the top padding so that there is not a chasm of space
 @each $name, $color in $theme-colors {
-  .section.bg-#{$name} {
-    &+& {
-      padding-top: 0;  // Remove padding top if it follows a section with the same bg color
+  .block.bg-#{$name} {
+    &:not(.block__full-width) { // Parent container not also full width
+      &+& {
+        padding-top: 0;  // Remove padding top if it follows a block with the same bg color
+      }
     }
   }
 }
 
-// Some full width sections have headers or preambles - reinstate the top padding on these to open them back up and prevent crashing
-.section__full-width {
-  .section-header, .preamble {
-    margin-top: $section-padding;
+// Some full width blocks have headers or preambles - reinstate the top padding on these to open them back up and prevent crashing
+.block__full-width {
+  .block-title, .block-preamble {
+    margin-top: $block-padding;
   }
-  header+.preamble {
+  .block-title+.block-preamble {
     // If there is a header we don't want the top margin
     margin-top: 0 !important;
   }

@@ -25,7 +25,7 @@ get_header();
       <main id="main" class="site-main">
 
         <?php if ( have_posts() ) : // Search results found... ?>
-            <header class="page-header section bg-white">
+            <header class="page-header block bg-white">
               <h1 class="page-title">
                 <?php
                   /* translators: %s: search query. */

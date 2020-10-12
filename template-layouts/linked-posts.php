@@ -13,26 +13,26 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$section_id = get_query_var('section_id');
-$section = get_query_var('section');
-$title = $section['title'];
-$preamble = $section['preamble'];
-$query_type = $section['query_type'];
+$block_id = get_query_var('block_id');
+$jellypress_block = get_query_var('jellypress_block');
+$block_title = $jellypress_block['title'];
+$block_preamble = $jellypress_block['preamble'];
+$query_type = $jellypress_block['query_type'];
 $posts_array = array(); // Create an empty array to store posts ready for the loop
 ?>
 
-<?php if ($title) : ?>
-  <header class="row">
+<?php if ($block_title) : ?>
+  <header class="row block-title">
     <div class="col">
-      <h2 class="section-header"><?php echo jellypress_bracket_tag_replace($title); ?></h2>
+      <h2><?php echo jellypress_bracket_tag_replace($block_title); ?></h2>
     </div>
   </header>
 <?php endif; ?>
 
-<?php if ($preamble) : ?>
-  <div class="row preamble">
+<?php if ($block_preamble) : ?>
+  <div class="row block-preamble">
     <div class="col">
-      <?php jellypress_content($preamble); ?>
+      <?php jellypress_content($block_preamble); ?>
     </div>
   </div>
 <?php endif; ?>
@@ -44,12 +44,12 @@ $posts_array = array(); // Create an empty array to store posts ready for the lo
  */
 
 if($query_type == 'rand' || $query_type == 'date') {
-  $query_post_type = $section['query_post_type'];
-  $query_quantity = $section['query_quantity'];
+  $query_post_type = $jellypress_block['query_post_type'];
+  $query_quantity = $jellypress_block['query_quantity'];
 }
 
 if($query_type == 'specified'):
-  $queried_posts = $section['specified_posts'];
+  $queried_posts = $jellypress_block['specified_posts'];
     if ( $queried_posts ):
       foreach ( $queried_posts as $post_to_display ):
         array_push($posts_array, $post_to_display);
@@ -81,7 +81,7 @@ if($posts_array) :
 
       echo '<article class="col xs-12 sm-6 md-4 xl-3">';
         get_template_part( 'template-components/card', get_post_type() ); // Display the post information
-      echo '</article><!-- /#post-'.get_the_ID().' -->';
+      echo '</article>';
 
     endforeach;
     wp_reset_postdata();
@@ -90,10 +90,10 @@ endif;
 
 ?>
 
-<?php if ( $section['buttons'] ) : ?>
+<?php if ( $jellypress_block['buttons'] ) : ?>
   <div class="row">
     <div class="col text-center">
-      <?php jellypress_show_cta_buttons($section['buttons']); ?>
+      <?php jellypress_show_cta_buttons($jellypress_block['buttons']); ?>
     </div>
   </div>
 <?php endif; ?>

@@ -120,10 +120,10 @@ if ( ! function_exists( 'jellypress_entry_footer' ) ) :
               );
             endif;
           ?>
-        </div><!-- /.col -->
-      </div><!-- /.row -->
-    </div><!-- /.container -->
-  </footer><!-- /.entry-footer -->
+        </div>
+      </div>
+    </div>
+  </footer>
 	<?php } // jellypress_entry_footer
 endif;
 
@@ -143,7 +143,7 @@ if ( ! function_exists( 'jellypress_post_thumbnail' ) ) :
 
     <figure class="post-thumbnail">
       <?php the_post_thumbnail($size); ?>
-    </figure><!-- /.post-thumbnail -->
+    </figure>
 
     <?php else : ?>
 
@@ -246,7 +246,7 @@ if ( ! function_exists( 'jellypress_post_navigation' ) ) :
     $postType = get_post_type_object(get_post_type());
 
     if($prev_id || $next_id):
-      echo '<nav class="post-navigation section bg-white"><div class="container"><div class="row"><div class="col">';
+      echo '<nav class="post-navigation block bg-white"><div class="container"><div class="row"><div class="col">';
       _e('<h2 class="screen-reader-text">'.$postType->labels->singular_name.' navigation</h2>', 'jellypress');
       echo '<div class="nav-links">';
       if($prev_id)

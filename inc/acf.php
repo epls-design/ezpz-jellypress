@@ -6,7 +6,7 @@
  */
 
 // Exit if accessed directly.
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
 /**
 * Move location of ACF-JSON local Json folder
@@ -231,19 +231,19 @@ add_filter('posts_distinct', 'jellypress_search_acf_distinct');
 
 /**
  * Hooks into Flexible Content Fields to append useful titles to header handles,
- * so that editors can see at a glance what content is contained within a section.
+ * so that editors can see at a glance what content is contained within a block.
  */
 if (! function_exists('jellypress_acf_flexible_titles') ) {
-    function jellypress_acf_flexible_titles($title, $field, $layout, $i)
+    function jellypress_acf_flexible_titles($title, $field, $block_layout, $i)
     {
-        $layout = get_row_layout();
-        $background_color = 'bg-'.strtolower(get_sub_field('background_color'));
+        $block_layout = get_row_layout();
+        $block_bg_color = 'bg-'.strtolower(get_sub_field('background_color'));
 
         if($block_title = get_sub_field('title')) {
             // If there is a title, use that as priority over anything else
-            return '<span class="swatch '.$background_color.'"></span>'.jellypress_trimpara($block_title,30).'<span class="acf-handle-right">'.$title.'</span>';
+            return '<span class="swatch '.$block_bg_color.'"></span>'.jellypress_trimpara($block_title,30).'<span class="acf-handle-right">'.$title.'</span>';
         }
-        elseif($layout == 'image') {
+        elseif($block_layout == 'image') {
             // If the layout is an image, try to use the image title or alt tag, before resorting to filename
             $image_id = get_sub_field('image');
             if($image_title = get_the_title($image_id)) {
@@ -256,9 +256,9 @@ if (! function_exists('jellypress_acf_flexible_titles') ) {
                 // If all else fails.... use the filename
                 $image_title = get_post_meta($image_id, '_wp_attached_file', true);
             }
-            return '<span class="swatch '.$background_color.'"></span>'.jellypress_trimpara($image_title,50).'<span class="acf-handle-right">'.$title.'</span>';
+            return '<span class="swatch '.$block_bg_color.'"></span>'.jellypress_trimpara($image_title,50).'<span class="acf-handle-right">'.$title.'</span>';
         }
-        elseif($layout == 'gallery') {
+        elseif($block_layout == 'gallery') {
             // If the layout is a gallery, we want to find the first image with either a title or alt tag and append '+ $i'
             if ($images_images = get_sub_field('images') ) :
                 $i = 0;
@@ -289,15 +289,15 @@ if (! function_exists('jellypress_acf_flexible_titles') ) {
                     $images_list = $i.' images';
                 }
             endif;
-            return '<span class="swatch '.$background_color.'"></span>'.jellypress_trimpara($images_list,50).'<span class="acf-handle-right">'.$title.'</span>';
+            return '<span class="swatch '.$block_bg_color.'"></span>'.jellypress_trimpara($images_list,50).'<span class="acf-handle-right">'.$title.'</span>';
         }
-        elseif($layout == 'iframe') {
+        elseif($block_layout == 'iframe') {
           $website_url = get_sub_field( 'website_url' );
-          return '<span class="swatch '.$background_color.'"></span>'.$website_url.'<span class="acf-handle-right">'.$title.'</span>';
+          return '<span class="swatch '.$block_bg_color.'"></span>'.$website_url.'<span class="acf-handle-right">'.$title.'</span>';
       }
         else {
             // If nothing found, return the block name
-            return '<span class="swatch '.$background_color.'"></span>'.$title;
+            return '<span class="swatch '.$block_bg_color.'"></span>'.$title;
         }
     }
 }

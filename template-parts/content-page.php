@@ -11,7 +11,7 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
-<section class="section section-0 section__content bg-white">
+<section class="block block__content bg-white">
   <div class="container">
     <div class="row">
       <div class="col">
@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
           <?php the_title( '<h1 class="page-title">', '</h1>' ); ?>
           <?php jellypress_post_thumbnail(); // TODO: The Featured Image is kind of 'plonked' on here - on live builds it needs to be incorporated better into the overall design
 ?>
-        </header><!-- /.page-header -->
+        </header>
         <div class="page-content">
           <?php the_content(); ?>
           <?php
@@ -28,8 +28,8 @@ defined( 'ABSPATH' ) || exit;
               'after'  => '</footer>',
             ));
           ?>
-        </div><!-- /.page-content -->
-      </div><!-- /.col -->
-    </div><!-- /.row -->
-  </div><!-- /.container -->
-</section><!-- /.section -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

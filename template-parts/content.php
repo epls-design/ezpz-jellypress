@@ -21,10 +21,10 @@ So it could say is_single -> content-single, else content-archive
 
 <?php
   if (is_singular()) {
-    echo '<section class="section section-0 section__content bg-white"><div class="container">';
+    echo '<section class="block block__content bg-white"><div class="container">';
   }
   else { // single.php has the <article> tag included, we need to add it for archive posts ?>
-  <article id="post-<?php the_ID(); ?>" <?php post_class('section bg-white'); ?>>
+  <article id="post-<?php the_ID(); ?>" <?php post_class('block bg-white'); ?>>
 <?php } ?>
   <div class="row">
     <div class="col">
@@ -47,9 +47,9 @@ So it could say is_single -> content-single, else content-archive
       jellypress_posted_on();
       jellypress_posted_by();
       ?>
-    </div><!-- /.entry-meta -->
+    </div>
   <?php endif; ?>
-</header><!-- /.entry-header -->
+</header>
 <div class="entry-content">
   <?php
   the_content( sprintf(
@@ -70,7 +70,7 @@ So it could say is_single -> content-single, else content-archive
     'after'  => '</div>',
   ) );
   ?>
-</div><!-- /.entry-content -->
+</div>
 
 <?php
   if (! is_singular()) {
@@ -79,12 +79,12 @@ So it could say is_single -> content-single, else content-archive
     jellypress_entry_footer();
   }?>
 
-      </div><!-- /.col -->
-  </div><!-- /.row -->
+      </div>
+  </div>
 <?php
   if (is_singular()) {
     echo '</div></section>';
   }
   else { ?>
-  </article><!-- /#post-<?php the_ID(); ?> -->
+  </article>
 <?php } ?>

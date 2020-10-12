@@ -1,7 +1,7 @@
 <?php
 /**
  * Flexible layout: Text Columns
- * Renders a section containing between two and four columns of WYSIWIG text
+ * Renders a block containing between two and four columns of WYSIWIG text
  *
  * @package jellypress
  */
@@ -9,33 +9,33 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$section_id = get_query_var('section_id');
-$section = get_query_var('section');
-$title = $section['title'];
+$block_id = get_query_var('block_id');
+$jellypress_block = get_query_var('jellypress_block');
+$block_title = $jellypress_block['title'];
 ?>
 
-<?php if ($title) : ?>
-<header class="row">
+<?php if ($block_title) : ?>
+<header class="row block-title">
   <div class="col">
-    <h2 class="section-header"><?php echo jellypress_bracket_tag_replace($title); ?></h2>
+    <h2><?php echo jellypress_bracket_tag_replace($block_title); ?></h2>
   </div>
 </header>
 <?php endif; ?>
 
-<?php if ( $columns = $section['columns'] ) : ?>
+<?php if ( $text_columns = $jellypress_block['columns'] ) : ?>
   <div class="row">
-    <?php foreach ($columns as $column): ?>
+    <?php foreach ($text_columns as $text_column): ?>
       <div class="col xs-12 md-0">
-        <?php jellypress_content($column['editor']); ?>
+        <?php jellypress_content($text_column['editor']); ?>
       </div>
     <?php endforeach; ?>
   </div>
 <?php endif; ?>
 
-<?php if ( $section['buttons'] ) : ?>
+<?php if ( $jellypress_block['buttons'] ) : ?>
   <div class="row">
     <div class="col text-center">
-      <?php jellypress_show_cta_buttons($section['buttons']); ?>
+      <?php jellypress_show_cta_buttons($jellypress_block['buttons']); ?>
     </div>
   </div>
 <?php endif; ?>

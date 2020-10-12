@@ -1,7 +1,7 @@
 <?php
 /**
  * Flexible layout: Map
- * Renders a section using Google Maps.
+ * Renders a block using Google Maps.
  * The editor can add multiple markers and customise
  * the tooltip and marker icon
  *
@@ -11,36 +11,35 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$section_id = get_query_var('section_id');
-$section = get_query_var('section');
-$title = $section['title'];
-$width = $section['full_width'];
-$preamble = $section['preamble'];
-//var_dump($section);
+$block_id = get_query_var('block_id');
+$jellypress_block = get_query_var('jellypress_block');
+$block_title = $jellypress_block['title'];
+$block_is_fullwidth = $jellypress_block['full_width'];
+$block_preamble = $jellypress_block['preamble'];
 ?>
 
-<?php if ($title) : ?>
-  <header class="row">
+<?php if ($block_title) : ?>
+  <header class="row block-title">
     <div class="col">
-      <h2 class="section-header"><?php echo jellypress_bracket_tag_replace($title); ?></h2>
+      <h2><?php echo jellypress_bracket_tag_replace($block_title); ?></h2>
     </div>
   </header>
 <?php endif; ?>
 
-<?php if ($preamble) : ?>
-  <div class="row preamble">
+<?php if ($block_preamble) : ?>
+  <div class="row block-preamble">
     <div class="col">
-      <?php jellypress_content($preamble); ?>
+      <?php jellypress_content($block_preamble); ?>
     </div>
   </div>
 <?php endif; ?>
 
 <div class="row">
   <div class="col">
-    <?php if ( $width == 1 ){ echo '<div class="vw-100">'; }
+    <?php if ( $block_is_fullwidth == 1 ){ echo '<div class="vw-100">'; }
     // TODO: Replace all calls to get option with some more efficient way - cache or set constant
-        if (get_field('google_maps_api_key', 'option') && ($locations = $section['locations'])) :
-          jellypress_display_map_markers($locations);
+        if (get_field('google_maps_api_key', 'option') && ($map_locations = $jellypress_block['locations'])) :
+          jellypress_display_map_markers($map_locations);
         elseif(current_user_can( 'publish_posts' )):
           // Show a warning for the admin to add an API key
           echo '<div class="callout callout__error">' .
@@ -51,6 +50,6 @@ $preamble = $section['preamble'];
           )
           . '</div>';
         endif; // google_maps_api_key
-    if ( $width == 1 ){ echo '</div>'; }?>
+    if ( $block_is_fullwidth == 1 ){ echo '</div>'; }?>
   </div>
 </div>

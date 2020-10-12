@@ -1,7 +1,7 @@
 <?php
 /**
  * Flexible layout: Video block
- * Renders a video section
+ * Renders a video block
  *
  * @package jellypress
  */
@@ -9,27 +9,27 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$section_id = get_query_var('section_id');
-$section = get_query_var('section');
-$title = $section['title'];
-$video = $section['video'];
-$width = $section['full_width'];
+$block_id = get_query_var('block_id');
+$jellypress_block = get_query_var('jellypress_block');
+$block_title = $jellypress_block['title'];
+$video_url = $jellypress_block['video'];
+$block_is_fullwidth = $jellypress_block['full_width'];
 ?>
 
-<?php if ($title) : ?>
-  <header class="row">
+<?php if ($block_title) : ?>
+  <header class="row block-title">
     <div class="col">
-      <h2 class="section-header"><?php echo jellypress_bracket_tag_replace($title); ?></h2>
+      <h2><?php echo jellypress_bracket_tag_replace($block_title); ?></h2>
     </div>
   </header>
 <?php endif; ?>
 
 <div class="row">
   <div class="col">
-    <?php if ( $width == 1 ){ echo '<div class="vw-100">'; }?>
+    <?php if ( $block_is_fullwidth == 1 ){ echo '<div class="vw-100">'; }?>
       <div class="embed-container">
-        <?php echo wp_oembed_get($video); ?>
-      </div><!-- /.embed-container -->
-    <?php if ( $width == 1 ){ echo '</div>'; }?>
+        <?php echo wp_oembed_get($video_url); ?>
+      </div>
+    <?php if ( $block_is_fullwidth == 1 ){ echo '</div>'; }?>
   </div>
 </div>

@@ -11,7 +11,7 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
-  <article id="post-<?php the_ID(); ?>" <?php post_class('section bg-white'); ?>>
+  <article id="post-<?php the_ID(); ?>" <?php post_class('block bg-white'); ?>>
     <div class="row">
       <div class="col">
         <header class="entry-header">
@@ -23,14 +23,14 @@ defined( 'ABSPATH' ) || exit;
             jellypress_posted_on();
             jellypress_posted_by();
             ?>
-          </div><!-- /.entry-meta -->
+          </div>
           <?php endif; ?>
           <?php jellypress_post_thumbnail();// TODO: The Featured Image is kind of 'plonked' on here - on live builds it needs to be incorporated better into the overall design ?>
-        </header><!-- /.entry-header -->
+        </header>
         <div class="entry-summary">
           <?php jellypress_excerpt(); ?>
-        </div><!-- /.entry-summary -->
+        </div>
         <?php jellypress_entry_footer(); ?>
-        </div><!-- /.col -->
-    </div><!-- /.row -->
-  </article><!-- /#post-<?php the_ID(); ?> -->
+        </div>
+    </div>
+  </article>

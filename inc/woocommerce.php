@@ -113,7 +113,7 @@ if ( ! function_exists( 'jellypress_woocommerce_wrapper_before' ) ) {
 	function jellypress_woocommerce_wrapper_before() {
 		?>
 			<div id="primary" class="content-area">
-        <main id="main" class="site-main section">
+        <main id="main" class="site-main block">
           <div class="container">
             <div class="row">
               <div class="col">
@@ -132,11 +132,11 @@ if ( ! function_exists( 'jellypress_woocommerce_wrapper_after' ) ) {
 	 */
 	function jellypress_woocommerce_wrapper_after() {
     ?>
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-        </div><!-- /.container -->
-      </main><!-- / #main -->
-    </div><!-- / #primary -->
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
 		<?php
 	}
 }

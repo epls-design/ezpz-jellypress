@@ -12,13 +12,13 @@ defined( 'ABSPATH' ) || exit;
 
 ?>
 
-<section class="section section-0 section__text no-results not-found bg-white">
+<section class="block block__text no-results not-found bg-white">
   <div class="container">
     <div class="row">
       <div class="col">
         <header class="page-header">
           <h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'jellypress' ); ?></h1>
-        </header><!-- /.page-header -->
+        </header>
         <div class="page-content">
           <?php
             if ( is_home() && current_user_can( 'publish_posts' ) ) :
@@ -52,8 +52,8 @@ defined( 'ABSPATH' ) || exit;
 
         endif;
         ?>
-        </div><!-- /.page-content -->
-      </div><!-- /.col -->
-    </div><!-- /.row -->
-  </div><!-- /.container -->
-</section><!-- /.no-results .section -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

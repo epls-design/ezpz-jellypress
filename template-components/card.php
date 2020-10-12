@@ -24,12 +24,12 @@ defined( 'ABSPATH' ) || exit;
 
   <header class="card-section entry-header">
     <?php the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" aria-hidden="true" tabindex="-1">', '</a></h3>' ); ?>
-  </header><!-- /.card-section -->
+  </header>
 
   <?php // TODO: If has excerpt ?>
   <div class="card-section entry-content">
     <?php jellypress_excerpt(); ?>
-  </div><!-- /.card-section -->
+  </div>
 
   <?php if ( 'post' === get_post_type() ) : // Show if post ?>
     <div class="card-section entry-meta">
@@ -37,11 +37,11 @@ defined( 'ABSPATH' ) || exit;
       jellypress_posted_on();
       jellypress_posted_by();
       ?>
-    </div><!-- /.entry-meta -->
+    </div>
   <?php endif; ?>
 
   <footer class="card-section card-footer">
     <a class="button button__small" href="<?php the_permalink();?>" rel="bookmark"><?php _e('Continue Reading <span class="screen-reader-text">'.get_the_title().'</span>', 'jellypress');?></a>
-  </footer><!-- /.card-section -->
+  </footer>
 
-</div><!-- /.card -->
+</div>

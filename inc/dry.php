@@ -8,7 +8,7 @@
  */
 
 // Exit if accessed directly.
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
 if ( ! function_exists( 'jellypress_show_cta_buttons' ) ) :
   /**
@@ -45,8 +45,6 @@ if ( ! function_exists( 'jellypress_display_map_markers' ) ) :
     if($locations):
       echo '<div class="google-map">';
       foreach($locations as $location):
-        var_dump($location);
-        // FIXME: This is not looping through and displaying more than one. Also the icon does not work - need to get atatchment by ID?
 
         if ( $location_group = $location['location_group'] ) :
             $location_marker = $location_group['location_marker'];

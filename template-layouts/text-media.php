@@ -1,7 +1,7 @@
 <?php
 /**
  * Flexible layout: Text and Media block
- * Renders a section to contain Text and a Media element
+ * Renders a block to contain Text and a Media element
  * (image, video, iframe, post, map) with the option to reorder columns
  * and change the ratio split of columns
  *
@@ -11,38 +11,38 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$section_id = get_query_var('section_id');
-$section = get_query_var('section');
-$title = $section['title'];
-$size = 'large';
+$block_id = get_query_var('block_id');
+$jellypress_block = get_query_var('jellypress_block');
+$block_title = $jellypress_block['title'];
+$image_size = 'medium';
 
-$align = $section['vertical_align'];
-if ($align == NULL) {
-  $align = 'top';
+$block_valign = $jellypress_block['vertical_align'];
+if ($block_valign == NULL) {
+  $block_valign = 'top';
 }
-$row_class = 'align-'.$align;
+$row_class = 'align-'.$block_valign;
 
-$column_split = $section['column_split'];
-if ($column_split == 'large-text') {
+$block_column_split = $jellypress_block['column_split'];
+if ($block_column_split == 'large-text') {
   $text_class = 'md-8 lg-7';
   $media_class = 'md-4 lg-5';
 }
-elseif ($column_split == 'large-media') {
+elseif ($block_column_split == 'large-media') {
   $text_class = 'md-4 lg-5';
   $media_class = 'md-8 lg-7';
 }
-elseif ($column_split == 'equal' OR $column_split == NULL) {
+elseif ($block_column_split == 'equal' OR $block_column_split == NULL) {
   $text_class = 'md-6';
   $media_class = 'md-6';
 }
 
 // These fields are in a field group so let's put that in a variable...
-$media_item = $section['media_item'];
+$media_item = $jellypress_block['media_item'];
 $media_type = $media_item['media_type'];
 $media_position = $media_item['media_position'];
 $media_post = $media_item['media_post'];
-$image = $media_item['image'];
-$video = $media_item['video'];
+$image_id = $media_item['image'];
+$video_url = $media_item['video'];
 $website_url = $media_item['website_url'];
 
 // We only want the image to appear before the text on smaller devices, everything else needs an explanation before it is seen on screen
@@ -62,15 +62,15 @@ elseif ( $media_position == 'right' ) {
 
 if ($media_type == 'iframe' || $media_type == 'map'){
   $row_class="equal-height";
-  $text_class .= ' align-self-'.$align;
+  $text_class .= ' align-self-'.$block_valign;
 }
 
 ?>
 
-<?php if ($title) : ?>
-  <header class="row">
+<?php if ($block_title) : ?>
+  <header class="row block-title">
     <div class="col">
-      <h2 class="section-header"><?php echo jellypress_bracket_tag_replace($title); ?></h2>
+      <h2><?php echo jellypress_bracket_tag_replace($block_title); ?></h2>
     </div>
   </header>
 <?php endif; ?>
@@ -78,13 +78,13 @@ if ($media_type == 'iframe' || $media_type == 'map'){
 <div class="row <?php echo $row_class;?>">
 
   <div class="col sm-12 <?php echo $text_class; ?> flex-column">
-    <?php jellypress_content($section['text']); ?>
-    <?php jellypress_show_cta_buttons($section['buttons']); ?>
+    <?php jellypress_content($jellypress_block['text']); ?>
+    <?php jellypress_show_cta_buttons($jellypress_block['buttons']); ?>
   </div>
 
   <div class="col sm-12 <?php echo $media_class; ?>">
     <?php if ($media_type == 'image'){
-        echo wp_get_attachment_image( $image, $size );
+        echo wp_get_attachment_image( $image_id, $image_size );
       }
       elseif ($media_type == 'post'){
         global $post; // Call global $post variable
@@ -94,11 +94,11 @@ if ($media_type == 'iframe' || $media_type == 'map'){
         wp_reset_postdata();
       }
       elseif ($media_type == 'video'){
-        echo '<div class="embed-container">'.wp_oembed_get($video).'</div>';
+        echo '<div class="embed-container">'.wp_oembed_get($video_url).'</div>';
       }
       elseif ($media_type == 'map'){
-        if (get_field('google_maps_api_key', 'option') && $locations = $media_item['location']) :
-          jellypress_display_map_markers($locations);
+        if (get_field('google_maps_api_key', 'option') && $map_locations = $media_item['location']) :
+          jellypress_display_map_markers($map_locations);
         elseif(current_user_can( 'publish_posts' )):
           // Show a warning for the admin to add an API key
           echo '<div class="callout callout__error">' .

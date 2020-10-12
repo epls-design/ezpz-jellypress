@@ -22,7 +22,7 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
-<aside id="comments" class="section section__comments bg-white">
+<aside id="comments" class="block block__comments bg-white">
   <div class="container">
     <div class="row">
       <div class="comments-area col">

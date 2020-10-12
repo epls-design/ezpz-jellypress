@@ -1,7 +1,7 @@
 <?php
 /**
  * Flexible layout: Image block
- * Renders an image section
+ * Renders an image block
  *
  * @package jellypress
  */
@@ -9,17 +9,17 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$section_id = get_query_var('section_id');
-$section = get_query_var('section');
-$image = $section['image'];
-$size = 'full';
-$width = $section['full_width'];
+$block_id = get_query_var('block_id');
+$jellypress_block = get_query_var('jellypress_block');
+$image_id = $jellypress_block['image'];
+$image_size = 'full';
+$block_is_fullwidth = $jellypress_block['full_width'];
 ?>
 
 <div class="row">
   <div class="col">
-    <?php if ( $width == 1 ){ echo '<div class="vw-100">'; }?>
-      <?php echo wp_get_attachment_image( $image, $size ); ?>
-    <?php if ( $width == 1 ){ echo '</div>'; }?>
+    <?php if ( $block_is_fullwidth == 1 ){ echo '<div class="vw-100">'; }?>
+      <?php echo wp_get_attachment_image( $image_id, $image_size ); ?>
+    <?php if ( $block_is_fullwidth == 1 ){ echo '</div>'; }?>
   </div>
 </div>
