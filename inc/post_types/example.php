@@ -136,3 +136,17 @@ if ( ! function_exists( 'jellypress_create_campaign_cpt_taxonomies' ) ) :
 endif;
 
 add_action( 'init', 'jellypress_create_campaign_cpt_taxonomies', 0 );
+
+/**
+ * Creates notice for post edit screen to explain what this CPT is for
+ */
+if ( ! function_exists( 'jellypress_campaign_cpt_notice' ) ) :
+  function jellypress_campaign_cpt_notice() {
+    global $pagenow;
+    if (( $pagenow == 'edit.php' ) && ($_GET['post_type'] == 'campaign')) {
+        echo '<div class="notice custom-notice"><p>'.__('Please add all of your campaigns here. A campaign is determined as activity focused around a particular community or location. You may have an associated event or other activity however there is not a specific monetary ask.','jellypress').'</p></div>';
+    }
+  }
+endif;
+
+add_action('admin_notices', 'jellypress_campaign_cpt_notice');

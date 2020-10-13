@@ -35,9 +35,11 @@ $jellypress_includes = array(
   'inc/shortcodes.php',              // Custom shortcodes used by the theme
 
   //~~~~~ CUSTOM POST TYPES
-  'post_types/post.php',             // Hooks into post_type 'post' to make the Labels more friendly
-  //'post_types/example.php',
+  'inc/post_types/post.php',         // Hooks into post_type 'post' to make the Labels more friendly
+  //'inc/post_types/example.php',
 
+  //~~~~~ USER CAPABILITIES
+  //'inc/user_caps/client-admin.php',        // Example for how to restrict user capabilities for a specific role
 );
 
 foreach ( $jellypress_includes as $file ) {
