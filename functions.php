@@ -33,7 +33,6 @@ $jellypress_includes = array(
 	'inc/customizer.php',              // Customizer additions.
   'inc/woocommerce.php',             // Load WooCommerce functions.
   'inc/ajax-loadmore/loadmore.php',  // Uses Wordpress AJAX to lazyload more posts.
-  'inc/shortcodes.php',              // Custom shortcodes used by the theme
 
   //~~~~~ CUSTOM POST TYPES
   'inc/post_types/post.php',         // Hooks into post_type 'post' to make the Labels more friendly

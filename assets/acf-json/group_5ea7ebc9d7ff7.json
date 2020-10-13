@@ -38,22 +38,62 @@
         },
         {
             "key": "field_5ea7f3247c9c0",
-            "label": "Phone Number",
-            "name": "phone_number",
-            "type": "text",
-            "instructions": "Please enter the primary <b>phone number<\/b> of your business. This will be wrapped in a link to allow the user to click\/touch to call you.",
+            "label": "Phone Numbers",
+            "name": "phone_numbers",
+            "type": "repeater",
+            "instructions": "Please add the primary <b>phone numbers<\/b> of your business. They will be wrapped in a link to allow website visitors to click\/touch to call you.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "60",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "collapsed": "",
+            "min": 1,
+            "max": 6,
+            "layout": "table",
+            "button_label": "Add Phone Number",
+            "sub_fields": [
+                {
+                    "key": "field_5f84c1cbce4e2",
+                    "label": "Department",
+                    "name": "department",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": 50
+                },
+                {
+                    "key": "field_5f84c1a0ce4e1",
+                    "label": "Phone Number",
+                    "name": "phone_number",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": 14
+                }
+            ]
         },
         {
             "key": "field_5ea7f3597c9c1",
@@ -64,7 +104,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "40",
                 "class": "",
                 "id": ""
             },
@@ -200,9 +240,13 @@
                         "pinterest": "Pinterest",
                         "twitter": "Twitter",
                         "vimeo": "Vimeo",
-                        "youtube": "YouTube"
+                        "youtube": "YouTube",
+                        "whatsapp": "WhatsApp",
+                        "microsoftteams": "MS Teams",
+                        "skype": "Skype",
+                        "zoom": "Zoom"
                     },
-                    "default_value": [],
+                    "default_value": false,
                     "allow_null": 0,
                     "multiple": 0,
                     "ui": 0,
@@ -301,7 +345,7 @@
     "label_placement": "top",
     "instruction_placement": "field",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "This field group allows the editor to update key organisation information and to connect external APIs which are added to the theme.",
-    "modified": 1601187608
+    "modified": 1602535987
 }

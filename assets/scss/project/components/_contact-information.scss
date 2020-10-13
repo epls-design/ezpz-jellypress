@@ -1,0 +1,55 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  CONTACT INFORMATION
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.phone-numbers {
+  @extend %no-bullets;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+// Social Channel Branding
+$social-channels: (
+  "facebook": #1877F2,
+  "instagram": #E4405F,
+  "linkedin": #0077B5,
+  "pinterest": #BD081C,
+  "twitter": #1DA1F2,
+  "vimeo": #1AB7EA,
+  "youtube": #FF0000,
+  "whatsapp": #25D366,
+  "microsoftteams": #6264A7,
+  "skype": #00AFF0,
+  "zoom": #2D8CFF
+);
+@each $channel, $color in $social-channels {
+  .icon__#{$channel} {
+    color: $color;
+  }
+  a:hover, a:focus, a:active {
+    .icon__#{$channel} {
+      color: shade($color,80%);
+    }
+  }
+}
+
+.social-channels {
+  @extend %inline;
+  .icon {
+    margin-right: .5em;
+    width: 1em;
+    height: 1em;
+    @include smooth(color,transform);
+  }
+  a:hover, a:focus, a:active {
+    .icon {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.opening-hours {
+  width: auto;
+}
