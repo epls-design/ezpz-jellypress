@@ -18,6 +18,7 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 ?>
+<section class="block bg-white">
   <div class="container">
     <div class="row">
 
@@ -25,7 +26,7 @@ get_header();
         <main id="main" class="site-main">
 
           <?php if ( have_posts() ) : ?>
-            <header class="page-header block bg-white">
+            <header class="page-header">
               <?php
               the_archive_title( '<h1 class="page-title">', '</h1>' );
               the_archive_description( '<div class="archive-description">', '</div>' );
@@ -34,6 +35,7 @@ get_header();
 
             <?php
             echo '<div class="row equal-height archive-feed feed-'.$post_type.'" id="feed-'.$post_type.'">';
+
             /* Start the Loop */
             while ( have_posts() ) :
               the_post();
@@ -41,16 +43,21 @@ get_header();
                 get_template_part( 'template-components/card', get_post_type() );
               echo '</article>';
             endwhile;
+
             echo '</div>';
+
             jellypress_numeric_pagination(); // Paginate if there are older posts
+
             else :
               get_template_part( 'template-parts/content', 'none' );
             endif; ?>
 
           </main>
         </div>
-      <?php get_sidebar(); // TODO: Remove if you don't want a sidebar on your archive page ?>
+      <?php get_sidebar(); ?>
+
     </div>
   </div>
+</section>
 <?php
 get_footer();

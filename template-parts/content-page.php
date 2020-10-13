@@ -17,8 +17,7 @@ defined( 'ABSPATH' ) || exit;
       <div class="col">
         <header class="page-header">
           <?php the_title( '<h1 class="page-title">', '</h1>' ); ?>
-          <?php jellypress_post_thumbnail(); // TODO: The Featured Image is kind of 'plonked' on here - on live builds it needs to be incorporated better into the overall design
-?>
+          <?php jellypress_post_thumbnail(); // TODO: The Featured Image is kind of 'plonked' on here - on live builds it needs to be incorporated better into the overall design ?>
         </header>
         <div class="page-content">
           <?php the_content(); ?>

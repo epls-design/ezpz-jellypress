@@ -17,39 +17,40 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 ?>
+<section class="block bg-white">
+  <div class="container">
+    <div class="row">
 
-<div class="container">
-  <div class="row">
+      <div id="primary" class="content-area col">
+        <main id="main" class="site-main">
 
-    <div id="primary" class="content-area col">
-      <main id="main" class="site-main">
+          <?php if ( have_posts() ) : // Search results found... ?>
 
-        <?php if ( have_posts() ) : // Search results found... ?>
-            <header class="page-header block bg-white">
-              <h1 class="page-title">
-                <?php
-                  /* translators: %s: search query. */
-                  printf( esc_html__( 'Search Results for: %s', 'jellypress' ), '<span>' . get_search_query() . '</span>' );
-                  ?>
-              </h1>
-            </header>
+            <header class="page-header">
+                <h1 class="page-title">
+                  <?php
+                    /* translators: %s: search query. */
+                    printf( esc_html__( 'Search Results for: %s', 'jellypress' ), '<span>' . get_search_query() . '</span>' );
+                    ?>
+                </h1>
+              </header>
 
-            <?php
-              /* Start the Loop */
-              while ( have_posts() ) :
-                the_post();
-                get_template_part( 'template-parts/content', 'search' );
-              endwhile;
-              jellypress_numeric_pagination(); // Paginate if there are older posts
+              <?php
+                /* Start the Loop */
+                while ( have_posts() ) :
+                  the_post();
+                  get_template_part( 'template-parts/content', 'search' );
+                endwhile;
+                jellypress_numeric_pagination(); // Paginate if there are older posts
 
-            else :
-              get_template_part( 'template-parts/content', 'none' );
-            endif; ?>
+              else :
+                get_template_part( 'template-parts/content', 'none' );
+              endif; ?>
 
-        </main><!--/#main -->
-      </div>
-    <?php get_sidebar(); // TODO: Remove if you don't want a sidebar on your search results page ?>
+          </main><!--/#main -->
+        </div>
+      <?php get_sidebar(); ?>
+    </div>
   </div>
-</div>
-<?php
-get_footer();
+</section>
+<?php get_footer(); ?>

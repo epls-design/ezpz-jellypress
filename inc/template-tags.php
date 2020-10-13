@@ -17,7 +17,7 @@ if ( ! function_exists( 'jellypress_posted_on' ) ) :
 	function jellypress_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">(Updated: %4$s)</time>';
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time> <time class="updated screen-reader-text" datetime="%3$s">(Updated: %4$s)</time>';
 		}
 
 		$time_string = sprintf( $time_string,
@@ -100,25 +100,6 @@ if ( ! function_exists( 'jellypress_entry_footer' ) ) :
               );
               echo '</span>';
             }
-            // Show the edit post button for logged in Admins
-            if ( get_edit_post_link() ) :
-              edit_post_link(
-                sprintf(
-                  wp_kses(
-                    /* translators: %s: Name of current post. Only visible to screen readers */
-                    __( 'Edit <span class="screen-reader-text">%s</span>', 'jellypress' ),
-                    array(
-                      'span' => array(
-                        'class' => array(),
-                      ),
-                    )
-                  ),
-                  wp_kses_post( get_the_title() )
-                ),
-                '<span class="edit-link">',
-                '</span>'
-              );
-            endif;
           ?>
         </div>
       </div>
@@ -272,4 +253,13 @@ if ( ! function_exists( 'jellypress_content' ) ) :
   function jellypress_content($unformatted_content) {
     echo apply_filters('meta_content', $unformatted_content);
   }
+endif;
+
+if ( ! function_exists( 'jellypress_get_comments' ) ) :
+  function jellypress_get_comments() {
+    // If comments are open or we have at least one comment, load up the comment template.
+    if ( comments_open() || get_comments_number() ) :
+      comments_template();
+    endif;
+  };
 endif;

@@ -20,6 +20,7 @@ $loading_type = 'button';
 
 get_header();
 ?>
+<section class="block bg-white">
   <div class="container">
     <div class="row">
 
@@ -27,7 +28,8 @@ get_header();
         <main id="main" class="site-main">
 
           <?php if ( have_posts() ) : ?>
-            <header class="page-header block bg-white">
+
+            <header class="page-header"><?php // TODO: Replace all of these with a partial header ?>
               <?php
               the_archive_title( '<h1 class="page-title">', '</h1>' );
               the_archive_description( '<div class="archive-description">', '</div>' );
@@ -36,17 +38,18 @@ get_header();
 
             <?php
             echo '<div class="row equal-height archive-feed feed-'.$post_type.'" id="feed-'.$post_type.'">';
-            /* Start the Loop */
-            while ( have_posts() ) :
-              the_post();
-              echo '<article class="col xs-12 sm-6 md-4 xl-3">';
-                get_template_part( 'template-components/card', get_post_type() );
-              echo '</article>';
-            endwhile;
 
-            if (  $wp_query->max_num_pages > 1 && $loading_type == 'button' ) {
-              echo '<div class="col xs-12"><button class="button-loadmore">' . __( 'Load More...', 'jellypress' ) . '</button></div>';
-            };
+              /* Start the Loop */
+              while ( have_posts() ) :
+                the_post();
+                echo '<article class="col xs-12 sm-6 md-4 xl-3">';
+                  get_template_part( 'template-components/card', get_post_type() );
+                echo '</article>';
+              endwhile;
+
+              if (  $wp_query->max_num_pages > 1 && $loading_type == 'button' ) {
+                echo '<div class="col xs-12"><button class="button-loadmore">' . __( 'Load More...', 'jellypress' ) . '</button></div>';
+              };
 
             echo '</div>';
 
@@ -54,11 +57,14 @@ get_header();
               get_template_part( 'template-parts/content', 'none' );
             endif; ?>
 
-          </main>
-        </div>
-      <?php get_sidebar(); // TODO: Remove if you don't want a sidebar on your archive page ?>
+        </main>
+      </div>
+
+      <?php get_sidebar(); ?>
+
     </div>
   </div>
+</section>
 <?php
 jellypress_initialize_ajax_posts(null, $loading_type); // Initialise on $wp_query
 get_footer();

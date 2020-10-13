@@ -24,6 +24,7 @@ $jellypress_includes = array(
 	'inc/widgets.php',                 // Register widget areas
   'inc/enqueue.php',                 // Enqueue scripts and styles.
   'inc/editor.php',                  // Customise editor
+  'inc/remove-comments.php',         // Include this to completely remove support for comments
   'inc/template-tags.php',           // Custom template tags for this theme.
   'inc/template-functions.php',      // Functions which enhance the theme by hooking into WordPress.
 	'inc/pagination.php',              // Custom pagination for this theme.

@@ -9,6 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
+<!-- TODO: Replace with option to allow editor to customise 404 page -->
 <section class="block error-404 not-found bg-white">
   <div class="container">
     <div class="row">

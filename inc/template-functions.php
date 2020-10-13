@@ -20,12 +20,6 @@ if ( ! function_exists( 'jellypress_body_classes' ) ) {
     if ( ! is_singular() ) {
       $classes[] = 'hfeed';
     }
-
-    // Adds a class of no-sidebar when there is no sidebar present.
-    if ( ! is_active_sidebar( 'default-sidebar' ) ) {
-      $classes[] = 'no-sidebar';
-    }
-
     return $classes;
   }
 }
@@ -85,6 +79,7 @@ add_filter('tiny_mce_before_init', 'jellypress_prevent_autotags');
 
 /**
  * Change the default search page to /search/$s rather than ?s=$s
+ * Remove this if using Search and Filter Pro as it can cause a conflict.
  *
  * @return void
  */

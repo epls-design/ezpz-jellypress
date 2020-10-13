@@ -8,7 +8,7 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-if (! function_exists('jellypress_content_width') ) {
+if (! function_exists('jellypress_content_width') ) :
     /**
      * Set the content width in pixels, based on the theme's design and stylesheet.
      * Priority 0 to make it available to lower priority callbacks.
@@ -21,7 +21,7 @@ if (! function_exists('jellypress_content_width') ) {
         // @link https://pineco.de/why-we-should-set-the-content_width-variable-in-wordpress-themes/#:~:text=The%20%24content_width%20global%20variable%20was,for%20images%2C%20videos%20and%20embeds.
         $GLOBALS['content_width'] = apply_filters('jellypress_content_width', 640);
     }
-}
+endif;
 add_action('after_setup_theme', 'jellypress_content_width', 0);
 
 add_action('after_setup_theme', 'jellypress_setup');
@@ -60,14 +60,16 @@ if (! function_exists('jellypress_setup') ) :
         */
         add_theme_support('post-thumbnails');
 
-        // This theme uses wp_nav_menu() in one location.
+        /**
+         * Register Nav Menus
+         */
         register_nav_menus(
             array(
             'menu-primary' => esc_html__('Primary', 'jellypress'),
             )
         );
 
-        /*
+       /*
         * Switch default core markup for search form, comment form, and comments
         * to output valid HTML5.
         */

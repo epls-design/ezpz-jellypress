@@ -85,7 +85,7 @@ if ( ! function_exists( 'jellypress_icon' ) ) {
     // If it exists, include it.
     if ( file_exists( $icon_path ) ) {
       $use_link = get_template_directory_uri().'/dist/icons/icons.svg#icon-'.$icon;
-      return '<svg class="icon"><use xlink:href="'.$use_link.'" /></use></svg>';
+      return '<svg class="icon icon__'.$icon.'"><use xlink:href="'.$use_link.'" /></use></svg>';
     }
     else {
       return '';

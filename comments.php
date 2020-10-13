@@ -30,7 +30,7 @@ if ( post_password_required() ) {
         // You can start editing here -- including this comment!
         if ( have_comments() ) :
           ?>
-        <h3 class="comments-title">
+        <h4 class="comments-title">
           <?php
             $jellypress_comment_count = get_comments_number();
             if ( '1' === $jellypress_comment_count ) {
@@ -48,7 +48,7 @@ if ( post_password_required() ) {
               );
             }
             ?>
-        </h3>
+        </h4>
 
         <?php the_comments_navigation(); ?>
 
@@ -67,7 +67,7 @@ if ( post_password_required() ) {
           // If comments are closed and there are comments, let's leave a little note, shall we?
           if ( ! comments_open() ) :
             ?>
-        <p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'jellypress' ); ?></p>
+        <div class="callout callout__warning no-comments"><?php esc_html_e( 'Comments are closed.', 'jellypress' ); ?></div>
         <?php
           endif;
 

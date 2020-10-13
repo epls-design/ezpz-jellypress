@@ -49,7 +49,7 @@ if (!function_exists('jellypress_restrict_acf_tinymce_opts')) {
     {
         $toolbars['Full' ] = array(
         1 => array('formatselect', 'bold', 'italic', 'blockquote', 'bullist', 'numlist', 'link', 'unlink', 'spellchecker', 'wp_adv'),
-        2 => array('styleselect', 'forecolor', 'pastetext', 'removeformat', 'charmap', 'alignleft', 'aligncenter', 'alignright', 'undo', 'redo' )
+        2 => array('styleselect', 'pastetext', 'removeformat', 'charmap', 'alignleft', 'aligncenter', 'alignright', 'undo', 'redo' )
         );
         return $toolbars;
     }
@@ -57,8 +57,7 @@ if (!function_exists('jellypress_restrict_acf_tinymce_opts')) {
 add_filter('acf/fields/wysiwyg/toolbars', 'jellypress_restrict_acf_tinymce_opts');
 
 /**
-  * Adds an ACF options page for business information
-  * TODO: Remove if not required by your theme and also remove the ACF field group in the front-end
+  * Adds an ACF options page for organisation information
   */
 if(function_exists('acf_add_options_page') ) {
     acf_add_options_page(
@@ -334,7 +333,7 @@ add_filter('acf/update_value', 'jellypress_kses_acf', 10, 1);
 add_filter('acf/settings/remove_wp_meta_box', '__return_true');
 
 /**
- * Remove support for WP Editor if you are using ACF exlusively for content
+ * Remove support for WP Editor if you are using ACF exclusively for content
  */
 if (! function_exists('jellypress_remove_wp_editor') ) :
   function jellypress_remove_wp_editor() {

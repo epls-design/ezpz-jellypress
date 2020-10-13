@@ -35,11 +35,7 @@ get_header();
             </article>
             <?php
             jellypress_post_navigation();
-
-            // If comments are open or we have at least one comment, load up the comment template.
-            if ( comments_open() || get_comments_number() ) :
-              comments_template();
-            endif;
+            jellypress_get_comments();
           endwhile; // End of the loop. ?>
         </main>
       </div>

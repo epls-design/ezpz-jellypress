@@ -15,6 +15,6 @@ if ( ! is_active_sidebar( 'default-sidebar' ) ) {
 	return;
 }
 ?>
-<aside id="secondary" class="block widget-area col xs-12 md-3">
+<aside id="secondary" class="sidebar widget-area col xs-12 md-3">
 	<?php dynamic_sidebar( 'default-sidebar' ); ?>
 </aside>

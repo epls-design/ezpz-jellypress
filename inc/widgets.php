@@ -10,7 +10,7 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-if ( ! function_exists( 'jellypress_widgets_init' ) ) {
+if ( ! function_exists( 'jellypress_widgets_init' ) ) :
   function jellypress_widgets_init() {
     register_sidebar( array(
       'name'          => esc_html__( 'Sidebar', 'jellypress' ),
@@ -22,5 +22,5 @@ if ( ! function_exists( 'jellypress_widgets_init' ) ) {
       'after_title'   => '</h2>',
     ) );
   }
-}
+endif;
 add_action( 'widgets_init', 'jellypress_widgets_init' );

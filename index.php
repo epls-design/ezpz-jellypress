@@ -55,7 +55,9 @@ get_header();
     }
     jellypress_numeric_pagination(); // Paginate if there are older posts
   else :
-    get_template_part( 'template-parts/content', 'none' );
+    echo '<section class="block bg-white"><div class="container"><div class="row"><div class="col">';
+      get_template_part( 'template-parts/content', 'none' );
+    echo '</div></div></div></section>';
   endif;
   ?>
   </main>

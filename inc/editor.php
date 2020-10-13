@@ -9,14 +9,14 @@
 defined( 'ABSPATH' ) || exit;
 
 add_action( 'admin_init', 'jellypress_add_editor_styles' );
-if ( ! function_exists( 'jellypress_add_editor_styles' ) ) {
+if ( ! function_exists( 'jellypress_add_editor_styles' ) ) :
 	/**
 	 * Registers an editor stylesheet for the theme.
 	 */
 	function jellypress_add_editor_styles() {
 		add_editor_style( 'dist/css/editor-style.min.css' );
 	}
-}
+endif;
 
  /**
   * Add custom styles to the WYSIWIG

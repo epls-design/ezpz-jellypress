@@ -145,7 +145,7 @@
 .wp-block-button {
   color: choose-contrast-color($color-primary,$button-text-color-light,$button-text-color-dark);
   a {
-    @extend .button;
+    @include create_button($color-primary); // TODO: Test this works. May need to import some of the generic button styles too eg. padding, font, and not just use create_button() mixin. Removed the old @extend as it was creating lots of bloat
   }
 
   &.is-style-outline {

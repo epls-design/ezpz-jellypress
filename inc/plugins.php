@@ -89,10 +89,6 @@ function jellypress_register_required_plugins() {
 			'slug'      => 'user-role-editor',
 		),
     array(
-			'name'      => 'Stream',
-			'slug'      => 'stream',
-    ),
-    array(
 			'name'      => 'Wordfence Security',
 			'slug'      => 'wordfence',
     ),
