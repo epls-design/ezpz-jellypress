@@ -29,6 +29,39 @@ if (! function_exists('jellypress_scripts') ) {
 
         // Enqueue Scripts
         wp_enqueue_script('jellypress-scripts', get_template_directory_uri() . '/dist/js/site.min.js', array('jquery'), $js_version, true);
+        /**
+         * Register Scripts but don't enqueue them until they are required.
+         */
+
+        wp_register_script(
+          'jellypress-scripts',
+          get_template_directory_uri() . '/dist/js/site.min.js',
+          array('jquery'),
+          $js_version,
+          true
+        );
+
+        wp_register_script(
+          'test',
+          get_template_directory_uri() . '/dist/js/lib/test.js',
+          array(),
+          $js_version,
+          true
+        );
+
+        wp_register_script( 'youtube-api',
+          '//www.youtube.com/iframe_api',
+          array(),
+          date('YW'),
+          true
+        );
+
+        wp_register_script( 'vimeo-api',
+          '//player.vimeo.com/api/player.js',
+          array(),
+          date('YW'),
+          true
+        );
 
         $get_gmaps_api = get_field('google_maps_api_key', 'option');
         if ($get_gmaps_api) {

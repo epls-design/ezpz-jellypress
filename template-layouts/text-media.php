@@ -94,7 +94,7 @@ if ($media_type == 'iframe' || $media_type == 'map'){
         wp_reset_postdata();
       }
       elseif ($media_type == 'video'){
-        echo '<div class="embed-container">'.wp_oembed_get($video_url).'</div>';
+        jellypress_embed_video($video_url);
       }
       elseif ($media_type == 'map'){
         if (get_field('google_maps_api_key', 'option') && $map_locations = $media_item['location']) :

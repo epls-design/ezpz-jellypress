@@ -26,10 +26,9 @@ $block_is_fullwidth = $jellypress_block['full_width'];
 
 <div class="row">
   <div class="col">
-    <?php if ( $block_is_fullwidth == 1 ){ echo '<div class="vw-100">'; }?>
-      <div class="embed-container">
-        <?php echo wp_oembed_get($video_url); ?>
-      </div>
-    <?php if ( $block_is_fullwidth == 1 ){ echo '</div>'; }?>
+    <?php
+    if ( $block_is_fullwidth == 1 ){ echo '<div class="vw-100">'; }
+      jellypress_embed_video($video_url);
+    if ( $block_is_fullwidth == 1 ){ echo '</div>'; }?>
   </div>
 </div>

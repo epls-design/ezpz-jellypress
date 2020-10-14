@@ -263,3 +263,15 @@ if ( ! function_exists( 'jellypress_get_comments' ) ) :
     endif;
   };
 endif;
+
+/**
+ * Wrap oEmbed to play nice with responsive
+ */
+if ( !function_exists( 'jellypress_wrap_oembed' )) {
+
+  function jellypress_wrap_oembed( $html, $url, $attr, $post_id ) {
+
+      return '<div class="embed-container">' . $html . '</div>';
+  }
+}
+add_filter('embed_oembed_html', 'jellypress_wrap_oembed', 99, 4);

@@ -30,6 +30,7 @@ $jellypress_includes = array(
 	'inc/pagination.php',              // Custom pagination for this theme.
   'inc/acf.php',                     // Functions which hook into ACF to add additional functionality to the site.
   'inc/dry.php',                     // Don't repeat yourself! Functions which reduce repetition in the theme code.
+  'inc/video-embed.php',             // Functions to help with embedding videos.
 	'inc/customizer.php',              // Customizer additions.
   'inc/woocommerce.php',             // Load WooCommerce functions.
   'inc/ajax-loadmore/loadmore.php',  // Uses Wordpress AJAX to lazyload more posts.
