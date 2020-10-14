@@ -43,6 +43,9 @@ if ( ! function_exists( 'jellypress_display_map_markers' ) ) :
    */
   function jellypress_display_map_markers($locations) {
     if($locations):
+
+      wp_enqueue_script('googlemaps'); // Enqueue Script
+
       echo '<div class="google-map">';
       foreach($locations as $location):
 
