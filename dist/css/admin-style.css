@@ -1,5 +1,5 @@
 /*! jellypress-wordpress-theme 1.1.0
- * © 2020-10-07 Matt Weet - https://www.weareboba.com */
+ * © 2020-10 Matt Weet - https://www.weareboba.com */
 
 /* GRID */
 /* JELLYFISH DEFAULTS */
@@ -170,6 +170,11 @@
   display: none !important;
   visibility: hidden !important; }
 
+.acf-button-group {
+  flex-wrap: wrap; }
+  .acf-button-group label {
+    flex: 0; }
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   DEBUG
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -177,16 +182,19 @@
   position: fixed;
   display: block;
   line-height: 1;
-  font-size: 13px;
+  font-size: 14px;
   top: 20%;
-  right: 2em;
+  right: 0;
   padding: .5em;
-  background-color: #FF00FF;
-  color: black;
+  background-color: #FF0000;
+  color: white;
   font-weight: bold;
-  transform-origin: top right;
-  transform: rotate(-90deg);
-  z-index: 99999999; }
+  z-index: 99999999;
+  margin: 0;
+  display: block;
+  transform-origin: center;
+  transform: translate3d(50%, -50%, 0) rotate(270deg) translateY(-50%);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25); }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   ADMIN HELPERS

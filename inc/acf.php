@@ -173,6 +173,8 @@ if (! function_exists('jellypress_searchable_acf') ) {
 
 /**
  * Extend WordPress search to include custom fields
+ * Note: if using Search and Filter Pro, this isn't always reliable and
+ * it's best to use a plugin like "Search Everything"
  *
  * @link https://adambalee.com/search-wordpress-by-custom-fields-without-a-plugin/
  */

@@ -1,5 +1,5 @@
 /*! jellypress-wordpress-theme 1.1.0
- * © 2020-10-07 Matt Weet - https://www.weareboba.com */
+ * © 2020-10 Matt Weet - https://www.weareboba.com */
 
 @charset "UTF-8";
 /* GRID */
@@ -138,6 +138,10 @@ html {
   scroll-behavior: smooth;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
 
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto; } }
+
 body {
   font-size: 14px;
   color: #333333;
@@ -171,6 +175,13 @@ ul, ol {
   list-style-position: outside; }
   ul ul, ol ul, ul ol, ol ol {
     margin-bottom: 0; }
+
+.social-channels, .phone-numbers {
+  margin-left: 0;
+  list-style-type: none; }
+
+.social-channels li {
+  display: inline-block; }
 
 ul {
   list-style-type: disc; }
@@ -255,7 +266,7 @@ img {
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 h1, h2, h3, h4, h5, p.wp-block-subhead, h6 {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  margin: 0 0 12px 0;
+  margin: 0 0 24px 0;
   line-height: 1.2; }
   h1:not(:first-child), h2:not(:first-child), h3:not(:first-child), h4:not(:first-child), h5:not(:first-child), p.wp-block-subhead:not(:first-child), h6:not(:first-child) {
     margin-top: 24px; }
@@ -365,7 +376,7 @@ sup {
 .invisible {
   visibility: hidden; }
 
-.equal-height > .col, .section__gallery .equal-height > .gallery-item {
+.equal-height > .col, .block__gallery .equal-height > .gallery-item {
   display: flex; }
 
 .flex {
@@ -468,7 +479,7 @@ sup {
   width: 100%;
   height: 100%; }
 
-.mb, .callout, .card, .card-section .card-image, .wp-block-audio figcaption, .wp-block-image img + figcaption, .wp-block-video figcaption, .wp-block-embed figcaption, .alignfull, .alignwide, .wp-block-audio, .wp-block-quote.is-large,
+.mb, .button-group, .callout, .card, .card-section .card-image, .wp-block-audio figcaption, .wp-block-image img + figcaption, .wp-block-video figcaption, .wp-block-embed figcaption, .alignfull, .alignwide, .wp-block-audio, .wp-block-quote.is-large,
 .wp-block-quote.is-style-large, .wp-block-cover,
 .wp-block-cover-image, .wp-block-video, .widget .mejs-container, .widget .gallery-item, .comment-list ol, .comment-list ul, .comment-list dl, .comment-list li, .embedded-iframe, .google-map, .site-content img {
   margin-bottom: 24px; }
@@ -484,13 +495,13 @@ body.dark-ui img {
   filter: grayscale(50%);
   transition: filter 0.2s ease; }
 
-body.dark-ui .button, body.dark-ui [type=submit], body.dark-ui .wp-block-button a, .wp-block-button body.dark-ui a, body.dark-ui .edit-link a, .edit-link body.dark-ui a, body.dark-ui a.button, body.dark-ui a[type=submit], body.dark-ui .wp-block-button a, .wp-block-button body.dark-ui a, body.dark-ui .edit-link a, .edit-link body.dark-ui a, body.dark-ui button, body.dark-ui [type=submit], body.dark-ui [type=reset], body.dark-ui [type=button], body.dark-ui .button, body.dark-ui [type=submit], body.dark-ui .wp-block-button a, .wp-block-button body.dark-ui a, body.dark-ui .edit-link a, .edit-link body.dark-ui a, body.dark-ui a.button, body.dark-ui a[type=submit], body.dark-ui .wp-block-button a, .wp-block-button body.dark-ui a, body.dark-ui .edit-link a, .edit-link body.dark-ui a, body.dark-ui button, body.dark-ui [type=submit], body.dark-ui [type=reset], body.dark-ui [type=button] *, body.dark-ui a, body.dark-ui a * {
+body.dark-ui .button, body.dark-ui [type=submit], body.dark-ui a.button, body.dark-ui a[type=submit], body.dark-ui button, body.dark-ui [type=submit], body.dark-ui [type=reset], body.dark-ui [type=button], body.dark-ui .button, body.dark-ui [type=submit], body.dark-ui a.button, body.dark-ui a[type=submit], body.dark-ui button, body.dark-ui [type=submit], body.dark-ui [type=reset], body.dark-ui [type=button] *, body.dark-ui a, body.dark-ui a * {
   color: #58cdf1 !important; }
-  body.dark-ui .button svg path, body.dark-ui [type=submit] svg path, body.dark-ui .wp-block-button a svg path, .wp-block-button body.dark-ui a svg path, body.dark-ui .edit-link a svg path, .edit-link body.dark-ui a svg path, body.dark-ui a.button svg path, body.dark-ui a[type=submit] svg path, body.dark-ui .wp-block-button a svg path, .wp-block-button body.dark-ui a svg path, body.dark-ui .edit-link a svg path, .edit-link body.dark-ui a svg path, body.dark-ui button svg path, body.dark-ui [type=submit] svg path, body.dark-ui [type=reset] svg path, body.dark-ui [type=button] svg path, body.dark-ui .button svg path, body.dark-ui [type=submit] svg path, body.dark-ui .wp-block-button a svg path, .wp-block-button body.dark-ui a svg path, body.dark-ui .edit-link a svg path, .edit-link body.dark-ui a svg path, body.dark-ui a.button svg path, body.dark-ui a[type=submit] svg path, body.dark-ui .wp-block-button a svg path, .wp-block-button body.dark-ui a svg path, body.dark-ui .edit-link a svg path, .edit-link body.dark-ui a svg path, body.dark-ui button svg path, body.dark-ui [type=submit] svg path, body.dark-ui [type=reset] svg path, body.dark-ui [type=button] * svg path, body.dark-ui a svg path, body.dark-ui a * svg path {
+  body.dark-ui .button svg path, body.dark-ui [type=submit] svg path, body.dark-ui a.button svg path, body.dark-ui a[type=submit] svg path, body.dark-ui button svg path, body.dark-ui [type=submit] svg path, body.dark-ui [type=reset] svg path, body.dark-ui [type=button] svg path, body.dark-ui .button svg path, body.dark-ui [type=submit] svg path, body.dark-ui a.button svg path, body.dark-ui a[type=submit] svg path, body.dark-ui button svg path, body.dark-ui [type=submit] svg path, body.dark-ui [type=reset] svg path, body.dark-ui [type=button] * svg path, body.dark-ui a svg path, body.dark-ui a * svg path {
     fill: #58cdf1; }
-  body.dark-ui .button:hover, body.dark-ui :hover[type=submit], body.dark-ui .wp-block-button a:hover, .wp-block-button body.dark-ui a:hover, body.dark-ui .edit-link a:hover, .edit-link body.dark-ui a:hover, body.dark-ui .button:focus, body.dark-ui :focus[type=submit], body.dark-ui .wp-block-button a:focus, .wp-block-button body.dark-ui a:focus, body.dark-ui .edit-link a:focus, .edit-link body.dark-ui a:focus, body.dark-ui .button:active, body.dark-ui :active[type=submit], body.dark-ui .wp-block-button a:active, .wp-block-button body.dark-ui a:active, body.dark-ui .edit-link a:active, .edit-link body.dark-ui a:active, body.dark-ui a.button:hover, body.dark-ui a:hover[type=submit], body.dark-ui .wp-block-button a:hover, .wp-block-button body.dark-ui a:hover, body.dark-ui .edit-link a:hover, .edit-link body.dark-ui a:hover, body.dark-ui a.button:focus, body.dark-ui a:focus[type=submit], body.dark-ui .wp-block-button a:focus, .wp-block-button body.dark-ui a:focus, body.dark-ui .edit-link a:focus, .edit-link body.dark-ui a:focus, body.dark-ui a.button:active, body.dark-ui a:active[type=submit], body.dark-ui .wp-block-button a:active, .wp-block-button body.dark-ui a:active, body.dark-ui .edit-link a:active, .edit-link body.dark-ui a:active, body.dark-ui button:hover, body.dark-ui button:focus, body.dark-ui button:active, body.dark-ui [type=submit]:hover, body.dark-ui [type=submit]:focus, body.dark-ui [type=submit]:active, body.dark-ui [type=reset]:hover, body.dark-ui [type=reset]:focus, body.dark-ui [type=reset]:active, body.dark-ui [type=button]:hover, body.dark-ui [type=button]:focus, body.dark-ui [type=button]:active, body.dark-ui .button:hover, body.dark-ui :hover[type=submit], body.dark-ui .wp-block-button a:hover, .wp-block-button body.dark-ui a:hover, body.dark-ui .edit-link a:hover, .edit-link body.dark-ui a:hover, body.dark-ui .button:focus, body.dark-ui :focus[type=submit], body.dark-ui .wp-block-button a:focus, .wp-block-button body.dark-ui a:focus, body.dark-ui .edit-link a:focus, .edit-link body.dark-ui a:focus, body.dark-ui .button:active, body.dark-ui :active[type=submit], body.dark-ui .wp-block-button a:active, .wp-block-button body.dark-ui a:active, body.dark-ui .edit-link a:active, .edit-link body.dark-ui a:active, body.dark-ui a.button:hover, body.dark-ui a:hover[type=submit], body.dark-ui .wp-block-button a:hover, .wp-block-button body.dark-ui a:hover, body.dark-ui .edit-link a:hover, .edit-link body.dark-ui a:hover, body.dark-ui a.button:focus, body.dark-ui a:focus[type=submit], body.dark-ui .wp-block-button a:focus, .wp-block-button body.dark-ui a:focus, body.dark-ui .edit-link a:focus, .edit-link body.dark-ui a:focus, body.dark-ui a.button:active, body.dark-ui a:active[type=submit], body.dark-ui .wp-block-button a:active, .wp-block-button body.dark-ui a:active, body.dark-ui .edit-link a:active, .edit-link body.dark-ui a:active, body.dark-ui button:hover, body.dark-ui button:focus, body.dark-ui button:active, body.dark-ui [type=submit]:hover, body.dark-ui [type=submit]:focus, body.dark-ui [type=submit]:active, body.dark-ui [type=reset]:hover, body.dark-ui [type=reset]:focus, body.dark-ui [type=reset]:active, body.dark-ui [type=button] *:hover, body.dark-ui [type=button] *:focus, body.dark-ui [type=button] *:active, body.dark-ui a:hover, body.dark-ui a:focus, body.dark-ui a:active, body.dark-ui a *:hover, body.dark-ui a *:focus, body.dark-ui a *:active {
+  body.dark-ui .button:hover, body.dark-ui :hover[type=submit], body.dark-ui .button:focus, body.dark-ui :focus[type=submit], body.dark-ui .button:active, body.dark-ui :active[type=submit], body.dark-ui a.button:hover, body.dark-ui a:hover[type=submit], body.dark-ui a.button:focus, body.dark-ui a:focus[type=submit], body.dark-ui a.button:active, body.dark-ui a:active[type=submit], body.dark-ui button:hover, body.dark-ui button:focus, body.dark-ui button:active, body.dark-ui [type=submit]:hover, body.dark-ui [type=submit]:focus, body.dark-ui [type=submit]:active, body.dark-ui [type=reset]:hover, body.dark-ui [type=reset]:focus, body.dark-ui [type=reset]:active, body.dark-ui [type=button]:hover, body.dark-ui [type=button]:focus, body.dark-ui [type=button]:active, body.dark-ui .button:hover, body.dark-ui :hover[type=submit], body.dark-ui .button:focus, body.dark-ui :focus[type=submit], body.dark-ui .button:active, body.dark-ui :active[type=submit], body.dark-ui a.button:hover, body.dark-ui a:hover[type=submit], body.dark-ui a.button:focus, body.dark-ui a:focus[type=submit], body.dark-ui a.button:active, body.dark-ui a:active[type=submit], body.dark-ui button:hover, body.dark-ui button:focus, body.dark-ui button:active, body.dark-ui [type=submit]:hover, body.dark-ui [type=submit]:focus, body.dark-ui [type=submit]:active, body.dark-ui [type=reset]:hover, body.dark-ui [type=reset]:focus, body.dark-ui [type=reset]:active, body.dark-ui [type=button] *:hover, body.dark-ui [type=button] *:focus, body.dark-ui [type=button] *:active, body.dark-ui a:hover, body.dark-ui a:focus, body.dark-ui a:active, body.dark-ui a *:hover, body.dark-ui a *:focus, body.dark-ui a *:active {
     color: #f1b835 !important; }
-    body.dark-ui .button:hover svg path, body.dark-ui :hover[type=submit] svg path, body.dark-ui .wp-block-button a:hover svg path, .wp-block-button body.dark-ui a:hover svg path, body.dark-ui .edit-link a:hover svg path, .edit-link body.dark-ui a:hover svg path, body.dark-ui .button:focus svg path, body.dark-ui :focus[type=submit] svg path, body.dark-ui .wp-block-button a:focus svg path, .wp-block-button body.dark-ui a:focus svg path, body.dark-ui .edit-link a:focus svg path, .edit-link body.dark-ui a:focus svg path, body.dark-ui .button:active svg path, body.dark-ui :active[type=submit] svg path, body.dark-ui .wp-block-button a:active svg path, .wp-block-button body.dark-ui a:active svg path, body.dark-ui .edit-link a:active svg path, .edit-link body.dark-ui a:active svg path, body.dark-ui a.button:hover svg path, body.dark-ui a:hover[type=submit] svg path, body.dark-ui .wp-block-button a:hover svg path, .wp-block-button body.dark-ui a:hover svg path, body.dark-ui .edit-link a:hover svg path, .edit-link body.dark-ui a:hover svg path, body.dark-ui a.button:focus svg path, body.dark-ui a:focus[type=submit] svg path, body.dark-ui .wp-block-button a:focus svg path, .wp-block-button body.dark-ui a:focus svg path, body.dark-ui .edit-link a:focus svg path, .edit-link body.dark-ui a:focus svg path, body.dark-ui a.button:active svg path, body.dark-ui a:active[type=submit] svg path, body.dark-ui .wp-block-button a:active svg path, .wp-block-button body.dark-ui a:active svg path, body.dark-ui .edit-link a:active svg path, .edit-link body.dark-ui a:active svg path, body.dark-ui button:hover svg path, body.dark-ui button:focus svg path, body.dark-ui button:active svg path, body.dark-ui [type=submit]:hover svg path, body.dark-ui [type=submit]:focus svg path, body.dark-ui [type=submit]:active svg path, body.dark-ui [type=reset]:hover svg path, body.dark-ui [type=reset]:focus svg path, body.dark-ui [type=reset]:active svg path, body.dark-ui [type=button]:hover svg path, body.dark-ui [type=button]:focus svg path, body.dark-ui [type=button]:active svg path, body.dark-ui .button:hover svg path, body.dark-ui :hover[type=submit] svg path, body.dark-ui .wp-block-button a:hover svg path, .wp-block-button body.dark-ui a:hover svg path, body.dark-ui .edit-link a:hover svg path, .edit-link body.dark-ui a:hover svg path, body.dark-ui .button:focus svg path, body.dark-ui :focus[type=submit] svg path, body.dark-ui .wp-block-button a:focus svg path, .wp-block-button body.dark-ui a:focus svg path, body.dark-ui .edit-link a:focus svg path, .edit-link body.dark-ui a:focus svg path, body.dark-ui .button:active svg path, body.dark-ui :active[type=submit] svg path, body.dark-ui .wp-block-button a:active svg path, .wp-block-button body.dark-ui a:active svg path, body.dark-ui .edit-link a:active svg path, .edit-link body.dark-ui a:active svg path, body.dark-ui a.button:hover svg path, body.dark-ui a:hover[type=submit] svg path, body.dark-ui .wp-block-button a:hover svg path, .wp-block-button body.dark-ui a:hover svg path, body.dark-ui .edit-link a:hover svg path, .edit-link body.dark-ui a:hover svg path, body.dark-ui a.button:focus svg path, body.dark-ui a:focus[type=submit] svg path, body.dark-ui .wp-block-button a:focus svg path, .wp-block-button body.dark-ui a:focus svg path, body.dark-ui .edit-link a:focus svg path, .edit-link body.dark-ui a:focus svg path, body.dark-ui a.button:active svg path, body.dark-ui a:active[type=submit] svg path, body.dark-ui .wp-block-button a:active svg path, .wp-block-button body.dark-ui a:active svg path, body.dark-ui .edit-link a:active svg path, .edit-link body.dark-ui a:active svg path, body.dark-ui button:hover svg path, body.dark-ui button:focus svg path, body.dark-ui button:active svg path, body.dark-ui [type=submit]:hover svg path, body.dark-ui [type=submit]:focus svg path, body.dark-ui [type=submit]:active svg path, body.dark-ui [type=reset]:hover svg path, body.dark-ui [type=reset]:focus svg path, body.dark-ui [type=reset]:active svg path, body.dark-ui [type=button] *:hover svg path, body.dark-ui [type=button] *:focus svg path, body.dark-ui [type=button] *:active svg path, body.dark-ui a:hover svg path, body.dark-ui a:focus svg path, body.dark-ui a:active svg path, body.dark-ui a *:hover svg path, body.dark-ui a *:focus svg path, body.dark-ui a *:active svg path {
+    body.dark-ui .button:hover svg path, body.dark-ui :hover[type=submit] svg path, body.dark-ui .button:focus svg path, body.dark-ui :focus[type=submit] svg path, body.dark-ui .button:active svg path, body.dark-ui :active[type=submit] svg path, body.dark-ui a.button:hover svg path, body.dark-ui a:hover[type=submit] svg path, body.dark-ui a.button:focus svg path, body.dark-ui a:focus[type=submit] svg path, body.dark-ui a.button:active svg path, body.dark-ui a:active[type=submit] svg path, body.dark-ui button:hover svg path, body.dark-ui button:focus svg path, body.dark-ui button:active svg path, body.dark-ui [type=submit]:hover svg path, body.dark-ui [type=submit]:focus svg path, body.dark-ui [type=submit]:active svg path, body.dark-ui [type=reset]:hover svg path, body.dark-ui [type=reset]:focus svg path, body.dark-ui [type=reset]:active svg path, body.dark-ui [type=button]:hover svg path, body.dark-ui [type=button]:focus svg path, body.dark-ui [type=button]:active svg path, body.dark-ui .button:hover svg path, body.dark-ui :hover[type=submit] svg path, body.dark-ui .button:focus svg path, body.dark-ui :focus[type=submit] svg path, body.dark-ui .button:active svg path, body.dark-ui :active[type=submit] svg path, body.dark-ui a.button:hover svg path, body.dark-ui a:hover[type=submit] svg path, body.dark-ui a.button:focus svg path, body.dark-ui a:focus[type=submit] svg path, body.dark-ui a.button:active svg path, body.dark-ui a:active[type=submit] svg path, body.dark-ui button:hover svg path, body.dark-ui button:focus svg path, body.dark-ui button:active svg path, body.dark-ui [type=submit]:hover svg path, body.dark-ui [type=submit]:focus svg path, body.dark-ui [type=submit]:active svg path, body.dark-ui [type=reset]:hover svg path, body.dark-ui [type=reset]:focus svg path, body.dark-ui [type=reset]:active svg path, body.dark-ui [type=button] *:hover svg path, body.dark-ui [type=button] *:focus svg path, body.dark-ui [type=button] *:active svg path, body.dark-ui a:hover svg path, body.dark-ui a:focus svg path, body.dark-ui a:active svg path, body.dark-ui a *:hover svg path, body.dark-ui a *:focus svg path, body.dark-ui a *:active svg path {
       fill: #f1b835; }
 
 body.dark-ui ::placeholder {
@@ -618,7 +629,7 @@ button.toggle-contrast svg {
     .jf-debug::before {
       content: "xl"; } }
 
-.jf-debug .col, .jf-debug .section__gallery .gallery-item, .section__gallery .jf-debug .gallery-item {
+.jf-debug .col, .jf-debug .block__gallery .gallery-item, .block__gallery .jf-debug .gallery-item {
   box-shadow: 0 1px 3px 1px rgba(8, 247, 254, 0.7) !important; }
 
 .jf-debug .row {
@@ -643,7 +654,7 @@ button.toggle-contrast svg {
   margin-left: -10px;
   margin-right: -10px; }
 
-.col, .section__gallery .gallery-item {
+.col, .block__gallery .gallery-item {
   width: 100%;
   position: relative;
   padding-left: 10px;
@@ -657,11 +668,11 @@ button.toggle-contrast svg {
 .row.collapse {
   margin-left: 0;
   margin-right: 0; }
-  .row.collapse > .col, .section__gallery .row.collapse > .gallery-item {
+  .row.collapse > .col, .block__gallery .row.collapse > .gallery-item {
     padding-left: 0 !important;
     padding-right: 0 !important; }
 
-.col.xs-1, .section__gallery .xs-1.gallery-item {
+.col.xs-1, .block__gallery .xs-1.gallery-item {
   max-width: 8.3333333333%;
   flex: 0 0 8.3333333333%; }
 
@@ -671,7 +682,7 @@ button.toggle-contrast svg {
 .offset-xs-11 {
   margin-left: 91.6666666667%; }
 
-.col.xs-2, .section__gallery .xs-2.gallery-item {
+.col.xs-2, .block__gallery .xs-2.gallery-item {
   max-width: 16.6666666667%;
   flex: 0 0 16.6666666667%; }
 
@@ -681,7 +692,7 @@ button.toggle-contrast svg {
 .offset-xs-10 {
   margin-left: 83.3333333333%; }
 
-.col.xs-3, .section__gallery .xs-3.gallery-item {
+.col.xs-3, .block__gallery .xs-3.gallery-item {
   max-width: 25%;
   flex: 0 0 25%; }
 
@@ -691,7 +702,7 @@ button.toggle-contrast svg {
 .offset-xs-9 {
   margin-left: 75%; }
 
-.col.xs-4, .section__gallery .xs-4.gallery-item {
+.col.xs-4, .block__gallery .xs-4.gallery-item {
   max-width: 33.3333333333%;
   flex: 0 0 33.3333333333%; }
 
@@ -701,7 +712,7 @@ button.toggle-contrast svg {
 .offset-xs-8 {
   margin-left: 66.6666666667%; }
 
-.col.xs-5, .section__gallery .xs-5.gallery-item {
+.col.xs-5, .block__gallery .xs-5.gallery-item {
   max-width: 41.6666666667%;
   flex: 0 0 41.6666666667%; }
 
@@ -711,7 +722,7 @@ button.toggle-contrast svg {
 .offset-xs-7 {
   margin-left: 58.3333333333%; }
 
-.col.xs-6, .section__gallery .xs-6.gallery-item {
+.col.xs-6, .block__gallery .xs-6.gallery-item {
   max-width: 50%;
   flex: 0 0 50%; }
 
@@ -721,7 +732,7 @@ button.toggle-contrast svg {
 .offset-xs-6 {
   margin-left: 50%; }
 
-.col.xs-7, .section__gallery .xs-7.gallery-item {
+.col.xs-7, .block__gallery .xs-7.gallery-item {
   max-width: 58.3333333333%;
   flex: 0 0 58.3333333333%; }
 
@@ -731,7 +742,7 @@ button.toggle-contrast svg {
 .offset-xs-5 {
   margin-left: 41.6666666667%; }
 
-.col.xs-8, .section__gallery .xs-8.gallery-item {
+.col.xs-8, .block__gallery .xs-8.gallery-item {
   max-width: 66.6666666667%;
   flex: 0 0 66.6666666667%; }
 
@@ -741,7 +752,7 @@ button.toggle-contrast svg {
 .offset-xs-4 {
   margin-left: 33.3333333333%; }
 
-.col.xs-9, .section__gallery .xs-9.gallery-item {
+.col.xs-9, .block__gallery .xs-9.gallery-item {
   max-width: 75%;
   flex: 0 0 75%; }
 
@@ -751,7 +762,7 @@ button.toggle-contrast svg {
 .offset-xs-3 {
   margin-left: 25%; }
 
-.col.xs-10, .section__gallery .xs-10.gallery-item {
+.col.xs-10, .block__gallery .xs-10.gallery-item {
   max-width: 83.3333333333%;
   flex: 0 0 83.3333333333%; }
 
@@ -761,7 +772,7 @@ button.toggle-contrast svg {
 .offset-xs-2 {
   margin-left: 16.6666666667%; }
 
-.col.xs-11, .section__gallery .xs-11.gallery-item {
+.col.xs-11, .block__gallery .xs-11.gallery-item {
   max-width: 91.6666666667%;
   flex: 0 0 91.6666666667%; }
 
@@ -771,7 +782,7 @@ button.toggle-contrast svg {
 .offset-xs-1 {
   margin-left: 8.3333333333%; }
 
-.col.xs-12, .section__gallery .xs-12.gallery-item {
+.col.xs-12, .block__gallery .xs-12.gallery-item {
   max-width: 100%;
   flex: 0 0 100%; }
 
@@ -792,22 +803,22 @@ button.toggle-contrast svg {
   .row.collapse-sm {
     margin-left: 0;
     margin-right: 0; }
-    .row.collapse-sm .col, .row.collapse-sm .section__gallery .gallery-item, .section__gallery .row.collapse-sm .gallery-item {
+    .row.collapse-sm .col, .row.collapse-sm .block__gallery .gallery-item, .block__gallery .row.collapse-sm .gallery-item {
       padding-left: 0 !important;
       padding-right: 0 !important; }
-  .col, .section__gallery .gallery-item {
+  .col, .block__gallery .gallery-item {
     padding-left: 10px;
     padding-right: 10px;
     max-width: 100%;
     flex: 1 1 0px; }
-  .col.sm-auto, .section__gallery .sm-auto.gallery-item {
+  .col.sm-auto, .block__gallery .sm-auto.gallery-item {
     max-width: none;
     flex: 0 0 auto;
     width: auto; }
-  .col.sm-0, .section__gallery .sm-0.gallery-item {
+  .col.sm-0, .block__gallery .sm-0.gallery-item {
     max-width: 100%;
     flex: 1 1 0; }
-  .col.sm-1, .section__gallery .sm-1.gallery-item {
+  .col.sm-1, .block__gallery .sm-1.gallery-item {
     max-width: 8.3333333333%;
     flex: 0 0 8.3333333333%; }
   .order-sm-1 {
@@ -816,7 +827,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-sm-11 {
     margin-left: 91.6666666667%; }
-  .col.sm-2, .section__gallery .sm-2.gallery-item {
+  .col.sm-2, .block__gallery .sm-2.gallery-item {
     max-width: 16.6666666667%;
     flex: 0 0 16.6666666667%; }
   .order-sm-2 {
@@ -825,7 +836,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-sm-10 {
     margin-left: 83.3333333333%; }
-  .col.sm-3, .section__gallery .sm-3.gallery-item {
+  .col.sm-3, .block__gallery .sm-3.gallery-item {
     max-width: 25%;
     flex: 0 0 25%; }
   .order-sm-3 {
@@ -834,7 +845,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-sm-9 {
     margin-left: 75%; }
-  .col.sm-4, .section__gallery .sm-4.gallery-item {
+  .col.sm-4, .block__gallery .sm-4.gallery-item {
     max-width: 33.3333333333%;
     flex: 0 0 33.3333333333%; }
   .order-sm-4 {
@@ -843,7 +854,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-sm-8 {
     margin-left: 66.6666666667%; }
-  .col.sm-5, .section__gallery .sm-5.gallery-item {
+  .col.sm-5, .block__gallery .sm-5.gallery-item {
     max-width: 41.6666666667%;
     flex: 0 0 41.6666666667%; }
   .order-sm-5 {
@@ -852,7 +863,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-sm-7 {
     margin-left: 58.3333333333%; }
-  .col.sm-6, .section__gallery .sm-6.gallery-item {
+  .col.sm-6, .block__gallery .sm-6.gallery-item {
     max-width: 50%;
     flex: 0 0 50%; }
   .order-sm-6 {
@@ -861,7 +872,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-sm-6 {
     margin-left: 50%; }
-  .col.sm-7, .section__gallery .sm-7.gallery-item {
+  .col.sm-7, .block__gallery .sm-7.gallery-item {
     max-width: 58.3333333333%;
     flex: 0 0 58.3333333333%; }
   .order-sm-7 {
@@ -870,7 +881,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-sm-5 {
     margin-left: 41.6666666667%; }
-  .col.sm-8, .section__gallery .sm-8.gallery-item {
+  .col.sm-8, .block__gallery .sm-8.gallery-item {
     max-width: 66.6666666667%;
     flex: 0 0 66.6666666667%; }
   .order-sm-8 {
@@ -879,7 +890,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-sm-4 {
     margin-left: 33.3333333333%; }
-  .col.sm-9, .section__gallery .sm-9.gallery-item {
+  .col.sm-9, .block__gallery .sm-9.gallery-item {
     max-width: 75%;
     flex: 0 0 75%; }
   .order-sm-9 {
@@ -888,7 +899,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-sm-3 {
     margin-left: 25%; }
-  .col.sm-10, .section__gallery .sm-10.gallery-item {
+  .col.sm-10, .block__gallery .sm-10.gallery-item {
     max-width: 83.3333333333%;
     flex: 0 0 83.3333333333%; }
   .order-sm-10 {
@@ -897,7 +908,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-sm-2 {
     margin-left: 16.6666666667%; }
-  .col.sm-11, .section__gallery .sm-11.gallery-item {
+  .col.sm-11, .block__gallery .sm-11.gallery-item {
     max-width: 91.6666666667%;
     flex: 0 0 91.6666666667%; }
   .order-sm-11 {
@@ -906,7 +917,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-sm-1 {
     margin-left: 8.3333333333%; }
-  .col.sm-12, .section__gallery .sm-12.gallery-item {
+  .col.sm-12, .block__gallery .sm-12.gallery-item {
     max-width: 100%;
     flex: 0 0 100%; }
   .order-sm-12 {
@@ -948,20 +959,20 @@ button.toggle-contrast svg {
   .row.collapse-md {
     margin-left: 0;
     margin-right: 0; }
-    .row.collapse-md .col, .row.collapse-md .section__gallery .gallery-item, .section__gallery .row.collapse-md .gallery-item {
+    .row.collapse-md .col, .row.collapse-md .block__gallery .gallery-item, .block__gallery .row.collapse-md .gallery-item {
       padding-left: 0 !important;
       padding-right: 0 !important; }
-  .col, .section__gallery .gallery-item {
+  .col, .block__gallery .gallery-item {
     padding-left: 15px;
     padding-right: 15px; }
-  .col.md-auto, .section__gallery .md-auto.gallery-item {
+  .col.md-auto, .block__gallery .md-auto.gallery-item {
     max-width: none;
     flex: 0 0 auto;
     width: auto; }
-  .col.md-0, .section__gallery .md-0.gallery-item {
+  .col.md-0, .block__gallery .md-0.gallery-item {
     max-width: 100%;
     flex: 1 1 0; }
-  .col.md-1, .section__gallery .md-1.gallery-item {
+  .col.md-1, .block__gallery .md-1.gallery-item {
     max-width: 8.3333333333%;
     flex: 0 0 8.3333333333%; }
   .order-md-1 {
@@ -970,7 +981,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-md-11 {
     margin-left: 91.6666666667%; }
-  .col.md-2, .section__gallery .md-2.gallery-item {
+  .col.md-2, .block__gallery .md-2.gallery-item {
     max-width: 16.6666666667%;
     flex: 0 0 16.6666666667%; }
   .order-md-2 {
@@ -979,7 +990,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-md-10 {
     margin-left: 83.3333333333%; }
-  .col.md-3, .section__gallery .md-3.gallery-item {
+  .col.md-3, .block__gallery .md-3.gallery-item {
     max-width: 25%;
     flex: 0 0 25%; }
   .order-md-3 {
@@ -988,7 +999,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-md-9 {
     margin-left: 75%; }
-  .col.md-4, .section__gallery .gallery-item {
+  .col.md-4, .block__gallery .gallery-item {
     max-width: 33.3333333333%;
     flex: 0 0 33.3333333333%; }
   .order-md-4 {
@@ -997,7 +1008,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-md-8 {
     margin-left: 66.6666666667%; }
-  .col.md-5, .section__gallery .md-5.gallery-item {
+  .col.md-5, .block__gallery .md-5.gallery-item {
     max-width: 41.6666666667%;
     flex: 0 0 41.6666666667%; }
   .order-md-5 {
@@ -1006,7 +1017,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-md-7 {
     margin-left: 58.3333333333%; }
-  .col.md-6, .section__gallery .md-6.gallery-item {
+  .col.md-6, .block__gallery .md-6.gallery-item {
     max-width: 50%;
     flex: 0 0 50%; }
   .order-md-6 {
@@ -1015,7 +1026,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-md-6 {
     margin-left: 50%; }
-  .col.md-7, .section__gallery .md-7.gallery-item {
+  .col.md-7, .block__gallery .md-7.gallery-item {
     max-width: 58.3333333333%;
     flex: 0 0 58.3333333333%; }
   .order-md-7 {
@@ -1024,7 +1035,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-md-5 {
     margin-left: 41.6666666667%; }
-  .col.md-8, .section__gallery .md-8.gallery-item {
+  .col.md-8, .block__gallery .md-8.gallery-item {
     max-width: 66.6666666667%;
     flex: 0 0 66.6666666667%; }
   .order-md-8 {
@@ -1033,7 +1044,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-md-4 {
     margin-left: 33.3333333333%; }
-  .col.md-9, .section__gallery .md-9.gallery-item {
+  .col.md-9, .block__gallery .md-9.gallery-item {
     max-width: 75%;
     flex: 0 0 75%; }
   .order-md-9 {
@@ -1042,7 +1053,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-md-3 {
     margin-left: 25%; }
-  .col.md-10, .section__gallery .md-10.gallery-item {
+  .col.md-10, .block__gallery .md-10.gallery-item {
     max-width: 83.3333333333%;
     flex: 0 0 83.3333333333%; }
   .order-md-10 {
@@ -1051,7 +1062,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-md-2 {
     margin-left: 16.6666666667%; }
-  .col.md-11, .section__gallery .md-11.gallery-item {
+  .col.md-11, .block__gallery .md-11.gallery-item {
     max-width: 91.6666666667%;
     flex: 0 0 91.6666666667%; }
   .order-md-11 {
@@ -1060,7 +1071,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-md-1 {
     margin-left: 8.3333333333%; }
-  .col.md-12, .section__gallery .md-12.gallery-item {
+  .col.md-12, .block__gallery .md-12.gallery-item {
     max-width: 100%;
     flex: 0 0 100%; }
   .order-md-12 {
@@ -1100,20 +1111,20 @@ button.toggle-contrast svg {
   .row.collapse-lg {
     margin-left: 0;
     margin-right: 0; }
-    .row.collapse-lg .col, .row.collapse-lg .section__gallery .gallery-item, .section__gallery .row.collapse-lg .gallery-item {
+    .row.collapse-lg .col, .row.collapse-lg .block__gallery .gallery-item, .block__gallery .row.collapse-lg .gallery-item {
       padding-left: 0 !important;
       padding-right: 0 !important; }
-  .col, .section__gallery .gallery-item {
+  .col, .block__gallery .gallery-item {
     padding-left: 17.5px;
     padding-right: 17.5px; }
-  .col.lg-auto, .section__gallery .lg-auto.gallery-item {
+  .col.lg-auto, .block__gallery .lg-auto.gallery-item {
     max-width: none;
     flex: 0 0 auto;
     width: auto; }
-  .col.lg-0, .section__gallery .lg-0.gallery-item {
+  .col.lg-0, .block__gallery .lg-0.gallery-item {
     max-width: 100%;
     flex: 1 1 0; }
-  .col.lg-1, .section__gallery .lg-1.gallery-item {
+  .col.lg-1, .block__gallery .lg-1.gallery-item {
     max-width: 8.3333333333%;
     flex: 0 0 8.3333333333%; }
   .order-lg-1 {
@@ -1122,7 +1133,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-lg-11 {
     margin-left: 91.6666666667%; }
-  .col.lg-2, .section__gallery .lg-2.gallery-item {
+  .col.lg-2, .block__gallery .lg-2.gallery-item {
     max-width: 16.6666666667%;
     flex: 0 0 16.6666666667%; }
   .order-lg-2 {
@@ -1131,7 +1142,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-lg-10 {
     margin-left: 83.3333333333%; }
-  .col.lg-3, .section__gallery .lg-3.gallery-item {
+  .col.lg-3, .block__gallery .lg-3.gallery-item {
     max-width: 25%;
     flex: 0 0 25%; }
   .order-lg-3 {
@@ -1140,7 +1151,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-lg-9 {
     margin-left: 75%; }
-  .col.lg-4, .section__gallery .lg-4.gallery-item {
+  .col.lg-4, .block__gallery .lg-4.gallery-item {
     max-width: 33.3333333333%;
     flex: 0 0 33.3333333333%; }
   .order-lg-4 {
@@ -1149,7 +1160,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-lg-8 {
     margin-left: 66.6666666667%; }
-  .col.lg-5, .section__gallery .lg-5.gallery-item {
+  .col.lg-5, .block__gallery .lg-5.gallery-item {
     max-width: 41.6666666667%;
     flex: 0 0 41.6666666667%; }
   .order-lg-5 {
@@ -1158,7 +1169,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-lg-7 {
     margin-left: 58.3333333333%; }
-  .col.lg-6, .section__gallery .lg-6.gallery-item {
+  .col.lg-6, .block__gallery .lg-6.gallery-item {
     max-width: 50%;
     flex: 0 0 50%; }
   .order-lg-6 {
@@ -1167,7 +1178,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-lg-6 {
     margin-left: 50%; }
-  .col.lg-7, .section__gallery .lg-7.gallery-item {
+  .col.lg-7, .block__gallery .lg-7.gallery-item {
     max-width: 58.3333333333%;
     flex: 0 0 58.3333333333%; }
   .order-lg-7 {
@@ -1176,7 +1187,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-lg-5 {
     margin-left: 41.6666666667%; }
-  .col.lg-8, .section__gallery .lg-8.gallery-item {
+  .col.lg-8, .block__gallery .lg-8.gallery-item {
     max-width: 66.6666666667%;
     flex: 0 0 66.6666666667%; }
   .order-lg-8 {
@@ -1185,7 +1196,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-lg-4 {
     margin-left: 33.3333333333%; }
-  .col.lg-9, .section__gallery .lg-9.gallery-item {
+  .col.lg-9, .block__gallery .lg-9.gallery-item {
     max-width: 75%;
     flex: 0 0 75%; }
   .order-lg-9 {
@@ -1194,7 +1205,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-lg-3 {
     margin-left: 25%; }
-  .col.lg-10, .section__gallery .lg-10.gallery-item {
+  .col.lg-10, .block__gallery .lg-10.gallery-item {
     max-width: 83.3333333333%;
     flex: 0 0 83.3333333333%; }
   .order-lg-10 {
@@ -1203,7 +1214,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-lg-2 {
     margin-left: 16.6666666667%; }
-  .col.lg-11, .section__gallery .lg-11.gallery-item {
+  .col.lg-11, .block__gallery .lg-11.gallery-item {
     max-width: 91.6666666667%;
     flex: 0 0 91.6666666667%; }
   .order-lg-11 {
@@ -1212,7 +1223,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-lg-1 {
     margin-left: 8.3333333333%; }
-  .col.lg-12, .section__gallery .lg-12.gallery-item {
+  .col.lg-12, .block__gallery .lg-12.gallery-item {
     max-width: 100%;
     flex: 0 0 100%; }
   .order-lg-12 {
@@ -1251,20 +1262,20 @@ button.toggle-contrast svg {
   .row.collapse-xl {
     margin-left: 0;
     margin-right: 0; }
-    .row.collapse-xl .col, .row.collapse-xl .section__gallery .gallery-item, .section__gallery .row.collapse-xl .gallery-item {
+    .row.collapse-xl .col, .row.collapse-xl .block__gallery .gallery-item, .block__gallery .row.collapse-xl .gallery-item {
       padding-left: 0 !important;
       padding-right: 0 !important; }
-  .col, .section__gallery .gallery-item {
+  .col, .block__gallery .gallery-item {
     padding-left: 20px;
     padding-right: 20px; }
-  .col.xl-auto, .section__gallery .xl-auto.gallery-item {
+  .col.xl-auto, .block__gallery .xl-auto.gallery-item {
     max-width: none;
     flex: 0 0 auto;
     width: auto; }
-  .col.xl-0, .section__gallery .xl-0.gallery-item {
+  .col.xl-0, .block__gallery .xl-0.gallery-item {
     max-width: 100%;
     flex: 1 1 0; }
-  .col.xl-1, .section__gallery .xl-1.gallery-item {
+  .col.xl-1, .block__gallery .xl-1.gallery-item {
     max-width: 8.3333333333%;
     flex: 0 0 8.3333333333%; }
   .order-xl-1 {
@@ -1273,7 +1284,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-xl-11 {
     margin-left: 91.6666666667%; }
-  .col.xl-2, .section__gallery .xl-2.gallery-item {
+  .col.xl-2, .block__gallery .xl-2.gallery-item {
     max-width: 16.6666666667%;
     flex: 0 0 16.6666666667%; }
   .order-xl-2 {
@@ -1282,7 +1293,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-xl-10 {
     margin-left: 83.3333333333%; }
-  .col.xl-3, .section__gallery .xl-3.gallery-item {
+  .col.xl-3, .block__gallery .xl-3.gallery-item {
     max-width: 25%;
     flex: 0 0 25%; }
   .order-xl-3 {
@@ -1291,7 +1302,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-xl-9 {
     margin-left: 75%; }
-  .col.xl-4, .section__gallery .xl-4.gallery-item {
+  .col.xl-4, .block__gallery .xl-4.gallery-item {
     max-width: 33.3333333333%;
     flex: 0 0 33.3333333333%; }
   .order-xl-4 {
@@ -1300,7 +1311,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-xl-8 {
     margin-left: 66.6666666667%; }
-  .col.xl-5, .section__gallery .xl-5.gallery-item {
+  .col.xl-5, .block__gallery .xl-5.gallery-item {
     max-width: 41.6666666667%;
     flex: 0 0 41.6666666667%; }
   .order-xl-5 {
@@ -1309,7 +1320,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-xl-7 {
     margin-left: 58.3333333333%; }
-  .col.xl-6, .section__gallery .xl-6.gallery-item {
+  .col.xl-6, .block__gallery .xl-6.gallery-item {
     max-width: 50%;
     flex: 0 0 50%; }
   .order-xl-6 {
@@ -1318,7 +1329,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-xl-6 {
     margin-left: 50%; }
-  .col.xl-7, .section__gallery .xl-7.gallery-item {
+  .col.xl-7, .block__gallery .xl-7.gallery-item {
     max-width: 58.3333333333%;
     flex: 0 0 58.3333333333%; }
   .order-xl-7 {
@@ -1327,7 +1338,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-xl-5 {
     margin-left: 41.6666666667%; }
-  .col.xl-8, .section__gallery .xl-8.gallery-item {
+  .col.xl-8, .block__gallery .xl-8.gallery-item {
     max-width: 66.6666666667%;
     flex: 0 0 66.6666666667%; }
   .order-xl-8 {
@@ -1336,7 +1347,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-xl-4 {
     margin-left: 33.3333333333%; }
-  .col.xl-9, .section__gallery .xl-9.gallery-item {
+  .col.xl-9, .block__gallery .xl-9.gallery-item {
     max-width: 75%;
     flex: 0 0 75%; }
   .order-xl-9 {
@@ -1345,7 +1356,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-xl-3 {
     margin-left: 25%; }
-  .col.xl-10, .section__gallery .xl-10.gallery-item {
+  .col.xl-10, .block__gallery .xl-10.gallery-item {
     max-width: 83.3333333333%;
     flex: 0 0 83.3333333333%; }
   .order-xl-10 {
@@ -1354,7 +1365,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-xl-2 {
     margin-left: 16.6666666667%; }
-  .col.xl-11, .section__gallery .xl-11.gallery-item {
+  .col.xl-11, .block__gallery .xl-11.gallery-item {
     max-width: 91.6666666667%;
     flex: 0 0 91.6666666667%; }
   .order-xl-11 {
@@ -1363,7 +1374,7 @@ button.toggle-contrast svg {
     order: unset; }
   .offset-xl-1 {
     margin-left: 8.3333333333%; }
-  .col.xl-12, .section__gallery .xl-12.gallery-item {
+  .col.xl-12, .block__gallery .xl-12.gallery-item {
     max-width: 100%;
     flex: 0 0 100%; }
   .order-xl-12 {
@@ -1470,7 +1481,7 @@ button.toggle-contrast svg {
   BUTTONS
   Default styling for all buttons
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.button, [type=submit], .wp-block-button a, .edit-link a, a.button, a[type=submit], .wp-block-button a, .edit-link a, button, [type=submit], [type=reset], [type=button] {
+.button, [type=submit], a.button, a[type=submit], button, [type=submit], [type=reset], [type=button] {
   -webkit-appearance: none;
   user-select: none;
   display: inline-block;
@@ -1491,24 +1502,24 @@ button.toggle-contrast svg {
   background-color: #001496;
   border-color: #001496;
   color: #fff; }
-  .button:hover, :hover[type=submit], .wp-block-button a:hover, .edit-link a:hover, .button:focus, :focus[type=submit], .wp-block-button a:focus, .edit-link a:focus, .button:active, :active[type=submit], .wp-block-button a:active, .edit-link a:active, a.button:hover, a:hover[type=submit], .wp-block-button a:hover, .edit-link a:hover, a.button:focus, a:focus[type=submit], .wp-block-button a:focus, .edit-link a:focus, a.button:active, a:active[type=submit], .wp-block-button a:active, .edit-link a:active, button:hover, button:focus, button:active, [type=submit]:hover, [type=submit]:focus, [type=submit]:active, [type=reset]:hover, [type=reset]:focus, [type=reset]:active, [type=button]:hover, [type=button]:focus, [type=button]:active {
+  .button:hover, :hover[type=submit], .button:focus, :focus[type=submit], .button:active, :active[type=submit], a.button:hover, a:hover[type=submit], a.button:focus, a:focus[type=submit], a.button:active, a:active[type=submit], button:hover, button:focus, button:active, [type=submit]:hover, [type=submit]:focus, [type=submit]:active, [type=reset]:hover, [type=reset]:focus, [type=reset]:active, [type=button]:hover, [type=button]:focus, [type=button]:active {
     background-color: #3343ab;
     border-color: #3343ab;
     color: #fff; }
-  .button:focus, :focus[type=submit], .wp-block-button a:focus, .edit-link a:focus, a.button:focus, a:focus[type=submit], .wp-block-button a:focus, .edit-link a:focus, button:focus, [type=submit]:focus, [type=reset]:focus, [type=button]:focus {
+  .button:focus, :focus[type=submit], a.button:focus, a:focus[type=submit], button:focus, [type=submit]:focus, [type=reset]:focus, [type=button]:focus {
     box-shadow: 0px 0px 1px 3px #adb4dd; }
-  .button.button__outline:hover, .button__outline:hover[type=submit], :hover[type=submit][type=reset], .button:hover[type=reset], .wp-block-button a:hover[type=reset], .wp-block-button a.button__outline:hover, .wp-block-button.is-style-outline a:hover, .edit-link a:hover, .button.button__outline:focus, .button__outline:focus[type=submit], :focus[type=submit][type=reset], .button:focus[type=reset], .wp-block-button a:focus[type=reset], .wp-block-button a.button__outline:focus, .wp-block-button.is-style-outline a:focus, .edit-link a:focus, .button.button__outline:active, .button__outline:active[type=submit], :active[type=submit][type=reset], .button:active[type=reset], .wp-block-button a:active[type=reset], .wp-block-button a.button__outline:active, .wp-block-button.is-style-outline a:active, .edit-link a:active, a.button.button__outline:hover, a.button__outline:hover[type=submit], a:hover[type=submit][type=reset], a.button:hover[type=reset], .wp-block-button a:hover[type=reset], .wp-block-button a.button__outline:hover, .wp-block-button.is-style-outline a:hover, .edit-link a:hover, a.button.button__outline:focus, a.button__outline:focus[type=submit], a:focus[type=submit][type=reset], a.button:focus[type=reset], .wp-block-button a:focus[type=reset], .wp-block-button a.button__outline:focus, .wp-block-button.is-style-outline a:focus, .edit-link a:focus, a.button.button__outline:active, a.button__outline:active[type=submit], a:active[type=submit][type=reset], a.button:active[type=reset], .wp-block-button a:active[type=reset], .wp-block-button a.button__outline:active, .wp-block-button.is-style-outline a:active, .edit-link a:active, button.button__outline:hover, button:hover[type=reset], button.button__outline:focus, button:focus[type=reset], button.button__outline:active, button:active[type=reset], [type=submit].button__outline:hover, [type=submit]:hover[type=reset], .wp-block-button.is-style-outline a[type=submit]:hover, .edit-link a[type=submit]:hover, [type=submit].button__outline:focus, [type=submit]:focus[type=reset], .wp-block-button.is-style-outline a[type=submit]:focus, .edit-link a[type=submit]:focus, [type=submit].button__outline:active, [type=submit]:active[type=reset], .wp-block-button.is-style-outline a[type=submit]:active, .edit-link a[type=submit]:active, [type=reset].button__outline:hover, [type=reset]:hover, .wp-block-button.is-style-outline a[type=reset]:hover, [type=reset].button__outline:focus, [type=reset]:focus, .wp-block-button.is-style-outline a[type=reset]:focus, [type=reset].button__outline:active, [type=reset]:active, .wp-block-button.is-style-outline a[type=reset]:active, [type=button].button__outline:hover, [type=button]:hover[type=reset], .wp-block-button.is-style-outline a[type=button]:hover, .edit-link a[type=button]:hover, [type=button].button__outline:focus, [type=button]:focus[type=reset], .wp-block-button.is-style-outline a[type=button]:focus, .edit-link a[type=button]:focus, [type=button].button__outline:active, [type=button]:active[type=reset], .wp-block-button.is-style-outline a[type=button]:active, .edit-link a[type=button]:active {
+  .button.button__outline:hover, .button__outline:hover[type=submit], :hover[type=submit][type=reset], .wp-block-button.is-style-outline a:hover[type=submit], .button:hover[type=reset], .wp-block-button.is-style-outline a.button:hover, .button.button__outline:focus, .button__outline:focus[type=submit], :focus[type=submit][type=reset], .wp-block-button.is-style-outline a:focus[type=submit], .button:focus[type=reset], .wp-block-button.is-style-outline a.button:focus, .button.button__outline:active, .button__outline:active[type=submit], :active[type=submit][type=reset], .wp-block-button.is-style-outline a:active[type=submit], .button:active[type=reset], .wp-block-button.is-style-outline a.button:active, a.button.button__outline:hover, a.button__outline:hover[type=submit], a:hover[type=submit][type=reset], .wp-block-button.is-style-outline a:hover[type=submit], a.button:hover[type=reset], .wp-block-button.is-style-outline a.button:hover, a.button.button__outline:focus, a.button__outline:focus[type=submit], a:focus[type=submit][type=reset], .wp-block-button.is-style-outline a:focus[type=submit], a.button:focus[type=reset], .wp-block-button.is-style-outline a.button:focus, a.button.button__outline:active, a.button__outline:active[type=submit], a:active[type=submit][type=reset], .wp-block-button.is-style-outline a:active[type=submit], a.button:active[type=reset], .wp-block-button.is-style-outline a.button:active, button.button__outline:hover, button:hover[type=reset], button.button__outline:focus, button:focus[type=reset], button.button__outline:active, button:active[type=reset], [type=submit].button__outline:hover, [type=submit]:hover[type=reset], .wp-block-button.is-style-outline a[type=submit]:hover, [type=submit].button__outline:focus, [type=submit]:focus[type=reset], .wp-block-button.is-style-outline a[type=submit]:focus, [type=submit].button__outline:active, [type=submit]:active[type=reset], .wp-block-button.is-style-outline a[type=submit]:active, [type=reset].button__outline:hover, [type=reset]:hover, .wp-block-button.is-style-outline a[type=reset]:hover, [type=reset].button__outline:focus, [type=reset]:focus, .wp-block-button.is-style-outline a[type=reset]:focus, [type=reset].button__outline:active, [type=reset]:active, .wp-block-button.is-style-outline a[type=reset]:active, [type=button].button__outline:hover, [type=button]:hover[type=reset], .wp-block-button.is-style-outline a[type=button]:hover, [type=button].button__outline:focus, [type=button]:focus[type=reset], .wp-block-button.is-style-outline a[type=button]:focus, [type=button].button__outline:active, [type=button]:active[type=reset], .wp-block-button.is-style-outline a[type=button]:active {
     color: #001496; }
-  .button::-moz-focus-inner, [type=submit]::-moz-focus-inner, .wp-block-button a::-moz-focus-inner, .edit-link a::-moz-focus-inner, a.button::-moz-focus-inner, a[type=submit]::-moz-focus-inner, .wp-block-button a::-moz-focus-inner, .edit-link a::-moz-focus-inner, button::-moz-focus-inner, [type=submit]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=button]::-moz-focus-inner {
+  .button::-moz-focus-inner, [type=submit]::-moz-focus-inner, a.button::-moz-focus-inner, a[type=submit]::-moz-focus-inner, button::-moz-focus-inner, [type=submit]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=button]::-moz-focus-inner {
     border: 0;
     padding: 0; }
-  .button:focus, :focus[type=submit], .wp-block-button a:focus, .edit-link a:focus, a.button:focus, a:focus[type=submit], .wp-block-button a:focus, .edit-link a:focus, button:focus, [type=submit]:focus, [type=reset]:focus, [type=button]:focus {
+  .button:focus, :focus[type=submit], a.button:focus, a:focus[type=submit], button:focus, [type=submit]:focus, [type=reset]:focus, [type=button]:focus {
     outline: 0; }
-  .button:disabled, :disabled[type=submit], .wp-block-button a:disabled, .edit-link a:disabled, a.button:disabled, a:disabled[type=submit], .wp-block-button a:disabled, .edit-link a:disabled, button:disabled, [type=submit]:disabled, [type=reset]:disabled, [type=button]:disabled {
+  .button:disabled, :disabled[type=submit], a.button:disabled, a:disabled[type=submit], button:disabled, [type=submit]:disabled, [type=reset]:disabled, [type=button]:disabled {
     cursor: not-allowed;
     background-color: #adadad;
     border-color: #adadad; }
-    .button:disabled:hover, :disabled:hover[type=submit], .wp-block-button a:disabled:hover, .edit-link a:disabled:hover, .button:disabled:focus, :disabled:focus[type=submit], .wp-block-button a:disabled:focus, .edit-link a:disabled:focus, .button:disabled:active, :disabled:active[type=submit], .wp-block-button a:disabled:active, .edit-link a:disabled:active, a.button:disabled:hover, a:disabled:hover[type=submit], .wp-block-button a:disabled:hover, .edit-link a:disabled:hover, a.button:disabled:focus, a:disabled:focus[type=submit], .wp-block-button a:disabled:focus, .edit-link a:disabled:focus, a.button:disabled:active, a:disabled:active[type=submit], .wp-block-button a:disabled:active, .edit-link a:disabled:active, button:disabled:hover, button:disabled:focus, button:disabled:active, [type=submit]:disabled:hover, [type=submit]:disabled:focus, [type=submit]:disabled:active, [type=reset]:disabled:hover, [type=reset]:disabled:focus, [type=reset]:disabled:active, [type=button]:disabled:hover, [type=button]:disabled:focus, [type=button]:disabled:active {
+    .button:disabled:hover, :disabled:hover[type=submit], .button:disabled:focus, :disabled:focus[type=submit], .button:disabled:active, :disabled:active[type=submit], a.button:disabled:hover, a:disabled:hover[type=submit], a.button:disabled:focus, a:disabled:focus[type=submit], a.button:disabled:active, a:disabled:active[type=submit], button:disabled:hover, button:disabled:focus, button:disabled:active, [type=submit]:disabled:hover, [type=submit]:disabled:focus, [type=submit]:disabled:active, [type=reset]:disabled:hover, [type=reset]:disabled:focus, [type=reset]:disabled:active, [type=button]:disabled:hover, [type=button]:disabled:focus, [type=button]:disabled:active {
       background-color: #adadad;
       border-color: #adadad; }
 
@@ -1522,7 +1533,7 @@ button.toggle-contrast svg {
     color: #fff; }
   .button__primary:focus, a.button__primary:focus {
     box-shadow: 0px 0px 1px 3px #adb4dd; }
-  .button__primary.button__outline:hover, .button__primary:hover[type=reset], .wp-block-button.is-style-outline a.button__primary:hover, .edit-link a.button__primary:hover, .button__primary.button__outline:focus, .button__primary:focus[type=reset], .wp-block-button.is-style-outline a.button__primary:focus, .edit-link a.button__primary:focus, .button__primary.button__outline:active, .button__primary:active[type=reset], .wp-block-button.is-style-outline a.button__primary:active, .edit-link a.button__primary:active, a.button__primary.button__outline:hover, a.button__primary:hover[type=reset], .wp-block-button.is-style-outline a.button__primary:hover, .edit-link a.button__primary:hover, a.button__primary.button__outline:focus, a.button__primary:focus[type=reset], .wp-block-button.is-style-outline a.button__primary:focus, .edit-link a.button__primary:focus, a.button__primary.button__outline:active, a.button__primary:active[type=reset], .wp-block-button.is-style-outline a.button__primary:active, .edit-link a.button__primary:active {
+  .button__primary.button__outline:hover, .button__primary:hover[type=reset], .wp-block-button.is-style-outline a.button__primary:hover, .button__primary.button__outline:focus, .button__primary:focus[type=reset], .wp-block-button.is-style-outline a.button__primary:focus, .button__primary.button__outline:active, .button__primary:active[type=reset], .wp-block-button.is-style-outline a.button__primary:active, a.button__primary.button__outline:hover, a.button__primary:hover[type=reset], .wp-block-button.is-style-outline a.button__primary:hover, a.button__primary.button__outline:focus, a.button__primary:focus[type=reset], .wp-block-button.is-style-outline a.button__primary:focus, a.button__primary.button__outline:active, a.button__primary:active[type=reset], .wp-block-button.is-style-outline a.button__primary:active {
     color: #001496; }
 
 .button__secondary, a.button__secondary {
@@ -1535,7 +1546,7 @@ button.toggle-contrast svg {
     color: #fff; }
   .button__secondary:focus, a.button__secondary:focus {
     box-shadow: 0px 0px 1px 3px #e3b9d4; }
-  .button__secondary.button__outline:hover, .button__secondary:hover[type=reset], .wp-block-button.is-style-outline a.button__secondary:hover, .edit-link a.button__secondary:hover, .button__secondary.button__outline:focus, .button__secondary:focus[type=reset], .wp-block-button.is-style-outline a.button__secondary:focus, .edit-link a.button__secondary:focus, .button__secondary.button__outline:active, .button__secondary:active[type=reset], .wp-block-button.is-style-outline a.button__secondary:active, .edit-link a.button__secondary:active, a.button__secondary.button__outline:hover, a.button__secondary:hover[type=reset], .wp-block-button.is-style-outline a.button__secondary:hover, .edit-link a.button__secondary:hover, a.button__secondary.button__outline:focus, a.button__secondary:focus[type=reset], .wp-block-button.is-style-outline a.button__secondary:focus, .edit-link a.button__secondary:focus, a.button__secondary.button__outline:active, a.button__secondary:active[type=reset], .wp-block-button.is-style-outline a.button__secondary:active, .edit-link a.button__secondary:active {
+  .button__secondary.button__outline:hover, .button__secondary:hover[type=reset], .wp-block-button.is-style-outline a.button__secondary:hover, .button__secondary.button__outline:focus, .button__secondary:focus[type=reset], .wp-block-button.is-style-outline a.button__secondary:focus, .button__secondary.button__outline:active, .button__secondary:active[type=reset], .wp-block-button.is-style-outline a.button__secondary:active, a.button__secondary.button__outline:hover, a.button__secondary:hover[type=reset], .wp-block-button.is-style-outline a.button__secondary:hover, a.button__secondary.button__outline:focus, a.button__secondary:focus[type=reset], .wp-block-button.is-style-outline a.button__secondary:focus, a.button__secondary.button__outline:active, a.button__secondary:active[type=reset], .wp-block-button.is-style-outline a.button__secondary:active {
     color: #a62579; }
 
 .button__tertiary, a.button__tertiary {
@@ -1548,7 +1559,7 @@ button.toggle-contrast svg {
     color: #fff; }
   .button__tertiary:focus, a.button__tertiary:focus {
     box-shadow: 0px 0px 1px 3px #dbb6b7; }
-  .button__tertiary.button__outline:hover, .button__tertiary:hover[type=reset], .wp-block-button.is-style-outline a.button__tertiary:hover, .edit-link a.button__tertiary:hover, .button__tertiary.button__outline:focus, .button__tertiary:focus[type=reset], .wp-block-button.is-style-outline a.button__tertiary:focus, .edit-link a.button__tertiary:focus, .button__tertiary.button__outline:active, .button__tertiary:active[type=reset], .wp-block-button.is-style-outline a.button__tertiary:active, .edit-link a.button__tertiary:active, a.button__tertiary.button__outline:hover, a.button__tertiary:hover[type=reset], .wp-block-button.is-style-outline a.button__tertiary:hover, .edit-link a.button__tertiary:hover, a.button__tertiary.button__outline:focus, a.button__tertiary:focus[type=reset], .wp-block-button.is-style-outline a.button__tertiary:focus, .edit-link a.button__tertiary:focus, a.button__tertiary.button__outline:active, a.button__tertiary:active[type=reset], .wp-block-button.is-style-outline a.button__tertiary:active, .edit-link a.button__tertiary:active {
+  .button__tertiary.button__outline:hover, .button__tertiary:hover[type=reset], .wp-block-button.is-style-outline a.button__tertiary:hover, .button__tertiary.button__outline:focus, .button__tertiary:focus[type=reset], .wp-block-button.is-style-outline a.button__tertiary:focus, .button__tertiary.button__outline:active, .button__tertiary:active[type=reset], .wp-block-button.is-style-outline a.button__tertiary:active, a.button__tertiary.button__outline:hover, a.button__tertiary:hover[type=reset], .wp-block-button.is-style-outline a.button__tertiary:hover, a.button__tertiary.button__outline:focus, a.button__tertiary:focus[type=reset], .wp-block-button.is-style-outline a.button__tertiary:focus, a.button__tertiary.button__outline:active, a.button__tertiary:active[type=reset], .wp-block-button.is-style-outline a.button__tertiary:active {
     color: #8e1b1f; }
 
 .button__success, a.button__success {
@@ -1561,7 +1572,7 @@ button.toggle-contrast svg {
     color: #333333; }
   .button__success:focus, a.button__success:focus {
     box-shadow: 0px 0px 1px 3px #d3f5ce; }
-  .button__success.button__outline:hover, .button__success:hover[type=reset], .wp-block-button.is-style-outline a.button__success:hover, .edit-link a.button__success:hover, .button__success.button__outline:focus, .button__success:focus[type=reset], .wp-block-button.is-style-outline a.button__success:focus, .edit-link a.button__success:focus, .button__success.button__outline:active, .button__success:active[type=reset], .wp-block-button.is-style-outline a.button__success:active, .edit-link a.button__success:active, a.button__success.button__outline:hover, a.button__success:hover[type=reset], .wp-block-button.is-style-outline a.button__success:hover, .edit-link a.button__success:hover, a.button__success.button__outline:focus, a.button__success:focus[type=reset], .wp-block-button.is-style-outline a.button__success:focus, .edit-link a.button__success:focus, a.button__success.button__outline:active, a.button__success:active[type=reset], .wp-block-button.is-style-outline a.button__success:active, .edit-link a.button__success:active {
+  .button__success.button__outline:hover, .button__success:hover[type=reset], .wp-block-button.is-style-outline a.button__success:hover, .button__success.button__outline:focus, .button__success:focus[type=reset], .wp-block-button.is-style-outline a.button__success:focus, .button__success.button__outline:active, .button__success:active[type=reset], .wp-block-button.is-style-outline a.button__success:active, a.button__success.button__outline:hover, a.button__success:hover[type=reset], .wp-block-button.is-style-outline a.button__success:hover, a.button__success.button__outline:focus, a.button__success:focus[type=reset], .wp-block-button.is-style-outline a.button__success:focus, a.button__success.button__outline:active, a.button__success:active[type=reset], .wp-block-button.is-style-outline a.button__success:active {
     color: #77de65; }
 
 .button__warning, a.button__warning {
@@ -1574,7 +1585,7 @@ button.toggle-contrast svg {
     color: #333333; }
   .button__warning:focus, a.button__warning:focus {
     box-shadow: 0px 0px 1px 3px #fef0b4; }
-  .button__warning.button__outline:hover, .button__warning:hover[type=reset], .wp-block-button.is-style-outline a.button__warning:hover, .edit-link a.button__warning:hover, .button__warning.button__outline:focus, .button__warning:focus[type=reset], .wp-block-button.is-style-outline a.button__warning:focus, .edit-link a.button__warning:focus, .button__warning.button__outline:active, .button__warning:active[type=reset], .wp-block-button.is-style-outline a.button__warning:active, .edit-link a.button__warning:active, a.button__warning.button__outline:hover, a.button__warning:hover[type=reset], .wp-block-button.is-style-outline a.button__warning:hover, .edit-link a.button__warning:hover, a.button__warning.button__outline:focus, a.button__warning:focus[type=reset], .wp-block-button.is-style-outline a.button__warning:focus, .edit-link a.button__warning:focus, a.button__warning.button__outline:active, a.button__warning:active[type=reset], .wp-block-button.is-style-outline a.button__warning:active, .edit-link a.button__warning:active {
+  .button__warning.button__outline:hover, .button__warning:hover[type=reset], .wp-block-button.is-style-outline a.button__warning:hover, .button__warning.button__outline:focus, .button__warning:focus[type=reset], .wp-block-button.is-style-outline a.button__warning:focus, .button__warning.button__outline:active, .button__warning:active[type=reset], .wp-block-button.is-style-outline a.button__warning:active, a.button__warning.button__outline:hover, a.button__warning:hover[type=reset], .wp-block-button.is-style-outline a.button__warning:hover, a.button__warning.button__outline:focus, a.button__warning:focus[type=reset], .wp-block-button.is-style-outline a.button__warning:focus, a.button__warning.button__outline:active, a.button__warning:active[type=reset], .wp-block-button.is-style-outline a.button__warning:active {
     color: #FCCf14; }
 
 .button__error, a.button__error {
@@ -1587,7 +1598,7 @@ button.toggle-contrast svg {
     color: #333333; }
   .button__error:focus, a.button__error:focus {
     box-shadow: 0px 0px 1px 3px #ffc3ad; }
-  .button__error.button__outline:hover, .button__error:hover[type=reset], .wp-block-button.is-style-outline a.button__error:hover, .edit-link a.button__error:hover, .button__error.button__outline:focus, .button__error:focus[type=reset], .wp-block-button.is-style-outline a.button__error:focus, .edit-link a.button__error:focus, .button__error.button__outline:active, .button__error:active[type=reset], .wp-block-button.is-style-outline a.button__error:active, .edit-link a.button__error:active, a.button__error.button__outline:hover, a.button__error:hover[type=reset], .wp-block-button.is-style-outline a.button__error:hover, .edit-link a.button__error:hover, a.button__error.button__outline:focus, a.button__error:focus[type=reset], .wp-block-button.is-style-outline a.button__error:focus, .edit-link a.button__error:focus, a.button__error.button__outline:active, a.button__error:active[type=reset], .wp-block-button.is-style-outline a.button__error:active, .edit-link a.button__error:active {
+  .button__error.button__outline:hover, .button__error:hover[type=reset], .wp-block-button.is-style-outline a.button__error:hover, .button__error.button__outline:focus, .button__error:focus[type=reset], .wp-block-button.is-style-outline a.button__error:focus, .button__error.button__outline:active, .button__error:active[type=reset], .wp-block-button.is-style-outline a.button__error:active, a.button__error.button__outline:hover, a.button__error:hover[type=reset], .wp-block-button.is-style-outline a.button__error:hover, a.button__error.button__outline:focus, a.button__error:focus[type=reset], .wp-block-button.is-style-outline a.button__error:focus, a.button__error.button__outline:active, a.button__error:active[type=reset], .wp-block-button.is-style-outline a.button__error:active {
     color: #FF4200; }
 
 .button__white, a.button__white {
@@ -1600,7 +1611,7 @@ button.toggle-contrast svg {
     color: #333333; }
   .button__white:focus, a.button__white:focus {
     box-shadow: 0px 0px 1px 3px white; }
-  .button__white.button__outline:hover, .button__white:hover[type=reset], .wp-block-button.is-style-outline a.button__white:hover, .edit-link a.button__white:hover, .button__white.button__outline:focus, .button__white:focus[type=reset], .wp-block-button.is-style-outline a.button__white:focus, .edit-link a.button__white:focus, .button__white.button__outline:active, .button__white:active[type=reset], .wp-block-button.is-style-outline a.button__white:active, .edit-link a.button__white:active, a.button__white.button__outline:hover, a.button__white:hover[type=reset], .wp-block-button.is-style-outline a.button__white:hover, .edit-link a.button__white:hover, a.button__white.button__outline:focus, a.button__white:focus[type=reset], .wp-block-button.is-style-outline a.button__white:focus, .edit-link a.button__white:focus, a.button__white.button__outline:active, a.button__white:active[type=reset], .wp-block-button.is-style-outline a.button__white:active, .edit-link a.button__white:active {
+  .button__white.button__outline:hover, .button__white:hover[type=reset], .wp-block-button.is-style-outline a.button__white:hover, .button__white.button__outline:focus, .button__white:focus[type=reset], .wp-block-button.is-style-outline a.button__white:focus, .button__white.button__outline:active, .button__white:active[type=reset], .wp-block-button.is-style-outline a.button__white:active, a.button__white.button__outline:hover, a.button__white:hover[type=reset], .wp-block-button.is-style-outline a.button__white:hover, a.button__white.button__outline:focus, a.button__white:focus[type=reset], .wp-block-button.is-style-outline a.button__white:focus, a.button__white.button__outline:active, a.button__white:active[type=reset], .wp-block-button.is-style-outline a.button__white:active {
     color: #fff; }
 
 .button__black, a.button__black {
@@ -1613,13 +1624,13 @@ button.toggle-contrast svg {
     color: #fff; }
   .button__black:focus, a.button__black:focus {
     box-shadow: 0px 0px 1px 3px #adadad; }
-  .button__black.button__outline:hover, .button__black:hover[type=reset], .wp-block-button.is-style-outline a.button__black:hover, .edit-link a.button__black:hover, .button__black.button__outline:focus, .button__black:focus[type=reset], .wp-block-button.is-style-outline a.button__black:focus, .edit-link a.button__black:focus, .button__black.button__outline:active, .button__black:active[type=reset], .wp-block-button.is-style-outline a.button__black:active, .edit-link a.button__black:active, a.button__black.button__outline:hover, a.button__black:hover[type=reset], .wp-block-button.is-style-outline a.button__black:hover, .edit-link a.button__black:hover, a.button__black.button__outline:focus, a.button__black:focus[type=reset], .wp-block-button.is-style-outline a.button__black:focus, .edit-link a.button__black:focus, a.button__black.button__outline:active, a.button__black:active[type=reset], .wp-block-button.is-style-outline a.button__black:active, .edit-link a.button__black:active {
+  .button__black.button__outline:hover, .button__black:hover[type=reset], .wp-block-button.is-style-outline a.button__black:hover, .button__black.button__outline:focus, .button__black:focus[type=reset], .wp-block-button.is-style-outline a.button__black:focus, .button__black.button__outline:active, .button__black:active[type=reset], .wp-block-button.is-style-outline a.button__black:active, a.button__black.button__outline:hover, a.button__black:hover[type=reset], .wp-block-button.is-style-outline a.button__black:hover, a.button__black.button__outline:focus, a.button__black:focus[type=reset], .wp-block-button.is-style-outline a.button__black:focus, a.button__black.button__outline:active, a.button__black:active[type=reset], .wp-block-button.is-style-outline a.button__black:active {
     color: #000; }
 
-.button__outline, [type=reset], .wp-block-button.is-style-outline a, .edit-link a, a.button__outline, a[type=reset], .wp-block-button.is-style-outline a, .edit-link a {
+.button__outline, [type=reset], .wp-block-button.is-style-outline a, a.button__outline, a[type=reset], .wp-block-button.is-style-outline a {
   background-color: transparent !important;
   color: inherit; }
-  .button__outline:hover, :hover[type=reset], .wp-block-button.is-style-outline a:hover, .edit-link a:hover, .button__outline:focus, :focus[type=reset], .wp-block-button.is-style-outline a:focus, .edit-link a:focus, .button__outline:active, :active[type=reset], .wp-block-button.is-style-outline a:active, .edit-link a:active, a.button__outline:hover, a:hover[type=reset], .wp-block-button.is-style-outline a:hover, .edit-link a:hover, a.button__outline:focus, a:focus[type=reset], .wp-block-button.is-style-outline a:focus, .edit-link a:focus, a.button__outline:active, a:active[type=reset], .wp-block-button.is-style-outline a:active, .edit-link a:active {
+  .button__outline:hover, :hover[type=reset], .wp-block-button.is-style-outline a:hover, .button__outline:focus, :focus[type=reset], .wp-block-button.is-style-outline a:focus, .button__outline:active, :active[type=reset], .wp-block-button.is-style-outline a:active, a.button__outline:hover, a:hover[type=reset], .wp-block-button.is-style-outline a:hover, a.button__outline:focus, a:focus[type=reset], .wp-block-button.is-style-outline a:focus, a.button__outline:active, a:active[type=reset], .wp-block-button.is-style-outline a:active {
     background-color: transparent !important; }
 
 .button__ghost, a.button__ghost {
@@ -1637,8 +1648,21 @@ button.toggle-contrast svg {
 .button__large, a.button__large {
   font-size: 1.1rem; }
 
-.button__small, .edit-link a, a.button__small, .edit-link a {
+.button__small, a.button__small {
   font-size: 0.8rem; }
+
+.button-group {
+  display: inline-flex;
+  vertical-align: middle;
+  position: relative;
+  flex-wrap: wrap; }
+  .button-group .button, .button-group [type=submit], .button-group a.button, .button-group a[type=submit], .button-group button, .button-group [type=submit], .button-group [type=reset], .button-group [type=button] {
+    margin-top: 0;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 170px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   CALLOUTS
@@ -1966,7 +1990,7 @@ select::-ms-expand {
   margin-right: -5px;
   display: flex;
   flex-wrap: wrap; }
-  .form-row .col, .form-row .section__gallery .gallery-item, .section__gallery .form-row .gallery-item {
+  .form-row .col, .form-row .block__gallery .gallery-item, .block__gallery .form-row .gallery-item {
     padding-left: 5px;
     padding-right: 5px; }
 
@@ -2299,11 +2323,11 @@ they should be wrapped in this class to ensure consistent display
         justify-content: flex-end;
         margin-left: auto;
         padding: 0; } }
-  .navbar-menu input, .navbar-menu .button, .navbar-menu [type=submit], .navbar-menu .wp-block-button a, .wp-block-button .navbar-menu a, .navbar-menu .edit-link a, .edit-link .navbar-menu a, .navbar-menu a.button, .navbar-menu a[type=submit], .navbar-menu .wp-block-button a, .wp-block-button .navbar-menu a, .navbar-menu .edit-link a, .edit-link .navbar-menu a, .navbar-menu button, .navbar-menu [type=submit], .navbar-menu [type=reset], .navbar-menu [type=button] {
+  .navbar-menu input, .navbar-menu .button, .navbar-menu [type=submit], .navbar-menu a.button, .navbar-menu a[type=submit], .navbar-menu button, .navbar-menu [type=submit], .navbar-menu [type=reset], .navbar-menu [type=button] {
     margin: 8px 10px;
     position: relative; }
     @media (min-width: 56.25em) {
-      .navbar-menu input, .navbar-menu .button, .navbar-menu [type=submit], .navbar-menu .wp-block-button a, .wp-block-button .navbar-menu a, .navbar-menu .edit-link a, .edit-link .navbar-menu a, .navbar-menu a.button, .navbar-menu a[type=submit], .navbar-menu .wp-block-button a, .wp-block-button .navbar-menu a, .navbar-menu .edit-link a, .edit-link .navbar-menu a, .navbar-menu button, .navbar-menu [type=submit], .navbar-menu [type=reset], .navbar-menu [type=button] {
+      .navbar-menu input, .navbar-menu .button, .navbar-menu [type=submit], .navbar-menu a.button, .navbar-menu a[type=submit], .navbar-menu button, .navbar-menu [type=submit], .navbar-menu [type=reset], .navbar-menu [type=button] {
         margin: 10px 10px; } }
   .navbar-menu input {
     width: auto; }
@@ -2382,7 +2406,7 @@ Utilities
     font-size: 1.4em; }
   h3, h4, h5, p.wp-block-subhead, h6 {
     font-size: 1.2em; }
-  .button, [type=submit], .wp-block-button a, .edit-link a, a.button, a[type=submit], .wp-block-button a, .edit-link a, button, [type=submit], [type=reset], [type=button] {
+  .button, [type=submit], a.button, a[type=submit], button, [type=submit], [type=reset], [type=button] {
     border: 1px solid black  !important;
     background-color: #fff !important;
     color: black  !important;
@@ -2501,6 +2525,18 @@ Utilities
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .wp-block-button {
   color: #fff; }
+  .wp-block-button a {
+    background-color: #001496;
+    border-color: #001496;
+    color: #fff; }
+    .wp-block-button a:hover, .wp-block-button a:focus, .wp-block-button a:active {
+      background-color: #3343ab;
+      border-color: #3343ab;
+      color: #fff; }
+    .wp-block-button a:focus {
+      box-shadow: 0px 0px 1px 3px #adb4dd; }
+    .wp-block-button a.button__outline:hover, .wp-block-button a:hover[type=reset], .wp-block-button.is-style-outline a:hover, .wp-block-button a.button__outline:focus, .wp-block-button a:focus[type=reset], .wp-block-button.is-style-outline a:focus, .wp-block-button a.button__outline:active, .wp-block-button a:active[type=reset], .wp-block-button.is-style-outline a:active {
+      color: #001496; }
   .wp-block-button.is-style-outline {
     color: inherit; }
 
@@ -2704,22 +2740,180 @@ p.has-background {
   display: block; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  ANIMATIONS
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@keyframes pulse {
+  0% {
+    transform: scale(1); }
+  65% {
+    transform: scale(1.05); }
+  100% {
+    transform: scale(1); } }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  BLOCK: TEXT MEDIA
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.block__text-media .embedded-iframe, .block__text-media .google-map {
+  height: auto;
+  width: 100%;
+  min-height: 300px; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  BLOCS
+  Styling for ACF flexible content
+  blocks
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.block {
+  padding-top: 70px;
+  padding-bottom: 46px;
+  position: relative; }
+  .block__image img {
+    width: 100%; }
+  .block__full-width {
+    padding-top: 0;
+    padding-bottom: 0; }
+    .block__full-width img, .block__full-width .embed-container, .block__full-width .is-type-video .wp-block-embed__wrapper, .is-type-video .block__full-width .wp-block-embed__wrapper {
+      margin-bottom: 0; }
+  .block__gallery .gallery-item {
+    display: inline-block;
+    text-align: center;
+    margin: 12px 0; }
+
+.block.bg-primary:not(.block__full-width) + .block.bg-primary:not(.block__full-width) {
+  padding-top: 0; }
+
+.block.bg-secondary:not(.block__full-width) + .block.bg-secondary:not(.block__full-width) {
+  padding-top: 0; }
+
+.block.bg-tertiary:not(.block__full-width) + .block.bg-tertiary:not(.block__full-width) {
+  padding-top: 0; }
+
+.block.bg-success:not(.block__full-width) + .block.bg-success:not(.block__full-width) {
+  padding-top: 0; }
+
+.block.bg-warning:not(.block__full-width) + .block.bg-warning:not(.block__full-width) {
+  padding-top: 0; }
+
+.block.bg-error:not(.block__full-width) + .block.bg-error:not(.block__full-width) {
+  padding-top: 0; }
+
+.block.bg-white:not(.block__full-width) + .block.bg-white:not(.block__full-width) {
+  padding-top: 0; }
+
+.block.bg-black:not(.block__full-width) + .block.bg-black:not(.block__full-width) {
+  padding-top: 0; }
+
+.block__full-width .block-title, .block__full-width .block-preamble {
+  margin-top: 70px; }
+
+.block__full-width .block-title + .block-preamble {
+  margin-top: 0 !important; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  CONTACT INFORMATION
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.phone-numbers a {
+  text-decoration: none;
+  color: inherit; }
+
+.icon__facebook {
+  color: #1877F2; }
+
+a:hover .icon__facebook, a:focus .icon__facebook, a:active .icon__facebook {
+  color: #135fc2; }
+
+.icon__instagram {
+  color: #E4405F; }
+
+a:hover .icon__instagram, a:focus .icon__instagram, a:active .icon__instagram {
+  color: #b6334c; }
+
+.icon__linkedin {
+  color: #0077B5; }
+
+a:hover .icon__linkedin, a:focus .icon__linkedin, a:active .icon__linkedin {
+  color: #005f91; }
+
+.icon__pinterest {
+  color: #BD081C; }
+
+a:hover .icon__pinterest, a:focus .icon__pinterest, a:active .icon__pinterest {
+  color: #970616; }
+
+.icon__twitter {
+  color: #1DA1F2; }
+
+a:hover .icon__twitter, a:focus .icon__twitter, a:active .icon__twitter {
+  color: #1781c2; }
+
+.icon__vimeo {
+  color: #1AB7EA; }
+
+a:hover .icon__vimeo, a:focus .icon__vimeo, a:active .icon__vimeo {
+  color: #1592bb; }
+
+.icon__youtube {
+  color: #FF0000; }
+
+a:hover .icon__youtube, a:focus .icon__youtube, a:active .icon__youtube {
+  color: #cc0000; }
+
+.icon__whatsapp {
+  color: #25D366; }
+
+a:hover .icon__whatsapp, a:focus .icon__whatsapp, a:active .icon__whatsapp {
+  color: #1ea952; }
+
+.icon__microsoftteams {
+  color: #6264A7; }
+
+a:hover .icon__microsoftteams, a:focus .icon__microsoftteams, a:active .icon__microsoftteams {
+  color: #4e5086; }
+
+.icon__skype {
+  color: #00AFF0; }
+
+a:hover .icon__skype, a:focus .icon__skype, a:active .icon__skype {
+  color: #008cc0; }
+
+.icon__zoom {
+  color: #2D8CFF; }
+
+a:hover .icon__zoom, a:focus .icon__zoom, a:active .icon__zoom {
+  color: #2470cc; }
+
+.social-channels .icon {
+  margin-right: .5em;
+  width: 1em;
+  height: 1em;
+  transition: color 0.2s ease, transform 0.2s ease; }
+
+.social-channels a:hover .icon, .social-channels a:focus .icon, .social-channels a:active .icon {
+  transform: scale(1.1); }
+
+.opening-hours {
+  width: auto; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   DEBUG
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .dev-flag {
   position: fixed;
   display: block;
   line-height: 1;
-  font-size: 13px;
+  font-size: 14px;
   top: 20%;
-  right: 2em;
+  right: 0;
   padding: .5em;
-  background-color: #FF00FF;
-  color: black;
+  background-color: #FF0000;
+  color: white;
   font-weight: bold;
-  transform-origin: top right;
-  transform: rotate(-90deg);
-  z-index: 99999999; }
+  z-index: 99999999;
+  margin: 0;
+  display: block;
+  transform-origin: center;
+  transform: translate3d(50%, -50%, 0) rotate(270deg) translateY(-50%);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25); }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   DEVELOPER INFORMATION
@@ -2745,6 +2939,68 @@ p.has-background {
       content: " hello@weareboba.com";
       display: inline-block;
       position: absolute; } }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  EMBEDDED VIDEO
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.play {
+  z-index: 1;
+  margin: 0;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  width: 30%;
+  padding: 0;
+  color: #fff;
+  max-width: 120px;
+  transition: opacity 1s ease; }
+  .play:hover, .play:focus {
+    opacity: 0.8;
+    box-shadow: none; }
+  .play .icon {
+    width: 100%;
+    height: auto; }
+
+.video-wrapper {
+  position: relative; }
+  .video-wrapper .embed-container, .video-wrapper .is-type-video .wp-block-embed__wrapper, .is-type-video .video-wrapper .wp-block-embed__wrapper {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    transition-delay: 0.5s; }
+  .video-wrapper.playing .video-overlay {
+    opacity: 0;
+    pointer-events: none; }
+  .video-wrapper.playing .embed-container, .video-wrapper.playing .is-type-video .wp-block-embed__wrapper, .is-type-video .video-wrapper.playing .wp-block-embed__wrapper {
+    opacity: 1; }
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  transition-delay: 0.5s; }
+  .video-overlay::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    mix-blend-mode: multiply; }
+  .video-overlay:hover::after {
+    opacity: 0.6; }
+  .video-overlay:hover .play {
+    animation: pulse 1.4s infinite; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   ICONS
@@ -2837,64 +3093,6 @@ p.has-background {
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #page {
   overflow: hidden; }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  SECTION: TEXT MEDIA
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.section__text-media .embedded-iframe, .section__text-media .google-map {
-  height: auto;
-  width: 100%;
-  min-height: 300px; }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  SECTIONS
-  Styling for site wide sections
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.section {
-  padding-top: 70px;
-  padding-bottom: 46px;
-  position: relative; }
-  .section__image img {
-    width: 100%; }
-  .section__full-width {
-    padding-top: 0;
-    padding-bottom: 0; }
-    .section__full-width img, .section__full-width .embed-container, .section__full-width .is-type-video .wp-block-embed__wrapper, .is-type-video .section__full-width .wp-block-embed__wrapper {
-      margin-bottom: 0; }
-  .section__gallery .gallery-item {
-    display: inline-block;
-    text-align: center;
-    margin: 12px 0; }
-
-.section.bg-primary + .section.bg-primary {
-  padding-top: 0; }
-
-.section.bg-secondary + .section.bg-secondary {
-  padding-top: 0; }
-
-.section.bg-tertiary + .section.bg-tertiary {
-  padding-top: 0; }
-
-.section.bg-success + .section.bg-success {
-  padding-top: 0; }
-
-.section.bg-warning + .section.bg-warning {
-  padding-top: 0; }
-
-.section.bg-error + .section.bg-error {
-  padding-top: 0; }
-
-.section.bg-white + .section.bg-white {
-  padding-top: 0; }
-
-.section.bg-black + .section.bg-black {
-  padding-top: 0; }
-
-.section__full-width .section-header, .section__full-width .preamble {
-  margin-top: 70px; }
-
-.section__full-width header + .preamble {
-  margin-top: 0 !important; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   TYPOGRAPHY

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jellypress-wordpress-theme 1.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/unofficialmatt/jellypress/issues\n"
-"POT-Creation-Date: 2020-10-12 22:12:44+00:00\n"
+"POT-Creation-Date: 2020-10-15 07:03:57+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -58,20 +58,230 @@ msgstr ""
 msgid "Successfully updated organisation information"
 msgstr ""
 
-#: inc/dry.php:121
+#: inc/dry.php:124
 msgid " contact numbers"
 msgstr ""
 
-#: inc/dry.php:154
+#: inc/dry.php:159
 msgid "Day"
 msgstr ""
 
-#: inc/dry.php:154
+#: inc/dry.php:159
 msgid "Opening Hours"
 msgstr ""
 
 #: inc/helpers.php:126
 msgid "Development Site"
+msgstr ""
+
+#: inc/post_types/example.php:25
+msgid "Campaign Archives"
+msgstr ""
+
+#: inc/post_types/example.php:26
+msgid "Campaign Attributes"
+msgstr ""
+
+#: inc/post_types/example.php:27
+msgid "Parent Campaign:"
+msgstr ""
+
+#: inc/post_types/example.php:28
+msgid "All Campaigns"
+msgstr ""
+
+#: inc/post_types/example.php:29
+msgid "Add New Campaign"
+msgstr ""
+
+#: inc/post_types/example.php:30 inc/post_types/post.php:21
+msgid "Add New"
+msgstr ""
+
+#: inc/post_types/example.php:31
+msgid "New Campaign"
+msgstr ""
+
+#: inc/post_types/example.php:32
+msgid "Edit Campaign"
+msgstr ""
+
+#: inc/post_types/example.php:33
+msgid "Update Campaign"
+msgstr ""
+
+#: inc/post_types/example.php:34
+msgid "View Campaign"
+msgstr ""
+
+#: inc/post_types/example.php:35
+msgid "View Campaigns"
+msgstr ""
+
+#: inc/post_types/example.php:36
+msgid "Search Campaign"
+msgstr ""
+
+#: inc/post_types/example.php:37 inc/post_types/post.php:28
+msgid "Not found"
+msgstr ""
+
+#: inc/post_types/example.php:38 inc/post_types/post.php:29
+msgid "Not found in Trash"
+msgstr ""
+
+#: inc/post_types/example.php:39 inc/post_types/post.php:30
+msgid "Featured Image"
+msgstr ""
+
+#: inc/post_types/example.php:40 inc/post_types/post.php:31
+msgid "Set featured image"
+msgstr ""
+
+#: inc/post_types/example.php:41 inc/post_types/post.php:32
+msgid "Remove featured image"
+msgstr ""
+
+#: inc/post_types/example.php:42 inc/post_types/post.php:33
+msgid "Use as featured image"
+msgstr ""
+
+#: inc/post_types/example.php:43
+msgid "Insert into Campaign"
+msgstr ""
+
+#: inc/post_types/example.php:44
+msgid "Uploaded to this Campaign"
+msgstr ""
+
+#: inc/post_types/example.php:45
+msgid "Campaigns list"
+msgstr ""
+
+#: inc/post_types/example.php:46
+msgid "Campaigns list navigation"
+msgstr ""
+
+#: inc/post_types/example.php:47
+msgid "Filter Campaigns list"
+msgstr ""
+
+#: inc/post_types/example.php:50
+msgid "Campaign"
+msgstr ""
+
+#: inc/post_types/example.php:51
+msgid ""
+"This is an example file which can be edited or duplicated to quickly create "
+"a CPT. Do not forget to include it in functions.php"
+msgstr ""
+
+#: inc/post_types/example.php:100
+msgid "Search Campaign Tags"
+msgstr ""
+
+#: inc/post_types/example.php:101
+msgid "All Campaign Tags"
+msgstr ""
+
+#: inc/post_types/example.php:102
+msgid "Parent Campaign Tag"
+msgstr ""
+
+#: inc/post_types/example.php:103
+msgid "Parent Campaign Tag:"
+msgstr ""
+
+#: inc/post_types/example.php:104
+msgid "Edit Campaign Tag"
+msgstr ""
+
+#: inc/post_types/example.php:105
+msgid "Update Campaign Tag"
+msgstr ""
+
+#: inc/post_types/example.php:106
+msgid "Add New Campaign Tag"
+msgstr ""
+
+#: inc/post_types/example.php:107
+msgid "New Campaign Tag Name"
+msgstr ""
+
+#: inc/post_types/example.php:108
+msgid "Campaign Tags"
+msgstr ""
+
+#: inc/post_types/example.php:119
+msgid "Register an example taxonomy for a CPT"
+msgstr ""
+
+#: inc/post_types/example.php:147
+msgid ""
+"Please add all of your campaigns here. A campaign is determined as activity "
+"focused around a particular community or location. You may have an "
+"associated event or other activity however there is not a specific monetary "
+"ask."
+msgstr ""
+
+#: inc/post_types/post.php:16
+msgid "News Archives"
+msgstr ""
+
+#: inc/post_types/post.php:17
+msgid "News Attributes"
+msgstr ""
+
+#: inc/post_types/post.php:18
+msgid "Parent News:"
+msgstr ""
+
+#: inc/post_types/post.php:19
+msgid "All News"
+msgstr ""
+
+#: inc/post_types/post.php:20
+msgid "Add New News"
+msgstr ""
+
+#: inc/post_types/post.php:22
+msgid "New News"
+msgstr ""
+
+#: inc/post_types/post.php:23
+msgid "Edit News"
+msgstr ""
+
+#: inc/post_types/post.php:24
+msgid "Update News"
+msgstr ""
+
+#: inc/post_types/post.php:25 inc/post_types/post.php:26
+msgid "View News"
+msgstr ""
+
+#: inc/post_types/post.php:27
+msgid "Search News"
+msgstr ""
+
+#: inc/post_types/post.php:34
+msgid "Insert into News"
+msgstr ""
+
+#: inc/post_types/post.php:35
+msgid "Uploaded to this News"
+msgstr ""
+
+#: inc/post_types/post.php:36
+msgid "News list"
+msgstr ""
+
+#: inc/post_types/post.php:37
+msgid "News list navigation"
+msgstr ""
+
+#: inc/post_types/post.php:38
+msgid "Filter News list"
 msgstr ""
 
 #: inc/template-functions.php:107
@@ -102,6 +312,10 @@ msgstr ""
 msgid "Primary"
 msgstr ""
 
+#: inc/video-embed.php:93
+msgid "Play Video"
+msgstr ""
+
 #: inc/widgets.php:16
 msgid "Sidebar"
 msgstr ""
@@ -120,216 +334,6 @@ msgid "%d item"
 msgid_plural "%d items"
 msgstr[0] ""
 msgstr[1] ""
-
-#: post_types/example.php:25
-msgid "Campaign Archives"
-msgstr ""
-
-#: post_types/example.php:26
-msgid "Campaign Attributes"
-msgstr ""
-
-#: post_types/example.php:27
-msgid "Parent Campaign:"
-msgstr ""
-
-#: post_types/example.php:28
-msgid "All Campaigns"
-msgstr ""
-
-#: post_types/example.php:29
-msgid "Add New Campaign"
-msgstr ""
-
-#: post_types/example.php:30 post_types/post.php:21
-msgid "Add New"
-msgstr ""
-
-#: post_types/example.php:31
-msgid "New Campaign"
-msgstr ""
-
-#: post_types/example.php:32
-msgid "Edit Campaign"
-msgstr ""
-
-#: post_types/example.php:33
-msgid "Update Campaign"
-msgstr ""
-
-#: post_types/example.php:34
-msgid "View Campaign"
-msgstr ""
-
-#: post_types/example.php:35
-msgid "View Campaigns"
-msgstr ""
-
-#: post_types/example.php:36
-msgid "Search Campaign"
-msgstr ""
-
-#: post_types/example.php:37 post_types/post.php:28
-msgid "Not found"
-msgstr ""
-
-#: post_types/example.php:38 post_types/post.php:29
-msgid "Not found in Trash"
-msgstr ""
-
-#: post_types/example.php:39 post_types/post.php:30
-msgid "Featured Image"
-msgstr ""
-
-#: post_types/example.php:40 post_types/post.php:31
-msgid "Set featured image"
-msgstr ""
-
-#: post_types/example.php:41 post_types/post.php:32
-msgid "Remove featured image"
-msgstr ""
-
-#: post_types/example.php:42 post_types/post.php:33
-msgid "Use as featured image"
-msgstr ""
-
-#: post_types/example.php:43
-msgid "Insert into Campaign"
-msgstr ""
-
-#: post_types/example.php:44
-msgid "Uploaded to this Campaign"
-msgstr ""
-
-#: post_types/example.php:45
-msgid "Campaigns list"
-msgstr ""
-
-#: post_types/example.php:46
-msgid "Campaigns list navigation"
-msgstr ""
-
-#: post_types/example.php:47
-msgid "Filter Campaigns list"
-msgstr ""
-
-#: post_types/example.php:50
-msgid "Campaign"
-msgstr ""
-
-#: post_types/example.php:51
-msgid ""
-"This is an example file which can be edited or duplicated to quickly create "
-"a CPT. Do not forget to include it in functions.php"
-msgstr ""
-
-#: post_types/example.php:100
-msgid "Search Campaign Tags"
-msgstr ""
-
-#: post_types/example.php:101
-msgid "All Campaign Tags"
-msgstr ""
-
-#: post_types/example.php:102
-msgid "Parent Campaign Tag"
-msgstr ""
-
-#: post_types/example.php:103
-msgid "Parent Campaign Tag:"
-msgstr ""
-
-#: post_types/example.php:104
-msgid "Edit Campaign Tag"
-msgstr ""
-
-#: post_types/example.php:105
-msgid "Update Campaign Tag"
-msgstr ""
-
-#: post_types/example.php:106
-msgid "Add New Campaign Tag"
-msgstr ""
-
-#: post_types/example.php:107
-msgid "New Campaign Tag Name"
-msgstr ""
-
-#: post_types/example.php:108
-msgid "Campaign Tags"
-msgstr ""
-
-#: post_types/example.php:119
-msgid "Register an example taxonomy for a CPT"
-msgstr ""
-
-#: post_types/example.php:147
-msgid ""
-"Please add all of your campaigns here. A campaign is determined as activity "
-"focused around a particular community or location. You may have an "
-"associated event or other activity however there is not a specific monetary "
-"ask."
-msgstr ""
-
-#: post_types/post.php:16
-msgid "News Archives"
-msgstr ""
-
-#: post_types/post.php:17
-msgid "News Attributes"
-msgstr ""
-
-#: post_types/post.php:18
-msgid "Parent News:"
-msgstr ""
-
-#: post_types/post.php:19
-msgid "All News"
-msgstr ""
-
-#: post_types/post.php:20
-msgid "Add New News"
-msgstr ""
-
-#: post_types/post.php:22
-msgid "New News"
-msgstr ""
-
-#: post_types/post.php:23
-msgid "Edit News"
-msgstr ""
-
-#: post_types/post.php:24
-msgid "Update News"
-msgstr ""
-
-#: post_types/post.php:25 post_types/post.php:26
-msgid "View News"
-msgstr ""
-
-#: post_types/post.php:27
-msgid "Search News"
-msgstr ""
-
-#: post_types/post.php:34
-msgid "Insert into News"
-msgstr ""
-
-#: post_types/post.php:35
-msgid "Uploaded to this News"
-msgstr ""
-
-#: post_types/post.php:36
-msgid "News list"
-msgstr ""
-
-#: post_types/post.php:37
-msgid "News list navigation"
-msgstr ""
-
-#: post_types/post.php:38
-msgid "Filter News list"
-msgstr ""
 
 #: search.php:33
 #. translators: %s: search query.
@@ -431,6 +435,51 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
+#: inc/post_types/example.php:21
+msgctxt "Post Type General Name"
+msgid "Campaigns"
+msgstr ""
+
+#: inc/post_types/example.php:22
+msgctxt "Post Type Singular Name"
+msgid "Campaign"
+msgstr ""
+
+#: inc/post_types/post.php:13
+msgctxt "Post Type Singular Name"
+msgid "News"
+msgstr ""
+
+#: inc/post_types/example.php:23
+msgctxt "Admin Menu text"
+msgid "Campaigns"
+msgstr ""
+
+#: inc/post_types/post.php:14
+msgctxt "Admin Menu text"
+msgid "News"
+msgstr ""
+
+#: inc/post_types/example.php:24
+msgctxt "Add New on Toolbar"
+msgid "Campaign"
+msgstr ""
+
+#: inc/post_types/post.php:15
+msgctxt "Add New on Toolbar"
+msgid "News Article"
+msgstr ""
+
+#: inc/post_types/example.php:98
+msgctxt "taxonomy general name"
+msgid "Campaign Tags"
+msgstr ""
+
+#: inc/post_types/example.php:99
+msgctxt "taxonomy singular name"
+msgid "Campaign Tag"
+msgstr ""
+
 #: inc/template-tags.php:32
 #. translators: %s: post date.
 msgctxt "post date"
@@ -447,49 +496,4 @@ msgstr ""
 #. translators: used between list items, there is a space after the comma
 msgctxt "list item separator"
 msgid ", "
-msgstr ""
-
-#: post_types/example.php:21
-msgctxt "Post Type General Name"
-msgid "Campaigns"
-msgstr ""
-
-#: post_types/example.php:22
-msgctxt "Post Type Singular Name"
-msgid "Campaign"
-msgstr ""
-
-#: post_types/post.php:13
-msgctxt "Post Type Singular Name"
-msgid "News"
-msgstr ""
-
-#: post_types/example.php:23
-msgctxt "Admin Menu text"
-msgid "Campaigns"
-msgstr ""
-
-#: post_types/post.php:14
-msgctxt "Admin Menu text"
-msgid "News"
-msgstr ""
-
-#: post_types/example.php:24
-msgctxt "Add New on Toolbar"
-msgid "Campaign"
-msgstr ""
-
-#: post_types/post.php:15
-msgctxt "Add New on Toolbar"
-msgid "News Article"
-msgstr ""
-
-#: post_types/example.php:98
-msgctxt "taxonomy general name"
-msgid "Campaign Tags"
-msgstr ""
-
-#: post_types/example.php:99
-msgctxt "taxonomy singular name"
-msgid "Campaign Tag"
 msgstr ""

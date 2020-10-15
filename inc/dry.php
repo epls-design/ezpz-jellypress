@@ -124,7 +124,9 @@ if ( ! function_exists( 'jellypress_display_numbers' ) ) :
       $phone_numbers_formatted = '<div itemscope itemtype="https://schema.org/Organization"><span class="screen-reader-text" itemprop="name">'.get_bloginfo('name').__(' contact numbers','jellypress').'</span><ul class="phone-numbers">';
       while ( have_rows( 'phone_numbers', 'option' ) ) : the_row();
         $phone_num = get_sub_field( 'phone_number' );
-        $sanitized_num = sanitize_text_field(preg_replace("/[^0-9]/", "", $phone_num ));
+
+        // Convert to +44 UK Number and strip spaces
+        $sanitized_num = esc_attr( str_replace( array (' ', '(0)'), '', $phone_num[0] === '0' ? '+44' . ltrim( $phone_num, '0' ) : $phone_num ));
 
         if(get_sub_field( 'department' )){$department = '<span class="bold">'.get_sub_field( 'department' ).': </span>';}
         else {$department = '';}

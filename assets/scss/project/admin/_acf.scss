@@ -168,3 +168,11 @@ $handle_color: #23282d;
   display: none !important;
   visibility: hidden !important;
 }
+
+// Allow Flex Wrap
+.acf-button-group {
+  flex-wrap: wrap;
+  label {
+    flex: 0;
+  }
+}

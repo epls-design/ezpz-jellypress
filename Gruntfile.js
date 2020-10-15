@@ -22,7 +22,7 @@ module.exports = function (grunt) {
       text_domain: 'jellypress', // Used for translation
       banner:
       '/*! <%= pkg.name %> <%= pkg.version %>\n' +
-      ' * © <%= grunt.template.today("yyyy-mm-dd") %> <%= pkg.author.name %> - <%= pkg.author.url %> */\n',
+      ' * © <%= grunt.template.today("yyyy-mm") %> <%= pkg.author.name %> - <%= pkg.author.url %> */\n',
     }
   });
 

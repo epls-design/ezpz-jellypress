@@ -18,7 +18,6 @@ $transition-delay: .5s;
   &:hover, &:focus {
     opacity: 0.8;
     box-shadow: none;
-    animation: pulse 1.4s infinite;
   }
   .icon {
     width: 100%;
@@ -59,4 +58,21 @@ $transition-delay: .5s;
   opacity: 1;
   transition: $transition;
   transition-delay: $transition-delay;
+  &::after {
+    @include pseudo();
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0;
+    @include smooth(opacity);
+    mix-blend-mode: multiply;
+  }
+  &:hover {
+    &::after {
+      opacity: 0.6;
+    }
+    .play {
+      animation: pulse 1.4s infinite;
+    }
+  }
 }
