@@ -22,7 +22,7 @@ $jellypress_includes = array(
   'inc/helpers.php',                 // Useful helper functions
 	'inc/theme-setup.php',             // Basic theme setup
 	'inc/widgets.php',                 // Register widget areas
-  'inc/enqueue.php',                 // Enqueue scripts and styles.
+  'inc/enqueue.php',                 // Register and enqueue scripts and styles.
   'inc/editor.php',                  // Customise editor
   'inc/remove-comments.php',         // Include this to completely remove support for comments
   'inc/template-tags.php',           // Custom template tags for this theme.
@@ -32,7 +32,6 @@ $jellypress_includes = array(
   'inc/dry.php',                     // Don't repeat yourself! Functions which reduce repetition in the theme code.
   'inc/video-embed.php',             // Functions to help with embedding videos.
 	'inc/customizer.php',              // Customizer additions.
-  'inc/woocommerce.php',             // Load WooCommerce functions.
   'inc/ajax-loadmore/loadmore.php',  // Uses Wordpress AJAX to lazyload more posts.
 
   //~~~~~ CUSTOM POST TYPES
@@ -46,4 +45,10 @@ $jellypress_includes = array(
 foreach ( $jellypress_includes as $file ) {
   $filepath = get_template_directory() . '/' . $file;
   if(file_exists($filepath)) require_once $filepath;
+}
+
+if(is_plugin_active( 'woocommerce/woocommerce.php' )) {
+  // Only include Woo Support if Woo Installed
+  $woo_support = get_template_directory() . '/inc/woocommerce.php';
+  if(file_exists($woo_support)) require_once $woo_support;
 }

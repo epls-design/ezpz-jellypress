@@ -44,7 +44,7 @@ if ( ! function_exists( 'jellypress_display_map_markers' ) ) :
   function jellypress_display_map_markers($locations) {
     if($locations):
 
-      wp_enqueue_script('googlemaps'); // Enqueue Script
+      wp_enqueue_script('googlemaps');
 
       echo '<div class="google-map">';
       foreach($locations as $location):
@@ -163,8 +163,6 @@ if ( ! function_exists( 'jellypress_display_opening_hours' ) ) :
     return $opening_hours_formatted;
   }
 endif;
-
-
 
 /**
  * Displays the organisation's address in an SEO friendly manner

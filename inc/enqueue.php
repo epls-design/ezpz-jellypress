@@ -39,13 +39,13 @@ if (! function_exists('jellypress_scripts') ) {
           true
         );
 
-        wp_register_script(
-          'test',
-          get_template_directory_uri() . '/dist/js/lib/test.js',
-          array(),
-          $js_version,
-          true
-        );
+      //  wp_register_script(
+      //    'example-slider-plugin',
+      //    get_template_directory_uri() . '/lib/example-slider-plugin.js',
+      //    array(),
+      //    $js_version,
+      //    true
+      //  );
 
         wp_register_script( 'youtube-api',
           '//www.youtube.com/iframe_api',

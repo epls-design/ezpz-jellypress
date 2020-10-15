@@ -85,12 +85,12 @@ if ( !function_exists( 'jellypress_embed_video' )) :
             );
             $oembed_url = str_replace(array('youtube.com','youtu.be'),"youtube-nocookie.com",$oembed_url); // Use No Cookie version of YouTube
             $oembed_url = add_query_arg( $params, $oembed_url ); // Add query vars to URL
-            wp_enqueue_script( 'youtube-api' ); // Enqueue the API script
+            wp_enqueue_script( 'youtube-api' );
         }
       if ( $platform ) { ?>
         <div class="video-wrapper">
           <div class="video-overlay" style="background-image:url('<?php echo $video_thumbnail;?>')">
-            <button class="play platform-<?php esc_attr_e( $platform ); ?>" data-src="<?php echo esc_url( $oembed_url ); ?>"><?php echo jellypress_icon( 'play' ); ?></button>
+            <button class="play platform-<?php esc_attr_e( $platform ); ?>" data-src="<?php echo esc_url( $oembed_url ); ?>" title="<?php _e('Play Video','jellypress');?>"><?php echo jellypress_icon( 'play' ); ?></button>
           </div>
           <div class="embed-container">
             <iframe width="640" height="390" type="text/html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
