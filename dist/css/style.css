@@ -481,7 +481,7 @@ sup {
 
 .mb, .button-group, .callout, .card, .card-section .card-image, .wp-block-audio figcaption, .wp-block-image img + figcaption, .wp-block-video figcaption, .wp-block-embed figcaption, .alignfull, .alignwide, .wp-block-audio, .wp-block-quote.is-large,
 .wp-block-quote.is-style-large, .wp-block-cover,
-.wp-block-cover-image, .wp-block-video, .widget .mejs-container, .widget .gallery-item, .comment-list ol, .comment-list ul, .comment-list dl, .comment-list li, .postal-address, .telephone-number, .embedded-iframe, .google-map, .site-content img {
+.wp-block-cover-image, .wp-block-video, .widget .mejs-container, .widget .gallery-item, .comment-list ol, .comment-list ul, .comment-list dl, .comment-list li, .postal-address, .telephone-number, .embedded-iframe, .google-map, .site-content img, .search-form {
   margin-bottom: 24px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
@@ -3098,6 +3098,32 @@ a:hover .icon__zoom, a:focus .icon__zoom, a:active .icon__zoom {
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #page {
   overflow: hidden; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  SEARCH FORM
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.search-form {
+  display: inline-flex;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  width: 100%; }
+  .search-form .search-label {
+    width: 100%;
+    max-width: 300px; }
+  .search-form .search-field, .search-form .search-submit {
+    margin: 0; }
+  .search-form .search-field {
+    height: 100%;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px; }
+  .search-form .search-submit {
+    line-height: 1;
+    padding: .8em;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px; }
+    .search-form .search-submit .icon {
+      height: 1.2em;
+      width: 1.2em; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   TYPOGRAPHY
