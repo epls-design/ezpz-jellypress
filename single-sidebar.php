@@ -39,7 +39,7 @@ get_header();
           endwhile; // End of the loop. ?>
         </main>
       </div>
-      <?php get_sidebar(); ?>
+      <?php jellypress_sidebar(); ?>
     </div>
   </div>
 <?php

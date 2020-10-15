@@ -49,7 +49,7 @@ get_header();
 
           </main><!--/#main -->
         </div>
-      <?php get_sidebar(); ?>
+      <?php jellypress_sidebar(); ?>
     </div>
   </div>
 </section>

@@ -54,7 +54,7 @@ get_header();
 
           </main>
         </div>
-      <?php get_sidebar(); ?>
+      <?php jellypress_sidebar(); ?>
 
     </div>
   </div>

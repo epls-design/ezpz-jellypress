@@ -275,3 +275,15 @@ if ( !function_exists( 'jellypress_wrap_oembed' )) {
   }
 }
 add_filter('embed_oembed_html', 'jellypress_wrap_oembed', 99, 4);
+
+
+if ( !function_exists( 'jellypress_sidebar' )) :
+  /**
+   * A function to replace get_sidebar() which allows the use of one
+   * sidebar.php rather than lots of sidebar-$slugs.php
+   */
+  function jellypress_sidebar( $sidebar='default-sidebar' ) {
+    set_query_var( 'sidebar_id', $sidebar );
+    get_template_part( 'sidebar' );
+  }
+endif;

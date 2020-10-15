@@ -34,5 +34,5 @@ get_header();
   </main>
 </div>
 <?php
-// get_sidebar(); // By default, Jellypress does not support sidebars on post templates. You can re-enable this if you like, but it will be quicker to use the template single-sidebar instead
+// jellypress_sidebar(); // By default, Jellypress does not support sidebars on post templates. You can re-enable this if you like, but it will be quicker to use the template single-sidebar instead
 get_footer();
