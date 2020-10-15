@@ -113,3 +113,162 @@ if (! function_exists('jellypress_setup') ) :
         //add_editor_style( 'dist/css/editor-style.min.css' );
     }
 endif;
+
+// TODO: Come back to this - see https://wordpress.stackexchange.com/questions/226884/wordpress-add-javascriptvoid0-to-menu-link-item/226948 and Tatton job
+add_filter('walker_nav_menu_start_el', 'jellypress_replace_menu_hash', 999);
+/**
+ * Hooks into Wordpress Menu to replace hashtag # with javascript:void(0)
+ * Useful when you want to have a drop down parent without a corresponding page
+ * @param string $menu_item item HTML
+ * @return string item HTML
+ */
+if (! function_exists('jellypress_replace_menu_hash') ) :
+  function jellypress_replace_menu_hash($menu_item) {
+      if (strpos($menu_item, 'href="#"') !== false) {
+          $menu_item = str_replace('href="#"', 'href="javascript:void(0);"', $menu_item);
+      }
+      return $menu_item;
+  }
+endif;
+
+/**
+ * Displays a Development flag if the website is local dev environment
+ *
+ * @return void
+ */
+if ( ! function_exists( 'jellypress_show_dev_flag' ) ) :
+  function jellypress_show_dev_flag() {
+    $url1 = parse_url(DEV_URL); // Defined in functions.php
+    $url2 = parse_url(jellypress_get_full_url());
+    if ($url1['host'] == $url2['host']){
+      echo '<div class="dev-flag">' . __('Development Site', 'jellypress') . '</div>';
+  }
+  }
+endif;
+// Hook into footer and admin footer
+add_action('wp_footer', 'jellypress_show_dev_flag');
+add_action('admin_footer', 'jellypress_show_dev_flag');
+
+/**
+ * Function which pulls data from ACF Options Page and displays this as structured JSON schema in the website header.
+ */
+add_action('wp_head', function() {
+  if(is_front_page()) : // Only display on home page according to best practice
+
+    $field_group_json = 'group_5ea7ebc9d7ff7.json'; // The field group that holds all schema content
+    $field_group_array = json_decode( file_get_contents( get_stylesheet_directory() . "/assets/acf-json/{$field_group_json}" ), true );
+    $schema_config = get_all_custom_field_meta( 'option', $field_group_array );
+
+    $schema = array(
+      '@context'  => "http://schema.org",
+      '@type'     => $schema_config['schema_type'],
+      'name'      => get_bloginfo('name'),
+      'url'       => get_home_url(),
+      'address'   => array(
+        '@type'           => 'PostalAddress',
+        'streetAddress'   => $schema_config['address_street'],
+        'postalCode'      => $schema_config['address_postal'],
+        'addressLocality' => $schema_config['address_locality'],
+        'addressRegion'   => $schema_config['address_region'],
+        'addressCountry'  => $schema_config['address_country'],
+      ),
+    );
+
+    // LOGO
+    if ($organisation_logo = $schema_config['organisation_logo']) {
+      // TODO: Could replace this with an image object at some point
+      // FIXME: Test this and the image on a real live site, Schema test shows errors here. Not sure if because it's lcoal
+      $schema['logo'] = wp_get_attachment_image_url( $organisation_logo, 'medium');
+    }
+
+
+    // IMAGE
+    if ($organisation_image = $schema_config['organisation_image']) {
+      $schema['image'] = wp_get_attachment_image_url( $organisation_image, 'medium');
+    }
+
+    // SOCIAL MEDIA
+    if ($socials = $schema_config['social_channels']) {
+      $schema['sameAs'] = array();
+      foreach($socials as $channel):
+        array_push($schema['sameAs'], $channel['url']);
+      endforeach;
+    }
+
+    // PHONE
+    if ($telephone = $schema_config['primary_phone_number']) {
+      if($telephone[0] != '0') $telephone = '0'.$telephone;
+      $country_code = '+44';
+      $telephone = esc_attr(preg_replace("/[^0-9]/", "", $telephone )); // Strip all unwanted characters
+      $telephone = str_replace( array (' ', '(0)'), '', $telephone[0] === '0' ? $country_code . ltrim( $telephone, '0' ) : $telephone );
+      $schema['telephone'] = $telephone;
+    }
+
+    // EMAIL
+    if ($email = $schema_config['email_address']) {
+      $schema['email'] = $email;
+    }
+
+    // CONTACT POINTS
+    if ($contactPoints = $schema_config['departments']) {
+      $schema['contactPoint'] = array();
+      foreach($contactPoints as $contactPoint):
+          //var_dump($contactPoint);
+          $country_code = '+44';
+          $telephone = esc_attr(preg_replace("/[^0-9]/", "", $contactPoint['phone_number'] )); // Strip all unwanted characters
+          $telephone = str_replace( array (' ', '(0)'), '', $telephone[0] === '0' ? $country_code . ltrim( $telephone, '0' ) : $telephone );
+          $contact = array(
+              '@type'       => 'ContactPoint',
+              'contactType' => $contactPoint['department'],
+              'telephone'   => $telephone
+          );
+          if ($email = $contactPoint['email_address']) {
+            $contact['email'] = $email;
+          }
+
+          if ($telephone_opts = $contactPoint['telephone_opts']) {
+            $contact['contactOption'] = $telephone_opts;
+          }
+          array_push($schema['contactPoint'], $contact);
+
+      endforeach;
+    }
+
+    // OPENING HOURS
+    if($opening_hours = $schema_config['opening_hours']) {
+      $schema['openingHoursSpecification'] = array();
+      foreach($opening_hours as $hours):
+        $closed = $hours['closed'];
+        $from   = $closed ? '00:00' : $hours['from'];
+        $to     = $closed ? '00:00' : $hours['to'];
+        $openings = array(
+            '@type'     => 'OpeningHoursSpecification',
+            'dayOfWeek' => $hours['days'],
+            'opens'     => $from,
+            'closes'    => $to
+        );
+        array_push($schema['openingHoursSpecification'], $openings);
+      endforeach;
+    }
+
+    // SPECIAL DAYS
+    if($special_days = $schema_config['special_days']) {
+      foreach($special_days as $day):
+        $closed = $day['closed'];
+        $date_from   = $day['date_from'];
+        $date_to     = $day['date_to'];
+        $time_from   = $closed ? '00:00' : $day['time_from'];
+        $time_to     = $closed ? '00:00' : $day['time_to'];
+        $special_days = array(
+          '@type'        => 'OpeningHoursSpecification',
+          'validFrom'    => $date_from,
+          'validThrough' => $date_to,
+          'opens'        => $time_from,
+          'closes'       => $time_to
+        );
+        array_push($schema['openingHoursSpecification'], $special_days);
+      endforeach;
+    }
+    echo '<script type="application/ld+json">' . json_encode($schema) . '</script>';
+  endif;
+});

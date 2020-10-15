@@ -25,6 +25,6 @@ $block_title = $jellypress_block['title'];
 <div class="row">
   <div class="col">
     <?php jellypress_content($jellypress_block['text']); ?>
-    <?php jellypress_show_cta_buttons($jellypress_block['buttons']); ?>
+    <?php jellypress_display_cta_buttons($jellypress_block['buttons']); ?>
   </div>
 </div>

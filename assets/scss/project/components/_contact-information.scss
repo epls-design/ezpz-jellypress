@@ -2,12 +2,31 @@
   CONTACT INFORMATION
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+.postal-address {
+  display: inline-block;
+  span {
+    display: block;
+  }
+  @extend %mb;
+}
+
+.telephone-number {
+  @extend %mb;
+}
+
 .phone-numbers {
   @extend %no-bullets;
+}
+
+.telephone-number, .phone-numbers {
   a {
     text-decoration: none;
     color: inherit;
   }
+}
+
+.opening-hours, .department-contacts {
+  width: auto;
 }
 
 // Social Channel Branding
@@ -48,8 +67,4 @@ $social-channels: (
       transform: scale(1.1);
     }
   }
-}
-
-.opening-hours {
-  width: auto;
 }

@@ -71,7 +71,7 @@ if ( ! function_exists( 'jellypress_hide_email' ) ) {
     $script.= 'document.getElementById("'.$id.'").innerHTML="<a href=\\"mailto:"+d+"\\">"+d+"</a>"';
     $script = "eval(\"".str_replace(array("\\",'"'),array("\\\\",'\"'), $script)."\")";
     $script = '<script type="text/javascript">/*<![CDATA[*/'.$script.'/*]]>*/</script>';
-    return '<span id="'.$id.'">[javascript protected email address]</span>'.$script;
+    return '<span class="email-address" id="'.$id.'">[javascript protected email address]</span>'.$script;
   }
 }
 
@@ -112,21 +112,3 @@ if ( ! function_exists( 'jellypress_get_full_url' ) ) :
     return $url;
   }
 endif;
-
-/**
- * Displays a Development flag if the website is local dev environment
- *
- * @return void
- */
-if ( ! function_exists( 'jellypress_show_dev_flag' ) ) :
-  function jellypress_show_dev_flag() {
-    $url1 = parse_url(DEV_URL); // Defined in functions.php
-    $url2 = parse_url(jellypress_get_full_url());
-    if ($url1['host'] == $url2['host']){
-      echo '<div class="dev-flag">' . __('Development Site', 'jellypress') . '</div>';
-  }
-  }
-endif;
-// Hook into footer and admin footer
-add_action('wp_footer', 'jellypress_show_dev_flag');
-add_action('admin_footer', 'jellypress_show_dev_flag');

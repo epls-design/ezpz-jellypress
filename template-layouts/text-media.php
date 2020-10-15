@@ -79,7 +79,7 @@ if ($media_type == 'iframe' || $media_type == 'map'){
 
   <div class="col sm-12 <?php echo $text_class; ?> flex-column">
     <?php jellypress_content($jellypress_block['text']); ?>
-    <?php jellypress_show_cta_buttons($jellypress_block['buttons']); ?>
+    <?php jellypress_display_cta_buttons($jellypress_block['buttons']); ?>
   </div>
 
   <div class="col sm-12 <?php echo $media_class; ?>">

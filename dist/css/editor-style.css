@@ -481,7 +481,7 @@ sup {
 
 .mb, .button-group, .callout, .card, .card-section .card-image, .wp-block-audio figcaption, .wp-block-image img + figcaption, .wp-block-video figcaption, .wp-block-embed figcaption, .alignfull, .alignwide, .wp-block-audio, .wp-block-quote.is-large,
 .wp-block-quote.is-style-large, .wp-block-cover,
-.wp-block-cover-image, .wp-block-video, .widget .mejs-container, .widget .gallery-item, .comment-list ol, .comment-list ul, .comment-list dl, .comment-list li, .embedded-iframe, .google-map, .site-content img {
+.wp-block-cover-image, .wp-block-video, .widget .mejs-container, .widget .gallery-item, .comment-list ol, .comment-list ul, .comment-list dl, .comment-list li, .postal-address, .telephone-number, .embedded-iframe, .google-map, .site-content img {
   margin-bottom: 24px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
@@ -2812,9 +2812,17 @@ p.has-background {
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   CONTACT INFORMATION
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.phone-numbers a {
+.postal-address {
+  display: inline-block; }
+  .postal-address span {
+    display: block; }
+
+.telephone-number a, .phone-numbers a {
   text-decoration: none;
   color: inherit; }
+
+.opening-hours, .department-contacts {
+  width: auto; }
 
 .icon__facebook {
   color: #1877F2; }
@@ -2890,9 +2898,6 @@ a:hover .icon__zoom, a:focus .icon__zoom, a:active .icon__zoom {
 
 .social-channels a:hover .icon, .social-channels a:focus .icon, .social-channels a:active .icon {
   transform: scale(1.1); }
-
-.opening-hours {
-  width: auto; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   DEBUG

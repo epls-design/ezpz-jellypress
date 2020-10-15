@@ -68,7 +68,7 @@ $loading_type = $jellypress_block['loading_type'];
 <?php if ( $jellypress_block['buttons'] ) : ?>
   <div class="row">
     <div class="col text-center">
-      <?php jellypress_show_cta_buttons($jellypress_block['buttons']); ?>
+      <?php jellypress_display_cta_buttons($jellypress_block['buttons']); ?>
     </div>
   </div>
 <?php endif; ?>

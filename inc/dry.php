@@ -10,12 +10,12 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-if ( ! function_exists( 'jellypress_show_cta_buttons' ) ) :
+if ( ! function_exists( 'jellypress_display_cta_buttons' ) ) :
   /**
    * Loops through an array and displays buttons if the array is not empty
    * Uses data from ACF repeater field
    */
-  function jellypress_show_cta_buttons($buttons) {
+  function jellypress_display_cta_buttons($buttons) {
     if ( $buttons ) :
       echo '<div class="button-group">';
         foreach( $buttons as $button ) :
@@ -95,11 +95,11 @@ if ( ! function_exists( 'jellypress_display_map_markers' ) ) :
     }
 endif;
 
-/**
- * Loops through an ACF repeater field to display the social media channels
- * this organisation is on.
- */
 if ( ! function_exists( 'jellypress_display_socials' ) ) :
+  /**
+   * Loops through an ACF repeater field to display the social media channels
+   * this organisation is on.
+   */
   function jellypress_display_socials() {
     if ( have_rows( 'social_channels', 'option' ) ) :
       $social_links_formatted = '<ul class="social-channels">';
@@ -112,76 +112,114 @@ if ( ! function_exists( 'jellypress_display_socials' ) ) :
     endif;
     return $social_links_formatted;
   }
+  add_shortcode('jellypress-socials', 'jellypress_display_socials');
 endif;
 
-/**
- * Loops through an ACF repeater field to display the organisation's
- * phone numbers and departments
- */
-if ( ! function_exists( 'jellypress_display_numbers' ) ) :
-  function jellypress_display_numbers() {
-    if ( have_rows( 'phone_numbers', 'option' ) ) :
-      $phone_numbers_formatted = '<div itemscope itemtype="https://schema.org/Organization"><span class="screen-reader-text" itemprop="name">'.get_bloginfo('name').__(' contact numbers','jellypress').'</span><ul class="phone-numbers">';
-      while ( have_rows( 'phone_numbers', 'option' ) ) : the_row();
-        $phone_num = get_sub_field( 'phone_number' );
-
-        // Convert to +44 UK Number and strip spaces
-        $sanitized_num = esc_attr( str_replace( array (' ', '(0)'), '', $phone_num[0] === '0' ? '+44' . ltrim( $phone_num, '0' ) : $phone_num ));
-
-        if(get_sub_field( 'department' )){$department = '<span class="bold">'.get_sub_field( 'department' ).': </span>';}
-        else {$department = '';}
-
-        $phone_numbers_formatted .= '<li>'.$department.'<a href="tel:'.$sanitized_num.'"><span itemprop="telephone" class="nowrap">'.$phone_num.'<span></a>';
-      endwhile;
-      $phone_numbers_formatted .= '</ul></div>';
-    endif;
-    return $phone_numbers_formatted;
-  }
-endif;
-
-/**
- * Displays the organisation's email address in a robot-obscuring way
- */
 if ( ! function_exists( 'jellypress_display_email' ) ) :
+  /**
+   * Displays the organisation's email address from ACF in a robot-obscuring way
+   */
   function jellypress_display_email() {
     $email_address = get_field( 'email_address', 'option' );
     return jellypress_hide_email($email_address);
   }
+  add_shortcode('jellypress-email', 'jellypress_display_email'); // TODO: Extend this to allow the user to pass an email address to the shortcode
 endif;
 
-/**
- * Displays the organisation's opening hours in a formatted table
- */
+if ( ! function_exists( 'jellypress_display_address' ) ) :
+  /**
+   * Displays the organisation's information from ACF Options Page
+   */
+  function jellypress_display_address() {
+    $address = '<div class="postal-address"><span class="screen-reader-text" itemprop="name">'.get_bloginfo('name').__(' Postal Address','jellypress').'</span>';
+    if($address_street = get_field( 'address_street', 'option' )) $address .= '<span>'.$address_street.'</span>';
+    if($address_locality = get_field( 'address_locality', 'option' )) $address .= '<span>'.$address_locality.'</span>';
+    if($address_region = get_field( 'address_region', 'option' )) $address .= '<span>'.$address_region.'</span>';
+    if($address_country = get_field( 'address_country', 'option' )) $address .= '<span>'.$address_country.'</span>';
+    if($address_postal = get_field( 'address_postal', 'option' )) $address .= '<span>'.$address_postal.'</span>';
+    $address .= '</div>';
+    return $address;
+  }
+  add_shortcode('jellypress-address', 'jellypress_display_address');
+endif;
+
+if ( ! function_exists( 'jellypress_display_phone_number' ) ) :
+  /**
+   * Displays the organisation's phone number from ACF
+   *
+   * @return void
+   */
+  function jellypress_display_phone_number() {
+    $phone_number = get_field( 'primary_phone_number', 'option' );
+    $country_code = '+44';
+
+    if($phone_number[0] != '0') {
+      // Add leading 0 back in for visual display purposes
+      $phone_number = '0'.$phone_number;
+    }
+    $display_number = esc_attr(preg_replace("/[^0-9 ]/", "", $phone_number )); // Strip all unwanted characters
+    $link_number = str_replace( array (' ', '(0)'), '', $display_number[0] === '0' ? $country_code . ltrim( $display_number, '0' ) : $display_number );
+
+    return '<div class="telephone-number"><span class="bold">'.__('Telephone:','jellypress').'</span> <a href="tel:'.$link_number.'">'.$display_number.'</a></div>';
+  }
+  add_shortcode('jellypress-phone', 'jellypress_display_phone_number');
+endif;
+
 if ( ! function_exists( 'jellypress_display_opening_hours' ) ) :
+  /**
+   * Displays the organisation's opening hours in a formatted table
+   */
   function jellypress_display_opening_hours() {
-    // TODO: Rewrite the ACF group to be able to use https://schema.org/openingHours and inject into head as JSON
     if ( have_rows( 'opening_hours', 'option' ) ) :
-      $opening_hours_formatted = '<table class="opening-hours"><thead><tr><th>'.__('Day','jellypress').'</th><th>'.__('Opening Hours','jellypress').'</th></tr></thead><tbody>';
+      $opening_hours_formatted = '<table class="opening-hours"><thead><tr><th>'.__('Day(s)','jellypress').'</th><th>'.__('Opening Hours','jellypress').'</th></tr></thead><tbody>';
       while ( have_rows( 'opening_hours', 'option' ) ) : the_row();
-      $opening_hours_formatted .= '<tr><td>'.get_sub_field('days').'</td><td>'.get_sub_field('opening_time').' - '.get_sub_field('closing_time').'</td></tr>';
+        $closed = get_sub_field('closed');
+        $from   = get_sub_field('from');
+        $to     = get_sub_field('to');
+        if($closed) {
+          $opening_hours = __('Closed', 'jellypress');
+        }
+        else {
+          $opening_hours = $from.' - '.$to;
+        }
+        $days = implode(", ", get_sub_field('days')); // Split into a comma sep string
+        $days = str_replace(array('Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'), array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'), $days); // Replace with actual words
+        $opening_hours_formatted .= '<tr><td>'.$days.'</td><td>'.$opening_hours.'</td></tr>';
       endwhile;
       $opening_hours_formatted .= '</tbody></table>';
     endif;
     return $opening_hours_formatted;
   }
+  add_shortcode('jellypress-opening', 'jellypress_display_opening_hours');
 endif;
 
-/**
- * Displays the organisation's address in an SEO friendly manner
- */
-if ( ! function_exists( 'jellypress_display_address' ) ) :
-  function jellypress_display_address() {
-    $address = get_field( 'opening_hours', 'option' ); // TODO: Rewrite?
-    // Construct Address HTML with valid schema. TODO: Split out and echo with all proper ItemProp
-    // TODO: https://css-tricks.com/working-with-schemas-wordpress/
-    $address_formatted = '<span itemscope itemtype="https://schema.org/Organization"><span class="screen-reader-text" itemprop="name">'.get_bloginfo('name').'</span><span class="address" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">'.$address['address'].'</span></span>';
-    return $address_formatted;
+if ( ! function_exists( 'jellypress_display_departments' ) ) :
+  /**
+   * Loops through ACF repeater to display the organisation's
+   * departments with contact information
+   */
+  function jellypress_display_departments() {
+    if ( have_rows( 'departments', 'option' ) ) :
+      $phone_numbers_formatted = '<table class="department-contacts"><thead><tr><th>'.__('Department','jellypress').'</th><th>'.__('Phone Number','jellypress').'</th><th>'.__('Email Address','jellypress').'</th></tr></thead><tbody>';
+      while ( have_rows( 'departments', 'option' ) ) : the_row();
+        $department = get_sub_field('department');
+        $phone_number   = get_sub_field('phone_number');
+        $email_address     = get_sub_field('email_address');
+        if($phone_number[0] != '0') {
+          // Add leading 0 back in for visual display purposes
+          $phone_number = '0'.$phone_number;
+        }
+        $country_code = '+44';
+        $display_number = esc_attr(preg_replace("/[^0-9 ]/", "", $phone_number )); // Strip all unwanted characters
+        $link_number = str_replace( array (' ', '(0)'), '', $display_number[0] === '0' ? $country_code . ltrim( $display_number, '0' ) : $display_number );
+
+        $phone_numbers_formatted .= '<tr><td class="bold">'.$department.'</td><td><a href="tel:'.$link_number.'">'.$display_number.'</a></td><td>'.jellypress_hide_email($email_address).'</td></tr>';
+      endwhile;
+      $phone_numbers_formatted .= '</tbody></table>';
+    endif;
+    return $phone_numbers_formatted;
   }
+  add_shortcode('jellypress-departments', 'jellypress_display_departments');
 endif;
 
-// Add Shortcodes for use on the front-end
-add_shortcode('jellypress-socials', 'jellypress_display_socials');
-add_shortcode('jellypress-numbers', 'jellypress_display_numbers');
-add_shortcode('jellypress-email', 'jellypress_display_email'); // TODO: Extend this to allow the user to pass an email address to the shortcode
-add_shortcode('jellypress-address', 'jellypress_display_address');
-add_shortcode('jellypress-opening', 'jellypress_display_opening_hours');
+// TODO: Make the telephone numbers into functions to make them more Dry

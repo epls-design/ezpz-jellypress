@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_5ea7f0d658186",
-            "label": "<span class=\"dashicons dashicons-phone\"><\/span> Contact Information",
+            "label": "<span class=\"dashicons dashicons-phone\"><\/span> Contact",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -19,92 +19,233 @@
             "endpoint": 0
         },
         {
-            "key": "field_5ea7f0ed58187",
-            "label": "Address",
-            "name": "address",
-            "type": "google_map",
-            "instructions": "Please select your <b>business' location<\/b> on the map.",
+            "key": "field_5f8852912eab3",
+            "label": "Information",
+            "name": "",
+            "type": "message",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "100",
+                "width": "",
                 "class": "",
                 "id": ""
             },
-            "center_lat": "",
-            "center_lng": "",
-            "zoom": "",
-            "height": ""
+            "message": "Please complete all of the fields below. Depending on the design of your website the information may or may not appear in the layout, however this information will appear in invisible 'schema' markup which is used to display richer search results on Google.\r\n<strong>Do not use Yoast SEO or other plugins to add organisation schema markup as it may conflict with these settings.<\/strong>",
+            "new_lines": "wpautop",
+            "esc_html": 0
         },
         {
-            "key": "field_5ea7f3247c9c0",
-            "label": "Phone Numbers",
-            "name": "phone_numbers",
-            "type": "repeater",
-            "instructions": "Please add the primary <b>phone numbers<\/b> of your business. They will be wrapped in a link to allow website visitors to click\/touch to call you.",
+            "key": "field_598d6f037a92f",
+            "label": "Schema: Logo",
+            "name": "organisation_logo",
+            "type": "image",
+            "instructions": "Please upload an image with a square aspect ratio 1:1 to represent your organisation's logo.",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_598d75e8b22e6",
+                        "operator": "!=",
+                        "value": "Person"
+                    }
+                ]
+            ],
             "wrapper": {
-                "width": "60",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
-            "min": 1,
-            "max": 6,
-            "layout": "table",
-            "button_label": "Add Phone Number",
-            "sub_fields": [
-                {
-                    "key": "field_5f84c1cbce4e2",
-                    "label": "Department",
-                    "name": "department",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": 50
-                },
-                {
-                    "key": "field_5f84c1a0ce4e1",
-                    "label": "Phone Number",
-                    "name": "phone_number",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": 14
-                }
-            ]
+            "return_format": "url",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": 112,
+            "min_height": 112,
+            "min_size": "",
+            "max_width": 500,
+            "max_height": 500,
+            "max_size": "",
+            "mime_types": "jpg, png"
+        },
+        {
+            "key": "field_598db0fa1cef7",
+            "label": "Schema: Organisation Image",
+            "name": "organisation_image",
+            "type": "image",
+            "instructions": "Please upload a photo that best represents your organisation.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "thumbnail",
+            "library": "uploadedTo",
+            "min_width": 200,
+            "min_height": 200,
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg, png"
+        },
+        {
+            "key": "field_598d5bfc3cc2a",
+            "label": "Street Address",
+            "name": "address_street",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_598d5c233cc2b",
+            "label": "Post Code",
+            "name": "address_postal",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_598d5c933cc2c",
+            "label": "City",
+            "name": "address_locality",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_598d5caa3cc2d",
+            "label": "County",
+            "name": "address_region",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_598d793f20d4a",
+            "label": "Country",
+            "name": "address_country",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "United Kingdom",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_598d75e8b22e6",
+            "label": "Schema Type",
+            "name": "schema_type",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Organization": "Organisation",
+                "EducationalOrganization": "Education",
+                "Store": "Store",
+                "GovernmentOrganization": "Local Government",
+                "Project": "Project \/ Initiative",
+                "LocalBusiness": "Local Business",
+                "Person": "Person",
+                "Restaurant": "Restaurant"
+            },
+            "default_value": "LocalBusiness",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_598da40b04a1e",
+            "label": "Primary Phone Number",
+            "name": "primary_phone_number",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "+44",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_5ea7f3597c9c1",
             "label": "Email Address",
             "name": "email_address",
             "type": "email",
-            "instructions": "Please enter the primary <b>email address<\/b> of your business. This will be wrapped in a link to allow the user to click\/touch to email you.",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "40",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -114,34 +255,47 @@
             "append": ""
         },
         {
-            "key": "field_5ea7f12358188",
-            "label": "Opening Hours",
-            "name": "opening_hours",
+            "key": "field_598d6c63f5323",
+            "label": "Additional Contacts",
+            "name": "departments",
             "type": "repeater",
-            "instructions": "Please input the <b>opening hours<\/b> of your business.",
+            "instructions": "You can add additional contact information here for different departments, eg. Billing, Customer Services, etc.",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_598da40b04a1e",
+                        "operator": "!=empty"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5ea7f3597c9c1",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
             "wrapper": {
-                "width": "",
+                "width": "100",
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
+            "collapsed": "field_598d6ce7f5325",
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "",
+            "button_label": "Add Department",
             "sub_fields": [
                 {
-                    "key": "field_5ea7f2b758189",
-                    "label": "Day(s)",
-                    "name": "days",
+                    "key": "field_598d6ce7f5325",
+                    "label": "Department",
+                    "name": "department",
                     "type": "text",
                     "instructions": "",
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "40",
+                        "width": "30",
                         "class": "",
                         "id": ""
                     },
@@ -152,42 +306,328 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5ea7f2e55818a",
-                    "label": "Opening Time",
-                    "name": "opening_time",
-                    "type": "time_picker",
+                    "key": "field_5f8882cf5ab07",
+                    "label": "Email Address",
+                    "name": "email_address",
+                    "type": "email",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "30",
+                        "width": "25",
                         "class": "",
                         "id": ""
                     },
-                    "display_format": "g:i a",
-                    "return_format": "g:i a"
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
                 },
                 {
-                    "key": "field_5ea7f3035818b",
-                    "label": "Closing Time",
-                    "name": "closing_time",
-                    "type": "time_picker",
+                    "key": "field_598d6e4df5326",
+                    "label": "Phone",
+                    "name": "phone_number",
+                    "type": "text",
                     "instructions": "",
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "30",
+                        "width": "25",
                         "class": "",
                         "id": ""
                     },
-                    "display_format": "g:i a",
-                    "return_format": "g:i a"
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "+44",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_598d7d73f5e83",
+                    "label": "Telephone Options",
+                    "name": "telephone_opts",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "HearingImpairedSupported": "Hearing Impaired Supported",
+                        "TollFree": "Toll Free"
+                    },
+                    "default_value": [],
+                    "allow_null": 1,
+                    "multiple": 1,
+                    "ui": 1,
+                    "ajax": 0,
+                    "return_format": "value",
+                    "placeholder": ""
+                }
+            ]
+        },
+        {
+            "key": "field_5f887b7af656e",
+            "label": "<span class=\"dashicons dashicons-calendar\"><\/span> Opening Hours",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_598d63d35337c",
+            "label": "Opening Hours",
+            "name": "opening_hours",
+            "type": "repeater",
+            "instructions": "Open all day: 00:00 - 23:59",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_598d63f15337d",
+            "min": 0,
+            "max": 7,
+            "layout": "table",
+            "button_label": "Add Day",
+            "sub_fields": [
+                {
+                    "key": "field_598d63f15337d",
+                    "label": "Days",
+                    "name": "days",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "Mo": "Monday",
+                        "Tu": "Tuesday",
+                        "We": "Wednesday",
+                        "Th": "Thursday",
+                        "Fr": "Friday",
+                        "Sa": "Saturday",
+                        "Su": "Sunday"
+                    },
+                    "default_value": [],
+                    "allow_null": 0,
+                    "multiple": 1,
+                    "ui": 1,
+                    "ajax": 0,
+                    "return_format": "value",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_598d64205337e",
+                    "label": "From",
+                    "name": "from",
+                    "type": "time_picker",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_598d96b160bcc",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "H:i",
+                    "return_format": "H:i"
+                },
+                {
+                    "key": "field_598d64bd59579",
+                    "label": "To",
+                    "name": "to",
+                    "type": "time_picker",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_598d96b160bcc",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "H:i",
+                    "return_format": "H:i"
+                },
+                {
+                    "key": "field_598d96b160bcc",
+                    "label": "Closed",
+                    "name": "closed",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                }
+            ]
+        },
+        {
+            "key": "field_598d6692d5ea5",
+            "label": "Special Days",
+            "name": "special_days",
+            "type": "repeater",
+            "instructions": "Add special days (for example Christmas Day, New Years Day) if your hours will differ from the norm. <strong>These days will only appear in hidden structured data for search engines, and not on the website's front-end<\/strong>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_598d6692d5ea7",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Date(s)",
+            "sub_fields": [
+                {
+                    "key": "field_598d6692d5ea7",
+                    "label": "Date: from",
+                    "name": "date_from",
+                    "type": "date_picker",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "d\/m\/Y",
+                    "return_format": "Y-m-d",
+                    "first_day": 1
+                },
+                {
+                    "key": "field_598d9b07ccb41",
+                    "label": "Date: to",
+                    "name": "date_to",
+                    "type": "date_picker",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "d\/m\/Y",
+                    "return_format": "Y-m-d",
+                    "first_day": 1
+                },
+                {
+                    "key": "field_598d9b14ccb42",
+                    "label": "Time: from",
+                    "name": "time_from",
+                    "type": "time_picker",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_598d9b53ccb43",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "H:i",
+                    "return_format": "H:i"
+                },
+                {
+                    "key": "field_598d6692d5ea8",
+                    "label": "Time: to",
+                    "name": "time_to",
+                    "type": "time_picker",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_598d9b53ccb43",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "H:i",
+                    "return_format": "H:i"
+                },
+                {
+                    "key": "field_598d9b53ccb43",
+                    "label": "Closed",
+                    "name": "closed",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
                 }
             ]
         },
         {
             "key": "field_5ea7ec7de584e",
-            "label": "<span class=\"dashicons dashicons-networking\"><\/span> Social Media",
+            "label": "<span class=\"dashicons dashicons-facebook\"><\/span> Social Media",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -214,7 +654,7 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
+            "collapsed": "field_5ea8192c62410",
             "min": 0,
             "max": 0,
             "layout": "table",
@@ -277,7 +717,7 @@
         },
         {
             "key": "field_5ea7f6eed27df",
-            "label": "<span class=\"dashicons dashicons-rest-api\"><\/span> Connected Services",
+            "label": "<span class=\"dashicons dashicons-rest-api\"><\/span> APIs",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -343,9 +783,9 @@
     "position": "normal",
     "style": "default",
     "label_placement": "top",
-    "instruction_placement": "field",
+    "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
     "description": "This field group allows the editor to update key organisation information and to connect external APIs which are added to the theme.",
-    "modified": 1602535987
+    "modified": 1602783030
 }
