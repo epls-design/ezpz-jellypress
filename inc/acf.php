@@ -158,23 +158,11 @@ if (! function_exists('jellypress_acf_dashicons_support') ) {
 }
 add_action('admin_init', 'jellypress_acf_dashicons_support');
 
-if (! function_exists('jellypress_searchable_acf') ) {
-    /**
-     * jellypress_searchable_acf list all the custom fields we want to include in our search query]
-     *
-     * @return [array] [list of custom fields]
-     */
-    function jellypress_searchable_acf()
-    {
-        $jellypress_searchable_acf = array("title", "sub_title", "excerpt_short", "excerpt_long", "xyz", "myACF");
-        return $jellypress_searchable_acf;
-    }
-}
-
 /**
  * Extend WordPress search to include custom fields
  * Note: if using Search and Filter Pro, this isn't always reliable and
- * it's best to use a plugin like "Search Everything"
+ * it's best to use a plugin like "Search Everything" or try
+ * https://gist.github.com/charleslouis/5924863
  *
  * @link https://adambalee.com/search-wordpress-by-custom-fields-without-a-plugin/
  */
@@ -335,13 +323,77 @@ add_filter('acf/update_value', 'jellypress_kses_acf', 10, 1);
 add_filter('acf/settings/remove_wp_meta_box', '__return_true');
 
 /**
+ * A function which hooks into ACF/Save_Post to insert content into the_excerpt automatically.
+ * The function will first look for a specified field (eg. 'post_excerpt'), and if this doesn't exist,
+ * will loop through the 'sections' flexible content field looking for the first block of text
+ * It then sanitizes output and trims the length to 220 chars.
+ *
+ * This function is used because when a page is built entirely with flexible content layouts,
+ * no excerpt can be auto-generated and if the editor does not use Yoast properly there will be no meta-description
+ * shown to search engines.
+ *
+ * @Link https://support.advancedcustomfields.com/forums/topic/set-wordpress-excerpt-and-post-thumbnail-based-on-custom-field/
+ * TODO: Instead of abusing the_excerpt() it might be better to use the_content() ?
+ *
+ */
+add_action('acf/save_post', 'jellypress_excerpt_from_acf', 50);
+if (! function_exists('jellypress_excerpt_from_acf') ) :
+
+  function jellypress_excerpt_from_acf($post_id) {
+
+    // TODO: If you are using a specific field for excerpts, be sure to update it here.
+    // It's also possible to do a get_post_type() check if different field names exist for different post_types
+    $post_excerpt   = get_field( 'post_excerpt', $post_id );
+
+    if(!$post_excerpt) {
+      // If the specified field doesn't exist, try to get the text from ACF flexible content
+      if ( have_rows( 'sections', $post_id ) ) {
+        while ( have_rows( 'sections', $post_id ) ) : the_row();
+        $layout = get_row_layout();
+        if($layout == 'text' || $layout == 'text-media' || $layout == 'text-columns') {
+          // We are making a big assumption that these will be among the first field types used on the page - as they are the best for text content.
+          if($layout == 'text') {
+            $post_excerpt = get_sub_field( 'text' );
+            break;
+          }
+          elseif($layout == 'text-media') {
+            $post_excerpt = get_sub_field( 'text' );
+            break;
+          }
+          elseif($layout == 'text-columns') {
+            if ( have_rows( 'columns' ) ) :
+              while ( have_rows( 'columns' ) ) : the_row();
+                $post_excerpt = get_sub_field('editor');
+                break 2;
+              endwhile;
+            endif;
+          }
+        }
+        endwhile;
+        $post_excerpt = jellypress_trimpara(wp_strip_all_tags($post_excerpt),220); // TODO: Could look at replacing with the_excerpt filters.
+      }
+    }
+    if ( ( !empty( $post_id ) ) AND ( $post_excerpt ) ) {
+      $post_array     = array(
+        'ID'            => $post_id,
+        'post_excerpt'	=> $post_excerpt // Use if you want to replace the excerpt
+        // TODO: Add an option to replace the_content --> That way the user can still add a manual excerpt
+      );
+      //remove_action('save_post', 'jellypress_excerpt_from_acf', 50); // Unhook this function so it doesn't loop infinitely
+      wp_update_post( $post_array );
+      //add_action( 'save_post', 'jellypress_excerpt_from_acf', 50); // Re-hook this function
+    }
+  }
+endif;
+
+/**
  * Remove support for WP Editor if you are using ACF exclusively for content
  */
-if (! function_exists('jellypress_remove_wp_editor') ) :
-  function jellypress_remove_wp_editor() {
-    //remove_post_type_support( 'page', 'editor' );
-  }
-  add_action('init', 'jellypress_remove_wp_editor');
-endif;
+// if (! function_exists('jellypress_remove_wp_editor') ) :
+//   function jellypress_remove_wp_editor() {
+//     remove_post_type_support( 'page', 'editor' );
+//   }
+//   add_action('init', 'jellypress_remove_wp_editor');
+// endif;
 
 // TODO: Add a variable to Server Time message displaying current server time. https://saika.li/snippets-acf-hooks/ gets part way but the field updates with the replaced value on save.
