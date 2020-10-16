@@ -479,9 +479,9 @@ sup {
   width: 100%;
   height: 100%; }
 
-.mb, .button-group, .callout, .card, .card-section .card-image, .wp-block-audio figcaption, .wp-block-image img + figcaption, .wp-block-video figcaption, .wp-block-embed figcaption, .alignfull, .alignwide, .wp-block-audio, .wp-block-quote.is-large,
+.mb, .button-group, .callout, .card, .card-section .card-image, .site-content img, .postal-address, .telephone-number, .embedded-iframe, .google-map, .search-form, .wp-block-audio figcaption, .wp-block-image img + figcaption, .wp-block-video figcaption, .wp-block-embed figcaption, .alignfull, .alignwide, .wp-block-audio, .wp-block-quote.is-large,
 .wp-block-quote.is-style-large, .wp-block-cover,
-.wp-block-cover-image, .wp-block-video, .widget .mejs-container, .widget .gallery-item, .comment-list ol, .comment-list ul, .comment-list dl, .comment-list li, .postal-address, .telephone-number, .embedded-iframe, .google-map, .site-content img, .search-form {
+.wp-block-cover-image, .wp-block-video, .widget .mejs-container, .widget .gallery-item, .comment-list ol, .comment-list ul, .comment-list dl, .comment-list li {
   margin-bottom: 24px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
@@ -2416,6 +2416,395 @@ Utilities
     width: 100%; } }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  ANIMATIONS
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@keyframes pulse {
+  0% {
+    transform: scale(1); }
+  65% {
+    transform: scale(1.05); }
+  100% {
+    transform: scale(1); } }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  SCAFFOLDING
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#page {
+  overflow: hidden; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  TYPOGRAPHY
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  BLOCK: TEXT MEDIA
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.block__text-media .embedded-iframe, .block__text-media .google-map {
+  height: auto;
+  width: 100%;
+  min-height: 300px; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  BLOCS
+  Styling for ACF flexible content
+  blocks
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.block {
+  padding-top: 70px;
+  padding-bottom: 46px;
+  position: relative; }
+  .block__image img {
+    width: 100%; }
+  .block__full-width {
+    padding-top: 0;
+    padding-bottom: 0; }
+    .block__full-width img, .block__full-width .embed-container, .block__full-width .is-type-video .wp-block-embed__wrapper, .is-type-video .block__full-width .wp-block-embed__wrapper {
+      margin-bottom: 0; }
+  .block__gallery .gallery-item {
+    display: inline-block;
+    text-align: center;
+    margin: 12px 0; }
+
+.block.bg-primary:not(.block__full-width) + .block.bg-primary:not(.block__full-width) {
+  padding-top: 0; }
+
+.block.bg-secondary:not(.block__full-width) + .block.bg-secondary:not(.block__full-width) {
+  padding-top: 0; }
+
+.block.bg-tertiary:not(.block__full-width) + .block.bg-tertiary:not(.block__full-width) {
+  padding-top: 0; }
+
+.block.bg-success:not(.block__full-width) + .block.bg-success:not(.block__full-width) {
+  padding-top: 0; }
+
+.block.bg-warning:not(.block__full-width) + .block.bg-warning:not(.block__full-width) {
+  padding-top: 0; }
+
+.block.bg-error:not(.block__full-width) + .block.bg-error:not(.block__full-width) {
+  padding-top: 0; }
+
+.block.bg-white:not(.block__full-width) + .block.bg-white:not(.block__full-width) {
+  padding-top: 0; }
+
+.block.bg-black:not(.block__full-width) + .block.bg-black:not(.block__full-width) {
+  padding-top: 0; }
+
+.block__full-width .block-title, .block__full-width .block-preamble {
+  margin-top: 70px; }
+
+.block__full-width .block-title + .block-preamble {
+  margin-top: 0 !important; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  CONTACT INFORMATION
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.postal-address {
+  display: inline-block; }
+  .postal-address span {
+    display: block; }
+
+.telephone-number a, .phone-numbers a {
+  text-decoration: none;
+  color: inherit; }
+
+.opening-hours, .department-contacts {
+  width: auto; }
+
+.icon__facebook {
+  color: #1877F2; }
+
+a:hover .icon__facebook, a:focus .icon__facebook, a:active .icon__facebook {
+  color: #135fc2; }
+
+.icon__instagram {
+  color: #E4405F; }
+
+a:hover .icon__instagram, a:focus .icon__instagram, a:active .icon__instagram {
+  color: #b6334c; }
+
+.icon__linkedin {
+  color: #0077B5; }
+
+a:hover .icon__linkedin, a:focus .icon__linkedin, a:active .icon__linkedin {
+  color: #005f91; }
+
+.icon__pinterest {
+  color: #BD081C; }
+
+a:hover .icon__pinterest, a:focus .icon__pinterest, a:active .icon__pinterest {
+  color: #970616; }
+
+.icon__twitter {
+  color: #1DA1F2; }
+
+a:hover .icon__twitter, a:focus .icon__twitter, a:active .icon__twitter {
+  color: #1781c2; }
+
+.icon__vimeo {
+  color: #1AB7EA; }
+
+a:hover .icon__vimeo, a:focus .icon__vimeo, a:active .icon__vimeo {
+  color: #1592bb; }
+
+.icon__youtube {
+  color: #FF0000; }
+
+a:hover .icon__youtube, a:focus .icon__youtube, a:active .icon__youtube {
+  color: #cc0000; }
+
+.icon__whatsapp {
+  color: #25D366; }
+
+a:hover .icon__whatsapp, a:focus .icon__whatsapp, a:active .icon__whatsapp {
+  color: #1ea952; }
+
+.icon__microsoftteams {
+  color: #6264A7; }
+
+a:hover .icon__microsoftteams, a:focus .icon__microsoftteams, a:active .icon__microsoftteams {
+  color: #4e5086; }
+
+.icon__skype {
+  color: #00AFF0; }
+
+a:hover .icon__skype, a:focus .icon__skype, a:active .icon__skype {
+  color: #008cc0; }
+
+.icon__zoom {
+  color: #2D8CFF; }
+
+a:hover .icon__zoom, a:focus .icon__zoom, a:active .icon__zoom {
+  color: #2470cc; }
+
+.social-channels .icon {
+  margin-right: .5em;
+  width: 1em;
+  height: 1em;
+  transition: color 0.2s ease, transform 0.2s ease; }
+
+.social-channels a:hover .icon, .social-channels a:focus .icon, .social-channels a:active .icon {
+  transform: scale(1.1); }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  EMBEDDED VIDEO
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.play {
+  z-index: 1;
+  margin: 0;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  width: 30%;
+  padding: 0;
+  color: #fff;
+  max-width: 120px;
+  transition: opacity 1s ease; }
+  .play:hover, .play:focus {
+    opacity: 0.8;
+    box-shadow: none; }
+  .play .icon {
+    width: 100%;
+    height: auto; }
+
+.video-wrapper {
+  position: relative; }
+  .video-wrapper .embed-container, .video-wrapper .is-type-video .wp-block-embed__wrapper, .is-type-video .video-wrapper .wp-block-embed__wrapper {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    transition-delay: 0.5s; }
+  .video-wrapper.playing .video-overlay {
+    opacity: 0;
+    pointer-events: none; }
+  .video-wrapper.playing .embed-container, .video-wrapper.playing .is-type-video .wp-block-embed__wrapper, .is-type-video .video-wrapper.playing .wp-block-embed__wrapper {
+    opacity: 1; }
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  transition-delay: 0.5s; }
+  .video-overlay::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    mix-blend-mode: multiply; }
+  .video-overlay:hover::after {
+    opacity: 0.6; }
+  .video-overlay:hover .play {
+    animation: pulse 1.4s infinite; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  ICONS
+  Default styling for icons
+  generated by grunt-svgstore
+  into the icons.svg spritesheet
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.icon {
+  display: inline-block;
+  fill: currentColor;
+  height: 0.9em;
+  width: 0.9em;
+  vertical-align: middle;
+  position: relative;
+  top: -0.15em; }
+  .icon path {
+    fill: inherit; }
+
+.icon-list {
+  list-style-type: none;
+  margin-left: 1em; }
+  .icon-list .icon {
+    margin-right: .5em; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  IFRAMES
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.embedded-iframe {
+  border: 1px solid #cbcccc; }
+  .embed-container .embedded-iframe, .is-type-video .wp-block-embed__wrapper .embedded-iframe {
+    margin-bottom: 0; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  MAPS
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.google-map {
+  width: 100%;
+  height: 600px;
+  border: 1px solid #cbcccc; }
+
+.google-map img {
+  max-width: inherit !important; }
+
+.gm-style {
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit; }
+  .gm-style .gm-style-iw {
+    font-weight: inherit;
+    font-size: inherit; }
+  .gm-style .address {
+    font-size: 0.8em; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  NUMERIC PAGINATION
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.pagination {
+  list-style-type: none;
+  margin: 24px 0;
+  display: flex;
+  flex-wrap: wrap; }
+  .pagination .nav-next {
+    margin-right: 0; }
+  .pagination li {
+    text-transform: uppercase; }
+    .pagination li.active a {
+      background: #707070;
+      color: #fff; }
+    .pagination li.nav-total,
+    .pagination li a {
+      border: 1px solid #cbcccc;
+      padding: 6.6666666667px 10px; }
+    .pagination li.nav-total {
+      background: #999999;
+      color: #fff; }
+  .pagination a {
+    transition: background 0.2s ease, color 0.2s ease;
+    text-decoration: none;
+    background: #fff;
+    border-left: 0 !important;
+    display: block; }
+    .pagination a, .pagination a:link, .pagination a:visited {
+      color: #707070; }
+    .pagination a:hover, .pagination a:active, .pagination a:focus {
+      background: #999999;
+      color: #fff; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  SEARCH FORM
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.search-form {
+  display: inline-flex;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  width: 100%; }
+  .search-form .search-label {
+    width: 100%;
+    max-width: 300px; }
+  .search-form .search-field, .search-form .search-submit {
+    margin: 0; }
+  .search-form .search-field {
+    height: 100%;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px; }
+  .search-form .search-submit {
+    line-height: 1;
+    padding: .8em;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px; }
+    .search-form .search-submit .icon {
+      height: 1.2em;
+      width: 1.2em; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  DEBUG
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.dev-flag {
+  position: fixed;
+  display: block;
+  line-height: 1;
+  font-size: 14px;
+  top: 20%;
+  right: 0;
+  padding: .5em;
+  background-color: #FF0000;
+  color: white;
+  font-weight: bold;
+  z-index: 99999999;
+  margin: 0;
+  display: block;
+  transform-origin: center;
+  transform: translate3d(50%, -50%, 0) rotate(270deg) translateY(-50%);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25); }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  DEVELOPER INFORMATION
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.bobastudio {
+  height: 24px;
+  line-height: 24px;
+  text-decoration: none;
+  white-space: nowrap; }
+  @media screen {
+    .bobastudio a {
+      background-image: url("dist/img/boba-studio/boba-studio.svg");
+      background-position: center center;
+      background-repeat: no-repeat;
+      display: inline-block;
+      height: 24px;
+      line-height: 24px;
+      text-indent: -9999px;
+      width: 84px;
+      margin-left: 5px; } }
+  @media print {
+    .bobastudio a::after {
+      content: " hello@weareboba.com";
+      display: inline-block;
+      position: absolute; } }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   GUTENBERG
   Styles used by Gutenberg blocks
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -2738,395 +3127,5 @@ p.has-background {
 
 .cat-links, .tags-links, .comments-link, .edit-link {
   display: block; }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  ANIMATIONS
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-@keyframes pulse {
-  0% {
-    transform: scale(1); }
-  65% {
-    transform: scale(1.05); }
-  100% {
-    transform: scale(1); } }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  BLOCK: TEXT MEDIA
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.block__text-media .embedded-iframe, .block__text-media .google-map {
-  height: auto;
-  width: 100%;
-  min-height: 300px; }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  BLOCS
-  Styling for ACF flexible content
-  blocks
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.block {
-  padding-top: 70px;
-  padding-bottom: 46px;
-  position: relative; }
-  .block__image img {
-    width: 100%; }
-  .block__full-width {
-    padding-top: 0;
-    padding-bottom: 0; }
-    .block__full-width img, .block__full-width .embed-container, .block__full-width .is-type-video .wp-block-embed__wrapper, .is-type-video .block__full-width .wp-block-embed__wrapper {
-      margin-bottom: 0; }
-  .block__gallery .gallery-item {
-    display: inline-block;
-    text-align: center;
-    margin: 12px 0; }
-
-.block.bg-primary:not(.block__full-width) + .block.bg-primary:not(.block__full-width) {
-  padding-top: 0; }
-
-.block.bg-secondary:not(.block__full-width) + .block.bg-secondary:not(.block__full-width) {
-  padding-top: 0; }
-
-.block.bg-tertiary:not(.block__full-width) + .block.bg-tertiary:not(.block__full-width) {
-  padding-top: 0; }
-
-.block.bg-success:not(.block__full-width) + .block.bg-success:not(.block__full-width) {
-  padding-top: 0; }
-
-.block.bg-warning:not(.block__full-width) + .block.bg-warning:not(.block__full-width) {
-  padding-top: 0; }
-
-.block.bg-error:not(.block__full-width) + .block.bg-error:not(.block__full-width) {
-  padding-top: 0; }
-
-.block.bg-white:not(.block__full-width) + .block.bg-white:not(.block__full-width) {
-  padding-top: 0; }
-
-.block.bg-black:not(.block__full-width) + .block.bg-black:not(.block__full-width) {
-  padding-top: 0; }
-
-.block__full-width .block-title, .block__full-width .block-preamble {
-  margin-top: 70px; }
-
-.block__full-width .block-title + .block-preamble {
-  margin-top: 0 !important; }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  CONTACT INFORMATION
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.postal-address {
-  display: inline-block; }
-  .postal-address span {
-    display: block; }
-
-.telephone-number a, .phone-numbers a {
-  text-decoration: none;
-  color: inherit; }
-
-.opening-hours, .department-contacts {
-  width: auto; }
-
-.icon__facebook {
-  color: #1877F2; }
-
-a:hover .icon__facebook, a:focus .icon__facebook, a:active .icon__facebook {
-  color: #135fc2; }
-
-.icon__instagram {
-  color: #E4405F; }
-
-a:hover .icon__instagram, a:focus .icon__instagram, a:active .icon__instagram {
-  color: #b6334c; }
-
-.icon__linkedin {
-  color: #0077B5; }
-
-a:hover .icon__linkedin, a:focus .icon__linkedin, a:active .icon__linkedin {
-  color: #005f91; }
-
-.icon__pinterest {
-  color: #BD081C; }
-
-a:hover .icon__pinterest, a:focus .icon__pinterest, a:active .icon__pinterest {
-  color: #970616; }
-
-.icon__twitter {
-  color: #1DA1F2; }
-
-a:hover .icon__twitter, a:focus .icon__twitter, a:active .icon__twitter {
-  color: #1781c2; }
-
-.icon__vimeo {
-  color: #1AB7EA; }
-
-a:hover .icon__vimeo, a:focus .icon__vimeo, a:active .icon__vimeo {
-  color: #1592bb; }
-
-.icon__youtube {
-  color: #FF0000; }
-
-a:hover .icon__youtube, a:focus .icon__youtube, a:active .icon__youtube {
-  color: #cc0000; }
-
-.icon__whatsapp {
-  color: #25D366; }
-
-a:hover .icon__whatsapp, a:focus .icon__whatsapp, a:active .icon__whatsapp {
-  color: #1ea952; }
-
-.icon__microsoftteams {
-  color: #6264A7; }
-
-a:hover .icon__microsoftteams, a:focus .icon__microsoftteams, a:active .icon__microsoftteams {
-  color: #4e5086; }
-
-.icon__skype {
-  color: #00AFF0; }
-
-a:hover .icon__skype, a:focus .icon__skype, a:active .icon__skype {
-  color: #008cc0; }
-
-.icon__zoom {
-  color: #2D8CFF; }
-
-a:hover .icon__zoom, a:focus .icon__zoom, a:active .icon__zoom {
-  color: #2470cc; }
-
-.social-channels .icon {
-  margin-right: .5em;
-  width: 1em;
-  height: 1em;
-  transition: color 0.2s ease, transform 0.2s ease; }
-
-.social-channels a:hover .icon, .social-channels a:focus .icon, .social-channels a:active .icon {
-  transform: scale(1.1); }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  DEBUG
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.dev-flag {
-  position: fixed;
-  display: block;
-  line-height: 1;
-  font-size: 14px;
-  top: 20%;
-  right: 0;
-  padding: .5em;
-  background-color: #FF0000;
-  color: white;
-  font-weight: bold;
-  z-index: 99999999;
-  margin: 0;
-  display: block;
-  transform-origin: center;
-  transform: translate3d(50%, -50%, 0) rotate(270deg) translateY(-50%);
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25); }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  DEVELOPER INFORMATION
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.bobastudio {
-  height: 24px;
-  line-height: 24px;
-  text-decoration: none;
-  white-space: nowrap; }
-  @media screen {
-    .bobastudio a {
-      background-image: url("dist/img/boba-studio/boba-studio.svg");
-      background-position: center center;
-      background-repeat: no-repeat;
-      display: inline-block;
-      height: 24px;
-      line-height: 24px;
-      text-indent: -9999px;
-      width: 84px;
-      margin-left: 5px; } }
-  @media print {
-    .bobastudio a::after {
-      content: " hello@weareboba.com";
-      display: inline-block;
-      position: absolute; } }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  EMBEDDED VIDEO
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.play {
-  z-index: 1;
-  margin: 0;
-  background-color: transparent !important;
-  border-color: transparent !important;
-  width: 30%;
-  padding: 0;
-  color: #fff;
-  max-width: 120px;
-  transition: opacity 1s ease; }
-  .play:hover, .play:focus {
-    opacity: 0.8;
-    box-shadow: none; }
-  .play .icon {
-    width: 100%;
-    height: auto; }
-
-.video-wrapper {
-  position: relative; }
-  .video-wrapper .embed-container, .video-wrapper .is-type-video .wp-block-embed__wrapper, .is-type-video .video-wrapper .wp-block-embed__wrapper {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    transition-delay: 0.5s; }
-  .video-wrapper.playing .video-overlay {
-    opacity: 0;
-    pointer-events: none; }
-  .video-wrapper.playing .embed-container, .video-wrapper.playing .is-type-video .wp-block-embed__wrapper, .is-type-video .video-wrapper.playing .wp-block-embed__wrapper {
-    opacity: 1; }
-
-.video-overlay {
-  position: absolute;
-  top: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  background-size: cover;
-  background-position: center;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  opacity: 1;
-  transition: opacity 0.5s ease;
-  transition-delay: 0.5s; }
-  .video-overlay::after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    mix-blend-mode: multiply; }
-  .video-overlay:hover::after {
-    opacity: 0.6; }
-  .video-overlay:hover .play {
-    animation: pulse 1.4s infinite; }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  ICONS
-  Default styling for icons
-  generated by grunt-svgstore
-  into the icons.svg spritesheet
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.icon {
-  display: inline-block;
-  fill: currentColor;
-  height: 0.9em;
-  width: 0.9em;
-  vertical-align: middle;
-  position: relative;
-  top: -0.15em; }
-  .icon path {
-    fill: inherit; }
-
-.icon-list {
-  list-style-type: none;
-  margin-left: 1em; }
-  .icon-list .icon {
-    margin-right: .5em; }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  IFRAMES
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.embedded-iframe {
-  border: 1px solid #cbcccc; }
-  .embed-container .embedded-iframe, .is-type-video .wp-block-embed__wrapper .embedded-iframe {
-    margin-bottom: 0; }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  MAPS
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.google-map {
-  width: 100%;
-  height: 600px;
-  border: 1px solid #cbcccc; }
-
-.google-map img {
-  max-width: inherit !important; }
-
-.gm-style {
-  font-family: inherit;
-  font-weight: inherit;
-  font-size: inherit; }
-  .gm-style .gm-style-iw {
-    font-weight: inherit;
-    font-size: inherit; }
-  .gm-style .address {
-    font-size: 0.8em; }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  NUMERIC PAGINATION
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.pagination {
-  list-style-type: none;
-  margin: 24px 0;
-  display: flex;
-  flex-wrap: wrap; }
-  .pagination .nav-next {
-    margin-right: 0; }
-  .pagination li {
-    text-transform: uppercase; }
-    .pagination li.active a {
-      background: #707070;
-      color: #fff; }
-    .pagination li.nav-total,
-    .pagination li a {
-      border: 1px solid #cbcccc;
-      padding: 6.6666666667px 10px; }
-    .pagination li.nav-total {
-      background: #999999;
-      color: #fff; }
-  .pagination a {
-    transition: background 0.2s ease, color 0.2s ease;
-    text-decoration: none;
-    background: #fff;
-    border-left: 0 !important;
-    display: block; }
-    .pagination a, .pagination a:link, .pagination a:visited {
-      color: #707070; }
-    .pagination a:hover, .pagination a:active, .pagination a:focus {
-      background: #999999;
-      color: #fff; }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  SCAFFOLDING
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-#page {
-  overflow: hidden; }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  SEARCH FORM
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.search-form {
-  display: inline-flex;
-  align-items: stretch;
-  flex-wrap: nowrap;
-  width: 100%; }
-  .search-form .search-label {
-    width: 100%;
-    max-width: 300px; }
-  .search-form .search-field, .search-form .search-submit {
-    margin: 0; }
-  .search-form .search-field {
-    height: 100%;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px; }
-  .search-form .search-submit {
-    line-height: 1;
-    padding: .8em;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px; }
-    .search-form .search-submit .icon {
-      height: 1.2em;
-      width: 1.2em; }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  TYPOGRAPHY
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*# sourceMappingURL=style.css.map */

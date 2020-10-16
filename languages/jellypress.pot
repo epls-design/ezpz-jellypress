@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jellypress-wordpress-theme 1.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/unofficialmatt/jellypress/issues\n"
-"POT-Creation-Date: 2020-10-15 07:03:57+00:00\n"
+"POT-Creation-Date: 2020-10-16 11:30:08+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -58,20 +58,36 @@ msgstr ""
 msgid "Successfully updated organisation information"
 msgstr ""
 
-#: inc/dry.php:124
-msgid " contact numbers"
+#: inc/dry.php:135
+msgid " Postal Address"
 msgstr ""
 
-#: inc/dry.php:159
-msgid "Day"
+#: inc/dry.php:165
+msgid "Telephone:"
 msgstr ""
 
-#: inc/dry.php:159
+#: inc/dry.php:176
+msgid "Day(s)"
+msgstr ""
+
+#: inc/dry.php:176
 msgid "Opening Hours"
 msgstr ""
 
-#: inc/helpers.php:126
-msgid "Development Site"
+#: inc/dry.php:182
+msgid "Closed"
+msgstr ""
+
+#: inc/dry.php:206
+msgid "Department"
+msgstr ""
+
+#: inc/dry.php:206
+msgid "Phone Number"
+msgstr ""
+
+#: inc/dry.php:206
+msgid "Email Address"
 msgstr ""
 
 #: inc/post_types/example.php:25
@@ -241,23 +257,23 @@ msgid "All News"
 msgstr ""
 
 #: inc/post_types/post.php:20
-msgid "Add New News"
+msgid "Add New Article"
 msgstr ""
 
 #: inc/post_types/post.php:22
-msgid "New News"
+msgid "New Article"
 msgstr ""
 
 #: inc/post_types/post.php:23
-msgid "Edit News"
+msgid "Edit Article"
 msgstr ""
 
 #: inc/post_types/post.php:24
-msgid "Update News"
+msgid "Update Article"
 msgstr ""
 
 #: inc/post_types/post.php:25 inc/post_types/post.php:26
-msgid "View News"
+msgid "View Article"
 msgstr ""
 
 #: inc/post_types/post.php:27
@@ -265,11 +281,11 @@ msgid "Search News"
 msgstr ""
 
 #: inc/post_types/post.php:34
-msgid "Insert into News"
+msgid "Insert into Article"
 msgstr ""
 
 #: inc/post_types/post.php:35
-msgid "Uploaded to this News"
+msgid "Uploaded to this Article"
 msgstr ""
 
 #: inc/post_types/post.php:36
@@ -286,6 +302,13 @@ msgstr ""
 
 #: inc/template-functions.php:107
 msgid "%1$s"
+msgstr ""
+
+#: inc/template-functions.php:170
+msgid ""
+"Please add a featured image. This will be used as the main image for the "
+"page on search engines and may be displayed on the page itself depending on "
+"the design. "
 msgstr ""
 
 #: inc/template-tags.php:70
@@ -310,6 +333,10 @@ msgstr ""
 
 #: inc/theme-setup.php:68
 msgid "Primary"
+msgstr ""
+
+#: inc/theme-setup.php:144
+msgid "Development Site"
 msgstr ""
 
 #: inc/video-embed.php:93
@@ -338,6 +365,18 @@ msgstr[1] ""
 #: search.php:33
 #. translators: %s: search query.
 msgid "Search Results for: %s"
+msgstr ""
+
+#: searchform.php:18
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:19
+msgid "I'm looking for&hellip;"
+msgstr ""
+
+#: searchform.php:21
+msgid "Search"
 msgstr ""
 
 #: template-layouts/map.php:48 template-layouts/text-media.php:107
