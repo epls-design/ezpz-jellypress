@@ -1,4 +1,4 @@
-/*! jellypress-wordpress-theme 1.1.0
+/* Jellypress Wordpress Theme 1.1.0
  * © 2020-10 Matt Weet - https://www.weareboba.com */
 
 /* GRID */
@@ -92,12 +92,12 @@
     border-color: #0071a1;
     color: #fff; }
   .acf-fc-layout-controls .acf-icon.-minus:hover {
-    background-color: #FF4200 !important;
-    border-color: #FF4200;
-    color: #23282d; }
+    background-color: #f7033c !important;
+    border-color: #f7033c;
+    color: #fff; }
   .acf-fc-layout-controls .acf-icon.-plus:hover {
-    background-color: #77de65 !important;
-    border-color: #77de65;
+    background-color: #53cc3e !important;
+    border-color: #53cc3e;
     color: #23282d; }
 
 .acf-input label {
@@ -209,13 +209,13 @@
   background-color: #8e1b1f; }
 
 .bg-success {
-  background-color: #77de65; }
+  background-color: #53cc3e; }
 
 .bg-warning {
-  background-color: #FCCf14; }
+  background-color: #fc7f14; }
 
 .bg-error {
-  background-color: #FF4200; }
+  background-color: #f7033c; }
 
 .bg-white {
   background-color: #fff; }

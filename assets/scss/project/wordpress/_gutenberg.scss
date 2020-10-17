@@ -149,10 +149,12 @@
   }
 
   &.is-style-outline {
-    color: inherit;
-
     a {
-      @extend .button__outline;
+      color: inherit;
+      background-color: transparent !important;
+      &:hover, &:focus {
+        background-color: transparent !important;
+      }
     }
   }
 }

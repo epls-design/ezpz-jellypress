@@ -101,7 +101,7 @@ module.exports = function (grunt) {
       stylesmain: {
         options: {
           position: 'top',
-          banner: '/*! Theme Name: <%= pkg.name %>\n' +
+          banner: '/*! Theme Name: Jellypress Wordpress Theme\n' +
           ' *  Theme URI: <%= pkg.homepage %>\n' +
           ' *  Author: <%= pkg.author.name %> <<%= pkg.author.email %>>\n' +
           ' *  Author URI: <%= pkg.author.url %>\n' +

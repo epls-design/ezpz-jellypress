@@ -21,7 +21,7 @@ module.exports = function (grunt) {
       dev_url: 'https://jellypress.local',
       text_domain: 'jellypress', // Used for translation
       banner:
-      '/*! <%= pkg.name %> <%= pkg.version %>\n' +
+      '/* Jellypress Wordpress Theme <%= pkg.version %>\n' +
       ' * © <%= grunt.template.today("yyyy-mm") %> <%= pkg.author.name %> - <%= pkg.author.url %> */\n',
     }
   });
