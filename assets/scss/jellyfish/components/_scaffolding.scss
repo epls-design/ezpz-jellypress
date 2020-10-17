@@ -54,7 +54,7 @@ a {
         color: $link-visited;
         text-decoration: none;
     }
-    &:hover, &:active, &:focus {
+    &:hover, &:focus {
         color: $link-active;
     }
 }

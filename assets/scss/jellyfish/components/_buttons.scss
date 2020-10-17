@@ -40,7 +40,7 @@
       cursor: not-allowed;
       background-color: $button-disabled-background;
       border-color: $button-disabled-background;
-      &:hover, &:focus, &:active {
+      &:hover, &:focus {
         background-color: $button-disabled-background;
         border-color: $button-disabled-background;
       }

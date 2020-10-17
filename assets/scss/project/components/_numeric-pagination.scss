@@ -46,7 +46,6 @@
     }
 
     &:hover,
-    &:active,
     &:focus {
       background: tint($color-text, 50%);
       color: $color-background;

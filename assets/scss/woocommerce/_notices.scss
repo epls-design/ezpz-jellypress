@@ -12,8 +12,8 @@
     color: $bgcolor;
 
     &:hover,
-    &:focus,
-    &:active {
+    &:focus
+     {
       color: shade($bgcolor, 80%)
     }
   }

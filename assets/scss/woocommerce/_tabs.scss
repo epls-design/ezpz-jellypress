@@ -32,7 +32,6 @@
             color: tint($color-text, 80%);
 
             &:hover,
-            &:active,
             &:focus {
               color: $color-text;
             }
