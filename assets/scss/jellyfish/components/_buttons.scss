@@ -56,7 +56,7 @@
     }
 }
 
-[type=reset], .button__outline, a.button__outline, .button__ghost, a.button__ghost {
+[type=reset], .button.outline, a.button.outline, .button.ghost, a.button.ghost {
   // Outline and ghost buttons have a transparent fill
   background-color: transparent !important;
   color: $color-primary;
@@ -67,25 +67,25 @@
 }
 
 .button, a.button {
-    &__ghost {
+    &.ghost {
         border-color: transparent !important;
         &:hover, &:focus {
           border-color: transparent !important;
         }
     }
-    &__block {
+    &.expanded {
         display: block;
         width: 100%;
     }
-    &__large {
+    &.large {
         font-size: 1.1rem;
     }
-    &__small {
+    &.small {
         font-size: 0.8rem;
     }
     @each $name, $color in $theme-colors {
       // Loop through $theme-colors map and create buttons for each key
-      &__#{$name} {
+      &.#{$name} {
         @include create_button($color);
         // TODO: Replace all BEM style modifiers with simple .button.tertiary, .button.outline ?
       }

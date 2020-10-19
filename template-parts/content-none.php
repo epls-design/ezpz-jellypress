@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) || exit;
     <?php
       if ( is_home() && current_user_can( 'publish_posts' ) ) :
       printf(
-      '<div class="callout callout__error">' . wp_kses(
+      '<div class="callout error">' . wp_kses(
         /* translators: 1: link to WP admin new post page. */
         __( 'Ready to publish your first post? <a href="%1$s" class="callout-link">Get started here</a>.', 'jellypress' ),
         array(

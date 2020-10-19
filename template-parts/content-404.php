@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) || exit;
           </p>
           <p>
             <a class="button" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">Home Page</a>
-            <button class="button__outline" onCLick="history.back()"><?php _e('Back to last page', 'jellypress');?></button>
+            <button class="button outline" onCLick="history.back()"><?php _e('Back to last page', 'jellypress');?></button>
           </p>
         </div>
       </article>

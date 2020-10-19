@@ -26,17 +26,17 @@ thead th {
 tfoot th {
     border-top: $border-width*2 solid $border-color;
 }
-.table__striped {
+table.striped {
   tr:nth-child(odd) td {
     background: $table-stripe-color;
   }
 }
-.table__border {
+table.border {
   &, td, th {
     border: $borders;
   }
 }
-.table__hoverable {
+table.hoverable {
   tr:hover td {
     background: $table-hover-background !important;
     color: $table-hover-color;

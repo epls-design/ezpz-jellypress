@@ -1520,146 +1520,146 @@ button.toggle-contrast svg {
     border-color: #001078;
     color: #fff; }
 
-[type=reset], .button__outline, a.button__outline, .button__ghost, a.button__ghost {
+[type=reset], .button.outline, a.button.outline, .button.ghost, a.button.ghost {
   background-color: transparent !important;
   color: #001496; }
-  [type=reset]:hover, [type=reset]:focus, .button__outline:hover, .button__outline:focus, a.button__outline:hover, a.button__outline:focus, .button__ghost:hover, .button__ghost:focus, a.button__ghost:hover, a.button__ghost:focus {
+  [type=reset]:hover, [type=reset]:focus, .button.outline:hover, .button.outline:focus, a.button.outline:hover, a.button.outline:focus, .button.ghost:hover, .button.ghost:focus, a.button.ghost:hover, a.button.ghost:focus {
     background-color: transparent !important;
     color: #001078; }
 
-.button__ghost, a.button__ghost {
+.button.ghost, a.button.ghost {
   border-color: transparent !important; }
-  .button__ghost:hover, .button__ghost:focus, a.button__ghost:hover, a.button__ghost:focus {
+  .button.ghost:hover, .button.ghost:focus, a.button.ghost:hover, a.button.ghost:focus {
     border-color: transparent !important; }
 
-.button__block, a.button__block {
+.button.expanded, a.button.expanded {
   display: block;
   width: 100%; }
 
-.button__large, a.button__large {
+.button.large, a.button.large {
   font-size: 1.1rem; }
 
-.button__small, a.button__small {
+.button.small, .button.has-small-font-size, a.button.small, a.button.has-small-font-size {
   font-size: 0.8rem; }
 
-.button__primary, a.button__primary {
+.button.primary, a.button.primary {
   background-color: #001496;
   border-color: #001496;
   color: #fff; }
-  .button__primary:hover, .button__primary:focus, a.button__primary:hover, a.button__primary:focus {
+  .button.primary:hover, .button.primary:focus, a.button.primary:hover, a.button.primary:focus {
     background-color: #001078;
     border-color: #001078;
     color: #fff; }
-  .button__primary:focus, a.button__primary:focus {
+  .button.primary:focus, a.button.primary:focus {
     box-shadow: 0px 0px 1px 3px #000630; }
-  .button__primary.button__outline, .button__primary.button__ghost, a.button__primary.button__outline, a.button__primary.button__ghost {
+  .button.primary.outline, .button.primary.ghost, a.button.primary.outline, a.button.primary.ghost {
     color: #001496; }
-    .button__primary.button__outline:hover, .button__primary.button__outline:focus, .button__primary.button__ghost:hover, .button__primary.button__ghost:focus, a.button__primary.button__outline:hover, a.button__primary.button__outline:focus, a.button__primary.button__ghost:hover, a.button__primary.button__ghost:focus {
+    .button.primary.outline:hover, .button.primary.outline:focus, .button.primary.ghost:hover, .button.primary.ghost:focus, a.button.primary.outline:hover, a.button.primary.outline:focus, a.button.primary.ghost:hover, a.button.primary.ghost:focus {
       color: #001078; }
 
-.button__secondary, a.button__secondary {
+.button.secondary, a.button.secondary {
   background-color: #a62579;
   border-color: #a62579;
   color: #fff; }
-  .button__secondary:hover, .button__secondary:focus, a.button__secondary:hover, a.button__secondary:focus {
+  .button.secondary:hover, .button.secondary:focus, a.button.secondary:hover, a.button.secondary:focus {
     background-color: #851e61;
     border-color: #851e61;
     color: #fff; }
-  .button__secondary:focus, a.button__secondary:focus {
+  .button.secondary:focus, a.button.secondary:focus {
     box-shadow: 0px 0px 1px 3px #350c27; }
-  .button__secondary.button__outline, .button__secondary.button__ghost, a.button__secondary.button__outline, a.button__secondary.button__ghost {
+  .button.secondary.outline, .button.secondary.ghost, a.button.secondary.outline, a.button.secondary.ghost {
     color: #a62579; }
-    .button__secondary.button__outline:hover, .button__secondary.button__outline:focus, .button__secondary.button__ghost:hover, .button__secondary.button__ghost:focus, a.button__secondary.button__outline:hover, a.button__secondary.button__outline:focus, a.button__secondary.button__ghost:hover, a.button__secondary.button__ghost:focus {
+    .button.secondary.outline:hover, .button.secondary.outline:focus, .button.secondary.ghost:hover, .button.secondary.ghost:focus, a.button.secondary.outline:hover, a.button.secondary.outline:focus, a.button.secondary.ghost:hover, a.button.secondary.ghost:focus {
       color: #851e61; }
 
-.button__tertiary, a.button__tertiary {
+.button.tertiary, a.button.tertiary {
   background-color: #8e1b1f;
   border-color: #8e1b1f;
   color: #fff; }
-  .button__tertiary:hover, .button__tertiary:focus, a.button__tertiary:hover, a.button__tertiary:focus {
+  .button.tertiary:hover, .button.tertiary:focus, a.button.tertiary:hover, a.button.tertiary:focus {
     background-color: #721619;
     border-color: #721619;
     color: #fff; }
-  .button__tertiary:focus, a.button__tertiary:focus {
+  .button.tertiary:focus, a.button.tertiary:focus {
     box-shadow: 0px 0px 1px 3px #2e090a; }
-  .button__tertiary.button__outline, .button__tertiary.button__ghost, a.button__tertiary.button__outline, a.button__tertiary.button__ghost {
+  .button.tertiary.outline, .button.tertiary.ghost, a.button.tertiary.outline, a.button.tertiary.ghost {
     color: #8e1b1f; }
-    .button__tertiary.button__outline:hover, .button__tertiary.button__outline:focus, .button__tertiary.button__ghost:hover, .button__tertiary.button__ghost:focus, a.button__tertiary.button__outline:hover, a.button__tertiary.button__outline:focus, a.button__tertiary.button__ghost:hover, a.button__tertiary.button__ghost:focus {
+    .button.tertiary.outline:hover, .button.tertiary.outline:focus, .button.tertiary.ghost:hover, .button.tertiary.ghost:focus, a.button.tertiary.outline:hover, a.button.tertiary.outline:focus, a.button.tertiary.ghost:hover, a.button.tertiary.ghost:focus {
       color: #721619; }
 
-.button__success, a.button__success {
+.button.success, a.button.success {
   background-color: #53cc3e;
   border-color: #53cc3e;
   color: #333333; }
-  .button__success:hover, .button__success:focus, a.button__success:hover, a.button__success:focus {
+  .button.success:hover, .button.success:focus, a.button.success:hover, a.button.success:focus {
     background-color: #42a332;
     border-color: #42a332;
     color: #333333; }
-  .button__success:focus, a.button__success:focus {
+  .button.success:focus, a.button.success:focus {
     box-shadow: 0px 0px 1px 3px #1a4114; }
-  .button__success.button__outline, .button__success.button__ghost, a.button__success.button__outline, a.button__success.button__ghost {
+  .button.success.outline, .button.success.ghost, a.button.success.outline, a.button.success.ghost {
     color: #53cc3e; }
-    .button__success.button__outline:hover, .button__success.button__outline:focus, .button__success.button__ghost:hover, .button__success.button__ghost:focus, a.button__success.button__outline:hover, a.button__success.button__outline:focus, a.button__success.button__ghost:hover, a.button__success.button__ghost:focus {
+    .button.success.outline:hover, .button.success.outline:focus, .button.success.ghost:hover, .button.success.ghost:focus, a.button.success.outline:hover, a.button.success.outline:focus, a.button.success.ghost:hover, a.button.success.ghost:focus {
       color: #42a332; }
 
-.button__warning, a.button__warning {
+.button.warning, a.button.warning {
   background-color: #fc7f14;
   border-color: #fc7f14;
   color: #333333; }
-  .button__warning:hover, .button__warning:focus, a.button__warning:hover, a.button__warning:focus {
+  .button.warning:hover, .button.warning:focus, a.button.warning:hover, a.button.warning:focus {
     background-color: #ca6610;
     border-color: #ca6610;
     color: #fff; }
-  .button__warning:focus, a.button__warning:focus {
+  .button.warning:focus, a.button.warning:focus {
     box-shadow: 0px 0px 1px 3px #512906; }
-  .button__warning.button__outline, .button__warning.button__ghost, a.button__warning.button__outline, a.button__warning.button__ghost {
+  .button.warning.outline, .button.warning.ghost, a.button.warning.outline, a.button.warning.ghost {
     color: #fc7f14; }
-    .button__warning.button__outline:hover, .button__warning.button__outline:focus, .button__warning.button__ghost:hover, .button__warning.button__ghost:focus, a.button__warning.button__outline:hover, a.button__warning.button__outline:focus, a.button__warning.button__ghost:hover, a.button__warning.button__ghost:focus {
+    .button.warning.outline:hover, .button.warning.outline:focus, .button.warning.ghost:hover, .button.warning.ghost:focus, a.button.warning.outline:hover, a.button.warning.outline:focus, a.button.warning.ghost:hover, a.button.warning.ghost:focus {
       color: #ca6610; }
 
-.button__error, a.button__error {
+.button.error, a.button.error {
   background-color: #f7033c;
   border-color: #f7033c;
   color: #fff; }
-  .button__error:hover, .button__error:focus, a.button__error:hover, a.button__error:focus {
+  .button.error:hover, .button.error:focus, a.button.error:hover, a.button.error:focus {
     background-color: #c60230;
     border-color: #c60230;
     color: #fff; }
-  .button__error:focus, a.button__error:focus {
+  .button.error:focus, a.button.error:focus {
     box-shadow: 0px 0px 1px 3px #4f0113; }
-  .button__error.button__outline, .button__error.button__ghost, a.button__error.button__outline, a.button__error.button__ghost {
+  .button.error.outline, .button.error.ghost, a.button.error.outline, a.button.error.ghost {
     color: #f7033c; }
-    .button__error.button__outline:hover, .button__error.button__outline:focus, .button__error.button__ghost:hover, .button__error.button__ghost:focus, a.button__error.button__outline:hover, a.button__error.button__outline:focus, a.button__error.button__ghost:hover, a.button__error.button__ghost:focus {
+    .button.error.outline:hover, .button.error.outline:focus, .button.error.ghost:hover, .button.error.ghost:focus, a.button.error.outline:hover, a.button.error.outline:focus, a.button.error.ghost:hover, a.button.error.ghost:focus {
       color: #c60230; }
 
-.button__white, a.button__white {
+.button.white, a.button.white {
   background-color: #fff;
   border-color: #fff;
   color: #333333; }
-  .button__white:hover, .button__white:focus, a.button__white:hover, a.button__white:focus {
+  .button.white:hover, .button.white:focus, a.button.white:hover, a.button.white:focus {
     background-color: #cccccc;
     border-color: #cccccc;
     color: #333333; }
-  .button__white:focus, a.button__white:focus {
+  .button.white:focus, a.button.white:focus {
     box-shadow: 0px 0px 1px 3px #525252; }
-  .button__white.button__outline, .button__white.button__ghost, a.button__white.button__outline, a.button__white.button__ghost {
+  .button.white.outline, .button.white.ghost, a.button.white.outline, a.button.white.ghost {
     color: #fff; }
-    .button__white.button__outline:hover, .button__white.button__outline:focus, .button__white.button__ghost:hover, .button__white.button__ghost:focus, a.button__white.button__outline:hover, a.button__white.button__outline:focus, a.button__white.button__ghost:hover, a.button__white.button__ghost:focus {
+    .button.white.outline:hover, .button.white.outline:focus, .button.white.ghost:hover, .button.white.ghost:focus, a.button.white.outline:hover, a.button.white.outline:focus, a.button.white.ghost:hover, a.button.white.ghost:focus {
       color: #cccccc; }
 
-.button__black, a.button__black {
+.button.black, a.button.black {
   background-color: #000;
   border-color: #000;
   color: #fff; }
-  .button__black:hover, .button__black:focus, a.button__black:hover, a.button__black:focus {
+  .button.black:hover, .button.black:focus, a.button.black:hover, a.button.black:focus {
     background-color: black;
     border-color: black;
     color: #fff; }
-  .button__black:focus, a.button__black:focus {
+  .button.black:focus, a.button.black:focus {
     box-shadow: 0px 0px 1px 3px black; }
-  .button__black.button__outline, .button__black.button__ghost, a.button__black.button__outline, a.button__black.button__ghost {
+  .button.black.outline, .button.black.ghost, a.button.black.outline, a.button.black.ghost {
     color: #000; }
-    .button__black.button__outline:hover, .button__black.button__outline:focus, .button__black.button__ghost:hover, .button__black.button__ghost:focus, a.button__black.button__outline:hover, a.button__black.button__outline:focus, a.button__black.button__ghost:hover, a.button__black.button__ghost:focus {
+    .button.black.outline:hover, .button.black.outline:focus, .button.black.ghost:hover, .button.black.ghost:focus, a.button.black.outline:hover, a.button.black.outline:focus, a.button.black.ghost:hover, a.button.black.ghost:focus {
       color: black; }
 
 .button-group {
@@ -1691,69 +1691,69 @@ button.toggle-contrast svg {
     font-weight: bold; }
   .callout > :last-child {
     margin-bottom: 0; }
-  .callout__primary {
+  .callout.primary {
     border-color: #001496;
     background-color: #ccd0ea;
     color: #333333; }
-    .callout__primary a.callout-link {
+    .callout.primary a.callout-link {
       color: #001496; }
-      .callout__primary a.callout-link:hover, .callout__primary a.callout-link:focus {
+      .callout.primary a.callout-link:hover, .callout.primary a.callout-link:focus {
         color: #001078; }
-  .callout__secondary {
+  .callout.secondary {
     border-color: #a62579;
     background-color: #edd3e4;
     color: #333333; }
-    .callout__secondary a.callout-link {
+    .callout.secondary a.callout-link {
       color: #a62579; }
-      .callout__secondary a.callout-link:hover, .callout__secondary a.callout-link:focus {
+      .callout.secondary a.callout-link:hover, .callout.secondary a.callout-link:focus {
         color: #851e61; }
-  .callout__tertiary {
+  .callout.tertiary {
     border-color: #8e1b1f;
     background-color: #e8d1d2;
     color: #333333; }
-    .callout__tertiary a.callout-link {
+    .callout.tertiary a.callout-link {
       color: #8e1b1f; }
-      .callout__tertiary a.callout-link:hover, .callout__tertiary a.callout-link:focus {
+      .callout.tertiary a.callout-link:hover, .callout.tertiary a.callout-link:focus {
         color: #721619; }
-  .callout__success {
+  .callout.success {
     border-color: #53cc3e;
     background-color: #ddf5d8;
     color: #333333; }
-    .callout__success a.callout-link {
+    .callout.success a.callout-link {
       color: #53cc3e; }
-      .callout__success a.callout-link:hover, .callout__success a.callout-link:focus {
+      .callout.success a.callout-link:hover, .callout.success a.callout-link:focus {
         color: #42a332; }
-  .callout__warning {
+  .callout.warning {
     border-color: #fc7f14;
     background-color: #fee5d0;
     color: #333333; }
-    .callout__warning a.callout-link {
+    .callout.warning a.callout-link {
       color: #fc7f14; }
-      .callout__warning a.callout-link:hover, .callout__warning a.callout-link:focus {
+      .callout.warning a.callout-link:hover, .callout.warning a.callout-link:focus {
         color: #ca6610; }
-  .callout__error {
+  .callout.error {
     border-color: #f7033c;
     background-color: #fdcdd8;
     color: #333333; }
-    .callout__error a.callout-link {
+    .callout.error a.callout-link {
       color: #f7033c; }
-      .callout__error a.callout-link:hover, .callout__error a.callout-link:focus {
+      .callout.error a.callout-link:hover, .callout.error a.callout-link:focus {
         color: #c60230; }
-  .callout__white {
+  .callout.white {
     border-color: #fff;
     background-color: white;
     color: #333333; }
-    .callout__white a.callout-link {
+    .callout.white a.callout-link {
       color: #fff; }
-      .callout__white a.callout-link:hover, .callout__white a.callout-link:focus {
+      .callout.white a.callout-link:hover, .callout.white a.callout-link:focus {
         color: #cccccc; }
-  .callout__black {
+  .callout.black {
     border-color: #000;
     background-color: #cccccc;
     color: #333333; }
-    .callout__black a.callout-link {
+    .callout.black a.callout-link {
       color: #000; }
-      .callout__black a.callout-link:hover, .callout__black a.callout-link:focus {
+      .callout.black a.callout-link:hover, .callout.black a.callout-link:focus {
         color: black; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
@@ -1803,60 +1803,60 @@ button.toggle-contrast svg {
   color: #fff; }
   h1 .label, h2 .label, h3 .label, h4 .label, h5 .label, p.wp-block-subhead .label, h6 .label, p .label {
     font-size: 0.6em; }
-  .label.label__outline {
+  .label.outline {
     color: #001496; }
   .label .label {
     margin-left: .5em; }
-  .label__outline {
+  .label.outline {
     border-style: dashed;
     background-color: transparent !important; }
-  .label__primary {
+  .label.primary {
     border-color: #001496;
     background-color: #001496;
     color: #fff; }
-    .label__primary.label__outline {
+    .label.primary.outline {
       color: #001496; }
-  .label__secondary {
+  .label.secondary {
     border-color: #a62579;
     background-color: #a62579;
     color: #fff; }
-    .label__secondary.label__outline {
+    .label.secondary.outline {
       color: #a62579; }
-  .label__tertiary {
+  .label.tertiary {
     border-color: #8e1b1f;
     background-color: #8e1b1f;
     color: #fff; }
-    .label__tertiary.label__outline {
+    .label.tertiary.outline {
       color: #8e1b1f; }
-  .label__success {
+  .label.success {
     border-color: #53cc3e;
     background-color: #53cc3e;
     color: #333333; }
-    .label__success.label__outline {
+    .label.success.outline {
       color: #53cc3e; }
-  .label__warning {
+  .label.warning {
     border-color: #fc7f14;
     background-color: #fc7f14;
     color: #333333; }
-    .label__warning.label__outline {
+    .label.warning.outline {
       color: #fc7f14; }
-  .label__error {
+  .label.error {
     border-color: #f7033c;
     background-color: #f7033c;
     color: #fff; }
-    .label__error.label__outline {
+    .label.error.outline {
       color: #f7033c; }
-  .label__white {
+  .label.white {
     border-color: #fff;
     background-color: #fff;
     color: #333333; }
-    .label__white.label__outline {
+    .label.white.outline {
       color: #fff; }
-  .label__black {
+  .label.black {
     border-color: #000;
     background-color: #000;
     color: #fff; }
-    .label__black.label__outline {
+    .label.black.outline {
       color: #000; }
 
 .label-group {
@@ -1897,13 +1897,13 @@ thead th {
 tfoot th {
   border-top: 2px solid #cbcccc; }
 
-.table__striped tr:nth-child(odd) td {
+.table.striped tr:nth-child(odd) td {
   background: #efefef; }
 
-.table__border, .table__border td, .table__border th {
+.table.border, .table.border td, .table.border th {
   border: 1px solid #cbcccc; }
 
-.table__hoverable tr:hover td {
+.table.hoverable tr:hover td {
   background: #7e7f7f !important;
   color: #fff; }
 
@@ -2939,9 +2939,9 @@ a:hover .icon__zoom, a:focus .icon__zoom, a:active .icon__zoom {
       color: #fff; }
     .wp-block-button a:focus {
       box-shadow: 0px 0px 1px 3px #000630; }
-    .wp-block-button a.button__outline, .wp-block-button a.button__ghost {
+    .wp-block-button a.outline, .wp-block-button a.ghost {
       color: #001496; }
-      .wp-block-button a.button__outline:hover, .wp-block-button a.button__outline:focus, .wp-block-button a.button__ghost:hover, .wp-block-button a.button__ghost:focus {
+      .wp-block-button a.outline:hover, .wp-block-button a.outline:focus, .wp-block-button a.ghost:hover, .wp-block-button a.ghost:focus {
         color: #001078; }
   .wp-block-button.is-style-outline a {
     color: inherit;

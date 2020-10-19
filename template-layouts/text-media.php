@@ -101,7 +101,7 @@ if ($media_type == 'iframe' || $media_type == 'map'){
           jellypress_display_map_markers($map_locations);
         elseif(current_user_can( 'publish_posts' )):
           // Show a warning for the admin to add an API key
-          echo '<div class="callout callout__error">' .
+          echo '<div class="callout error">' .
           sprintf(
             /* translators: %s link to theme options page. */
             __( 'You need to <a href="%s" class="callout-link">add a Google Maps API key</a> in order to display a map on your website.', 'jellypress' ),

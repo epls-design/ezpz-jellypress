@@ -136,7 +136,7 @@
   &:focus {
     box-shadow: 0px 0px 1px 3px call(get-function($ui-hover-function), $hover-color, $ui-focus-highlight-amount );
   }
-  &.button__outline, &.button__ghost {
+  &.outline, &.ghost {
     color: $button-color;
     &:hover, &:focus {
       color: $hover-color;
@@ -149,7 +149,7 @@
   border-color: $label-color;
   background-color: $label-color;
   color: choose-contrast-color($label-color,$label-text-color-light,$label-text-color-dark);
-  &.label__outline {
+  &.outline {
     color: $label-color;
   }
 }

@@ -36,7 +36,7 @@ $color-white: #fff;
 //$color-headings-preferred: $color-primary;
 
 /* THEME COLORS */
-// Any variable you add here will have the following classes automatically created: .text-*, .bg-*, .label__*, .button__* and .callout__*
+// Any variable you add here will have the following classes automatically created: .text-*, .bg-*, .label.*, .button.* and .callout.*
 $theme-colors: (
   "white": $color-white,
   "black": #000,
