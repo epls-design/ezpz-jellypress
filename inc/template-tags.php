@@ -287,3 +287,18 @@ if ( !function_exists( 'jellypress_sidebar' )) :
     get_template_part( 'sidebar' );
   }
 endif;
+
+if ( ! function_exists( 'jellypress_show_password_form' ) ) :
+  /**
+   * A function which displays the wordpress content area (used to show a password form)
+   * if the post is password protected and the_content() is empty (in which case we can assume
+   * the page is designed entirely with ACF.)
+   */
+  function jellypress_show_password_form() {
+    if ( (empty( get_the_content() )  || '' == get_post()->post_content) && post_password_required() ){ 
+      echo '<section class="container block bg-white password-protected"><div class="row"><div class="col">';
+        the_content();
+      echo '</div></div></section>';
+    }
+  }
+endif;

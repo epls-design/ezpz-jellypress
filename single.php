@@ -20,6 +20,7 @@ get_header();
       <?php while ( have_posts() ) :
         the_post();
         get_template_part( 'template-parts/content', get_post_type() );
+        jellypress_show_password_form();
         get_template_part( 'template-parts/acf-flexible-content'); // Get flexible content from ACF
 
         jellypress_entry_footer(); // Call function from template-tags

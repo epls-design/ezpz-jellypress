@@ -27,7 +27,7 @@ if ( ! function_exists( 'jellypress_display_cta_buttons' ) ) :
 
           if($button_style!='filled') {
             // 'filled' is the default state so we don't need a class for this
-            $button_classes.= ' button__'.$button_style;
+            $button_classes.= ' '.$button_style;
           };
 
           echo '<a class="'.$button_classes.'" href="'.$button_link['url'].'" target="'.$button_link['target'].'">'.$button_link['title'].'</a>';
