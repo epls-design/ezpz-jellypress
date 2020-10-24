@@ -1891,21 +1891,27 @@ td {
   text-align: left;
   padding: .5em .8em; }
 
+table.is-striped tr:nth-child(odd) td {
+  background: #efefef; }
+
+table.has-border, table.has-border td, table.has-border th {
+  border: 1px solid #cbcccc; }
+
+table.has-border thead th {
+  border-bottom-width: 2px; }
+
+table.has-border tfoot th {
+  border-top-width: 2px; }
+
+table.is-hoverable tr:hover td {
+  background: #7e7f7f !important;
+  color: #fff; }
+
 thead th {
   border-bottom: 2px solid #cbcccc; }
 
 tfoot th {
   border-top: 2px solid #cbcccc; }
-
-table.striped tr:nth-child(odd) td {
-  background: #efefef; }
-
-table.border, table.border td, table.border th {
-  border: 1px solid #cbcccc; }
-
-table.hoverable tr:hover td {
-  background: #7e7f7f !important;
-  color: #fff; }
 
 .table-container {
   overflow-x: auto;

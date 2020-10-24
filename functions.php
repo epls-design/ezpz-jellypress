@@ -11,9 +11,12 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-// Define Dev URL
+// Define URLs
 if (! defined('DEV_URL') ) {
   define('DEV_URL', 'https://jellypress.local');
+}
+if (! defined('PROD_URL') ) {
+  define('PROD_URL', 'https://jellypress.live');
 }
 
 $jellypress_includes = array(
@@ -33,6 +36,7 @@ $jellypress_includes = array(
   'inc/video-embed.php',             // Functions to help with embedding videos.
 	'inc/customizer.php',              // Customizer additions.
   'inc/ajax-loadmore/loadmore.php',  // Uses Wordpress AJAX to lazyload more posts.
+  'inc/remote-images.php',           // Uses images from a remote production URL if working in the local dev environment.
 
   //~~~~~ CUSTOM POST TYPES
   'inc/post_types/post.php',         // Hooks into post_type 'post' to make the Labels more friendly
