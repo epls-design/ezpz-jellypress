@@ -177,7 +177,6 @@ add_action('wp_head', function() {
     // LOGO
     if ($organisation_logo = $schema_config['organisation_logo']) {
       // TODO: Could replace this with an image object at some point
-      // FIXME: Test this and the image on a real live site, Schema test shows errors here. Not sure if because it's lcoal
       $schema['logo'] = wp_get_attachment_image_url( $organisation_logo, 'medium');
     }
 

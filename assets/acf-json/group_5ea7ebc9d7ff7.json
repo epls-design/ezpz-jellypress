@@ -679,12 +679,15 @@
                         "linkedin": "Linkedin",
                         "pinterest": "Pinterest",
                         "twitter": "Twitter",
+                        "snapchat": "Snapchat",
                         "vimeo": "Vimeo",
                         "youtube": "YouTube",
                         "whatsapp": "WhatsApp",
                         "microsoftteams": "MS Teams",
+                        "wikipedia": "Wikipedia",
                         "skype": "Skype",
-                        "zoom": "Zoom"
+                        "zoom": "Zoom",
+                        "github": "Github"
                     },
                     "default_value": false,
                     "allow_null": 0,
@@ -787,5 +790,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "This field group allows the editor to update key organisation information and to connect external APIs which are added to the theme.",
-    "modified": 1602783030
+    "modified": 1603351387
 }

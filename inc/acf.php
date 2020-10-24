@@ -62,14 +62,13 @@ add_filter('acf/fields/wysiwyg/toolbars', 'jellypress_restrict_acf_tinymce_opts'
 if(function_exists('acf_add_options_page') ) {
     acf_add_options_page(
         array(
-        'page_title'     => __('About Jellypress', 'jellypress'),
-        'menu_title'    => __('About Jellypress', 'jellypress'),
+        'page_title'     => __('Jellypress Information and SEO', 'jellypress'),
+        'menu_title'    => __('Jellypress Info', 'jellypress'),
         'menu_slug'     => 'organisation-information',
         'capability'    => 'edit_posts',
         'icon_url' => 'dashicons-info',
-        'position' => 20,
+        'position' => 90,
         'autoload' => true, // Speeds up load times
-        'update_button' => __('Save updates', 'jellypress'),
         'updated_message' => __("Successfully updated organisation information", 'jellypress'),
         )
     );

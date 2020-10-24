@@ -97,8 +97,10 @@ endif;
 
 if ( ! function_exists( 'jellypress_display_socials' ) ) :
   /**
-   * Loops through an ACF repeater field to display the social media channels
-   * this organisation is on.
+   * Loop through ACF repeater in the options page to display
+   * the organisation's social media channels in an icon list
+   *
+   * @return string Formatted HTML list of icons with anchor links
    */
   function jellypress_display_socials() {
     if ( have_rows( 'social_channels', 'option' ) ) :
@@ -117,27 +119,58 @@ endif;
 
 if ( ! function_exists( 'jellypress_display_email' ) ) :
   /**
-   * Displays the organisation's email address from ACF in a robot-obscuring way
+   * Use a shortcode to display an email address in a robot-obscuring way
+   * If using php it's recommend to instead use jellypress_hide_email() as this
+   * function simply acts as a wrapper.
+   *
+   * @param array $atts An array of shortcode attributes (valid: show_icon boolean, email string)
+   * @param boolean $icon Whether to show an icon or not
+   * @return string The Formatted Email Address
    */
-  function jellypress_display_email() {
-    $email_address = get_field( 'email_address', 'option' );
-    return jellypress_hide_email($email_address);
+  function jellypress_display_email($atts = null, $icon = false) {
+    $args = shortcode_atts( array(
+      'show_icon' => $icon,
+      'email' => get_field( 'email_address', 'option' ) // Defaults to the email address saved in the options page
+    ), $atts, 'jellypress-email' );
+    $args['show_icon'] = filter_var( $args['show_icon'], FILTER_VALIDATE_BOOLEAN );
+
+    $show_icon = $args['show_icon'];
+    $email_address = $args['email'];
+
+    $show_icon == true ? $return = jellypress_hide_email($email_address, true) : $return = jellypress_hide_email($email_address);
+
+    return $return;
+
   }
-  add_shortcode('jellypress-email', 'jellypress_display_email'); // TODO: Extend this to allow the user to pass an email address to the shortcode
+  add_shortcode('jellypress-email', 'jellypress_display_email');
 endif;
 
 if ( ! function_exists( 'jellypress_display_address' ) ) :
   /**
-   * Displays the organisation's information from ACF Options Page
+   * Display postal address information from ACF options page
+   * with the option to display an icon
+   *
+   * @param array $atts Array of options passed from the shortcode. Accepts one attr show_icon boolean
+   * @param boolean $icon Whether to display a preceding icon (useful if calling this function from php directly)
+   * @return string Formatted HTML address
    */
-  function jellypress_display_address() {
-    $address = '<div class="postal-address"><span class="screen-reader-text" itemprop="name">'.get_bloginfo('name').__(' Postal Address','jellypress').'</span>';
+  function jellypress_display_address($atts = null, $icon = false) {
+    $args = shortcode_atts( array(
+      'show_icon' => $icon
+    ), $atts, 'jellypress-address' );
+    $args['show_icon'] = filter_var( $args['show_icon'], FILTER_VALIDATE_BOOLEAN );
+    $show_icon = $args['show_icon'];
+
+    // If show icon is true, define the icons to return else make them empty strings
+    $icon = $show_icon == true ? jellypress_icon('location') : '';
+
+    $address = '<div class="postal-address">'.$icon.'<div><span class="screen-reader-text" itemprop="name">'.get_bloginfo('name').__(' Postal Address','jellypress').'</span>';
     if($address_street = get_field( 'address_street', 'option' )) $address .= '<span>'.$address_street.'</span>';
     if($address_locality = get_field( 'address_locality', 'option' )) $address .= '<span>'.$address_locality.'</span>';
     if($address_region = get_field( 'address_region', 'option' )) $address .= '<span>'.$address_region.'</span>';
     if($address_country = get_field( 'address_country', 'option' )) $address .= '<span>'.$address_country.'</span>';
     if($address_postal = get_field( 'address_postal', 'option' )) $address .= '<span>'.$address_postal.'</span>';
-    $address .= '</div>';
+    $address .= '</div></div>';
     return $address;
   }
   add_shortcode('jellypress-address', 'jellypress_display_address');
@@ -145,11 +178,22 @@ endif;
 
 if ( ! function_exists( 'jellypress_display_phone_number' ) ) :
   /**
-   * Displays the organisation's phone number from ACF
+   * Displays the organisations phone number, taken from the ACF options page
    *
-   * @return void
+   * @param array $atts Array of atts from shortcode. Accepts one att show_icon boolean
+   * @param boolean $icon Whether or not to show the icon. Useful if invoking this function from php directly.
+   * @return string Formatted telephone number with UK +44 prefix in the anchor link
    */
-  function jellypress_display_phone_number() {
+  function jellypress_display_phone_number($atts = null, $icon = false) {
+      $args = shortcode_atts( array(
+        'show_icon' => $icon
+      ), $atts, 'jellypress-phone' );
+      $args['show_icon'] = filter_var( $args['show_icon'], FILTER_VALIDATE_BOOLEAN );
+      $show_icon = $args['show_icon'];
+
+    // If show icon is true, define the icons to return else make them empty strings
+    $icon = $show_icon == true ? jellypress_icon('phone') : '';
+
     $phone_number = get_field( 'primary_phone_number', 'option' );
     $country_code = '+44';
 
@@ -160,18 +204,32 @@ if ( ! function_exists( 'jellypress_display_phone_number' ) ) :
     $display_number = esc_attr(preg_replace("/[^0-9 ]/", "", $phone_number )); // Strip all unwanted characters
     $link_number = str_replace( array (' ', '(0)'), '', $display_number[0] === '0' ? $country_code . ltrim( $display_number, '0' ) : $display_number );
 
-    return '<div class="telephone-number"><span class="bold">'.__('Telephone:','jellypress').'</span> <a href="tel:'.$link_number.'">'.$display_number.'</a></div>';
+    return '<span class="telephone-number"><span class="bold">'.$icon.__('Telephone:','jellypress').'</span> <a href="tel:'.$link_number.'">'.$display_number.'</a></span>';
   }
   add_shortcode('jellypress-phone', 'jellypress_display_phone_number');
 endif;
 
 if ( ! function_exists( 'jellypress_display_opening_hours' ) ) :
   /**
-   * Displays the organisation's opening hours in a formatted table
+   * Displays the organisations opening hours, by looping through a repeater on the ACF options page
+   *
+   * @param array $atts Atts from the shortcode. Accepts one att show_icons boolean
+   * @param boolean $icon Whether to show an icon. Useful if invoking this function from php
+   * @return string Formatted HTML table of opening hours.
    */
-  function jellypress_display_opening_hours() {
+  function jellypress_display_opening_hours($atts = null, $icon = false) {
+    $args = shortcode_atts( array(
+      'show_icons' => $icon
+    ), $atts, 'jellypress-opening' );
+    $args['show_icons'] = filter_var( $args['show_icons'], FILTER_VALIDATE_BOOLEAN );
+    $show_icons = $args['show_icons'];
+
+    // If show icon is true, define the icons to return else make them empty strings
+    $days_icon = $show_icons == true ? jellypress_icon('calendar') : '';
+    $times_icon = $show_icons == true ? jellypress_icon('clock') : '';
+
     if ( have_rows( 'opening_hours', 'option' ) ) :
-      $opening_hours_formatted = '<table class="opening-hours"><thead><tr><th>'.__('Day(s)','jellypress').'</th><th>'.__('Opening Hours','jellypress').'</th></tr></thead><tbody>';
+      $opening_hours_formatted = '<table class="opening-hours"><thead><tr><th>'.$days_icon.__('Day(s)','jellypress').'</th><th>'.$times_icon.__('Opening Hours','jellypress').'</th></tr></thead><tbody>';
       while ( have_rows( 'opening_hours', 'option' ) ) : the_row();
         $closed = get_sub_field('closed');
         $from   = get_sub_field('from');
@@ -195,12 +253,27 @@ endif;
 
 if ( ! function_exists( 'jellypress_display_departments' ) ) :
   /**
-   * Loops through ACF repeater to display the organisation's
-   * departments with contact information
+   * Displays an organisation's additional contact information based on data
+   * from an ACF options page.
+   *
+   * @param array $atts Array of atts from shortcode. Accepts one att show_icons boolean
+   * @param boolean $icon Whether to show the icons or not. Useful if invoking from php.
+   * @return string Formatted HTML table
    */
-  function jellypress_display_departments() {
+  function jellypress_display_departments($atts = null, $icon = false) {
+    $args = shortcode_atts( array(
+      'show_icons' => $icon
+    ), $atts, 'jellypress-departments' );
+    $args['show_icons'] = filter_var( $args['show_icons'], FILTER_VALIDATE_BOOLEAN );
+    $show_icons = $args['show_icons'];
+
+    // If show icon is true, define the icons to return else make them empty strings
+    $depts_icon = $show_icons == true ? jellypress_icon('department') : '';
+    $phone_icon = $show_icons == true ? jellypress_icon('phone') : '';
+    $email_icon = $show_icons == true ? jellypress_icon('email') : '';
+
     if ( have_rows( 'departments', 'option' ) ) :
-      $phone_numbers_formatted = '<table class="department-contacts"><thead><tr><th>'.__('Department','jellypress').'</th><th>'.__('Phone Number','jellypress').'</th><th>'.__('Email Address','jellypress').'</th></tr></thead><tbody>';
+      $phone_numbers_formatted = '<table class="department-contacts"><thead><tr><th>'.$depts_icon.__('Department','jellypress').'</th><th>'.$phone_icon.__('Phone Number','jellypress').'</th><th>'.$email_icon.__('Email Address','jellypress').'</th></tr></thead><tbody>';
       while ( have_rows( 'departments', 'option' ) ) : the_row();
         $department = get_sub_field('department');
         $phone_number   = get_sub_field('phone_number');
@@ -221,5 +294,3 @@ if ( ! function_exists( 'jellypress_display_departments' ) ) :
   }
   add_shortcode('jellypress-departments', 'jellypress_display_departments');
 endif;
-
-// TODO: Make the telephone numbers into functions to make them more Dry

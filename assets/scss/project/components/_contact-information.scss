@@ -3,14 +3,14 @@
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .postal-address {
-  display: inline-block;
+  display: inline-flex;
   span {
     display: block;
   }
   @extend %mb;
 }
 
-.telephone-number {
+.telephone-number, .email-address {
   @extend %mb;
 }
 
@@ -29,6 +29,15 @@
   width: auto;
 }
 
+.postal-address, .telephone-number, .opening-hours, .department-contacts, .email-address {
+  .icon {
+    width: 1em;
+    height: 1em;
+    top: 0;
+    margin-right: .5em;
+  }
+}
+
 // Social Channel Branding
 $social-channels: (
   "facebook": #1877F2,
@@ -41,7 +50,11 @@ $social-channels: (
   "whatsapp": #25D366,
   "microsoftteams": #6264A7,
   "skype": #00AFF0,
-  "zoom": #2D8CFF
+  "zoom": #2D8CFF,
+  "wikipedia": #000,
+  "github": #181717,
+  "snapchat": #FFFC00
+
 );
 @each $channel, $color in $social-channels {
   .icon__#{$channel} {

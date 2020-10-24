@@ -479,7 +479,7 @@ sup {
   width: 100%;
   height: 100%; }
 
-.mb, .button-group, .callout, .card, .card-section .card-image, .site-content img, .postal-address, .telephone-number, .embedded-iframe, .google-map, .search-form, .wp-block-audio figcaption, .wp-block-image img + figcaption, .wp-block-video figcaption, .wp-block-embed figcaption, .alignfull, .alignwide, .wp-block-audio, .wp-block-quote.is-large,
+.mb, .button-group, .callout, .card, .card-section .card-image, .site-content img, .postal-address, .telephone-number, .email-address, .embedded-iframe, .google-map, .search-form, .wp-block-audio figcaption, .wp-block-image img + figcaption, .wp-block-video figcaption, .wp-block-embed figcaption, .alignfull, .alignwide, .wp-block-audio, .wp-block-quote.is-large,
 .wp-block-quote.is-style-large, .wp-block-cover,
 .wp-block-cover-image, .wp-block-video, .widget .mejs-container, .widget .gallery-item, .comment-list ol, .comment-list ul, .comment-list dl, .comment-list li {
   margin-bottom: 24px; }
@@ -1897,13 +1897,13 @@ thead th {
 tfoot th {
   border-top: 2px solid #cbcccc; }
 
-.table.striped tr:nth-child(odd) td {
+table.striped tr:nth-child(odd) td {
   background: #efefef; }
 
-.table.border, .table.border td, .table.border th {
+table.border, table.border td, table.border th {
   border: 1px solid #cbcccc; }
 
-.table.hoverable tr:hover td {
+table.hoverable tr:hover td {
   background: #7e7f7f !important;
   color: #fff; }
 
@@ -2513,7 +2513,7 @@ Utilities
   CONTACT INFORMATION
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .postal-address {
-  display: inline-block; }
+  display: inline-flex; }
   .postal-address span {
     display: block; }
 
@@ -2523,6 +2523,12 @@ Utilities
 
 .opening-hours, .department-contacts {
   width: auto; }
+
+.postal-address .icon, .telephone-number .icon, .opening-hours .icon, .department-contacts .icon, .email-address .icon {
+  width: 1em;
+  height: 1em;
+  top: 0;
+  margin-right: .5em; }
 
 .icon__facebook {
   color: #1877F2; }
@@ -2589,6 +2595,24 @@ a:hover .icon__skype, a:focus .icon__skype, a:active .icon__skype {
 
 a:hover .icon__zoom, a:focus .icon__zoom, a:active .icon__zoom {
   color: #2470cc; }
+
+.icon__wikipedia {
+  color: #000; }
+
+a:hover .icon__wikipedia, a:focus .icon__wikipedia, a:active .icon__wikipedia {
+  color: black; }
+
+.icon__github {
+  color: #181717; }
+
+a:hover .icon__github, a:focus .icon__github, a:active .icon__github {
+  color: #131212; }
+
+.icon__snapchat {
+  color: #FFFC00; }
+
+a:hover .icon__snapchat, a:focus .icon__snapchat, a:active .icon__snapchat {
+  color: #ccca00; }
 
 .social-channels .icon {
   margin-right: .5em;
