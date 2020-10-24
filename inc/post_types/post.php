@@ -46,6 +46,7 @@ if ( ! function_exists( 'jellypress_change_post_object_args' ) ) :
   function jellypress_change_post_object_args( $args, $post_type ) {
     if ( $post_type == 'post' ) {
         $args['menu_icon'] = 'dashicons-megaphone';
+        $args['menu_position'] = 10;
     }
 
     return $args;
