@@ -66,16 +66,31 @@ if ( ! function_exists( 'jellypress_unset_image_sizes' ) ) {
 }
 add_action('intermediate_image_sizes_advanced', 'jellypress_unset_image_sizes');
 
-if ( ! function_exists( 'jellypress_prevent_autotags' ) ) {
+if ( ! function_exists( 'jellypress_tinymce_cleanup' ) ) {
   /**
-   * Prevents Wordpress from automatically adding classes to pasted text, on <span> and <p> tags (eg. class="p1")
+   * Hooks into TinyMCE to remove unwanted HTML tags and formatting from pasted text
+   * @link https://jonathannicol.com/blog/2015/02/19/clean-pasted-text-in-wordpress/
+   * @link see also https://sundari-webdesign.com/wordpress-removing-classes-styles-and-tag-attributes-from-pasted-content/
    */
-  function jellypress_prevent_autotags($in) {
-    $in['paste_preprocess'] = "function(pl,o){ o.content = o.content.replace(/p class=\"p[0-9]+\"/g,'p'); o.content = o.content.replace(/span class=\"s[0-9]+\"/g,'span'); }";
+  function jellypress_tinymce_cleanup($in) {
+    $in['paste_preprocess'] = "function(plugin, args){
+      // Strip all HTML tags except those we have whitelisted
+      var whitelist = 'p,a,span,b,strong,i,em,br,h2,h3,h4,h5,h6,ul,li,ol,table,tr,td,th,tbody,thead,img,iframe,embed,code,blockquote,cite';
+      var stripped = jQuery('<div>' + args.content + '</div>');
+      var els = stripped.find('*').not(whitelist);
+      for (var i = els.length - 1; i >= 0; i--) {
+        var e = els[i];
+        jQuery(e).replaceWith(e.innerHTML);
+      }
+      // Strip all class and id attributes
+      stripped.find('*').removeAttr('id').removeAttr('class');
+      // Return the clean HTML
+      args.content = stripped.html();
+    }";
     return $in;
   }
 }
-add_filter('tiny_mce_before_init', 'jellypress_prevent_autotags');
+add_filter('tiny_mce_before_init', 'jellypress_tinymce_cleanup');
 
 /**
  * Change the default search page to /search/$s rather than ?s=$s
