@@ -51,7 +51,7 @@ anything else that should always appear on mobile
   display: flex;
   align-items: stretch; // children have 100% height
   flex-shrink: 0; // Don't allow this to shrink
-  a:not(.img-link) {
+  a {
     @extend %navbar-links;
   }
 }
@@ -108,11 +108,11 @@ they should be wrapped in this class to ensure consistent display
           ul {
             right: 0;
             li a::after {
-              transform: rotate(135deg) !important; // Flip arrow to denote fly out location
+              transform: translate(-$navbar-link-padding-expanded-x,-50%) rotate(135deg) !important; // Flip arrow to denote fly out location
             }
             li ul {
               // Deeply Nested
-              transform: translate(5px, 0); // Fly out to left
+              transform: translate(5px, 0) !important; // Fly out to left
               left: calc( -100%);
             }
           }
@@ -123,6 +123,7 @@ they should be wrapped in this class to ensure consistent display
       Link Styles
       *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
         @extend %navbar-links;
+        font-family: $navbar-font-family;
         font-size: $navbar-font-size;
         font-weight: $navbar-font-weight;
         display: block;
@@ -145,10 +146,27 @@ they should be wrapped in this class to ensure consistent display
         display: none;
         //margin-left: $navbar-link-padding-y*2;
           a {
-            text-transform: $navbar-submenu-text-transform;
-            font-weight: $navbar-submenu-font-weight;
+            text-transform: $navbar-sublink-text-transform;
+            font: {
+              size: $navbar-sublink-font-size;
+              weight: $navbar-sublink-font-weight;
+              family: $navbar-sublink-font-family;
+            }
             @include below($nav-expands) {
               padding-left: $navbar-link-padding-y*3;
+            }
+            &, &:visited {
+              @include above($nav-expands) {
+                color: $navbar-sublink-color;
+                background-color: $navbar-sublink-bg-color;
+              }
+            }
+            &:hover, &:focus {
+              font-weight: $navbar-sublink-font-weight-hover;
+              @include above($nav-expands) {
+                color: $navbar-sublink-hover-color;
+                background-color: $navbar-sublink-hover-bg-color;
+              }
             }
           }
           li ul {
@@ -168,7 +186,6 @@ they should be wrapped in this class to ensure consistent display
             }
         }
         @include above($nav-expands) {
-          background: $navbar-bg-color;
           position: absolute;
           z-index: 9999;
           top: 100%; // Move to bottom of parent
@@ -206,18 +223,17 @@ they should be wrapped in this class to ensure consistent display
           pointer-events: none;
           height: 12px;
           width: 12px;
-          border: $hamburger-layer-height solid $navbar-link-color;
+          border: $hamburger-layer-height solid rgba($navbar-link-color,0.6);
           border-radius: $hamburger-layer-border-radius;
           border-left: 0;
           border-top: 0;
-          top: 30%;
-          right: $hamburger-padding-x*1.4;
-          transform: rotate(45deg);
+          top: 50%;
+          right: 0;
+          transform: translate(-$navbar-link-padding-x,-50%) rotate(45deg);
           transform-origin: center;
           @include smooth(opacity);
           @include above($nav-expands) {
-            top: 35%;
-            right: $navbar-link-padding-expanded-x;
+            transform: translate(-$navbar-link-padding-expanded-x,-50%) rotate(45deg);
           }
         }
       }
@@ -226,8 +242,8 @@ they should be wrapped in this class to ensure consistent display
       Nested menu items with children
       *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
         @include above($nav-expands) {
-          transform: rotate(-45deg);
-          opacity: 0.2;
+          transform: translate(-$navbar-link-padding-expanded-x,-50%) rotate(-45deg);
+          opacity: 0.5;
           }
       }
       @include below($nav-expands) {
@@ -239,7 +255,7 @@ they should be wrapped in this class to ensure consistent display
             display: block;
           }
           & > a::after {
-            opacity: 0.2;
+            opacity: 0.5;
           }
         }
       }
@@ -257,7 +273,12 @@ they should be wrapped in this class to ensure consistent display
             }
           }
           > a::after {
-            opacity: 0.2;
+            opacity: 0.5;
+          }
+        }
+        ul li.has-children:hover, &.has-children:focus-within {
+          > ul {
+            transform: translateY(0px) !important;
           }
         }
       }
@@ -271,7 +292,6 @@ they should be wrapped in this class to ensure consistent display
       &, &:visited  {
       background: $navbar-current-page-background;
       color: $navbar-current-page-color;
-      font-weight: $navbar-current-page-font-weight !important;
       }
       &:hover, &:focus {
         color: $navbar-link-hover-color;

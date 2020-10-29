@@ -495,13 +495,13 @@ body.dark-ui img {
   filter: grayscale(50%);
   transition: filter 0.2s ease; }
 
-body.dark-ui .button, body.dark-ui a.button, body.dark-ui a.edit-link, body.dark-ui button, body.dark-ui [type=submit], body.dark-ui [type=reset], body.dark-ui [type=button], body.dark-ui .button, body.dark-ui a.button, body.dark-ui a.edit-link, body.dark-ui button, body.dark-ui [type=submit], body.dark-ui [type=reset], body.dark-ui [type=button] *, body.dark-ui a, body.dark-ui a * {
+body.dark-ui .button, body.dark-ui a.button, body.dark-ui button, body.dark-ui [type=submit], body.dark-ui [type=reset], body.dark-ui [type=button], body.dark-ui .button, body.dark-ui a.button, body.dark-ui button, body.dark-ui [type=submit], body.dark-ui [type=reset], body.dark-ui [type=button] *, body.dark-ui a, body.dark-ui a * {
   color: #58cdf1 !important; }
-  body.dark-ui .button svg path, body.dark-ui a.button svg path, body.dark-ui a.edit-link svg path, body.dark-ui button svg path, body.dark-ui [type=submit] svg path, body.dark-ui [type=reset] svg path, body.dark-ui [type=button] svg path, body.dark-ui .button svg path, body.dark-ui a.button svg path, body.dark-ui a.edit-link svg path, body.dark-ui button svg path, body.dark-ui [type=submit] svg path, body.dark-ui [type=reset] svg path, body.dark-ui [type=button] * svg path, body.dark-ui a svg path, body.dark-ui a * svg path {
+  body.dark-ui .button svg path, body.dark-ui a.button svg path, body.dark-ui button svg path, body.dark-ui [type=submit] svg path, body.dark-ui [type=reset] svg path, body.dark-ui [type=button] svg path, body.dark-ui .button svg path, body.dark-ui a.button svg path, body.dark-ui button svg path, body.dark-ui [type=submit] svg path, body.dark-ui [type=reset] svg path, body.dark-ui [type=button] * svg path, body.dark-ui a svg path, body.dark-ui a * svg path {
     fill: #58cdf1; }
-  body.dark-ui .button:hover, body.dark-ui .button:focus, body.dark-ui a.button:hover, body.dark-ui a.button:focus, body.dark-ui a.edit-link:hover, body.dark-ui a.edit-link:focus, body.dark-ui button:hover, body.dark-ui button:focus, body.dark-ui [type=submit]:hover, body.dark-ui [type=submit]:focus, body.dark-ui [type=reset]:hover, body.dark-ui [type=reset]:focus, body.dark-ui [type=button]:hover, body.dark-ui [type=button]:focus, body.dark-ui .button:hover, body.dark-ui .button:focus, body.dark-ui a.button:hover, body.dark-ui a.button:focus, body.dark-ui a.edit-link:hover, body.dark-ui a.edit-link:focus, body.dark-ui button:hover, body.dark-ui button:focus, body.dark-ui [type=submit]:hover, body.dark-ui [type=submit]:focus, body.dark-ui [type=reset]:hover, body.dark-ui [type=reset]:focus, body.dark-ui [type=button] *:hover, body.dark-ui [type=button] *:focus, body.dark-ui a:hover, body.dark-ui a:focus, body.dark-ui a *:hover, body.dark-ui a *:focus {
+  body.dark-ui .button:hover, body.dark-ui .button:focus, body.dark-ui a.button:hover, body.dark-ui a.button:focus, body.dark-ui button:hover, body.dark-ui button:focus, body.dark-ui [type=submit]:hover, body.dark-ui [type=submit]:focus, body.dark-ui [type=reset]:hover, body.dark-ui [type=reset]:focus, body.dark-ui [type=button]:hover, body.dark-ui [type=button]:focus, body.dark-ui .button:hover, body.dark-ui .button:focus, body.dark-ui a.button:hover, body.dark-ui a.button:focus, body.dark-ui button:hover, body.dark-ui button:focus, body.dark-ui [type=submit]:hover, body.dark-ui [type=submit]:focus, body.dark-ui [type=reset]:hover, body.dark-ui [type=reset]:focus, body.dark-ui [type=button] *:hover, body.dark-ui [type=button] *:focus, body.dark-ui a:hover, body.dark-ui a:focus, body.dark-ui a *:hover, body.dark-ui a *:focus {
     color: #f1b835 !important; }
-    body.dark-ui .button:hover svg path, body.dark-ui .button:focus svg path, body.dark-ui a.button:hover svg path, body.dark-ui a.button:focus svg path, body.dark-ui a.edit-link:hover svg path, body.dark-ui a.edit-link:focus svg path, body.dark-ui button:hover svg path, body.dark-ui button:focus svg path, body.dark-ui [type=submit]:hover svg path, body.dark-ui [type=submit]:focus svg path, body.dark-ui [type=reset]:hover svg path, body.dark-ui [type=reset]:focus svg path, body.dark-ui [type=button]:hover svg path, body.dark-ui [type=button]:focus svg path, body.dark-ui .button:hover svg path, body.dark-ui .button:focus svg path, body.dark-ui a.button:hover svg path, body.dark-ui a.button:focus svg path, body.dark-ui a.edit-link:hover svg path, body.dark-ui a.edit-link:focus svg path, body.dark-ui button:hover svg path, body.dark-ui button:focus svg path, body.dark-ui [type=submit]:hover svg path, body.dark-ui [type=submit]:focus svg path, body.dark-ui [type=reset]:hover svg path, body.dark-ui [type=reset]:focus svg path, body.dark-ui [type=button] *:hover svg path, body.dark-ui [type=button] *:focus svg path, body.dark-ui a:hover svg path, body.dark-ui a:focus svg path, body.dark-ui a *:hover svg path, body.dark-ui a *:focus svg path {
+    body.dark-ui .button:hover svg path, body.dark-ui .button:focus svg path, body.dark-ui a.button:hover svg path, body.dark-ui a.button:focus svg path, body.dark-ui button:hover svg path, body.dark-ui button:focus svg path, body.dark-ui [type=submit]:hover svg path, body.dark-ui [type=submit]:focus svg path, body.dark-ui [type=reset]:hover svg path, body.dark-ui [type=reset]:focus svg path, body.dark-ui [type=button]:hover svg path, body.dark-ui [type=button]:focus svg path, body.dark-ui .button:hover svg path, body.dark-ui .button:focus svg path, body.dark-ui a.button:hover svg path, body.dark-ui a.button:focus svg path, body.dark-ui button:hover svg path, body.dark-ui button:focus svg path, body.dark-ui [type=submit]:hover svg path, body.dark-ui [type=submit]:focus svg path, body.dark-ui [type=reset]:hover svg path, body.dark-ui [type=reset]:focus svg path, body.dark-ui [type=button] *:hover svg path, body.dark-ui [type=button] *:focus svg path, body.dark-ui a:hover svg path, body.dark-ui a:focus svg path, body.dark-ui a *:hover svg path, body.dark-ui a *:focus svg path {
       fill: #f1b835; }
 
 body.dark-ui ::placeholder {
@@ -1481,7 +1481,7 @@ button.toggle-contrast svg {
   BUTTONS
   Default styling for all buttons
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.button, a.button, a.edit-link, button, [type=submit], [type=reset], [type=button] {
+.button, a.button, button, [type=submit], [type=reset], [type=button] {
   -webkit-appearance: none;
   user-select: none;
   display: inline-block;
@@ -1492,6 +1492,7 @@ button.toggle-contrast svg {
   text-align: center;
   font-size: 0.9rem;
   font-weight: bold;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   border-width: 1px;
   border-style: solid;
   border-radius: 6px;
@@ -1502,20 +1503,20 @@ button.toggle-contrast svg {
   background-color: #001496;
   border-color: #001496;
   color: #fff; }
-  .button::-moz-focus-inner, a.button::-moz-focus-inner, a.edit-link::-moz-focus-inner, button::-moz-focus-inner, [type=submit]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=button]::-moz-focus-inner {
+  .button::-moz-focus-inner, a.button::-moz-focus-inner, button::-moz-focus-inner, [type=submit]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=button]::-moz-focus-inner {
     border: 0;
     padding: 0; }
-  .button:focus, a.button:focus, a.edit-link:focus, button:focus, [type=submit]:focus, [type=reset]:focus, [type=button]:focus {
+  .button:focus, a.button:focus, button:focus, [type=submit]:focus, [type=reset]:focus, [type=button]:focus {
     outline: 0;
     box-shadow: 0px 0px 1px 3px #00083c; }
-  .button:disabled, a.button:disabled, a.edit-link:disabled, button:disabled, [type=submit]:disabled, [type=reset]:disabled, [type=button]:disabled {
+  .button:disabled, a.button:disabled, button:disabled, [type=submit]:disabled, [type=reset]:disabled, [type=button]:disabled {
     cursor: not-allowed;
     background-color: #adadad;
     border-color: #adadad; }
-    .button:disabled:hover, .button:disabled:focus, a.button:disabled:hover, a.button:disabled:focus, a.edit-link:disabled:hover, a.edit-link:disabled:focus, button:disabled:hover, button:disabled:focus, [type=submit]:disabled:hover, [type=submit]:disabled:focus, [type=reset]:disabled:hover, [type=reset]:disabled:focus, [type=button]:disabled:hover, [type=button]:disabled:focus {
+    .button:disabled:hover, .button:disabled:focus, a.button:disabled:hover, a.button:disabled:focus, button:disabled:hover, button:disabled:focus, [type=submit]:disabled:hover, [type=submit]:disabled:focus, [type=reset]:disabled:hover, [type=reset]:disabled:focus, [type=button]:disabled:hover, [type=button]:disabled:focus {
       background-color: #adadad;
       border-color: #adadad; }
-  .button:hover, .button:focus, a.button:hover, a.button:focus, a.edit-link:hover, a.edit-link:focus, button:hover, button:focus, [type=submit]:hover, [type=submit]:focus, [type=reset]:hover, [type=reset]:focus, [type=button]:hover, [type=button]:focus {
+  .button:hover, .button:focus, a.button:hover, a.button:focus, button:hover, button:focus, [type=submit]:hover, [type=submit]:focus, [type=reset]:hover, [type=reset]:focus, [type=button]:hover, [type=button]:focus {
     background-color: #001078;
     border-color: #001078;
     color: #fff; }
@@ -1673,11 +1674,16 @@ button.toggle-contrast svg {
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 250px; }
+    max-width: 170px; }
   .button-group .button, .button-group a.button {
-    margin-right: 24px; }
-    .button-group .button:last-child, .button-group a.button:last-child {
-      margin-right: 0; }
+    margin-left: -1px;
+    margin-right: 0; }
+    .button-group .button:not(:first-child), .button-group a.button:not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0; }
+    .button-group .button:not(:last-child), .button-group a.button:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   CALLOUTS
@@ -2102,14 +2108,14 @@ select::-ms-expand {
   (also see vendor/hamburgers),
   and responsive navbar
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.navbar-brand a:not(.img-link), .navbar-menu ul li a {
+.navbar-brand a, .navbar-menu ul li a {
   text-decoration: none;
   text-transform: none;
   transition: color 0.2s ease, background-color 0.2s ease, font-weight 0.2s ease; }
-  .navbar-brand a:not(.img-link), .navbar-menu ul li a, .navbar-brand a:visited:not(.img-link), .navbar-menu ul li a:visited {
+  .navbar-brand a, .navbar-menu ul li a, .navbar-brand a:visited, .navbar-menu ul li a:visited {
     color: #fff;
     background-color: #001496; }
-  .navbar-brand a:hover:not(.img-link), .navbar-menu ul li a:hover, .navbar-brand a:focus:not(.img-link), .navbar-menu ul li a:focus {
+  .navbar-brand a:hover, .navbar-menu ul li a:hover, .navbar-brand a:focus, .navbar-menu ul li a:focus {
     color: #fff;
     background-color: #000a4b;
     font-weight: bold; }
@@ -2151,7 +2157,7 @@ they should be wrapped in this class to ensure consistent display
   display: flex;
   align-items: center;
   position: relative;
-  font-size: 0.8em;
+  font-size: 1em;
   font-weight: bold;
   flex: 0 1 auto;
   padding: 8px 10px;
@@ -2195,15 +2201,16 @@ they should be wrapped in this class to ensure consistent display
           .navbar-menu ul li:nth-of-type(n+3) ul {
             right: 0; }
             .navbar-menu ul li:nth-of-type(n+3) ul li a::after {
-              transform: rotate(135deg) !important; }
+              transform: translate(-10px, -50%) rotate(135deg) !important; }
             .navbar-menu ul li:nth-of-type(n+3) ul li ul {
-              transform: translate(5px, 0);
+              transform: translate(5px, 0) !important;
               left: calc( -100%); } }
       .navbar-menu ul li a {
         /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
       Link Styles
       *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-        font-size: 0.8em;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 1em;
         font-weight: bold;
         display: block;
         position: relative;
@@ -2224,10 +2231,22 @@ they should be wrapped in this class to ensure consistent display
         display: none; }
         .navbar-menu ul li ul a {
           text-transform: none;
-          font-weight: bold; }
+          font-size: 0.9em;
+          font-weight: bold;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
           @media (max-width: 56.1875em) {
             .navbar-menu ul li ul a {
               padding-left: 24px; } }
+          @media (min-width: 56.25em) {
+            .navbar-menu ul li ul a, .navbar-menu ul li ul a:visited {
+              color: #fff;
+              background-color: #001496; } }
+          .navbar-menu ul li ul a:hover, .navbar-menu ul li ul a:focus {
+            font-weight: bold; }
+            @media (min-width: 56.25em) {
+              .navbar-menu ul li ul a:hover, .navbar-menu ul li ul a:focus {
+                color: #fff;
+                background-color: #000a4b; } }
         .navbar-menu ul li ul li ul {
           /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
             Deeply Nested Nav Links
@@ -2240,7 +2259,6 @@ they should be wrapped in this class to ensure consistent display
               padding-left: 56px; } }
         @media (min-width: 56.25em) {
           .navbar-menu ul li ul {
-            background: #001496;
             position: absolute;
             z-index: 9999;
             top: 100%;
@@ -2276,27 +2294,26 @@ they should be wrapped in this class to ensure consistent display
           pointer-events: none;
           height: 12px;
           width: 12px;
-          border: 3px solid #fff;
+          border: 3px solid rgba(255, 255, 255, 0.6);
           border-radius: 3px;
           border-left: 0;
           border-top: 0;
-          top: 30%;
-          right: 14px;
-          transform: rotate(45deg);
+          top: 50%;
+          right: 0;
+          transform: translate(-10px, -50%) rotate(45deg);
           transform-origin: center;
           transition: opacity 0.2s ease; }
           @media (min-width: 56.25em) {
             .navbar-menu ul li.has-children > a::after, .navbar-menu ul li.menu-item-has-children > a::after {
-              top: 35%;
-              right: 10px; } }
+              transform: translate(-10px, -50%) rotate(45deg); } }
       .navbar-menu ul li ul li.has-children > a::after, .navbar-menu ul li ul li.menu-item-has-children > a::after {
         /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
       Nested menu items with children
       *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/ }
         @media (min-width: 56.25em) {
           .navbar-menu ul li ul li.has-children > a::after, .navbar-menu ul li ul li.menu-item-has-children > a::after {
-            transform: rotate(-45deg);
-            opacity: 0.2; } }
+            transform: translate(-10px, -50%) rotate(-45deg);
+            opacity: 0.5; } }
       @media (max-width: 56.1875em) {
         .navbar-menu ul li {
           /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
@@ -2305,7 +2322,7 @@ they should be wrapped in this class to ensure consistent display
           .navbar-menu ul li.drop-active > ul {
             display: block; }
           .navbar-menu ul li.drop-active > a::after {
-            opacity: 0.2; } }
+            opacity: 0.5; } }
       @media (min-width: 56.25em) {
         .navbar-menu ul li {
           /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
@@ -2317,15 +2334,16 @@ they should be wrapped in this class to ensure consistent display
             .navbar-menu ul li.has-children:hover > ul > li, .navbar-menu ul li.menu-item-has-children:hover > ul > li, .navbar-menu ul li.has-children:focus-within > ul > li, .navbar-menu ul li.menu-item-has-children:focus-within > ul > li {
               display: block; }
           .navbar-menu ul li.has-children:hover > a::after, .navbar-menu ul li.menu-item-has-children:hover > a::after, .navbar-menu ul li.has-children:focus-within > a::after, .navbar-menu ul li.menu-item-has-children:focus-within > a::after {
-            opacity: 0.2; } }
+            opacity: 0.5; }
+          .navbar-menu ul li ul li.has-children:hover > ul, .navbar-menu ul li ul li.menu-item-has-children:hover > ul, .navbar-menu ul li.has-children:focus-within > ul, .navbar-menu ul li.menu-item-has-children:focus-within > ul {
+            transform: translateY(0px) !important; } }
   .navbar-menu .current-page, .navbar-menu .current-menu-item, .navbar-menu .current-menu-parent {
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   Styles the currently active page
   *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/ }
     .navbar-menu .current-page a, .navbar-menu .current-menu-item a, .navbar-menu .current-menu-parent a, .navbar-menu .current-page a:visited, .navbar-menu .current-menu-item a:visited, .navbar-menu .current-menu-parent a:visited {
-      background: #a62579;
-      color: #fff;
-      font-weight: bold !important; }
+      background: #001078;
+      color: inherit; }
     .navbar-menu .current-page a:hover, .navbar-menu .current-menu-item a:hover, .navbar-menu .current-menu-parent a:hover, .navbar-menu .current-page a:focus, .navbar-menu .current-menu-item a:focus, .navbar-menu .current-menu-parent a:focus {
       color: #fff;
       background-color: #000a4b; }
@@ -2379,7 +2397,7 @@ they should be wrapped in this class to ensure consistent display
 
 .hamburger-label {
   font-weight: bold;
-  font-size: 0.8em;
+  font-size: 1em;
   text-transform: uppercase;
   color: #fff;
   margin: 0 8px; }
@@ -2427,7 +2445,7 @@ Utilities
     font-size: 1.4em; }
   h3, h4, h5, p.wp-block-subhead, h6 {
     font-size: 1.2em; }
-  .button, a.button, a.edit-link, button, [type=submit], [type=reset], [type=button] {
+  .button, a.button, button, [type=submit], [type=reset], [type=button] {
     border: 1px solid black  !important;
     background-color: #fff !important;
     color: black  !important;

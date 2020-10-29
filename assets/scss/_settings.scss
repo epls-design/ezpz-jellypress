@@ -126,17 +126,18 @@ $theme-colors: (
 //$form-font: $font-primary;
 
 /* BUTTONS */
-$buttons: ('.button, a.button, a.edit-link, button, [type=submit], [type=reset], [type=button]'); // Stack of elements to target
+//$buttons: ('.button, a.button, a.edit-link, button, [type=submit], [type=reset], [type=button]'); // Stack of elements to target
 //$button-border-width: 1px;
 //$button-border-radius: 6px;
+//$button-font-family: $font-secondary;
 //$button-padding: 1em 1.5em;
 //$button-text-transform: none;
 //$button-font-weight: bold;
 //$button-text-color-light: $color-white;
 //$button-text-color-dark: $color-text;
 //$button-disabled-background: tint($color-text,40%);
-$button-group-max-width: 250px;
-$button-group-margin: $element-margin; // Use 'tight' or a value for right-margin
+//$button-group-max-width: 250px;
+//$button-group-margin: $element-margin; // Use 'tight' or a value for right-margin
 
 /* LABELS */
 //$label-font-weight: bold;
@@ -162,9 +163,10 @@ $button-group-margin: $element-margin; // Use 'tight' or a value for right-margi
 //$nav-expands: 900px; // Point at which the nav kicks in. You'll also need to change this in the .js to produce a clickable drop down when responsive
 //$navbar-bg-color: $color-primary;
 //$navbar-container-padding: 10px; // Applies below $nav-expands
-//$navbar-container-width: 100%; // Use 'inherit' to make it the same as the document container, or a percentage to override. Applies from $nav-expands up
+//$navbar-container-width: 100%; // Use 'inherit' to make it the same as the document container, or a percentage to override. Applies from $nav-expands up // FIXME: This is Broken
 // Links
-//$navbar-font-size: 0.8em;
+//$navbar-font-size: 1em;
+//$navbar-font-family: $font-primary;
 //$navbar-text-transform: uppercase;
 //$navbar-link-color: $color-white;
 //$navbar-link-bg-color: $navbar-bg-color;
@@ -174,18 +176,25 @@ $button-group-margin: $element-margin; // Use 'tight' or a value for right-margi
 //$navbar-link-hover-color: $color-white;
 //$navbar-link-hover-bg-color: shade($navbar-bg-color,50%);
 //$navbar-link-hover-weight: $navbar-font-weight;
+// Secondary Links
+//$navbar-sublink-font-size: 0.9em;
+//$navbar-sublink-font-family: $font-primary;
+//$navbar-sublink-text-transform: $navbar-text-transform;
+//$navbar-sublink-font-weight: $navbar-font-weight;
+//$navbar-sublink-font-weight-hover: $navbar-link-hover-weight;
+// THESE SETTINGS APPLY ABOVE $nav-expands ONLY
+//$navbar-sublink-color: $navbar-link-color;
+//$navbar-sublink-bg-color: $navbar-link-bg-color;
+//$navbar-sublink-hover-color: $navbar-link-hover-color;
+//$navbar-sublink-hover-bg-color: $navbar-link-hover-bg-color;
 // Links: Padding
 //$navbar-link-padding-x: 10px;
 //$navbar-link-padding-y: 8px;
 //$navbar-link-padding-expanded-x: 10px;
 //$navbar-link-padding-expanded-y: 10px;
 // Current Page Link
-//$navbar-current-page-color: $color-white;
-//$navbar-current-page-background: $color-secondary;
-//$navbar-current-page-font-weight: bold;
-// Secondary Links
-//$navbar-submenu-text-transform: $navbar-text-transform;
-//$navbar-submenu-font-weight: $navbar-font-weight;
+//$navbar-current-page-color: inherit;
+//$navbar-current-page-background: shade($navbar-link-bg-color,80%);
 // Drop down on larger screens
 //$navbar-submenu-min-width: 150px;
 //$navbar-submenu-max-width: 260px;
