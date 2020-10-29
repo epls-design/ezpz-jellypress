@@ -297,23 +297,29 @@ add_filter('acf/fields/flexible_content/layout_title', 'jellypress_acf_flexible_
 * https://github.com/Hube2/acf-filters-and-functions/blob/master/acf-form-kses.php
 */
 if (! function_exists('jellypress_kses_acf') ) :
-    function jellypress_kses_acf( $data )
+    function jellypress_kses_acf( $data, $post_id, $field )
     {
         if (!is_array($data)) {
             // If it's not an array, sanitize
-            return wp_kses_post($data);
+            if($field['_name'] != 'unfiltered_html') {
+              return wp_kses_post($data);
+            }
+            else {
+              // if fieldName = 'unfiltered_html' don't sanitize
+              return $data;
+            }
         }
         $return = array();
         if (count($data)) {
             // If it's an array (eg. repeater, group, etc) repeat this function on each value
             foreach ($data as $index => $value) {
-                $return[$index] = jellypress_kses_acf($value);
+                $return[$index] = jellypress_kses_acf($value, $post_id, $field);
             }
         }
         return $return;
     }
 endif;
-add_filter('acf/update_value', 'jellypress_kses_acf', 10, 1);
+add_filter('acf/update_value', 'jellypress_kses_acf', 10, 3);
 
 /**
  * Speed up the post edit page
@@ -384,15 +390,5 @@ if (! function_exists('jellypress_excerpt_from_acf') ) :
     }
   }
 endif;
-
-/**
- * Remove support for WP Editor if you are using ACF exclusively for content
- */
-// if (! function_exists('jellypress_remove_wp_editor') ) :
-//   function jellypress_remove_wp_editor() {
-//     remove_post_type_support( 'page', 'editor' );
-//   }
-//   add_action('init', 'jellypress_remove_wp_editor');
-// endif;
 
 // TODO: Add a variable to Server Time message displaying current server time. https://saika.li/snippets-acf-hooks/ gets part way but the field updates with the replaced value on save.
