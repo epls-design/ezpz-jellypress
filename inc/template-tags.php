@@ -249,9 +249,13 @@ if ( ! function_exists( 'jellypress_content' ) ) :
   add_filter( 'meta_content', 'wpautop'            );
   add_filter( 'meta_content', 'shortcode_unautop'  );
   add_filter( 'meta_content', 'prepend_attachment' );
+  add_filter( 'meta_content', 'do_shortcode', 11 );
+  add_filter( 'meta_content', [ $wp_embed, 'run_shortcode' ], 8 );
+  add_filter( 'meta_content', [ $wp_embed, 'autoembed' ], 8 );
+
 
   function jellypress_content($unformatted_content) {
-    echo apply_filters('meta_content', $unformatted_content);
+    echo apply_filters('meta_content', wp_kses_post($unformatted_content));
   }
 endif;
 
@@ -295,7 +299,7 @@ if ( ! function_exists( 'jellypress_show_password_form' ) ) :
    * the page is designed entirely with ACF.)
    */
   function jellypress_show_password_form() {
-    if ( (empty( get_the_content() )  || '' == get_post()->post_content) && post_password_required() ){ 
+    if ( (empty( get_the_content() )  || '' == get_post()->post_content) && post_password_required() ){
       echo '<section class="container block bg-white password-protected"><div class="row"><div class="col">';
         the_content();
       echo '</div></div></section>';
