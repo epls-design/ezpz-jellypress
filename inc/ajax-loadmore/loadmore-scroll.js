@@ -29,7 +29,7 @@ jQuery(function($){
 					if( data ) {
 
 						// IMPORTANT! This next line determines where to load the data to. Any changes to the template structure must be reflected here.
-            $('.archive-feed').find('article:last-of-type').after( data );
+            $('.archive-feed').find('section:last-of-type').after( data );
 
 						canBeLoaded = true; // the ajax is completed, now we can run it again
 						jellypress_loadmore_params.current_page++;

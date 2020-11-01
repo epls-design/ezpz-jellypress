@@ -17,6 +17,6 @@ if ( ! is_active_sidebar( $sidebar_id ) ) {
 	return;
 }
 ?>
-<aside id="secondary" class="sidebar sidebar-<?php echo $sidebar_id;?> widget-area col xs-12 md-3">
+<aside id="secondary" class="col xs-12 md-3 sidebar sidebar-<?php echo $sidebar_id;?> widget-area">
 	<?php dynamic_sidebar( $sidebar_id ); ?>
 </aside>

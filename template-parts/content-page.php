@@ -11,17 +11,14 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
+
 <section class="block block__content bg-white">
   <div class="container">
     <div class="row">
       <div class="col">
-        <header class="page-header">
-          <?php the_title( '<h1 class="page-title">', '</h1>' ); ?>
-          <?php jellypress_post_thumbnail(); // TODO: The Featured Image is kind of 'plonked' on here - on live builds it needs to be incorporated better into the overall design ?>
-        </header>
         <div class="page-content">
-          <?php the_content(); ?>
           <?php
+            the_content();
             wp_link_pages( array(
               'before' => '<footer class="page-links">' . esc_html__( 'Sections:', 'jellypress' ),
               'after'  => '</footer>',

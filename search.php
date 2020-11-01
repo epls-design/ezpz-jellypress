@@ -10,47 +10,47 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-/**
- * On search pages, the user may wish to enable a sidebar, so we wrap the whole output in a .container .row
- * This is different to the layout of page.php
- */
-
 get_header();
 ?>
-<section class="block bg-white">
-  <div class="container">
-    <div class="row">
+<div id="primary" class="content-area">
+  <main id="main" class="site-main">
+    <?php
 
-      <div id="primary" class="content-area col">
-        <main id="main" class="site-main">
+      // HERO
+      if ( have_posts() ) : // Search results found...
+        get_template_part( 'template-parts/hero', 'search' );
+        echo '<section class="block bg-white">';
+      else:
+        get_template_part( 'template-parts/hero', 'none' );
+        echo '<section class="block no-results not-found bg-white">';
+      endif;
 
-          <?php if ( have_posts() ) : // Search results found... ?>
+      echo '<div class="container">
+            <div class="row">
+            <div class="col">';
 
-            <header class="page-header">
-                <h1 class="page-title">
-                  <?php
-                    /* translators: %s: search query. */
-                    printf( esc_html__( 'Search Results for: %s', 'jellypress' ), '<span>' . get_search_query() . '</span>' );
-                    ?>
-                </h1>
-              </header>
+      if ( have_posts() ) : // Search results found...
 
-              <?php
-                /* Start the Loop */
-                while ( have_posts() ) :
-                  the_post();
-                  get_template_part( 'template-parts/content', 'search' );
-                endwhile;
-                jellypress_numeric_pagination(); // Paginate if there are older posts
+        /* Start the Loop */
+        echo '<div class="row equal-height search-results">';
+        while ( have_posts() ) :
+          the_post();
+          echo '<section class="col xs-12 sm-6 md-4 xl-3 result">';
+            get_template_part( 'template-components/card', get_post_type() );
+          echo '</section>';
+        endwhile;
+        echo '</div>';
+        jellypress_numeric_pagination(); // Paginate if there are older posts
+    else :
+      get_template_part( 'template-parts/content', 'none' );
+    endif;
 
-              else :
-                get_template_part( 'template-parts/content', 'none' );
-              endif; ?>
-
-          </main><!--/#main -->
-        </div>
-      <?php jellypress_sidebar(); ?>
-    </div>
-  </div>
-</section>
+    echo '</div>';
+    jellypress_sidebar();
+    echo '</div>
+          </div>
+          </section>';
+    ?>
+  </main>
+</div>
 <?php get_footer(); ?>

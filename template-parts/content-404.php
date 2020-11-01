@@ -9,14 +9,10 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
-<!-- TODO: Replace with option to allow editor to customise 404 page -->
-<section class="block error-404 not-found bg-white">
+<section class="block bg-white">
   <div class="container">
     <div class="row">
-      <article class="col sm-12 md-8 lg-9">
-        <header class="page-header">
-          <h1 class="page-title"><?php esc_html_e( 'Page not found', 'jellypress' ); ?></h1>
-        </header>
+      <div class="col sm-12 md-8 lg-9">
         <div class="page-content">
           <p>
             <?php esc_html_e( 'It looks like nothing was found at this location. Can we help you find the page you were looking for?', 'jellypress' ); ?>
@@ -26,7 +22,7 @@ defined( 'ABSPATH' ) || exit;
             <button class="button outline" onCLick="history.back()"><?php _e('Back to last page', 'jellypress');?></button>
           </p>
         </div>
-      </article>
+      </div>
       <aside class="col sm-12 md-4 lg-3 sidebar">
         <h2><?php _e('Search this website:', 'jellypress');?></h2>
         <?php

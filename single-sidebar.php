@@ -18,27 +18,29 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 ?>
-  <div class="container">
-    <div class="row">
 
-      <div id="primary" class="content-area col">
-        <main id="main" class="site-main">
-          <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-          <?php while ( have_posts() ) :
-            the_post();
-            get_template_part( 'template-parts/content', get_post_type() );
-            jellypress_show_password_form();
-            jellypress_entry_footer(); // Call function from template-tags
-            ?>
-            </article>
-            <?php
-            jellypress_post_navigation();
-            jellypress_get_comments();
-          endwhile; // End of the loop. ?>
-        </main>
-      </div>
-      <?php jellypress_sidebar(); ?>
+<div class="container">
+  <div class="row">
+    <div id="primary" class="content-area col">
+      <main id="main" class="site-main">
+        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+        <?php while ( have_posts() ) :
+          the_post();
+          get_template_part( 'template-parts/hero', get_post_type() ); // TODO: This probably wont look so good when this template is used. Check.
+          get_template_part( 'template-parts/content', get_post_type() );
+          jellypress_show_password_form();
+          jellypress_entry_footer(); // Call function from template-tags
+          ?>
+          </article>
+          <?php
+          jellypress_post_navigation();
+          jellypress_get_comments();
+        endwhile; // End of the loop. ?>
+      </main>
     </div>
+    <?php jellypress_sidebar(); ?>
   </div>
+</div>
+
 <?php
 get_footer();

@@ -10,12 +10,21 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+// TODO: Replace with option to allow editor to customise 404 page
+
 get_header();
 ?>
+
 <div id="primary" class="content-area">
   <main id="main" class="site-main">
-    <?php get_template_part( 'template-parts/content', '404' ); ?>
+    <article class="error-404 not-found">
+      <?php
+      get_template_part( 'template-parts/hero', '404' );
+      get_template_part( 'template-parts/content', '404' );
+      ?>
+    </article>
   </main>
 </div>
+
 <?php
 get_footer();
