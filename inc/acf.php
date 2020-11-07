@@ -328,6 +328,51 @@ add_filter('acf/update_value', 'jellypress_kses_acf', 10, 3);
 add_filter('acf/settings/remove_wp_meta_box', '__return_true');
 
 /**
+ * Hooks into ACF Save Post to allow the editor to clone Flexible Content Fields from another post
+ * @Link https://support.advancedcustomfields.com/forums/topic/copy-flexible-content-layout-from-one-post-to-another/
+ */
+add_action( 'acf/save_post', 'jellypress_import_blocks_from_other_post', 1 );
+if (! function_exists('jellypress_import_blocks_from_other_post') ) :
+  function jellypress_import_blocks_from_other_post( $post_id ) {
+
+    // Bail early if no ACF data or if 'enable_block_import' is not TRUE
+    if ( empty( $_POST['acf'] ) || $_POST['acf']['field_5fa6c5ffe671c'] != 1 ) {
+      return;
+    }
+
+    // If the post already has 'sections' (Page Blocks field_5d403805052c2) return
+    if ( is_array( $_POST['acf']['field_5d403805052c2'] ) && ! empty( $_POST['acf']['field_5d403805052c2'] ) ) {
+      return;
+    }
+    else {
+      $current_page_flex_blocks = array(); // Set up empty array
+
+      // Determine which pages/posts to import from field_5fa6c2d0efc19 'import_source' (only one is enabled by default but using the Relationship Field which returns an array)
+      $post_blocks_to_import = $_POST['acf']['field_5fa6c2d0efc19'];
+
+      // If there aren't any blocks to import, skip the rest.
+      if ( empty( $post_blocks_to_import ) ) {
+        return;
+      }
+      // Loop through all posts to get the flexible content data from them
+      foreach ( $post_blocks_to_import as $post_id ) {
+        $blocks_from_post = get_field_object( 'sections', $post_id, false, true );
+        if ( ! empty( $blocks_from_post['value'] ) ) {
+          $current_page_flex_blocks = array_merge( $current_page_flex_blocks, $blocks_from_post['value'] );
+        }
+      }
+      // Insert the found data into 'sections' field_5d403805052c2
+      $_POST['acf']['field_5d403805052c2'] = $current_page_flex_blocks;
+
+      // Clear out the import fields
+      $_POST['acf']['field_5fa6c2d0efc19'] = array(); // Relationship Field
+      $_POST['acf']['field_5fa6c5ffe671c'] = 0; // 'enable_block_import' Boolean
+    }
+  }
+endif;
+
+
+/**
  * A function which hooks into ACF/Save_Post to insert content into the_excerpt automatically.
  * The function will first look for a specified field (eg. 'post_excerpt'), and if this doesn't exist,
  * will loop through the 'sections' flexible content field looking for the first block of text

@@ -2101,6 +2101,96 @@
             "button_label": "Add New Block",
             "min": "",
             "max": 24
+        },
+        {
+            "key": "field_5fa70166cc5e6",
+            "label": "To speed up page creation, you can import blocks from another page or post on the website.",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d403805052c2",
+                        "operator": "==empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "message": "1) Check the toggle \"Enable Import\" to \"Yes\".\r\n2) Using the select box, find the page or post you wish to import fields from.\r\n3) Save\/Publish the post.\r\n4) When the post has been saved, you may need to refresh the editor to see the imported blocks.",
+            "new_lines": "br",
+            "esc_html": 0
+        },
+        {
+            "key": "field_5fa6c5ffe671c",
+            "label": "Enable Import",
+            "name": "enable_block_import",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d403805052c2",
+                        "operator": "==empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5fa6c2d0efc19",
+            "label": "Import From:",
+            "name": "import_source",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fa6c5ffe671c",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_5d403805052c2",
+                        "operator": "==empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page",
+                "post"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
         }
     ],
     "location": [
@@ -2135,5 +2225,5 @@
     ],
     "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1604006718
+    "modified": 1604784457
 }

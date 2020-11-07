@@ -40,7 +40,7 @@ $jellypress_includes = array(
 
   //~~~~~ CUSTOM POST TYPES
   'inc/post_types/post.php',         // Hooks into post_type 'post' to make the Labels more friendly
-  //'inc/post_types/example.php',
+  //'inc/post_types/page.php',
 
   //~~~~~ USER CAPABILITIES
   //'inc/user_caps/client-admin.php',        // Example for how to restrict user capabilities for a specific role
