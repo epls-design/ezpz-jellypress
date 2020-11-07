@@ -79,6 +79,13 @@ if (! function_exists('jellypress_scripts') ) {
         if (is_singular() && comments_open() && get_option('thread_comments') ) {
             wp_enqueue_script('comment-reply');
         }
+
+        /**
+         * Move jQuery to footer to reduce render-blocking
+         */
+        wp_scripts()->add_data('jquery', 'group', 1);
+        wp_scripts()->add_data('jquery-core', 'group', 1);
+        wp_scripts()->add_data('jquery-migrate', 'group', 1);
     }
 }
 add_action('wp_enqueue_scripts', 'jellypress_scripts');

@@ -17,7 +17,6 @@ if ( ! function_exists( 'jellypress_customize_register' ) ) {
   function jellypress_customize_register( $wp_customize ) {
     $wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
     $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-    $wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
     $wp_customize->remove_control('site_icon'); // Remove site icon from customizer as we do this with favicon instead
     $wp_customize->remove_control( 'custom_css' ); // Removes Custom CSS as this should not be editable by the client
     if ( isset( $wp_customize->selective_refresh ) ) {

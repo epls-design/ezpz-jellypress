@@ -2,9 +2,9 @@
 # This file is distributed under the UNLICENSED.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: jellypress-wordpress-theme 1.1.0\n"
+"Project-Id-Version: Jellypress Wordpress Theme 1.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/unofficialmatt/jellypress/issues\n"
-"POT-Creation-Date: 2020-10-16 11:30:08+00:00\n"
+"POT-Creation-Date: 2020-11-07 14:56:49+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,7 +24,7 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: archive.php:51 template-layouts/post-archive.php:58
+#: archive.php:50 template-layouts/post-archive.php:58
 msgid "Load More..."
 msgstr ""
 
@@ -46,47 +46,47 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: inc/acf.php:65 inc/acf.php:66
-msgid "About Jellypress"
+#: inc/acf.php:65
+msgid "Jellypress Information and SEO"
+msgstr ""
+
+#: inc/acf.php:66
+msgid "Jellypress Info"
 msgstr ""
 
 #: inc/acf.php:72
-msgid "Save updates"
-msgstr ""
-
-#: inc/acf.php:73
 msgid "Successfully updated organisation information"
 msgstr ""
 
-#: inc/dry.php:135
+#: inc/dry.php:167
 msgid " Postal Address"
 msgstr ""
 
-#: inc/dry.php:165
+#: inc/dry.php:207
 msgid "Telephone:"
 msgstr ""
 
-#: inc/dry.php:176
+#: inc/dry.php:232
 msgid "Day(s)"
 msgstr ""
 
-#: inc/dry.php:176
+#: inc/dry.php:232
 msgid "Opening Hours"
 msgstr ""
 
-#: inc/dry.php:182
+#: inc/dry.php:238
 msgid "Closed"
 msgstr ""
 
-#: inc/dry.php:206
+#: inc/dry.php:276
 msgid "Department"
 msgstr ""
 
-#: inc/dry.php:206
+#: inc/dry.php:276
 msgid "Phone Number"
 msgstr ""
 
-#: inc/dry.php:206
+#: inc/dry.php:276
 msgid "Email Address"
 msgstr ""
 
@@ -300,11 +300,11 @@ msgstr ""
 msgid "Filter News list"
 msgstr ""
 
-#: inc/template-functions.php:107
+#: inc/template-functions.php:122
 msgid "%1$s"
 msgstr ""
 
-#: inc/template-functions.php:170
+#: inc/template-functions.php:185
 msgid ""
 "Please add a featured image. This will be used as the main image for the "
 "page on search engines and may be displayed on the page itself depending on "
@@ -362,11 +362,6 @@ msgid_plural "%d items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: search.php:33
-#. translators: %s: search query.
-msgid "Search Results for: %s"
-msgstr ""
-
 #: searchform.php:18
 msgid "Search for:"
 msgstr ""
@@ -391,61 +386,57 @@ msgid "No posts matched your criteria."
 msgstr ""
 
 #: template-parts/content-404.php:18
-msgid "Page not found"
-msgstr ""
-
-#: template-parts/content-404.php:22
 msgid ""
 "It looks like nothing was found at this location. Can we help you find the "
 "page you were looking for?"
 msgstr ""
 
-#: template-parts/content-404.php:26
+#: template-parts/content-404.php:22
 msgid "Back to last page"
 msgstr ""
 
-#: template-parts/content-404.php:31
+#: template-parts/content-404.php:27
 msgid "Search this website:"
 msgstr ""
 
-#: template-parts/content-none.php:18
-msgid "Nothing Found"
-msgstr ""
-
-#: template-parts/content-none.php:27
+#: template-parts/content-none.php:21
 #. translators: 1: link to WP admin new post page.
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\" "
 "class=\"callout-link\">Get started here</a>."
 msgstr ""
 
-#: template-parts/content-none.php:39
+#: template-parts/content-none.php:33
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
 
-#: template-parts/content-none.php:47
+#: template-parts/content-none.php:41
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:26
+#: template-parts/content-page.php:23 template-parts/content.php:25
 msgid "Sections:"
 msgstr ""
 
-#: template-parts/content.php:58
-#. translators: %s: Name of current post. Only visible to screen readers
-msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+#: template-parts/hero-404.php:19
+msgid "Page not found"
 msgstr ""
 
-#: template-parts/content.php:69
-msgid "Pages:"
+#: template-parts/hero-none.php:19
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/hero-search.php:22
+#. translators: %s: search query.
+msgid "Search Results for: %s"
 msgstr ""
 
 #. Theme Name of the plugin/theme
-msgid "jellypress-wordpress-theme"
+msgid "Jellypress Wordpress Theme"
 msgstr ""
 
 #. Theme URI of the plugin/theme

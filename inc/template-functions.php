@@ -66,31 +66,6 @@ if ( ! function_exists( 'jellypress_unset_image_sizes' ) ) {
 }
 add_action('intermediate_image_sizes_advanced', 'jellypress_unset_image_sizes');
 
-if ( ! function_exists( 'jellypress_tinymce_cleanup' ) ) {
-  /**
-   * Hooks into TinyMCE to remove unwanted HTML tags and formatting from pasted text
-   * @link https://jonathannicol.com/blog/2015/02/19/clean-pasted-text-in-wordpress/
-   * @link see also https://sundari-webdesign.com/wordpress-removing-classes-styles-and-tag-attributes-from-pasted-content/
-   */
-  function jellypress_tinymce_cleanup($in) {
-    $in['paste_preprocess'] = "function(plugin, args){
-      // Strip all HTML tags except those we have whitelisted
-      var whitelist = 'p,a,span,b,strong,i,em,br,h2,h3,h4,h5,h6,ul,li,ol,table,tr,td,th,tbody,thead,img,iframe,embed,code,blockquote,cite';
-      var stripped = jQuery('<div>' + args.content + '</div>');
-      var els = stripped.find('*').not(whitelist);
-      for (var i = els.length - 1; i >= 0; i--) {
-        var e = els[i];
-        jQuery(e).replaceWith(e.innerHTML);
-      }
-      // Strip all class and id attributes
-      stripped.find('*').removeAttr('id').removeAttr('class');
-      // Return the clean HTML
-      args.content = stripped.html();
-    }";
-    return $in;
-  }
-}
-add_filter('tiny_mce_before_init', 'jellypress_tinymce_cleanup');
 
 /**
  * Change the default search page to /search/$s rather than ?s=$s
@@ -124,21 +99,6 @@ elseif (is_post_type_archive())
   $title = post_type_archive_title( '', false );
 return $title;
 });
-
-/**
- * Allow SVG uploads to the media library
- */
-add_filter( 'upload_mimes', 'jellypress_allow_svg_upload' );
-function jellypress_allow_svg_upload($mimes) {
-	$mimes['svg'] = 'image/svg+xml';
-	return $mimes;
-}
-add_action( 'admin_head', 'jellypress_svg_admin_style' );
-function jellypress_svg_admin_style() {
-	$css = '';
-	$css = 'td.media-icon img[src$=".svg"] { width: 100% !important; height: auto !important; }';
-	echo '<style type="text/css">'.$css.'</style>';
-}
 
 /**
  * Automatically format an image's Title and add Alt text on upload
