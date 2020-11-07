@@ -10,8 +10,8 @@
 defined( 'ABSPATH' ) || exit;
 
 $block_id = get_query_var('block_id');
-$jellypress_block = get_query_var('jellypress_block');
-$block_title = $jellypress_block['title'];
+$block = get_query_var('block');
+$block_title = $block['title'];
 ?>
 
 <?php if ($block_title) : ?>
@@ -24,7 +24,7 @@ $block_title = $jellypress_block['title'];
 
 <div class="row">
   <div class="col">
-    <?php jellypress_content($jellypress_block['text']); ?>
-    <?php jellypress_display_cta_buttons($jellypress_block['buttons']); ?>
+    <?php jellypress_content($block['text']); ?>
+    <?php jellypress_display_cta_buttons($block['buttons']); ?>
   </div>
 </div>

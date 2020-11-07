@@ -12,17 +12,17 @@
 defined( 'ABSPATH' ) || exit;
 
 $block_id = get_query_var('block_id');
-$jellypress_block = get_query_var('jellypress_block');
-$block_title = $jellypress_block['title'];
+$block = get_query_var('block');
+$block_title = $block['title'];
 $image_size = 'medium';
 
-$block_valign = $jellypress_block['vertical_align'];
+$block_valign = $block['vertical_align'];
 if ($block_valign == NULL) {
   $block_valign = 'top';
 }
 $row_class = 'align-'.$block_valign;
 
-$block_column_split = $jellypress_block['column_split'];
+$block_column_split = $block['column_split'];
 if ($block_column_split == 'large-text') {
   $text_class = 'md-8 lg-7';
   $media_class = 'md-4 lg-5';
@@ -37,7 +37,7 @@ elseif ($block_column_split == 'equal' OR $block_column_split == NULL) {
 }
 
 // These fields are in a field group so let's put that in a variable...
-$media_item = $jellypress_block['media_item'];
+$media_item = $block['media_item'];
 $media_type = $media_item['media_type'];
 $media_position = $media_item['media_position'];
 $media_post = $media_item['media_post'];
@@ -78,8 +78,8 @@ if ($media_type == 'iframe' || $media_type == 'map'){
 <div class="row <?php echo $row_class;?>">
 
   <div class="col sm-12 <?php echo $text_class; ?> flex-column">
-    <?php jellypress_content($jellypress_block['text']); ?>
-    <?php jellypress_display_cta_buttons($jellypress_block['buttons']); ?>
+    <?php jellypress_content($block['text']); ?>
+    <?php jellypress_display_cta_buttons($block['buttons']); ?>
   </div>
 
   <div class="col sm-12 <?php echo $media_class; ?>">

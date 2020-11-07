@@ -12,10 +12,10 @@
 defined( 'ABSPATH' ) || exit;
 
 $block_id = get_query_var('block_id');
-$jellypress_block = get_query_var('jellypress_block');
-$block_title = $jellypress_block['title'];
-$block_is_fullwidth = $jellypress_block['full_width'];
-$block_preamble = $jellypress_block['preamble'];
+$block = get_query_var('block');
+$block_title = $block['title'];
+$block_is_fullwidth = $block['full_width'];
+$block_preamble = $block['preamble'];
 ?>
 
 <?php if ($block_title) : ?>
@@ -38,7 +38,7 @@ $block_preamble = $jellypress_block['preamble'];
   <div class="col">
     <?php if ( $block_is_fullwidth == 1 ){ echo '<div class="vw-100">'; }
     // TODO: Replace all calls to get option with some more efficient way - cache or set constant
-        if (get_field('google_maps_api_key', 'option') && ($map_locations = $jellypress_block['locations'])) :
+        if (get_field('google_maps_api_key', 'option') && ($map_locations = $block['locations'])) :
           jellypress_display_map_markers($map_locations);
         elseif(current_user_can( 'publish_posts' )):
           // Show a warning for the admin to add an API key

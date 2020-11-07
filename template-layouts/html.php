@@ -10,9 +10,9 @@
 defined( 'ABSPATH' ) || exit;
 
 $block_id = get_query_var('block_id');
-$jellypress_block = get_query_var('jellypress_block');
-$block_title = $jellypress_block['title'];
-$block_preamble = $jellypress_block['preamble'];
+$block = get_query_var('block');
+$block_title = $block['title'];
+$block_preamble = $block['preamble'];
 ?>
 
 <?php if ($block_title) : ?>
@@ -31,6 +31,6 @@ $block_preamble = $jellypress_block['preamble'];
 
 <div class="row">
   <div class="col">
-    <?php echo $jellypress_block['unfiltered_html']; ?>
+    <?php echo $block['unfiltered_html']; ?>
   </div>
 </div>

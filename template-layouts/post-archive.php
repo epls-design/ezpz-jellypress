@@ -13,11 +13,11 @@
 defined( 'ABSPATH' ) || exit;
 
 $block_id = get_query_var('block_id');
-$jellypress_block = get_query_var('jellypress_block');
-$block_title = $jellypress_block['title'];
-$block_preamble = $jellypress_block['preamble'];
-$query_post_type = $jellypress_block['query_post_type'];
-$loading_type = $jellypress_block['loading_type'];
+$block = get_query_var('block');
+$block_title = $block['title'];
+$block_preamble = $block['preamble'];
+$query_post_type = $block['query_post_type'];
+$loading_type = $block['loading_type'];
 ?>
 
 <?php if ($block_title) : ?>
@@ -65,10 +65,10 @@ $loading_type = $jellypress_block['loading_type'];
   wp_reset_postdata();
   ?>
 
-<?php if ( $jellypress_block['buttons'] ) : ?>
+<?php if ( $block['buttons'] ) : ?>
   <div class="row">
     <div class="col text-center">
-      <?php jellypress_display_cta_buttons($jellypress_block['buttons']); ?>
+      <?php jellypress_display_cta_buttons($block['buttons']); ?>
     </div>
   </div>
 <?php endif; ?>

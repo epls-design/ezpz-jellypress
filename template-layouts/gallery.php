@@ -10,8 +10,8 @@
 defined( 'ABSPATH' ) || exit;
 
 $block_id = get_query_var('block_id');
-$jellypress_block = get_query_var('jellypress_block');
-$gallery_images = $jellypress_block['images'];
+$block = get_query_var('block');
+$gallery_images = $block['images'];
 $image_size = 'medium';
 $columns = 3;
 

@@ -10,10 +10,10 @@
 defined( 'ABSPATH' ) || exit;
 
 $block_id = get_query_var('block_id');
-$jellypress_block = get_query_var('jellypress_block');
-$image_id = $jellypress_block['image'];
+$block = get_query_var('block');
+$image_id = $block['image'];
 $image_size = 'full';
-$block_is_fullwidth = $jellypress_block['full_width'];
+$block_is_fullwidth = $block['full_width'];
 ?>
 
 <div class="row">

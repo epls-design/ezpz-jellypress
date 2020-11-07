@@ -14,10 +14,10 @@
 defined( 'ABSPATH' ) || exit;
 
 $block_id = get_query_var('block_id');
-$jellypress_block = get_query_var('jellypress_block');
-$block_title = $jellypress_block['title'];
-$block_preamble = $jellypress_block['preamble'];
-$query_type = $jellypress_block['query_type'];
+$block = get_query_var('block');
+$block_title = $block['title'];
+$block_preamble = $block['preamble'];
+$query_type = $block['query_type'];
 $posts_array = array(); // Create an empty array to store posts ready for the loop
 ?>
 
@@ -44,12 +44,12 @@ $posts_array = array(); // Create an empty array to store posts ready for the lo
  */
 
 if($query_type == 'rand' || $query_type == 'date') {
-  $query_post_type = $jellypress_block['query_post_type'];
-  $query_quantity = $jellypress_block['query_quantity'];
+  $query_post_type = $block['query_post_type'];
+  $query_quantity = $block['query_quantity'];
 }
 
 if($query_type == 'specified'):
-  $queried_posts = $jellypress_block['specified_posts'];
+  $queried_posts = $block['specified_posts'];
     if ( $queried_posts ):
       foreach ( $queried_posts as $post_to_display ):
         array_push($posts_array, $post_to_display);
@@ -90,10 +90,10 @@ endif;
 
 ?>
 
-<?php if ( $jellypress_block['buttons'] ) : ?>
+<?php if ( $block['buttons'] ) : ?>
   <div class="row">
     <div class="col text-center">
-      <?php jellypress_display_cta_buttons($jellypress_block['buttons']); ?>
+      <?php jellypress_display_cta_buttons($block['buttons']); ?>
     </div>
   </div>
 <?php endif; ?>

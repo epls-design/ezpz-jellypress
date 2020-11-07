@@ -10,10 +10,10 @@
 defined( 'ABSPATH' ) || exit;
 
 $block_id = get_query_var('block_id');
-$jellypress_block = get_query_var('jellypress_block');
-$block_title = $jellypress_block['title'];
-$video_url = $jellypress_block['video'];
-$block_is_fullwidth = $jellypress_block['full_width'];
+$block = get_query_var('block');
+$block_title = $block['title'];
+$video_url = $block['video'];
+$block_is_fullwidth = $block['full_width'];
 ?>
 
 <?php if ($block_title) : ?>
