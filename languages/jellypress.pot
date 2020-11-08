@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Jellypress Wordpress Theme 1.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/unofficialmatt/jellypress/issues\n"
-"POT-Creation-Date: 2020-11-07 14:56:49+00:00\n"
+"POT-Creation-Date: 2020-11-07 22:05:37+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -300,11 +300,11 @@ msgstr ""
 msgid "Filter News list"
 msgstr ""
 
-#: inc/template-functions.php:122
+#: inc/template-functions.php:97
 msgid "%1$s"
 msgstr ""
 
-#: inc/template-functions.php:185
+#: inc/template-functions.php:145
 msgid ""
 "Please add a featured image. This will be used as the main image for the "
 "page on search engines and may be displayed on the page itself depending on "
