@@ -22,7 +22,7 @@ $element-margin: 24px;
 /* COLOURS */
 //$color-text: #333333;
 //$color-text-light: #7e7f7f;
-$color-white: #fff;
+//$color-white: #fff;
 //$color-background: $color-white;
 //$color-background-alt: #efefef;
 //$color-primary: #001496;
@@ -38,8 +38,8 @@ $color-white: #fff;
 /* THEME COLORS */
 // Any variable you add here will have the following classes automatically created: .text-*, .bg-*, .label.*, .button.* and .callout.*
 $theme-colors: (
-  "white": $color-white,
   "black": #000,
+  "white": #fff,
   // TODO: Possible to use a text file config for ACF colour settings and dynamically populate? https://www.advancedcustomfields.com/resources/dynamically-populate-a-select-fields-choices/
 );
 
@@ -157,67 +157,57 @@ $theme-colors: (
 //$card-border-color: $border-color;
 //$card-border-width: $border-width;
 //$card-padding: $element-padding;
-//$card-background-color: $color-background;
 
 /* NAVBAR */
 //$nav-expands: 900px; // Point at which the nav kicks in. You'll also need to change this in the .js to produce a clickable drop down when responsive
 //$navbar-bg-color: $color-primary;
-//$navbar-container-padding: 10px; // Applies below $nav-expands
-//$navbar-container-width: 100%; // Use 'inherit' to make it the same as the document container, or a percentage to override. Applies from $nav-expands up // FIXME: This is Broken
-// Links
+// Parent Level Links
 //$navbar-font-size: 1em;
 //$navbar-font-family: $font-primary;
+//$navbar-font-weight: bold;
 //$navbar-text-transform: uppercase;
 //$navbar-link-color: $color-white;
 //$navbar-link-bg-color: $navbar-bg-color;
-//$navbar-font-weight: bold;
 //$navbar-link-border: 1px solid rgba($color-white,0.1);
 // Links: Hover
 //$navbar-link-hover-color: $color-white;
 //$navbar-link-hover-bg-color: shade($navbar-bg-color,50%);
 //$navbar-link-hover-weight: $navbar-font-weight;
-// Secondary Links
+// Child Level Links
 //$navbar-sublink-font-size: 0.9em;
 //$navbar-sublink-font-family: $font-primary;
-//$navbar-sublink-text-transform: $navbar-text-transform;
 //$navbar-sublink-font-weight: $navbar-font-weight;
+//$navbar-sublink-text-transform: $navbar-text-transform;
 //$navbar-sublink-font-weight-hover: $navbar-link-hover-weight;
-// THESE SETTINGS APPLY ABOVE $nav-expands ONLY
-//$navbar-sublink-color: $navbar-link-color;
-//$navbar-sublink-bg-color: $navbar-link-bg-color;
-//$navbar-sublink-hover-color: $navbar-link-hover-color;
-//$navbar-sublink-hover-bg-color: $navbar-link-hover-bg-color;
 // Links: Padding
 //$navbar-link-padding-x: 10px;
 //$navbar-link-padding-y: 8px;
 //$navbar-link-padding-expanded-x: 10px;
 //$navbar-link-padding-expanded-y: 10px;
-// Current Page Link
-//$navbar-current-page-color: inherit;
-//$navbar-current-page-background: shade($navbar-link-bg-color,80%);
-// Drop down on larger screens
-//$navbar-submenu-min-width: 150px;
-//$navbar-submenu-max-width: 260px;
+// THESE SETTINGS APPLY ABOVE $nav-expands ONLY
+//$navbar-sublink-color: $navbar-link-color;
+//$navbar-sublink-bg-color: $navbar-link-bg-color;
+//$navbar-sublink-hover-color: $navbar-link-hover-color;
+//$navbar-sublink-hover-bg-color: $navbar-link-hover-bg-color;
+//$navbar-dropdown-width: 240px;
+//$navbar-start-flex-align: stretch;
+//$navbar-end-flex-align: center;
 
 /* HAMBURGER MENU */
-// @link https://github.com/jonsuh/hamburgers
 //$primary-hamburger-type: spin; // Change this to modify animation
-//$hamburger-padding-x: $navbar-link-padding-x;
-//$hamburger-padding-y: $navbar-link-padding-y;
-//$hamburger-margin-y: inherit;
+//$hamburger-margin-y: 0px;
 //$hamburger-layer-width: 20px; // Width of the hamburger icon
 //$hamburger-layer-height: 3px; // Thickness of hamburger lines
 //$hamburger-layer-spacing: 4px; // Spacing between hamburger lines
-//$hamburger-layer-color: $navbar-link-color; // Color of hamburger
 //$hamburger-layer-border-radius: 3px; // Radius of hamburger lines
-//$hamburger-background-color: $navbar-bg-color;
-//$hamburger-background-color-hover: $navbar-link-hover-bg-color;
-//$hamburger-border: $border-width $border-style $hamburger-background-color;
-//$hamburger-border-hover: $border-width $border-style $hamburger-background-color-hover;
+//$hamburger-bg-color: $navbar-bg-color;
+//$hamburger-border: $border-width $border-style $hamburger-bg-color;
 //$hamburger-border-radius: 0px;
+//$hamburger-color: $navbar-link-color; // Color of hamburger and label
+//$hamburger-hover-bg-color: $navbar-link-hover-bg-color;
+//$hamburger-hover-border: $border-width $border-style $hamburger-hover-bg-color;
+//$hamburger-hover-color: $hamburger-color;
 //$hamburger-hover-opacity: 1;
-//$hamburger-active-layer-color : $hamburger-layer-color;
-//$hamburger-active-hover-opacity: $hamburger-hover-opacity;
 
 $breakpoints: (
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*

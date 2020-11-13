@@ -22,13 +22,13 @@
 // Menus
 // @link https://developer.wordpress.org/reference/functions/wp_nav_menu/
 .current-menu-item { // Currently rendered page
-    @extend .current-page;
+
 }
 .menu-item-has-children { // Has sub-items
     @extend .has-children;
 }
 .current-menu-parent { // Parent of the current page
-    @extend .current-menu-item;
+
 }
 .widget {
     /* Make sure select elements fit in widgets. */

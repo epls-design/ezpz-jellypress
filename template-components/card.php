@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
 
 ?>
 
-<article <?php post_class('card');?> id="post-<?php the_ID(); ?>">
+<article <?php post_class('card bg-white');?> id="post-<?php the_ID(); ?>">
 
   <?php
   // TODO: Replace this with a template tag, or modify jellypress_post_thumbnail so it is more useful in the future

@@ -10,8 +10,23 @@
     #{headings()} {
       color: choose-contrast-color($color, $color-white, $color-headings-preferred);
     }
+    a:not(.button) {
+      & {
+        color: choose-contrast-color($color, $link-color, tint($color,30%));
+      }
+      &:visited {
+        color: choose-contrast-color($color, $link-visited, tint($color,30%));
+      }
+      &:hover, &:focus {
+        color: choose-contrast-color($color, $link-active, $color-white);
+      }
+    }
   }
   .text-#{$name} {
     color: $color !important;
   }
+}
+
+.bg-transparent {
+  background-color: transparent;
 }

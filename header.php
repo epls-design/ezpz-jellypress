@@ -34,16 +34,16 @@ defined( 'ABSPATH' ) || exit;
       <nav id="site-navigation" class="navbar main-navigation">
         <div class="container">
           <div class="navbar-brand site-branding">
-              <?php
-                // TODO: Remove everything from here to .hamburger if not required by your theme
-              ?>
-                <span class="site-title navbar-item bold"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
-                <?php
-              $jellypress_description = get_bloginfo( 'description', 'display' );
-              if ( $jellypress_description || is_customize_preview() ) :
-                ?>
-                <span class="site-description navbar-item"><?php echo $jellypress_description; ?></span>
-              <?php endif; ?>
+
+                <span class="site-title navbar-item" style="display:block">
+                  <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+                  <?php
+                    $jellypress_description = get_bloginfo( 'description', 'display' );
+                    if ( $jellypress_description || is_customize_preview() ) : ?>
+                    <br/><span class="site-description"><?php echo $jellypress_description; ?></span>
+                  <?php endif; ?>
+                </span>
+
             <button class="hamburger" type="button" aria-label="Menu" aria-controls="navbar-menu" aria-expanded="false">
               <span class="hamburger-label">Menu</span>
               <span class="hamburger-box">
@@ -57,11 +57,12 @@ defined( 'ABSPATH' ) || exit;
                 wp_nav_menu( array(
                   'theme_location' => 'menu-primary',
                   'menu_id'        => 'primary-menu',
+                  'container'      => false,
                 ) );
               ?>
             </div>
             <div class="navbar-end">
-              <!-- TODO: Remove .navbar-end if not required in theme -->
+              <a href="#" class="button secondary">Example Button</a>
             </div>
           </div>
         </div>
