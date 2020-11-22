@@ -287,8 +287,11 @@ if ( !function_exists( 'jellypress_sidebar' )) :
    * sidebar.php rather than lots of sidebar-$slugs.php
    */
   function jellypress_sidebar( $sidebar='default-sidebar' ) {
-    set_query_var( 'sidebar_id', $sidebar );
-    get_template_part( 'sidebar' );
+    // @since Wordpress 5.5 --> Pass data as params to get_template_part
+    $sidebar_params = array(
+      'sidebar_id' => $sidebar
+    );
+    get_template_part( 'sidebar', null, $sidebar_params );
   }
 endif;
 

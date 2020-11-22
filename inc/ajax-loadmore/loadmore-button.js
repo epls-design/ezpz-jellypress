@@ -27,7 +27,7 @@ jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" e
           button.text(initial_button_text); // Reset the button text
 
           // IMPORTANT! This next line determines where to load the data to. Any changes to the template structure must be reflected here.
-          $('.archive-feed').find('section:last-of-type').after( data );
+          $('.archive-feed').find('article:last-of-type').after( data );
 
           jellypress_loadmore_params.current_page++;
 

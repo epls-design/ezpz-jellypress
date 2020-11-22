@@ -9,8 +9,10 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$block_id = get_query_var('block_id');
-$block = get_query_var('block');
+// Get Params from get_template_part:
+$block = $args['block'];
+$block_id = $args['block_id'];
+
 $block_title = $block['title'];
 $website_url = $block['website_url'];
 $block_is_fullwidth = $block['full_width'];
@@ -33,6 +35,7 @@ $block_preamble = $block['preamble'];
   </div>
 <?php endif; ?>
 
+<?php if ($website_url) : ?>
 <div class="row">
   <div class="col">
     <?php if ( $block_is_fullwidth == 1 ){ echo '<div class="vw-100">'; }?>
@@ -42,3 +45,4 @@ $block_preamble = $block['preamble'];
     <?php if ( $block_is_fullwidth == 1 ){ echo '</div>'; }?>
   </div>
 </div>
+<?php endif; ?>

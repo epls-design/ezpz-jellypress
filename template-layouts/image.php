@@ -9,8 +9,10 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$block_id = get_query_var('block_id');
-$block = get_query_var('block');
+// Get Params from get_template_part:
+$block = $args['block'];
+$block_id = $args['block_id'];
+
 $image_id = $block['image'];
 $image_size = 'full';
 $block_is_fullwidth = $block['full_width'];

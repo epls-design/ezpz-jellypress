@@ -105,45 +105,49 @@ return $title;
  * Takes the filename of the attachment, sanitizes and capitalises it
  */
 add_action( 'add_attachment', 'jellypress_auto_attachment_meta' );
-function jellypress_auto_attachment_meta( $post_ID ) {
+if ( !function_exists( 'jellypress_auto_attachment_meta' )) :
+  function jellypress_auto_attachment_meta( $post_ID ) {
 
-	// Check if uploaded file is an image, else do nothing
+    // Check if uploaded file is an image, else do nothing
 
-	if ( wp_attachment_is_image( $post_ID ) ) {
+    if ( wp_attachment_is_image( $post_ID ) ) {
 
-		$my_image_title = get_post( $post_ID )->post_title;
+      $my_image_title = get_post( $post_ID )->post_title;
 
-		// Sanitize the title:  remove hyphens, underscores & extra spaces:
-		$my_image_title = preg_replace( '%\s*[-_\s]+\s*%', ' ',  $my_image_title );
+      // Sanitize the title:  remove hyphens, underscores & extra spaces:
+      $my_image_title = preg_replace( '%\s*[-_\s]+\s*%', ' ',  $my_image_title );
 
-		// Sanitize the title:  capitalize first letter of every word (other letters lower case):
-		$my_image_title = ucwords( strtolower( $my_image_title ) );
+      // Sanitize the title:  capitalize first letter of every word (other letters lower case):
+      $my_image_title = ucwords( strtolower( $my_image_title ) );
 
-		// Create an array with the image meta (Title, Caption, Description) to be updated
-		// Note:  comment out the Excerpt/Caption or Content/Description lines if not needed
-		$my_image_meta = array(
-			'ID'		=> $post_ID,			// Specify the image (ID) to be updated
-			'post_title'	=> $my_image_title,		// Set image Title to sanitized title
-			//'post_excerpt'	=> $my_image_title,		// Set image Caption (Excerpt) to sanitized title
-			//'post_content'	=> $my_image_title,		// Set image Description (Content) to sanitized title
-		);
+      // Create an array with the image meta (Title, Caption, Description) to be updated
+      // Note:  comment out the Excerpt/Caption or Content/Description lines if not needed
+      $my_image_meta = array(
+        'ID'		=> $post_ID,			// Specify the image (ID) to be updated
+        'post_title'	=> $my_image_title,		// Set image Title to sanitized title
+        //'post_excerpt'	=> $my_image_title,		// Set image Caption (Excerpt) to sanitized title
+        //'post_content'	=> $my_image_title,		// Set image Description (Content) to sanitized title
+      );
 
-		// Set the image Alt-Text
-		update_post_meta( $post_ID, '_wp_attachment_image_alt', $my_image_title );
+      // Set the image Alt-Text
+      update_post_meta( $post_ID, '_wp_attachment_image_alt', $my_image_title );
 
-		// Set the image meta (e.g. Title, Excerpt, Content)
-		wp_update_post( $my_image_meta );
+      // Set the image meta (e.g. Title, Excerpt, Content)
+      wp_update_post( $my_image_meta );
 
-	}
-}
+    }
+  }
+endif;
 
 /**
  * Adds helper text to the featured image box. This only works on classic editor as Gutenberg
  * does not support the filter, or have any equivalents (as of Oct 2020)
  */
-function jellypress_featured_image_admin_prompt( $content, $post_id, $thumbnail_id ){
-  $help_text = '<p>' . __( 'Please add a featured image. This will be used as the main image for the page on search engines and may be displayed on the page itself depending on the design. ', 'jellypress' ) . '</p>';
-  return $help_text . $content;
-  // TODO: If no featured image set, force one from ACF fields?
-}
 add_filter( 'admin_post_thumbnail_html', 'jellypress_featured_image_admin_prompt', 10, 3 );
+if ( !function_exists( 'jellypress_featured_image_admin_prompt' )) :
+  function jellypress_featured_image_admin_prompt( $content, $post_id, $thumbnail_id ){
+    $help_text = '<p>' . __( 'Please add a featured image. This will be used as the main image for the page on search engines and may be displayed on the page itself depending on the design. ', 'jellypress' ) . '</p>';
+    return $help_text . $content;
+    // TODO: If no featured image set, force one from ACF fields?
+  }
+endif;

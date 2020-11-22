@@ -78,9 +78,12 @@ if( !post_password_required()):
         <section <?php if($block_id) echo 'id="'.strtolower($block_id).'"'; ?> class="<?php echo $block_classes;?>">
           <div class="container">
             <?php
-            set_query_var('block', $block ); // Pass current array to the layout
-            set_query_var('block_id', $i); // Pass block ID - useful for generating unique IDs eg. for a carousel
-            get_template_part( 'template-layouts/' . $block_layout  );
+            // @since Wordpress 5.5 --> Pass data as params to get_template_part
+            $block_params = array(
+              'block' => $block,
+              'block_id' => $i
+            );
+            get_template_part( 'template-layouts/' . $block_layout, null, $block_params );
             ?>
           </div>
         </section>

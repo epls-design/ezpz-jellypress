@@ -8,9 +8,15 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+$card_class = 'card bg-white';
+$loaded = $args['loaded'];
+if($loaded == true) {
+  $card_class.=' loaded';
+};
+
 ?>
 
-<article <?php post_class('card bg-white');?> id="post-<?php the_ID(); ?>">
+<div <?php post_class($card_class);?> id="post-<?php the_ID(); ?>">
 
   <?php
   // TODO: Replace this with a template tag, or modify jellypress_post_thumbnail so it is more useful in the future
@@ -44,4 +50,4 @@ defined( 'ABSPATH' ) || exit;
     <a class="button small" href="<?php the_permalink();?>" rel="bookmark"><?php _e('Continue Reading <span class="screen-reader-text">'.get_the_title().'</span>', 'jellypress');?></a>
   </footer>
 
-</article>
+</div>

@@ -11,7 +11,8 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$sidebar_id = get_query_var('sidebar_id');
+// Get Params from get_template_part:
+$sidebar_id = $args['sidebar_id'];
 
 if ( ! is_active_sidebar( $sidebar_id ) ) {
 	return;
