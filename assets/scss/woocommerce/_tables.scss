@@ -9,6 +9,7 @@
     // Inherit from Jellyfish
     border-radius: $border-radius;
     border: $borders;
+    margin-bottom: $element-margin * 2;
 
     td,
     th {

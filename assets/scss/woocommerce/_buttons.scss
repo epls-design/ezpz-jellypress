@@ -28,8 +28,7 @@
       radius: $button-border-radius;
     }
 
-
-    @include create_button($color-text-light);
+    @include create_button($color-background-alt);
 
     &.alt {
       @include create_button($color-primary);

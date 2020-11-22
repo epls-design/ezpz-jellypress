@@ -62,6 +62,16 @@ add_action( 'wp_enqueue_scripts', 'jellypress_woocommerce_scripts' );
  */
 //add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
+/**
+ * Remove woocommerce class from body - this can cause issues with buttons etc in the header
+ */
+add_filter('body_class', function (array $classes) {
+  if (in_array('woocommerce', $classes)) {
+    unset( $classes[array_search('woocommerce', $classes)] );
+  }
+return $classes;
+});
+
 if ( ! function_exists( 'jellypress_woocommerce_active_body_class' ) ) {
   /**
    * Add 'woocommerce-active' class to the body tag.
@@ -74,7 +84,7 @@ if ( ! function_exists( 'jellypress_woocommerce_active_body_class' ) ) {
     return $classes;
   }
 }
-add_filter( 'body_class', 'jellypress_woocommerce_active_body_class' );
+//add_filter( 'body_class', 'jellypress_woocommerce_active_body_class' );
 
 if ( ! function_exists( 'jellypress_woocommerce_related_products_args' ) ) {
   /**
@@ -112,8 +122,8 @@ if ( ! function_exists( 'jellypress_woocommerce_wrapper_before' ) ) {
 	 */
 	function jellypress_woocommerce_wrapper_before() {
 		?>
-			<div id="primary" class="content-area">
-        <main id="main" class="site-main block">
+			<div id="primary" class="content-area woocommerce">
+        <main id="main" class="site-main block bg-white">
           <div class="container">
             <div class="row">
               <div class="col">
@@ -183,7 +193,7 @@ if ( ! function_exists( 'jellypress_woocommerce_cart_link' ) ) {
 	 */
 	function jellypress_woocommerce_cart_link() {
 		?>
-		<a class="cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'jellypress' ); ?>">
+    <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'jellypress' ); ?>">
 			<?php
 			$item_count_text = sprintf(
 				/* translators: number of items in the mini cart. */
@@ -191,7 +201,10 @@ if ( ! function_exists( 'jellypress_woocommerce_cart_link' ) ) {
 				WC()->cart->get_cart_contents_count()
 			);
 			?>
-			<span class="amount"><?php echo wp_kses_data( WC()->cart->get_cart_subtotal() ); ?></span> <span class="count"><?php echo esc_html( $item_count_text ); ?></span>
+      <?php echo jellypress_icon('cart');?>
+      <span class="cart-contents">
+        <span class="amount"><?php echo wp_kses_data( WC()->cart->get_cart_subtotal() ); ?></span> <span class="count"><?php echo esc_html( $item_count_text ); ?></span>
+      </span>
 		</a>
 		<?php
 	}
