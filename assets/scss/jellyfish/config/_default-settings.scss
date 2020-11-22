@@ -66,8 +66,8 @@ $font-headings: $font-secondary !default;
 $font-size--2: 0.6em !default;
 $font-size--1: 0.8em !default;
 $font-size-0: 1em !default;
-$font-size-1:1.5em !default;
-$font-size-2:1.5em !default;
+$font-size-1: 1.5em !default;
+$font-size-2: 1.5em !default;
 $font-size-3: 1.75em !default;
 $font-size-4: 2em !default;
 $font-size-5: 2.5em !default;
@@ -137,7 +137,7 @@ $input-background: $color-white !default;
 $placeholder-color: $color-text-light !default;
 $form-text-size: 1rem !default;
 $form-border-hover: shade($border-color, 60%) !default;
-$form-font: $font-primary;
+$form-font: $font-primary !default;
 
 /* BUTTONS */
 $buttons: ('.button, a.button, button, [type=submit], [type=reset], [type=button]') !default; // Stack of elements to target
@@ -219,10 +219,11 @@ $hamburger-bg-color: $navbar-bg-color !default;
 $hamburger-border: $border-width $border-style $hamburger-bg-color !default;
 $hamburger-border-radius: 0px !default;
 $hamburger-color: $navbar-link-color !default; // Color of hamburger and label
-$hamburger-hover-bg-color: $navbar-link-hover-bg-color;
+$hamburger-hover-bg-color: $navbar-link-hover-bg-color !default;
 $hamburger-hover-border: $border-width $border-style $hamburger-hover-bg-color !default;
 $hamburger-hover-color: $hamburger-color !default;
 $hamburger-hover-opacity: 1 !default;
+$hamburger-position: right !default; // left or right
 // Override Vendor options with site-specific hamburger animation
 $hamburger-types: (
   $primary-hamburger-type
