@@ -35,14 +35,18 @@ defined( 'ABSPATH' ) || exit;
         <div class="container">
           <div class="navbar-brand site-branding">
 
-                <span class="site-title navbar-item" style="display:block">
-                  <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-                  <?php
-                    $jellypress_description = get_bloginfo( 'description', 'display' );
-                    if ( $jellypress_description || is_customize_preview() ) : ?>
-                    <br/><span class="site-description"><?php echo $jellypress_description; ?></span>
-                  <?php endif; ?>
-                </span>
+            <span class="site-title navbar-item" style="display:block">
+              <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+              <?php
+                $jellypress_description = get_bloginfo( 'description', 'display' );
+                if ( $jellypress_description || is_customize_preview() ) : ?>
+                <br/><span class="site-description"><?php echo $jellypress_description; ?></span>
+              <?php endif; ?>
+            </span>
+            <!-- EXAMPLE OF EMBEDDING CLIENT LOGO -->
+            <!--<a class="site-logo navbar-item" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+              <?php _e('<img src="'.get_stylesheet_directory_uri().'/dist/img/client-logo.svg'.'" alt="'.get_bloginfo( 'description', 'display' ).'">', 'jellypress'); ?>
+            </a>-->
 
             <button class="hamburger" type="button" aria-label="Menu" aria-controls="navbar-menu" aria-expanded="false">
               <span class="hamburger-label">Menu</span>
@@ -63,6 +67,7 @@ defined( 'ABSPATH' ) || exit;
             </div>
             <div class="navbar-end">
               <a href="#" class="button secondary">Example Button</a>
+              <?php jellypress_woocommerce_header_cart(); ?>
             </div>
           </div>
         </div>

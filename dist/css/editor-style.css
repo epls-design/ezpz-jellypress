@@ -2312,13 +2312,6 @@ select::-ms-expand {
   .hamburger:hover .hamburger-inner, .hamburger:focus .hamburger-inner, .hamburger:hover .hamburger-inner:after, .hamburger:focus .hamburger-inner:after, .hamburger:hover .hamburger-inner:before, .hamburger:focus .hamburger-inner:before {
     background-color: #fff; }
 
-.hamburger {
-  order: 1;
-  margin-left: 0; }
-
-.navbar-brand .navbar-item {
-  order: 2; }
-
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   NAV EXPANDED
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

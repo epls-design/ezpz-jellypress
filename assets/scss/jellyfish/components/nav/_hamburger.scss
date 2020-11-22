@@ -52,3 +52,15 @@ $hamburger-active-hover-opacity: $hamburger-hover-opacity;
     background-color: $hamburger-hover-color;
   }
 }
+
+@if $hamburger-position == 'left' {
+  .hamburger {
+    order: 1;
+    margin-left: 0;
+    //margin-right: auto;
+  }
+  .navbar-brand .navbar-item {
+    order: 2;
+    //margin-left: auto;
+  }
+}

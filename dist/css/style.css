@@ -2527,6 +2527,12 @@ select::-ms-expand {
   margin-top: 0 !important; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  CARDS
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.card.loaded {
+  animation: fadeIn .4s ease-in-out; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   CONTACT INFORMATION
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .postal-address {
