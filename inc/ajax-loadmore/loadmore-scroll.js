@@ -5,17 +5,21 @@
  */
 
 jQuery(function($){
-	var canBeLoaded = true, // this param allows to initiate the AJAX call only if necessary
-      bottomOffset = 2000; // the distance (in px) from the page bottom when you want to load more posts
-      // TODO: change bottomOffset to be position of .archive-feed from bottom of window - otherwise if there is a large sidebar the posts will not LazyLoad on scroll
+  var canBeLoaded = true, // this param allows to initiate the AJAX call only if necessary
+      ajaxContainer = $('.archive-feed');
 
 	$(window).scroll(function(){
 		var data = {
 			'action': 'loadmore',
 			'query': jellypress_loadmore_params.posts,
 			'page' : jellypress_loadmore_params.current_page
-		};
-		if( $(document).scrollTop() > ( $(document).height() - bottomOffset ) && canBeLoaded == true ){
+      },
+      containerPosFromTop = ajaxContainer.offset().top,
+      containerHeight = ajaxContainer.height(),
+      windowHeight = $(window).height(),
+      windowScrollTop = $(window).scrollTop();
+
+		if( ((windowHeight+windowScrollTop)>(containerPosFromTop+containerHeight)) && canBeLoaded == true ){
 			$.ajax({
 				url : jellypress_loadmore_params.ajaxurl,
 				data:data,
@@ -29,7 +33,7 @@ jQuery(function($){
 					if( data ) {
 
 						// IMPORTANT! This next line determines where to load the data to. Any changes to the template structure must be reflected here.
-            $('.archive-feed').find('article:last-of-type').after( data );
+            ajaxContainer.find('article:last-of-type').after( data );
 
 						canBeLoaded = true; // the ajax is completed, now we can run it again
 						jellypress_loadmore_params.current_page++;
@@ -39,3 +43,5 @@ jQuery(function($){
 		}
 	});
 });
+
+// TODO: Add a throttler to prevent excess calls?

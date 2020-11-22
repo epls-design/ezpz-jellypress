@@ -16,7 +16,7 @@ if($loaded == true) {
 
 ?>
 
-<div <?php post_class($card_class);?> id="post-<?php the_ID(); ?>">
+<div <?php post_class($card_class);?>>
 
   <?php
   // TODO: Replace this with a template tag, or modify jellypress_post_thumbnail so it is more useful in the future

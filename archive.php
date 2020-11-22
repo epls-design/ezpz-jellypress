@@ -42,12 +42,12 @@ get_header();
         echo '<div class="row equal-height archive-feed feed-'.$term->slug.'" id="feed-'.$term->slug.'">';
           while ( have_posts() ) :
             the_post();
-            echo '<section class="col xs-12 sm-6 md-4 xl-3 result">';
-              get_template_part( 'template-components/card', get_post_type() );
-            echo '</section>';
+            echo '<article class="col xs-12 sm-6 md-4 xl-3" id="post-'.get_the_ID().'">';
+              get_template_part( 'template-components/card', get_post_type(), array('loaded' => true) );
+            echo '</article>';
           endwhile;
           if (  $wp_query->max_num_pages > 1 && $loading_type == 'button' ) {
-            echo '<div class="col xs-12"><button class="button button-loadmore">' . __( 'Load More...', 'jellypress' ) . '</button></div>';
+            echo '</div><div class="row"><div class="col xs-12"><button class="button outline button-loadmore">' . __( 'Load More...', 'jellypress' ) . '</button></div>';
           };
         echo '</div>';
 

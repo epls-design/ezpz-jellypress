@@ -39,9 +39,9 @@ get_header();
       /* Start the Loop */
       while ( have_posts() ) :
         the_post();
-        echo '<section class="col xs-12 sm-6 md-4 xl-3 result">';
+        echo '<article class="col xs-12 sm-6 md-4 xl-3" id="post-'.get_the_ID().'">';
           get_template_part( 'template-components/card', get_post_type() );
-        echo '</section>';
+        echo '</article>';
       endwhile;
       echo '</div>';
 

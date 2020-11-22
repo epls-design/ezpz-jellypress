@@ -1,0 +1,10 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  CARDS
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.card {
+  &.loaded {
+    // Used for AJAX loaded posts
+    animation: fadeIn .4s ease-in-out;
+  }
+}

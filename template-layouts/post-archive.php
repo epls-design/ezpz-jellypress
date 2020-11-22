@@ -57,7 +57,7 @@ $loading_type = $block['loading_type'];
       }
 
       if ( $archive_query->max_num_pages > 1 && $loading_type == 'button' ) {
-        echo '<div class="col xs-12"><button class="button-loadmore">' . __( 'Load More...', 'jellypress' ) . '</button></div>';
+        echo '</div><div class="row"><div class="col xs-12"><button class="button outline button-loadmore">' . __( 'Load More...', 'jellypress' ) . '</button></div>';
       };
 
     } else {
