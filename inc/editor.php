@@ -135,3 +135,33 @@ function jellypress_svg_admin_style() {
 	$css = 'td.media-icon img[src$=".svg"] { width: 100% !important; height: auto !important; }';
 	echo '<style type="text/css">'.$css.'</style>';
 }
+
+/**
+ * Applies a filter to the_content and the_excerpt to automatically add rel="external to outbound links
+ * @link https://crunchify.com/how-to-add-relsponsored-or-relnofollow-to-all-external-links-in-wordpress/
+ *
+ * @param string $content
+ * @return string Filtered Text
+ */
+add_filter('the_content', 'jellypress_filter_external_links_rel');
+add_filter('the_excerpt', 'jellypress_filter_external_links_rel');
+if ( ! function_exists( 'jellypress_filter_external_links_rel' ) ) :
+  function jellypress_filter_external_links_rel($content) {
+    return preg_replace_callback('/<a[^>]+/', 'jellypress_add_rel_external_to_outbound_links', $content);
+  }
+endif;
+if ( ! function_exists( 'jellypress_add_rel_external_to_outbound_links' ) ) :
+  function jellypress_add_rel_external_to_outbound_links($matches) {
+    $link = $matches[0];
+    $site_link = get_bloginfo('url');
+    if (strpos($link, 'rel') === false) {
+      // If the link doesn't have a rel, and it is not an internal link, add rel="external"
+        $link = preg_replace("%(href=\S(?!$site_link))%i", 'rel="external" $1', $link);
+    }
+    // Commented out - respect any manual rel that has been added by the author
+    //elseif (preg_match("%href=\S(?!$site_link)%i", $link)) {
+    //    $link = preg_replace('/rel=\S(?!external)\S*/i', 'rel="external"', $link);
+    //}
+    return $link;
+  }
+endif;
