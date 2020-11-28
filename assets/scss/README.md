@@ -1,6 +1,6 @@
 # /scss
 
-At it's core, Jellypress uses the [Jellyfish](https://unofficialmatt.github.io/jellyfish/) SCSS framework as a basis for styling and layout.
+At it's core, this theme uses the [Jellyfish](https://unofficialmatt.github.io/jellyfish/) SCSS framework as a basis for styling and layout.
 
 ## SCSS Compile
 The following files are compiled by Gruntfile.js, with postcss applying vendor prefixes, pxtorem and minifying the output:
@@ -8,7 +8,7 @@ The following files are compiled by Gruntfile.js, with postcss applying vendor p
 - <b>Admin Stylesheet, used in WP Admin</b>: `compile/admin-style.scss` -> `dist/css/admin-style.css`
 - <b>Main Stylesheet for front-end of theme</b>: `compile/main.scss` -> `style.css`
 - <b>Additional Editor styles for TinyMCE</b>: `compile/editor.scss` -> `dist/css/editor-style.css`
-- <b>Woocommerce specific styles - loaded when WooCommerce is active</b>: `woocommerce.scss` -> `dist/css/woocommerce.css`
+- <b>Woocommerce specific styles - loaded when WooCommerce is active</b>: `compile/woocommerce.scss` -> `dist/css/woocommerce.css`
 
 ## Customising the theme
 
