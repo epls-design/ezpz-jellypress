@@ -2,9 +2,9 @@
 # This file is distributed under the UNLICENSED.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Jellypress Wordpress Theme 1.1.0\n"
+"Project-Id-Version: JellyPrefss 1.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/unofficialmatt/jellypress/issues\n"
-"POT-Creation-Date: 2020-11-07 22:05:37+00:00\n"
+"POT-Creation-Date: 2020-11-25 20:27:27+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,7 +24,7 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: archive.php:50 template-layouts/post-archive.php:58
+#: archive.php:50 template-layouts/post-archive.php:60
 msgid "Load More..."
 msgstr ""
 
@@ -58,35 +58,35 @@ msgstr ""
 msgid "Successfully updated organisation information"
 msgstr ""
 
-#: inc/dry.php:167
+#: inc/dry.php:176
 msgid " Postal Address"
 msgstr ""
 
-#: inc/dry.php:207
+#: inc/dry.php:216
 msgid "Telephone:"
 msgstr ""
 
-#: inc/dry.php:232
+#: inc/dry.php:241
 msgid "Day(s)"
 msgstr ""
 
-#: inc/dry.php:232
+#: inc/dry.php:241
 msgid "Opening Hours"
 msgstr ""
 
-#: inc/dry.php:238
+#: inc/dry.php:247
 msgid "Closed"
 msgstr ""
 
-#: inc/dry.php:276
+#: inc/dry.php:285
 msgid "Department"
 msgstr ""
 
-#: inc/dry.php:276
+#: inc/dry.php:285
 msgid "Phone Number"
 msgstr ""
 
-#: inc/dry.php:276
+#: inc/dry.php:285
 msgid "Email Address"
 msgstr ""
 
@@ -304,7 +304,7 @@ msgstr ""
 msgid "%1$s"
 msgstr ""
 
-#: inc/template-functions.php:145
+#: inc/template-functions.php:149
 msgid ""
 "Please add a featured image. This will be used as the main image for the "
 "page on search engines and may be displayed on the page itself depending on "
@@ -351,11 +351,11 @@ msgstr ""
 msgid "Add your widgets here."
 msgstr ""
 
-#: inc/woocommerce.php:186
+#: inc/woocommerce.php:196
 msgid "View your shopping cart"
 msgstr ""
 
-#: inc/woocommerce.php:190
+#: inc/woocommerce.php:200
 #. translators: number of items in the mini cart.
 msgid "%d item"
 msgid_plural "%d items"
@@ -374,14 +374,14 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: template-layouts/map.php:48 template-layouts/text-media.php:107
+#: template-layouts/map.php:50 template-layouts/text-media.php:109
 #. translators: %s link to theme options page.
 msgid ""
 "You need to <a href=\"%s\" class=\"callout-link\">add a Google Maps API "
 "key</a> in order to display a map on your website."
 msgstr ""
 
-#: template-layouts/post-archive.php:62
+#: template-layouts/post-archive.php:64
 msgid "No posts matched your criteria."
 msgstr ""
 
@@ -436,7 +436,7 @@ msgid "Search Results for: %s"
 msgstr ""
 
 #. Theme Name of the plugin/theme
-msgid "Jellypress Wordpress Theme"
+msgid "JellyPrefss"
 msgstr ""
 
 #. Theme URI of the plugin/theme

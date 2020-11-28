@@ -67,7 +67,7 @@ defined( 'ABSPATH' ) || exit;
             </div>
             <div class="navbar-end">
               <a href="#" class="button secondary">Example Button</a>
-              <?php jellypress_woocommerce_header_cart(); ?>
+              <?php if ( class_exists( 'woocommerce' ) ) jellypress_woocommerce_header_cart(); ?>
             </div>
           </div>
         </div>
