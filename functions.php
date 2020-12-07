@@ -42,11 +42,11 @@ $jellypress_includes = array(
   'inc/remote-images.php',           // Uses images from a remote production URL if working in the local dev environment.
 
   //~~~~~ CUSTOM POST TYPES
-  'inc/post_types/post.php',         // Hooks into post_type 'post' to make the Labels more friendly
-  //'inc/post_types/page.php',
+  'inc/post_types/post.php',
+  'inc/post_types/page.php',
 
   //~~~~~ USER CAPABILITIES
-  //'inc/user_caps/client-admin.php',        // Example for how to restrict user capabilities for a specific role
+  //'inc/user_caps/client-admin.php',  // Example for how to restrict user capabilities for a specific role
 );
 
 foreach ( $jellypress_includes as $file ) {

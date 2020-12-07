@@ -34,11 +34,11 @@ if ( ! function_exists( 'jellypress_display_cta_buttons' ) ) :
           $button_url = parse_url($button_link['url']);
           $blog_url = parse_url(get_bloginfo('url'));
           if ($button_url['host'] == $blog_url['host']){
-            echo '<a class="'.$button_classes.'" href="'.$button_link['url'].'" target="'.$button_link['target'].'">'.$button_link['title'].'</a>';
+            echo '<a class="'.$button_classes.'" href="'.$button_link['url'].'" title="'.$button_link['title'].'" target="'.$button_link['target'].'">'.$button_link['title'].'</a>';
           }
           else {
             // Outbound link - add rel=external
-            echo '<a class="'.$button_classes.'" href="'.$button_link['url'].'" target="'.$button_link['target'].'" rel="external">'.$button_link['title'].'</a>';
+            echo '<a class="'.$button_classes.'" href="'.$button_link['url'].'" title="'.$button_link['title'].'" target="'.$button_link['target'].'" rel="external">'.$button_link['title'].'</a>';
           }
         endforeach;
       echo '</div>';
