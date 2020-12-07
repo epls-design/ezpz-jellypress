@@ -26,8 +26,10 @@ $block_preamble = $block['preamble'];
 <?php endif; ?>
 
 <?php if ($block_preamble) : ?>
-  <div class="block-preamble">
+  <div class="row block-preamble">
+    <div class="col">
       <?php jellypress_content($block_preamble); ?>
+    </div>
   </div>
 <?php endif; ?>
 

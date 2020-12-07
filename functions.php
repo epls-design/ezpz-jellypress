@@ -15,6 +15,9 @@ defined( 'ABSPATH' ) || exit;
 if (! defined('DEV_URL') ) {
   define('DEV_URL', 'https://jellypress.local');
 }
+if (! defined('STAGING_URL') ) {
+  define('STAGING_URL', 'https://jellypress.staging');
+}
 if (! defined('PROD_URL') ) {
   define('PROD_URL', 'https://jellypress.live');
 }

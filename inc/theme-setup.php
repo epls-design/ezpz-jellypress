@@ -138,11 +138,15 @@ endif;
  */
 if ( ! function_exists( 'jellypress_show_dev_flag' ) ) :
   function jellypress_show_dev_flag() {
-    $url1 = parse_url(DEV_URL); // Defined in functions.php
-    $url2 = parse_url(jellypress_get_full_url());
-    if ($url1['host'] == $url2['host']){
-      echo '<div class="dev-flag">' . __('Development Site', 'jellypress') . '</div>';
-  }
+    $dev_url = parse_url(DEV_URL); // Defined in functions.php
+    $staging_url = parse_url(STAGING_URL); // Defined in functions.php
+    $current_url = parse_url(jellypress_get_full_url());
+    if ($dev_url['host'] == $current_url['host']){
+      echo '<div class="dev-flag dev">' . __('Development Site', 'jellypress') . '</div>';
+    }
+    elseif ($staging_url['host'] == $current_url['host']){
+      echo '<div class="dev-flag staging">' . __('Staging Site', 'jellypress') . '</div>';
+    }
   }
 endif;
 // Hook into footer and admin footer

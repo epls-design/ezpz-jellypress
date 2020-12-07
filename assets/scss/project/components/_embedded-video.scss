@@ -27,6 +27,7 @@ $transition-delay: .5s;
 
 .video-wrapper {
   position: relative;
+  cursor: pointer;
   .embed-container {
     opacity: 0;
     transition: $transition;

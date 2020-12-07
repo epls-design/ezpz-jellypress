@@ -302,6 +302,7 @@ if ( ! function_exists( 'jellypress_show_password_form' ) ) :
    * the page is designed entirely with ACF.)
    */
   function jellypress_show_password_form() {
+    // TODO: Change to do https://wordpress.stackexchange.com/questions/219773/conditional-to-test-if-post-has-password-protection-enabled
     if ( (empty( get_the_content() )  || '' == get_post()->post_content) && post_password_required() ){
       echo '<section class="container block bg-white password-protected"><div class="row"><div class="col">';
         the_content();

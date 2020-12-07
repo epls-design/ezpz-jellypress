@@ -1,5 +1,5 @@
 /* Jellypress Wordpress Theme 1.1.0
- * © 2020-11 Matt Weet - https://www.weareboba.com */
+ * © 2020-12 Matt Weet - https://www.weareboba.com */
 
 @charset "UTF-8";
 /* GRID */
@@ -2667,7 +2667,8 @@ a:hover .icon__snapchat, a:focus .icon__snapchat, a:active .icon__snapchat {
     height: auto; }
 
 .video-wrapper {
-  position: relative; }
+  position: relative;
+  cursor: pointer; }
   .video-wrapper .embed-container, .video-wrapper .is-type-video .wp-block-embed__wrapper, .is-type-video .video-wrapper .wp-block-embed__wrapper {
     opacity: 0;
     transition: opacity 0.5s ease;
@@ -2827,19 +2828,25 @@ a:hover .icon__snapchat, a:focus .icon__snapchat, a:active .icon__snapchat {
   position: fixed;
   display: block;
   line-height: 1;
-  font-size: 14px;
-  top: 20%;
+  font-size: 22px;
+  bottom: 150px;
   right: 0;
   padding: .5em;
-  background-color: #FF0000;
-  color: white;
   font-weight: bold;
   z-index: 99999999;
   margin: 0;
   display: block;
   transform-origin: center;
   transform: translate3d(50%, -50%, 0) rotate(270deg) translateY(-50%);
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25); }
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25);
+  border: 3px solid black;
+  border-bottom: 0; }
+  .dev-flag.dev {
+    background-color: #FF0000;
+    color: white; }
+  .dev-flag.staging {
+    background-color: #ffd000;
+    color: black; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   DEVELOPER INFORMATION

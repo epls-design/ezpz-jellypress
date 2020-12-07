@@ -13,6 +13,7 @@ defined( 'ABSPATH' ) || exit;
  // ID of the current page
 $id = get_the_ID();
 
+// TODO: Change to do https://wordpress.stackexchange.com/questions/219773/conditional-to-test-if-post-has-password-protection-enabled
 if( !post_password_required()):
 
   /**

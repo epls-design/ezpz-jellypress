@@ -17,6 +17,8 @@ Included in `Jellypress`...:
 * Custom template tags in `inc/template-tags.php` that keep your templates clean and neat and prevent code duplication.
 * Some small tweaks in `inc/template-functions.php` that can improve your theming experience.
 * Full support for `WooCommerce plugin` integration with hooks in `inc/woocommerce.php`, styling override woocommerce.css with product gallery features (zoom, swipe, lightbox) enabled.
+* Lots of other custom functions and helpers. Take a look around the `/inc` folder
+* Support for ACF and baked-in use of ACF flexible content for page layout
 
 Plus, all of the awesome benefits from [Jellyfish](https://unofficialmatt.github.io/jellyfish/):
 * Manage dependencies with [NPM](https://www.npmjs.com/)

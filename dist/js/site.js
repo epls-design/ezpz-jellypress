@@ -181,17 +181,17 @@ function playVimeoVideo() {
 
 (function ($) {
 
-  $(document).on('click touch', '.play', function () {
+  $(document).on('click touch', '.video-wrapper', function () {
+    var $wrapper = $(this),
+        $button = $wrapper.find('.play'),
+        $iframe = $wrapper.find('iframe'),
+        iframe = $iframe[0];
 
-    var $parent = $(this).closest('.video-wrapper'),
-      $iframe = $parent.find('iframe'),
-      iframe = $iframe[0];
+    $wrapper.addClass('playing'); // Fades out the overlay
 
-    $parent.addClass('playing'); // Fades out the overlay
-
-    if ($(this).hasClass('platform-vimeo')) {
+    if ($button.hasClass('platform-vimeo')) {
       if (typeof $iframe.attr('src') === 'undefined') {
-        $iframe.attr('src', $(this).data('src')); // Insert the src from the button's data-attr
+        $iframe.attr('src', $button.data('src')); // Insert the src from the button's data-attr
         vimeoPlayer = new Vimeo.Player(iframe); // Create Vimeo Player
         vimeoPlayer.on('loaded', playVimeoVideo); // Play when loaded
       } else {
@@ -201,9 +201,9 @@ function playVimeoVideo() {
       }
       vimeoPlayer.play();
     }
-    else if ($(this).hasClass('platform-youtube')) {
+    else if ($button.hasClass('platform-youtube')) {
       if (typeof $iframe.attr('src') === 'undefined') {
-        $iframe.attr('src', $(this).data('src')); // Insert the src from the button's data-attr
+        $iframe.attr('src', $button.data('src')); // Insert the src from the button's data-attr
 
         var youTubePlayer = new YT.Player(iframe, {
           // Use the YouTube API to create a new player
