@@ -127,7 +127,7 @@ if ( ! function_exists( 'jellypress_create_campaign_cpt_taxonomies' ) ) :
       'show_in_quick_edit' => true, // Whether to show the taxonomy in the quick/bulk edit panel
       'show_admin_column' => true, // Whether to display a column for the taxonomy on its post type listing screens
       'show_in_rest' => true, // Whether to include the taxonomy in the REST API. You will need to set this to true in order to use the taxonomy in your gutenberg metablock.
-      'meta_box_cb' => true, // Set to False to hide from the WYSIWIG Editor sidebar
+      //'meta_box_cb' => false, // Set to false to hide from the WYSIWIG Editor sidebar
       'rewrite' => $rewrite,
     );
     register_taxonomy( 'campaign-tag', array('campaign'), $args );
