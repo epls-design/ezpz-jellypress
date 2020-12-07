@@ -26,22 +26,33 @@ if( !post_password_required()):
   $block_data = get_all_custom_field_meta( $id, $field_group_array );
 
   // If there are items in the flexible content field...
-  if ($block_data['sections']) :
-    $i = 1;
+  if ($blocks = $block_data['sections']) :
+
+    $i = 0;
+    $total_blocks = count($blocks);
 
     // Loop through the flexible content field
-    foreach ($block_data['sections'] as $block ){
+    foreach ($blocks as $block ){
       //var_dump($block);
+
+      // Get next block info
+      if ($i < $total_blocks) {
+        $next_block = $blocks[$i+1];
+        //var_dump($next_block);
+      }
 
       $block_classes = 'block'; // Reset class
 
-      // Get common fields and save as variables
-      $block_layout = $block['acf_fc_layout'];
-      $block_disabled = $block['disable'];
-      $block_display = $block['display_options'];
-      $block_id = $block['section_id'];
-      $block_bg_color = $block['background_color'];
+      if($i == 0) {
+        $block_classes .=' first'; // This is not foolproof, if any blocks are disabled this will not be accurate - so it shouldn't be used for anything important
+      }
+      if($i == $total_blocks - 1) {
+        $block_classes .=' last'; // This is not foolproof, if any blocks are disabled this will not be accurate - so it shouldn't be used for anything important
+      }
 
+      $block_id = $block['section_id'];
+
+      $block_layout = $block['acf_fc_layout'];
       $block_classes.= ' block__'.$block_layout; // Add layout to classes
 
       // Block scheduling options
@@ -56,6 +67,7 @@ if( !post_password_required()):
       }
 
       // Block display options for smaller devices
+      $block_display = $block['display_options'];
       if($block_display == 'only_show') {
         $block_classes.= ' hide-above-md';
       }
@@ -71,18 +83,26 @@ if( !post_password_required()):
       }
 
       // Background colour
+
+      $prev_block_bg = $block_bg_color;
+      if($prev_block_bg == '') $prev_block_bg = 'white'; // Reset
+      $block_bg_color = $block['background_color'];
+      $next_bg_color = $next_block['background_color'];
+
       if ($block_bg_color) {
         $block_classes.= ' bg-'.strtolower($block_bg_color);
       }
 
-      if ( $block_disabled != 1 AND $block_datetime_show == true) : // Display the block, if it is not disabled, and if the scheduling checks pass true ?>
+      if ( $block['disable'] != 1 AND $block_datetime_show == true) : // Display the block, if it is not disabled, and if the scheduling checks pass true ?>
         <section <?php if($block_id) echo 'id="'.strtolower($block_id).'"'; ?> class="<?php echo $block_classes;?>">
           <div class="container">
             <?php
             // @since Wordpress 5.5 --> Pass data as params to get_template_part
             $block_params = array(
               'block' => $block,
-              'block_id' => $i
+              'block_id' => $i,
+              'block_bg' => $block_bg_color,
+              'prev_block_bg' => $prev_block_bg
             );
             get_template_part( 'template-layouts/' . $block_layout, null, $block_params );
             ?>
@@ -93,7 +113,7 @@ if( !post_password_required()):
 
     } // foreach
     unset($i); // Unset counter
-  endif; // if ($block_data['sections'])
+  endif; // if ($blocks)
 
 endif;
 ?>

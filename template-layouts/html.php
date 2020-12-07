@@ -12,6 +12,7 @@ defined( 'ABSPATH' ) || exit;
 // Get Params from get_template_part:
 $block = $args['block'];
 $block_id = $args['block_id'];
+//var_dump($block);
 
 $block_title = $block['title'];
 $block_preamble = $block['preamble'];
