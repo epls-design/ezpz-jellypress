@@ -192,3 +192,16 @@ if ( ! function_exists( 'jellypress_get_post_primary_category' ) ) :
   }
 
 endif;
+
+/**
+ * Add Support for descriptions in nav items
+ */
+add_filter( 'walker_nav_menu_start_el', 'jellypress_add_navbar_descriptions', 10, 4 );
+if ( ! function_exists( 'jellypress_add_navbar_descriptions' ) ) :
+  function jellypress_add_navbar_descriptions( $item_output, $item, $depth, $args ) {
+    if ( !empty( $item->description ) ) {
+        $item_output = str_replace( $args->link_after . '</a>', '<span class="menu-item-description">' . $item->description . '</span>' . $args->link_after . '</a>', $item_output );
+    }
+    return $item_output;
+  }
+endif;
