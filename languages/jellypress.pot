@@ -2,9 +2,9 @@
 # This file is distributed under the UNLICENSED.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: JellyPrefss 1.1.0\n"
+"Project-Id-Version: JellyPress 1.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/unofficialmatt/jellypress/issues\n"
-"POT-Creation-Date: 2020-11-25 20:27:27+00:00\n"
+"POT-Creation-Date: 2020-12-11 07:56:07+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,7 +24,7 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: archive.php:50 template-layouts/post-archive.php:60
+#: archive.php:50 template-parts/blocks/post-archive/view.php:61
 msgid "Load More..."
 msgstr ""
 
@@ -240,6 +240,46 @@ msgid ""
 "ask."
 msgstr ""
 
+#: inc/post_types/page.php:28
+msgid "Search Page Types"
+msgstr ""
+
+#: inc/post_types/page.php:29
+msgid "All Page Types"
+msgstr ""
+
+#: inc/post_types/page.php:30
+msgid "Parent Page Type"
+msgstr ""
+
+#: inc/post_types/page.php:31
+msgid "Parent Page Type:"
+msgstr ""
+
+#: inc/post_types/page.php:32
+msgid "Edit Page Type"
+msgstr ""
+
+#: inc/post_types/page.php:33
+msgid "Update Page Type"
+msgstr ""
+
+#: inc/post_types/page.php:34
+msgid "Add New Page Type"
+msgstr ""
+
+#: inc/post_types/page.php:35
+msgid "New Page Type Name"
+msgstr ""
+
+#: inc/post_types/page.php:36
+msgid "Page Types"
+msgstr ""
+
+#: inc/post_types/page.php:40
+msgid "Page Types for easy categorisation in the CMS"
+msgstr ""
+
 #: inc/post_types/post.php:16
 msgid "News Archives"
 msgstr ""
@@ -335,8 +375,12 @@ msgstr ""
 msgid "Primary"
 msgstr ""
 
-#: inc/theme-setup.php:144
+#: inc/theme-setup.php:145
 msgid "Development Site"
+msgstr ""
+
+#: inc/theme-setup.php:148
+msgid "Staging Site"
 msgstr ""
 
 #: inc/video-embed.php:93
@@ -374,69 +418,71 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: template-layouts/map.php:50 template-layouts/text-media.php:109
+#: template-parts/blocks/map/view.php:51
+#: template-parts/blocks/text-media/view.php:110
 #. translators: %s link to theme options page.
 msgid ""
 "You need to <a href=\"%s\" class=\"callout-link\">add a Google Maps API "
 "key</a> in order to display a map on your website."
 msgstr ""
 
-#: template-layouts/post-archive.php:64
+#: template-parts/blocks/post-archive/view.php:65
 msgid "No posts matched your criteria."
 msgstr ""
 
-#: template-parts/content-404.php:18
+#: template-parts/layout/content/content-404.php:18
 msgid ""
 "It looks like nothing was found at this location. Can we help you find the "
 "page you were looking for?"
 msgstr ""
 
-#: template-parts/content-404.php:22
+#: template-parts/layout/content/content-404.php:22
 msgid "Back to last page"
 msgstr ""
 
-#: template-parts/content-404.php:27
+#: template-parts/layout/content/content-404.php:27
 msgid "Search this website:"
 msgstr ""
 
-#: template-parts/content-none.php:21
+#: template-parts/layout/content/content-none.php:21
 #. translators: 1: link to WP admin new post page.
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\" "
 "class=\"callout-link\">Get started here</a>."
 msgstr ""
 
-#: template-parts/content-none.php:33
+#: template-parts/layout/content/content-none.php:33
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
 
-#: template-parts/content-none.php:41
+#: template-parts/layout/content/content-none.php:41
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:23 template-parts/content.php:25
+#: template-parts/layout/content/content-page.php:23
+#: template-parts/layout/content/content.php:25
 msgid "Sections:"
 msgstr ""
 
-#: template-parts/hero-404.php:19
+#: template-parts/layout/hero/hero-404.php:19
 msgid "Page not found"
 msgstr ""
 
-#: template-parts/hero-none.php:19
+#: template-parts/layout/hero/hero-none.php:19
 msgid "Nothing Found"
 msgstr ""
 
-#: template-parts/hero-search.php:22
+#: template-parts/layout/hero/hero-search.php:22
 #. translators: %s: search query.
 msgid "Search Results for: %s"
 msgstr ""
 
 #. Theme Name of the plugin/theme
-msgid "JellyPrefss"
+msgid "JellyPress"
 msgstr ""
 
 #. Theme URI of the plugin/theme
@@ -505,9 +551,19 @@ msgctxt "taxonomy general name"
 msgid "Campaign Tags"
 msgstr ""
 
+#: inc/post_types/page.php:26
+msgctxt "taxonomy general name"
+msgid "Page Type"
+msgstr ""
+
 #: inc/post_types/example.php:99
 msgctxt "taxonomy singular name"
 msgid "Campaign Tag"
+msgstr ""
+
+#: inc/post_types/page.php:27
+msgctxt "taxonomy singular name"
+msgid "Page Type"
 msgstr ""
 
 #: inc/template-tags.php:32

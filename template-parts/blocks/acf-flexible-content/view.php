@@ -104,7 +104,7 @@ if( !post_password_required()):
               'block_bg' => $block_bg_color,
               'prev_block_bg' => $prev_block_bg
             );
-            get_template_part( 'template-layouts/' . $block_layout, null, $block_params );
+            get_template_part( 'template-parts/blocks/' . $block_layout .'/view', null, $block_params );
             ?>
           </div>
         </section>

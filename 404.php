@@ -19,8 +19,8 @@ get_header();
   <main id="main" class="site-main">
     <article class="error-404 not-found">
       <?php
-      get_template_part( 'template-parts/hero', '404' );
-      get_template_part( 'template-parts/content', '404' );
+      get_template_part( 'template-parts/layout/hero/hero', '404' );
+      get_template_part( 'template-parts/layout/content/content', '404' );
       ?>
     </article>
   </main>

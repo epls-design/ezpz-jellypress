@@ -479,7 +479,7 @@ sup {
   width: 100%;
   height: 100%; }
 
-.mb, .button-group, .callout, .card, .card-section .card-image, .site-content img, .postal-address, .telephone-number, .email-address, .embedded-iframe, .google-map, .search-form, .wp-block-audio figcaption, .wp-block-image img + figcaption, .wp-block-video figcaption, .wp-block-embed figcaption, .alignfull, .alignwide, .wp-block-audio, .wp-block-quote.is-large,
+.mb, .button-group, .callout, .card, .card-section .card-image, .site-content img, .postal-address, .telephone-number, .email-address, .search-form, .embedded-iframe, .google-map, .wp-block-audio figcaption, .wp-block-image img + figcaption, .wp-block-video figcaption, .wp-block-embed figcaption, .alignfull, .alignwide, .wp-block-audio, .wp-block-quote.is-large,
 .wp-block-quote.is-style-large, .wp-block-cover,
 .wp-block-cover-image, .wp-block-video, .widget .mejs-container, .widget .gallery-item, .comment-list ol, .comment-list ul, .comment-list dl, .comment-list li {
   margin-bottom: 24px; }
@@ -2468,71 +2468,6 @@ select::-ms-expand {
   TYPOGRAPHY
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  BLOCK: TEXT MEDIA
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.block__text-media .embedded-iframe, .block__text-media .google-map {
-  height: auto;
-  width: 100%;
-  min-height: 300px; }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  BLOCS
-  Styling for ACF flexible content
-  blocks
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.block {
-  padding-top: 70px;
-  padding-bottom: 46px;
-  position: relative; }
-  .block__image img {
-    width: 100%; }
-  .block__full-width {
-    padding-top: 0;
-    padding-bottom: 0; }
-    .block__full-width img, .block__full-width .embed-container, .block__full-width .is-type-video .wp-block-embed__wrapper, .is-type-video .block__full-width .wp-block-embed__wrapper {
-      margin-bottom: 0; }
-  .block__gallery .gallery-item {
-    display: inline-block;
-    text-align: center;
-    margin: 12px 0; }
-
-.block.bg-primary:not(.block__full-width) + .block.bg-primary:not(.block__full-width) {
-  padding-top: 0; }
-
-.block.bg-secondary:not(.block__full-width) + .block.bg-secondary:not(.block__full-width) {
-  padding-top: 0; }
-
-.block.bg-tertiary:not(.block__full-width) + .block.bg-tertiary:not(.block__full-width) {
-  padding-top: 0; }
-
-.block.bg-success:not(.block__full-width) + .block.bg-success:not(.block__full-width) {
-  padding-top: 0; }
-
-.block.bg-warning:not(.block__full-width) + .block.bg-warning:not(.block__full-width) {
-  padding-top: 0; }
-
-.block.bg-error:not(.block__full-width) + .block.bg-error:not(.block__full-width) {
-  padding-top: 0; }
-
-.block.bg-black:not(.block__full-width) + .block.bg-black:not(.block__full-width) {
-  padding-top: 0; }
-
-.block.bg-white:not(.block__full-width) + .block.bg-white:not(.block__full-width) {
-  padding-top: 0; }
-
-.block__full-width .block-title, .block__full-width .block-preamble {
-  margin-top: 70px; }
-
-.block__full-width .block-title + .block-preamble {
-  margin-top: 0 !important; }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  CARDS
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.card.loaded {
-  animation: fadeIn .4s ease-in-out; }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   CONTACT INFORMATION
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .postal-address {
@@ -2647,69 +2582,6 @@ a:hover .icon__snapchat, a:focus .icon__snapchat, a:active .icon__snapchat {
   transform: scale(1.1); }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  EMBEDDED VIDEO
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.play {
-  z-index: 1;
-  margin: 0;
-  background-color: transparent !important;
-  border-color: transparent !important;
-  width: 30%;
-  padding: 0;
-  color: #fff;
-  max-width: 120px;
-  transition: opacity 1s ease; }
-  .play:hover, .play:focus {
-    opacity: 0.8;
-    box-shadow: none; }
-  .play .icon {
-    width: 100%;
-    height: auto; }
-
-.video-wrapper {
-  position: relative;
-  cursor: pointer; }
-  .video-wrapper .embed-container, .video-wrapper .is-type-video .wp-block-embed__wrapper, .is-type-video .video-wrapper .wp-block-embed__wrapper {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    transition-delay: 0.5s; }
-  .video-wrapper.playing .video-overlay {
-    opacity: 0;
-    pointer-events: none; }
-  .video-wrapper.playing .embed-container, .video-wrapper.playing .is-type-video .wp-block-embed__wrapper, .is-type-video .video-wrapper.playing .wp-block-embed__wrapper {
-    opacity: 1; }
-
-.video-overlay {
-  position: absolute;
-  top: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  background-size: cover;
-  background-position: center;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  opacity: 1;
-  transition: opacity 0.5s ease;
-  transition-delay: 0.5s; }
-  .video-overlay::after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    mix-blend-mode: multiply; }
-  .video-overlay:hover::after {
-    opacity: 0.6; }
-  .video-overlay:hover .play {
-    animation: pulse 1.4s infinite; }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   ICONS
   Default styling for icons
   generated by grunt-svgstore
@@ -2731,35 +2603,6 @@ a:hover .icon__snapchat, a:focus .icon__snapchat, a:active .icon__snapchat {
   margin-left: 1em; }
   .icon-list .icon {
     margin-right: .5em; }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  IFRAMES
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.embedded-iframe {
-  border: 1px solid #cbcccc; }
-  .embed-container .embedded-iframe, .is-type-video .wp-block-embed__wrapper .embedded-iframe {
-    margin-bottom: 0; }
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  MAPS
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-.google-map {
-  width: 100%;
-  height: 600px;
-  border: 1px solid #cbcccc; }
-
-.google-map img {
-  max-width: inherit !important; }
-
-.gm-style {
-  font-family: inherit;
-  font-weight: inherit;
-  font-size: inherit; }
-  .gm-style .gm-style-iw {
-    font-weight: inherit;
-    font-size: inherit; }
-  .gm-style .address {
-    font-size: 0.8em; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   NUMERIC PAGINATION
@@ -2872,6 +2715,159 @@ a:hover .icon__snapchat, a:focus .icon__snapchat, a:active .icon__snapchat {
       content: " hello@weareboba.com";
       display: inline-block;
       position: absolute; } }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  IMPORTS
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.block {
+  padding-top: 70px;
+  padding-bottom: 46px;
+  position: relative; }
+
+.block.bg-primary:not(.block__full-width) + .block.bg-primary:not(.block__full-width) {
+  padding-top: 0; }
+
+.block.bg-secondary:not(.block__full-width) + .block.bg-secondary:not(.block__full-width) {
+  padding-top: 0; }
+
+.block.bg-tertiary:not(.block__full-width) + .block.bg-tertiary:not(.block__full-width) {
+  padding-top: 0; }
+
+.block.bg-success:not(.block__full-width) + .block.bg-success:not(.block__full-width) {
+  padding-top: 0; }
+
+.block.bg-warning:not(.block__full-width) + .block.bg-warning:not(.block__full-width) {
+  padding-top: 0; }
+
+.block.bg-error:not(.block__full-width) + .block.bg-error:not(.block__full-width) {
+  padding-top: 0; }
+
+.block.bg-black:not(.block__full-width) + .block.bg-black:not(.block__full-width) {
+  padding-top: 0; }
+
+.block.bg-white:not(.block__full-width) + .block.bg-white:not(.block__full-width) {
+  padding-top: 0; }
+
+.block__full-width {
+  padding-top: 0;
+  padding-bottom: 0; }
+  .block__full-width img, .block__full-width .embed-container, .block__full-width .is-type-video .wp-block-embed__wrapper, .is-type-video .block__full-width .wp-block-embed__wrapper {
+    margin-bottom: 0; }
+  .block__full-width .block-title, .block__full-width .block-preamble {
+    margin-top: 70px; }
+  .block__full-width .block-title + .block-preamble {
+    margin-top: 0 !important; }
+
+.block__gallery .gallery-item {
+  display: inline-block;
+  text-align: center;
+  margin: 12px 0; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  IFRAMES
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.embedded-iframe {
+  border: 1px solid #cbcccc; }
+  .embed-container .embedded-iframe, .is-type-video .wp-block-embed__wrapper .embedded-iframe {
+    margin-bottom: 0; }
+
+.block__image img {
+  width: 100%; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  MAPS
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.google-map {
+  width: 100%;
+  height: 600px;
+  border: 1px solid #cbcccc; }
+
+.google-map img {
+  max-width: inherit !important; }
+
+.gm-style {
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit; }
+  .gm-style .gm-style-iw {
+    font-weight: inherit;
+    font-size: inherit; }
+  .gm-style .address {
+    font-size: 0.8em; }
+
+.block__text-media .embedded-iframe, .block__text-media .google-map {
+  height: auto;
+  width: 100%;
+  min-height: 300px; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  EMBEDDED VIDEO
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.play {
+  z-index: 1;
+  margin: 0;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  width: 30%;
+  padding: 0;
+  color: #fff;
+  max-width: 120px;
+  transition: opacity 1s ease; }
+  .play:hover, .play:focus {
+    opacity: 0.8;
+    box-shadow: none; }
+  .play .icon {
+    width: 100%;
+    height: auto; }
+
+.video-wrapper {
+  position: relative;
+  cursor: pointer; }
+  .video-wrapper .embed-container, .video-wrapper .is-type-video .wp-block-embed__wrapper, .is-type-video .video-wrapper .wp-block-embed__wrapper {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    transition-delay: 0.5s; }
+  .video-wrapper.playing .video-overlay {
+    opacity: 0;
+    pointer-events: none; }
+  .video-wrapper.playing .embed-container, .video-wrapper.playing .is-type-video .wp-block-embed__wrapper, .is-type-video .video-wrapper.playing .wp-block-embed__wrapper {
+    opacity: 1; }
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  transition-delay: 0.5s; }
+  .video-overlay::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    mix-blend-mode: multiply; }
+  .video-overlay:hover::after {
+    opacity: 0.6; }
+  .video-overlay:hover .play {
+    animation: pulse 1.4s infinite; }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  CARDS
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.card.loaded {
+  animation: fadeIn .4s ease-in-out; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   GUTENBERG

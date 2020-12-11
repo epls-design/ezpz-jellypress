@@ -1,43 +1,8 @@
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  BLOCS
-  Styling for ACF flexible content
-  blocks
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
 .block {
-
   padding-top: $block-padding;
   padding-bottom: $block-padding - $element-margin; // Negates for the last element in a block, rather than using :last-of-type
   position: relative;
-
-  // ACF Block: Image
-  &__image {
-    img {
-      width: 100%; // Force image to be fullwidth
-    }
-  }
-
-  &__full-width {
-    // Fixes issues of letterboxing
-    padding-top: 0;
-    padding-bottom: 0;
-    img, .embed-container {
-      margin-bottom: 0;
-    }
-  }
-
-  // ACF Block: Image Gallery
-  &__gallery {
-    .gallery-item {
-      display: inline-block;
-      text-align: center;
-      @extend .col;
-      @extend .md-4; // TODO: This can be done better, for most clients they will want a nicer looking gallery anyway
-      margin: $element-margin/2 0;
-    }
-  }
 }
-
 
 // TODO: This needs some more work. Need to test full_width and different/same preceding before bg colour
 // If two blocks follow with the same bg color, remove the top padding so that there is not a chasm of space
@@ -51,8 +16,14 @@
   }
 }
 
-// Some full width blocks have headers or preambles - reinstate the top padding on these to open them back up and prevent crashing
 .block__full-width {
+  // Fixes issues of letterboxing
+  padding-top: 0;
+  padding-bottom: 0;
+  img, .embed-container {
+    margin-bottom: 0;
+  }
+  // Some full width blocks have headers or preambles - reinstate the top padding on these to open them back up and prevent crashing
   .block-title, .block-preamble {
     margin-top: $block-padding;
   }

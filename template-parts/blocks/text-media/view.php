@@ -93,7 +93,7 @@ if ($media_type == 'iframe' || $media_type == 'map'){
         global $post; // Call global $post variable
         $post = $media_post[0]; // Set $post global variable to the current post object
         setup_postdata( $post ); // Set up "environment" for template tags
-          get_template_part( 'template-components/card' ); // Display the post information
+          get_template_part( 'template-parts/components/card/card' ); // Display the post information
         wp_reset_postdata();
       }
       elseif ($media_type == 'video'){

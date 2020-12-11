@@ -34,7 +34,7 @@ if (! function_exists('jellypress_loadmore_ajax_handler') ):
           // Display the template part for the post
           //set_query_var( 'loaded', true );
           echo '<article class="col xs-12 sm-6 md-4 xl-3 loaded" id="post-'.get_the_ID().'">';
-            get_template_part( 'template-components/card', get_post_type(), array('loaded' => true) );
+            get_template_part( 'template-parts/components/card/card', get_post_type(), array('loaded' => true) );
           echo '</article>';
         endwhile;
       endif;

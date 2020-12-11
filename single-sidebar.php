@@ -26,8 +26,8 @@ get_header();
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <?php while ( have_posts() ) :
           the_post();
-          get_template_part( 'template-parts/hero', get_post_type() ); // TODO: This probably wont look so good when this template is used. Check.
-          get_template_part( 'template-parts/content', get_post_type() );
+          get_template_part( 'template-parts/layout/hero/hero', get_post_type() ); // TODO: This probably wont look so good when this template is used. Check.
+          get_template_part( 'template-parts/layout/content/content', get_post_type() );
           jellypress_show_password_form();
           jellypress_entry_footer(); // Call function from template-tags
           ?>
