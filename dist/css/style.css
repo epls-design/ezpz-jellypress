@@ -32,10 +32,10 @@ html {
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, p.wp-block-subhead, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
-del, dfn, em, .text-accent, .italic, img, ins, kbd, q, s, samp,
+del, dfn, em, .italic, .text-accent, img, ins, kbd, q, s, samp,
 small,
 .small,
-.has-small-font-size, strike, strong, .text-accent, .bold, sub, sup, tt, var,
+.has-small-font-size, strike, strong, .bold, .text-accent, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
@@ -317,10 +317,10 @@ small,
 .has-small-font-size {
   font-size: 0.8em; }
 
-strong, .text-accent, .bold, b {
+strong, .bold, .text-accent, b {
   font-weight: bold; }
 
-em, .text-accent, .italic, i {
+em, .italic, .text-accent, i {
   font-style: italic; }
 
 mark {
@@ -3020,5 +3020,16 @@ table.is-hoverable tr:hover td {
   right: 50% !important;
   margin-left: -50vw !important;
   margin-right: -50vw !important; }
+
+.to-do {
+  font-weight: bold !important;
+  padding: .3em !important;
+  margin-left: .5em !important;
+  margin-right: .5em !important;
+  color: black !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  background: lime !important;
+  box-decoration-break: clone !important; }
 
 /*# sourceMappingURL=style.css.map */

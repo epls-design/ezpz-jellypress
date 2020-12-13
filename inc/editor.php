@@ -79,6 +79,11 @@ if ( !function_exists( 'jellypress_mce_before_init_insert_formats' )) {
         'classes' => 'small',
         'block' => 'p',
       ),
+      array(
+        'title' => 'TO-DO Note',
+        'classes' => 'to-do',
+        'inline' => 'span',
+      )
     );
     // Insert the array, JSON ENCODED, into 'style_formats'
     $init_array['style_formats'] = json_encode( $style_formats );
