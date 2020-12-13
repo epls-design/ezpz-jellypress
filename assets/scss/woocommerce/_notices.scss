@@ -1,9 +1,3 @@
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  NOTICES
-  Overrides default Woocommerce
-  notice styles
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
 @mixin create_woomessage($bgcolor) {
   @include create_callout($bgcolor);
   border-top-color: shade($bgcolor, 90%);

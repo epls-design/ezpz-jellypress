@@ -1,7 +1,6 @@
 @charset "UTF-8";
-@import "../jellyfish/config/mixins";
-@import "../settings";
-@import "../jellyfish/config/default-settings";
+@import "../project/01-tools/_01-import-jellypress";
+@import "../project/02-settings/settings";
 @import "../woocommerce/all";
 
 // TODO: Columns widths and margins in WooCommerce should match the Jellyfish settings. Will need to override the percentage based values used in WooCommerce

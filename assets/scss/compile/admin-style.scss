@@ -2,7 +2,6 @@
 // These are used to help stylise the editing experience for better UX
 
 @charset "UTF-8";
-@import "../settings";
-@import "../jellyfish/config/default-settings";
-@import "../jellyfish/config/mixins";
+@import "../project/01-tools/_01-import-jellypress";
+@import "../project/02-settings/settings";
 @import "../admin/all";

@@ -1,7 +1,3 @@
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  ADMIN HELPERS
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
 @each $name, $color in $theme-colors {
   // Loop through $theme-colors map and create classes for .bg-*
   .bg-#{$name} {

@@ -1,9 +1,6 @@
 /* Jellypress Wordpress Theme 1.1.0
  * © 2020-12 Matt Weet - https://www.weareboba.com */
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  USEFUL MIXINS AND FUNCTIONS
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /**
  * Calculate the luminance for a color.
  * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
@@ -39,9 +36,6 @@
 /* CARDS */
 /* NAVBAR */
 /* HAMBURGER MENU */
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  DEFAULT SETTINGS
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /* GRID */
 /* JELLYFISH DEFAULTS */
 /* DOCUMENT ROOT FONT SIZE AND LINE HEIGHT AT SMALLEST DEVICE WIDTH */
@@ -63,11 +57,6 @@
 /* CARDS */
 /* NAVBAR */
 /* HAMBURGER MENU */
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  BASKET / CHECKOUT
-  Overrides default Woocommerce
-  basket and checkout styles
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #add_payment_method #payment,
 .woocommerce-cart #payment,
 .woocommerce-checkout #payment {
@@ -98,11 +87,6 @@
 #order_comments {
   height: 300px; }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  BUTTONS
-  Overrides default Woocommerce
-  button styles
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .woocommerce #respond input#submit,
 .woocommerce a.button,
 .woocommerce button.button,
@@ -391,20 +375,10 @@
     .woocommerce input.button:disabled:hover {
       background-color: #adadad !important; }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  DEMO STORE
-  Overrides default Woocommerce
-  styles for demo store notice
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .woocommerce-store-notice, p.demo_store {
   background-color: #8e1b1f;
   z-index: 9999; }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  FORMS
-  Overrides default Woocommerce
-  forms styles
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .woocommerce form .form-row {
   display: block; }
   .woocommerce form .form-row.woocommerce-validated input.input-text {
@@ -412,10 +386,6 @@
   .woocommerce form .form-row.woocommerce-invalid input.input-text {
     border-color: #f7033c; }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  HEADER CART
-  Styles for jellypress_woocommerce_header_cart function
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #site-header-cart {
   margin: 0;
   display: inline-block;
@@ -522,25 +492,12 @@
       right: 0;
       display: block; } }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  HELPERS
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .single-product div.product span.price {
   margin-bottom: 24px; }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  MY ACCOUNT
-  Overrides default Woocommerce
-  My Account (login) styles
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .woocommerce .woocommerce-form-login .woocommerce-form-login__submit {
   display: block; }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  NOTICES
-  Overrides default Woocommerce
-  notice styles
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .woocommerce-message, .woocommerce-info, .woocommerce-error, .woocommerce-noreviews,
 .woocommerce p.no-comments {
   clear: both;
@@ -676,20 +633,12 @@
   .woocommerce-error::before, .woocommerce-message::before, .woocommerce-info::before {
     top: 20px; }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  ON SALE
-  Overrides default Woocommerce
-  on sale styles
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .woocommerce span.onsale {
   background-color: #53cc3e;
   color: #333333;
   min-height: 50px;
   min-width: 50px; }
 
-/**
- * Password strength meter
- */
 .woocommerce-password-strength {
   text-align: right; }
   .woocommerce-password-strength.strong {
@@ -701,11 +650,6 @@
   .woocommerce-password-strength.good {
     color: #fc7f14; }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  PRODUCTS
-  Overrides default Woocommerce
-  styles for product archive page
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .woocommerce ul.products {
   margin: 0; }
   .woocommerce ul.products li.product {
@@ -737,11 +681,6 @@
   display: block;
   order: 1; }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  SINGLE PRODUCT
-  Overrides default Woocommerce
-  styles for single product page
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .single-product div.product .stock {
   font-weight: bold;
   margin: 0; }
@@ -807,11 +746,6 @@
     .single-product div.product div.woocommerce-product-gallery .flex-control-thumbs li img {
       transition: opacity 0.2s ease; }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  STAR
-  Overrides default Woocommerce
-  star rating styles
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .woocommerce .comment-form-rating label {
   font-weight: bold;
   margin: .5em 0 .25em 0; }
@@ -876,11 +810,6 @@
   }
 }
 */
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  TABLES
-  Overrides default Woocommerce
-  table styles
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .woocommerce table.shop_table {
   border-radius: 4px;
   border: 1px solid #cbcccc;
@@ -922,11 +851,6 @@
   .woocommerce table.shop_attributes td, .woocommerce table.shop_attributes th {
     border-bottom: 1px solid #cbcccc !important; }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  TABS
-  Overrides default Woocommerce
-  tab styles
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .woocommerce div.product .woocommerce-tabs ul.tabs {
   margin: 0 0 24px 0; }
   .woocommerce div.product .woocommerce-tabs ul.tabs::before {
@@ -959,9 +883,6 @@
         .woocommerce div.product .woocommerce-tabs ul.tabs li.active {
           border-bottom-color: #cbcccc; } }
 
-/**
- * WooCommerce Price Filter
- */
 .widget_price_filter .price_slider {
   margin-bottom: 1.5em; }
 

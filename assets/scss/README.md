@@ -12,6 +12,13 @@ The following files are compiled by Gruntfile.js, with postcss applying vendor p
 
 ## Customising the theme
 
-For the most part, you will want to make new partials in project/{sub-folder}. Any partials found within these folders are automatically included into the _all.scss partial which is loaded into the relevant top-level `{admin-style,compile,editor,woocommerce}.scss`
+Please read the README file inside `/project` as this gives some guidance notes on directory structure and naming conventions - it is highly recommended to follow the [ITCSS triangle structure](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/) for maintaining SCSS partials.
 
-Jellyfish files should not be edited. You can override the default variables with the settings file in `_settings.scss`
+In a nutshell:
+
+- Files inside the `/jellyfish` directory should not be edited. This ensures that upstream changes to Jellyfish can be applied if required.
+- All global variables should be defined and amended inside the `/project/02-settings` directory.
+- Most of the UI styling work will take place in `/project/07-components`
+- Alternatively, component CSS should be stored inside `../../template-parts/blocks`, `../../template-parts/components` or `../../template-parts/layout` for a more object-oriented approach and to more-clearly see how a component is both styled and output.
+
+Grunt will automatically compile partials across the theme directory, to ensure that partials are loaded in a way that conforms to ITCSS.

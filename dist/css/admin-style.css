@@ -1,6 +1,19 @@
 /* Jellypress Wordpress Theme 1.1.0
  * © 2020-12 Matt Weet - https://www.weareboba.com */
 
+/**
+ * Calculate the luminance for a color.
+ * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+ * @link https://medium.com/dev-channel/using-sass-to-automatically-pick-text-colors-4ba7645d2796
+ */
+/**
+ * Calculate the contrast ratio between two colors.
+ * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+ * @link https://medium.com/dev-channel/using-sass-to-automatically-pick-text-colors-4ba7645d2796
+ */
+/**
+ * Determine whether to use dark or light text on top of given color.
+ */
 /* GRID */
 /* JELLYFISH DEFAULTS */
 /* DOCUMENT ROOT FONT SIZE AND LINE HEIGHT AT SMALLEST DEVICE WIDTH */
@@ -23,9 +36,6 @@
 /* CARDS */
 /* NAVBAR */
 /* HAMBURGER MENU */
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  DEFAULT SETTINGS
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /* GRID */
 /* JELLYFISH DEFAULTS */
 /* DOCUMENT ROOT FONT SIZE AND LINE HEIGHT AT SMALLEST DEVICE WIDTH */
@@ -47,22 +57,6 @@
 /* CARDS */
 /* NAVBAR */
 /* HAMBURGER MENU */
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  USEFUL MIXINS AND FUNCTIONS
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/**
- * Calculate the luminance for a color.
- * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
- * @link https://medium.com/dev-channel/using-sass-to-automatically-pick-text-colors-4ba7645d2796
- */
-/**
- * Calculate the contrast ratio between two colors.
- * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
- * @link https://medium.com/dev-channel/using-sass-to-automatically-pick-text-colors-4ba7645d2796
- */
-/**
- * Determine whether to use dark or light text on top of given color.
- */
 .acf-fc-layout-handle {
   padding-left: 25px !important;
   background: #23282d !important;
@@ -191,9 +185,6 @@
       border-right: 1px solid rgba(255, 255, 255, 0.2);
       box-sizing: border-box; }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  DEBUG
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .dev-flag {
   position: fixed;
   display: block;
@@ -218,9 +209,6 @@
     background-color: #ffd000;
     color: black; }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  ADMIN HELPERS
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .bg-primary {
   background-color: #001496; }
 

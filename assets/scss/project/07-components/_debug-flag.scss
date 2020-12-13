@@ -1,0 +1,27 @@
+.dev-flag {
+  // Shows a dev flag on the local development website
+  position: fixed;
+  display: block;
+  line-height: 1;
+  font-size: 22px;
+  bottom: 150px;
+  right: 0;
+  padding: .5em;
+  font-weight: bold;
+  z-index: 99999999;
+  margin: 0;
+  display: block;
+  transform-origin: center;
+  transform: translate3d(50%,-50%,0) rotate(270deg) translateY(-50%);
+  box-shadow:0 0 8px 0 rgba(0,0,0,.25);
+  border: 3px solid black;
+  border-bottom: 0;
+  &.dev {
+    background-color: #FF0000;
+    color: white;
+  }
+  &.staging {
+    background-color: rgb(255, 208, 0);
+    color: black;
+  }
+}

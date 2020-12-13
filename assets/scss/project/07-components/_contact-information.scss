@@ -1,0 +1,79 @@
+.postal-address {
+  display: inline-flex;
+  span {
+    display: block;
+  }
+  @extend %mb;
+}
+
+.telephone-number, .email-address {
+  @extend %mb;
+}
+
+.phone-numbers {
+  @extend %no-bullets;
+}
+
+.telephone-number, .phone-numbers {
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.opening-hours, .department-contacts {
+  width: auto;
+}
+
+.postal-address, .telephone-number, .opening-hours, .department-contacts, .email-address {
+  .icon {
+    width: 1em;
+    height: 1em;
+    top: 0;
+    margin-right: .5em;
+  }
+}
+
+// Social Channel Branding
+$social-channels: (
+  "facebook": #1877F2,
+  "instagram": #E4405F,
+  "linkedin": #0077B5,
+  "pinterest": #BD081C,
+  "twitter": #1DA1F2,
+  "vimeo": #1AB7EA,
+  "youtube": #FF0000,
+  "whatsapp": #25D366,
+  "microsoftteams": #6264A7,
+  "skype": #00AFF0,
+  "zoom": #2D8CFF,
+  "wikipedia": #000,
+  "github": #181717,
+  "snapchat": #FFFC00
+
+);
+@each $channel, $color in $social-channels {
+  .icon__#{$channel} {
+    color: $color;
+  }
+  a:hover, a:focus, a:active {
+    .icon__#{$channel} {
+      color: shade($color,80%);
+    }
+  }
+}
+
+.social-channels {
+  @extend %inline;
+  .icon {
+    margin-right: .5em;
+    width: 1em;
+    height: 1em;
+    @include smooth(color,transform);
+  }
+  a:hover, a:focus, a:active {
+    .icon {
+      transform: scale(1.1);
+    }
+  }
+}
