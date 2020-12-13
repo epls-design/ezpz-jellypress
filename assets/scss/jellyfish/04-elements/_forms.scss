@@ -108,34 +108,6 @@ vertical-align: middle;
   color: $placeholder-color;
 }
 
-// Wrapper to apply better margins to radioboxes and checkboxes
-.form-group {
-  margin: 3px 0 h($element-margin) 0;
-}
-
-// Make checkboxes/radioboxes inline-block
-.form-group-inline {
-  @extend .form-group;
-  * {
-    display: inline-block;
-  }
-  label {
-    margin-right: h($element-margin);
-  }
-}
-
-// Tighter gutters on form rows
-.form-row {
-  margin-left: -5px;
-  margin-right: -5px;
-  display: flex;
-  flex-wrap: wrap;
-  .col {
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-}
-
 // TODO: Add styling for range slider @link https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
 // TODO: add a field-group container
 // TODO: Add input groups and input addons https://www.shoelace.style/docs/forms.html

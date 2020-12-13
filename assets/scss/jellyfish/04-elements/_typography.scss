@@ -39,17 +39,14 @@ h6 {
 small {
   display: block;
 }
-small, .small {
+small {
     font-size: $font-size--1;
 }
-strong, .bold, b {
-    font-weight: bold;
+strong, b {
+  font-weight: $weight-bold;
 }
-em, .italic, i {
-    font-style: italic;
-}
-.standfirst {
-    font-size: $font-size-1;
+em, i {
+  font-style: italic;
 }
 
 // Highlighted

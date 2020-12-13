@@ -29,20 +29,6 @@
     margin-left: .5em;
   }
 
-  &.outline {
-    border-style: $label-outline-border-style;
-    background-color: transparent !important;
-  }
-
-  @each $name,
-  $color in $theme-colors {
-
-    // Loop through $theme-colors map and create labels for each key
-    &.#{$name} {
-      @include create_label($color);
-    }
-  }
-
 }
 
 .label-group {

@@ -17,9 +17,6 @@ body {
   color: $color-text;
   background-color: $color-background;
   line-height: $root-line-height;
-   @if $debug-mode-on {
-       @extend .jf-debug;
-   }
    @each $point, $i in $breakpoints {
     // set base font size and line height for each specified media query
    @include above($point) {
@@ -58,17 +55,6 @@ table {
     ul, ol {
         margin-bottom: 0;
     }
-}
-// TODO: Document in Jellyfish Docs
-%no-bullets {
-  margin-left: 0;
-  list-style-type: none;
-}
-%inline {
-  @extend %no-bullets;
-  li {
-    display: inline-block;
-  }
 }
 ul {
     @extend %lists;
@@ -127,64 +113,20 @@ blockquote {
     font-size: $font-size-2;
     font-style: italic;
     line-height: 1.4;
-
-    cite {
-        display: block;
-        margin-top: h($element-margin);
-        font-size: $font-size--2;
-        font-style: normal;
-        font-weight: bold;
-        text-align: right;
-    }
 }
-
-// Images
-%embedded-content {
-  float:none !important;
-  margin: $element-margin auto;
+cite {
   display: block;
+  margin-top: h($element-margin);
+  font-size: $font-size--2;
+  font-style: normal;
+  font-weight: bold;
+  text-align: right;
 }
+
 img {
-    max-width: 100%;
-    height: auto;
-    vertical-align: top; // Removes the white space under images
-
-    &.align-left {
-        @extend %embedded-content;
-    }
-    &.align-right {
-        @extend %embedded-content;
-    }
-    &.align-none {
-        @extend %embedded-content;
-    }
-    &.align-center {
-        @extend %embedded-content;
-    }
-
-    $is_first: 1; // Variable to check if first point in breakpoint
-    @each $point,
-    $i in $breakpoints {
-      @include above($point) {
-        @if $is_first == 1 {
-          &.align-left {
-            margin: 0 $element-margin $element-margin 0;
-            float: left !important;
-          }
-          &.align-right {
-              margin: 0 0 $element-margin $element-margin;
-              float: right !important;
-          }
-          &.align-none {
-              margin: 0 0 $element-margin 0;
-          }
-          &.align-center {
-              margin: 0 auto $element-margin auto;
-          }
-        }
-      }
-      $is_first: 0; // Reset to zero
-    }
+  max-width: 100%;
+  height: auto;
+  vertical-align: top; // Removes the white space under images
 }
 
 // Highlighted text
