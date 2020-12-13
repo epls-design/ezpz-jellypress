@@ -167,74 +167,56 @@ function jfReadCookie(cookiename) {
   return "";
 }
 ;
-/**
- * Function to play youTube embedded video
- */
-function playYouTubeVideo() {
-  event.target.playVideo();
-}
-
-function playVimeoVideo() {
-  event.target.play();
-  //vimeoPlayer.play();
-}
-
-(function ($) {
-
-  $(document).on('click touch', '.video-wrapper', function () {
-    var $wrapper = $(this),
-        $button = $wrapper.find('.play'),
-        $iframe = $wrapper.find('iframe'),
-        iframe = $iframe[0];
-
-    $wrapper.addClass('playing'); // Fades out the overlay
-
-    if ($button.hasClass('platform-vimeo')) {
-      if (typeof $iframe.attr('src') === 'undefined') {
-        $iframe.attr('src', $button.data('src')); // Insert the src from the button's data-attr
-        vimeoPlayer = new Vimeo.Player(iframe); // Create Vimeo Player
-        vimeoPlayer.on('loaded', playVimeoVideo); // Play when loaded
-      } else {
-        // If the video already has a src, play it
-        vimeoPlayer = new Vimeo.Player(iframe);
-        playVimeoVideo();
-      }
-      vimeoPlayer.play();
-    }
-    else if ($button.hasClass('platform-youtube')) {
-      if (typeof $iframe.attr('src') === 'undefined') {
-        $iframe.attr('src', $button.data('src')); // Insert the src from the button's data-attr
-
-        var youTubePlayer = new YT.Player(iframe, {
-          // Use the YouTube API to create a new player
-          events: {
-            "onReady": playYouTubeVideo,
-            //"onError": function (e) {
-            //  console.log(e);
-            //}
-          },
-        });
-
-        // Fallback if the API doesn't work
-        if (typeof youTubePlayer.playVideo === 'undefined') {
-          youTubePlayer = $iframe;
-          $iframe.attr('src', $iframe.attr('src').replace('autoplay=0', 'autoplay=1'));
-        }
-      }
-      else {
-        // If the video already has a src, play it
-        var youTubePlayer = new YT.Player(iframe);
-        playYouTubeVideo;
-      }
-  }
-  });
-})(jQuery);
-;
 function jfdebug() {
   // Trigger debug mode by applying .jf-debug to document
   var docBody = document.getElementsByTagName('body')[0];
   docBody.classList.toggle('jf-debug');
 };
+;
+jQuery(document).ready(function ($) {
+  var navPoint = '900'; // px value at which the navigation should change from a burger menu to inline list
+
+  // Expand and Collapse .navbar-menu when clicking .hamburger
+  $(".hamburger").on('click touch', function (e) {
+    // Search the parent .navbar for the .navbar-menu and store as a variable
+    var navmenu = $(this).parents('.navbar').find('.navbar-menu');
+    // Slide the navmenu into view
+    $(navmenu).slideToggle();
+    // Toggle the state of the aria-expanded attribute for screen readers
+    var menuItem = $(e.currentTarget);
+    if (menuItem.attr('aria-expanded') === 'true') {
+      $(this).attr('aria-expanded', 'false');
+    } else {
+      $(this).attr('aria-expanded', 'true');
+    }
+  });
+
+  // If a menu item with children is clicked...
+  $(document).on("click", 'li.has-children > a:not(".clicked"), li.menu-item-has-children > a:not(".clicked")', function (e) {
+    // ...and the window width is smaller than the navPoint
+    if ($(window).width() < (navPoint)) {
+      // add .clicked class to the anchor element
+      ($(this).addClass("clicked"));
+      // prevent the link from firing
+      e.preventDefault();
+      // add .drop-active class and aria-expanded to parent li
+      $(this).parent("li").toggleClass("drop-active").attr('aria-expanded', 'true');
+    }
+  });
+});
+;
+(function($) {
+
+  $('#searchform').submit(function(e) {
+    var s = $( this ).find("#s");
+          if (!s.val()) {
+      e.preventDefault();
+      alert("Please enter a search term");
+      $('#s').focus();
+    }
+  });
+
+})( jQuery );
 ;
 (function( $ ) {
 
@@ -364,47 +346,65 @@ $(document).ready(function(){
 
 })(jQuery);
 ;
-jQuery(document).ready(function ($) {
-  var navPoint = '900'; // px value at which the navigation should change from a burger menu to inline list
+/**
+ * Function to play youTube embedded video
+ */
+function playYouTubeVideo() {
+  event.target.playVideo();
+}
 
-  // Expand and Collapse .navbar-menu when clicking .hamburger
-  $(".hamburger").on('click touch', function (e) {
-    // Search the parent .navbar for the .navbar-menu and store as a variable
-    var navmenu = $(this).parents('.navbar').find('.navbar-menu');
-    // Slide the navmenu into view
-    $(navmenu).slideToggle();
-    // Toggle the state of the aria-expanded attribute for screen readers
-    var menuItem = $(e.currentTarget);
-    if (menuItem.attr('aria-expanded') === 'true') {
-      $(this).attr('aria-expanded', 'false');
-    } else {
-      $(this).attr('aria-expanded', 'true');
+function playVimeoVideo() {
+  event.target.play();
+  //vimeoPlayer.play();
+}
+
+(function ($) {
+
+  $(document).on('click touch', '.video-wrapper', function () {
+    var $wrapper = $(this),
+        $button = $wrapper.find('.play'),
+        $iframe = $wrapper.find('iframe'),
+        iframe = $iframe[0];
+
+    $wrapper.addClass('playing'); // Fades out the overlay
+
+    if ($button.hasClass('platform-vimeo')) {
+      if (typeof $iframe.attr('src') === 'undefined') {
+        $iframe.attr('src', $button.data('src')); // Insert the src from the button's data-attr
+        vimeoPlayer = new Vimeo.Player(iframe); // Create Vimeo Player
+        vimeoPlayer.on('loaded', playVimeoVideo); // Play when loaded
+      } else {
+        // If the video already has a src, play it
+        vimeoPlayer = new Vimeo.Player(iframe);
+        playVimeoVideo();
+      }
+      vimeoPlayer.play();
     }
-  });
+    else if ($button.hasClass('platform-youtube')) {
+      if (typeof $iframe.attr('src') === 'undefined') {
+        $iframe.attr('src', $button.data('src')); // Insert the src from the button's data-attr
 
-  // If a menu item with children is clicked...
-  $(document).on("click", 'li.has-children > a:not(".clicked"), li.menu-item-has-children > a:not(".clicked")', function (e) {
-    // ...and the window width is smaller than the navPoint
-    if ($(window).width() < (navPoint)) {
-      // add .clicked class to the anchor element
-      ($(this).addClass("clicked"));
-      // prevent the link from firing
-      e.preventDefault();
-      // add .drop-active class and aria-expanded to parent li
-      $(this).parent("li").toggleClass("drop-active").attr('aria-expanded', 'true');
-    }
-  });
-});
-;
-(function($) {
+        var youTubePlayer = new YT.Player(iframe, {
+          // Use the YouTube API to create a new player
+          events: {
+            "onReady": playYouTubeVideo,
+            //"onError": function (e) {
+            //  console.log(e);
+            //}
+          },
+        });
 
-  $('#searchform').submit(function(e) {
-    var s = $( this ).find("#s");
-          if (!s.val()) {
-      e.preventDefault();
-      alert("Please enter a search term");
-      $('#s').focus();
-    }
+        // Fallback if the API doesn't work
+        if (typeof youTubePlayer.playVideo === 'undefined') {
+          youTubePlayer = $iframe;
+          $iframe.attr('src', $iframe.attr('src').replace('autoplay=0', 'autoplay=1'));
+        }
+      }
+      else {
+        // If the video already has a src, play it
+        var youTubePlayer = new YT.Player(iframe);
+        playYouTubeVideo;
+      }
+  }
   });
-
-})( jQuery );
+})(jQuery);
