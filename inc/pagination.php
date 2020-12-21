@@ -39,7 +39,7 @@ if ( ! function_exists( 'jellypress_numeric_pagination' ) ) :
 
     // On the first page, don't put the First page link
     if ( $paged != 1 )
-      echo '<li class="nav-first"><a href='.get_pagenum_link(1).'>'.__($newest_text, 'jellypress').' </a></li>';
+      echo '<li class="nav-first"><a href="'.get_pagenum_link(1).'">'.__($newest_text, 'jellypress').' </a></li>';
 
     // To the previous page
     echo '<li class="nav-next">';
@@ -81,7 +81,7 @@ if ( ! function_exists( 'jellypress_numeric_pagination' ) ) :
 
     // On the last page, don't put the Last page link
     if ( $paged != $max_page )
-      echo '<li class="nav-last"><a href='.get_pagenum_link($max_page).'> '.__($oldest_text, 'jellypress').'</a></li>';
+      echo '<li class="nav-last"><a href="'.get_pagenum_link($max_page).'"> '.__($oldest_text, 'jellypress').'</a></li>';
 
     echo "\n".'</ul></nav></div></div>'."\n";
 
