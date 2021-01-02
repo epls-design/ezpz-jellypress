@@ -1,4 +1,4 @@
 .woocommerce-store-notice, p.demo_store {
-  background-color: $color-tertiary;
+  background-color: get-color(secondary,700);
   z-index: 9999;
 }

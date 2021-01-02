@@ -17,7 +17,7 @@ if ( ! function_exists( 'jellypress_display_cta_buttons' ) ) :
    */
   function jellypress_display_cta_buttons($buttons) {
     if ( $buttons ) :
-      echo '<div class="button-group">';
+      echo '<div class="button-list">';
         foreach( $buttons as $button ) :
 
           // Default button class and get variables from ACF

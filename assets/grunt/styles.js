@@ -9,9 +9,6 @@ module.exports = function (grunt) {
       sourceMap: true
     },
     dist: {
-      options: {
-        banner: '/*! Test */'
-      },
       files: [{
           src: '<%= opts.build_dir %>/scss/compile/main.scss',
           dest: '<%= opts.dist_dir %>/css/style.css'

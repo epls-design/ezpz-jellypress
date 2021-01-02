@@ -1,6 +1,6 @@
 .site-content {
   img {
-    @extend %mb;
+    margin-bottom: $element-margin;
   }
 }
 

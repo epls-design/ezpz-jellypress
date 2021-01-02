@@ -3,11 +3,11 @@
   span {
     display: block;
   }
-  @extend %mb;
+  margin-bottom: $element-margin;
 }
 
 .telephone-number, .email-address {
-  @extend %mb;
+  margin-bottom: $element-margin;
 }
 
 .phone-numbers {
@@ -30,28 +30,10 @@
     width: 1em;
     height: 1em;
     top: 0;
-    margin-right: .5em;
+    margin-right: $inline-icon-margin;
   }
 }
 
-// Social Channel Branding
-$social-channels: (
-  "facebook": #1877F2,
-  "instagram": #E4405F,
-  "linkedin": #0077B5,
-  "pinterest": #BD081C,
-  "twitter": #1DA1F2,
-  "vimeo": #1AB7EA,
-  "youtube": #FF0000,
-  "whatsapp": #25D366,
-  "microsoftteams": #6264A7,
-  "skype": #00AFF0,
-  "zoom": #2D8CFF,
-  "wikipedia": #000,
-  "github": #181717,
-  "snapchat": #FFFC00
-
-);
 @each $channel, $color in $social-channels {
   .icon__#{$channel} {
     color: $color;
@@ -66,7 +48,7 @@ $social-channels: (
 .social-channels {
   @extend %inline;
   .icon {
-    margin-right: .5em;
+    margin-right: $inline-icon-margin;
     width: 1em;
     height: 1em;
     @include smooth(color,transform);

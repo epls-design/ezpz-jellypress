@@ -3,9 +3,13 @@
   flex-direction: column;
   flex-grow: 1;
   overflow: hidden;
-  border-radius: $card-border-radius;
-  border: $card-border-width $card-border-style $card-border-color;
-  @extend %mb;
+  @if $card-border-radius != 0px {
+    border-radius: $card-border-radius;
+  }
+  @if $card-border-width != 0px {
+    border: $card-border-width $card-border-style $card-border-color;
+  }
+  margin-bottom: $element-margin;
 
   & > :last-child {
     margin-bottom: 0;
@@ -22,7 +26,7 @@
       margin-bottom: 0;
     }
     .card-image {
-      @extend %mb;
+      margin-bottom: $element-margin;
     }
 
     &+.card-section {

@@ -1,5 +1,5 @@
 /* Jellypress Wordpress Theme 1.1.0
- * © 2020-12 Matt Weet - https://www.weareboba.com */
+ * © 2021-01 Matt Weet - https://www.weareboba.com */
 
 /**
  * Calculate the luminance for a color.
@@ -15,12 +15,12 @@
  * Determine whether to use dark or light text on top of given color.
  */
 .acf-fc-layout-handle {
-  padding-left: 25px !important;
-  background: #23282d !important;
-  color: #fff !important;
+  padding-left: 24px !important;
+  background: #1f2933 !important;
+  color: white !important;
   font-weight: bold; }
   .acf-fc-layout-handle .swatch {
-    width: 15px;
+    width: 16px;
     display: inline-block;
     height: 100%;
     position: absolute;
@@ -37,19 +37,19 @@
     margin-right: -8px; }
 
 .acf-fc-layout-controls .acf-icon {
-  background: #fff !important; }
+  background: white !important; }
   .acf-fc-layout-controls .acf-icon:hover {
-    background-color: #0071a1 !important;
-    border-color: #0071a1;
-    color: #fff; }
+    background-color: #c32c78 !important;
+    border-color: #c32c78;
+    color: white; }
   .acf-fc-layout-controls .acf-icon.-minus:hover {
-    background-color: #f7033c !important;
-    border-color: #f7033c;
-    color: #fff; }
+    background-color: #bb2525 !important;
+    border-color: #bb2525;
+    color: white; }
   .acf-fc-layout-controls .acf-icon.-plus:hover {
-    background-color: #53cc3e !important;
-    border-color: #53cc3e;
-    color: #23282d; }
+    background-color: #7bb027 !important;
+    border-color: #7bb027;
+    color: #1f2933; }
 
 .acf-input label {
   font-size: 1em; }
@@ -60,7 +60,7 @@
   left: 70%;
   display: inline-block;
   border-left: 1px solid rgba(255, 255, 255, 0.5);
-  padding-left: 10px; }
+  padding-left: 12px; }
   .acf-handle-right .dashicons {
     opacity: .4; }
 
@@ -68,14 +68,14 @@
   font-size: 1.2em; }
 
 .acf-field p.description {
-  margin-top: 6px;
+  margin-top: 8px;
   border: 1px solid #f3f4f5;
   border-left: 3px solid #cccccc;
   padding: 8px 12px;
-  color: #333333; }
+  color: #1f2933; }
 
 .acf-field .acf-input > p.description {
-  margin-top: 10px; }
+  margin-top: 12px; }
 
 .acf-range-wrap input[type="range"] {
   width: 75%; }
@@ -93,7 +93,7 @@
 .swatches label {
   padding: 0;
   border: 0;
-  margin-right: 6px;
+  margin-right: 8px;
   border-radius: 0px !important; }
   .swatches label.selected {
     border: 0 !important;
@@ -104,19 +104,19 @@
     border: 1px solid #1e8cbe !important; }
 
 .swatches .swatch {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   display: block;
   box-sizing: border-box;
   border-radius: 6px !important;
   border: 1px solid #eee; }
 
 .swatches.texture .swatch {
-  width: 45px;
-  height: 45px; }
+  width: 48px;
+  height: 48px; }
 
 .acf-has-icons .acf-button-group {
-  min-width: 140px; }
+  min-width: 128px; }
   .acf-has-icons .acf-button-group label {
     text-align: left; }
 
@@ -142,11 +142,17 @@
       border-right: 1px solid rgba(255, 255, 255, 0.2);
       box-sizing: border-box; }
 
+.bg-white {
+  background-color: white; }
+
+.bg-dark {
+  background-color: #1f2933; }
+
 .dev-flag {
   position: fixed;
   display: block;
   line-height: 1;
-  font-size: 22px;
+  font-size: 1.5em;
   bottom: 150px;
   right: 0;
   padding: .5em;
@@ -165,30 +171,6 @@
   .dev-flag.staging {
     background-color: #ffd000;
     color: black; }
-
-.bg-primary {
-  background-color: #001496; }
-
-.bg-secondary {
-  background-color: #a62579; }
-
-.bg-tertiary {
-  background-color: #8e1b1f; }
-
-.bg-success {
-  background-color: #53cc3e; }
-
-.bg-warning {
-  background-color: #fc7f14; }
-
-.bg-error {
-  background-color: #f7033c; }
-
-.bg-black {
-  background-color: #000; }
-
-.bg-white {
-  background-color: #fff; }
 
 #mceu_71 {
   background: #fff;

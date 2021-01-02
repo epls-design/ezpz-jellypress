@@ -1,3 +1,4 @@
+// TODO: Take a look - this may need refactoring after latest Jellyfish changes
 @mixin create_woomessage($bgcolor) {
   @include create_callout($bgcolor);
   border-top-color: shade($bgcolor, 90%);
@@ -32,17 +33,17 @@
     border: $borders;
     padding: $element-padding;
     border-radius: $callout-border-radius;
-    @include create_woomessage($color-success);
+    @include create_woomessage(get-color(success));
   }
 
   &-info,
   &-noreviews,
   p.no-comments {
-    @include create_woomessage($color-primary);
+    @include create_woomessage(get-color(primary));
   }
 
   &-error {
-    @include create_woomessage($color-error);
+    @include create_woomessage(get-color(error));
   }
 
   &-error,

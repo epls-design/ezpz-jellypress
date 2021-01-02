@@ -11,7 +11,7 @@
 
         li {
           border: $borders;
-          background-color: $color-background-alt;
+          background-color: get-color(neutral, 100);
           border-radius: $border-radius $border-radius 0 0;
 
           &::after {
@@ -23,7 +23,7 @@
           }
 
           a {
-            color: tint($color-text, 80%);
+            color: get-color(neutral);
 
             &:hover,
             &:focus {
@@ -35,7 +35,7 @@
       @include below(768px){
         // Make additional product information look better on smaller devices
         // Match WooCommerce breakpoint
-        background-color: tint($color-background-alt, 50%);
+        //background-color: get-color(neutral,100);
         .panel {
           border-bottom: $borders;
           padding: 0 $element-padding;

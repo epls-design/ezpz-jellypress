@@ -1,0 +1,20 @@
+// ACCESSIBILITY
+$accessibility-font-size-sm: font-size('size-m1') !default;
+$accessibility-font-size-md: font-size('size-0') !default;
+$accessibility-font-size-lg: font-size('size-1') !default;
+
+$accessibility-button-font-weight: normal !default;
+
+$accessibility-button-color: get-color(neutral,500) !default;
+$accessibility-button-hover-color: $link-active !default;
+$accessibility-button-active-color: inherit !default;
+
+$accessibility-button-border-bottom: 2px !default;
+$accessibility-button-hover-border-color: get-color(secondary) !default;
+$accessibility-button-active-border-color: get-color(primary) !default;
+
+$dark-mode-bg-color: #222222 !default; // TODO: Replace with values from $colors map
+$dark-mode-text-color: #e6e6e6 !default; // TODO: Replace with values from $colors map
+$dark-mode-img-grayscale-perc: 50% !default;
+$dark-mode-link-color: #58cdf1 !default; // TODO: Replace with values from $colors map
+$dark-mode-link-hover: #f1b835 !default; // TODO: Replace with values from $colors map

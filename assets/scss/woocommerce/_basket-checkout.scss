@@ -2,22 +2,22 @@
 .woocommerce-cart,
 .woocommerce-checkout {
   #payment {
-    background: $color-background-alt;
+    background: get-color(neutral, 200);
     border-radius: $border-radius;
     ul.payment_methods li {
       line-height: inherit;
     }
   }
   table.cart img {
-    width: 70px;
+    width: get-size(4);
     margin-bottom: 0;
   }
   @include above(768px) {
     .coupon {
       display: flex;
       #coupon_code {
-        margin-right: 10px;
-        width: 160px !important;
+        margin-right: get-size(0.75);
+        width: get-size(12) !important;
       }
     }
   }

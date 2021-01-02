@@ -6,7 +6,7 @@
 
 // TODO: This needs some more work. Need to test full_width and different/same preceding before bg colour
 // If two blocks follow with the same bg color, remove the top padding so that there is not a chasm of space
-@each $name, $color in $theme-colors {
+@each $name, $color in $background-colors {
   .block.bg-#{$name} {
     &:not(.block__full-width) { // Parent container not also full width
       &+& {

@@ -38,6 +38,6 @@
 .comment-list {
   // Comment list is an ol element, Jellyfish removes bottom margin on nested lists, this resets that behaviour
   ol, ul, dl, li {
-    @extend %mb;
+    margin-bottom: $element-margin;
   }
 }

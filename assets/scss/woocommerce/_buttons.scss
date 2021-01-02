@@ -15,6 +15,7 @@
     font:{
       size: 0.9rem;
       weight: $button-font-weight;
+      family: $button-font-family;
     }
     border:{
       width: $button-border-width;
@@ -22,28 +23,24 @@
       radius: $button-border-radius;
     }
 
-    @include create_button($color-background-alt);
+    @include create_button('neutral');
 
     &.alt {
-      @include create_button($color-primary);
+      @include create_button(get-color(primary));
     }
 
     &.single_add_to_cart_button,
     &.checkout-button,
       {
-      @include create_button($color-success);
+      @include create_button(get-color(success));
 
     }
 
     &.disabled,
     &.disabled.alt,
     &:disabled {
-      opacity: 1;
-      @include create_button($button-disabled-background);
-
-      &:hover {
-        background-color: $button-disabled-background !important;
-      }
+      opacity: $button-disabled-opacity;
+      padding: $button-padding;
     }
   }
 }

@@ -4,7 +4,7 @@
     // Inherit from Jellyfish
     border-radius: $border-radius;
     border: $borders;
-    margin-bottom: $element-margin * 2;
+    margin-bottom: get-size(3);
 
     td,
     th {
@@ -32,7 +32,7 @@
       td {
         &::before {
           // Makes content"attr(data-title)" not crush against input fields
-          margin-right: 10px;
+          margin-right: get-size(0.75);
         }
 
         &.product-remove {
@@ -43,7 +43,7 @@
 
             &:hover {
               background: transparent;
-              color: $color-error !important;
+              color: get-color(error) !important;
               transform: scale(1.1);
             }
           }

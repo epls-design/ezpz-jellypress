@@ -8,12 +8,12 @@ td {
     border-bottom: $borders;
 }
 th {
-    font-weight: bold;
+    font-weight: $weight-bold;
 }
 th,
 td {
     text-align: left;
-    padding: .5em .8em;
+    padding: $table-cell-padding;
 }
 thead th {
   border-bottom: $border-width*2 solid $border-color;

@@ -5,13 +5,13 @@
 
       &.woocommerce-validated {
         input.input-text {
-          border-color: $color-success;
+          border-color: get-color(success);
         }
       }
 
       &.woocommerce-invalid {
         input.input-text {
-          border-color: $color-error;
+          border-color: get-color(error);
         }
       }
     }

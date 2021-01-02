@@ -1,31 +1,66 @@
+// Type sizes used throughout the project.
+$type-scale: (
+//  'size-m2': em($root-size * .75),     // 12px default
+//  'size-m1': em($root-size * .875),    // 14px default
+//  'size-0':  em($root-size * 1),       // 16px default
+//  'size-1':  em($root-size * 1.125),   // 18px default
+//  'size-2':  em($root-size * 1.25),    // 20px default
+//  'size-3':  em($root-size * 1.5),     // 24px default
+//  'size-4':  em($root-size * 1.875),   // 30px default
+//  'size-5':  em($root-size * 2.25),    // 36px default
+//  'size-6':  em($root-size * 3),       // 48px default
+//  'size-7':  em($root-size * 3.75),    // 60px default
+//  'size-8':  em($root-size * 4.5)      // 72px default
+);
+
 // DOCUMENT ROOT FONT SIZE AND LINE HEIGHT AT SMALLEST DEVICE WIDTH
-//$root-font-size: 14px;
-//$root-line-height: 1.4;
+// $root-font-size: font-size('size-m1');
+// $root-line-height: 1.4;
 
-//$font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-//$font-secondary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-//$font-code: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-//$font-body: $font-primary;
-//$font-headings: $font-secondary;
+// $font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+// $font-secondary: $font-primary;
+// $font-code: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+// $font-body: $font-primary;
+// $font-headings: $font-secondary;
 
-//$font-size--2: 0.6em;
-//$font-size--1: 0.8em;
-//$font-size-0: 1em;
-//$font-size-1: 1.5em;
-//$font-size-2: 1.5em;
-//$font-size-3: 1.75em;
-//$font-size-4: 2em;
-//$font-size-5: 2.5em;
-//$font-size-6: 3em;
+// Pass breakpoint values to the following maps to control type size at different breakpoints.
+$font-sizes-h1: (
+//  "root": font-size('size-6'),
+//  "md": font-size('size-7')
+);
 
-//$font-size-h1: $font-size-6;
-//$font-size-h2: $font-size-5;
-//$font-size-h3: $font-size-4;
-//$font-size-h4: $font-size-3;
-//$font-size-h5: $font-size-2;
-//$font-size-h6: $font-size-1;
+$font-sizes-h2: (
+//  "root": font-size('size-5'),
+//  "md": font-size('size-6')
+);
 
-// TODO: Need documenting
-//$weight-light: lighter;
-//$weight-normal: normal;
-//$weight-bold: bold;
+$font-sizes-h3: (
+//  "root": font-size('size-4'),
+//  "md": font-size('size-5')
+);
+
+$font-sizes-h4: (
+//  "root": font-size('size-3'),
+//  "md": font-size('size-4')
+);
+
+$font-sizes-h5: (
+//  "root": font-size('size-3'),
+);
+
+$font-sizes-h6: (
+//  "root": font-size('size-2'),
+//  "md": font-size('size-3')
+);
+
+// $heading-line-height: 1.2;
+
+// $weight-hairline: 100;
+// $weight-thin:     200;
+// $weight-light:    300;
+// $weight-normal:   400;
+// $weight-medium:   500;
+// $weight-semibold: 600;
+// $weight-bold:     700;
+// $weight-xbold:    800;
+// $weight-black:    900;

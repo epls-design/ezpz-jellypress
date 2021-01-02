@@ -4,24 +4,24 @@
 
     .stock {
       font-weight: bold;
-      margin: 0;
+      //margin: 0;
       &:empty::before {
         display: none;
       }
 
       &.in-stock {
-        color: $color-warning;
+        color: get-color(warning);
       }
 
       &.out-of-stock {
-        color: $color-error;
+        color: get-color(error);
       }
     }
 
     p.price {
       color: $color-text;
       ins {
-        color: $color-success;
+        color: get-color(success);
       }
     }
 
@@ -29,16 +29,16 @@
       // Variable product price
       display: block;
       color: $color-text;
-      @extend %mb;
+      margin-bottom: $element-margin;
       ins {
-        color: $color-success;
+        color: get-color(success);
         font-weight: bold;
       }
     }
 
     .woocommerce-grouped-product-list-item__price {
       ins {
-        color: $color-success;
+        color: get-color(success);
         font-weight: bold;
       }
     }
@@ -58,7 +58,10 @@
         align-items: stretch;
 
         div.quantity {
-          margin-right: 10px;
+          margin-right: get-size(0.75);
+          &.hidden {
+            margin-right: 0;
+          }
 
           .qty {
             margin: 0;
@@ -75,12 +78,12 @@
 
     del {
       opacity: .5;
-      font-size: $font-size--1;
+      font-size: font-size('size-m1');
     }
 
     .product_meta {
 
-      font-size: $font-size--1;
+      font-size: font-size('size-m1');
       .sku_wrapper,
       .posted_in {
         display: block;

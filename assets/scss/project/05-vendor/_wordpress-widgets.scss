@@ -5,18 +5,18 @@
     background: $color-text;
   }
   .mejs-controls .mejs-time-rail .mejs-time-current {
-    background: $color-primary;
+    background: get-color(primary);
   }
   .mejs-controls button:hover {
     background-color: transparent;
   }
   .mejs-container {
-    @extend %mb;
+    margin-bottom: $element-margin;
   }
 
   // Gallery
   .gallery-item {
-    @extend %mb;
+    margin-bottom: $element-margin;
     img {
       margin-bottom: 0;
     }

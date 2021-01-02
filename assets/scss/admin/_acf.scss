@@ -1,16 +1,16 @@
-$handle_color: #23282d;
+$handle_color: get-color(neutral,900);
 
 // ACF Flexible Content Heading
 .acf-fc-layout-handle {
 
-  padding-left: 25px !important;
+  padding-left: get-size(1.5) !important;
   background: $handle_color !important;
-  color: #fff !important;
+  color: get-color(neutral,000) !important;
   font-weight: bold;
 
   .swatch {
     // Hugs the left side of the acf-handle and shows the user what bg colour is selected
-    width: 15px;
+    width: get-size(1);
     display: inline-block;
     height: 100%;
     position: absolute;
@@ -26,11 +26,11 @@ $handle_color: #23282d;
   &.seamless {
     .acf-fields {
       border: 0;
-      margin-left: -12px;
-      margin-right: -12px;
+      margin-left: n(get-size(0.75));
+      margin-right: n(get-size(0.75));
       .-table & {
-        margin-left: -8px;
-        margin-right: -8px;
+        margin-left: n(get-size(0.5));
+        margin-right: n(get-size(0.5));
       }
     }
   }
@@ -38,21 +38,21 @@ $handle_color: #23282d;
 
 // Nicer styling of handle icons
 .acf-fc-layout-controls .acf-icon {
-  background: $color-white !important;
+  background: get-color(neutral, 000) !important;
   &:hover {
-    background-color: #0071a1 !important;
-    border-color: #0071a1;
-    color: choose-contrast-color(#0071a1, $color-white, $handle_color);
+    background-color: get-color(primary) !important;
+    border-color: get-color(primary);
+    color: choose-contrast-color(get-color(primary), get-color(neutral, 000), $handle_color);
   }
   &.-minus:hover {
-    background-color: $color-error !important;
-    border-color: $color-error;
-    color: choose-contrast-color($color-error, $color-white, $handle_color);
+    background-color: get-color(error) !important;
+    border-color: get-color(error);
+    color: choose-contrast-color(get-color(error), get-color(neutral, 000), $handle_color);
   }
   &.-plus:hover {
-    background-color: $color-success !important;
-    border-color: $color-success;
-    color: choose-contrast-color($color-success, $color-white, $handle_color);
+    background-color: get-color(success) !important;
+    border-color: get-color(success);
+    color: choose-contrast-color(get-color(success), get-color(neutral, 000), $handle_color);
   }
 }
 
@@ -69,7 +69,7 @@ $handle_color: #23282d;
   left: 70%;
   display: inline-block;
   border-left: 1px solid rgba(255, 255, 255, 0.5);
-  padding-left: 10px;
+  padding-left: get-size(0.75);
 }
 
 #poststuff .acf-postbox .hndle {
@@ -80,16 +80,16 @@ $handle_color: #23282d;
 
   // Nicer formatting of descriptions
   p.description {
-    margin-top: 6px;
+    margin-top: get-size(0.5);
     border: 1px solid rgb(243, 244, 245);
     border-left: 3px solid rgb(204, 204, 204);
-    padding: 8px 12px;
+    padding: get-size(0.5) get-size(0.75);
     color: $color-text;
   }
 
   .acf-input>p.description {
     // Description below input field
-    margin-top: 10px;
+    margin-top: get-size(0.75);
   }
 }
 
@@ -113,7 +113,7 @@ $handle_color: #23282d;
     font-size: 15px;
     height: 15px;
     width: 15px;
-    margin-top: 4px;
+    margin-top: get-size(0.25);
   }
 }
 
@@ -123,7 +123,7 @@ $handle_color: #23282d;
   label {
     padding: 0;
     border: 0;
-    margin-right: 6px;
+    margin-right: get-size(0.5);
     border-radius: 0px !important;
     &.selected {
       border: 0 !important;
@@ -139,8 +139,8 @@ $handle_color: #23282d;
     }
   }
   .swatch {
-    width: 30px;
-    height: 30px;
+    width: get-size(2);
+    height: get-size(2);
     display: block;
     box-sizing: border-box;
     border-radius: 6px !important;
@@ -148,8 +148,8 @@ $handle_color: #23282d;
   }
   &.texture {
     .swatch {
-      width: 45px;
-      height: 45px;
+      width: get-size(3);
+      height: get-size(3);
     }
   }
 }
@@ -157,7 +157,7 @@ $handle_color: #23282d;
 // Nicer formatting for button group with icons
 .acf-has-icons {
   .acf-button-group {
-    min-width: 140px;
+    min-width: get-size(8);
     label {
       text-align: left;
     }
@@ -191,7 +191,7 @@ $handle_color: #23282d;
   li {
     flex: 0 0 50%;
     &:nth-of-type(odd) {
-      border-right: 1px solid rgba($color-white, 0.2);
+      border-right: 1px solid rgba(get-color(neutral, 000), 0.2);
       box-sizing: border-box;
     }
   }

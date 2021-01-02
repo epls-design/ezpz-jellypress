@@ -226,6 +226,7 @@ if (! function_exists('jellypress_acf_flexible_titles') ) {
     {
         $block_layout = get_row_layout();
         $block_bg_color = 'bg-'.strtolower(get_sub_field('background_color'));
+        // TODO: If field is disabled or scheduled add a flag here
 
         if($block_title = get_sub_field('title')) {
             // If there is a title, use that as priority over anything else

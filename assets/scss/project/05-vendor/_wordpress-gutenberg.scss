@@ -1,12 +1,12 @@
 //  Align Classes and Helpers
 %caption {
-  color: $color-text-light;
-  @extend %mb;
+  color: get-color(neutral);
+  margin-bottom: $element-margin;
 }
 
 .alignfull {
   margin-top: $element-margin;
-  @extend %mb;
+  margin-bottom: $element-margin;
   margin-left: calc(50% - 50vw) !important;
   margin-right: calc(50% - 50vw) !important;
   max-width: 100vw;
@@ -16,7 +16,7 @@
 
 .alignwide {
   margin-top: $element-margin;
-  @extend %mb;
+  margin-bottom: $element-margin;
   margin-left: calc(25% - 25vw) !important;
   margin-right: calc(25% - 25vw) !important;
   max-width: 100vw;
@@ -52,7 +52,7 @@
 
 // Audio Blocks
 .wp-block-audio {
-  @extend %mb;
+  margin-bottom: $element-margin;
 
   figcaption {
     @extend %caption;
@@ -63,18 +63,18 @@
 .wp-block-quote.is-large,
 .wp-block-quote.is-style-large {
   font-size: 1em; // reset
-  @extend %mb;
+  margin-bottom: $element-margin;
   padding: 0;
   border-left: 0;
 
   p {
     font-style: inherit;
     line-height: inherit;
-    font-size: $font-size-3;
+    font-size: font-size('size-3');
   }
 
   cite {
-    font-size: $font-size-1;
+    font-size: font-size('size-1');
   }
 }
 
@@ -97,11 +97,11 @@
 
     &::before {
       content: '"';
-      font-size: $font-size-4;
+      font-size: font-size('size-4');
       font-family: $font-secondary;
       line-height: 1;
       display: block;
-      color: $color-primary;
+      color: get-color(primary);
     }
   }
 
@@ -119,7 +119,7 @@
       }
 
       p {
-        font-size: $font-size-4;
+        font-size: font-size('size-4');
         line-height: 1.3;
       }
     }
@@ -130,9 +130,9 @@
 // Buttons
 
 .wp-block-button {
-  color: choose-contrast-color($color-primary,$button-text-color-light,$button-text-color-dark);
+  color: choose-contrast-color(get-color(primary),$button-text-color-light,$button-text-color-dark);
   a {
-    @include create_button($color-primary); // TODO: Test this works. May need to import some of the generic button styles too eg. padding, font, and not just use create_button() mixin. Removed the old @extend as it was creating lots of bloat
+    @include create_button(get-color(primary)); // TODO: Test this works. May need to import some of the generic button styles too eg. padding, font, and not just use create_button() mixin. Removed the old @extend as it was creating lots of bloat
   }
 
   &.is-style-outline {
@@ -150,8 +150,8 @@
   list-style: none;
   margin-left: 0;
   li {
-    font-size: $font-size-2;
-    color: $color-text-light;
+    font-size: font-size('size-2');
+    color: get-color(neutral);
   }
   a {
     text-decoration: none;
@@ -168,7 +168,7 @@
 .wp-block-latest-posts__post-date {
   font-weight: bold;
   font-size: 1rem;
-  color: $color-text-light;
+  color: get-color(neutral);
 }
 
 // TODO: Add support for posts/categories columns - it will work out of the box but it should inherit gutters from Jellyfish Grid
@@ -235,12 +235,12 @@ $gutenberg-collapse-cols: 600px;
 // Cover Images
 .wp-block-cover,
 .wp-block-cover-image {
-  @extend %mb;
+  margin-bottom: $element-margin;
 }
 
 .wp-block-cover-image .wp-block-cover__inner-container,
 .wp-block-cover .wp-block-cover__inner-container {
-  color: $color-background;
+  color: get-color(neutral,000);
 }
 
 .wp-block-cover {
@@ -320,7 +320,7 @@ p.wp-block-subhead {
 
   &:first-letter {
     font-family: $font-headings;
-    color: $color-primary;
+    color: get-color(primary);
     font-weight: bold;
     initial-letter: 3;
     font-size: 5.3em;
@@ -334,15 +334,15 @@ p.wp-block-subhead {
 
 .has-normal-font-size,
 .has-regular-font-size {
-  font-size: $font-size-0;
+  font-size: font-size('size-0');
 }
 
 .has-large-font-size {
-  font-size: $font-size-2;
+  font-size: font-size('size-2');
 }
 
 .has-larger-font-size {
-  font-size: $font-size-3;
+  font-size: font-size('size-3');
   line-height: 1.3;
 }
 
@@ -367,7 +367,7 @@ p.has-background {
 }
 
 .wp-block-video {
-  @extend %mb;
+  margin-bottom: $element-margin;
   figcaption {
     @extend %caption;
   }

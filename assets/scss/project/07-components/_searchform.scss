@@ -3,7 +3,7 @@
   align-items: stretch;
   flex-wrap: nowrap;
   width: 100%;
-  @extend %mb;
+  margin-bottom: $element-margin;
   .search-label {
     width: 100%;
     max-width: 300px;
@@ -24,6 +24,7 @@
     .icon {
       height: 1.2em;
       width: 1.2em;
+      top: 0;
     }
   }
 }

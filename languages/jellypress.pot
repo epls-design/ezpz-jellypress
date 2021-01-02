@@ -1,14 +1,14 @@
-# <!=Copyright (C) 2020 Matt Weet <matt@weareboba.com>
+# <!=Copyright (C) 2021 Matt Weet <matt@weareboba.com>
 # This file is distributed under the UNLICENSED.=!>
 msgid ""
 msgstr ""
 "Project-Id-Version: JellyPress 1.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/unofficialmatt/jellypress/issues\n"
-"POT-Creation-Date: 2020-12-11 07:56:07+00:00\n"
+"POT-Creation-Date: 2021-01-02 21:41:55+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Matt Weet <matt@weareboba.com>\n"
 "Language-Team: Matt Weet <matt@weareboba.com>\n"
 "Language: en\n"

@@ -10,41 +10,42 @@
 
   li {
     text-transform: uppercase;
+    margin-top: 0;
 
     &.active a {
-      background: tint($color-text, 70%);
-      color: $color-background;
+      background: get-color(neutral,600);
+      color: get-color(neutral,000) !important;
     }
 
     &.nav-total,
     a {
       border: $borders;
-      padding: $element-padding/3 $element-padding/2;
+      padding: get-size(0.5) get-size(0.75);
     }
 
     &.nav-total {
-      background: tint($color-text, 50%);
-      color: $color-background;
+      background: get-color(neutral,400);
+      color: get-color(neutral,000);
     }
   }
 
   a {
     @include smooth(background, color);
     text-decoration: none;
-    background: $color-background;
+    background: get-color(neutral,000);
     border-left: 0 !important;
     display: block;
 
     &,
     &:link,
     &:visited {
-      color: tint($color-text, 70%);
+      color: get-color(neutral,700);
     }
 
     &:hover,
     &:focus {
-      background: tint($color-text, 50%);
-      color: $color-background;
+      background: get-color(neutral);
+      color: get-color(neutral,000);
     }
   }
 }
