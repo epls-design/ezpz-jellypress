@@ -226,7 +226,19 @@ if (! function_exists('jellypress_acf_flexible_titles') ) {
     {
         $block_layout = get_row_layout();
         $block_bg_color = 'bg-'.strtolower(get_sub_field('background_color'));
-        // TODO: If field is disabled or scheduled add a flag here
+
+        if($disabled = get_sub_field('disable')) {
+          echo '<div class="acf-block-disabled"></div>';
+        }
+
+        $block_show_from = get_sub_field('show_from');
+        $block_show_until = get_sub_field('show_until');
+        $current_wp_time = current_time('Y-m-d H:i:s');
+        if (($block_show_from == NULL OR $block_show_from <= $current_wp_time) AND ($block_show_until == NULL OR $block_show_until>= $current_wp_time)) {
+        }
+        else {
+          echo '<div class="acf-block-disabled"></div>';
+        }
 
         if($block_title = get_sub_field('title')) {
             // If there is a title, use that as priority over anything else
