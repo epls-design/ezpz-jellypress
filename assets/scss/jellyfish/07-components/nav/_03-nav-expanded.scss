@@ -94,10 +94,25 @@ $nav-fade-offset: 10px;
       }
     }
 
-    li.has-children:hover,
-    li.has-children:focus-within {
+    li.has-children:hover {
+      // Show the drop down on hover
+      >ul {
+        opacity: 1;
+        transform: translateY(0px);
+        top: 100%;
 
-      // Show the drop down on hover or inner-focus
+        &>li {
+          display: block;
+        }
+      }
+
+      >a::after {
+        opacity: 0.5;
+      }
+    }
+    li.has-children:focus-within {
+      // Show the drop down on inner-focus. This selector is not supported in IE/Edge
+      // so has to be duplicated else the :hover state will be ignored
       >ul {
         opacity: 1;
         transform: translateY(0px);
@@ -113,13 +128,12 @@ $nav-fade-offset: 10px;
       }
     }
 
-    li ul li.has-children:hover,
-    li ul li.has-children:focus-within {
+    li ul li.has-children:hover >ul {
+      top: 0;
+    }
 
-      // Deeply Nested Hover
-      >ul {
-        top: 0;
-      }
+    li ul li.has-children:focus-within  >ul {
+      top: 0;
     }
 
     li:nth-of-type(n+3) {
@@ -139,10 +153,6 @@ $nav-fade-offset: 10px;
         }
       }
 
-      &:hover,
-      &:focus-within {
-        >ul {}
-      }
     }
 
     input,
