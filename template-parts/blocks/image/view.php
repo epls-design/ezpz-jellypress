@@ -26,5 +26,3 @@ $block_is_fullwidth = $block['full_width'];
     <?php if ( $block_is_fullwidth == 1 ){ echo '</div>'; }?>
   </div>
 </div>
-
-<!-- TODO: Add a js file into one of these, and edit the gruntfile to concat all of these into project.js - eg. try it with countup.js? -->

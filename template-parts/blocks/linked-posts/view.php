@@ -25,16 +25,16 @@ $posts_array = array(); // Create an empty array to store posts ready for the lo
 ?>
 
 <?php if ($block_title) : ?>
-  <header class="row block-title">
-    <div class="col">
+  <header class="row justify-center block-title">
+    <div class="col md-10 lg-8">
       <h2><?php echo jellypress_bracket_tag_replace($block_title); ?></h2>
     </div>
   </header>
 <?php endif; ?>
 
 <?php if ($block_preamble) : ?>
-  <div class="row block-preamble">
-    <div class="col">
+  <div class="row justify-center block-preamble">
+    <div class="col md-10 lg-8">
       <?php jellypress_content($block_preamble); ?>
     </div>
   </div>
@@ -76,7 +76,7 @@ elseif($query_type == 'rand' || $query_type == 'date'):
 endif;
 
 if($posts_array) :
-  echo '<div class="row equal-height">';
+  echo '<div class="row equal-height justify-center">';
     global $post; // Call global $post variable
     foreach($posts_array as $queried_post):
       $post = $queried_post; // Set $post global variable to the current post object
@@ -94,9 +94,9 @@ endif;
 ?>
 
 <?php if ( $block['buttons'] ) : ?>
-  <div class="row">
-    <div class="col text-center">
-      <?php jellypress_display_cta_buttons($block['buttons']); ?>
+  <div class="row justify-center">
+    <div class="col md-10 lg-8 text-center">
+      <?php jellypress_display_cta_buttons($block['buttons'], 'justify-center'); ?>
     </div>
   </div>
 <?php endif; ?>

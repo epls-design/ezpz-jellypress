@@ -18,15 +18,15 @@ $block_title = $block['title'];
 ?>
 
 <?php if ($block_title) : ?>
-  <header class="row block-title">
-    <div class="col">
+  <header class="row justify-center block-title">
+    <div class="col md-10 lg-8">
       <h2><?php echo jellypress_bracket_tag_replace($block_title); ?></h2>
     </div>
   </header>
 <?php endif; ?>
 
-<div class="row">
-  <div class="col">
+<div class="row justify-center">
+  <div class="col md-10 lg-8">
     <?php jellypress_content($block['text']); ?>
     <?php jellypress_display_cta_buttons($block['buttons']); ?>
   </div>

@@ -38,7 +38,7 @@ $block_title = $block['title'];
 <?php if ( $block['buttons'] ) : ?>
   <div class="row">
     <div class="col text-center">
-      <?php jellypress_display_cta_buttons($block['buttons']); ?>
+      <?php jellypress_display_cta_buttons($block['buttons']); //TODO: if heading is centered, center these ?>
     </div>
   </div>
 <?php endif; ?>
