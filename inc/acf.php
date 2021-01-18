@@ -112,7 +112,7 @@ if (! function_exists('jellypress_google_tag_manager') ) {
 
     function jellypress_google_tag_manager()
     {
-        $get_gtag_id = get_field('gtag_id', 'option');
+        $get_gtag_id = get_global_option('gtag_id');
         if ($get_gtag_id) {
             ?>
       <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -136,7 +136,8 @@ if (! function_exists('jellypress_google_maps_api_key') ) {
 
     function jellypress_google_maps_api_key()
     {
-        $get_gmaps_api = get_field('google_maps_api_key', 'option');
+
+        $get_gmaps_api = get_global_option('google_maps_api_key');
         if ($get_gmaps_api) {
             acf_update_setting('google_api_key', $get_gmaps_api);
         }
@@ -450,3 +451,22 @@ if (! function_exists('jellypress_excerpt_from_acf') ) :
 endif;
 
 // TODO: Add a variable to Server Time message displaying current server time. https://saika.li/snippets-acf-hooks/ gets part way but the field updates with the replaced value on save.
+
+/**
+ * ACF / WPML Options
+ * Return the value of an Options field from WPML's default language
+ * @link https://barebones.dev/articles/acf-and-wpml-get-global-options-value/
+ */
+if ( ! function_exists( 'jellypress_acf_set_language' ) ) :
+  function jellypress_acf_set_language() {
+    return acf_get_setting('default_language');
+  }
+endif;
+if ( ! function_exists( 'get_global_option' ) ) :
+  function get_global_option($name) {
+    add_filter('acf/settings/current_language', 'jellypress_acf_set_language', 100);
+    $option = get_field($name, 'option');
+    remove_filter('acf/settings/current_language', 'jellypress_acf_set_language', 100);
+    return $option;
+  }
+endif;

@@ -139,7 +139,7 @@ if ( ! function_exists( 'jellypress_display_email' ) ) :
   function jellypress_display_email($atts = null, $icon = false) {
     $args = shortcode_atts( array(
       'show_icon' => $icon,
-      'email' => get_field( 'email_address', 'option' ) // Defaults to the email address saved in the options page
+      'email' => get_global_option('email_address') // Defaults to the email address saved in the options page
     ), $atts, 'jellypress-email' );
     $args['show_icon'] = filter_var( $args['show_icon'], FILTER_VALIDATE_BOOLEAN );
 
@@ -174,11 +174,11 @@ if ( ! function_exists( 'jellypress_display_address' ) ) :
     $icon = $show_icon == true ? jellypress_icon('location') : '';
 
     $address = '<div class="postal-address">'.$icon.'<div><span class="screen-reader-text" itemprop="name">'.get_bloginfo('name').__(' Postal Address','jellypress').'</span>';
-    if($address_street = get_field( 'address_street', 'option' )) $address .= '<span>'.$address_street.'</span>';
-    if($address_locality = get_field( 'address_locality', 'option' )) $address .= '<span>'.$address_locality.'</span>';
-    if($address_region = get_field( 'address_region', 'option' )) $address .= '<span>'.$address_region.'</span>';
-    if($address_country = get_field( 'address_country', 'option' )) $address .= '<span>'.$address_country.'</span>';
-    if($address_postal = get_field( 'address_postal', 'option' )) $address .= '<span>'.$address_postal.'</span>';
+    if($address_street = get_global_option( 'address_street')) $address .= '<span>'.$address_street.'</span>';
+    if($address_locality = get_global_option( 'address_locality')) $address .= '<span>'.$address_locality.'</span>';
+    if($address_region = get_global_option( 'address_region')) $address .= '<span>'.$address_region.'</span>';
+    if($address_country = get_global_option( 'address_country')) $address .= '<span>'.$address_country.'</span>';
+    if($address_postal = get_global_option( 'address_postal')) $address .= '<span>'.$address_postal.'</span>';
     $address .= '</div></div>';
     return $address;
   }
@@ -203,7 +203,7 @@ if ( ! function_exists( 'jellypress_display_phone_number' ) ) :
     // If show icon is true, define the icons to return else make them empty strings
     $icon = $show_icon == true ? jellypress_icon('phone') : '';
 
-    $phone_number = get_field( 'primary_phone_number', 'option' );
+    $phone_number = get_global_option( 'primary_phone_number');
     $country_code = '+44';
 
     if($phone_number[0] != '0') {

@@ -61,7 +61,7 @@ if (! function_exists('jellypress_scripts') ) {
           true
         );
 
-        $get_gmaps_api = get_field('google_maps_api_key', 'option');
+        $get_gmaps_api = get_global_option('google_maps_api_key');
         if ($get_gmaps_api) {
           wp_register_script(
             'googlemaps',
@@ -125,9 +125,9 @@ add_action('admin_head', 'jellypress_add_favicon_to_admin');
 add_action('wp_head', 'jellypress_facebook_pixel');
 if ( ! function_exists( 'jellypress_facebook_pixel' ) ) :
   function jellypress_facebook_pixel() {
-    $facebook_pixel_api = get_field('facebook_pixel_id', 'option');
+    $facebook_pixel_api = get_global_option('facebook_pixel_id');
     if ($facebook_pixel_api) {
-    // TODO: This plugin might be useful later on ... https://github.com/seedorff/facebook-pixel-tracker-acf-edition/tree/master/inc
+    // Note: This plugin might be useful later on ... https://github.com/seedorff/facebook-pixel-tracker-acf-edition/tree/master/inc
      ?>
     <!-- Facebook Pixel Code -->
     <script>

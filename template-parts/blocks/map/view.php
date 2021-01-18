@@ -41,7 +41,7 @@ $block_preamble = $block['preamble'];
   <div class="col">
     <?php if ( $block_is_fullwidth == 1 ){ echo '<div class="vw-100">'; }
     // TODO: Replace all calls to get option with some more efficient way - cache or set constant
-        if (get_field('google_maps_api_key', 'option') && ($map_locations = $block['locations'])) :
+        if (get_global_option('google_maps_api_key') && ($map_locations = $block['locations'])) :
           jellypress_display_map_markers($map_locations);
         elseif(current_user_can( 'publish_posts' )):
           // Show a warning for the admin to add an API key

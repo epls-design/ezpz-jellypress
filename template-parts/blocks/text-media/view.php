@@ -100,7 +100,7 @@ if ($media_type == 'iframe' || $media_type == 'map'){
         jellypress_embed_video($video_url);
       }
       elseif ($media_type == 'map'){
-        if (get_field('google_maps_api_key', 'option') && $map_locations = $media_item['location']) :
+        if (get_global_option('google_maps_api_key') && $map_locations = $media_item['location']) :
           jellypress_display_map_markers($map_locations);
         elseif(current_user_can( 'publish_posts' )):
           // Show a warning for the admin to add an API key
