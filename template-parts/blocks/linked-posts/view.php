@@ -24,10 +24,10 @@ $query_type = $block['query_type'];
 $posts_array = array(); // Create an empty array to store posts ready for the loop
 ?>
 
-<?php if ($block_title) : ?>
+<?php if ($block_title) : $title_align = $block['title_align']; ?>
   <header class="row justify-center block-title">
     <div class="col md-10 lg-8">
-      <h2><?php echo jellypress_bracket_tag_replace($block_title); ?></h2>
+      <h2 class="text-<?php echo $title_align;?>"><?php echo jellypress_bracket_tag_replace($block_title); ?></h2>
     </div>
   </header>
 <?php endif; ?>

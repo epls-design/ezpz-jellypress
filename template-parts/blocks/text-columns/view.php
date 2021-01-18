@@ -17,10 +17,10 @@ $block_id = $args['block_id'];
 $block_title = $block['title'];
 ?>
 
-<?php if ($block_title) : ?>
+<?php if ($block_title) : $title_align = $block['title_align']; ?>
 <header class="row block-title">
   <div class="col">
-    <h2><?php echo jellypress_bracket_tag_replace($block_title); ?></h2>
+    <h2 class="text-<?php echo $title_align;?>"><?php echo jellypress_bracket_tag_replace($block_title); ?></h2>
   </div>
 </header>
 <?php endif; ?>
@@ -38,7 +38,11 @@ $block_title = $block['title'];
 <?php if ( $block['buttons'] ) : ?>
   <div class="row">
     <div class="col text-center">
-      <?php jellypress_display_cta_buttons($block['buttons']); //TODO: if heading is centered, center these ?>
+      <?php
+      if($title_align == 'center') jellypress_display_cta_buttons($block['buttons'], 'justify-center');
+      elseif($title_align == 'right') jellypress_display_cta_buttons($block['buttons'], 'justify-end');
+      else jellypress_display_cta_buttons($block['buttons']);
+      ?>
     </div>
   </div>
 <?php endif; ?>

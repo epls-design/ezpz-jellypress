@@ -15,9 +15,10 @@ if ( ! function_exists( 'jellypress_display_cta_buttons' ) ) :
    * Loops through an array and displays buttons if the array is not empty
    * Uses data from ACF repeater field
    */
-  function jellypress_display_cta_buttons($buttons) {
+  function jellypress_display_cta_buttons($buttons, $classes = null) {
     if ( $buttons ) :
-      echo '<div class="button-list">';
+      if(isset($classes)) echo '<div class="button-list '.$classes.'">';
+      else echo '<div class="button-list">';
         foreach( $buttons as $button ) :
 
           // Default button class and get variables from ACF

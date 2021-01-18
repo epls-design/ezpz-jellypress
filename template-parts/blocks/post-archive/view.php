@@ -23,10 +23,10 @@ $query_post_type = $block['query_post_type'];
 $loading_type = $block['loading_type'];
 ?>
 
-<?php if ($block_title) : ?>
+<?php if ($block_title) : $title_align = $block['title_align']; ?>
   <header class="row justify-center block-title">
     <div class="col md-10 lg-8">
-      <h2><?php echo jellypress_bracket_tag_replace($block_title); ?></h2>
+      <h2 class="text-<?php echo $title_align;?>"><?php echo jellypress_bracket_tag_replace($block_title); ?></h2>
     </div>
   </header>
 <?php endif; ?>
@@ -47,6 +47,7 @@ $loading_type = $block['loading_type'];
     'orderby' => 'date',
   );
   $archive_query = new WP_Query( $args_posts_query );
+  // TODO: Add a query for taxonomy?
 
   echo '<div class="row equal-height archive-feed feed-'.$query_post_type.'" id="feed-'.$query_post_type.'">';
     if ( $archive_query->have_posts() ) {

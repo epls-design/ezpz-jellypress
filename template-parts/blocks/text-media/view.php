@@ -70,10 +70,14 @@ if ($media_type == 'iframe' || $media_type == 'map'){
 
 ?>
 
-<?php if ($block_title) : ?>
-  <header class="row block-title">
-    <div class="col">
-      <h2><?php echo jellypress_bracket_tag_replace($block_title); ?></h2>
+<?php if ($block_title) : $title_align = $block['title_align'];
+  $header_row_class = 'row block-title';
+  if($title_align == 'center') $header_row_class .= ' justify-center';
+  elseif($title_align == 'right') $header_row_class .= ' justify-end';
+?>
+  <header class="<?php echo $header_row_class;?>">
+    <div class="col md-10 lg-8">
+      <h2 class="text-<?php echo $title_align;?>"><?php echo jellypress_bracket_tag_replace($block_title); ?></h2>
     </div>
   </header>
 <?php endif; ?>

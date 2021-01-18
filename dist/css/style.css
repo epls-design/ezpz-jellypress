@@ -1269,6 +1269,8 @@ button.toggle-contrast svg {
   margin-bottom: calc(24px - 12px); }
   .button-list .button, .button-list a.button {
     margin: 0 12px 12px 0; }
+    .button-list .button:last-child, .button-list a.button:last-child {
+      margin-right: 0; }
 
 .button-group {
   display: inline-flex;
@@ -1725,23 +1727,25 @@ input:checked + .checkbox__control {
       padding-right: 42px; }
       .navbar-menu li.has-children > a::after, .navbar-menu li.menu-item-has-children > a::after {
         transform: translate(-10px, -50%) rotate(45deg); }
-    .navbar-menu li.has-children:hover > ul, .navbar-menu li.menu-item-has-children:hover > ul,
-    .navbar-menu li.has-children:focus-within > ul,
-    .navbar-menu li.menu-item-has-children:focus-within > ul {
+    .navbar-menu li.has-children:hover > ul, .navbar-menu li.menu-item-has-children:hover > ul {
       opacity: 1;
       transform: translateY(0px);
       top: 100%; }
-      .navbar-menu li.has-children:hover > ul > li, .navbar-menu li.menu-item-has-children:hover > ul > li,
-      .navbar-menu li.has-children:focus-within > ul > li,
-      .navbar-menu li.menu-item-has-children:focus-within > ul > li {
+      .navbar-menu li.has-children:hover > ul > li, .navbar-menu li.menu-item-has-children:hover > ul > li {
         display: block; }
-    .navbar-menu li.has-children:hover > a::after, .navbar-menu li.menu-item-has-children:hover > a::after,
-    .navbar-menu li.has-children:focus-within > a::after,
-    .navbar-menu li.menu-item-has-children:focus-within > a::after {
+    .navbar-menu li.has-children:hover > a::after, .navbar-menu li.menu-item-has-children:hover > a::after {
       opacity: 0.5; }
-    .navbar-menu li ul li.has-children:hover > ul, .navbar-menu li ul li.menu-item-has-children:hover > ul,
-    .navbar-menu li ul li.has-children:focus-within > ul,
-    .navbar-menu li ul li.menu-item-has-children:focus-within > ul {
+    .navbar-menu li.has-children:focus-within > ul, .navbar-menu li.menu-item-has-children:focus-within > ul {
+      opacity: 1;
+      transform: translateY(0px);
+      top: 100%; }
+      .navbar-menu li.has-children:focus-within > ul > li, .navbar-menu li.menu-item-has-children:focus-within > ul > li {
+        display: block; }
+    .navbar-menu li.has-children:focus-within > a::after, .navbar-menu li.menu-item-has-children:focus-within > a::after {
+      opacity: 0.5; }
+    .navbar-menu li ul li.has-children:hover > ul, .navbar-menu li ul li.menu-item-has-children:hover > ul {
+      top: 0; }
+    .navbar-menu li ul li.has-children:focus-within > ul, .navbar-menu li ul li.menu-item-has-children:focus-within > ul {
       top: 0; }
     .navbar-menu li:nth-of-type(n+3) ul {
       right: 0; }
