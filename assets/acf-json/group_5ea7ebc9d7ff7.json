@@ -218,6 +218,27 @@
             "placeholder": ""
         },
         {
+            "key": "field_6005ef3668a4d",
+            "label": "Country Code",
+            "name": "dialing_code",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 44,
+            "placeholder": "",
+            "prepend": "+",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
             "key": "field_598da40b04a1e",
             "label": "Primary Phone Number",
             "name": "primary_phone_number",
@@ -226,13 +247,13 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "30",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
             "placeholder": "",
-            "prepend": "+44",
+            "prepend": "",
             "append": "",
             "maxlength": ""
         },
@@ -295,7 +316,7 @@
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "30",
+                        "width": "20",
                         "class": "",
                         "id": ""
                     },
@@ -314,7 +335,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "25",
+                        "width": "20",
                         "class": "",
                         "id": ""
                     },
@@ -322,6 +343,27 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": ""
+                },
+                {
+                    "key": "field_6005f06cb21da",
+                    "label": "Country Code",
+                    "name": "dialing_code",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "10",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 44,
+                    "placeholder": "",
+                    "prepend": "+",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
                 },
                 {
                     "key": "field_598d6e4df5326",
@@ -332,13 +374,13 @@
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "25",
+                        "width": "20",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
                     "placeholder": "",
-                    "prepend": "+44",
+                    "prepend": "",
                     "append": "",
                     "maxlength": ""
                 },
@@ -809,5 +851,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "This field group allows the editor to update key organisation information and to connect external APIs which are added to the theme.",
-    "modified": 1603351387
+    "modified": 1611002177
 }

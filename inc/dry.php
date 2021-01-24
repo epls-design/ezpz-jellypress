@@ -186,6 +186,31 @@ if ( ! function_exists( 'jellypress_display_address' ) ) :
   add_shortcode('jellypress-address', 'jellypress_display_address');
 endif;
 
+/**
+ * A function which takes a phone number string and country code, removes all spaces and non-numeric characters in the phone number and adds the dialing code to the front
+ *
+ * @param string $telephone_number
+ * @param string $country_code
+ * @return string Formatted Number
+ */
+if ( ! function_exists( 'jellypress_append_country_dialing_code' ) ) :
+  function jellypress_append_country_dialing_code($telephone_number, $country_code = null) {
+
+    $cleansed_number = esc_attr(preg_replace("/[^0-9 ]/", "", $telephone_number )); // Strip all unwanted characters
+
+    if($country_code != '' && $country_code != null) {
+      $country_code = '+'.$country_code;
+      // Replace leading 0 with country code or insert if it doesn't exist
+      $formatted_phone_number = str_replace( array (' ', '(0)'), '', $cleansed_number[0] === '0' ? $country_code . ltrim( $cleansed_number, '0' ) : $country_code . $cleansed_number );
+    }
+    else {
+      $formatted_phone_number = str_replace(' ', '', $cleansed_number); // Strip spaces
+    }
+
+    return $formatted_phone_number;
+  }
+endif;
+
 if ( ! function_exists( 'jellypress_display_phone_number' ) ) :
   /**
    * Displays the organisations phone number, taken from the ACF options page
@@ -205,16 +230,9 @@ if ( ! function_exists( 'jellypress_display_phone_number' ) ) :
     $icon = $show_icon == true ? jellypress_icon('phone') : '';
 
     $phone_number = get_global_option( 'primary_phone_number');
-    $country_code = '+44';
+    $link_number = jellypress_append_country_dialing_code($phone_number, get_global_option( 'dialing_code'));
 
-    if($phone_number[0] != '0') {
-      // Add leading 0 back in for visual display purposes
-      $phone_number = '0'.$phone_number;
-    }
-    $display_number = esc_attr(preg_replace("/[^0-9 ]/", "", $phone_number )); // Strip all unwanted characters
-    $link_number = str_replace( array (' ', '(0)'), '', $display_number[0] === '0' ? $country_code . ltrim( $display_number, '0' ) : $display_number );
-
-    return '<span class="telephone-number"><span class="bold">'.$icon.__('Telephone:','jellypress').'</span> <a href="tel:'.$link_number.'">'.$display_number.'</a></span>';
+    return '<span class="telephone-number"><span class="bold">'.$icon.__('Telephone:','jellypress').'</span> <a href="tel:'.$link_number.'" rel="nofollow">'.$phone_number.'</a></span>';
   }
   add_shortcode('jellypress-phone', 'jellypress_display_phone_number');
 endif;
@@ -288,15 +306,10 @@ if ( ! function_exists( 'jellypress_display_departments' ) ) :
         $department = get_sub_field('department');
         $phone_number   = get_sub_field('phone_number');
         $email_address     = get_sub_field('email_address');
-        if($phone_number[0] != '0') {
-          // Add leading 0 back in for visual display purposes
-          $phone_number = '0'.$phone_number;
-        }
-        $country_code = '+44';
-        $display_number = esc_attr(preg_replace("/[^0-9 ]/", "", $phone_number )); // Strip all unwanted characters
-        $link_number = str_replace( array (' ', '(0)'), '', $display_number[0] === '0' ? $country_code . ltrim( $display_number, '0' ) : $display_number );
 
-        $phone_numbers_formatted .= '<tr><td class="bold">'.$department.'</td><td><a href="tel:'.$link_number.'">'.$display_number.'</a></td><td>'.jellypress_hide_email($email_address).'</td></tr>';
+        $link_number = jellypress_append_country_dialing_code($phone_number, get_sub_field( 'dialing_code'));
+
+        $phone_numbers_formatted .= '<tr><td class="bold">'.$department.'</td><td><a href="tel:'.$link_number.'" rel="nofollow">'.$phone_number.'</a></td><td>'.jellypress_hide_email($email_address).'</td></tr>';
       endwhile;
       $phone_numbers_formatted .= '</tbody></table>';
     endif;

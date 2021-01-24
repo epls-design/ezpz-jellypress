@@ -200,11 +200,8 @@ add_action('wp_head', function() {
 
     // PHONE
     if ($telephone = $schema_config['primary_phone_number']) {
-      if($telephone[0] != '0') $telephone = '0'.$telephone;
-      $country_code = '+44';
-      $telephone = esc_attr(preg_replace("/[^0-9]/", "", $telephone )); // Strip all unwanted characters
-      $telephone = str_replace( array (' ', '(0)'), '', $telephone[0] === '0' ? $country_code . ltrim( $telephone, '0' ) : $telephone );
-      $schema['telephone'] = $telephone;
+      $link_number = jellypress_append_country_dialing_code($telephone, get_global_option( 'dialing_code'));
+      $schema['telephone'] = $link_number;
     }
 
     // EMAIL
@@ -216,10 +213,8 @@ add_action('wp_head', function() {
     if ($contactPoints = $schema_config['departments']) {
       $schema['contactPoint'] = array();
       foreach($contactPoints as $contactPoint):
-          //var_dump($contactPoint);
-          $country_code = '+44';
-          $telephone = esc_attr(preg_replace("/[^0-9]/", "", $contactPoint['phone_number'] )); // Strip all unwanted characters
-          $telephone = str_replace( array (' ', '(0)'), '', $telephone[0] === '0' ? $country_code . ltrim( $telephone, '0' ) : $telephone );
+          $telephone = jellypress_append_country_dialing_code($contactPoint['phone_number'], $contactPoint['dialing_code']);
+
           $contact = array(
               '@type'       => 'ContactPoint',
               'contactType' => $contactPoint['department'],
