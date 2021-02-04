@@ -10,7 +10,10 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-// TODO: Replace with option to allow editor to customise 404 page
+if ( get_field( 'redirect_404', 'options' ) ) :
+  wp_safe_redirect( home_url() ); // Redirect to home page
+  exit;
+endif;
 
 get_header();
 ?>
