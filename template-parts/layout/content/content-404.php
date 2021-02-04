@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
         </div>
       </div>
       <aside class="col sm-12 md-4 lg-3 sidebar">
-        <h2><?php _e('Search this website:', 'jellypress');?></h2>
+        <h4><?php _e('Search this website:', 'jellypress');?></h4>
         <?php
           get_search_form();
           the_widget( 'WP_Widget_Recent_Posts' );
