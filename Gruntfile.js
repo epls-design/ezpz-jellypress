@@ -6,7 +6,6 @@ module.exports = function (grunt) {
 
   // Replaces grunt.loadNpmTasks to load grunt tasks from package.json
   require('load-grunt-tasks')(grunt);
-  // TODO: Would like to use jit-grunt but it doesn't like the uglify-es module
 
   // Display timings of tasks
   require('time-grunt')(grunt);
@@ -100,6 +99,3 @@ module.exports = function (grunt) {
   );
 
 };
-
-// TODO: Put together some basic docs - refer to Jellyfish repo, with a few tweaks
-// TODO: Add Grunt Bump?

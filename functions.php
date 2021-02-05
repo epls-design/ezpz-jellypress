@@ -40,6 +40,7 @@ $jellypress_includes = array(
 	'inc/customizer.php',              // Customizer additions.
   'inc/ajax-loadmore/loadmore.php',  // Uses Wordpress AJAX to lazyload more posts.
   'inc/remote-images.php',           // Uses images from a remote production URL if working in the local dev environment.
+//  'inc/security.php',                // Security enhancements.
 
   //~~~~~ CUSTOM POST TYPES
   'inc/post_types/post.php',

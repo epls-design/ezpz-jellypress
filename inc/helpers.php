@@ -114,3 +114,22 @@ if ( ! function_exists( 'jellypress_get_full_url' ) ) :
     return $url;
   }
 endif;
+
+/**
+ * Calculates the approximate reading time for a string.
+ * Sanitizes and removes tags to give an accurate read out.
+ *
+ * @param string $string = text to count
+ * @param integer $wpm = Words Per Minute
+ * @return integer Approximate reading time in minutes
+ */
+if ( ! function_exists( 'jellypress_calculate_reading_time' ) ) :
+  function jellypress_calculate_reading_time($string, $wpm = 265) {
+    $text_content = strip_shortcodes($string);    // Remove shortcodes
+    $str_content = strip_tags( $text_content );   // Remove tags
+    $word_count = str_word_count( $str_content ); // Count Words
+
+    $reading_time = ceil( $word_count / $wpm );
+    return $reading_time;
+  }
+endif;

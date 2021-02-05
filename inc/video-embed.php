@@ -61,7 +61,7 @@ if ( !function_exists( 'jellypress_embed_video' )) :
               'portrait'      => 0,
               'title'         => 0,
               'autoplay'      => 0,
-              'color'         => '#ff0000' // TODO: Change to website's brand colour
+              'color'         => '#ff0000'
           );
           $oembed_url = add_query_arg( $params, $oembed_url );
           wp_enqueue_script('vimeo-api');

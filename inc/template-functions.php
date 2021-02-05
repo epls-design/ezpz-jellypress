@@ -148,7 +148,6 @@ if ( !function_exists( 'jellypress_featured_image_admin_prompt' )) :
   function jellypress_featured_image_admin_prompt( $content, $post_id, $thumbnail_id ){
     $help_text = '<p>' . __( 'Please add a featured image. This will be used as the main image for the page on search engines and may be displayed on the page itself depending on the design. ', 'jellypress' ) . '</p>';
     return $help_text . $content;
-    // TODO: If no featured image set, force one from ACF fields?
   }
 endif;
 
