@@ -50,8 +50,6 @@ if( !post_password_required()):
         $block_classes .=' last'; // This is not foolproof, if any blocks are disabled this will not be accurate - so it shouldn't be used for anything important
       }
 
-      $block_id = $block['section_id'];
-
       $block_layout = $block['acf_fc_layout'];
       $block_classes.= ' block__'.$block_layout; // Add layout to classes
 
@@ -93,22 +91,17 @@ if( !post_password_required()):
         $block_classes.= ' bg-'.strtolower($block_bg_color);
       }
 
-      if ( $block['disable'] != 1 AND $block_datetime_show == true) : // Display the block, if it is not disabled, and if the scheduling checks pass true ?>
-        <section <?php if($block_id) echo 'id="'.strtolower($block_id).'"'; ?> class="<?php echo $block_classes;?>">
-          <div class="container">
-            <?php
-            // @since Wordpress 5.5 --> Pass data as params to get_template_part
-            $block_params = array(
-              'block' => $block,
-              'block_id' => $i,
-              'block_bg' => $block_bg_color,
-              'prev_block_bg' => $prev_block_bg
-            );
-            get_template_part( 'template-parts/blocks/' . $block_layout .'/view', null, $block_params );
-            ?>
-          </div>
-        </section>
-        <?php $i++;
+      if ( $block['disable'] != 1 AND $block_datetime_show == true) : // Display the block, if it is not disabled, and if the scheduling checks pass true
+        // @since Wordpress 5.5 --> Pass data as params to get_template_part
+        $block_params = array(
+          'block' => $block,
+          'block_id' => $i,
+          'block_classes' => $block_classes,
+//              'block_bg' => $block_bg_color,
+//              'prev_block_bg' => $prev_block_bg
+        );
+        get_template_part( 'template-parts/blocks/' . $block_layout .'/view', null, $block_params );
+        $i++;
       endif;
 
     } // foreach
