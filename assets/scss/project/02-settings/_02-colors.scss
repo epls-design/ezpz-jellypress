@@ -81,8 +81,8 @@ $theme-colors: (
 
 // Keys added to the map will have the following classes created for them: .bg-*
 $background-colors: (
-//  "white": get-color(neutral,000),
-//  "dark": get-color(neutral, 900)
+  "white": #fff,
+  "black": #000
 );
 
 // $color-text: get-color(neutral, 900);

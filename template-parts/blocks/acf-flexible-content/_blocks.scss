@@ -1,7 +1,24 @@
 .block {
-  padding-top: $block-padding;
-  padding-bottom: $block-padding - $element-margin; // Negates for the last element in a block, rather than using :last-of-type
+  @each $point, $size in $block-padding {
+    @if $point == 'root' {
+      padding-top: $size;
+      padding-bottom: $size - $element-margin; // Negates for the last element in a block, rather than using :last-of-type
+    }
+    @else {
+      @include above($point) {
+        padding-top: $size;
+        padding-bottom: $size - $element-margin; // Negates for the last element in a block, rather than using :last-of-type
+      }
+    }
+  }
   position: relative;
+}
+
+.block-preamble {
+  margin-bottom: $element-margin;
+  .col *:last-child {
+    margin-bottom: 0;
+  }
 }
 
 // TODO: This needs some more work. Need to test full_width and different/same preceding before bg colour
@@ -25,10 +42,37 @@
   }
   // Some full width blocks have headers or preambles - reinstate the top padding on these to open them back up and prevent crashing
   .block-title, .block-preamble {
-    margin-top: $block-padding;
+    // TODO: Check how this works with bg-color crashing in
+    @each $point, $size in $block-padding {
+      @if $point == 'root' {
+        margin-top: $size;
+      }
+      @else {
+        @include above($point) {
+          margin-top: $size;
+        }
+      }
+    }
   }
   .block-title+.block-preamble {
     // If there is a header we don't want the top margin
     margin-top: 0 !important;
+  }
+}
+
+.block-title {
+  h2 {
+    margin-bottom: 0;
+  }
+  margin-bottom: $block-title-bottom-margin;
+}
+
+.block .button-list {
+  .button {
+    @include below(sm) {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 }

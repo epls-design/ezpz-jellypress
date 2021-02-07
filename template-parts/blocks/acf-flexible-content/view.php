@@ -73,13 +73,6 @@ if( !post_password_required()):
         $block_classes.= ' hide-below-md';
       }
 
-      // Check for full-width setting
-      if ($block_layout === 'image' || $block_layout === 'video' || $block_layout === 'map' || $block_layout === 'iframe' ) {
-        if( $block['full_width'] == 1) {
-          $block_classes.= ' block__full-width';
-        };
-      }
-
       // Background colour
 
       $prev_block_bg = $block_bg_color;

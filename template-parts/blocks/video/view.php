@@ -18,6 +18,8 @@ $block_classes = $args['block_classes'];
 $block_title = $block['title'];
 $block_is_fullwidth = $block['full_width'];
 
+if($block_is_fullwidth == 1) $block_classes.= ' block__full-width';
+
 ?>
 <section <?php if($block_id_opt = $block['section_id']) echo 'id="'.strtolower($block_id_opt).'"'; ?> class="<?php echo $block_classes;?>">
   <div class="container">

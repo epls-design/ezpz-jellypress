@@ -1,0 +1,68 @@
+$cover-min-heights: (
+  25vh,50vh,75vh,100vh
+);
+
+.block__cover {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  &.bg-is-fixed {
+    background-attachment: fixed;
+  }
+  &.text-white {
+    h2 {
+      color: inherit;
+    }
+  }
+  @each $height in $cover-min-heights {
+    &.min-h-#{$height} {
+      min-height: $height;
+    }
+  }
+  h2 {
+    @include above(md) {
+      font-size: font-size('size-6');
+    }
+    @include above(lg) {
+      font-size: font-size('size-7');
+    }
+  }
+  .block-title {
+    margin-bottom: get-size(1);
+  }
+  .button-list {
+    margin-top: get-size(3);
+  }
+  &.has-overlay::before {
+    @include pseudo;
+    width: 100%;
+    height: 100%;
+    //opacity: 0.8;
+    top: 0;
+  }
+}
+
+@each $name, $color in $background-colors {
+  // Loop through $theme-colors map and create classes for .bg-*
+  .overlay-#{$name}::before {
+    background-color: $color;
+  }
+}
+
+@for $i from 1 through 100 {
+  @if $i % 10 == 0 {
+    .overlay-opacity-#{$i}::before {
+      opacity: $i/100;
+    }
+  }
+}
+
+.cover-text {
+  font-size: font-size('size-3');
+  @include above(md) {
+    font-size: font-size('size-4');
+    p {
+      line-height: 1.2;
+    }
+  }
+}
