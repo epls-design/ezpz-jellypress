@@ -15,8 +15,8 @@ $block_id = $args['block_id'];
 //var_dump($block);
 
 $block_title = $block['title'];
-$video_url = $block['video'];
 $block_is_fullwidth = $block['full_width'];
+
 ?>
 
 <?php if ($block_title) : $title_align = $block['title_align']; ?>
@@ -31,7 +31,7 @@ $block_is_fullwidth = $block['full_width'];
   <div class="col">
     <?php
     if ( $block_is_fullwidth == 1 ){ echo '<div class="vw-100">'; }
-      jellypress_embed_video($video_url);
+      jellypress_embed_video($block['video'], $block['aspect_ratio']);
     if ( $block_is_fullwidth == 1 ){ echo '</div>'; }?>
   </div>
 </div>

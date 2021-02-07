@@ -4,6 +4,9 @@
  * Renders a block to contain Text and a Media element
  * (image, video, iframe, post, map) with the option to reorder columns
  * and change the ratio split of columns
+ * TODO: Replace with 'Magic Columns' that is a repeater,
+ * that allows the user to choose column width, media of choice, and add up to XXX columns,
+ * and includes a 'spacer' block
  *
  * @package jellypress
  */
@@ -47,6 +50,8 @@ $media_post = $media_item['media_post'];
 $image_id = $media_item['image'];
 $video_url = $media_item['video'];
 $website_url = $media_item['website_url'];
+$aspect_ratio = $media_item['aspect_ratio'];
+$unfiltered_html = $media_item['unfiltered_html'];
 
 // We only want the image to appear before the text on smaller devices, everything else needs an explanation before it is seen on screen
 if ($media_type == 'image' ){
@@ -84,12 +89,12 @@ if ($media_type == 'iframe' || $media_type == 'map'){
 
 <div class="row <?php echo $row_class;?>">
 
-  <div class="col sm-12 <?php echo $text_class; ?> flex-column">
+  <div class="col column-text sm-12 <?php echo $text_class; ?> flex-column">
     <?php jellypress_content($block['text']); ?>
     <?php jellypress_display_cta_buttons($block['buttons']); ?>
   </div>
 
-  <div class="col sm-12 <?php echo $media_class; ?>">
+  <div class="col column-media sm-12 <?php echo $media_class; ?>">
     <?php if ($media_type == 'image'){
         echo wp_get_attachment_image( $image_id, $image_size );
       }
@@ -101,7 +106,7 @@ if ($media_type == 'iframe' || $media_type == 'map'){
         wp_reset_postdata();
       }
       elseif ($media_type == 'video'){
-        jellypress_embed_video($video_url);
+        jellypress_embed_video($video_url, $aspect_ratio);
       }
       elseif ($media_type == 'map'){
         if (get_global_option('google_maps_api_key') && $map_locations = $media_item['location']) :
@@ -118,6 +123,9 @@ if ($media_type == 'iframe' || $media_type == 'map'){
       }
       elseif ($media_type == 'iframe'){
         echo '<iframe class="embedded-iframe" src="'.$website_url.'"></iframe>';
+      }
+      elseif ($media_type == 'html'){
+        echo $unfiltered_html;
       }
     ?>
   </div>

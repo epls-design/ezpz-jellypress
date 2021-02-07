@@ -36,7 +36,7 @@ if ( !function_exists( 'jellypress_embed_video' )) :
    * @param string $video The URL that should be embedded.
    *
    */
-  function jellypress_embed_video ( $video ) {
+  function jellypress_embed_video ( $video, $aspect_ratio = '16x9' ) {
 
       $oembed = wp_oembed_get( $video ); // Full oEmbed Code
       $oembed = explode( ' src="', $oembed ); // Explode to put the URL and options into [1]
@@ -92,7 +92,7 @@ if ( !function_exists( 'jellypress_embed_video' )) :
           <div class="video-overlay" style="background-image:url('<?php echo $video_thumbnail;?>')">
             <button class="play platform-<?php esc_attr_e( $platform ); ?>" data-src="<?php echo esc_url( $oembed_url ); ?>" title="<?php _e('Play Video','jellypress');?>"><?php echo jellypress_icon( 'play' ); ?></button>
           </div>
-          <div class="embed-container">
+          <div class="embed-container ratio-<?php echo $aspect_ratio;?>">
             <iframe width="640" height="390" type="text/html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
         </div>

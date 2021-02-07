@@ -212,7 +212,7 @@
             "default_value": "LocalBusiness",
             "allow_null": 0,
             "multiple": 0,
-            "ui": 0,
+            "ui": 1,
             "return_format": "value",
             "ajax": 0,
             "placeholder": ""
@@ -734,7 +734,7 @@
                     "default_value": false,
                     "allow_null": 0,
                     "multiple": 0,
-                    "ui": 0,
+                    "ui": 1,
                     "return_format": "value",
                     "ajax": 0,
                     "placeholder": ""
@@ -886,5 +886,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "This field group allows the editor to update key organisation information and to connect external APIs which are added to the theme.",
-    "modified": 1612471496
+    "modified": 1612710176
 }

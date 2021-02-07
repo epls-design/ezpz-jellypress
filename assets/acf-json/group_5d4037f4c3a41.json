@@ -43,7 +43,7 @@
                             "label": "Block Title",
                             "name": "title",
                             "type": "textarea",
-                            "instructions": "If you'd like to add a title to the block, you can do so here. <strong>You can enclose text in double square brackets <code>[[  ]]<\/code> to emphasise certain words. For example <code>[[I am emphasised!]] I am not!<\/code><\/strong>",
+                            "instructions": "If you'd like to add a title to the block, you can do so here. <strong>You can enclose text in double square brackets <code>[[  ]]<\/code> to emphasise certain words. For example <code>[[I am emphasised!]] I am not!<\/code><\/strong> <strong>Max 90 characters<\/strong>",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -53,7 +53,7 @@
                             },
                             "default_value": "",
                             "placeholder": "",
-                            "maxlength": "",
+                            "maxlength": 90,
                             "rows": 2,
                             "new_lines": ""
                         },
@@ -574,9 +574,10 @@
                                     "choices": {
                                         "image": "<i class=\"dashicons dashicons-format-image\"><\/i> Image",
                                         "video": "<i class=\"dashicons dashicons-format-video\"><\/i> Video",
-                                        "post": "<i class=\"dashicons dashicons-randomize\"><\/i> Post",
+                                        "post": "<i class=\"dashicons dashicons-embed-post\"><\/i> Post",
                                         "map": "<i class=\"dashicons dashicons-admin-site-alt3\"><\/i> Map",
-                                        "iframe": "<i class=\"dashicons dashicons-location-alt\"><\/i> iFrame"
+                                        "iframe": "<i class=\"dashicons dashicons-location-alt\"><\/i> iFrame",
+                                        "html": "<i class=\"dashicons dashicons-html\"><\/i> HTML"
                                     },
                                     "allow_null": 0,
                                     "default_value": "image",
@@ -666,6 +667,41 @@
                                     },
                                     "width": "",
                                     "height": ""
+                                },
+                                {
+                                    "key": "field_60200608b2646",
+                                    "label": "Aspect Ratio",
+                                    "name": "aspect_ratio",
+                                    "type": "select",
+                                    "instructions": "Please select the video's aspect ratio.",
+                                    "required": 1,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5eb59a10540b3",
+                                                "operator": "==",
+                                                "value": "video"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "100",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "16x9": "16x9",
+                                        "21x9": "21x9",
+                                        "1x1": "1x1",
+                                        "4x3": "4x3"
+                                    },
+                                    "default_value": "16x9",
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "ui": 1,
+                                    "ajax": 0,
+                                    "return_format": "value",
+                                    "placeholder": ""
                                 },
                                 {
                                     "key": "field_5d76a5117ea61",
@@ -773,6 +809,33 @@
                                             "prefix_name": 0
                                         }
                                     ]
+                                },
+                                {
+                                    "key": "field_60200d80a8655",
+                                    "label": "HTML",
+                                    "name": "unfiltered_html",
+                                    "type": "textarea",
+                                    "instructions": "You can add HTML here and it will not be sanitized. E.g. you can paste <script> tags here and the code will be executed. <strong>Please use with caution!<\/strong>",
+                                    "required": 1,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5eb59a10540b3",
+                                                "operator": "==",
+                                                "value": "html"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "100",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "maxlength": "",
+                                    "rows": 8,
+                                    "new_lines": ""
                                 }
                             ]
                         },
@@ -839,7 +902,7 @@
                             "default_value": "top",
                             "allow_null": 0,
                             "multiple": 0,
-                            "ui": 0,
+                            "ui": 1,
                             "return_format": "value",
                             "ajax": 0,
                             "placeholder": ""
@@ -865,7 +928,7 @@
                             "default_value": "equal",
                             "allow_null": 0,
                             "multiple": 0,
-                            "ui": 0,
+                            "ui": 1,
                             "return_format": "value",
                             "ajax": 0,
                             "placeholder": ""
@@ -1147,12 +1210,39 @@
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "100",
+                                "width": "66",
                                 "class": "",
                                 "id": ""
                             },
                             "width": "",
                             "height": ""
+                        },
+                        {
+                            "key": "field_6020001741a22",
+                            "label": "Aspect Ratio",
+                            "name": "aspect_ratio",
+                            "type": "select",
+                            "instructions": "Please select the video's aspect ratio.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "34",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "16x9": "16x9",
+                                "21x9": "21x9",
+                                "1x1": "1x1",
+                                "4x3": "4x3"
+                            },
+                            "default_value": "16x9",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 1,
+                            "ajax": 0,
+                            "return_format": "value",
+                            "placeholder": ""
                         },
                         {
                             "key": "field_5eb3b845bbf74",
@@ -2247,14 +2337,14 @@
     "instruction_placement": "label",
     "hide_on_screen": [
         "permalink",
-        "excerpt",
         "discussion",
         "comments",
+        "revisions",
         "slug",
         "author",
         "send-trackbacks"
     ],
     "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1611005067
+    "modified": 1612713578
 }
