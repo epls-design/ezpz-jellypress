@@ -78,31 +78,9 @@ $handle_color: get-color(neutral,900);
 
 .acf-field {
 
-  // Nicer formatting of descriptions
-  p.description {
-    margin-top: get-size(0.5);
-    border: 1px solid rgb(243, 244, 245);
-    border-left: 3px solid rgb(204, 204, 204);
-    padding: get-size(0.5) get-size(0.75);
-    color: $color-text;
-  }
-
   .acf-input>p.description {
     // Description below input field
     margin-top: get-size(0.75);
-  }
-}
-
-.acf-range-wrap {
-  // Nicer range field format
-  input[type="range"] {
-    width: 75%;
-
-  }
-
-  input[type="number"] {
-    width: 20% !important;
-    max-width: 70px;
   }
 }
 
@@ -210,4 +188,83 @@ $handle_color: get-color(neutral,900);
   border: 2px dashed red;
   box-sizing: border-box;
   pointer-events: none;
+}
+
+@keyframes blinking-text {
+  from {
+    color: red;
+  }
+  to {
+    color: blue;
+  }
+}
+
+.column-acf-json strong {
+  // Make the "Sync Available" really obvious.
+  color: red;
+  font-size: 1.4em;
+  animation: blinking-text 1s linear infinite;
+}
+
+%flexible-content-description{
+  display: block;
+  position: relative;
+  background: #F9F9F9;
+  padding: 10px 10px 0px 10px;
+  color: #666;
+  //font-size: font-size('size-m1')
+}
+
+/**
+ * Pseudo descriptions onto the ACF Flexible repeater
+ */
+.layout {
+  &[data-layout="cover"] .acf-fc-layout-controls+.acf-fields::before {
+    @extend %flexible-content-description;
+    content: "The Cover block allows you to add a large text block over a background image."
+  }
+  &[data-layout="gallery"] .acf-fc-layout-controls+.acf-fields::before {
+    @extend %flexible-content-description;
+    content: "The Gallery block allows you to add an image gallery to the page."
+  }
+  &[data-layout="html"] .acf-fc-layout-controls+.acf-fields::before {
+    @extend %flexible-content-description;
+    content: "The Unfiltered HTML block allows you to insert HTML, for example an embeddable widget."
+  }
+  &[data-layout="iframe"] .acf-fc-layout-controls+.acf-fields::before {
+    @extend %flexible-content-description;
+    content: "The iFrame block allows you to embed a website in an iFrame on your page. Note: not all websites will allow embedding within an iFrame."
+  }
+  &[data-layout="image"] .acf-fc-layout-controls+.acf-fields::before {
+    @extend %flexible-content-description;
+    content: "The Image block allows you to insert an image onto the page."
+  }
+  &[data-layout="linked-posts"] .acf-fc-layout-controls+.acf-fields::before {
+    @extend %flexible-content-description;
+    content: "The Linked posts block allows you to link to other pages/posts on the site, displaying them as cards."
+  }
+  &[data-layout="map"] .acf-fc-layout-controls+.acf-fields::before {
+    @extend %flexible-content-description;
+    content: "The Map block allows you to add a map with markers onto the page."
+  }
+  &[data-layout="post-archive"] .acf-fc-layout-controls+.acf-fields::before {
+    @extend %flexible-content-description;
+    content: "The Post Archive block allows you to add a post archive to a page, showing a card layout of all recent posts."
+  }
+  &[data-layout="text"] .acf-fc-layout-controls+.acf-fields::before {
+    @extend %flexible-content-description;
+    content: "The Text block allows you to add a simple text block to a page."
+  }
+  &[data-layout="text-columns"] .acf-fc-layout-controls+.acf-fields::before {
+    @extend %flexible-content-description;
+    content: "The Text Columns block allows you to add up to four columns of text to a page."
+  }
+  &[data-layout="text-media"] .acf-fc-layout-controls+.acf-fields::before {
+    @extend %flexible-content-description;
+    content: "The Text and Media block allows you to add a two column layout to a page with text and a media item (eg. image/video)."
+  }
+  &[data-layout="video"] .acf-fc-layout-controls+.acf-fields::before {
+    @extend %flexible-content-description;
+    content: "The Video block allows you to embed a video from YouTube / Vimeo onto the page."
+  }
 }
