@@ -52,7 +52,6 @@
 	}
 }() );
 ;
-//  TODO: Make this more DRY
 /**
  * Function to allow the user to change the root font-size to increase legibility.
  */

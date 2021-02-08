@@ -1,5 +1,5 @@
 /* Jellypress Wordpress Theme 1.1.0
- * © 2021-01 Matt Weet - https://www.weareboba.com */
+ * © 2021-02 Matt Weet - https://www.weareboba.com */
 
 /**
  * Calculate the luminance for a color.
@@ -67,22 +67,8 @@
 #poststuff .acf-postbox .hndle {
   font-size: 1.2em; }
 
-.acf-field p.description {
-  margin-top: 8px;
-  border: 1px solid #f3f4f5;
-  border-left: 3px solid #cccccc;
-  padding: 8px 12px;
-  color: #1f2933; }
-
 .acf-field .acf-input > p.description {
   margin-top: 12px; }
-
-.acf-range-wrap input[type="range"] {
-  width: 75%; }
-
-.acf-range-wrap input[type="number"] {
-  width: 20% !important;
-  max-width: 70px; }
 
 .acf-tab-button .dashicons {
   font-size: 15px;
@@ -155,11 +141,83 @@
   box-sizing: border-box;
   pointer-events: none; }
 
+@keyframes blinking-text {
+  from {
+    color: red; }
+  to {
+    color: blue; } }
+
+.column-acf-json strong {
+  color: red;
+  font-size: 1.4em;
+  animation: blinking-text 1s linear infinite; }
+
+.layout[data-layout="cover"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="gallery"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="html"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="iframe"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="image"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="linked-posts"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="magic-columns"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="map"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="post-archive"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="text"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="text-columns"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="text-media"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="video"] .acf-fc-layout-controls + .acf-fields::before {
+  display: block;
+  position: relative;
+  background: #F9F9F9;
+  padding: 10px 10px 0px 10px;
+  color: #666; }
+
+/**
+ * Pseudo descriptions onto the ACF Flexible repeater
+ */
+.layout[data-layout="cover"] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Cover block allows you to add a large text block over a background image."; }
+
+.layout[data-layout="gallery"] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Gallery block allows you to add an image gallery to the page."; }
+
+.layout[data-layout="html"] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Unfiltered HTML block allows you to insert HTML, for example an embeddable widget."; }
+
+.layout[data-layout="iframe"] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The iFrame block allows you to embed a website in an iFrame on your page. Note: not all websites will allow embedding within an iFrame."; }
+
+.layout[data-layout="image"] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Image block allows you to insert an image onto the page."; }
+
+.layout[data-layout="linked-posts"] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Linked posts block allows you to link to other pages/posts on the site, displaying them as cards."; }
+
+.layout[data-layout="magic-columns"] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Magic Columns block is an incredibly powerful and flexible block that lets you create mixed rows of media such as text, images, video, posts, and more. You can also customise the column widths."; }
+
+.layout[data-layout="map"] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Map block allows you to add a map with markers onto the page."; }
+
+.layout[data-layout="post-archive"] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Post Archive block allows you to add a post archive to a page, showing a card layout of all recent posts."; }
+
+.layout[data-layout="text"] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Text block allows you to add a simple text block to a page."; }
+
+.layout[data-layout="text-columns"] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Text Columns block allows you to add up to four columns of text to a page."; }
+
+.layout[data-layout="text-media"] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Text and Media block allows you to add a two column layout to a page with text and a media item (eg. image/video)."; }
+
+.layout[data-layout="video"] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Video block allows you to embed a video from YouTube / Vimeo onto the page."; }
+
 .bg-white {
-  background-color: white; }
+  background-color: #fff; }
 
 .bg-dark {
   background-color: #1f2933; }
+
+.bg-black {
+  background-color: #000; }
+
+.bg-gray {
+  background-color: #6e7c8c; }
+
+.bg-primary {
+  background-color: #c32c78; }
+
+.bg-secondary {
+  background-color: #1cd4d4; }
 
 .dev-flag {
   position: fixed;

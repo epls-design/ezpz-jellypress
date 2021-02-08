@@ -4,3 +4,15 @@
     background-color: $color;
   }
 }
+
+// Set up default colors for button-group swatches
+// No need to create all utility classes by adding them to the $background-colors map if not used in the theme
+.bg-gray {
+  background-color: get-color(neutral);
+}
+.bg-primary {
+  background-color: get-color(primary);
+}
+.bg-secondary {
+  background-color: get-color(secondary);
+}

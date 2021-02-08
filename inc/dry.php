@@ -24,7 +24,12 @@ if ( ! function_exists( 'jellypress_display_cta_buttons' ) ) :
           // Default button class and get variables from ACF
           $button_classes = 'button';
           $button_link = $button['button_link'];
+          $button_color = $button['button_color'];
           $button_style = $button['button_style'];
+
+          if($button_color!='default') {
+            $button_classes.= ' '.$button_color;
+          }
 
           if($button_style!='filled') {
             // 'filled' is the default state so we don't need a class for this

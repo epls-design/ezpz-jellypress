@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: JellyPress 1.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/unofficialmatt/jellypress/issues\n"
-"POT-Creation-Date: 2021-01-02 21:41:55+00:00\n"
+"POT-Creation-Date: 2021-02-04 20:42:34+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,7 +24,7 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: archive.php:50 template-parts/blocks/post-archive/view.php:61
+#: archive.php:50 template-parts/blocks/post-archive/view.php:62
 msgid "Load More..."
 msgstr ""
 
@@ -42,7 +42,7 @@ msgstr ""
 msgid "Website design and build by %1$s"
 msgstr ""
 
-#: header.php:31
+#: header.php:37
 msgid "Skip to content"
 msgstr ""
 
@@ -58,35 +58,35 @@ msgstr ""
 msgid "Successfully updated organisation information"
 msgstr ""
 
-#: inc/dry.php:176
+#: inc/dry.php:177
 msgid " Postal Address"
 msgstr ""
 
-#: inc/dry.php:216
+#: inc/dry.php:235
 msgid "Telephone:"
 msgstr ""
 
-#: inc/dry.php:241
+#: inc/dry.php:260
 msgid "Day(s)"
 msgstr ""
 
-#: inc/dry.php:241
+#: inc/dry.php:260
 msgid "Opening Hours"
 msgstr ""
 
-#: inc/dry.php:247
+#: inc/dry.php:266
 msgid "Closed"
 msgstr ""
 
-#: inc/dry.php:285
+#: inc/dry.php:304
 msgid "Department"
 msgstr ""
 
-#: inc/dry.php:285
+#: inc/dry.php:304
 msgid "Phone Number"
 msgstr ""
 
-#: inc/dry.php:285
+#: inc/dry.php:304
 msgid "Email Address"
 msgstr ""
 
@@ -418,16 +418,17 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
+#: template-parts/blocks/linked-posts/view.php:92
+#: template-parts/blocks/post-archive/view.php:66
+msgid "No posts matched your criteria."
+msgstr ""
+
 #: template-parts/blocks/map/view.php:51
-#: template-parts/blocks/text-media/view.php:110
+#: template-parts/blocks/text-media/view.php:114
 #. translators: %s link to theme options page.
 msgid ""
 "You need to <a href=\"%s\" class=\"callout-link\">add a Google Maps API "
 "key</a> in order to display a map on your website."
-msgstr ""
-
-#: template-parts/blocks/post-archive/view.php:65
-msgid "No posts matched your criteria."
 msgstr ""
 
 #: template-parts/layout/content/content-404.php:18

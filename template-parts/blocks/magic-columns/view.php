@@ -51,7 +51,7 @@ $row_class = 'align-'.$block['row_vertical_align'];
           <?php
           if ($column_type == 'text'){
             jellypress_content($column['text']);
-            // TODO: Add Call to action button strip her
+            if($column['buttons']) jellypress_display_cta_buttons($column['buttons']);
           }
           elseif ($column_type == 'image'){
             echo '<figure>';
