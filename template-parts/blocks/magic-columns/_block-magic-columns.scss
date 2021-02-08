@@ -1,0 +1,18 @@
+.block__magic-columns  {
+  .column-image img {
+    width: 100%;
+  }
+  // We want iFrames and Google Maps to take the full row height, with a minimum height
+  .embedded-iframe, .google-map {
+    height: auto;
+    width: 100%;
+    min-height: 300px;
+    @include above(lg) {
+      min-height: get-size(24);
+    }
+  }
+}
+.column-map, .column-iframe {
+  align-self: stretch;
+  display: flex;
+}

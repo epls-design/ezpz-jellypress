@@ -5,11 +5,4 @@
     width: 100%;
     min-height: 300px;
   }
-  @include above(md){
-    .column-media {
-      &.order-md-2 {
-        text-align: right;
-      }
-    }
-  }
 }

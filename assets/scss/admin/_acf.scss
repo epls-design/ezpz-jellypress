@@ -243,6 +243,10 @@ $handle_color: get-color(neutral,900);
     @extend %flexible-content-description;
     content: "The Linked posts block allows you to link to other pages/posts on the site, displaying them as cards."
   }
+  &[data-layout="magic-columns"] .acf-fc-layout-controls+.acf-fields::before {
+    @extend %flexible-content-description;
+    content: "The Magic Columns block is an incredibly powerful and flexible block that lets you create mixed rows of media such as text, images, video, posts, and more. You can also customise the column widths."
+  }
   &[data-layout="map"] .acf-fc-layout-controls+.acf-fields::before {
     @extend %flexible-content-description;
     content: "The Map block allows you to add a map with markers onto the page."
