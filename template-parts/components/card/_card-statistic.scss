@@ -1,0 +1,43 @@
+.card-statistic {
+  .small {
+    display: inline-block;
+    font-size: font-size('size-m2');
+  }
+  .number {
+    font-family: $font-secondary;
+    font-weight: $weight-bold;
+    line-height: 1;
+
+    &.size-xsmall {
+      font-size: font-size('size-3');
+      @include above(sm) {
+        font-size: font-size('size-5');
+      }
+      @include above(lg) {
+        font-size: font-size('size-6');
+      }
+    }
+
+    &.size-small {
+      font-size: font-size('size-4');
+      @include above(sm) {
+        font-size: font-size('size-6');
+      }
+      @include above(lg) {
+        font-size: font-size('size-8');
+      }
+    }
+
+    &, &.size-regular {
+      font-size: font-size('size-5');
+      @include above(sm) {
+        font-size: font-size('size-7');
+      }
+      @include above(lg) {
+        font-size: font-size('size-8');
+      }
+    }
+
+  }
+
+}

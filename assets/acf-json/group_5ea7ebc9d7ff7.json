@@ -696,7 +696,7 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "field_5ea8192c62410",
+            "collapsed": "",
             "min": 0,
             "max": 0,
             "layout": "table",
@@ -886,5 +886,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "This field group allows the editor to update key organisation information and to connect external APIs which are added to the theme.",
-    "modified": 1612710176
+    "modified": 1612899474
 }
