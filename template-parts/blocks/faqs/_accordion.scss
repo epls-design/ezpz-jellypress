@@ -1,0 +1,109 @@
+$accordion-padding: get-size(1);
+
+.accordion {
+  margin-bottom: $element-margin;
+}
+h4.accordion__heading {
+  margin: get-size(0.75) 0 0 0;
+  font-size: 1rem; // Reset so that the button can have it's own
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+
+[type=button].accordion__trigger {
+  // The Actual Button
+  -webkit-appearance: none;
+  color: $color-headings-preferred;
+  font-size: font-size('size-2');
+  font-weight: $weight-bold;
+  z-index: 2;
+
+  // Make it look less like a native button
+  font-family: inherit;
+  text-transform: none;
+  background-color: get-color(neutral,200);
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+  margin: 0;
+  padding: $accordion-padding 2em $accordion-padding $accordion-padding;
+  border: none;
+  position: relative; // need this to position the arrow
+  text-align: left;
+  width: 100%;
+
+  &::before {
+    @include pseudo('',inline-block,absolute);
+    transition: transform .2s ease-in-out, background-color .2s ease-in-out;
+    transform-origin: center center;
+    width: 1.2em;
+    height: 1.2em;
+    mask: url(assets/icons/arrow-right.svg) no-repeat 50% 50%;
+    mask-size: cover;
+    background: get-color(neutral);
+    right: .4em;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+  }
+  &:focus {
+    box-shadow: none;
+  }
+  &:hover, &:focus {
+    background-color: get-color(neutral,300);
+    color: $color-headings-preferred;
+    outline: none;
+    &::before {
+      background: $color-headings-preferred;
+    }
+  }
+  /**
+  * This is needed to allow a double tap iOS 11
+  * Safari + VO to function correctly, if there
+  * are multiple elements (wrapper spans) to layoutvv
+  * text nodes within the accordion button.
+    -- This is not needed if a button only contains text
+      and no other child nodes wrapping the text --
+  */
+  & > * {
+    pointer-events: none;
+  }
+  &[aria-disabled="true"]:hover {
+    cursor: not-allowed;
+  }
+  &[aria-expanded="true"] {
+    // Active State
+    background-color: get-color(neutral,300);
+    &, & a {
+      color: $color-headings-preferred;
+    }
+    &::before {
+      transform: translateY(-50%) rotate(90deg);
+      background-color: $color-headings-preferred;
+    }
+  }
+}
+
+.accordion__panel {
+  //background-color: get-color(neutral,100);
+  border: none;
+  max-height: 0vh;
+  overflow: hidden;
+  padding: 0.001em $accordion-padding 0.001em $accordion-padding;
+  position: relative;
+  visibility: hidden;
+  z-index: 1;
+  &[aria-hidden="false"] {
+    // Visible on screen now
+    max-height: 500vh; // Arbitrary high number
+    padding-top: $accordion-padding;
+    padding-bottom: $accordion-padding;
+    visibility: visible;
+  }
+  &--transition {
+    transition:
+      max-height .2s ease-in-out,
+      padding-top .2s ease-in-out,
+      padding-bottom .2s ease-in-out;
+  }
+}

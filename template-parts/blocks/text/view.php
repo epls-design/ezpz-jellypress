@@ -31,7 +31,7 @@ $block_title = $block['title'];
 
     <div class="row justify-center">
       <div class="col md-10 lg-8">
-        <?php jellypress_content($block['text']); ?>
+        <?php echo jellypress_content($block['text']); ?>
         <?php
           if($title_align == 'center') jellypress_display_cta_buttons($block['buttons'], 'justify-center');
           elseif($title_align == 'right') jellypress_display_cta_buttons($block['buttons'], 'justify-end');

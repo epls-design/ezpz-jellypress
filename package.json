@@ -64,6 +64,7 @@
     "time-grunt": "^2.0.0"
   },
   "dependencies": {
+    "a11y_accordions": "^3.2.1",
     "hamburgers": "^1.1.3"
   }
 }

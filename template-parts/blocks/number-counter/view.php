@@ -34,7 +34,7 @@ $block_preamble = $block['preamble'];
   <?php if ($block_preamble) : ?>
     <div class="row justify-center block-preamble">
       <div class="col md-10 lg-8">
-        <?php jellypress_content($block_preamble); ?>
+        <?php echo jellypress_content($block_preamble); ?>
       </div>
     </div>
   <?php endif; ?>

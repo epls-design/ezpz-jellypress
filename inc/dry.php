@@ -95,7 +95,7 @@ if ( ! function_exists( 'jellypress_display_map_markers' ) ) :
         if($location_tooltip_text || $display_address == 1) :
           echo '<div class="marker" data-lat="'.$location_marker['lat'].'" data-lng="'.$location_marker['lng'].'" '.$data_icon.'>';
             if($location_tooltip_text)
-              jellypress_content($location_tooltip_text);
+              echo jellypress_content($location_tooltip_text);
             if($display_address == 1) {
               echo $address;
             }

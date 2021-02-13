@@ -255,7 +255,7 @@ if ( ! function_exists( 'jellypress_content' ) ) :
 
 
   function jellypress_content($unformatted_content) {
-    echo apply_filters('meta_content', wp_kses_post($unformatted_content));
+    return apply_filters('meta_content', wp_kses_post($unformatted_content));
   }
 endif;
 

@@ -37,11 +37,9 @@ $statistic_description = $statistic['statistic_description'];
 <div class="card card-statistic no-border">
   <div class="card-section">
     <?php echo '<div class="count-to number '.$statistic_font_size.'" '.$data_attribs.'>'.$initial_value.'</div>'; ?>
-    <h3><?php jellypress_content($statistic_title); ?></h3>
+    <h3><?php echo jellypress_content($statistic_title); ?></h3>
     <?php if($statistic_description) {
-      echo '<div class="hide-below-md">';
-      jellypress_content($statistic_description);
-      echo '</div>';
+      echo '<div class="hide-below-md">'.jellypress_content($statistic_description).'</div>';
      } ?>
   </div>
   <?php if($button = $statistic['statistic_button']):

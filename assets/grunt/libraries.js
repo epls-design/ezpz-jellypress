@@ -12,6 +12,10 @@ module.exports = function (grunt) {
           cwd: 'node_modules/hamburgers/_sass/hamburgers',
           src: ['**/*'],
           dest: '<%= opts.build_dir %>/scss/jellyfish/05-vendor/hamburgers'
+        },
+        {
+          src: ['node_modules/a11y_accordions/assets/js/aria.accordion.min.js'],
+          dest: 'lib/aria.accordion.min.js'
         }
       ],
       }

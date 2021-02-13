@@ -33,7 +33,7 @@ $block_title = $block['title'];
     <div class="row">
       <?php foreach ($text_columns as $text_column): ?>
         <div class="col xs-12 md-0">
-          <?php jellypress_content($text_column['editor']); ?>
+          <?php echo jellypress_content($text_column['editor']); ?>
         </div>
       <?php endforeach; ?>
     </div>
