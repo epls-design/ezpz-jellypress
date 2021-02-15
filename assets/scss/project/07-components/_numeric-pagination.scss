@@ -4,6 +4,12 @@
   display: flex;
   flex-wrap: wrap;
 
+  .icon {
+    height: 1em;
+    width: 1em;
+    top: -.1em;
+  }
+
   .nav-next {
     margin-right: 0;
   }
@@ -18,6 +24,7 @@
     }
 
     &.nav-total,
+    &.nav-ellipses,
     a {
       border: $borders;
       padding: get-size(0.5) get-size(0.75);
@@ -26,14 +33,24 @@
     &.nav-total {
       background: get-color(neutral,400);
       color: get-color(neutral,000);
+      border-right-width: 0px;
     }
+    &:last-of-type a {
+      border-right-width: $border-width;
+    }
+
+    &.nav-ellipses {
+      border-right: 0;
+      color: get-color(neutral,400)
+    }
+
   }
 
-  a {
+  li a {
     @include smooth(background, color);
     text-decoration: none;
     background: get-color(neutral,000);
-    border-left: 0 !important;
+    border-right-width: 0px;
     display: block;
 
     &,
