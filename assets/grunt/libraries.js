@@ -16,7 +16,15 @@ module.exports = function (grunt) {
         {
           src: ['node_modules/a11y_accordions/assets/js/aria.accordion.min.js'],
           dest: 'lib/aria.accordion.min.js'
-        }
+        },
+        {
+          src: ['node_modules/magnific-popup/dist/jquery.magnific-popup.min.js'],
+          dest: 'lib/magnific-popup.min.js'
+        },
+        {
+          src: ['node_modules/magnific-popup/dist/magnific-popup.css'],
+          dest: 'template-parts/components/modal/_magnific-popup.scss'
+        },
       ],
       }
     }

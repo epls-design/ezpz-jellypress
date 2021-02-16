@@ -1374,6 +1374,52 @@
                             "mime_types": "jpg, jpeg, png"
                         },
                         {
+                            "key": "field_6029872ac795e",
+                            "label": "Add Lightbox?",
+                            "name": "add_lightbox",
+                            "type": "true_false",
+                            "instructions": "If you'd like the user to be able to click images to view them larger in a lightbox, enable this option.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_602987daa4bf0",
+                            "label": "Display Image Titles?",
+                            "name": "lightbox_display_titles",
+                            "type": "true_false",
+                            "instructions": "If you enable this, images in the lightbox will have a caption underneath them derived from the image title.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6029872ac795e",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
                             "key": "field_5ebf9c845ba69",
                             "label": "Clone Design",
                             "name": "clone_design",
@@ -2207,119 +2253,6 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_5f9ae75650a39": {
-                    "key": "layout_5f9ae75650a39",
-                    "name": "html",
-                    "label": "<span class=\"dashicons dashicons-html\"><\/span> Unfiltered HTML",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5f9ae75650a3a",
-                            "label": "Clone Content",
-                            "name": "clone_content",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "field_5d75eff42a6aa"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        },
-                        {
-                            "key": "field_5f9b0c6d7f86f",
-                            "label": "Preamble Clone",
-                            "name": "preamble_clone",
-                            "type": "clone",
-                            "instructions": "If you'd like to add a preamble to this block, you can do so here.",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "100",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "field_5f6facb5b7c07"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        },
-                        {
-                            "key": "field_5f9ae78550a48",
-                            "label": "HTML",
-                            "name": "unfiltered_html",
-                            "type": "textarea",
-                            "instructions": "You can add HTML here and it will not be sanitized. E.g. you can paste <script> tags here and the code will be executed. <strong>Please use with caution!<\/strong>",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "maxlength": "",
-                            "rows": 8,
-                            "new_lines": ""
-                        },
-                        {
-                            "key": "field_5f9ae75650a46",
-                            "label": "Clone Design",
-                            "name": "clone_design",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "field_5eb3b7f9bbf71"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        },
-                        {
-                            "key": "field_5f9ae75650a47",
-                            "label": "Clone Settings",
-                            "name": "clone_settings",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "field_5d75eff42a6ac"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
                 "layout_5f75a54e23c79": {
                     "key": "layout_5f75a54e23c79",
                     "name": "faqs",
@@ -2831,7 +2764,120 @@
                         }
                     ],
                     "min": "",
-                    "max": "1"
+                    "max": ""
+                },
+                "layout_5f9ae75650a39": {
+                    "key": "layout_5f9ae75650a39",
+                    "name": "html",
+                    "label": "<span class=\"dashicons dashicons-html\"><\/span> Unfiltered HTML",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5f9ae75650a3a",
+                            "label": "Clone Content",
+                            "name": "clone_content",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5d75eff42a6aa"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5f9b0c6d7f86f",
+                            "label": "Preamble Clone",
+                            "name": "preamble_clone",
+                            "type": "clone",
+                            "instructions": "If you'd like to add a preamble to this block, you can do so here.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "100",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5f6facb5b7c07"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5f9ae78550a48",
+                            "label": "HTML",
+                            "name": "unfiltered_html",
+                            "type": "textarea",
+                            "instructions": "You can add HTML here and it will not be sanitized. E.g. you can paste <script> tags here and the code will be executed. <strong>Please use with caution!<\/strong>",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "maxlength": "",
+                            "rows": 8,
+                            "new_lines": ""
+                        },
+                        {
+                            "key": "field_5f9ae75650a46",
+                            "label": "Clone Design",
+                            "name": "clone_design",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5eb3b7f9bbf71"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5f9ae75650a47",
+                            "label": "Clone Settings",
+                            "name": "clone_settings",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5d75eff42a6ac"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 },
                 "layout_5f718bfbcc200": {
                     "key": "layout_5f718bfbcc200",
@@ -3360,5 +3406,5 @@
     ],
     "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1613243266
+    "modified": 1613334683
 }

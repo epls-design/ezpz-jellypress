@@ -41,6 +41,7 @@ $jellypress_includes = array(
   'inc/ajax-loadmore/loadmore.php',  // Uses Wordpress AJAX to lazyload more posts.
   'inc/remote-images.php',           // Uses images from a remote production URL if working in the local dev environment.
   'inc/schema.php',                  // Hook into WP_Footer to print Structured Schema markup
+  'inc/modals.php',                  // Initialize and manipulate modals
 //  'inc/security.php',                // Security enhancements.
 
   //~~~~~ CUSTOM POST TYPES

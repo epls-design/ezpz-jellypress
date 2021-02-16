@@ -1,0 +1,115 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+ * MODAL
+ *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+ .mfp-bg {
+  background-color: $modal-overlay-color;
+  opacity: $modal-overlay-opacity;
+ }
+
+ // Reset button styles
+ button.mfp-arrow, button.mfp-close {
+   &:hover, &:focus {
+     background-color: transparent;
+   }
+   &:focus {
+     box-shadow: none;
+   }
+ }
+ button.mfp-close {
+   cursor: zoom-out;
+   color: $modal-close-color;
+   &:hover, &:focus {
+     color: $modal-close-color;
+   }
+ }
+ .mfp-close-btn-in .modal button.mfp-close {
+  color: $modal-close-color-in;
+  &:hover, &:focus {
+    color: $modal-close-color-in;
+  }
+}
+
+// General Fixes
+.mfp-counter, .mfp-title {
+  color: $modal_caption_color;
+}
+.mfp-bottom-bar {
+  margin-top: n(get-size(1.5));
+}
+
+// Make navigation less ugly
+.mfp-arrow-left{
+  &::before {
+    // Remove outer border
+    border-right: 0;
+  }
+}
+.mfp-arrow-right{
+  &::before {
+    // Remove outer border
+    border-left: 0;
+  }
+}
+
+// Zoom-in and fade modal effect
+.modal-fade {
+  /* overlay at start */
+  &.mfp-bg {
+    opacity: 0;
+    backdrop-filter: blur(20px);
+    @include smooth(opacity);
+    /* overlay animate in */
+    &.mfp-ready {
+      opacity: $modal-overlay-opacity;
+    }
+    /* overlay animate out */
+    &.mfp-removing {
+      opacity: 0;
+    }
+  }
+  /* content at start */
+  &.mfp-wrap {
+    .mfp-container {
+      opacity: 0;
+      @include smooth(opacity);
+    }
+    .mfp-content {
+      transition: transform .4s ease;
+      transform: translateY(40px);
+    }
+    /* content animate in */
+    &.mfp-ready {
+      .mfp-container {
+        opacity: 1;
+      }
+      .mfp-content {
+        transform: translateY(0px);
+      }
+    }
+    /* content animate in */
+    &.mfp-removing {
+      .mfp-container {
+        opacity: 0;
+      }
+      .mfp-content {
+        transform: translateY(80px);
+      }
+    }
+  }
+}
+
+// Inline modals must have class .modal applied
+.modal {
+  position: relative;
+  border-radius: $modal-border-radius;
+  padding: get-size(2);
+  @include above(md) {
+    padding: get-size(3);
+  }
+  background: $modal-bg-color;
+  width: 75%;
+  max-width: $modal-max-width;
+  margin: get-size(3) auto;
+  display: block;
+}

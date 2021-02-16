@@ -16,8 +16,6 @@ module.exports = function (grunt) {
       icons: {
         files: [{
           expand: true,
-          includeTitleElement: false,
-          preserveDescElement: false,
           cwd: '<%= opts.build_dir %>/icons/',
           src: ['**/*.svg'],
           dest: '<%= opts.dist_dir %>/icons/'
@@ -30,6 +28,8 @@ module.exports = function (grunt) {
   // Put all of our minified svg icons into a sprite sheet
   grunt.config('svgstore', {
     options: {
+      includeTitleElement: false,
+      preserveDescElement: false,
       prefix: 'icon-', // This will prefix each ID
       svg: { // will add and override the the default xmlns="http://www.w3.org/2000/svg" attribute to the resulting SVG
         viewBox: '0 0 100 100',
