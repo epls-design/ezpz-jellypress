@@ -1,0 +1,63 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  COUNTDOWN
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.countdown{
+  display: inline-flex;
+  flex: 1 1;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  text-align: center;
+  margin: 0 n(get-size(0.5)) $element-margin n(get-size(0.5));
+  @include above(sm) {
+    margin-left: n(get-size(0.75));
+    margin-right: n(get-size(0.75));
+  }
+  .partial {
+    margin: get-size(1.5) get-size(0.5) 0px get-size(0.5);
+    @include above(sm) {
+      margin: get-size(2) get-size(0.75) 0px get-size(0.75);
+    }
+  }
+  .value {
+    background: $countdown-value-background;
+    padding: .4em 0;
+    width: 3.25ch; // Sized relative to the width of the digit '0' in this font.
+    font-weight: $countdown-value-weight;
+    line-height: 1;
+    color: $countdown-value-color;
+    font-size: font-size('size-5');
+    @include above(sm) {
+      font-size: font-size('size-6');
+    }
+    @include above(md) {
+      font-size: font-size('size-7');
+    }
+    @include above(lg) {
+      font-size: font-size('size-8');
+    }
+  }
+  .small {
+    margin-top: get-size(0.5);
+    font-weight: $countdown-desc-weight;
+    @include above(md) {
+      font-size: font-size('size-1');
+    }
+  }
+
+  .complete-text {
+    display: none;
+    font-size: font-size('size-3');
+  }
+
+  &.complete {
+    .partial:not(.complete-text) {
+      display: none;
+    }
+    .complete-text {
+      display: block;
+    }
+  }
+
+}

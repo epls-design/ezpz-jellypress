@@ -2098,8 +2098,8 @@
                                                 "class": "",
                                                 "id": ""
                                             },
-                                            "center_lat": "",
-                                            "center_lng": "",
+                                            "center_lat": "51.0748634",
+                                            "center_lng": "-1.2963674",
                                             "zoom": "",
                                             "height": ""
                                         },
@@ -2766,6 +2766,220 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_602c33de6ea10": {
+                    "key": "layout_602c33de6ea10",
+                    "name": "countdown",
+                    "label": "<span class=\"dashicons dashicons-clock\"><\/span> Countdown Timer",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_602c33df6ea11",
+                            "label": "Clone Content",
+                            "name": "clone_content",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5d75eff42a6aa"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_602c33df6ea12",
+                            "label": "Preamble Clone",
+                            "name": "preamble_clone",
+                            "type": "clone",
+                            "instructions": "If you'd like to add a preamble to this block, you can do so here.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "100",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5f6facb5b7c07"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_602c34276ea1f",
+                            "label": "Countdown To",
+                            "name": "countdown_to",
+                            "type": "date_time_picker",
+                            "instructions": "Please select the date and time to countdown to.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "60",
+                                "class": "",
+                                "id": ""
+                            },
+                            "display_format": "d\/m\/Y g:i a",
+                            "return_format": "d\/m\/Y g:i a",
+                            "first_day": 1
+                        },
+                        {
+                            "key": "field_602c348a6ea20",
+                            "label": "Time Zone",
+                            "name": "time_zone",
+                            "type": "select",
+                            "instructions": "Please select the time zone the counter relates to.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "40",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "GMT-1200": "(GMT -12:00) Eniwetok, Kwajalein",
+                                "GMT-1100": "(GMT -11:00) Midway Island, Samoa",
+                                "GMT-1000": "(GMT -10:00) Hawaii",
+                                "GMT-0950": "(GMT -9:30) Taiohae",
+                                "GMT-0900": "(GMT -9:00) Alaska",
+                                "GMT-0800": "(GMT -8:00) Pacific Time (US &amp; Canada)",
+                                "GMT-0700": "(GMT -7:00) Mountain Time (US &amp; Canada)",
+                                "GMT-0600": "(GMT -6:00) Central Time (US &amp; Canada), Mexico City",
+                                "GMT-0500": "(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima",
+                                "GMT-0450": "(GMT -4:30) Caracas",
+                                "GMT-0400": "(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz",
+                                "GMT-0350": "(GMT -3:30) Newfoundland",
+                                "GMT-0300": "(GMT -3:00) Brazil, Buenos Aires, Georgetown",
+                                "GMT-0200": "(GMT -2:00) Mid-Atlantic",
+                                "GMT-0100": "(GMT -1:00) Azores, Cape Verde Islands",
+                                "GMT+0000": "(GMT) Western Europe Time, London, Lisbon, Casablanca",
+                                "GMT+0100": "(GMT +1:00) Brussels, Copenhagen, Madrid, Paris",
+                                "GMT+0200": "(GMT +2:00) Kaliningrad, South Africa",
+                                "GMT+0300": "(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg",
+                                "GMT+0350": "(GMT +3:30) Tehran",
+                                "GMT+0400": "(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi",
+                                "GMT+0450": "(GMT +4:30) Kabul",
+                                "GMT+0500": "(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent",
+                                "GMT+0550": "(GMT +5:30) Bombay, Calcutta, Madras, New Delhi",
+                                "GMT+0575": "(GMT +5:45) Kathmandu, Pokhara",
+                                "GMT+0600": "(GMT +6:00) Almaty, Dhaka, Colombo",
+                                "GMT+0650": "(GMT +6:30) Yangon, Mandalay",
+                                "GMT+0700": "(GMT +7:00) Bangkok, Hanoi, Jakarta",
+                                "GMT+0800": "(GMT +8:00) Beijing, Perth, Singapore, Hong Kong",
+                                "GMT+0875": "(GMT +8:45) Eucla",
+                                "GMT+0900": "(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk",
+                                "GMT+0950": "(GMT +9:30) Adelaide, Darwin",
+                                "GMT+1000": "(GMT +10:00) Eastern Australia, Guam, Vladivostok",
+                                "GMT+1050": "(GMT +10:30) Lord Howe Island",
+                                "GMT+1100": "(GMT +11:00) Magadan, Solomon Islands, New Caledonia",
+                                "GMT+1150": "(GMT +11:30) Norfolk Island",
+                                "GMT+1200": "(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka",
+                                "GMT+1275": "(GMT +12:45) Chatham Islands",
+                                "GMT+1300": "(GMT +13:00) Apia, Nukualofa",
+                                "GMT+1400": "(GMT +14:00) Line Islands, Tokelau"
+                            },
+                            "default_value": "GMT+0000",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 1,
+                            "ajax": 0,
+                            "return_format": "value",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_602cccbe099b0",
+                            "label": "Complete Text",
+                            "name": "complete_text",
+                            "type": "textarea",
+                            "instructions": "Please enter an optional message you would like to display once the countdown is complete. <strong>Please note: although this text will only display on the page once the countdown is complete, the text itself is visible in the HTML code so could be viewed by someone with the know-how. Therefore you should only use it for informational purposes and not for secrets!<\/strong>",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "100",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "maxlength": "",
+                            "rows": 4,
+                            "new_lines": ""
+                        },
+                        {
+                            "key": "field_602c340d6ea1e",
+                            "label": "Clone CTA",
+                            "name": "clone_cta",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5f6e4539d9407"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_602c33df6ea1c",
+                            "label": "Clone Design",
+                            "name": "clone_design",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5eb3b7f9bbf71"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_602c33df6ea1d",
+                            "label": "Clone Settings",
+                            "name": "clone_settings",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5d75eff42a6ac"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": "1"
+                },
                 "layout_5f9ae75650a39": {
                     "key": "layout_5f9ae75650a39",
                     "name": "html",
@@ -3406,5 +3620,5 @@
     ],
     "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1613334683
+    "modified": 1613550364
 }
