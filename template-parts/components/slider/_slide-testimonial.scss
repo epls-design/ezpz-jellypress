@@ -1,0 +1,27 @@
+.testimonial-link {
+  display: block;
+  &, &:link, &:active, &:hover, &:focus {
+    color: inherit !important;
+    text-decoration: none;
+  }
+}
+
+blockquote.testimonial {
+  border-left: 0;
+  padding-left: 0;
+  font-style: normal;
+  font-size: 1em;
+  p {
+    font-size: $testimonial-font-size;
+    font-weight: $testimonial-font-weight;
+    font-style: $testimonial-font-style;
+    color: $testimonial-color;
+  }
+  cite {
+    font-size: $testimonial-cite-font-size;
+    font-weight: $testimonial-cite-font-weight;
+    font-style: $testimonial-cite-font-style;
+    color: $testimonial-cite-color;
+    text-align: left;
+  }
+}
