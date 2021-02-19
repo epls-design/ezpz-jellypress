@@ -18,6 +18,14 @@ module.exports = function (grunt) {
           dest: 'lib/aria.accordion.min.js'
         },
         {
+          src: ['node_modules/@splidejs/splide/dist/js/splide.min.js'],
+          dest: 'lib/splide.min.js'
+        },
+        {
+          src: ['node_modules/@splidejs/splide/dist/css/splide-core.min.css'],
+          dest: 'template-parts/components/slider/_1_splide-core.scss'
+        },
+        {
           src: ['node_modules/magnific-popup/dist/jquery.magnific-popup.min.js'],
           dest: 'lib/magnific-popup.min.js'
         },

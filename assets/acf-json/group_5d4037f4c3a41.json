@@ -1721,6 +1721,235 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_602f91d2aab7f": {
+                    "key": "layout_602f91d2aab7f",
+                    "name": "slider",
+                    "label": "<span class=\"dashicons dashicons-slides\"><\/span> Slider",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_602f91d3aab80",
+                            "label": "Clone Content Tab Only",
+                            "name": "clone_content_tab_only",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5d76995ba449c"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_602fa27ae6be4",
+                            "label": "Display Arrows?",
+                            "name": "display_arrows",
+                            "type": "true_false",
+                            "instructions": "Would you like to show the slider arrows?",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_602fa2a5e6be5",
+                            "label": "Display Pagination",
+                            "name": "display_pagination",
+                            "type": "true_false",
+                            "instructions": "Would you like to show the slider pagination \/ dots?",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_602fa2bce6be6",
+                            "label": "Slide Duration",
+                            "name": "slider_duration",
+                            "type": "range",
+                            "instructions": "How long would you like each slide to be displayed?",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "34",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 8,
+                            "min": 3,
+                            "max": 12,
+                            "step": "0.2",
+                            "prepend": "",
+                            "append": "seconds"
+                        },
+                        {
+                            "key": "field_602f9215aab85",
+                            "label": "Slides",
+                            "name": "slides",
+                            "type": "repeater",
+                            "instructions": "Please add your slides here.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "100",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 1,
+                            "max": 6,
+                            "layout": "block",
+                            "button_label": "Add Slide",
+                            "sub_fields": [
+                                {
+                                    "key": "field_602f9238aab86",
+                                    "label": "Title",
+                                    "name": "slide_title",
+                                    "type": "text",
+                                    "instructions": "Please add an optional title to this slide.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "70",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_602f929daab88",
+                                    "label": "Link",
+                                    "name": "slide_link",
+                                    "type": "link",
+                                    "instructions": "Please add an optional link to this slide.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "30",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array"
+                                },
+                                {
+                                    "key": "field_602f9263aab87",
+                                    "label": "Text",
+                                    "name": "slide_text",
+                                    "type": "wysiwyg",
+                                    "instructions": "Please add some text to this slide.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "70",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 1,
+                                    "delay": 0
+                                },
+                                {
+                                    "key": "field_602f92c0aab89",
+                                    "label": "Image",
+                                    "name": "slide_image",
+                                    "type": "image",
+                                    "instructions": "Please add an image to this slide. <strong>Minimum size 600px wide x 300px high<\/strong>",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "30",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "preview_size": "thumbnail",
+                                    "library": "all",
+                                    "min_width": 600,
+                                    "min_height": 300,
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_602f91d3aab83",
+                            "label": "Clone Design",
+                            "name": "clone_design",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5eb3b7f9bbf71"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_602f91d3aab84",
+                            "label": "Clone Settings",
+                            "name": "clone_settings",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5d75eff42a6ac"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_5eb3b510797e0": {
                     "key": "layout_5eb3b510797e0",
                     "name": "video",
@@ -3620,5 +3849,5 @@
     ],
     "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1613550364
+    "modified": 1613734659
 }

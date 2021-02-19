@@ -1,16 +1,16 @@
 // Type sizes used throughout the project.
 $type-scale: (
-//  'size-m2': em($root-size * .75),     // 12px default
-//  'size-m1': em($root-size * .875),    // 14px default
-//  'size-0':  em($root-size * 1),       // 16px default
-//  'size-1':  em($root-size * 1.125),   // 18px default
-//  'size-2':  em($root-size * 1.25),    // 20px default
-//  'size-3':  em($root-size * 1.5),     // 24px default
-//  'size-4':  em($root-size * 1.875),   // 30px default
-//  'size-5':  em($root-size * 2.25),    // 36px default
-//  'size-6':  em($root-size * 3),       // 48px default
-//  'size-7':  em($root-size * 3.75),    // 60px default
-//  'size-8':  em($root-size * 4.5)      // 72px default
+  'size-m2': em($root-size * .75),     // 12px default
+  'size-m1': em($root-size * .875),    // 14px default
+  'size-0':  em($root-size * 1),       // 16px default
+  'size-1':  em($root-size * 1.125),   // 18px default
+  'size-2':  em($root-size * 1.25),    // 20px default
+  'size-3':  em($root-size * 1.5),     // 24px default
+  'size-4':  em($root-size * 1.875),   // 30px default
+  'size-5':  em($root-size * 2.25),    // 36px default
+  'size-6':  em($root-size * 3),       // 48px default
+  'size-7':  em($root-size * 3.75),    // 60px default
+  'size-8':  em($root-size * 4.5)      // 72px default
 );
 
 // DOCUMENT ROOT FONT SIZE AND LINE HEIGHT AT SMALLEST DEVICE WIDTH
