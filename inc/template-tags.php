@@ -58,53 +58,47 @@ if ( ! function_exists( 'jellypress_entry_footer' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
-	function jellypress_entry_footer() { ?>
-    <footer class="entry-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <?php
-            // Hide category and tag text for pages.
-            if ( 'post' === get_post_type() ) {
-              /* translators: used between list items, there is a space after the comma */
-              $categories_list = get_the_category_list( esc_html__( ', ', 'jellypress' ) );
-              if ( $categories_list ) {
-                /* translators: 1: list of categories. */
-                printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'jellypress' ) . '</span>', $categories_list );
-              }
+	function jellypress_entry_footer() {
 
-              /* translators: used between list items, there is a space after the comma */
-              $tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'jellypress' ) );
-              if ( $tags_list ) {
-                /* translators: 1: list of tags. */
-                printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'jellypress' ) . '</span>', $tags_list );
-              }
-            }
+    // Hide category and tag text for pages.
+    if ( 'post' === get_post_type() ) {
+      echo '<footer class="entry-footer"><div class="container"><div class="row"><div class="col">';
+      /* translators: used between list items, there is a space after the comma */
+      $categories_list = get_the_category_list( esc_html__( ', ', 'jellypress' ) );
+      if ( $categories_list ) {
+        /* translators: 1: list of categories. */
+        printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'jellypress' ) . '</span>', $categories_list );
+      }
 
-            // If the post type is a post (ie. not a page), it is not single, is not private and has comments open or at least one comment, show a link to the comments...
-            if ( 'post' === get_post_type() && ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-              echo '<span class="comments-link">';
-              comments_popup_link(
-                sprintf(
-                  wp_kses(
-                    /* translators: %s: post title */
-                    __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'jellypress' ),
-                    array(
-                      'span' => array(
-                        'class' => array(),
-                      ),
-                    )
-                  ),
-                  get_the_title()
-                )
-              );
-              echo '</span>';
-            }
-          ?>
-        </div>
-      </div>
-    </div>
-  </footer>
+      /* translators: used between list items, there is a space after the comma */
+      $tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'jellypress' ) );
+      if ( $tags_list ) {
+        /* translators: 1: list of tags. */
+        printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'jellypress' ) . '</span>', $tags_list );
+      }
+    }
+
+    // If the post type is a post (ie. not a page), it is not single, is not private and has comments open or at least one comment, show a link to the comments...
+    if ( 'post' === get_post_type() && ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+      echo '<span class="comments-link">';
+      comments_popup_link(
+        sprintf(
+          wp_kses(
+            /* translators: %s: post title */
+            __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'jellypress' ),
+            array(
+              'span' => array(
+                'class' => array(),
+              ),
+            )
+          ),
+          get_the_title()
+        )
+      );
+      echo '</span>';
+    }
+    if ( 'post' === get_post_type() ) echo '</div></div></div></footer>';
+  ?>
 	<?php } // jellypress_entry_footer
 endif;
 

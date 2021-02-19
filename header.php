@@ -28,7 +28,9 @@ defined( 'ABSPATH' ) || exit;
   <?php wp_body_open(); ?>
   <div id="page" class="site">
 
-    <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'jellypress' ); ?></a>
+<?php if ( !is_page_template( 'page-simple.php' ) ) : ?>
+
+  <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'jellypress' ); ?></a>
 
     <header id="masthead" class="site-header">
       <nav id="site-navigation" class="navbar main-navigation">
@@ -73,4 +75,5 @@ defined( 'ABSPATH' ) || exit;
         </div>
       </nav>
     </header>
+<?php endif; ?>
     <div id="content" class="site-content">

@@ -1,11 +1,10 @@
 <?php
 /**
- * The template for displaying all pages
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
+ * Template Name: Simple Page (No Header/Footer)
+ * This template is the exact same as page.php, however if a page uses this template,
+ * the header and footer branding are not displayed. This is great for producing a standalone
+ * page, coming soon page etc as the website navigation is not displayed.
+ * See conditional `if ( !is_page_template( 'page-simple.php' ) )` inside footer.php and header.php
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
