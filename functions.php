@@ -11,16 +11,23 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-// Define URLs
-if (! defined('DEV_URL') ) {
-  define('DEV_URL', 'https://jellypress.local');
+if(file_exists( get_template_directory() . '/env.php' )) {
+  $vars = include get_template_directory() . '/env.php' ;
+  foreach ($vars as $key => $value) putenv("$key=$value");
 }
-if (! defined('STAGING_URL') ) {
-  define('STAGING_URL', 'https://jellypress.staging');
+
+if(!function_exists('jellypress_env')) {
+  function jellypress_env($key, $default = null)
+  {
+    $value = getenv($key);
+    if ($value === false) return $default;
+    return $value;
+  }
 }
-if (! defined('PROD_URL') ) {
-  define('PROD_URL', 'https://jellypress.live');
-}
+
+if (! defined('DEV_URL') ) define('DEV_URL', jellypress_env('DEV_URL'));
+if (! defined('STAGING_URL') ) define('STAGING_URL', jellypress_env('STAGING_URL'));
+if (! defined('PROD_URL') ) define('PROD_URL', jellypress_env('PROD_URL'));
 
 $jellypress_includes = array(
   'inc/tgm-plugin-activation.php',   // Third party script to allow required/recommended plugins
