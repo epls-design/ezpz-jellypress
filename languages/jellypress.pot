@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: JellyPress 1.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/unofficialmatt/jellypress/issues\n"
-"POT-Creation-Date: 2021-02-04 20:42:34+00:00\n"
+"POT-Creation-Date: 2021-02-19 11:13:39+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,7 +24,7 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: archive.php:50 template-parts/blocks/post-archive/view.php:62
+#: archive.php:50 template-parts/blocks/post-archive/view.php:66
 msgid "Load More..."
 msgstr ""
 
@@ -37,12 +37,12 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
-#: footer.php:27
+#: footer.php:30
 #. translators: 1: Theme author and link to website.
 msgid "Website design and build by %1$s"
 msgstr ""
 
-#: header.php:37
+#: header.php:33
 msgid "Skip to content"
 msgstr ""
 
@@ -58,36 +58,44 @@ msgstr ""
 msgid "Successfully updated organisation information"
 msgstr ""
 
-#: inc/dry.php:177
+#: inc/dry.php:182
 msgid " Postal Address"
 msgstr ""
 
-#: inc/dry.php:235
+#: inc/dry.php:240
 msgid "Telephone:"
 msgstr ""
 
-#: inc/dry.php:260
+#: inc/dry.php:265
 msgid "Day(s)"
 msgstr ""
 
-#: inc/dry.php:260
+#: inc/dry.php:265
 msgid "Opening Hours"
 msgstr ""
 
-#: inc/dry.php:266
+#: inc/dry.php:271
 msgid "Closed"
 msgstr ""
 
-#: inc/dry.php:304
+#: inc/dry.php:309
 msgid "Department"
 msgstr ""
 
-#: inc/dry.php:304
+#: inc/dry.php:309
 msgid "Phone Number"
 msgstr ""
 
-#: inc/dry.php:304
+#: inc/dry.php:309
 msgid "Email Address"
+msgstr ""
+
+#: inc/pagination.php:44
+msgid "First Page"
+msgstr ""
+
+#: inc/pagination.php:81
+msgid "Last Page"
 msgstr ""
 
 #: inc/post_types/example.php:25
@@ -240,43 +248,43 @@ msgid ""
 "ask."
 msgstr ""
 
-#: inc/post_types/page.php:28
+#: inc/post_types/page.php:29
 msgid "Search Page Types"
 msgstr ""
 
-#: inc/post_types/page.php:29
+#: inc/post_types/page.php:30
 msgid "All Page Types"
 msgstr ""
 
-#: inc/post_types/page.php:30
+#: inc/post_types/page.php:31
 msgid "Parent Page Type"
 msgstr ""
 
-#: inc/post_types/page.php:31
+#: inc/post_types/page.php:32
 msgid "Parent Page Type:"
 msgstr ""
 
-#: inc/post_types/page.php:32
+#: inc/post_types/page.php:33
 msgid "Edit Page Type"
 msgstr ""
 
-#: inc/post_types/page.php:33
+#: inc/post_types/page.php:34
 msgid "Update Page Type"
 msgstr ""
 
-#: inc/post_types/page.php:34
+#: inc/post_types/page.php:35
 msgid "Add New Page Type"
 msgstr ""
 
-#: inc/post_types/page.php:35
+#: inc/post_types/page.php:36
 msgid "New Page Type Name"
 msgstr ""
 
-#: inc/post_types/page.php:36
+#: inc/post_types/page.php:37
 msgid "Page Types"
 msgstr ""
 
-#: inc/post_types/page.php:40
+#: inc/post_types/page.php:41
 msgid "Page Types for easy categorisation in the CMS"
 msgstr ""
 
@@ -344,29 +352,29 @@ msgstr ""
 msgid "%1$s"
 msgstr ""
 
-#: inc/template-functions.php:149
+#: inc/template-functions.php:111
 msgid ""
 "Please add a featured image. This will be used as the main image for the "
 "page on search engines and may be displayed on the page itself depending on "
 "the design. "
 msgstr ""
 
-#: inc/template-tags.php:70
+#: inc/template-tags.php:67
 #. translators: used between list items, there is a space after the comma
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:73
+#: inc/template-tags.php:70
 #. translators: 1: list of categories.
 msgid "Posted in %1$s"
 msgstr ""
 
-#: inc/template-tags.php:80
+#: inc/template-tags.php:77
 #. translators: 1: list of tags.
 msgid "Tagged %1$s"
 msgstr ""
 
-#: inc/template-tags.php:91
+#: inc/template-tags.php:88
 #. translators: %s: post title
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
@@ -418,13 +426,29 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: template-parts/blocks/linked-posts/view.php:92
-#: template-parts/blocks/post-archive/view.php:66
+#: template-parts/blocks/countdown/view.php:53
+msgid "Days"
+msgstr ""
+
+#: template-parts/blocks/countdown/view.php:57
+msgid "Hours"
+msgstr ""
+
+#: template-parts/blocks/countdown/view.php:61
+msgid "Minutes"
+msgstr ""
+
+#: template-parts/blocks/countdown/view.php:65
+msgid "Seconds"
+msgstr ""
+
+#: template-parts/blocks/linked-posts/view.php:96
+#: template-parts/blocks/post-archive/view.php:70
 msgid "No posts matched your criteria."
 msgstr ""
 
-#: template-parts/blocks/map/view.php:51
-#: template-parts/blocks/text-media/view.php:114
+#: template-parts/blocks/magic-columns/view.php:91
+#: template-parts/blocks/map/view.php:55
 #. translators: %s link to theme options page.
 msgid ""
 "You need to <a href=\"%s\" class=\"callout-link\">add a Google Maps API "
@@ -504,6 +528,10 @@ msgstr ""
 msgid "https://www.weareboba.com"
 msgstr ""
 
+#. Template Name of the plugin/theme
+msgid "Simple Page (No Header/Footer)"
+msgstr ""
+
 #: comments.php:45
 #. translators: 1: comment count number, 2: title.
 msgctxt "comments title"
@@ -552,7 +580,7 @@ msgctxt "taxonomy general name"
 msgid "Campaign Tags"
 msgstr ""
 
-#: inc/post_types/page.php:26
+#: inc/post_types/page.php:27
 msgctxt "taxonomy general name"
 msgid "Page Type"
 msgstr ""
@@ -562,7 +590,7 @@ msgctxt "taxonomy singular name"
 msgid "Campaign Tag"
 msgstr ""
 
-#: inc/post_types/page.php:27
+#: inc/post_types/page.php:28
 msgctxt "taxonomy singular name"
 msgid "Page Type"
 msgstr ""
@@ -579,7 +607,7 @@ msgctxt "post author"
 msgid "by %s"
 msgstr ""
 
-#: inc/template-tags.php:77
+#: inc/template-tags.php:74
 #. translators: used between list items, there is a space after the comma
 msgctxt "list item separator"
 msgid ", "

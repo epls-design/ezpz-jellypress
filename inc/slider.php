@@ -11,6 +11,7 @@ defined( 'ABSPATH' ) || exit;
 
 if (!function_exists('jellypress_splide_init')):
   // Note: Breakpoints are below(val) rather than above, that is why perPage starts at items_lg
+  // TODO: Add autoHeight and other height based options
   function jellypress_splide_init(
     $slider_id,
     $items_xs = 1,
@@ -25,7 +26,7 @@ if (!function_exists('jellypress_splide_init')):
     $autoWidth=false,
     $type='loop', // 'slide', 'loop' or 'fade'
     $destroy= false
-    ) {
+    ){
     $output =
       "<script type='text/javascript'>
       new Splide( '$slider_id', {
@@ -35,21 +36,21 @@ if (!function_exists('jellypress_splide_init')):
         interval: '$interval',
         focus: 'center',
         speed: '$speed',
-        arrowPath: 'M20,0l-3.6,3.6l13.8,13.8H0v5.2h30.1L16.4,36.4L20,40l20-20L20,0z',
+        //arrowPath: 'M20,0l-3.6,3.6l13.8,13.8H0v5.2h30.1L16.4,36.4L20,40l20-20L20,0z',
         arrows: $arrows,
-        autoWidth: '$autoWidth',
         pagination: $dots,
-        perPage: '$items_lg',
+        autoWidth: '$autoWidth',
         destroy: '$destroy',
+        perPage: '$items_lg',
         breakpoints: {
-          600: {
-            perPage: '$items_xs'
+          1200: {
+            perPage: '$items_md'
           },
           900: {
             perPage: '$items_sm'
           },
-          1200: {
-            perPage: '$items_md'
+          600: {
+            perPage: '$items_xs'
           },
         },
        } ).mount();

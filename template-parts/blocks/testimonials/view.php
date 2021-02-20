@@ -20,13 +20,22 @@ $block_classes = $args['block_classes'];
 $block_title = $block['title'];
 $block_preamble = $block['preamble'];
 
-if($display_arrows = $block['display_arrows']) $display_arrows = 'true';
-else $display_arrows = 'false';
+if($display_arrows = $block['display_arrows']) {
+  $display_arrows = 'true';
+  $testimonial_col_class = 'col xs-8 sm-12';
+
+}
+else {
+  $display_arrows = 'false';
+  $testimonial_col_class = 'col sm-12';
+}
 
 if($display_pagination = $block['display_pagination']) $display_pagination = 'true';
 else $display_pagination = 'false';
 
 $slider_speed = $block['slider_duration']*1000;
+
+$show_progress_bar = true; // Progress Bar is an option in php rather than the front end because it will usually not be useful.
 
 ?>
 
@@ -80,16 +89,23 @@ $slider_speed = $block['slider_duration']*1000;
       'block_id' => $block_id,
       'testimonial_id' => $i,
       'testimonial_class' => $testimonial_class,
+      'col_class' => $testimonial_col_class,
     );
     get_template_part( 'template-parts/components/slider/slide', 'testimonial', $testimonial_params );
 
     $i++;
   endforeach;
 
-  if($$number_of_testimonials > 1) echo '</div></div></div></div>';
-  else echo '</div>';
+  if($$number_of_testimonials > 1) echo '</div></div></div>';
 
-  echo '</div></div>';
+  if($$number_of_testimonials > 1 && $show_progress_bar) : ?>
+	<div class="splide__progress">
+    <div class="splide__progress__bar">
+    </div>
+  </div>
+  <?php endif;
+
+  echo '</div></div></div>';
 
 endif; ?>
 

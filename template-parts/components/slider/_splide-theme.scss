@@ -156,14 +156,18 @@
   }
 }
 
-// TODO: All of the below is untested as it is not used often in Splide Opts
-
-.splide__progress__bar {
-  width: 0;
-  height: 3px;
-  background: #ccc
+.splide__progress {
+  margin: $element-margin 0;
 }
 
+.splide__progress__bar {
+  background: $slider-progress-bar-color;
+  border-radius: $slider-progress-bar-border-radius;
+  height: $slider-progress-bar-height;
+  width: 0;
+}
+
+// TODO: All of the below is untested as it is not used often in Splide Opts
 
 .splide--nav>.splide__track>.splide__list>.splide__slide {
   border: 3px solid transparent

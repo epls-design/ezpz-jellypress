@@ -24,6 +24,8 @@ else $display_pagination = 'false';
 
 $slider_speed = $block['slider_duration']*1000;
 
+$show_progress_bar = true; // Progress Bar is an option in php rather than the front end because it will usually not be useful.
+
 ?>
 
 <section <?php if($block_id_opt = $block['section_id']) echo 'id="'.strtolower($block_id_opt).'"'; ?> class="<?php echo $block_classes;?>">
@@ -64,8 +66,16 @@ $slider_speed = $block['slider_duration']*1000;
     $i++;
   endforeach;
 
-  if($number_of_slides > 1) echo '</div></div></div></div>';
-  else echo '</div>';
+  if($number_of_slides > 1) echo '</div></div></div>';
+
+  if($number_of_slides > 1 && $show_progress_bar) : ?>
+    <div class="splide__progress">
+      <div class="splide__progress__bar">
+      </div>
+    </div>
+    <?php endif;
+
+  echo '</div>';
 
 endif; ?>
 

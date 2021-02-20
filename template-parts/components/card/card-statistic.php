@@ -44,7 +44,7 @@ $statistic_description = $statistic['statistic_description'];
   </div>
   <?php if($button = $statistic['statistic_button']):
   echo '<div class="card-section card-footer">
-        <a class="button outline" href="'.$button['url'].'" title="'.$button['title'].'" target="'.$button['target'].'">'.$button['title'].'</a>
+        <a class="button" href="'.$button['url'].'" title="'.$button['title'].'" target="'.$button['target'].'">'.$button['title'].'</a>
         </div>';
   endif; ?>
 </div>

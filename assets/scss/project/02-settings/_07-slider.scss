@@ -21,3 +21,7 @@ $slider-dots-hover-background-color: $slider-pagination-hover-color;
 $slider-dots-hover-border-color: $slider-dots-hover-background-color;
 $slider-dots-active-background-color: $slider-pagination-active-color;
 $slider-dots-active-border-color: $slider-dots-active-background-color;
+
+$slider-progress-bar-color: get-color(neutral,200);
+$slider-progress-bar-height: get-size(0.25);
+$slider-progress-bar-border-radius: 0px;

@@ -172,6 +172,8 @@ function jfdebug() {
   docBody.classList.toggle('jf-debug');
 };
 ;
+// TODO: Add lazy loading of background images - use IntersectionObserver
+;
 jQuery(document).ready(function ($) {
   var navPoint = '900'; // px value at which the navigation should change from a burger menu to inline list
 
@@ -216,6 +218,49 @@ jQuery(document).ready(function ($) {
   });
 
 })( jQuery );
+;
+function jfGetTimeRemaining(endtime) {
+  const total = Date.parse(endtime) - Date.parse(new Date());
+  const seconds = Math.floor((total / 1000) % 60);
+  const minutes = Math.floor((total / 1000 / 60) % 60);
+  const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+  const days = Math.floor(total / (1000 * 60 * 60 * 24));
+
+  return {
+    total,
+    days,
+    hours,
+    minutes,
+    seconds
+  };
+}
+
+function jfInitializeClock(id, endtime) {
+  const clock = document.getElementById(id);
+  const daysSpan = clock.querySelector('.days');
+  const hoursSpan = clock.querySelector('.hours');
+  const minutesSpan = clock.querySelector('.minutes');
+  const secondsSpan = clock.querySelector('.seconds');
+
+  function jfUpdateClock() {
+    const t = jfGetTimeRemaining(endtime);
+
+    if (t.total >= 0) {
+      daysSpan.innerHTML = ('0' + t.days).slice(-2);
+      hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+      minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+      secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+    }
+    if (t.total <= 0) {
+      clock.classList.add("complete");
+      clearInterval(timeinterval);
+    }
+  }
+
+  jfUpdateClock();
+
+  const timeinterval = setInterval(jfUpdateClock, 1000);
+}
 ;
 (function( $ ) {
 
@@ -344,6 +389,69 @@ $(document).ready(function(){
 });
 
 })(jQuery);
+;
+(function($) {
+  /**
+   * For each element with class .count-to, this function looks for the following data attributes:
+   * data-count, data-prefix, data-suffix
+   * If the element is visible in the viewport, the function will use the data-count attribute to
+   * count up to the number, appending the prefix/suffix and adding commas where necessary
+   */
+
+  // @link https://stackoverflow.com/questions/49877610/modify-countup-jquery-functions-to-include-commas
+  function addCommas(nStr) {
+    return nStr.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+  }
+
+  // Only run if IntersectionObserver supported
+  if(!!window.IntersectionObserver){
+    // @link https://css-tricks.com/a-few-functional-uses-for-intersection-observer-to-know-when-an-element-is-in-view/
+
+  let countUpObserver = new IntersectionObserver(
+    (entries, countUpObserver) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        countUp(entry.target);
+       // countUpObserver.unobserve(entry.target); // Comment in to turn off observing (animate only once)
+      }
+      });
+    }, {rootMargin: "0px 0px -20px 0px"}); // Wait until a slither of the number is visible
+    document.querySelectorAll('.count-to').forEach(number => countUpObserver.observe(number));
+  }
+
+  function countUp(number) {
+      var $this = $(number),
+          countTo = $this.attr('data-count'),
+          prefix = '', // Defaults
+          suffix = '', // Defaults
+          countDuration = 3000; // Defaults
+
+      $this.text('0'); // Reset count to 0
+
+      if (number.hasAttribute('data-prefix')) prefix = '<span class="small">'+$this.attr('data-prefix')+'</span>';
+      if (number.hasAttribute('data-suffix')) suffix = '<span class="small">'+$this.attr('data-suffix')+'</span>';
+      if (number.hasAttribute('data-duration')) countDuration = Number($this.attr('data-duration'));
+
+      $this.removeClass('count-to'); // Prevents event firing in future.
+
+      $({ countNum: $this.text() }).animate(
+        {
+          countNum: countTo
+        },
+        {
+          duration: countDuration,
+          easing: 'linear',
+          step: function () {
+            $this.html(prefix + addCommas(Math.floor(this.countNum)) + suffix);
+          },
+          complete: function () {
+            $this.html(prefix + addCommas(this.countNum) + suffix);
+          }
+        });
+
+  };
+
+})( jQuery );
 ;
 /**
  * Function to play youTube embedded video

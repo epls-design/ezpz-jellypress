@@ -1999,6 +1999,22 @@
                             "prefix_name": 0
                         },
                         {
+                            "key": "field_60313c1ccabd1",
+                            "label": "<span class=\"dashicons dashicons-editor-quote\"><\/span> Testimonials",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
                             "key": "field_602fad236529a",
                             "label": "Display Arrows?",
                             "name": "display_arrows",
@@ -4288,5 +4304,5 @@
     ],
     "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1613739469
+    "modified": 1613840080
 }

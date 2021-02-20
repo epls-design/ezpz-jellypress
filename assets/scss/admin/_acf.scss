@@ -77,7 +77,11 @@ $handle_color: get-color(neutral,900);
 }
 
 .acf-field {
-
+  &.spacer {
+    * {
+      display: none;
+    }
+  }
   .acf-input>p.description {
     // Description below input field
     margin-top: get-size(0.75);
@@ -94,7 +98,6 @@ $handle_color: get-color(neutral,900);
     margin-top: get-size(0.25);
   }
 }
-
 
 // Wrap a button group in .swatches and use a span with class .swatch for the button to make the buttons appear as block colours
 .swatches {
@@ -123,12 +126,6 @@ $handle_color: get-color(neutral,900);
     box-sizing: border-box;
     border-radius: 6px !important;
     border: 1px solid #eee;
-  }
-  &.texture {
-    .swatch {
-      width: get-size(3);
-      height: get-size(3);
-    }
   }
 }
 
@@ -175,7 +172,6 @@ $handle_color: get-color(neutral,900);
   }
 }
 
-
 .acf-block-disabled {
   position: absolute;
   top: 0;
@@ -188,6 +184,21 @@ $handle_color: get-color(neutral,900);
   border: 2px dashed red;
   box-sizing: border-box;
   pointer-events: none;
+}
+
+// More easy to see repeaters
+.acf-repeater {
+  .acf-row:nth-of-type(even) {
+    .acf-row-handle {
+      background-color: #eee;
+    }
+    td {
+      background-color: #F9F9F9;
+      .acf-fields {
+        background: transparent;
+      }
+    }
+  }
 }
 
 @keyframes blinking-text {
@@ -219,9 +230,25 @@ $handle_color: get-color(neutral,900);
  * Pseudo descriptions onto the ACF Flexible repeater
  */
 .layout {
+  &[data-layout="cards"] .acf-fc-layout-controls+.acf-fields::before {
+    @extend %flexible-content-description;
+    content: "The Cards block allows you to add a number of promotional cards to a page."
+  }
+  &[data-layout="carousel"] .acf-fc-layout-controls+.acf-fields::before {
+    @extend %flexible-content-description;
+    content: "The Carousel block allows you to add a promotional carousel to a page."
+  }
+  &[data-layout="countdown"] .acf-fc-layout-controls+.acf-fields::before {
+    @extend %flexible-content-description;
+    content: "The Countdown block allows you to display a count down to a particular date and time."
+  }
   &[data-layout="cover"] .acf-fc-layout-controls+.acf-fields::before {
     @extend %flexible-content-description;
     content: "The Cover block allows you to add a large text block over a background image."
+  }
+  &[data-layout="faqs"] .acf-fc-layout-controls+.acf-fields::before {
+    @extend %flexible-content-description;
+    content: "The FAQs block allows you to add a number of frequently asked questions which display in an accordion format on the page."
   }
   &[data-layout="gallery"] .acf-fc-layout-controls+.acf-fields::before {
     @extend %flexible-content-description;
@@ -251,9 +278,21 @@ $handle_color: get-color(neutral,900);
     @extend %flexible-content-description;
     content: "The Map block allows you to add a map with markers onto the page."
   }
+  &[data-layout="number-counter"] .acf-fc-layout-controls+.acf-fields::before {
+    @extend %flexible-content-description;
+    content: "The Number Counter block allows you to add a series of numbers to a block, which count up from 0 when scrolled into view."
+  }
   &[data-layout="post-archive"] .acf-fc-layout-controls+.acf-fields::before {
     @extend %flexible-content-description;
     content: "The Post Archive block allows you to add a post archive to a page, showing a card layout of all recent posts."
+  }
+  &[data-layout="slider"] .acf-fc-layout-controls+.acf-fields::before {
+    @extend %flexible-content-description;
+    content: "The Slider block allows you to add a slider to the page, with slides containing an image, text and optional link."
+  }
+  &[data-layout="testimonials"] .acf-fc-layout-controls+.acf-fields::before {
+    @extend %flexible-content-description;
+    content: "The Testimonials block allows you to add a number of testimonials to a page, which will appear in a slider."
   }
   &[data-layout="text"] .acf-fc-layout-controls+.acf-fields::before {
     @extend %flexible-content-description;
