@@ -53,7 +53,8 @@ if ( !function_exists( 'jellypress_embed_video' )) :
           }
 
           $vimeo_data = unserialize(file_get_contents("http://vimeo.com/api/v2/video/$video_id.php")); // Use Vimeo API to get video information
-          $video_thumbnail = $vimeo_data[0]['thumbnail_large']; // Set Thumbnail
+          $video_thumbnail_lq = $vimeo_data[0]['thumbnail_medium']; // Get a mid res thumbnail
+          $video_thumbnail_hq = $vimeo_data[0]['thumbnail_large']; // Get a high res thumbnail
 
           // Vimeo params
           $params = array (
@@ -71,7 +72,8 @@ if ( !function_exists( 'jellypress_embed_video' )) :
               // Strip out the video ID
               $video_id = $match[1];
             }
-            $video_thumbnail = 'https://i.ytimg.com/vi/'.$video_id.'/maxresdefault.jpg'; // Get a high res thumbnail
+            $video_thumbnail_lq = 'https://i.ytimg.com/vi/'.$video_id.'/mqdefault.jpg'; // Get a mid res thumbnail
+            $video_thumbnail_hq = 'https://i.ytimg.com/vi/'.$video_id.'/maxresdefault.jpg'; // Get a high res thumbnail
             // YouTube params
             $params = array (
                 'rel'            => 0,
@@ -89,7 +91,7 @@ if ( !function_exists( 'jellypress_embed_video' )) :
         }
       if ( $platform ) { ?>
         <div class="video-wrapper">
-          <div class="video-overlay" style="background-image:url('<?php echo $video_thumbnail;?>')">
+          <div class="video-overlay has-bg-img" style="background-image:url('<?php echo $video_thumbnail_lq;?>')" data-bg-img="<?php echo $video_thumbnail_hq;?>" >
             <button class="play platform-<?php esc_attr_e( $platform ); ?>" data-src="<?php echo esc_url( $oembed_url ); ?>" title="<?php _e('Play Video','jellypress');?>"><?php echo jellypress_icon( 'play' ); ?></button>
           </div>
           <div class="embed-container ratio-<?php echo $aspect_ratio;?>">

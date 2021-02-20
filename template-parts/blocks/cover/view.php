@@ -15,6 +15,8 @@ $block_id = $args['block_id'];
 $block_classes = $args['block_classes'];
 //var_dump($block);
 
+$block_classes.= ' has-bg-img';
+
 $block_title = $block['title'];
 
 $background_image = $block['background_image'];
@@ -48,7 +50,7 @@ if($overlay_color) {
 $block_classes .= ' flex align-middle';
 ?>
 
-<section <?php if($block_id_opt = $block['section_id']) echo 'id="'.strtolower($block_id_opt).'"'; ?> class="<?php echo $block_classes;?>" style="background-image:url('<?php echo wp_get_attachment_image_url($background_image, 'large');?>')">
+<section <?php if($block_id_opt = $block['section_id']) echo 'id="'.strtolower($block_id_opt).'"'; ?> class="<?php echo $block_classes;?>" data-bg-img="<?php echo wp_get_attachment_image_url($background_image, 'large');?>" style="background-image:url(<?php echo wp_get_attachment_image_url($background_image, 'medium');?>)">
   <div class="container">
 
     <?php if ($block_title) : $title_align = $block['title_align']; ?>
