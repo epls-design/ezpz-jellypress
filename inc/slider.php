@@ -12,6 +12,7 @@ defined( 'ABSPATH' ) || exit;
 if (!function_exists('jellypress_splide_init')):
   // Note: Breakpoints are below(val) rather than above, that is why perPage starts at items_lg
   // TODO: Add autoHeight and other height based options
+  // Note: If you change the breakpoint settings in the SCSS you should change them here too.
   function jellypress_splide_init(
     $slider_id,
     $items_xs = 1,
@@ -42,15 +43,22 @@ if (!function_exists('jellypress_splide_init')):
         autoWidth: '$autoWidth',
         destroy: '$destroy',
         perPage: '$items_lg',
+        gap: '16px',
         breakpoints: {
+          1800: {
+            gap: '40px'
+          },
           1200: {
-            perPage: '$items_md'
+            perPage: '$items_md',
+            gap: '35px'
           },
           900: {
-            perPage: '$items_sm'
+            perPage: '$items_sm',
+            gap: '30px'
           },
           600: {
-            perPage: '$items_xs'
+            perPage: '$items_xs',
+            gap: '20px'
           },
         },
        } ).mount();
