@@ -1,5 +1,3 @@
-$accordion-padding: get-size(1);
-
 .accordion {
   margin-bottom: $element-margin;
 }
@@ -14,15 +12,15 @@ h4.accordion__heading {
 [type=button].accordion__trigger {
   // The Actual Button
   -webkit-appearance: none;
-  color: $color-headings-preferred;
-  font-size: font-size('size-2');
-  font-weight: $weight-bold;
+  color: $accordion-heading-color;
+  font-size: $accordion-heading-font-size;
+  font-weight: $accordion-heading-font-weight;
   z-index: 2;
 
   // Make it look less like a native button
   font-family: inherit;
   text-transform: none;
-  background-color: get-color(neutral,200);
+  background-color: $accordion-heading-background-color;
   border-radius: 0;
   box-shadow: none;
   display: block;
@@ -41,7 +39,7 @@ h4.accordion__heading {
     height: 1.2em;
     mask: url(assets/icons/arrow-right.svg) no-repeat 50% 50%;
     mask-size: cover;
-    background: get-color(neutral);
+    background: $accordion-heading-arrow-color;
     right: .4em;
     top: 50%;
     transform: translateY(-50%) rotate(0deg);
@@ -50,11 +48,11 @@ h4.accordion__heading {
     box-shadow: none;
   }
   &:hover, &:focus {
-    background-color: get-color(neutral,300);
-    color: $color-headings-preferred;
+    background-color: $accordion-heading-hover-background-color;
+    color: $accordion-heading-hover-color;
     outline: none;
     &::before {
-      background: $color-headings-preferred;
+      background: $accordion-heading-hover-arrow-color;
     }
   }
   /**
@@ -73,13 +71,13 @@ h4.accordion__heading {
   }
   &[aria-expanded="true"] {
     // Active State
-    background-color: get-color(neutral,300);
+    background-color: $accordion-heading-active-background-color;
     &, & a {
-      color: $color-headings-preferred;
+      color: $accordion-heading-active-color;
     }
     &::before {
       transform: translateY(-50%) rotate(90deg);
-      background-color: $color-headings-preferred;
+      background-color: $accordion-heading-active-arrow-color;
     }
   }
 }
