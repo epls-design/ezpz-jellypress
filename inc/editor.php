@@ -170,3 +170,19 @@ if ( ! function_exists( 'jellypress_add_rel_external_to_outbound_links' ) ) :
     return $link;
   }
 endif;
+
+/**
+ * Restricts the maximum character count of Link Text to prevent massive buttons and links
+ */
+add_action('admin_footer', 'jellypress_restrict_link_text_length');
+if ( ! function_exists( 'jellypress_restrict_link_text_length' ) ) :
+  function jellypress_restrict_link_text_length() { ?>
+      <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function(event) {
+          var linkText = document.getElementById('wp-link-text'),
+              maxCharacters = 25;
+          linkText.setAttribute("maxlength", maxCharacters);
+        });
+      </script>
+  <?php }
+endif;
