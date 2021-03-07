@@ -9,17 +9,19 @@ module.exports = function (grunt) {
         '<%= opts.dist_dir %>/js/site.js',
         '<%= opts.dist_dir %>/img/*',
         '<%= opts.dist_dir %>/icons/*',
+        'lib/**/*.js',
+        'lib/**/*.js.min',
+        '<%= opts.dist_dir %>/css/woocommerce.min.css',
+        'style.css',
         '**/*.php',
         '**/*.html',
-        'style.css',
-        '<%= opts.dist_dir %>/css/woocommerce.min.css',
       ]
     },
     options: {
       watchTask: true,
       proxy: "<%= opts.dev_url %>",
       hostname: "<%= opts.dev_url %>",
-      //injectChanges: true
+      injectChanges: true
     }
   });
 

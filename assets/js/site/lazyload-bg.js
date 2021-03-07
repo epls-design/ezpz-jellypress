@@ -26,9 +26,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
   else {
+    // For browsers that don't support intersection observer, load all images straight away
     lazyBackgroundElements.forEach(function(lazyBackground){
       jfLazyLoadBackgroundImage(lazyBackground);
     });
   }
-  // ELSE Add a fallback for IE 11 to load on doc ready.
 });

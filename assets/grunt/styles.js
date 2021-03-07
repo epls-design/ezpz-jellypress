@@ -35,7 +35,6 @@ module.exports = function (grunt) {
     options: {
       map: false,
       processors: [
-        // TODO: Add https://github.com/luisrudge/postcss-flexbugs-fixes
         require('autoprefixer')(),
         require('postcss-pxtorem')({
           rootValue: 16,

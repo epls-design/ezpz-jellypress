@@ -200,11 +200,11 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
   else {
+    // For browsers that don't support intersection observer, load all images straight away
     lazyBackgroundElements.forEach(function(lazyBackground){
       jfLazyLoadBackgroundImage(lazyBackground);
     });
   }
-  // ELSE Add a fallback for IE 11 to load on doc ready.
 });
 ;
 jQuery(document).ready(function ($) {
@@ -316,7 +316,7 @@ function initMap( $el ) {
     // Create generic map.
     var mapArgs = {
         zoom        : $el.data('zoom') || 16,
-        // TODO: You can add styling for your map here, use https://mapstyle.withgoogle.com/ or similar to generate JSON
+        styles: [{featureType:"road",elementType:"geometry",stylers:[{lightness:100},{visibility:"simplified"}]},{"featureType":"water","elementType":"geometry","stylers":[{"visibility":"on"},{"color":"#C6E2FF",}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"color":"#C5E3BF"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#D1D1B8"}]}], // @link https://snazzymaps.com/style/77/clean-cut
         mapTypeId   : google.maps.MapTypeId.ROADMAP
     };
     var map = new google.maps.Map( $el[0], mapArgs );
@@ -356,6 +356,7 @@ function initMarker( $marker, map ) {
         lng: parseFloat( lng )
     };
     var icon = $marker.attr('data-icon');
+
 
     // Create marker instance.
     var marker = new google.maps.Marker({
@@ -414,11 +415,39 @@ function centerMap( map ) {
     }
 }
 
-// Render maps on page load.
 $(document).ready(function(){
-    $('.google-map').each(function(){
-        var map = initMap( $(this) );
-    });
+
+    // Render on document ready...
+    //$('.google-map').each(function(){
+    //   var map = initMap( $(this) );
+    //});
+
+    // Use IntersectionObserver to defer loading of maps until nearly in viewport.
+    var googleMapElements = [].slice.call(document.querySelectorAll(".google-map"));
+
+    if("IntersectionObserver" in window) {
+      let googleMapsObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var map = initMap( $(entry.target));
+            console.log('Map initialized');
+            googleMapsObserver.unobserve(entry.target);
+          }
+        });
+      }, {rootMargin: "0px 0px 300px 0px"}); // Pre-empt by initializing 300px early
+
+      googleMapElements.forEach(function(lazyInitGoogleMaps) {
+        console.log(lazyInitGoogleMaps);
+        googleMapsObserver.observe(lazyInitGoogleMaps);
+      });
+    }
+    else {
+      // For browsers that don't support intersection observer, load all images straight away
+      googleMapElements.forEach(function(lazyInitGoogleMaps){
+        var map = initMap( $(lazyInitGoogleMaps));
+      });
+    }
+
 });
 
 })(jQuery);

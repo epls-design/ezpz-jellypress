@@ -9,7 +9,7 @@ module.exports = function (grunt) {
       separator: ';\r\n'
     },
     dist: {
-      src: ['<%= opts.build_dir %>/js/vendor/*.js', '<%= opts.build_dir %>/js/site/*.js', 'template-parts/blocks/**/*.js'],
+      src: ['<%= opts.build_dir %>/js/vendor/*.js', '<%= opts.build_dir %>/js/site/*.js', 'template-parts/**/*.js'],
       dest: '<%= opts.dist_dir %>/js/site.js',
     }
   });
@@ -46,7 +46,7 @@ module.exports = function (grunt) {
         options: {
           event: ['changed', 'added', 'deleted']
         },
-        files: ['<%= opts.build_dir %>/js/**/*.js'],
+        files: ['<%= opts.build_dir %>/js/**/*.js', 'template-parts/**/*.js'],
         tasks: ['newer:eslint:site', 'concat', 'uglify']
       }
     }
