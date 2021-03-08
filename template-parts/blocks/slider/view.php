@@ -16,7 +16,7 @@ $block_id = $args['block_id'];
 $block_classes = $args['block_classes'];
 //var_dump($block);
 
-if($display_arrows = $block['display_arrows']) $display_arrows = 'true';
+if($display_arrows = $block['display_arrows']) $display_arrows = 'slider';
 else $display_arrows = 'false';
 
 if($display_pagination = $block['display_pagination']) $display_pagination = 'true';
@@ -24,7 +24,7 @@ else $display_pagination = 'false';
 
 $slider_speed = $block['slider_duration']*1000;
 
-$show_progress_bar = true; // Progress Bar is an option in php rather than the front end because it will usually not be useful.
+$show_progress_bar = false; // Progress Bar is an option in php rather than the front end because it will usually not be useful.
 
 ?>
 

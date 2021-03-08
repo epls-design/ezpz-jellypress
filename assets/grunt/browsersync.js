@@ -21,7 +21,7 @@ module.exports = function (grunt) {
       watchTask: true,
       proxy: "<%= opts.dev_url %>",
       hostname: "<%= opts.dev_url %>",
-      injectChanges: true
+      //injectChanges: true
     }
   });
 

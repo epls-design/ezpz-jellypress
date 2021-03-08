@@ -10,6 +10,9 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+// Only display if the content is not empty. This only really exists to prevent duplicate get_password UIs if using both ACF and the content
+if ( get_the_content() && '' != get_post()->post_content ):
+
 ?>
 
 <section class="block block__content bg-white">
@@ -29,3 +32,5 @@ defined( 'ABSPATH' ) || exit;
     </div>
   </div>
 </section>
+
+<?php endif;

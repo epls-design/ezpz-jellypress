@@ -21,7 +21,7 @@ $block_title = $block['title'];
 $block_preamble = $block['preamble'];
 
 if($display_arrows = $block['display_arrows']) {
-  $display_arrows = 'true';
+  $display_arrows = 'slider';
   $testimonial_col_class = 'col xs-8 sm-12';
 
 }
@@ -35,7 +35,7 @@ else $display_pagination = 'false';
 
 $slider_speed = $block['slider_duration']*1000;
 
-$show_progress_bar = true; // Progress Bar is an option in php rather than the front end because it will usually not be useful.
+$show_progress_bar = false; // Progress Bar is an option in php rather than the front end because it will usually not be useful.
 
 ?>
 
