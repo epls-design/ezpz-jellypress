@@ -11,7 +11,7 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$loading_type = 'button';
+$loading_type = 'scroll';
 $term = get_queried_object();
 
 get_header();

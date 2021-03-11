@@ -1,5 +1,5 @@
 /* Jellypress Wordpress Theme 1.1.0
- * © 2021-02 Matt Weet - https://www.weareboba.com */
+ * © 2021-03 Matt Weet - https://www.weareboba.com */
 
 @charset "UTF-8";
 /**
@@ -1309,6 +1309,29 @@ h4.accordion__heading {
     font-size: inherit; }
   .gm-style .address {
     font-size: 0.875em; }
+
+.testimonial-link {
+  display: block; }
+  .testimonial-link, .testimonial-link:link, .testimonial-link:active, .testimonial-link:hover, .testimonial-link:focus {
+    color: inherit !important;
+    text-decoration: none; }
+
+blockquote.testimonial {
+  border-left: 0;
+  padding-left: 0;
+  font-style: normal;
+  font-size: 1em; }
+  blockquote.testimonial p {
+    font-size: 1.875em;
+    font-weight: 300;
+    font-style: normal;
+    color: #6e7c8c; }
+  blockquote.testimonial cite {
+    font-size: 1em;
+    font-weight: 700;
+    font-style: normal;
+    color: #3f4d5a;
+    text-align: left; }
 
 .play {
   z-index: 1;
@@ -2881,29 +2904,6 @@ button.mfp-close {
 .splide--ttb > .splide__pagination {
   width: auto; }
 
-.testimonial-link {
-  display: block; }
-  .testimonial-link, .testimonial-link:link, .testimonial-link:active, .testimonial-link:hover, .testimonial-link:focus {
-    color: inherit !important;
-    text-decoration: none; }
-
-blockquote.testimonial {
-  border-left: 0;
-  padding-left: 0;
-  font-style: normal;
-  font-size: 1em; }
-  blockquote.testimonial p {
-    font-size: 1.875em;
-    font-weight: 300;
-    font-style: normal;
-    color: #6e7c8c; }
-  blockquote.testimonial cite {
-    font-size: 1em;
-    font-weight: 700;
-    font-style: normal;
-    color: #3f4d5a;
-    text-align: left; }
-
 .slide-media figure, .slide-media img {
   width: 100%; }
 
@@ -3299,30 +3299,30 @@ body.font-size-lg {
   clear: both !important; }
 
 body.dark-ui, body.dark-ui * {
-  background-color: #222222 !important;
-  color: #e6e6e6 !important; }
+  background-color: #1f2933 !important;
+  color: #f5f7fa !important; }
 
 body.dark-ui img {
   filter: grayscale(50%);
   transition: filter 0.2s ease; }
 
 body.dark-ui .button, body.dark-ui a.button, body.dark-ui button, body.dark-ui [type=submit], body.dark-ui [type=reset], body.dark-ui [type=button], body.dark-ui .button, body.dark-ui a.button, body.dark-ui button, body.dark-ui [type=submit], body.dark-ui [type=reset], body.dark-ui [type=button] *, body.dark-ui a, body.dark-ui a * {
-  color: #58cdf1 !important; }
+  color: #da4991 !important; }
   body.dark-ui .button svg path, body.dark-ui a.button svg path, body.dark-ui button svg path, body.dark-ui [type=submit] svg path, body.dark-ui [type=reset] svg path, body.dark-ui [type=button] svg path, body.dark-ui .button svg path, body.dark-ui a.button svg path, body.dark-ui button svg path, body.dark-ui [type=submit] svg path, body.dark-ui [type=reset] svg path, body.dark-ui [type=button] * svg path, body.dark-ui a svg path, body.dark-ui a * svg path {
-    fill: #58cdf1; }
+    fill: #da4991; }
   body.dark-ui .button:hover, body.dark-ui .button:focus, body.dark-ui a.button:hover, body.dark-ui a.button:focus, body.dark-ui button:hover, body.dark-ui button:focus, body.dark-ui [type=submit]:hover, body.dark-ui [type=submit]:focus, body.dark-ui [type=reset]:hover, body.dark-ui [type=reset]:focus, body.dark-ui [type=button]:hover, body.dark-ui [type=button]:focus, body.dark-ui .button:hover, body.dark-ui .button:focus, body.dark-ui a.button:hover, body.dark-ui a.button:focus, body.dark-ui button:hover, body.dark-ui button:focus, body.dark-ui [type=submit]:hover, body.dark-ui [type=submit]:focus, body.dark-ui [type=reset]:hover, body.dark-ui [type=reset]:focus, body.dark-ui [type=button] *:hover, body.dark-ui [type=button] *:focus, body.dark-ui a:hover, body.dark-ui a:focus, body.dark-ui a *:hover, body.dark-ui a *:focus {
-    color: #f1b835 !important; }
+    color: #c32c78 !important; }
     body.dark-ui .button:hover svg path, body.dark-ui .button:focus svg path, body.dark-ui a.button:hover svg path, body.dark-ui a.button:focus svg path, body.dark-ui button:hover svg path, body.dark-ui button:focus svg path, body.dark-ui [type=submit]:hover svg path, body.dark-ui [type=submit]:focus svg path, body.dark-ui [type=reset]:hover svg path, body.dark-ui [type=reset]:focus svg path, body.dark-ui [type=button]:hover svg path, body.dark-ui [type=button]:focus svg path, body.dark-ui .button:hover svg path, body.dark-ui .button:focus svg path, body.dark-ui a.button:hover svg path, body.dark-ui a.button:focus svg path, body.dark-ui button:hover svg path, body.dark-ui button:focus svg path, body.dark-ui [type=submit]:hover svg path, body.dark-ui [type=submit]:focus svg path, body.dark-ui [type=reset]:hover svg path, body.dark-ui [type=reset]:focus svg path, body.dark-ui [type=button] *:hover svg path, body.dark-ui [type=button] *:focus svg path, body.dark-ui a:hover svg path, body.dark-ui a:focus svg path, body.dark-ui a *:hover svg path, body.dark-ui a *:focus svg path {
-      fill: #f1b835; }
+      fill: #c32c78; }
 
 body.dark-ui ::placeholder {
-  color: #a1a1a1 !important; }
+  color: #abadaf !important; }
 
 body.dark-ui .hamburger {
   border: 0; }
 
 body.dark-ui .hamburger-inner, body.dark-ui .hamburger-inner:after, body.dark-ui .hamburger-inner:before {
-  background-color: #58cdf1 !important; }
+  background-color: #da4991 !important; }
 
 .jf-debug::before {
   content: "xs";
@@ -4129,6 +4129,13 @@ img.align-left, img.alignleft, img.align-right, img.alignright, img.align-none, 
 @media (min-width: 112.5em) {
   .hide-above-xl {
     display: none !important; } }
+
+.text-replace {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0; }
 
 .nowrap {
   white-space: nowrap !important; }

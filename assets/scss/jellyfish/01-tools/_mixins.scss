@@ -29,4 +29,10 @@
   }
 }
 
-//TODO: Add Image Replacement mixin https://getbootstrap.com/docs/4.0/utilities/image-replacement/
+@mixin text-replace {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
