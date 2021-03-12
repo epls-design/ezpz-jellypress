@@ -1,0 +1,27 @@
+.container.is-wide {
+  @include above(sm) {
+    width: 100%;
+    max-width: none;
+  }
+  @each $point,
+  $i in $breakpoints {
+    // for each breakpoint defined...
+    @include above($point) {
+        $container-width: map-deep-get($breakpoints, $point, 'container-width');
+        $container-gutter: map-deep-get($breakpoints, $point, 'container-gutter');
+
+        // If container is 100% wide set the padding to half of the gutter
+        @if $container-width == 100% {
+          @if $container-gutter {
+            padding-left: h($container-gutter);
+            padding-right: h($container-gutter);
+          }
+        }
+        @else {
+          $padding: calc((100vw-#{$container-width})/4);
+          padding-left: $padding;
+          padding-right: $padding;
+        }
+    }
+  }
+}

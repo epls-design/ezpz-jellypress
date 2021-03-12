@@ -610,7 +610,7 @@ sup {
     .alignfull > .wp-caption-text,
     .alignwide > figcaption,
     .alignwide > .wp-caption-text {
-      width: calc(100% - 50px*2); } }
+      width: calc(100% - 90px*2); } }
   @media (min-width: 56.25em) {
     .alignfull > figcaption,
     .alignfull > .wp-caption-text,
@@ -939,8 +939,8 @@ p.has-background {
 @media (min-width: 37.5em) {
   .container {
     width: 100%;
-    padding-left: 50px;
-    padding-right: 50px; }
+    padding-left: 90px;
+    padding-right: 90px; }
   .row {
     margin-left: -10px;
     margin-right: -10px; }
@@ -1006,34 +1006,43 @@ p.has-background {
       padding-bottom: 72px; } }
 
 .block-preamble {
-  margin-bottom: 24px; }
+  margin-bottom: 48px; }
   .block-preamble .col *:last-child {
     margin-bottom: 0; }
 
-.block.bg-white:not(.block__full-width) + .block.bg-white:not(.block__full-width) {
-  padding-top: 0; }
-
-.block.bg-dark:not(.block__full-width) + .block.bg-dark:not(.block__full-width) {
-  padding-top: 0; }
-
-.block.bg-black:not(.block__full-width) + .block.bg-black:not(.block__full-width) {
-  padding-top: 0; }
-
-.block__full-width {
+.block.is-full-width {
   padding-top: 0;
   padding-bottom: 0; }
-  .block__full-width img, .block__full-width .embed-container, .block__full-width .is-type-video .wp-block-embed__wrapper, .is-type-video .block__full-width .wp-block-embed__wrapper {
+  .block.is-full-width img, .block.is-full-width .embed-container, .block.is-full-width .is-type-video .wp-block-embed__wrapper, .is-type-video .block.is-full-width .wp-block-embed__wrapper, .block.is-full-width .google-map {
     margin-bottom: 0; }
-  .block__full-width .block-title, .block__full-width .block-preamble {
-    margin-top: 32px; }
+  .block.is-full-width .block-title, .block.is-full-width .block-preamble {
+    padding-top: 32px; }
     @media (min-width: 37.5em) {
-      .block__full-width .block-title, .block__full-width .block-preamble {
-        margin-top: 64px; } }
+      .block.is-full-width .block-title, .block.is-full-width .block-preamble {
+        padding-top: 64px; } }
     @media (min-width: 56.25em) {
-      .block__full-width .block-title, .block__full-width .block-preamble {
-        margin-top: 96px; } }
-  .block__full-width .block-title + .block-preamble {
-    margin-top: 0 !important; }
+      .block.is-full-width .block-title, .block.is-full-width .block-preamble {
+        padding-top: 96px; } }
+  .block.is-full-width .block-title + .block-preamble {
+    padding-top: 0 !important; }
+
+.block.bg-white:not(.is-full-width) + .block.bg-white:not(.is-full-width) {
+  padding-top: 0; }
+
+.block.bg-white:not(.is-full-width) + .block.bg-white.is-full-width .block-title, .block.bg-white:not(.is-full-width) + .block.bg-white.is-full-width .block-preamble {
+  padding-top: 0; }
+
+.block.bg-dark:not(.is-full-width) + .block.bg-dark:not(.is-full-width) {
+  padding-top: 0; }
+
+.block.bg-dark:not(.is-full-width) + .block.bg-dark.is-full-width .block-title, .block.bg-dark:not(.is-full-width) + .block.bg-dark.is-full-width .block-preamble {
+  padding-top: 0; }
+
+.block.bg-black:not(.is-full-width) + .block.bg-black:not(.is-full-width) {
+  padding-top: 0; }
+
+.block.bg-black:not(.is-full-width) + .block.bg-black.is-full-width .block-title, .block.bg-black:not(.is-full-width) + .block.bg-black.is-full-width .block-preamble {
+  padding-top: 0; }
 
 .block-title {
   margin-bottom: 48px; }
@@ -4373,6 +4382,31 @@ table.is-hoverable tr:hover td {
   right: 50% !important;
   margin-left: -50vw !important;
   margin-right: -50vw !important; }
+
+@media (min-width: 37.5em) {
+  .container.is-wide {
+    width: 100%;
+    max-width: none; } }
+
+@media (min-width: 37.5em) {
+  .container.is-wide {
+    padding-left: 45px;
+    padding-right: 45px; } }
+
+@media (min-width: 56.25em) {
+  .container.is-wide {
+    padding-left: calc((100vw-90%)/4);
+    padding-right: calc((100vw-90%)/4); } }
+
+@media (min-width: 75em) {
+  .container.is-wide {
+    padding-left: calc((100vw-1140px)/4);
+    padding-right: calc((100vw-1140px)/4); } }
+
+@media (min-width: 112.5em) {
+  .container.is-wide {
+    padding-left: calc((100vw-1280px)/4);
+    padding-right: calc((100vw-1280px)/4); } }
 
 .text-white {
   color: #fff !important; }

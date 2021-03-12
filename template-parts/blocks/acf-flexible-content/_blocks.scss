@@ -15,48 +15,52 @@
 }
 
 .block-preamble {
-  margin-bottom: $element-margin;
+  margin-bottom: $block-title-bottom-margin;
   .col *:last-child {
     margin-bottom: 0;
   }
 }
-
-// TODO: This needs some more work. Need to test full_width and different/same preceding before bg colour
-// If two blocks follow with the same bg color, remove the top padding so that there is not a chasm of space
-@each $name, $color in $background-colors {
-  .block.bg-#{$name} {
-    &:not(.block__full-width) { // Parent container not also full width
-      &+& {
-        padding-top: 0;  // Remove padding top if it follows a block with the same bg color
-      }
-    }
-  }
-}
-
-.block__full-width {
+.block.is-full-width {
   // Fixes issues of letterboxing
   padding-top: 0;
   padding-bottom: 0;
-  img, .embed-container {
+  img, .embed-container, .google-map {
     margin-bottom: 0;
   }
+
   // Some full width blocks have headers or preambles - reinstate the top padding on these to open them back up and prevent crashing
   .block-title, .block-preamble {
-    // TODO: Check how this works with bg-color crashing in
     @each $point, $size in $block-padding {
       @if $point == 'root' {
-        margin-top: $size;
+        padding-top: $size;
       }
       @else {
         @include above($point) {
-          margin-top: $size;
+          padding-top: $size;
         }
       }
     }
   }
   .block-title+.block-preamble {
     // If there is a header we don't want the top margin
-    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+// If two blocks follow with the same bg color, remove the top padding so that there is not a chasm of space
+@each $name, $color in $background-colors {
+  .block.bg-#{$name} {
+    &:not(.is-full-width) { // Parent container not also full width
+      &+& {
+        padding-top: 0;  // Remove padding top if it follows a block with the same bg color
+      }
+    }
+    // If it's a full width block, normally these have the padding added to the block-title and block-preamble. Let's reset this.
+    &:not(.is-full-width)+&.is-full-width {
+      .block-title, .block-preamble {
+        padding-top: 0;
+      }
+    }
   }
 }
 

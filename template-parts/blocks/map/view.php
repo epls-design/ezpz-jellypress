@@ -15,35 +15,42 @@ defined( 'ABSPATH' ) || exit;
 $block = $args['block'];
 $block_id = $args['block_id'];
 $block_classes = $args['block_classes'];
+$container_class = 'container';
 //var_dump($block);
 
 $block_title = $block['title'];
-$block_is_fullwidth = $block['full_width'];
 $block_preamble = $block['preamble'];
+
+$block_width = $block['content_width'];
+if($block_width == 'wide') $container_class .= ' is-wide';
+elseif($block_width == 'full') $block_classes .= ' is-full-width';
 ?>
 
 <section <?php if($block_id_opt = $block['section_id']) echo 'id="'.strtolower($block_id_opt).'"'; ?> class="<?php echo $block_classes;?>">
-  <div class="container">
+  <?php if ($block_title || $block_preamble) echo '<div class="container">'; ?>
 
-  <?php if ($block_title) : $title_align = $block['title_align']; ?>
-    <header class="row justify-center block-title">
-      <div class="col md-10 lg-8">
-        <h2 class="text-<?php echo $title_align;?>"><?php echo jellypress_bracket_tag_replace($block_title); ?></h2>
+    <?php if ($block_title) : $title_align = $block['title_align']; ?>
+      <header class="row justify-center block-title">
+        <div class="col md-10 lg-8">
+          <h2 class="text-<?php echo $title_align;?>"><?php echo jellypress_bracket_tag_replace($block_title); ?></h2>
+        </div>
+      </header>
+    <?php endif; ?>
+
+    <?php if ($block_preamble) : ?>
+      <div class="row justify-center block-preamble">
+        <div class="col md-10 lg-8">
+          <?php echo jellypress_content($block_preamble); ?>
+        </div>
       </div>
-    </header>
-  <?php endif; ?>
+    <?php endif; ?>
 
-  <?php if ($block_preamble) : ?>
-    <div class="row justify-center block-preamble">
-      <div class="col md-10 lg-8">
-        <?php echo jellypress_content($block_preamble); ?>
-      </div>
-    </div>
-  <?php endif; ?>
+  <?php if ($block_title || $block_preamble) echo '</div>'; ?>
 
+  <div class="<?php echo $container_class;?>">
     <div class="row">
       <div class="col">
-        <?php if ( $block_is_fullwidth == 1 ){ echo '<div class="vw-100">'; }
+        <?php if ( $block_width === 'full' ){ echo '<div class="vw-100">'; }
         // TODO: Replace all calls to get option with some more efficient way - cache or set constant
             if (get_global_option('google_maps_api_key') && ($map_locations = $block['locations'])) :
               jellypress_display_map_markers($map_locations);
@@ -57,9 +64,9 @@ $block_preamble = $block['preamble'];
               )
               . '</div>';
             endif; // google_maps_api_key
-        if ( $block_is_fullwidth == 1 ){ echo '</div>'; }?>
+        if ( $block_width === 'full' ){ echo '</div>'; }?>
       </div>
     </div>
-
   </div>
+
 </section>
