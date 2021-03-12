@@ -61,7 +61,7 @@ $loading_type = $block['loading_type'];
             get_template_part( 'template-parts/components/card/card', get_post_type() );
           echo '</article>';
         }
-
+        if ( $loading_type == 'scroll' ) echo '</div><div class="row"><div class="col xs-12"><div id="archive-loading"></div></div>';
         if ( $archive_query->max_num_pages > 1 && $loading_type == 'button' ) {
           echo '</div><div class="row"><div class="col xs-12"><button class="button outline button-loadmore">' . __( 'Load More...', 'jellypress' ) . '</button></div>';
         };

@@ -46,7 +46,8 @@ get_header();
               get_template_part( 'template-parts/components/card/card', get_post_type(), array('loaded' => true) );
             echo '</article>';
           endwhile;
-          if (  $wp_query->max_num_pages > 1 && $loading_type == 'button' ) {
+          if ( $loading_type == 'scroll' ) echo '</div><div class="row"><div class="col xs-12"><div id="archive-loading"></div></div>';
+          if ( $wp_query->max_num_pages > 1 && $loading_type == 'button' ) {
             echo '</div><div class="row"><div class="col xs-12"><button class="button outline button-loadmore">' . __( 'Load More...', 'jellypress' ) . '</button></div>';
           };
         echo '</div>';
