@@ -51,7 +51,6 @@ elseif($block_width == 'full') $block_classes .= ' is-full-width';
     <div class="row">
       <div class="col">
         <?php if ( $block_width === 'full' ){ echo '<div class="vw-100">'; }
-        // TODO: Replace all calls to get option with some more efficient way - cache or set constant
             if (get_global_option('google_maps_api_key') && ($map_locations = $block['locations'])) :
               jellypress_display_map_markers($map_locations);
             elseif(current_user_can( 'publish_posts' )):

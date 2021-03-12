@@ -19,11 +19,10 @@ if($loaded == true) {
 <div <?php post_class($card_class);?>>
 
   <?php
-  // TODO: Replace this with a template tag, or modify jellypress_post_thumbnail so it is more useful in the future
   if(has_post_thumbnail()) : ?>
     <figure class="post-thumbnail card-image">
       <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-        <?php the_post_thumbnail('post-thumbnail'); ?>
+        <?php the_post_thumbnail('medium'); ?>
       </a>
     </figure>
   <?php endif; ?>
@@ -32,10 +31,7 @@ if($loaded == true) {
     <?php the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" aria-hidden="true" tabindex="-1">', '</a></h3>' ); ?>
   </header>
 
-  <?php // TODO: If has excerpt ?>
-  <div class="card-section entry-content">
-    <?php jellypress_excerpt(); ?>
-  </div>
+  <?php echo jellypress_excerpt(null, 'card-section entry-content'); ?>
 
   <?php if ( 'post' === get_post_type() ) : // Show if post ?>
     <div class="card-section entry-meta">

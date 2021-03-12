@@ -74,9 +74,13 @@ $loading_type = $block['loading_type'];
     ?>
 
   <?php if ( $block['buttons'] ) : ?>
-    <div class="row">
-      <div class="col text-center">
-        <?php jellypress_display_cta_buttons($block['buttons']); ?>
+    <div class="row justify-center">
+      <div class="col md-10 lg-8 text-center">
+      <?php
+        if($title_align == 'center') jellypress_display_cta_buttons($block['buttons'], 'justify-center');
+        elseif($title_align == 'right') jellypress_display_cta_buttons($block['buttons'], 'justify-end');
+        else jellypress_display_cta_buttons($block['buttons']);
+        ?>
       </div>
     </div>
   <?php endif; ?>

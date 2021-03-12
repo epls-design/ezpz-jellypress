@@ -109,7 +109,7 @@ if ( ! function_exists( 'jellypress_post_thumbnail' ) ) :
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 */
-	function jellypress_post_thumbnail($size = 'post-thumbnail') {
+	function jellypress_post_thumbnail($size = 'medium', $classes = null) {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
 		}
@@ -117,19 +117,19 @@ if ( ! function_exists( 'jellypress_post_thumbnail' ) ) :
 			?>
 
     <figure class="post-thumbnail">
-      <?php the_post_thumbnail($size); ?>
+      <?php
+      if($classes) the_post_thumbnail($size, ['class' => $classes]);
+      else the_post_thumbnail($size)
+      ?>
     </figure>
 
     <?php else : ?>
 
     <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
       <?php
-          the_post_thumbnail( $size, array(
-            'alt' => the_title_attribute( array(
-              'echo' => false,
-            ) ),
-          ) );
-          ?>
+      if($classes) the_post_thumbnail($size,['class' => $classes, 'alt' => the_title_attribute()] );
+      else the_post_thumbnail($size,['alt' => the_title_attribute()] );
+       ?>
     </a>
 
 <?php
@@ -185,7 +185,7 @@ endif;
  * @return void
  */
 if ( ! function_exists( 'jellypress_excerpt' ) ) :
-  function jellypress_excerpt($custom_field = null) {
+  function jellypress_excerpt($custom_field = null, $classes = null) {
     // TODO: Extend this function so that if neither the excerpt or custom field exists, it will try to find some text on the page and use this
     // Could possibly be improved with https://www.charlyanderson.co.uk/blog/acf-snippets/
     if($custom_field) {
@@ -193,12 +193,14 @@ if ( ! function_exists( 'jellypress_excerpt' ) ) :
       $custom_field_excerpt = get_field( $custom_field ); // Get the field from ACF
       $trimmed_content = wp_trim_words($custom_field_excerpt); // Strip images and tags
       $clean_excerpt = apply_filters('the_excerpt', $trimmed_content); // Apply the excerpt filter
-      echo $clean_excerpt; // Output the result
+      $excerpt = $clean_excerpt; // Output the result
     }
     else {
       // If the field is empty, show the normal excerpt from Wordpress
-      the_excerpt(); // Can I hook into the excerpt filter, eg. to use this for Yoast Desc?
+      $excerpt = get_the_excerpt();
     }
+    if( $excerpt && $classes) $excerpt = '<div class="'.$classes.'">'.$excerpt.'</div>';
+    return $excerpt;
   }
 endif;
 
@@ -232,8 +234,6 @@ if ( ! function_exists( 'jellypress_post_navigation' ) ) :
     endif;
   }
 endif;
-
-// TODO: Add a function to get a list of terms attached to a post. Option to pass an array of term names or get all terms https://developer.wordpress.org/reference/functions/get_the_terms/
 
 if ( ! function_exists( 'jellypress_content' ) ) :
   /* @Recreate the default filters on the_content so we can pull formatted content with get_post_meta and get_all_custom_field_meta */

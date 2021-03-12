@@ -115,7 +115,6 @@ if (! function_exists('jellypress_setup') ) :
     }
 endif;
 
-// TODO: Come back to this - see https://wordpress.stackexchange.com/questions/226884/wordpress-add-javascriptvoid0-to-menu-link-item/226948 and Tatton job
 add_filter('walker_nav_menu_start_el', 'jellypress_replace_menu_hash', 999);
 /**
  * Hooks into Wordpress Menu to replace hashtag # with javascript:void(0)
@@ -181,7 +180,6 @@ add_action('wp_head', function() {
 
     // LOGO
     if ($organisation_logo = $schema_config['organisation_logo']) {
-      // TODO: Could replace this with an image object at some point
       $schema['logo'] = wp_get_attachment_image_url( $organisation_logo, 'medium');
     }
 

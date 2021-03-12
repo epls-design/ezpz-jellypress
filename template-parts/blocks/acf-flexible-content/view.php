@@ -13,8 +13,9 @@ defined( 'ABSPATH' ) || exit;
  // ID of the current page
 $id = get_the_ID();
 
-// TODO: Change to do https://wordpress.stackexchange.com/questions/219773/conditional-to-test-if-post-has-password-protection-enabled
 if( !post_password_required()):
+
+  // TODO: Eventually work out how to use this with pages with a sidebar.
 
   /**
   * Get all ACF field meta into a single array rather than querying the database for each field individually

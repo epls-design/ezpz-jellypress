@@ -18,8 +18,8 @@ defined( 'ABSPATH' ) || exit;
       <div class="col">
         <header class="page-header">
           <?php
+          jellypress_post_thumbnail('medium', 'alignright');
           the_title( '<h1 class="page-title">', '</h1>' );
-          jellypress_post_thumbnail(); // TODO: The Featured Image is kind of 'plonked' on here - on live builds it needs to be incorporated better into the overall design
           if ( 'post' === get_post_type() ) : ?>
             <div class="entry-meta">
               <?php
