@@ -1566,11 +1566,11 @@ button.toggle-contrast svg {
 
 .button-list {
   display: flex;
-  margin-bottom: calc(24px - 12px); }
+  margin-bottom: calc(24px - 8px);
+  margin-right: -8px;
+  margin-left: -8px; }
   .button-list .button, .button-list a.button {
-    margin: 0 12px 12px 0; }
-    .button-list .button:last-child, .button-list a.button:last-child {
-      margin-right: 0; }
+    margin: 0 8px 16px 8px; }
 
 .button-group {
   display: inline-flex;
@@ -1587,7 +1587,7 @@ button.toggle-contrast svg {
     margin-left: 24px; }
 
 .button-list .button-group {
-  margin-bottom: calc(24px - 12px); }
+  margin-bottom: calc(24px - 8px); }
 
 .callout {
   border-width: 1px 1px 1px 8px;
@@ -3454,17 +3454,17 @@ img.align-left, img.alignleft, img.align-right, img.alignright, img.align-none, 
 .text-justify {
   text-align: justify !important; }
 
-.col-auto {
-  flex: 0 0 auto !important;
+.col.col-auto {
+  flex: 0 0 auto;
   width: auto;
-  max-width: none !important; }
+  max-width: none; }
 
 .row.collapse {
   margin-left: 0;
   margin-right: 0; }
   .row.collapse > .col {
-    padding-left: 0 !important;
-    padding-right: 0 !important; }
+    padding-left: 0;
+    padding-right: 0; }
 
 .order-xs-1 {
   order: 1; }
@@ -3543,8 +3543,14 @@ img.align-left, img.alignleft, img.align-right, img.alignright, img.align-none, 
     margin-left: 0;
     margin-right: 0; }
     .row.collapse-sm .col {
-      padding-left: 0 !important;
-      padding-right: 0 !important; }
+      padding-left: 0;
+      padding-right: 0; }
+  .row.nocollapse-sm {
+    margin-left: -10px;
+    margin-right: -10px; }
+    .row.nocollapse-sm .col {
+      padding-left: 10px;
+      padding-right: 10px; }
   .col.sm-auto {
     max-width: none;
     flex: 0 0 auto;
@@ -3678,8 +3684,14 @@ img.align-left, img.alignleft, img.align-right, img.alignright, img.align-none, 
     margin-left: 0;
     margin-right: 0; }
     .row.collapse-md .col {
-      padding-left: 0 !important;
-      padding-right: 0 !important; }
+      padding-left: 0;
+      padding-right: 0; }
+  .row.nocollapse-md {
+    margin-left: -15px;
+    margin-right: -15px; }
+    .row.nocollapse-md .col {
+      padding-left: 15px;
+      padding-right: 15px; }
   .col.md-auto {
     max-width: none;
     flex: 0 0 auto;
@@ -3813,8 +3825,14 @@ img.align-left, img.alignleft, img.align-right, img.alignright, img.align-none, 
     margin-left: 0;
     margin-right: 0; }
     .row.collapse-lg .col {
-      padding-left: 0 !important;
-      padding-right: 0 !important; }
+      padding-left: 0;
+      padding-right: 0; }
+  .row.nocollapse-lg {
+    margin-left: -17.5px;
+    margin-right: -17.5px; }
+    .row.nocollapse-lg .col {
+      padding-left: 17.5px;
+      padding-right: 17.5px; }
   .col.lg-auto {
     max-width: none;
     flex: 0 0 auto;
@@ -3948,8 +3966,14 @@ img.align-left, img.alignleft, img.align-right, img.alignright, img.align-none, 
     margin-left: 0;
     margin-right: 0; }
     .row.collapse-xl .col {
-      padding-left: 0 !important;
-      padding-right: 0 !important; }
+      padding-left: 0;
+      padding-right: 0; }
+  .row.nocollapse-xl {
+    margin-left: -20px;
+    margin-right: -20px; }
+    .row.nocollapse-xl .col {
+      padding-left: 20px;
+      padding-right: 20px; }
   .col.xl-auto {
     max-width: none;
     flex: 0 0 auto;

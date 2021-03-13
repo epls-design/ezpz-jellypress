@@ -3,13 +3,10 @@
   // Loop through $background-colors map and create classes for .bg-*
   .bg-#{$name} {
     background-color: $color;
-    // TODO: Make this more specific eg. p, ul, ol ?
     color: choose-contrast-color($color,$color-text, get-color(neutral,000));
     #{headings()} {
       color: choose-contrast-color($color, get-color(neutral,000), $color-headings-preferred);
     }
-    // TODO: THIS ANCHOR STUFF WILL NEED REWRITING.... BETTER TO USE A VALUE FROM THE $cOLORS MAP FOR HOVER STATES I THINK
-    //a:not(.button)
     a {
       & {
         color: choose-contrast-color($color, $link-color, tint($color,30%));

@@ -35,7 +35,6 @@ $font-code: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monos
 $font-body: $font-primary !default;
 $font-headings: $font-secondary !default;
 
-// TODO: Documentation
 $font-sizes-h1: map-merge(
   ( "root": font-size('size-6') ), $font-sizes-h1
 );
@@ -57,7 +56,6 @@ $font-sizes-h6: map-merge(
 
 $heading-line-height: 1.2 !default;
 
-// TODO: Need documenting
 $weight-hairline: 100 !default;
 $weight-thin:     200 !default;
 $weight-light:    300 !default;

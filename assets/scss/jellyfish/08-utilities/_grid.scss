@@ -1,7 +1,7 @@
-.col-auto {
-  flex: 0 0 auto !important;
+.col.col-auto {
+  flex: 0 0 auto;
   width: auto;
-  max-width: none !important;
+  max-width: none;
 }
 
 // Remove column padding on collapsed rows
@@ -10,8 +10,8 @@
   margin-right: 0;
 
   &>.col {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -44,12 +44,18 @@ $i in $breakpoints {
       margin-right: 0;
 
       .col {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        padding-left: 0;
+        padding-right: 0;
       }
     }
-
-    // TODO: Create a reset-collapse?
+    .row.nocollapse-#{$point} {
+      margin-left: -.5*(map-deep-get($breakpoints, $point, 'col-gutter'));
+      margin-right: -.5*(map-deep-get($breakpoints, $point, 'col-gutter'));
+      .col {
+        padding-left: .5*map-deep-get($breakpoints, $point, 'col-gutter');
+        padding-right: .5*map-deep-get($breakpoints, $point, 'col-gutter');
+      }
+    }
 
     // Columns expand to size of content
     .col.#{$point}-auto {

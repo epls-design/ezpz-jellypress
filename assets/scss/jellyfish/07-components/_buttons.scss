@@ -48,13 +48,11 @@
   display: flex;
   @extend %button-groups;
   margin-bottom: calc(#{$element-margin} - #{$button-list-button-margin});
-  // TODO: Add margin-top inside blocks only - needs more spacing
+  margin-right: n($button-list-button-margin);
+  margin-left: n($button-list-button-margin);
   .button, a.button {
-    margin: 0 $button-list-button-margin $button-list-button-margin 0;
+    margin: 0 $button-list-button-margin $button-list-button-margin*2 $button-list-button-margin;
     //display: inline-flex;
-    &:last-child {
-      margin-right: 0; //  TODO: Replace with negative margins on the .button-list element (treat it like a row)
-    }
   }
 }
 .button-group {

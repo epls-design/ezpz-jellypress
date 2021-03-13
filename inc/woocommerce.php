@@ -38,7 +38,7 @@ if ( ! function_exists( 'jellypress_woocommerce_setup' ) ) {
     add_theme_support( 'wc-product-gallery-zoom' );
     add_theme_support( 'wc-product-gallery-lightbox' );
     add_theme_support( 'wc-product-gallery-slider' );
-    // TODO: FIX WOOCOMMERCE CROPPING
+    // FIXME: FIX WOOCOMMERCE CROPPING
   }
 }
 add_action( 'after_setup_theme', 'jellypress_woocommerce_setup' );

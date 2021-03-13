@@ -21,8 +21,3 @@ Jellyfish has one minor change from the normal ITCSS structure, in that Tools an
 - [The Inverted Triangle Architecture: how to manage large CSS Projects](https://www.freecodecamp.org/news/managing-large-s-css-projects-using-the-inverted-triangle-architecture-3c03e4b1e6df/)
 - [How I Shrank my CSS by 84kb by Refactoring with ITCSS](https://medium.com/@jordankoschei/how-i-shrank-my-css-by-84kb-by-refactoring-with-itcss-2e8dafee123a)
 - [Chisel: Guide to ITCSS](https://www.getchisel.co/docs/development/itcss/)
-
-
-#### TODO: Some of the vendor code is being overwritten later by eg. button
-
-#### TODO: Make some notes on naming conventions - it's kind of BEM but not quite.

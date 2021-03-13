@@ -14,6 +14,6 @@ $button-box-shadow: 0px 0px 1px 3px !default;
 $button-text-color-light: get-color(neutral,000) !default;
 $button-text-color-dark: $color-text !default;
 $button-disabled-opacity: .65 !default;
-$button-list-button-margin: get-size(.75) !default;
+$button-list-button-margin: get-size(.5) !default;
 
 // TODO: Look at setting min and max-width of buttons with ch (character height)

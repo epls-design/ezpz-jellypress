@@ -58,7 +58,6 @@ $i in $breakpoints {
   $loop_count: $loop_count+1; // Increment loop count
 }
 
-// TODO: Documentation.
 .text-replace {
   @include text-replace;
 }
