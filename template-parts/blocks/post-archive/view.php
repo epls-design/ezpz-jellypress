@@ -50,8 +50,9 @@ $loading_type = $block['loading_type'];
       //'order' => 'ASC',
       'orderby' => 'date',
     );
+    if($block['post_categories']) $args_posts_query['tax_query'] = array(array('taxonomy' => 'category', 'field' => 'term_id', 'terms' => $block['post_categories']));
+
     $archive_query = new WP_Query( $args_posts_query );
-    // TODO: Add a query for taxonomy?
 
     echo '<div class="row equal-height archive-feed feed-'.$query_post_type.'" id="feed-'.$query_post_type.'">';
       if ( $archive_query->have_posts() ) {

@@ -4078,7 +4078,7 @@
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "70",
+                                "width": "33",
                                 "class": "",
                                 "id": ""
                             },
@@ -4095,6 +4095,36 @@
                             "placeholder": ""
                         },
                         {
+                            "key": "field_604beed64e7f6",
+                            "label": "Category(s)",
+                            "name": "post_categories",
+                            "type": "taxonomy",
+                            "instructions": "You can optionally specify categories to display, otherwise the block will show all posts by default.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_5f73568a0967a",
+                                        "operator": "==",
+                                        "value": "post"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "taxonomy": "category",
+                            "field_type": "multi_select",
+                            "allow_null": 0,
+                            "add_term": 1,
+                            "save_terms": 1,
+                            "load_terms": 1,
+                            "return_format": "id",
+                            "multiple": 0
+                        },
+                        {
                             "key": "field_5f736e50e8524",
                             "label": "Loading Type",
                             "name": "loading_type",
@@ -4103,7 +4133,7 @@
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "30",
+                                "width": "34",
                                 "class": "",
                                 "id": ""
                             },
@@ -4311,5 +4341,5 @@
     ],
     "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1615581169
+    "modified": 1615644787
 }
