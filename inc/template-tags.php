@@ -176,34 +176,6 @@ if ( ! function_exists( 'jellypress_copyright' ) ) :
     }
 endif;
 
-/**
- * A function which takes an ACF field and if that field exists,
- * uses it for the_excerpt instead of the WP native excerpt.
- * Provides the_excerpt as a fallback if the field does not exist or is empty.
- *
- * @param [string] $custom_field to pass
- * @return void
- */
-if ( ! function_exists( 'jellypress_excerpt' ) ) :
-  function jellypress_excerpt($custom_field = null, $classes = null) {
-    // TODO: Extend this function so that if neither the excerpt or custom field exists, it will try to find some text on the page and use this
-    // Could possibly be improved with https://www.charlyanderson.co.uk/blog/acf-snippets/
-    if($custom_field) {
-      // TODO: Rewrite so it is no longer using get_field but instead takes a passed value. See Oasis for some fall back stuff
-      $custom_field_excerpt = get_field( $custom_field ); // Get the field from ACF
-      $trimmed_content = wp_trim_words($custom_field_excerpt); // Strip images and tags
-      $clean_excerpt = apply_filters('the_excerpt', $trimmed_content); // Apply the excerpt filter
-      $excerpt = $clean_excerpt; // Output the result
-    }
-    else {
-      // If the field is empty, show the normal excerpt from Wordpress
-      $excerpt = get_the_excerpt();
-    }
-    if( $excerpt && $classes) $excerpt = '<div class="'.$classes.'">'.$excerpt.'</div>';
-    return $excerpt;
-  }
-endif;
-
 // TODO: Hook into featured image and replace with a ACF image? Eg. for Yoast SEO
 
 /**

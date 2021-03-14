@@ -8,53 +8,46 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+// TODO: Bit of a tidy up in here would be good
 /**
 * Move location of ACF-JSON local Json folder
 * https://www.advancedcustomfields.com/resources/local-json/
 */
-if (! function_exists('jellypress_acf_json_load_point') ) {
-    function jellypress_acf_json_load_point( $paths )
-    {
-
-        // remove original path (optional)
-        unset($paths[0]);
-
-        // append path
-        $paths[] = get_stylesheet_directory() . '/assets/acf-json';
-
-        // return
-        return $paths;
-    }
-}
-if (! function_exists('jellypress_acf_json_save_point') ) {
-    function jellypress_acf_json_save_point( $path )
-    {
-
-        // update path
-        $path = get_stylesheet_directory() . '/assets/acf-json';
-
-        // return
-        return $path;
-    }
-}
 add_filter('acf/settings/load_json', 'jellypress_acf_json_load_point');
 add_filter('acf/settings/save_json', 'jellypress_acf_json_save_point');
-
-
-if (!function_exists('jellypress_restrict_acf_tinymce_opts')) {
-    /**
-     * Restricts TinyMCE options for ACF Wysiwig field
-     */
-    function jellypress_restrict_acf_tinymce_opts( $toolbars )
-    {
-        $toolbars['Full' ] = array(
-        1 => array('formatselect', 'bold', 'italic', 'blockquote', 'bullist', 'numlist', 'link', 'unlink', 'spellchecker', 'wp_adv'),
-        2 => array('styleselect', 'pastetext', 'removeformat', 'charmap', 'alignleft', 'aligncenter', 'alignright', 'undo', 'redo' )
-        );
-        return $toolbars;
-    }
+if (! function_exists('jellypress_acf_json_load_point') ) {
+  function jellypress_acf_json_load_point( $paths ) {
+    // remove original path (optional)
+    unset($paths[0]);
+    // append path
+    $paths[] = get_stylesheet_directory() . '/assets/acf-json';
+    // return
+    return $paths;
+  }
 }
+if (! function_exists('jellypress_acf_json_save_point') ) {
+function jellypress_acf_json_save_point( $path ) {
+    // update path
+    $path = get_stylesheet_directory() . '/assets/acf-json';
+    // return
+    return $path;
+  }
+}
+
+/**
+ * Restricts TinyMCE options for ACF Wysiwig field
+ */
 add_filter('acf/fields/wysiwyg/toolbars', 'jellypress_restrict_acf_tinymce_opts');
+if (!function_exists('jellypress_restrict_acf_tinymce_opts')) {
+  function jellypress_restrict_acf_tinymce_opts( $toolbars )
+  {
+    $toolbars['Full' ] = array(
+    1 => array('formatselect', 'bold', 'italic', 'blockquote', 'bullist', 'numlist', 'link', 'unlink', 'spellchecker', 'wp_adv'),
+    2 => array('styleselect', 'pastetext', 'removeformat', 'charmap', 'alignleft', 'aligncenter', 'alignright', 'undo', 'redo' )
+    );
+    return $toolbars;
+  }
+}
 
 /**
   * Adds an ACF options page for organisation information
@@ -385,73 +378,6 @@ if (! function_exists('jellypress_import_blocks_from_other_post') ) :
   }
 endif;
 
-
-/**
- * A function which hooks into ACF/Save_Post to insert content into the_excerpt automatically.
- * The function will first look for a specified field (eg. 'post_excerpt'), and if this doesn't exist,
- * will loop through the 'sections' flexible content field looking for the first block of text
- * It then sanitizes output and trims the length to 220 chars.
- *
- * This function is used because when a page is built entirely with flexible content layouts,
- * no excerpt can be auto-generated and if the editor does not use Yoast properly there will be no meta-description
- * shown to search engines.
- *
- * @Link https://support.advancedcustomfields.com/forums/topic/set-wordpress-excerpt-and-post-thumbnail-based-on-custom-field/
- * TODO: Instead of abusing the_excerpt() it might be better to use the_content() ?
- *
- */
-add_action('acf/save_post', 'jellypress_excerpt_from_acf', 50);
-if (! function_exists('jellypress_excerpt_from_acf') ) :
-
-  function jellypress_excerpt_from_acf($post_id) {
-
-    // TODO: If you are using a specific field for excerpts, be sure to update it here.
-    // It's also possible to do a get_post_type() check if different field names exist for different post_types
-    $post_excerpt   = get_field( 'post_excerpt', $post_id );
-
-    if(!$post_excerpt) {
-      // If the specified field doesn't exist, try to get the text from ACF flexible content
-      if ( have_rows( 'sections', $post_id ) ) {
-        while ( have_rows( 'sections', $post_id ) ) : the_row();
-        $layout = get_row_layout();
-        if($layout == 'text' || $layout == 'text-media' || $layout == 'text-columns') {
-          // We are making a big assumption that these will be among the first field types used on the page - as they are the best for text content.
-          if($layout == 'text') {
-            $post_excerpt = get_sub_field( 'text' );
-            break;
-          }
-          elseif($layout == 'text-media') {
-            $post_excerpt = get_sub_field( 'text' );
-            break;
-          }
-          elseif($layout == 'text-columns') {
-            if ( have_rows( 'columns' ) ) :
-              while ( have_rows( 'columns' ) ) : the_row();
-                $post_excerpt = get_sub_field('editor');
-                break 2;
-              endwhile;
-            endif;
-          }
-        }
-        endwhile;
-        $post_excerpt = jellypress_trimpara(wp_strip_all_tags($post_excerpt),220); // TODO: Could look at replacing with the_excerpt filters.
-      }
-    }
-    if ( ( !empty( $post_id ) ) AND ( $post_excerpt ) ) {
-      $post_array     = array(
-        'ID'            => $post_id,
-        'post_excerpt'	=> $post_excerpt // Use if you want to replace the excerpt
-        // TODO: Add an option to replace the_content --> That way the user can still add a manual excerpt
-      );
-      //remove_action('save_post', 'jellypress_excerpt_from_acf', 50); // Unhook this function so it doesn't loop infinitely
-      wp_update_post( $post_array );
-      //add_action( 'save_post', 'jellypress_excerpt_from_acf', 50); // Re-hook this function
-    }
-  }
-endif;
-
-// TODO: Add a variable to Server Time message displaying current server time. https://saika.li/snippets-acf-hooks/ gets part way but the field updates with the replaced value on save.
-
 /**
  * ACF / WPML Options
  * Return the value of an Options field from WPML's default language
@@ -470,3 +396,105 @@ if ( ! function_exists( 'get_global_option' ) ) :
     return $option;
   }
 endif;
+
+/**
+* A function which can be used to generate an excerpt whilst in the loop
+* Use $possible_excerpts to determine the order in which excerpts are found.
+* Yoast SEO hooks into this function to populate the %%excerpt%% tag with jellypress_filter_wpseo_excerpt()
+*
+* @param integer $trim Optional amount of characters to trim the output to
+* @param boolean or string $ellipses Whether or not to append the output with an ellipses.
+* @return string Sanitized and processed excerpt
+*/
+if (! function_exists('jellypress_generate_excerpt') ) :
+  function jellypress_generate_excerpt($trim = null, $ellipses = false) {
+    $possible_excerpts = array(
+      //get_field('excerpt'), // Example use with a custom field
+      get_the_excerpt(), // User defined excerpt - will fallback to the_content() gracefully
+      'sections', // Loop through ACF Flexible content to look for a WYSIWIG field
+      //get_bloginfo( 'description', 'display' ), // Website description
+    );
+    foreach ($possible_excerpts as $possible_excerpt) {
+      if($possible_excerpt === 'sections') {
+        $post_excerpt = jellypress_excerpt_from_acf_flexible_content();
+      }
+      else {
+        $post_excerpt = $possible_excerpt;
+      }
+      if($post_excerpt) break; // Something found, end foreach
+    }
+    $post_excerpt = wp_strip_all_tags($post_excerpt); // Strip all HTML
+    $post_excerpt = mb_substr($post_excerpt, 0, $trim, 'UTF-8'); // trim to $trim chars
+
+    if($post_excerpt && !preg_match('/[\p{P}]$/u', $post_excerpt) && $ellipses) {
+      // Set an ellipses or string to the end, if the $post_excerpt does not end in a punctuation mark.
+      if(is_string($ellipses)) $ellipses = sanitize_text_field($ellipses); // Pass a string eg '[...]'
+      else $ellipses = '&#8230;'; // Fallback to an ellipses
+      $post_excerpt = $post_excerpt.$ellipses;
+    }
+    return $post_excerpt;
+  }
+endif;
+
+/**
+ * Loop through ACF flexible repeater field 'sections' to find a WYSIWIG field
+ *
+ * @return string text from a WYSIWIG field
+ */
+if ( ! function_exists( 'jellypress_excerpt_from_acf_flexible_content' ) ) :
+  function jellypress_excerpt_from_acf_flexible_content() {
+      if ( have_rows( 'sections' ) ) {
+        while ( have_rows( 'sections' ) ) : the_row();
+        $layout = get_row_layout();
+        // Loop through to find first WYSIWIG field - increase performance by only using specified layouts
+        //if($layout == 'text' || $layout == 'magic-columns' || $layout == 'text-columns') {
+        if(!$post_excerpt) {
+          if($layout == 'text') {
+            $post_excerpt = get_sub_field( 'text' );
+            //break;
+          }
+          elseif($layout == 'magic-columns') {
+            if ( have_rows( 'columns' ) ) :
+              while ( have_rows( 'columns' ) ) : the_row();
+                $post_excerpt = get_sub_field('text');
+                //break 2;
+              endwhile;
+            endif;
+          }
+          elseif($layout == 'text-columns') {
+            if ( have_rows( 'columns' ) ) :
+              while ( have_rows( 'columns' ) ) : the_row();
+                $post_excerpt = get_sub_field('editor');
+                //break 2;
+              endwhile;
+            endif;
+          }
+        }
+        endwhile;
+      }
+      if($post_excerpt) return $post_excerpt;
+      else return false;
+  }
+endif;
+
+/**
+ * Replaces Excerpt Variable in Yoast SEO by using function jellypress_generate_excerpt()
+ * @link http://hookr.io/functions/wpseo_register_var_replacement/
+ * @link https://stackoverflow.com/questions/36281915/yoast-seo-how-to-create-custom-variables
+ *
+ * @return void
+ */
+add_filter( 'wpseo_replacements', 'jellypress_filter_wpseo_excerpt', 10, 1 );
+if (! function_exists('jellypress_filter_wpseo_excerpt') ) :
+  function jellypress_filter_wpseo_excerpt($replacements) {
+    global $post;
+    //if( isset( $replacements['%%excerpt%%'] ) ) {
+      $replacements['%%excerpt%%'] = jellypress_generate_excerpt(160, true);
+    //}
+    return $replacements;
+  }
+endif;
+
+
+
+// TODO: Add a variable to Server Time message displaying current server time. https://saika.li/snippets-acf-hooks/ gets part way but the field updates with the replaced value on save.

@@ -31,7 +31,7 @@ if($loaded == true) {
     <?php the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" aria-hidden="true" tabindex="-1">', '</a></h3>' ); ?>
   </header>
 
-  <?php echo jellypress_excerpt(null, 'card-section entry-content'); ?>
+  <?php if(jellypress_generate_excerpt()) echo '<div class="card-section entry-content">'.jellypress_generate_excerpt(200,true).'</div>'; ?>
 
   <?php if ( 'post' === get_post_type() ) : // Show if post ?>
     <div class="card-section entry-meta">
