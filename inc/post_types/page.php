@@ -11,6 +11,7 @@ defined( 'ABSPATH' ) || exit;
 if (! function_exists('jellypress_post_type_supports_page') ) :
   function jellypress_post_type_supports_page() {
     remove_post_type_support( 'page', 'editor' );
+    add_post_type_support( 'page', 'excerpt' );
   }
 endif;
 
