@@ -1,0 +1,16 @@
+.chart-container {
+  position: relative;
+  max-height: 60vh;
+  height: get-size(24);
+  @include above(md) {
+    height: get-size(40);
+    max-height: 80vh;
+  }
+  width: 100%;
+  canvas {
+    max-height: 100% !important;
+    width: auto !important;
+    margin: 0 auto;
+  }
+  margin-bottom: get-size(3);
+}

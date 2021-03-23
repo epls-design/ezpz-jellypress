@@ -238,6 +238,10 @@ $handle_color: get-color(neutral,900);
     @extend %flexible-content-description;
     content: "The Carousel block allows you to add a promotional carousel to a page."
   }
+  &[data-layout="chart"] .acf-fc-layout-controls+.acf-fields::before {
+    @extend %flexible-content-description;
+    content: "The Chart block allows you to add a dynamic chart to a page. For best results, you should use a white background for chart blocks."
+  }
   &[data-layout="countdown"] .acf-fc-layout-controls+.acf-fields::before {
     @extend %flexible-content-description;
     content: "The Countdown block allows you to display a count down to a particular date and time."

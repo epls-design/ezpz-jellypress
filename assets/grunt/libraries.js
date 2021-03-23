@@ -38,4 +38,19 @@ module.exports = function (grunt) {
     }
   });
 
+  // Configure Concat task through config.merge as this task is used across multiple partials
+  // Task to concatenate related lib files together to prevent enqueuing multiple js files for the same functionality
+  grunt.config.merge({
+    concat: {
+      charts: {
+        options: {
+          sourceMap: false,
+          separator: ';\r\n'
+        },
+        src: ['node_modules/chart.js/dist/Chart.bundle.min.js', 'node_modules/chartjs-plugin-deferred/dist/chartjs-plugin-deferred.min.js'],
+        dest: 'lib/charts.min.js',
+      }
+    }
+  });
+
 };

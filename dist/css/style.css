@@ -1055,6 +1055,21 @@ p.has-background {
     margin-left: 0;
     margin-right: 0; } }
 
+.chart-container {
+  position: relative;
+  max-height: 60vh;
+  height: 384px;
+  width: 100%;
+  margin-bottom: 48px; }
+  @media (min-width: 56.25em) {
+    .chart-container {
+      height: 640px;
+      max-height: 80vh; } }
+  .chart-container canvas {
+    max-height: 100% !important;
+    width: auto !important;
+    margin: 0 auto; }
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   COUNTDOWN
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

@@ -84,6 +84,20 @@ if (! function_exists('jellypress_scripts') ) {
           true
         );
 
+        wp_register_script( 'charts',
+          get_template_directory_uri() . '/lib/charts.min.js',
+          array(),
+          $js_version,
+          true
+        );
+
+        wp_register_script( 'charts-opts',
+          get_template_directory_uri() . '/lib/charts-opts.js',
+          array('charts'),
+          $js_version,
+          true
+        );
+
         $get_gmaps_api = get_global_option('google_maps_api_key');
         if ($get_gmaps_api) {
           wp_register_script(

@@ -1,16 +1,18 @@
 // Important to use `grunt` as an argument in the function
 module.exports = function (grunt) {
 
-  // Configure Concat task
+  // Configure Concat task through config.merge as this task is used across multiple partials
   // Task to concatenate js files together separated by a line break
-  grunt.config('concat', {
-    options: {
-      sourceMap: false,
-      separator: ';\r\n'
-    },
-    dist: {
-      src: ['<%= opts.build_dir %>/js/vendor/*.js', '<%= opts.build_dir %>/js/site/*.js', 'template-parts/**/*.js'],
-      dest: '<%= opts.dist_dir %>/js/site.js',
+  grunt.config.merge({
+    concat: {
+      site: {
+        options: {
+          sourceMap: false,
+          separator: ';\r\n'
+        },
+        src: ['<%= opts.build_dir %>/js/vendor/*.js', '<%= opts.build_dir %>/js/site/*.js', 'template-parts/**/*.js'],
+        dest: '<%= opts.dist_dir %>/js/site.js',
+      }
     }
   });
 

@@ -51,6 +51,7 @@ $jellypress_includes = array(
   'inc/modals.php',                  // Initialize and manipulate modals
   'inc/slider.php',                  // Integrate sliders using SplideJS
   'inc/countdown.php',               // Initialize countdowns
+  'inc/charts.php',                  // Functions which work with charts.js library
 //  'inc/security.php',                // Security enhancements.
 
   //~~~~~ CUSTOM POST TYPES
