@@ -270,6 +270,10 @@ $handle_color: get-color(neutral,900);
     @extend %flexible-content-description;
     content: "The Image block allows you to insert an image onto the page."
   }
+  &[data-layout="image-compare"] .acf-fc-layout-controls+.acf-fields::before {
+    @extend %flexible-content-description;
+    content: "The Image Compare block allows you to compare a before/after of two images."
+  }
   &[data-layout="linked-posts"] .acf-fc-layout-controls+.acf-fields::before {
     @extend %flexible-content-description;
     content: "The Linked posts block allows you to link to other pages/posts on the site, displaying them as cards."

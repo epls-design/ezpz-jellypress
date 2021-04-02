@@ -2518,8 +2518,8 @@
                         },
                         {
                             "key": "field_5f6faff304979",
-                            "label": "Preamble Clone",
-                            "name": "preamble_clone",
+                            "label": "Clone Preamble",
+                            "name": "clone_preamble",
                             "type": "clone",
                             "instructions": "If you'd like to add a preamble to this block, you can do so here.",
                             "required": 0,
@@ -2755,6 +2755,232 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_60673588e88a1": {
+                    "key": "layout_60673588e88a1",
+                    "name": "image-compare",
+                    "label": "<span class=\"dashicons dashicons-image-flip-horizontal\"><\/span> Image Compare",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_60673588e88a2",
+                            "label": "Clone Content",
+                            "name": "clone_content",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5d75eff42a6aa"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_606735e4e88a8",
+                            "label": "Clone Preamble",
+                            "name": "clone_preamble",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5f6facb5b7c07"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_60673608e88a9",
+                            "label": "Image One",
+                            "name": "image_one",
+                            "type": "image",
+                            "instructions": "Please select the first image for comparison. <strong>The images should be the same size. Minimum size 600px wide x 400px high<\/strong>",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": 600,
+                            "min_height": 400,
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_6067363be88aa",
+                            "label": "Image Two",
+                            "name": "image_two",
+                            "type": "image",
+                            "instructions": "Please select the second image for comparison. <strong>The images should be the same size. Minimum size 600px wide x 400px high<\/strong>",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": 600,
+                            "min_height": 400,
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_60674419b5f67",
+                            "label": "Orientation",
+                            "name": "orientation",
+                            "type": "select",
+                            "instructions": "Please select the orientation for the comparison",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "horizontal": "Horizontal",
+                                "vertical": "Vertical"
+                            },
+                            "default_value": "horizontal",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 1,
+                            "ajax": 0,
+                            "return_format": "value",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_60674443b5f68",
+                            "label": "Before Label",
+                            "name": "before_label",
+                            "type": "text",
+                            "instructions": "Please add an optional before label (default: Before) <strong>Max 25 characters<\/strong>",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": 25
+                        },
+                        {
+                            "key": "field_6067446cb5f69",
+                            "label": "After Label",
+                            "name": "after_label",
+                            "type": "text",
+                            "instructions": "Please add an optional after label (default: After) <strong>Max 25 characters<\/strong>",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": 25
+                        },
+                        {
+                            "key": "field_60673588e88a5",
+                            "label": "Clone Design",
+                            "name": "clone_design",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5eb3b7f9bbf71"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_60673588e88a6",
+                            "label": "Content Width Clone",
+                            "name": "content_width_clone",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "30",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_604a67e1f397e"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_60673588e88a7",
+                            "label": "Clone Settings",
+                            "name": "clone_settings",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5d75eff42a6ac"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_5f75a54e23c79": {
                     "key": "layout_5f75a54e23c79",
                     "name": "faqs",
@@ -2784,8 +3010,8 @@
                         },
                         {
                             "key": "field_5f75a66da20f8",
-                            "label": "Preamble Clone",
-                            "name": "preamble_clone",
+                            "label": "Clone Preamble",
+                            "name": "clone_preamble",
                             "type": "clone",
                             "instructions": "If you'd like to add a preamble to this block, you can do so here.",
                             "required": 0,
@@ -3033,8 +3259,8 @@
                         },
                         {
                             "key": "field_5fa2939607396",
-                            "label": "Preamble Clone",
-                            "name": "preamble_clone",
+                            "label": "Clone Preamble",
+                            "name": "clone_preamble",
                             "type": "clone",
                             "instructions": "If you'd like to add a preamble to this block, you can do so here.",
                             "required": 0,
@@ -3222,8 +3448,8 @@
                         },
                         {
                             "key": "field_5f994ee198dfc",
-                            "label": "Preamble Clone",
-                            "name": "preamble_clone",
+                            "label": "Clone Preamble",
+                            "name": "clone_preamble",
                             "type": "clone",
                             "instructions": "If you'd like to add a preamble to this block, you can do so here.",
                             "required": 0,
@@ -3486,8 +3712,8 @@
                         },
                         {
                             "key": "field_6055bf92392b3",
-                            "label": "Preamble Clone",
-                            "name": "preamble_clone",
+                            "label": "Clone Preamble",
+                            "name": "clone_preamble",
                             "type": "clone",
                             "instructions": "If you'd like to add a preamble to this block, you can do so here.",
                             "required": 0,
@@ -3862,8 +4088,8 @@
                         },
                         {
                             "key": "field_602c33df6ea12",
-                            "label": "Preamble Clone",
-                            "name": "preamble_clone",
+                            "label": "Clone Preamble",
+                            "name": "clone_preamble",
                             "type": "clone",
                             "instructions": "If you'd like to add a preamble to this block, you can do so here.",
                             "required": 0,
@@ -4076,8 +4302,8 @@
                         },
                         {
                             "key": "field_5f9b0c6d7f86f",
-                            "label": "Preamble Clone",
-                            "name": "preamble_clone",
+                            "label": "Clone Preamble",
+                            "name": "clone_preamble",
                             "type": "clone",
                             "instructions": "If you'd like to add a preamble to this block, you can do so here.",
                             "required": 0,
@@ -4189,8 +4415,8 @@
                         },
                         {
                             "key": "field_5f718bfbcc202",
-                            "label": "Preamble Clone",
-                            "name": "preamble_clone",
+                            "label": "Clone Preamble",
+                            "name": "clone_preamble",
                             "type": "clone",
                             "instructions": "If you'd like to add a preamble to this block, you can do so here.",
                             "required": 0,
@@ -4426,8 +4652,8 @@
                         },
                         {
                             "key": "field_5f7355d68f5e0",
-                            "label": "Preamble Clone",
-                            "name": "preamble_clone",
+                            "label": "Clone Preamble",
+                            "name": "clone_preamble",
                             "type": "clone",
                             "instructions": "If you'd like to add a preamble to this block, you can do so here.",
                             "required": 0,
@@ -4717,5 +4943,5 @@
     ],
     "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1616575121
+    "modified": 1617380480
 }

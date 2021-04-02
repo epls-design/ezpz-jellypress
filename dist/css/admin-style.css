@@ -1,5 +1,5 @@
 /* Jellypress Wordpress Theme 1.1.0
- * © 2021-03 Matt Weet - https://www.weareboba.com */
+ * © 2021-04 Matt Weet - https://www.weareboba.com */
 
 /**
  * Calculate the luminance for a color.
@@ -35,6 +35,19 @@
   .-table .acf-field-group.seamless .acf-fields {
     margin-left: -8px;
     margin-right: -8px; }
+
+.acf-field-repeater.seamless .acf-table {
+  border: 0;
+  background: none; }
+  .acf-field-repeater.seamless .acf-table thead {
+    display: none; }
+  .acf-field-repeater.seamless .acf-table tr:first-of-type td {
+    padding-top: 0; }
+  .acf-field-repeater.seamless .acf-table tr:last-of-type td {
+    padding-bottom: 0; }
+  .acf-field-repeater.seamless .acf-table td {
+    border: 0;
+    background: none !important; }
 
 .acf-fc-layout-controls .acf-icon {
   background: white !important; }
@@ -159,7 +172,7 @@
   font-size: 1.4em;
   animation: blinking-text 1s linear infinite; }
 
-.layout[data-layout="cards"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="carousel"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="chart"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="countdown"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="cover"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="faqs"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="gallery"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="html"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="iframe"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="image"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="linked-posts"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="magic-columns"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="map"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="number-counter"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="post-archive"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="slider"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="testimonials"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="text"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="text-columns"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="text-media"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="video"] .acf-fc-layout-controls + .acf-fields::before {
+.layout[data-layout="cards"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="carousel"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="chart"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="countdown"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="cover"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="faqs"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="gallery"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="html"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="iframe"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="image"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="image-compare"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="linked-posts"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="magic-columns"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="map"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="number-counter"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="post-archive"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="slider"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="testimonials"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="text"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="text-columns"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="text-media"] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout="video"] .acf-fc-layout-controls + .acf-fields::before {
   display: block;
   position: relative;
   background: #F9F9F9;
@@ -198,6 +211,9 @@
 
 .layout[data-layout="image"] .acf-fc-layout-controls + .acf-fields::before {
   content: "The Image block allows you to insert an image onto the page."; }
+
+.layout[data-layout="image-compare"] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Image Compare block allows you to compare a before/after of two images."; }
 
 .layout[data-layout="linked-posts"] .acf-fc-layout-controls + .acf-fields::before {
   content: "The Linked posts block allows you to link to other pages/posts on the site, displaying them as cards."; }

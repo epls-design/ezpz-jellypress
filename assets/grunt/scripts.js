@@ -16,16 +16,17 @@ module.exports = function (grunt) {
     }
   });
 
-  // Configure Uglify task
+  // Configure Uglify task through config.merge as this task is used across multiple partials
   // Minifies javascript file(s)
-  grunt.config('uglify', {
-    options: {
-      mangle: false,
-      banner: '<%= opts.banner %>'
-    },
-    dist: {
-      files: {
-        '<%= opts.dist_dir %>/js/site.min.js': ['<%= opts.dist_dir %>/js/site.js']
+  grunt.config.merge({
+    uglify: {
+      site: {
+        options: {
+          mangle: false,
+          banner: '<%= opts.banner %>'
+            },
+        src: '<%= opts.dist_dir %>/js/site.js',
+        dest: '<%= opts.dist_dir %>/js/site.min.js',
       }
     }
   });

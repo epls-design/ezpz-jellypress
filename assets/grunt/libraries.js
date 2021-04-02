@@ -33,6 +33,10 @@ module.exports = function (grunt) {
           src: ['node_modules/magnific-popup/dist/magnific-popup.css'],
           dest: 'template-parts/components/modal/_magnific-popup.scss'
         },
+        {
+          src: ['node_modules/zurb-twentytwenty/scss/twentytwenty-no-compass.scss'],
+          dest: 'template-parts/blocks/image-compare/_twentytwenty-lib.scss'
+        },
       ],
       }
     }
@@ -49,6 +53,28 @@ module.exports = function (grunt) {
         },
         src: ['node_modules/chart.js/dist/Chart.bundle.min.js', 'node_modules/chartjs-plugin-deferred/dist/chartjs-plugin-deferred.min.js'],
         dest: 'lib/charts.min.js',
+      },
+      twentytwenty: {
+        options: {
+          sourceMap: false,
+          separator: ';\r\n'
+        },
+        src: ['node_modules/zurb-twentytwenty/js/jquery.event.move.js', 'node_modules/zurb-twentytwenty/js/jquery.twentytwenty.js'],
+        dest: 'lib/twentytwenty.min.js',
+      },
+    }
+  });
+
+  // Configure Uglify task through config.merge as this task is used across multiple partials
+  // Minifies javascript file(s)
+  grunt.config.merge({
+    uglify: {
+      twentytwenty: {
+        options: {
+          mangle: false,
+        },
+        src: 'lib/twentytwenty.min.js',
+        dest: 'lib/twentytwenty.min.js',
       }
     }
   });

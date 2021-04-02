@@ -1,0 +1,13 @@
+.#{$pluginPrefix}-container img {
+  width: 100%;
+  margin-bottom: 0;
+}
+%label-structure {
+  padding: $twenty20-overlay-label-padding;
+  line-height: 1.3;
+  font-weight: $twenty20-overlay-label-font-weight;
+}
+
+.#{$pluginPrefix}-container {
+  margin-bottom: $element-margin;
+}

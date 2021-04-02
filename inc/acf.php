@@ -152,6 +152,34 @@ if (! function_exists('jellypress_hide_acf_admin') ) {
 }
 add_filter('acf/settings/show_admin', 'jellypress_hide_acf_admin');
 
+add_action('wp_head', 'jellypress_facebook_pixel');
+if ( ! function_exists( 'jellypress_facebook_pixel' ) ) :
+  function jellypress_facebook_pixel() {
+    $facebook_pixel_api = get_global_option('facebook_pixel_id');
+    if ($facebook_pixel_api) {
+    // Note: This plugin might be useful later on ... https://github.com/seedorff/facebook-pixel-tracker-acf-edition/tree/master/inc
+     ?>
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '<?php echo $facebook_pixel_api;?>');
+      fbq('track', 'PageView');
+      </script>
+      <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=<?php echo $facebook_pixel_api;?>&ev=PageView&noscript=1"
+      /></noscript>
+    <!-- End Facebook Pixel Code -->
+<?php  }
+  }
+endif;
+
 if (! function_exists('jellypress_google_tracking') ) {
     /**
      * Sets up GAnalytics if the user has added a Google Tag ID to the options page

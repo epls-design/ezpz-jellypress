@@ -430,14 +430,14 @@ $(document).ready(function(){
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             var map = initMap( $(entry.target));
-            console.log('Map initialized');
+            //console.log('Map initialized');
             googleMapsObserver.unobserve(entry.target);
           }
         });
       }, {rootMargin: "0px 0px 300px 0px"}); // Pre-empt by initializing 300px early
 
       googleMapElements.forEach(function(lazyInitGoogleMaps) {
-        console.log(lazyInitGoogleMaps);
+        //console.log(lazyInitGoogleMaps);
         googleMapsObserver.observe(lazyInitGoogleMaps);
       });
     }

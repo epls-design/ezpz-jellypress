@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: JellyPress 1.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/unofficialmatt/jellypress/issues\n"
-"POT-Creation-Date: 2021-03-08 20:08:25+00:00\n"
+"POT-Creation-Date: 2021-04-02 16:34:01+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,7 +24,7 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: archive.php:50 template-parts/blocks/post-archive/view.php:66
+#: archive.php:51 template-parts/blocks/post-archive/view.php:67
 msgid "Load More..."
 msgstr ""
 
@@ -46,16 +46,56 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: inc/acf.php:65
+#: inc/acf.php:58
 msgid "Jellypress Information and SEO"
 msgstr ""
 
-#: inc/acf.php:66
-msgid "Jellypress Info"
+#: inc/acf.php:59
+msgid "Jellypress"
 msgstr ""
 
-#: inc/acf.php:72
-msgid "Successfully updated organisation information"
+#: inc/acf.php:69 inc/acf.php:70
+msgid "Contact Details"
+msgstr ""
+
+#: inc/acf.php:75
+msgid "Successfully updated Contact Details"
+msgstr ""
+
+#: inc/acf.php:80 inc/acf.php:81 inc/dry.php:265
+msgid "Opening Hours"
+msgstr ""
+
+#: inc/acf.php:86
+msgid "Successfully updated Opening Hours"
+msgstr ""
+
+#: inc/acf.php:91
+msgid "Social Media and SEO"
+msgstr ""
+
+#: inc/acf.php:92
+msgid "Social Media/SEO"
+msgstr ""
+
+#: inc/acf.php:97
+msgid "Successfully updated Social Media and SEO"
+msgstr ""
+
+#: inc/acf.php:102 inc/acf.php:103
+msgid "APIs"
+msgstr ""
+
+#: inc/acf.php:108
+msgid "Successfully updated APIs"
+msgstr ""
+
+#: inc/acf.php:113 inc/acf.php:114
+msgid "Theme Settings"
+msgstr ""
+
+#: inc/acf.php:119
+msgid "Successfully updated Theme Settings"
 msgstr ""
 
 #: inc/dry.php:182
@@ -68,10 +108,6 @@ msgstr ""
 
 #: inc/dry.php:265
 msgid "Day(s)"
-msgstr ""
-
-#: inc/dry.php:265
-msgid "Opening Hours"
 msgstr ""
 
 #: inc/dry.php:271
@@ -383,11 +419,11 @@ msgstr ""
 msgid "Primary"
 msgstr ""
 
-#: inc/theme-setup.php:146
+#: inc/theme-setup.php:145
 msgid "Development Site"
 msgstr ""
 
-#: inc/theme-setup.php:149
+#: inc/theme-setup.php:148
 msgid "Staging Site"
 msgstr ""
 
@@ -426,6 +462,10 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
+#: template-parts/blocks/chart/view.php:36
+msgid "A data chart"
+msgstr ""
+
 #: template-parts/blocks/countdown/view.php:53
 msgid "Days"
 msgstr ""
@@ -442,13 +482,21 @@ msgstr ""
 msgid "Seconds"
 msgstr ""
 
+#: template-parts/blocks/image-compare/view.php:30
+msgid "Before"
+msgstr ""
+
+#: template-parts/blocks/image-compare/view.php:33
+msgid "After"
+msgstr ""
+
 #: template-parts/blocks/linked-posts/view.php:96
-#: template-parts/blocks/post-archive/view.php:70
+#: template-parts/blocks/post-archive/view.php:71
 msgid "No posts matched your criteria."
 msgstr ""
 
 #: template-parts/blocks/magic-columns/view.php:91
-#: template-parts/blocks/map/view.php:55
+#: template-parts/blocks/map/view.php:61
 #. translators: %s link to theme options page.
 msgid ""
 "You need to <a href=\"%s\" class=\"callout-link\">add a Google Maps API "

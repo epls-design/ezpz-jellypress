@@ -52,6 +52,7 @@ $jellypress_includes = array(
   'inc/slider.php',                  // Integrate sliders using SplideJS
   'inc/countdown.php',               // Initialize countdowns
   'inc/charts.php',                  // Functions which work with charts.js library
+  'inc/compare.php',                 // Functions which work with TwentyTwenty Image Comparison
 //  'inc/security.php',                // Security enhancements.
 
   //~~~~~ CUSTOM POST TYPES
