@@ -53,18 +53,72 @@ if (!function_exists('jellypress_restrict_acf_tinymce_opts')) {
   * Adds an ACF options page for organisation information
   */
 if(function_exists('acf_add_options_page') ) {
-    acf_add_options_page(
-        array(
-        'page_title'     => __('Jellypress Information and SEO', 'jellypress'),
-        'menu_title'    => __('Jellypress Info', 'jellypress'),
-        'menu_slug'     => 'organisation-information',
-        'capability'    => 'edit_posts',
-        'icon_url' => 'dashicons-info',
-        'position' => 90,
-        'autoload' => true, // Speeds up load times
-        'updated_message' => __("Successfully updated organisation information", 'jellypress'),
-        )
-    );
+  acf_add_options_page(
+    array(
+      'page_title' 	=> __('Jellypress Information and SEO', 'jellypress'),
+      'menu_title'	=> __('Jellypress', 'jellypress'),
+      'menu_slug' 	=> 'theme-options',
+      'capability'	=> 'edit_posts',
+      'redirect'		=> true,
+      'icon_url' => 'dashicons-info',
+      'position' => 90.1,
+      )
+  );
+  acf_add_options_sub_page(
+    array(
+    'page_title'     => __('Contact Details', 'jellypress'),
+    'menu_title'    => __('Contact Details', 'jellypress'),
+    'menu_slug'     => 'contact-details',
+    'parent_slug' => 'theme-options',
+    'capability'    => 'edit_posts',
+    'autoload' => true, // Speeds up load times
+    'updated_message' => __("Successfully updated Contact Details", 'jellypress'),
+    )
+  );
+  acf_add_options_sub_page(
+    array(
+    'page_title'     => __('Opening Hours', 'jellypress'),
+    'menu_title'    => __('Opening Hours', 'jellypress'),
+    'menu_slug'     => 'opening-hours',
+    'parent_slug' => 'theme-options',
+    'capability'    => 'edit_posts',
+    'autoload' => true, // Speeds up load times
+    'updated_message' => __("Successfully updated Opening Hours", 'jellypress'),
+    )
+  );
+  acf_add_options_sub_page(
+    array(
+    'page_title'     => __('Social Media and SEO', 'jellypress'),
+    'menu_title'    => __('Social Media/SEO', 'jellypress'),
+    'menu_slug'     => 'social-seo',
+    'parent_slug' => 'theme-options',
+    'capability'    => 'edit_posts',
+    'autoload' => true, // Speeds up load times
+    'updated_message' => __("Successfully updated Social Media and SEO", 'jellypress'),
+    )
+  );
+  acf_add_options_sub_page(
+    array(
+    'page_title'     => __('APIs', 'jellypress'),
+    'menu_title'    => __('APIs', 'jellypress'),
+    'menu_slug'     => 'apis',
+    'parent_slug' => 'theme-options',
+    'capability'    => 'edit_posts',
+    'autoload' => true, // Speeds up load times
+    'updated_message' => __("Successfully updated APIs", 'jellypress'),
+    )
+  );
+  acf_add_options_sub_page(
+    array(
+    'page_title'     => __('Theme Settings', 'jellypress'),
+    'menu_title'    => __('Theme Settings', 'jellypress'),
+    'menu_slug'     => 'theme-settings',
+    'parent_slug' => 'theme-options',
+    'capability'    => 'edit_posts',
+    'autoload' => true, // Speeds up load times
+    'updated_message' => __("Successfully updated Theme Settings", 'jellypress'),
+    )
+  );
 }
 
 if (! function_exists('jellypress_hide_acf_admin') ) {

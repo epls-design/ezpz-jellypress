@@ -3526,11 +3526,11 @@
                             "label": "Chart Type",
                             "name": "chart_type",
                             "type": "select",
-                            "instructions": "",
+                            "instructions": "Please select the type of chart you wish to display.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "30",
+                                "width": "25",
                                 "class": "",
                                 "id": ""
                             },
@@ -3545,17 +3545,36 @@
                             "default_value": "pie",
                             "allow_null": 0,
                             "multiple": 0,
-                            "ui": 0,
-                            "return_format": "value",
+                            "ui": 1,
                             "ajax": 0,
+                            "return_format": "value",
                             "placeholder": ""
+                        },
+                        {
+                            "key": "field_605af7e15b132",
+                            "label": "Mutliple Datasets?",
+                            "name": "multiple_datasets",
+                            "type": "true_false",
+                            "instructions": "If you would like to compare multiple sets of data in the chart, please select this option.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
                         },
                         {
                             "key": "field_6055dce4b1eb5",
                             "label": "Chart Title",
                             "name": "chart_title",
                             "type": "text",
-                            "instructions": "<strong>Max 100 characters<\/strong>",
+                            "instructions": "Please add an optional title for the chart. <strong>Max 100 characters<\/strong>",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -3593,11 +3612,11 @@
                                     "label": "Label",
                                     "name": "data_label",
                                     "type": "text",
-                                    "instructions": "<strong>Max 25 characters<\/strong>",
+                                    "instructions": "Please specify a label for the data eg. 'January' <strong>Max 25 characters<\/strong>",
                                     "required": 1,
                                     "conditional_logic": 0,
                                     "wrapper": {
-                                        "width": "70",
+                                        "width": "50",
                                         "class": "",
                                         "id": ""
                                     },
@@ -3609,14 +3628,14 @@
                                 },
                                 {
                                     "key": "field_6055dd2eb1eb8",
-                                    "label": "Value",
+                                    "label": "Primary Dataset Value",
                                     "name": "data_value",
                                     "type": "number",
-                                    "instructions": "",
+                                    "instructions": "Please provide the value for this data point. This value corresponds to the label 'Primary Dataset Label'.",
                                     "required": 1,
                                     "conditional_logic": 0,
                                     "wrapper": {
-                                        "width": "30",
+                                        "width": "25",
                                         "class": "",
                                         "id": ""
                                     },
@@ -3627,6 +3646,123 @@
                                     "min": "",
                                     "max": "",
                                     "step": ""
+                                },
+                                {
+                                    "key": "field_605a56fdb56ab",
+                                    "label": "Additional Values",
+                                    "name": "additional_values",
+                                    "type": "repeater",
+                                    "instructions": "You can specify additional values if you want to compare datasets. eg. new visitors vs. returning visitors. These values correspond to the labels in 'Additional Dataset Labels'.",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_605af7e15b132",
+                                                "operator": "==",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "25",
+                                        "class": "seamless",
+                                        "id": ""
+                                    },
+                                    "collapsed": "",
+                                    "min": 4,
+                                    "max": 4,
+                                    "layout": "table",
+                                    "button_label": "",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_605a5706b56ac",
+                                            "label": "Value",
+                                            "name": "data_value",
+                                            "type": "number",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "min": "",
+                                            "max": "",
+                                            "step": ""
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_605a5a090df50",
+                            "label": "Dataset Label",
+                            "name": "dataset_label",
+                            "type": "text",
+                            "instructions": "Please specify a label for the primary dataset eg. 'People' or 'New Customers'. <strong>Max 20 characters<\/strong>",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": 20
+                        },
+                        {
+                            "key": "field_605af5ffafff4",
+                            "label": "Additional Dataset Labels",
+                            "name": "additional_dataset_labels",
+                            "type": "repeater",
+                            "instructions": "You can specify additional dataset labels if you want to compare datasets. eg. new visitors vs. returning visitors. These labels correspond to the values in 'Additional Values'.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_605af7e15b132",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "50",
+                                "class": "seamless",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 4,
+                            "max": 4,
+                            "layout": "table",
+                            "button_label": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_605af69eafff6",
+                                    "label": "Dataset Label",
+                                    "name": "dataset_label",
+                                    "type": "text",
+                                    "instructions": "Please specify a label for the default dataset eg. 'People' or 'New Customers'. <strong>Max 20 characters<\/strong>",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "40",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": 20
                                 }
                             ]
                         },
@@ -4581,5 +4717,5 @@
     ],
     "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1616527850
+    "modified": 1616575121
 }

@@ -1,0 +1,157 @@
+{
+    "key": "group_606724c228c05",
+    "title": "Social Media \/ SEO",
+    "fields": [
+        {
+            "key": "field_606724c2304cc",
+            "label": "Schema: Logo",
+            "name": "organisation_logo",
+            "type": "image",
+            "instructions": "Please upload an image with a square aspect ratio 1:1 to represent your organisation's logo.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_606724c2304f6",
+                        "operator": "!=",
+                        "value": "Person"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": 112,
+            "min_height": 112,
+            "min_size": "",
+            "max_width": 500,
+            "max_height": 500,
+            "max_size": "",
+            "mime_types": "jpg, png"
+        },
+        {
+            "key": "field_606724c2304d2",
+            "label": "Schema: Organisation Image",
+            "name": "organisation_image",
+            "type": "image",
+            "instructions": "Please upload a photo that best represents your organisation.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "thumbnail",
+            "library": "uploadedTo",
+            "min_width": 200,
+            "min_height": 200,
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "jpg, png"
+        },
+        {
+            "key": "field_606724c23052e",
+            "label": "Social Media Channels",
+            "name": "social_channels",
+            "type": "repeater",
+            "instructions": "Add all of the social media channels you are on here.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Channel",
+            "sub_fields": [
+                {
+                    "key": "field_606724c2bd5cb",
+                    "label": "Network",
+                    "name": "network",
+                    "type": "select",
+                    "instructions": "Please select the network",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "facebook": "Facebook",
+                        "instagram": "Instagram",
+                        "linkedin": "Linkedin",
+                        "pinterest": "Pinterest",
+                        "twitter": "Twitter",
+                        "snapchat": "Snapchat",
+                        "vimeo": "Vimeo",
+                        "youtube": "YouTube",
+                        "whatsapp": "WhatsApp",
+                        "microsoftteams": "MS Teams",
+                        "wikipedia": "Wikipedia",
+                        "skype": "Skype",
+                        "zoom": "Zoom",
+                        "github": "Github"
+                    },
+                    "default_value": false,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_606724c2bd5d4",
+                    "label": "URL",
+                    "name": "url",
+                    "type": "text",
+                    "instructions": "Please add the <b>full URL<\/b> for your profile on this social channel.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "social-seo"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1617372661
+}

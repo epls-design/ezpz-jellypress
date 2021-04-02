@@ -1,0 +1,43 @@
+{
+    "key": "group_606724c8c2e47",
+    "title": "Theme Options",
+    "fields": [
+        {
+            "key": "field_606724c8ca1ee",
+            "label": "Redirect all 404s to home page?",
+            "name": "redirect_404",
+            "type": "true_false",
+            "instructions": "Toggle this option to redirect all 404 pages to the home page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1617372948
+}
