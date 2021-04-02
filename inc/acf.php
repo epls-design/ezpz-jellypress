@@ -152,29 +152,59 @@ if (! function_exists('jellypress_hide_acf_admin') ) {
 }
 add_filter('acf/settings/show_admin', 'jellypress_hide_acf_admin');
 
-if (! function_exists('jellypress_google_tag_manager') ) {
+if (! function_exists('jellypress_google_tracking') ) {
     /**
      * Sets up GAnalytics if the user has added a Google Tag ID to the options page
      */
 
-    function jellypress_google_tag_manager()
+    function jellypress_google_tracking()
     {
-        $get_gtag_id = get_global_option('gtag_id');
-        if ($get_gtag_id) {
-            ?>
-      <!-- Global site tag (gtag.js) - Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $get_gtag_id;?>"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '<?php echo $get_gtag_id;?>');
-      </script>
-            <?php
+        $get_google_tracking_id = get_global_option('google_tracking_id');
+        if ($get_google_tracking_id) {
+          $google_integration_type = get_global_option('google_integration_type');
+          if($google_integration_type === "analytics"):
+              echo normalize_whitespace('
+              <!-- Global site tag (gtag.js) - Google Analytics -->
+              <script async src="https://www.googletagmanager.com/gtag/js?id='.$get_google_tracking_id.'"></script>
+              <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag("js", new Date());
+                gtag("config", "'.$get_google_tracking_id.'");
+              </script>
+              ');
+          elseif($google_integration_type === "gtag"):
+            echo normalize_whitespace("
+            <!-- Google Tag Manager -->
+            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','".$get_google_tracking_id."');</script>
+            <!-- End Google Tag Manager -->
+            ");
+          endif;
         }
     }
 }
-add_action('wp_head', 'jellypress_google_tag_manager', 100);
+add_action('wp_head', 'jellypress_google_tracking', 100);
+
+// Add GTM Code to <body>
+if (! function_exists('jellypress_gtm_body')) {
+    function jellypress_gtm_body()
+    {
+        $get_google_tracking_id = get_global_option('google_tracking_id');
+        $google_integration_type = get_global_option('google_integration_type');
+        if ($get_google_tracking_id && $google_integration_type === 'gtag') {
+        echo normalize_whitespace('
+          <!-- Google Tag Manager (noscript) -->
+          <noscript><iframe src="https://www.googletagmanager.com/ns.html?id='.$get_google_tracking_id.'" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+          <!-- End Google Tag Manager (noscript) -->
+          ');
+        }
+    }
+}
+add_action( 'wp_body_open', 'jellypress_gtm_body' );
 
 if (! function_exists('jellypress_google_maps_api_key') ) {
     /**
