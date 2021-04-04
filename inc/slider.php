@@ -29,17 +29,15 @@ if (!function_exists('jellypress_splide_init')):
     ){
 
     if($arrows == 'slider') $arrows = "'".$arrows."'";
-    $output =
     // todo: decide when focus: is necessary
+    $output =
       "<script type='text/javascript'>
       new Splide( '$slider_id', {
         type: '$type',
-        rewind: true, // Ignored in loop mode
+        rewind: true,
         autoplay: $autoplay,
         interval: $interval,
-        //focus: 'center',
         speed: $speed,
-        //arrowPath: 'M20,0l-3.6,3.6l13.8,13.8H0v5.2h30.1L16.4,36.4L20,40l20-20L20,0z',
         arrows: $arrows,
         pagination: $dots,
         autoWidth: $autoWidth,
@@ -63,8 +61,12 @@ if (!function_exists('jellypress_splide_init')):
             gap: '20px'
           },
         },
-       } ).mount();
+      } ).mount();
       </script>";
+      // Add in if required:
+      // focus: 'center',
+      // arrowPath: 'M20,0l-3.6,3.6l13.8,13.8H0v5.2h30.1L16.4,36.4L20,40l20-20L20,0z',
+    $output = str_replace(array("\r", "\n","  "), '', $output)."\n";
     $func = function () use($output) {
       print $output;
     };

@@ -47,7 +47,7 @@ if ( ! function_exists( 'jellypress_modal_init' ) ) :
       })( jQuery );
   </script>
     ';
-
+    $output = str_replace(array("\r", "\n","  "), '', $output)."\n";
     $func = function() use($output) { print $output; };
     return $func;
   }

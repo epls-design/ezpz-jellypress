@@ -38,7 +38,7 @@ if (!function_exists('jellypress_chart_init')):
           }
         });
       </script>";
-    $output = str_replace(array("\r", "\n","  "), '', $output)."\n"; // TODO: Add this to all enqueue
+    $output = str_replace(array("\r", "\n","  "), '', $output)."\n";
     $func = function () use($output) {
       print $output;
     };
@@ -133,8 +133,6 @@ endif;
 if (!function_exists('jellypress_build_chart_options')):
   function jellypress_build_chart_options($chart_type, $chart_title = null) {
 
-    // TODO: Might be cleaner to push to an array here and then json_encode?
-
     $chart_options = null; // So we can return null if nothing gets added
 
     if ($chart_title) {
@@ -146,7 +144,6 @@ if (!function_exists('jellypress_build_chart_options')):
       ";
     }
 
-    // TODO: Add option for stacked bars
     if($chart_type === 'bar') {
       $chart_options .= "
       scales: {
@@ -164,7 +161,7 @@ if (!function_exists('jellypress_build_chart_options')):
           }
         }],
       },
-      "; // TODO: MOVE fontSize TO CHARTS-OPTS
+      ";
     }
 
     if($chart_type === 'stackedBar') {
@@ -186,7 +183,7 @@ if (!function_exists('jellypress_build_chart_options')):
           }
         }],
       },
-      "; // TODO: MOVE fontSize TO CHARTS-OPTS
+      ";
     }
 
     if($chart_type === 'stackedHorizontalBar') {
@@ -208,7 +205,7 @@ if (!function_exists('jellypress_build_chart_options')):
           }
         }],
       },
-      "; // TODO: MOVE fontSize TO CHARTS-OPTS
+      ";
     }
 
     if($chart_type === 'horizontalBar') {
@@ -228,7 +225,7 @@ if (!function_exists('jellypress_build_chart_options')):
           }
         }],
       },
-      "; // TODO: MOVE fontSize TO CHARTS-OPTS
+      ";
     }
 
     if($chart_type === 'radar') {

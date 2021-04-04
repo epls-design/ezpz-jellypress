@@ -8,7 +8,6 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-// TODO: Bit of a tidy up in here would be good
 /**
 * Move location of ACF-JSON local Json folder
 * https://www.advancedcustomfields.com/resources/local-json/
@@ -50,7 +49,7 @@ if (!function_exists('jellypress_restrict_acf_tinymce_opts')) {
 }
 
 /**
-  * Adds an ACF options page for organisation information
+  * Adds ACF options pages
   */
 if(function_exists('acf_add_options_page') ) {
   acf_add_options_page(
@@ -152,116 +151,29 @@ if (! function_exists('jellypress_hide_acf_admin') ) {
 }
 add_filter('acf/settings/show_admin', 'jellypress_hide_acf_admin');
 
-add_action('wp_head', 'jellypress_facebook_pixel');
-if ( ! function_exists( 'jellypress_facebook_pixel' ) ) :
-  function jellypress_facebook_pixel() {
-    $facebook_pixel_api = get_global_option('facebook_pixel_id');
-    if ($facebook_pixel_api) {
-    // Note: This plugin might be useful later on ... https://github.com/seedorff/facebook-pixel-tracker-acf-edition/tree/master/inc
-     ?>
-    <!-- Facebook Pixel Code -->
-    <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '<?php echo $facebook_pixel_api;?>');
-      fbq('track', 'PageView');
-      </script>
-      <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=<?php echo $facebook_pixel_api;?>&ev=PageView&noscript=1"
-      /></noscript>
-    <!-- End Facebook Pixel Code -->
-<?php  }
-  }
-endif;
-
-if (! function_exists('jellypress_google_tracking') ) {
-    /**
-     * Sets up GAnalytics if the user has added a Google Tag ID to the options page
-     */
-
-    function jellypress_google_tracking()
-    {
-        $get_google_tracking_id = get_global_option('google_tracking_id');
-        if ($get_google_tracking_id) {
-          $google_integration_type = get_global_option('google_integration_type');
-          if($google_integration_type === "analytics"):
-              echo normalize_whitespace('
-              <!-- Global site tag (gtag.js) - Google Analytics -->
-              <script async src="https://www.googletagmanager.com/gtag/js?id='.$get_google_tracking_id.'"></script>
-              <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag("js", new Date());
-                gtag("config", "'.$get_google_tracking_id.'");
-              </script>
-              ');
-          elseif($google_integration_type === "gtag"):
-            echo normalize_whitespace("
-            <!-- Google Tag Manager -->
-            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','".$get_google_tracking_id."');</script>
-            <!-- End Google Tag Manager -->
-            ");
-          endif;
-        }
-    }
-}
-add_action('wp_head', 'jellypress_google_tracking', 100);
-
-// Add GTM Code to <body>
-if (! function_exists('jellypress_gtm_body')) {
-    function jellypress_gtm_body()
-    {
-        $get_google_tracking_id = get_global_option('google_tracking_id');
-        $google_integration_type = get_global_option('google_integration_type');
-        if ($get_google_tracking_id && $google_integration_type === 'gtag') {
-        echo normalize_whitespace('
-          <!-- Google Tag Manager (noscript) -->
-          <noscript><iframe src="https://www.googletagmanager.com/ns.html?id='.$get_google_tracking_id.'" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-          <!-- End Google Tag Manager (noscript) -->
-          ');
-        }
-    }
-}
-add_action( 'wp_body_open', 'jellypress_gtm_body' );
-
-if (! function_exists('jellypress_google_maps_api_key') ) {
-    /**
-     * Adds Google Maps API Key if the user has added one to the options page
-     */
-
-    function jellypress_google_maps_api_key()
-    {
-
-        $get_gmaps_api = get_global_option('google_maps_api_key');
-        if ($get_gmaps_api) {
-            acf_update_setting('google_api_key', $get_gmaps_api);
-        }
-    }
-}
+/**
+ * Adds Google Maps API Key if the user has added one to the options page
+ */
 add_action('acf/init', 'jellypress_google_maps_api_key');
-
-if (! function_exists('jellypress_acf_dashicons_support') ) {
-    /**
-     * Adds Dashicons to ACF allowing us to use them in labels etc.
-     * Usage: <span class="dashicons dashicons-menu"></span>
-     */
-
-    function jellypress_acf_dashicons_support()
-    {
-        wp_enqueue_style('dashicons');
+if (! function_exists('jellypress_google_maps_api_key') ) {
+  function jellypress_google_maps_api_key() {
+    $get_gmaps_api = get_global_option('google_maps_api_key');
+    if ($get_gmaps_api) {
+        acf_update_setting('google_api_key', $get_gmaps_api);
     }
+  }
 }
+
+/**
+ * Adds Dashicons to ACF allowing us to use them in labels etc.
+ * Usage: <span class="dashicons dashicons-menu"></span>
+ */
 add_action('admin_init', 'jellypress_acf_dashicons_support');
+if (! function_exists('jellypress_acf_dashicons_support') ) {
+  function jellypress_acf_dashicons_support() {
+      wp_enqueue_style('dashicons');
+  }
+}
 
 /**
  * Extend WordPress search to include custom fields
@@ -510,45 +422,6 @@ if ( ! function_exists( 'get_global_option' ) ) :
 endif;
 
 /**
-* A function which can be used to generate an excerpt whilst in the loop
-* Use $possible_excerpts to determine the order in which excerpts are found.
-* Yoast SEO hooks into this function to populate the %%excerpt%% tag with jellypress_filter_wpseo_excerpt()
-*
-* @param integer $trim Optional amount of characters to trim the output to
-* @param boolean or string $ellipses Whether or not to append the output with an ellipses.
-* @return string Sanitized and processed excerpt
-*/
-if (! function_exists('jellypress_generate_excerpt') ) :
-  function jellypress_generate_excerpt($trim = null, $ellipses = false) {
-    $possible_excerpts = array(
-      //get_field('excerpt'), // Example use with a custom field
-      get_the_excerpt(), // User defined excerpt - will fallback to the_content() gracefully
-      'sections', // Loop through ACF Flexible content to look for a WYSIWIG field
-      //get_bloginfo( 'description', 'display' ), // Website description
-    );
-    foreach ($possible_excerpts as $possible_excerpt) {
-      if($possible_excerpt === 'sections') {
-        $post_excerpt = jellypress_excerpt_from_acf_flexible_content();
-      }
-      else {
-        $post_excerpt = $possible_excerpt;
-      }
-      if($post_excerpt) break; // Something found, end foreach
-    }
-    $post_excerpt = wp_strip_all_tags($post_excerpt); // Strip all HTML
-    $post_excerpt = mb_substr($post_excerpt, 0, $trim, 'UTF-8'); // trim to $trim chars
-
-    if($post_excerpt && !preg_match('/[\p{P}]$/u', $post_excerpt) && $ellipses) {
-      // Set an ellipses or string to the end, if the $post_excerpt does not end in a punctuation mark.
-      if(is_string($ellipses)) $ellipses = sanitize_text_field($ellipses); // Pass a string eg '[...]'
-      else $ellipses = '&#8230;'; // Fallback to an ellipses
-      $post_excerpt = $post_excerpt.$ellipses;
-    }
-    return $post_excerpt;
-  }
-endif;
-
-/**
  * Loop through ACF flexible repeater field 'sections' to find a WYSIWIG field
  *
  * @return string text from a WYSIWIG field
@@ -588,25 +461,3 @@ if ( ! function_exists( 'jellypress_excerpt_from_acf_flexible_content' ) ) :
       else return false;
   }
 endif;
-
-/**
- * Replaces Excerpt Variable in Yoast SEO by using function jellypress_generate_excerpt()
- * @link http://hookr.io/functions/wpseo_register_var_replacement/
- * @link https://stackoverflow.com/questions/36281915/yoast-seo-how-to-create-custom-variables
- *
- * @return void
- */
-add_filter( 'wpseo_replacements', 'jellypress_filter_wpseo_excerpt', 10, 1 );
-if (! function_exists('jellypress_filter_wpseo_excerpt') ) :
-  function jellypress_filter_wpseo_excerpt($replacements) {
-    global $post;
-    //if( isset( $replacements['%%excerpt%%'] ) ) {
-      $replacements['%%excerpt%%'] = jellypress_generate_excerpt(160, true);
-    //}
-    return $replacements;
-  }
-endif;
-
-
-
-// TODO: Add a variable to Server Time message displaying current server time. https://saika.li/snippets-acf-hooks/ gets part way but the field updates with the replaced value on save.

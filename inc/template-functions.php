@@ -166,3 +166,58 @@ if ( ! function_exists( 'jellypress_add_navbar_descriptions' ) ) :
     return $item_output;
   }
 endif;
+
+/**
+* A function which can be used to generate an excerpt whilst in the loop
+* Use $possible_excerpts to determine the order in which excerpts are found.
+* Yoast SEO hooks into this function to populate the %%excerpt%% tag with jellypress_filter_wpseo_excerpt()
+*
+* @param integer $trim Optional amount of characters to trim the output to
+* @param boolean or string $ellipses Whether or not to append the output with an ellipses.
+* @return string Sanitized and processed excerpt
+*/
+if (! function_exists('jellypress_generate_excerpt') ) :
+  function jellypress_generate_excerpt($trim = null, $ellipses = false) {
+    $possible_excerpts = array(
+      //get_field('excerpt'), // Example use with a custom field
+      get_the_excerpt(), // User defined excerpt - will fallback to the_content() gracefully
+      'sections', // Loop through ACF Flexible content to look for a WYSIWIG field
+      //get_bloginfo( 'description', 'display' ), // Website description
+    );
+    foreach ($possible_excerpts as $possible_excerpt) {
+      if($possible_excerpt === 'sections') {
+        $post_excerpt = jellypress_excerpt_from_acf_flexible_content();
+      }
+      else {
+        $post_excerpt = $possible_excerpt;
+      }
+      if($post_excerpt) break; // Something found, end foreach
+    }
+    $post_excerpt = wp_strip_all_tags($post_excerpt); // Strip all HTML
+    $post_excerpt = mb_substr($post_excerpt, 0, $trim, 'UTF-8'); // trim to $trim chars
+
+    if($post_excerpt && !preg_match('/[\p{P}]$/u', $post_excerpt) && $ellipses) {
+      // Set an ellipses or string to the end, if the $post_excerpt does not end in a punctuation mark.
+      if(is_string($ellipses)) $ellipses = sanitize_text_field($ellipses); // Pass a string eg '[...]'
+      else $ellipses = '&#8230;'; // Fallback to an ellipses
+      $post_excerpt = $post_excerpt.$ellipses;
+    }
+    return $post_excerpt;
+  }
+endif;
+
+/**
+ * Replaces Excerpt Variable in Yoast SEO by using function jellypress_generate_excerpt()
+ * @link http://hookr.io/functions/wpseo_register_var_replacement/
+ * @link https://stackoverflow.com/questions/36281915/yoast-seo-how-to-create-custom-variables
+ *
+ * @return void
+ */
+add_filter( 'wpseo_replacements', 'jellypress_filter_wpseo_excerpt', 10, 1 );
+if (! function_exists('jellypress_filter_wpseo_excerpt') ) :
+  function jellypress_filter_wpseo_excerpt($replacements) {
+    global $post;
+      $replacements['%%excerpt%%'] = jellypress_generate_excerpt(160, true);
+    return $replacements;
+  }
+endif;

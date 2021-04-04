@@ -176,8 +176,6 @@ if ( ! function_exists( 'jellypress_copyright' ) ) :
     }
 endif;
 
-// TODO: Hook into featured image and replace with a ACF image? Eg. for Yoast SEO
-
 /**
  * This function effectively does the same job as the_post_navigation() but wraps the navigation in Jellyfish compliant classes.
  * It will only display the_post_navigation() if there are posts to show.
