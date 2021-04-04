@@ -22,3 +22,33 @@ table.is-hoverable {
     color: $table-hover-color;
   }
 }
+
+table.is-responsive {
+  @include  below(md) {
+    thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+
+    tr {
+      display: block;
+    }
+
+    td {
+      display: block;
+      &::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        margin-right: 2em;
+      }
+    }
+
+  }
+}

@@ -1060,7 +1060,7 @@ p.has-background {
   max-height: 60vh;
   height: 384px;
   width: 100%;
-  margin-bottom: 48px; }
+  margin-bottom: 24px; }
   @media (min-width: 56.25em) {
     .chart-container {
       height: 640px;
@@ -1069,6 +1069,11 @@ p.has-background {
     max-height: 100% !important;
     width: auto !important;
     margin: 0 auto; }
+
+.data-table h3 {
+  margin-bottom: 0;
+  font-size: 1.25em;
+  text-align: center; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   COUNTDOWN
@@ -1776,9 +1781,11 @@ button.toggle-contrast svg {
 
 .button-list {
   display: flex;
-  margin-bottom: calc(24px - 8px);
-  margin-right: -8px;
-  margin-left: -8px; }
+  margin-bottom: calc(24px - 8px); }
+  @media (min-width: 37.5em) {
+    .button-list {
+      margin-right: -8px;
+      margin-left: -8px; } }
   .button-list .button, .button-list a.button {
     margin: 0 8px 16px 8px; }
 
@@ -1981,7 +1988,10 @@ input:checked + .checkbox__control {
 
 .table-container {
   overflow-x: auto;
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 24px; }
+  .table-container table {
+    margin-bottom: 0; }
 
 .tag {
   padding: 0.25em 0.3em;
@@ -4548,6 +4558,26 @@ table.has-border tfoot th {
 table.is-hoverable tr:hover td {
   background: #6e7c8c !important;
   color: white; }
+
+@media (max-width: 56.1875em) {
+  table.is-responsive thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px; }
+  table.is-responsive tr {
+    display: block; }
+  table.is-responsive td {
+    display: block; }
+    table.is-responsive td::before {
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      margin-right: 2em; } }
 
 .tag.outline {
   border-style: solid;

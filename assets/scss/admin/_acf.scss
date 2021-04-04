@@ -36,6 +36,32 @@ $handle_color: get-color(neutral,900);
   }
 }
 
+.acf-field-repeater {
+  &.seamless {
+    .acf-table{
+      border: 0;
+      background: none;
+      thead {
+        display: none;
+      }
+      tr:first-of-type {
+        td {
+          padding-top: 0;
+        }
+      }
+      tr:last-of-type {
+        td {
+          padding-bottom: 0;
+        }
+      }
+      td {
+        border: 0;
+        background: none !important;
+      }
+    }
+  }
+}
+
 // Nicer styling of handle icons
 .acf-fc-layout-controls .acf-icon {
   background: get-color(neutral, 000) !important;
