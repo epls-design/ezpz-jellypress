@@ -3761,12 +3761,18 @@
                                 "id": ""
                             },
                             "choices": {
-                                "pie": "Pie",
-                                "pie-half": "Half Pie",
-                                "doughnut": "Doughnut",
-                                "doughnut-half": "Half Doughnut",
                                 "bar": "Bar",
-                                "horizontalBar": "Horizontal Bar"
+                                "stackedBar": "Bar - Stacked",
+                                "horizontalBar": "Bar - Horizontal",
+                                "stackedHorizontalBar": "Bar - Horizontal & Stacked",
+                                "pie": "Pie",
+                                "pie-half": "Pie - Half",
+                                "doughnut": "Doughnut",
+                                "doughnut-half": "Doughnut - Half",
+                                "polarArea": "Polar Area",
+                                "radar": "Radar",
+                                "line": "Line",
+                                "table": "Table"
                             },
                             "default_value": "pie",
                             "allow_null": 0,
@@ -4943,5 +4949,5 @@
     ],
     "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1617380480
+    "modified": 1617555053
 }
