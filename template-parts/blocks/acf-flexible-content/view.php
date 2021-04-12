@@ -15,8 +15,6 @@ $id = get_the_ID();
 
 if( !post_password_required()):
 
-  // TODO: Eventually work out how to use this with pages with a sidebar.
-
   /**
   * Get all ACF field meta into a single array rather than querying the database for each field individually
   * Massively improve performance

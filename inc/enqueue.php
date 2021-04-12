@@ -22,7 +22,7 @@ if (! function_exists('jellypress_scripts') ) {
         $css_version = $theme_version . ':' . filemtime(get_template_directory() . '/style.css'); // Appends time stamp to help with cache busting
         $js_version = $theme_version . ':' . filemtime(get_template_directory() . '/dist/js/site.min.js'); // Appends time stamp to help with cache busting
 
-        // TODO: Not using Gutenberg in this theme? Then remove these comments
+        // NOTE: Not using Gutenberg in this theme? Then remove these comments
         //wp_dequeue_style('wp-block-library');
         //wp_dequeue_style('wc-block-style'); // WooCommerce - you can remove this if you don't use Woocommerce
 

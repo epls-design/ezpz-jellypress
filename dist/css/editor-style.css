@@ -1,7 +1,6 @@
 /* Jellypress Wordpress Theme 1.1.0
  * © 2021-04 Matt Weet - https://www.weareboba.com */
 
-@charset "UTF-8";
 /**
  * Calculate the luminance for a color.
  * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
@@ -841,15 +840,6 @@ p.has-background {
 .wp-block-video {
   margin-bottom: 24px; }
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  TODO: BLOCKS TO ADD
-  • YouTube needs align classes to work
-  • Twitter Align classes need to work
-  • Facebook Embed
-  • Instagram Embed
-  • Wordpress Embed
-  • File Block
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .widget .mejs-container, .widget .mejs-container .mejs-controls, .widget .mejs-embed, .widget .mejs-embed body {
   background: #1f2933; }
 

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: JellyPress 1.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/unofficialmatt/jellypress/issues\n"
-"POT-Creation-Date: 2021-04-02 16:34:01+00:00\n"
+"POT-Creation-Date: 2021-04-12 12:06:50+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,55 +46,55 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: inc/acf.php:58
+#: inc/acf.php:57
 msgid "Jellypress Information and SEO"
 msgstr ""
 
-#: inc/acf.php:59
+#: inc/acf.php:58
 msgid "Jellypress"
 msgstr ""
 
-#: inc/acf.php:69 inc/acf.php:70
+#: inc/acf.php:68 inc/acf.php:69
 msgid "Contact Details"
 msgstr ""
 
-#: inc/acf.php:75
+#: inc/acf.php:74
 msgid "Successfully updated Contact Details"
 msgstr ""
 
-#: inc/acf.php:80 inc/acf.php:81 inc/dry.php:265
+#: inc/acf.php:79 inc/acf.php:80 inc/dry.php:265
 msgid "Opening Hours"
 msgstr ""
 
-#: inc/acf.php:86
+#: inc/acf.php:85
 msgid "Successfully updated Opening Hours"
 msgstr ""
 
-#: inc/acf.php:91
+#: inc/acf.php:90
 msgid "Social Media and SEO"
 msgstr ""
 
-#: inc/acf.php:92
+#: inc/acf.php:91
 msgid "Social Media/SEO"
 msgstr ""
 
-#: inc/acf.php:97
+#: inc/acf.php:96
 msgid "Successfully updated Social Media and SEO"
 msgstr ""
 
-#: inc/acf.php:102 inc/acf.php:103
+#: inc/acf.php:101 inc/acf.php:102
 msgid "APIs"
 msgstr ""
 
-#: inc/acf.php:108
+#: inc/acf.php:107
 msgid "Successfully updated APIs"
 msgstr ""
 
-#: inc/acf.php:113 inc/acf.php:114
+#: inc/acf.php:112 inc/acf.php:113
 msgid "Theme Settings"
 msgstr ""
 
-#: inc/acf.php:119
+#: inc/acf.php:118
 msgid "Successfully updated Theme Settings"
 msgstr ""
 
@@ -419,11 +419,11 @@ msgstr ""
 msgid "Primary"
 msgstr ""
 
-#: inc/theme-setup.php:145
+#: inc/theme-setup.php:144
 msgid "Development Site"
 msgstr ""
 
-#: inc/theme-setup.php:148
+#: inc/theme-setup.php:147
 msgid "Staging Site"
 msgstr ""
 
@@ -439,11 +439,11 @@ msgstr ""
 msgid "Add your widgets here."
 msgstr ""
 
-#: inc/woocommerce.php:196
+#: inc/woocommerce.php:195
 msgid "View your shopping cart"
 msgstr ""
 
-#: inc/woocommerce.php:200
+#: inc/woocommerce.php:199
 #. translators: number of items in the mini cart.
 msgid "%d item"
 msgid_plural "%d items"
@@ -462,7 +462,7 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: template-parts/blocks/chart/view.php:36
+#: template-parts/blocks/chart/view.php:37
 msgid "A data chart"
 msgstr ""
 

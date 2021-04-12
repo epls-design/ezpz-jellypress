@@ -108,7 +108,6 @@ if (! function_exists('jellypress_setup') ) :
         // Prevent the user from being able to edit font-sizes
         add_theme_support('disable-custom-font-sizes');
 
-        // FIXME: - this is a little buggy
         // Enable editor styles in Gutenberg
         //add_theme_support('editor-styles');
         //add_editor_style( 'dist/css/editor-style.min.css' );

@@ -132,7 +132,7 @@
 .wp-block-button {
   color: choose-contrast-color(get-color(primary),$button-text-color-light,$button-text-color-dark);
   a {
-    @include create_button(get-color(primary)); // TODO: Test this works. May need to import some of the generic button styles too eg. padding, font, and not just use create_button() mixin. Removed the old @extend as it was creating lots of bloat
+    @include create_button(get-color(primary));
   }
 
   &.is-style-outline {
@@ -171,11 +171,7 @@
   color: get-color(neutral);
 }
 
-// TODO: Add support for posts/categories columns - it will work out of the box but it should inherit gutters from Jellyfish Grid
-
 // Columns
-
-// Ensure that Columns inherit gutters from Jellyfish Grid settings
 $gutenberg-collapse-cols: 600px;
 
 .wp-block-text-columns, .wp-block-columns  {
@@ -253,9 +249,6 @@ $gutenberg-collapse-cols: 600px;
 
 // Gallery Blocks
 
-// TODO: make the gutters inherit from Jellyfish
-// TODO: Fix Caption position over image
-
 // Images
 .wp-block-image {
   //clear: both; // Clear floats
@@ -281,7 +274,6 @@ $gutenberg-collapse-cols: 600px;
 // Tables
 .wp-block-table {
   &.alignwide {
-    // TODO: Make this actually allow .alignwide - can't use auto width on table or it will collapse
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
@@ -352,7 +344,6 @@ p.has-background {
 }
 
 // VIDEO
-// TODO: Does alignright, alignleft work OK here?
 .is-type-video .wp-block-embed__wrapper {
   @extend .embed-container;
 }
@@ -375,14 +366,3 @@ p.has-background {
 .wp-block-embed figcaption {
   @extend %caption;
 }
-
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  TODO: BLOCKS TO ADD
-  • YouTube needs align classes to work
-  • Twitter Align classes need to work
-  • Facebook Embed
-  • Instagram Embed
-  • Wordpress Embed
-  • File Block
-*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
