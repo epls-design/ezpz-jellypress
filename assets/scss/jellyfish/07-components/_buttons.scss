@@ -37,7 +37,7 @@
       cursor: not-allowed;
     }
     // Default Styles
-    @include create_button('neutral');
+    @include create_button($button-base-color);
 }
 
 %button-groups {

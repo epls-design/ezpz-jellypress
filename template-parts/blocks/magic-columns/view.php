@@ -89,7 +89,7 @@ $row_class = 'align-'.$block['row_vertical_align'];
               sprintf(
                 /* translators: %s link to theme options page. */
                 __( 'You need to <a href="%s" class="callout-link">add a Google Maps API key</a> in order to display a map on your website.', 'jellypress' ),
-                esc_url( get_admin_url(null, 'admin.php?page=organisation-information' ) )
+                esc_url( get_admin_url(null, 'admin.php?page=apis' ) )
               )
               . '</div>';
             endif; // google_maps_api_key
