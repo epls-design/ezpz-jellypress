@@ -22,6 +22,18 @@ $block_title = $block['title'];
 $block_preamble = $block['preamble'];
 $query_post_type = $block['query_post_type'];
 $loading_type = $block['loading_type'];
+
+$block_bg_color = $args['block_bg_color'];
+
+// Determine what button color to use
+switch ($block_bg_color) {
+  //case 'white':
+  //  $button_loadmore_color = ' primary';
+  //  break;
+  default:
+    $button_loadmore_color = '';
+}
+
 ?>
 
 <section <?php if($block_id_opt = $block['section_id']) echo 'id="'.strtolower($block_id_opt).'"'; ?> class="<?php echo $block_classes;?>">
@@ -64,7 +76,7 @@ $loading_type = $block['loading_type'];
         }
         if ( $loading_type == 'scroll' ) echo '</div><div class="row"><div class="col xs-12"><div id="archive-loading"></div></div>';
         if ( $archive_query->max_num_pages > 1 && $loading_type == 'button' ) {
-          echo '</div><div class="row"><div class="col xs-12"><button class="button outline button-loadmore">' . __( 'Load More...', 'jellypress' ) . '</button></div>';
+          echo '</div><div class="row"><div class="col xs-12"><button class="button outline button-loadmore'.$button_loadmore_color.'">' . __( 'Load More...', 'jellypress' ) . '</button></div>';
         };
 
       } else {

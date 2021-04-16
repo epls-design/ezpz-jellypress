@@ -12,6 +12,16 @@ $slide = $args['slide'];
 $block_id = $args['block_id'];
 $slide_id = $args['slide_id'];
 $slide_class = $args['slide_class'];
+$block_bg_color = $args['block_bg_color'];
+
+// Determine what button color to use
+switch ($block_bg_color) {
+  //case 'white':
+  //  $button_color = ' primary';
+  //  break;
+  default:
+    $button_color = '';
+}
 
 $slide_link = $slide['slide_link'];
 
@@ -30,7 +40,7 @@ $slide_link = $slide['slide_link'];
       <?php
       if($slide_title = $slide['slide_title']) echo '<h3>'.jellypress_bracket_tag_replace($slide_title).'</h3>';
       echo jellypress_content($slide['slide_text']);
-      if($slide_link) echo '<a class="button" href="'.$slide_link['url'].'" title="'.$slide_link['title'].'" target="'.$slide_link['target'].'">'.$slide_link['title'].'</a>';
+      if($slide_link) echo '<a class="button'.$button_color.'" href="'.$slide_link['url'].'" title="'.$slide_link['title'].'" target="'.$slide_link['target'].'">'.$slide_link['title'].'</a>';
       ?>
     </div>
   </div>

@@ -89,7 +89,7 @@ if( !post_password_required()):
           'block' => $block,
           'block_id' => $i,
           'block_classes' => $block_classes,
-//              'block_bg' => $block_bg_color,
+          'block_bg_color' => $block_bg_color,
 //              'prev_block_bg' => $prev_block_bg
         );
         get_template_part( 'template-parts/blocks/' . $block_layout .'/view', null, $block_params );

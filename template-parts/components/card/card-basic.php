@@ -13,6 +13,16 @@ $card = $args['card'];
 //var_dump($card);
 
 $card_link = $card['card_link'];
+$block_bg_color = $args['block_bg_color'];
+
+// Determine what button color to use
+switch ($block_bg_color) {
+  //case 'white':
+  //  $button_color = ' primary';
+  //  break;
+  default:
+    $button_color = '';
+}
 
 ?>
 
@@ -34,7 +44,7 @@ $card_link = $card['card_link'];
 
   <?php if($card_link) : ?>
   <footer class="card-section card-footer">
-    <?php echo '<a class="button small" href="'.$card_link['url'].'" title="'.$card_link['title'].'" target="'.$card_link['target'].'">'.$card_link['title'].'</a>'; ?>
+    <?php echo '<a class="button'.$button_color.' small" href="'.$card_link['url'].'" title="'.$card_link['title'].'" target="'.$card_link['target'].'">'.$card_link['title'].'</a>'; ?>
   </footer>
   <?php endif; ?>
 

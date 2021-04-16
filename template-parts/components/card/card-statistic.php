@@ -33,6 +33,16 @@ if($duration = $statistic['count_duration']) $data_attribs .= ' data-duration="'
 $statistic_title = $statistic['statistic_title'];
 $statistic_description = $statistic['statistic_description'];
 
+$block_bg_color = $args['block_bg_color'];
+
+// Determine what button color to use
+switch ($block_bg_color) {
+  //case 'white':
+  //  $button_color = ' primary';
+  //  break;
+  default:
+    $button_color = '';
+}
 ?>
 <div class="card card-statistic no-border">
   <div class="card-section">
@@ -44,7 +54,7 @@ $statistic_description = $statistic['statistic_description'];
   </div>
   <?php if($button = $statistic['statistic_button']):
   echo '<div class="card-section card-footer">
-        <a class="button" href="'.$button['url'].'" title="'.$button['title'].'" target="'.$button['target'].'">'.$button['title'].'</a>
+        <a class="button'.$button_color.'" href="'.$button['url'].'" title="'.$button['title'].'" target="'.$button['target'].'">'.$button['title'].'</a>
         </div>';
   endif; ?>
 </div>
