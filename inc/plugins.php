@@ -57,8 +57,8 @@ function jellypress_register_required_plugins() {
 
     array(
       //
-			'name'         => 'EZPZ Wordpress Starter',
-			'slug'         => 'ezpz-setup',
+			'name'         => 'Boba WP Optimise',
+			'slug'         => 'boba-optimise',
 			'source'       => 'https://github.com/unofficialmatt/boba-wp-starter/archive/master.zip',
       'required'     => true,
       //'force_activation'  => true, // TODO:  Comment this in before site launch. There is a conflict between TGMPA activation and DISALLOW_FILE_EDIT. If DISALLOW_FILE_EDIT is set, TGMPA can not seem to activate plugins. The EZPZ plugin sets DISALLOW_FILE_EDIT to true.
