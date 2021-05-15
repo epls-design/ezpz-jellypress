@@ -59,10 +59,10 @@ function jellypress_register_required_plugins() {
       //
 			'name'         => 'EZPZ Wordpress Starter',
 			'slug'         => 'ezpz-setup',
-			'source'       => 'https://github.com/epls-design/ezpz-cleanup/archive/master.zip',
+			'source'       => 'https://github.com/unofficialmatt/boba-wp-starter/archive/master.zip',
       'required'     => true,
       //'force_activation'  => true, // TODO:  Comment this in before site launch. There is a conflict between TGMPA activation and DISALLOW_FILE_EDIT. If DISALLOW_FILE_EDIT is set, TGMPA can not seem to activate plugins. The EZPZ plugin sets DISALLOW_FILE_EDIT to true.
-			'external_url' => 'https://github.com/epls-design/ezpz-cleanup',
+			'external_url' => 'https://github.com/unofficialmatt/boba-wp-starter',
     ),
 
     /**

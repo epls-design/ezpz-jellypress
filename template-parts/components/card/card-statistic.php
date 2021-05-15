@@ -33,7 +33,7 @@ if($duration = $statistic['count_duration']) $data_attribs .= ' data-duration="'
 $statistic_title = $statistic['statistic_title'];
 $statistic_description = $statistic['statistic_description'];
 
-$block_bg_color = $args['block_bg_color'];
+$block_bg_color = isset($args['block_bg_color']) ? $args['block_bg_color'] : null;
 
 // Determine what button color to use
 switch ($block_bg_color) {

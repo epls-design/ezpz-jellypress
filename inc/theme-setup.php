@@ -137,8 +137,8 @@ endif;
  */
 if ( ! function_exists( 'jellypress_show_dev_flag' ) ) :
   function jellypress_show_dev_flag() {
-    $dev_url = parse_url(DEV_URL); // Defined in functions.php
-    $staging_url = parse_url(STAGING_URL); // Defined in functions.php
+    $dev_url = DEV_URL ? parse_url(DEV_URL) : null;
+    $staging_url = STAGING_URL ? parse_url(STAGING_URL) : null;
     $current_url = parse_url(jellypress_get_full_url());
     if ($dev_url['host'] == $current_url['host']){
       echo '<div class="dev-flag dev">' . __('Development Site', 'jellypress') . '</div>';
@@ -158,9 +158,14 @@ add_action('admin_footer', 'jellypress_show_dev_flag');
 add_action('wp_head', function() {
   if(is_front_page()) : // Only display on home page according to best practice
 
-    $field_group_json = 'group_5ea7ebc9d7ff7.json'; // The field group that holds all schema content
-    $field_group_array = json_decode( file_get_contents( get_stylesheet_directory() . "/assets/acf-json/{$field_group_json}" ), true );
-    $schema_config = get_all_custom_field_meta( 'option', $field_group_array );
+    $contact_details_array = json_decode( file_get_contents( get_stylesheet_directory() . "/assets/acf-json/group_5ea7ebc9d7ff7.json" ), true );
+    $opening_hours_array = json_decode( file_get_contents( get_stylesheet_directory() . "/assets/acf-json/group_606724bcef942.json" ), true );
+    $social_media_array = json_decode( file_get_contents( get_stylesheet_directory() . "/assets/acf-json/group_606724c228c05.json" ), true );
+
+    $contact_details_opts = get_all_custom_field_meta( 'option', $contact_details_array );
+    $opening_hours_opts = get_all_custom_field_meta( 'option', $opening_hours_array );
+    $social_media_opts = get_all_custom_field_meta( 'option', $social_media_array );
+    $schema_config = array_merge($contact_details_opts,$opening_hours_opts,$social_media_opts);
 
     $schema = array(
       '@context'  => "http://schema.org",
@@ -178,39 +183,39 @@ add_action('wp_head', function() {
     );
 
     // LOGO
-    if ($organisation_logo = $schema_config['organisation_logo']) {
-      $schema['logo'] = wp_get_attachment_image_url( $organisation_logo, 'medium');
+    if (!empty($schema_config['organisation_logo'])) {
+      $schema['logo'] = wp_get_attachment_image_url( $schema_config['organisation_logo'], 'medium');
     }
 
 
     // IMAGE
-    if ($organisation_image = $schema_config['organisation_image']) {
-      $schema['image'] = wp_get_attachment_image_url( $organisation_image, 'medium');
+    if (!empty($schema_config['organisation_image'])) {
+      $schema['image'] = wp_get_attachment_image_url( $schema_config['organisation_image'], 'medium');
     }
 
     // SOCIAL MEDIA
-    if ($socials = $schema_config['social_channels']) {
+    if (!empty($schema_config['social_channels'])) {
       $schema['sameAs'] = array();
-      foreach($socials as $channel):
+      foreach($schema_config['social_channels'] as $channel):
         array_push($schema['sameAs'], $channel['url']);
       endforeach;
     }
 
     // PHONE
-    if ($telephone = $schema_config['primary_phone_number']) {
-      $link_number = jellypress_append_country_dialing_code($telephone, get_global_option( 'dialing_code'));
+    if (isset($schema_config['primary_phone_number'])) {
+      $link_number = jellypress_append_country_dialing_code($schema_config['primary_phone_number'], get_global_option( 'dialing_code'));
       $schema['telephone'] = $link_number;
     }
 
     // EMAIL
-    if ($email = $schema_config['email_address']) {
-      $schema['email'] = $email;
+    if (isset($schema_config['email_address'])) {
+      $schema['email'] = $schema_config['email_address'];
     }
 
     // CONTACT POINTS
-    if ($contactPoints = $schema_config['departments']) {
+    if (!empty($schema_config['departments'])) {
       $schema['contactPoint'] = array();
-      foreach($contactPoints as $contactPoint):
+      foreach($schema_config['departments'] as $contactPoint):
           $telephone = jellypress_append_country_dialing_code($contactPoint['phone_number'], $contactPoint['dialing_code']);
 
           $contact = array(
@@ -231,9 +236,9 @@ add_action('wp_head', function() {
     }
 
     // OPENING HOURS
-    if($opening_hours = $schema_config['opening_hours']) {
+    if(isset($schema_config['opening_hours'])) {
       $schema['openingHoursSpecification'] = array();
-      foreach($opening_hours as $hours):
+      foreach($schema_config['opening_hours'] as $hours):
         $closed = $hours['closed'];
         $from   = $closed ? '00:00' : $hours['from'];
         $to     = $closed ? '00:00' : $hours['to'];
@@ -248,8 +253,8 @@ add_action('wp_head', function() {
     }
 
     // SPECIAL DAYS
-    if($special_days = $schema_config['special_days']) {
-      foreach($special_days as $day):
+    if(!empty($schema_config['special_days'])) {
+      foreach($schema_config['special_days'] as $day):
         $closed = $day['closed'];
         $date_from   = $day['date_from'];
         $date_to     = $day['date_to'];

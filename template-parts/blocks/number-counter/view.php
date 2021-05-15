@@ -64,6 +64,7 @@ $block_preamble = $block['preamble'];
           $card_params = array(
             'statistic' => $statistic,
             'font_size' => $statistic_font_size,
+            'block_bg_color' => $args['block_bg_color']
           );
           get_template_part( 'template-parts/components/card/card', 'statistic', $card_params );
         echo '</div>';

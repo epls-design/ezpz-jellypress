@@ -39,7 +39,7 @@ $block_title = $block['title'];
     </div>
   <?php endif; ?>
 
-  <?php if ( $block['buttons'] ) : ?>
+  <?php if ( !empty($block['buttons']) ) : ?>
     <div class="row">
       <div class="col text-center">
         <?php

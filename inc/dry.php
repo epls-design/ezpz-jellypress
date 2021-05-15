@@ -126,8 +126,8 @@ if ( ! function_exists( 'jellypress_display_socials' ) ) :
         $social_links_formatted.= '<li class="social-icon"><a href="'.$socialUrl.'" rel="noopener">'.jellypress_icon($socialNetwork).'</a></li>';
       endwhile;
       $social_links_formatted .= '</ul>';
+      return $social_links_formatted;
     endif;
-    return $social_links_formatted;
   }
   add_shortcode('jellypress-socials', 'jellypress_display_socials');
 endif;
@@ -142,7 +142,7 @@ if ( ! function_exists( 'jellypress_display_email' ) ) :
    * @param boolean $icon Whether to show an icon or not
    * @return string The Formatted Email Address
    */
-  function jellypress_display_email($atts = null, $icon = false) {
+  function jellypress_display_email($atts = null, $icon = true) {
     $args = shortcode_atts( array(
       'show_icon' => $icon,
       'email' => get_global_option('email_address') // Defaults to the email address saved in the options page
@@ -154,7 +154,7 @@ if ( ! function_exists( 'jellypress_display_email' ) ) :
 
     $show_icon == true ? $return = jellypress_hide_email($email_address, true) : $return = jellypress_hide_email($email_address);
 
-    return $return;
+    if($email_address) return $return;
 
   }
   add_shortcode('jellypress-email', 'jellypress_display_email');
@@ -179,14 +179,17 @@ if ( ! function_exists( 'jellypress_display_address' ) ) :
     // If show icon is true, define the icons to return else make them empty strings
     $icon = $show_icon == true ? jellypress_icon('location') : '';
 
-    $address = '<div class="postal-address">'.$icon.'<div><span class="screen-reader-text" itemprop="name">'.get_bloginfo('name').__(' Postal Address','jellypress').'</span>';
-    if($address_street = get_global_option( 'address_street')) $address .= '<span>'.$address_street.'</span>';
+    if($address_street = get_global_option( 'address_street')) $address = '<span>'.$address_street.'</span>';
     if($address_locality = get_global_option( 'address_locality')) $address .= '<span>'.$address_locality.'</span>';
     if($address_region = get_global_option( 'address_region')) $address .= '<span>'.$address_region.'</span>';
     if($address_country = get_global_option( 'address_country')) $address .= '<span>'.$address_country.'</span>';
     if($address_postal = get_global_option( 'address_postal')) $address .= '<span>'.$address_postal.'</span>';
-    $address .= '</div></div>';
-    return $address;
+
+    if(isset($address)) {
+      $address = '<div class="postal-address">'.$icon.'<div><span class="screen-reader-text" itemprop="name">'.get_bloginfo('name').__(' Postal Address','jellypress').'</span>' . $address . '</div></div>';
+      return $address;
+    }
+
   }
   add_shortcode('jellypress-address', 'jellypress_display_address');
 endif;
@@ -237,7 +240,7 @@ if ( ! function_exists( 'jellypress_display_phone_number' ) ) :
     $phone_number = get_global_option( 'primary_phone_number');
     $link_number = jellypress_append_country_dialing_code($phone_number, get_global_option( 'dialing_code'));
 
-    return '<span class="telephone-number"><span class="bold">'.$icon.__('Telephone:','jellypress').'</span> <a href="tel:'.$link_number.'" rel="nofollow">'.$phone_number.'</a></span>';
+    if($phone_number) return '<span class="telephone-number"><span class="bold">'.$icon.__('Telephone:','jellypress').'</span> <a href="tel:'.$link_number.'" rel="nofollow">'.$phone_number.'</a></span>';
   }
   add_shortcode('jellypress-phone', 'jellypress_display_phone_number');
 endif;
@@ -278,8 +281,8 @@ if ( ! function_exists( 'jellypress_display_opening_hours' ) ) :
         $opening_hours_formatted .= '<tr><td>'.$days.'</td><td>'.$opening_hours.'</td></tr>';
       endwhile;
       $opening_hours_formatted .= '</tbody></table>';
+      return $opening_hours_formatted;
     endif;
-    return $opening_hours_formatted;
   }
   add_shortcode('jellypress-opening', 'jellypress_display_opening_hours');
 endif;
@@ -317,8 +320,8 @@ if ( ! function_exists( 'jellypress_display_departments' ) ) :
         $phone_numbers_formatted .= '<tr><td class="bold">'.$department.'</td><td><a href="tel:'.$link_number.'" rel="nofollow">'.$phone_number.'</a></td><td>'.jellypress_hide_email($email_address).'</td></tr>';
       endwhile;
       $phone_numbers_formatted .= '</tbody></table>';
+      return $phone_numbers_formatted;
     endif;
-    return $phone_numbers_formatted;
   }
   add_shortcode('jellypress-departments', 'jellypress_display_departments');
 endif;

@@ -9,7 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 
 $card_class = 'card bg-white';
-$loaded = $args['loaded'];
+$loaded = isset($args['loaded']) ? true : false;
 if($loaded == true) {
   $card_class.=' loaded';
 };

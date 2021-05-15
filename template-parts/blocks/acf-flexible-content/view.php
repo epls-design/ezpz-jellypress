@@ -25,7 +25,8 @@ if( !post_password_required()):
   $block_data = get_all_custom_field_meta( $id, $field_group_array );
 
   // If there are items in the flexible content field...
-  if ($blocks = $block_data['sections']) :
+  if (!empty($block_data['sections'])) :
+    $blocks = $block_data['sections'];
 
     $i = 0;
     $total_blocks = count($blocks);
@@ -74,8 +75,9 @@ if( !post_password_required()):
 
       // Background colour
 
-      $prev_block_bg = $block_bg_color;
-      if($prev_block_bg == '') $prev_block_bg = 'white'; // Reset
+      $prev_block_bg = isset($block_bg_color) ? $block_bg_color : 'white';
+      echo $prev_block_bg;
+
       $block_bg_color = $block['background_color'];
       $next_bg_color = $next_block['background_color'];
 

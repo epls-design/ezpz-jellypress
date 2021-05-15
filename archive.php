@@ -39,7 +39,8 @@ get_header();
       if ( have_posts() ) :
 
         /* Start the Loop */
-        echo '<div class="row equal-height archive-feed feed-'.$term->slug.'" id="feed-'.$term->slug.'">';
+        if(!empty($term)) echo '<div class="row equal-height archive-feed feed-'.$term->slug.'" id="feed-'.$term->slug.'">';
+        else echo '<div class="row equal-height archive-feed" id="feed-posts">';
           while ( have_posts() ) :
             the_post();
             echo '<article class="col xs-12 sm-6 md-4 xl-3" id="post-'.get_the_ID().'">';

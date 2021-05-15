@@ -457,7 +457,7 @@ if ( ! function_exists( 'jellypress_excerpt_from_acf_flexible_content' ) ) :
         }
         endwhile;
       }
-      if($post_excerpt) return $post_excerpt;
+      if(isset($post_excerpt)) return $post_excerpt;
       else return false;
   }
 endif;
