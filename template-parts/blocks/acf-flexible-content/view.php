@@ -75,8 +75,7 @@ if( !post_password_required()):
 
       // Background colour
 
-      $prev_block_bg = isset($block_bg_color) ? $block_bg_color : 'white';
-      echo $prev_block_bg;
+      $prev_block_bg = isset($block_bg_color) ? $block_bg_color : null;
 
       $block_bg_color = $block['background_color'];
       $next_bg_color = $next_block['background_color'];
