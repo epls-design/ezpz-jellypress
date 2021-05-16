@@ -99,7 +99,7 @@ $posts_array = array(); // Create an empty array to store posts ready for the lo
 
   ?>
 
-  <?php if ( $block['buttons'] ) : ?>
+  <?php if ( !empty($block['buttons']) ) : ?>
     <div class="row justify-center">
       <div class="col md-10 lg-8 text-center">
         <?php jellypress_display_cta_buttons($block['buttons'], 'justify-center'); ?>

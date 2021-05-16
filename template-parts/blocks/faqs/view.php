@@ -91,7 +91,7 @@ $block_preamble = $block['preamble'];
 
   <?php endif;?>
 
-  <?php if ( $block['buttons'] ) : ?>
+  <?php if ( !empty($block['buttons']) ) : ?>
     <div class="row justify-center">
       <div class="col md-10 lg-8 text-center">
         <?php

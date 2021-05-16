@@ -10,8 +10,8 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-if(defined( 'DEV_URL' ) && defined( 'PROD_URL' )) :
-  $url1 = parse_url(DEV_URL); // Defined in functions.php
+if(DEV_URL && PROD_URL) :
+  $url1 = parse_url(DEV_URL);
   $url2 = parse_url(jellypress_get_full_url());
   if ($url1['host'] == $url2['host']){
     add_filter( 'wp_get_attachment_image_src', 'jellypress_wp_get_attachment_image_src' );

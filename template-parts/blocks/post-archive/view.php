@@ -86,7 +86,7 @@ switch ($block_bg_color) {
     wp_reset_postdata();
     ?>
 
-  <?php if ( $block['buttons'] ) : ?>
+  <?php if ( !empty($block['buttons']) ) : ?>
     <div class="row justify-center">
       <div class="col md-10 lg-8 text-center">
       <?php
