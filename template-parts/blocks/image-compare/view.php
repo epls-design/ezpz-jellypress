@@ -59,7 +59,7 @@ else $after_label = __('After', 'jellypress');
     <div class="row">
       <div class="col">
       <?php if ( $block_width === 'full' ){ echo '<div class="vw-100">'; } ?>
-        <div id="<?php echo $compare_id;?>" class="twentytwenty-container">
+        <div id="<?php echo $compare_id;?>" class="twentytwenty-container<?php if ($block['handle_color']) echo ' has-dark-handle';?>">
           <?php
           echo wp_get_attachment_image( $block['image_one'], 'medium' );
           echo wp_get_attachment_image( $block['image_two'], 'medium' );

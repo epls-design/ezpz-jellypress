@@ -1,5 +1,5 @@
 /* Jellypress Wordpress Theme 1.1.0
- * © 2021-04 Matt Weet - https://www.weareboba.com */
+ * © 2021-05 Matt Weet - https://www.weareboba.com */
 
 /**
  * Calculate the luminance for a color.
@@ -407,8 +407,7 @@ h6 {
   font-size: 1.25em; }
 
 p, li, h1, h2, h3, h4, h5, p.wp-block-subhead, h6 {
-  word-break: break-word;
-  hyphens: auto; }
+  word-break: break-all; }
 
 /* TEXT TRANSFORM */
 
@@ -1482,6 +1481,36 @@ h4.accordion__heading {
 
 .twentytwenty-container {
   margin-bottom: 24px; }
+
+.twentytwenty-container.has-dark-handle .twentytwenty-horizontal .twentytwenty-handle:before, .twentytwenty-horizontal .twentytwenty-container.has-dark-handle .twentytwenty-handle:before, .twentytwenty-container.has-dark-handle .twentytwenty-horizontal .twentytwenty-handle:after, .twentytwenty-horizontal .twentytwenty-container.has-dark-handle .twentytwenty-handle:after, .twentytwenty-container.has-dark-handle .twentytwenty-vertical .twentytwenty-handle:before, .twentytwenty-vertical .twentytwenty-container.has-dark-handle .twentytwenty-handle:before, .twentytwenty-container.has-dark-handle .twentytwenty-vertical .twentytwenty-handle:after, .twentytwenty-vertical .twentytwenty-container.has-dark-handle .twentytwenty-handle:after {
+  background: #33404d; }
+
+.twentytwenty-container.has-dark-handle .twentytwenty-handle {
+  border-color: #33404d; }
+
+.twentytwenty-horizontal .twentytwenty-container.has-dark-handle .twentytwenty-handle:before {
+  box-shadow: 0 2px 0 #33404d, 0px 0px 12px rgba(51, 51, 51, 0.5); }
+
+.twentytwenty-horizontal .twentytwenty-container.has-dark-handle .twentytwenty-handle:after {
+  box-shadow: 0 -2px 0 #33404d, 0px 0px 12px rgba(51, 51, 51, 0.5); }
+
+.twentytwenty-vertical .twentytwenty-container.has-dark-handle .twentytwenty-handle:before {
+  box-shadow: 2px 0 0 #33404d, 0px 0px 12px rgba(51, 51, 51, 0.5); }
+
+.twentytwenty-vertical .twentytwenty-container.has-dark-handle .twentytwenty-handle:after {
+  box-shadow: -2px 0 0 #33404d, 0px 0px 12px rgba(51, 51, 51, 0.5); }
+
+.twentytwenty-container.has-dark-handle .twentytwenty-left-arrow {
+  border-right-color: #33404d; }
+
+.twentytwenty-container.has-dark-handle .twentytwenty-right-arrow {
+  border-left-color: #33404d; }
+
+.twentytwenty-container.has-dark-handle .twentytwenty-up-arrow {
+  border-bottom-color: #33404d; }
+
+.twentytwenty-container.has-dark-handle .twentytwenty-down-arrow {
+  border-top-color: #33404d; }
 
 .block__image img {
   width: 100%; }

@@ -3,10 +3,12 @@
 
 // 20/20 Handle Styles
 $twenty20-handle-color: get-color(neutral,000);
+$twenty20-handle-darker-color: get-color(neutral,800);
 $twenty20-handle-stroke: 2px;
 $twenty20-handle-circle-width: get-size(3);
 $twenty20-handle-box-shadow: 0px 0px 12px rgba(#333,0.5);
 $twenty20-handle-triangle-color: $twenty20-handle-color;
+$twenty20-handle-triangle-color-darker: $twenty20-handle-darker-color;
 $twenty20-handle-triangle-size: 8px;
 $twenty20-handle-triangle-position: 8px;
 $twenty20-handle-radius: 1000px;
