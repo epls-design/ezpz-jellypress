@@ -10,6 +10,7 @@ defined( 'ABSPATH' ) || exit;
 
 if ( ! function_exists( 'jellypress_countdown_init' ) ) :
   function jellypress_countdown_init($element_id, $deadline) {
+    // FIXME: Countdowns dont seem to work in Safari?
     $output =
       "<script type='text/javascript'>
       const countTo = '$deadline';
