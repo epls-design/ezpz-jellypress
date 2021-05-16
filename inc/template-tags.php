@@ -102,6 +102,27 @@ if ( ! function_exists( 'jellypress_entry_footer' ) ) :
 	<?php } // jellypress_entry_footer
 endif;
 
+if ( ! function_exists( 'wp_get_attachment_image_no_srcset' ) ) :
+  /**
+   * Returns an attachment image without srcset
+   *
+   * @param integer $attachment_id
+   * @param string $size
+   * @param boolean $icon
+   * @param string $attr
+   * @return html for attachment image
+   */
+  function wp_get_attachment_image_no_srcset($attachment_id, $size = 'thumbnail', $icon = false, $attr = '') {
+    // add a filter to return null for srcset
+    add_filter( 'wp_calculate_image_srcset_meta', '__return_null' );
+    // get the srcset-less img html
+    $html = wp_get_attachment_image($attachment_id, $size, $icon, $attr);
+    // remove the above filter
+    remove_filter( 'wp_calculate_image_srcset_meta', '__return_null' );
+    return $html;
+  }
+endif;
+
 if ( ! function_exists( 'jellypress_post_thumbnail' ) ) :
 	/**
 	 * Displays an optional post thumbnail.
