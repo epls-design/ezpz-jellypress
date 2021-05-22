@@ -2,6 +2,14 @@
 
 # Jellypress Wordpress Boilerplate Theme
 
+<p>
+<img src="https://img.shields.io/github/stars/unofficialmatt/jellypress.svg?style=flat-square&logo=github"/>
+<img src="https://img.shields.io/github/issues/unofficialmatt/jellypress.svg?style=flat-square&logo=github"/>
+<img src="https://img.shields.io/maintenance/yes/2020.svg?style=flat-square&logo=github"/>
+<img src="https://img.shields.io/github/commit-activity/y/unofficialmatt/jellypress.svg?style=flat-square&logo=github"/>
+<img src="https://img.shields.io/github/last-commit/unofficialmatt/jellypress.svg?style=flat-square&logo=github"/>
+</p>
+
 ## About Jellypress
 Jellypress is a Wordpress starter theme based on [underscores](https://github.com/Automattic/_s) and designed to work with [Jellyfish SCSS framework](https://github.com/unofficialmatt/jellyfish) by [Matt Weet](https://github.com/unofficialmatt).
 
