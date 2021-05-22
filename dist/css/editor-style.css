@@ -3664,6 +3664,9 @@ img.align-left, img.alignleft, img.align-right, img.alignright, img.align-none, 
 .align-bottom {
   align-items: flex-end !important; }
 
+.align-baseline {
+  align-items: baseline !important; }
+
 .align-stretch {
   align-items: stretch !important; }
 
@@ -4712,6 +4715,36 @@ table.is-hoverable tr:hover td {
   .container.is-wide {
     padding-left: calc((100vw-1280px)/4);
     padding-right: calc((100vw-1280px)/4); } }
+
+.m-0 {
+  margin: 0px !important; }
+
+.mt-0 {
+  margin-top: 0px !important; }
+
+.mr-0 {
+  margin-right: 0px !important; }
+
+.mb-0 {
+  margin-bottom: 0px !important; }
+
+.ml-0 {
+  margin-left: 0px !important; }
+
+.p-0 {
+  padding: 0px !important; }
+
+.pt-0 {
+  padding-top: 0px !important; }
+
+.pr-0 {
+  padding-right: 0px !important; }
+
+.pb-0 {
+  padding-bottom: 0px !important; }
+
+.pl-0 {
+  padding-left: 0px !important; }
 
 .text-white {
   color: #fff !important; }
