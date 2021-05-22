@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: JellyPress 1.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/unofficialmatt/jellypress/issues\n"
-"POT-Creation-Date: 2021-04-12 12:06:50+00:00\n"
+"POT-Creation-Date: 2021-05-22 09:12:29+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,7 +24,7 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: archive.php:51 template-parts/blocks/post-archive/view.php:67
+#: archive.php:52 template-parts/blocks/post-archive/view.php:79
 msgid "Load More..."
 msgstr ""
 
@@ -62,7 +62,7 @@ msgstr ""
 msgid "Successfully updated Contact Details"
 msgstr ""
 
-#: inc/acf.php:79 inc/acf.php:80 inc/dry.php:265
+#: inc/acf.php:79 inc/acf.php:80 inc/dry.php:268
 msgid "Opening Hours"
 msgstr ""
 
@@ -98,31 +98,31 @@ msgstr ""
 msgid "Successfully updated Theme Settings"
 msgstr ""
 
-#: inc/dry.php:182
+#: inc/dry.php:189
 msgid " Postal Address"
 msgstr ""
 
-#: inc/dry.php:240
+#: inc/dry.php:243
 msgid "Telephone:"
 msgstr ""
 
-#: inc/dry.php:265
+#: inc/dry.php:268
 msgid "Day(s)"
 msgstr ""
 
-#: inc/dry.php:271
+#: inc/dry.php:274
 msgid "Closed"
 msgstr ""
 
-#: inc/dry.php:309
+#: inc/dry.php:312
 msgid "Department"
 msgstr ""
 
-#: inc/dry.php:309
+#: inc/dry.php:312
 msgid "Phone Number"
 msgstr ""
 
-#: inc/dry.php:309
+#: inc/dry.php:312
 msgid "Email Address"
 msgstr ""
 
@@ -491,7 +491,7 @@ msgid "After"
 msgstr ""
 
 #: template-parts/blocks/linked-posts/view.php:96
-#: template-parts/blocks/post-archive/view.php:71
+#: template-parts/blocks/post-archive/view.php:83
 msgid "No posts matched your criteria."
 msgstr ""
 
