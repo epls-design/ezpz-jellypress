@@ -95,26 +95,24 @@ rm -rf .git && rm .gitignore
 
 13. In `footer.php` update the `utm_campaign` source to the theme slug.
 
-14. Search case sensitive for: `Jellypress` and replace with your theme name e.g. `My Awesome Theme` to capture any stragglers.
-
-15. Install the dev dependencies:
+14. Install the dev dependencies:
 
 ```bash
 npm install
 ```
 
-16. Rebuild the theme and start grunt:
+15. Rebuild the theme and start grunt:
 
 ```bash
 grunt init
 ```
-17. Activate the theme and **make sure to install required plugins**. It is recommended to activate Boba WP Optimise straight away.
+16. Activate the theme and **make sure to install required plugins**. It is recommended to activate Boba WP Optimise straight away.
 
-18. Do a final check to see if there are any stragglers named `jellypress` - at this stage there shouldn't be.
+17. Do a final check to see if there are any stragglers named `jellypress` - and amend as required
 
-19. Check the front end to ensure the theme has installed properly.
+18. Check the front end to ensure the theme has installed properly.
 
-20. Perform a `git commit` in the root Wordpress directory.
+19. Perform a `git commit` in the root Wordpress directory.
 
 ## Contribution guidelines
 
