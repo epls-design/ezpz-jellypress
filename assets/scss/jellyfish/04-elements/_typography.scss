@@ -110,7 +110,7 @@ small {
   display: block;
 }
 small {
-    font-size: font-size('size-m1');
+    font-size: font-size(-1);
 }
 strong, b {
   font-weight: $weight-bold;
@@ -167,7 +167,7 @@ q {
 
 %inline-code {
     @extend %code;
-    font-size: font-size('size-m1');
+    font-size: font-size(-1);
     line-height: 1;
     border-radius: $border-radius;
     padding: .3em .35em;
@@ -197,7 +197,7 @@ var {
 
 // Subscript and Superscript
 sub, sup {
-    font-size: font-size('size-m2');
+    font-size: font-size(-2);
     line-height: 0;
     position: relative;
     vertical-align: baseline;

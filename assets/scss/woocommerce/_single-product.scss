@@ -78,12 +78,12 @@
 
     del {
       opacity: .5;
-      font-size: font-size('size-m1');
+      font-size: font-size(-1);
     }
 
     .product_meta {
 
-      font-size: font-size('size-m1');
+      font-size: font-size(-1);
       .sku_wrapper,
       .posted_in {
         display: block;

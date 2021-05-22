@@ -6,7 +6,7 @@ $slider-arrow-hover-color: #fff;
 $slider-arrow-border-radius: 50%;
 $slider-arrow-size: 2em;
 
-$slider-pagination-font-size: font-size('size-m1');
+$slider-pagination-font-size: font-size(-1);
 $slider-pagination-color: get-color(neutral,400);
 $slider-pagination-hover-color: get-color(neutral,700);
 $slider-pagination-active-color: get-color(neutral,600);

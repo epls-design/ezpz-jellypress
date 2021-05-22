@@ -20,7 +20,7 @@ $twenty20-overlay-label-bg: rgba(get-color(neutral,000), .2);
 $twenty20-overlay-label-height: get-size(3);
 $twenty20-overlay-label-width: get-size(6);
 $twenty20-overlay-label-padding: get-size(1);
-$twenty20-overlay-label-font-size: font-size('size-m1');
+$twenty20-overlay-label-font-size: font-size(-1);
 $twenty20-overlay-label-font-weight: $weight-bold;
 $twenty20-overlay-label-letter-spacing: 0.1em;
 $twenty20-label-radius: 2px;

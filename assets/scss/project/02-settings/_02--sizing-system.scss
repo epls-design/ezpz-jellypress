@@ -31,4 +31,4 @@ $block-padding: (
   "md": get-size(6)
 );
 
-$block-title-bottom-margin: get-size(3);
+$block-title-bottom-margin: get-size(3); // TODO: Convert this to a map
