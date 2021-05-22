@@ -613,7 +613,7 @@
                                         "id": ""
                                     },
                                     "choices": {
-                                        "hide-xs": "Do Not Display",
+                                        "hide-below-sm": "Do Not Display",
                                         "xs-6": "50%",
                                         "xs-8": "66.66%",
                                         "xs-9": "75%",
@@ -704,7 +704,7 @@
                                         "id": ""
                                     },
                                     "choices": {
-                                        "hide-lg": "Do Not Display",
+                                        "hide-above-lg": "Do Not Display",
                                         "lg-1": "8.33%",
                                         "lg-2": "16.66%",
                                         "lg-3": "25%",
@@ -4968,5 +4968,5 @@
     ],
     "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1621147520
+    "modified": 1621672290
 }
