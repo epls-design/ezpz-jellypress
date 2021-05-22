@@ -24,10 +24,10 @@ defined( 'ABSPATH' ) || exit;
           <p class="small">
             <?php echo jellypress_copyright();?>
             <span class="sep"> | </span>
-            <span class="bobastudio">
+            <span class="eplsdesign">
             <?php
             /* translators: 1: Theme author and link to website. */
-            printf( esc_html__( 'Website design and build by %1$s', 'jellypress' ), '<a href="https://www.weareboba.com/?utm_source=client&utm_medium=website&utm_campaign=jellypress" rel="author">Boba Studio</a>' );
+            printf( esc_html__( 'Website design and build by %1$s', 'jellypress' ), '<a href="https://epls.design/?utm_source=client&utm_medium=website&utm_campaign=jellypress" rel="author">EPLS Design</a>' );
             ?>
             </span>
           </p>

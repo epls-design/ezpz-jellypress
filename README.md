@@ -1,9 +1,18 @@
-## Boba Studio
+## EPLS Design
 
-# Jellypress Wordpress Boilerplate Theme
+# EZPZ Jellypress Wordpress Boilerplate Theme
+Forked from [Jellypress](https://github.com/unofficialmatt/jellypress)
+
+<p>
+<img src="https://img.shields.io/github/stars/epls-design/ezpz-jellypress.svg?style=flat-square&logo=github"/>
+<img src="https://img.shields.io/github/issues/epls-design/ezpz-jellypress.svg?style=flat-square&logo=github"/>
+<img src="https://img.shields.io/maintenance/yes/2020.svg?style=flat-square&logo=github"/>
+<img src="https://img.shields.io/github/commit-activity/y/epls-design/ezpz-jellypress.svg?style=flat-square&logo=github"/>
+<img src="https://img.shields.io/github/last-commit/epls-design/ezpz-jellypress.svg?style=flat-square&logo=github"/>
+</p>
 
 ## About Jellypress
-Jellypress is a Wordpress starter theme based on [underscores](https://github.com/Automattic/_s) and designed to work with [Jellyfish SCSS framework](https://github.com/unofficialmatt/jellyfish) by [Matt Weet](https://github.com/unofficialmatt).
+Jellypress is a Wordpress starter theme based on [underscores](https://github.com/Automattic/_s) and designed to work with [Jellyfish SCSS framework](https://github.com/epls-design/ezpz-jellypress) by [Matt Weet](https://github.com/unofficialmatt).
 
 This theme, like `underscores` is made for hacking and use as a standalone theme, rather than a Parent Theme.
 
@@ -106,7 +115,7 @@ npm install
 ```bash
 grunt init
 ```
-16. Activate the theme and **make sure to install required plugins**. It is recommended to activate Boba WP Optimise straight away.
+16. Activate the theme and **make sure to install required plugins**. It is recommended to activate EZPZ WP Optimise straight away.
 
 17. Do a final check to see if there are any stragglers named `jellypress` - and amend as required
 
@@ -118,7 +127,7 @@ grunt init
 
 Please update the README guidelines any time key changes are made to the theme boilerplate.
 
-- The SCSS directory structure follows ITCSS standards. See the [Jellyfish docs](https://github.com/unofficialmatt/jellyfish) for information.
+- The SCSS directory structure follows ITCSS standards. See the [Jellyfish docs](https://github.com/epls-design/ezpz-jellypress) for information.
 
 ## Some tips and usage notes
 - Where possible you should use Wordpress localization for displaying text that is hard coded into the theme.
@@ -130,4 +139,4 @@ Please update the README guidelines any time key changes are made to the theme b
 - SASS watch does not always see newly added files, particular in the `template-parts` folder, so sometimes you have to stop the grunt task and reload to see these new files.
 
 ## Who do I talk to?
-The best person to talk to is Matt [matt@weareboba.com](matt@weareboba.com) as Jellyfish and Jellypress were both originally written by him
+The best person to talk to is Matt [matt@epls.design](matt@epls.design) as Jellyfish and Jellypress were both originally written by him
