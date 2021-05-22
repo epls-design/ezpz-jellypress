@@ -61,7 +61,7 @@ function jellypress_register_required_plugins() {
 			'slug'         => 'boba-optimise',
 			'source'       => 'https://github.com/unofficialmatt/boba-wp-starter/archive/master.zip',
       'required'     => true,
-      //'force_activation'  => true, // TODO:  Comment this in before site launch. There is a conflict between TGMPA activation and DISALLOW_FILE_EDIT. If DISALLOW_FILE_EDIT is set, TGMPA can not seem to activate plugins. The EZPZ plugin sets DISALLOW_FILE_EDIT to true.
+      //'force_activation'  => true, // TODO:  Comment this in before site launch. There is a conflict between TGMPA activation and DISALLOW_FILE_EDIT. If DISALLOW_FILE_EDIT is set, TGMPA can not seem to activate plugins.
 			'external_url' => 'https://github.com/unofficialmatt/boba-wp-starter',
     ),
 

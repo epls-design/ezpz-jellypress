@@ -389,25 +389,40 @@ h1, h2, h3, h4, h5, p.wp-block-subhead, h6 {
     margin-top: 24px; }
 
 h1 {
-  font-size: 3em; }
+  font-size: 2.25em; }
+  @media (min-width: 56.25em) {
+    h1 {
+      font-size: 3em; } }
 
 h2 {
-  font-size: 2.25em; }
+  font-size: 1.5em; }
+  @media (min-width: 37.5em) {
+    h2 {
+      font-size: 1.875em; } }
+  @media (min-width: 56.25em) {
+    h2 {
+      font-size: 2.25em; } }
 
 h3 {
-  font-size: 1.875em; }
+  font-size: 1.5em; }
+  @media (min-width: 56.25em) {
+    h3 {
+      font-size: 1.875em; } }
 
 h4 {
-  font-size: 1.5em; }
+  font-size: 1.25em; }
+  @media (min-width: 37.5em) {
+    h4 {
+      font-size: 1.5em; } }
 
 h5, p.wp-block-subhead {
-  font-size: 1.5em; }
+  font-size: 1.25em; }
 
 h6 {
   font-size: 1.25em; }
 
 p, li, h1, h2, h3, h4, h5, p.wp-block-subhead, h6 {
-  word-break: break-all; }
+  word-break: break-word; }
 
 /* TEXT TRANSFORM */
 
@@ -1756,14 +1771,14 @@ button.toggle-contrast svg {
   text-decoration: none;
   text-transform: none;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 1em;
   font-weight: 700;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   border-width: 1px;
   border-style: solid;
   border-radius: 3px;
   line-height: 1.3;
-  padding: 1em 1.5em;
+  padding: 0.75em 1.25em;
   margin: 0 0 24px 0;
   transition: all 0.2s ease;
   /* // Button uses base color from SASS $colors map */
@@ -1800,6 +1815,7 @@ button.toggle-contrast svg {
 
 .button-list {
   display: flex;
+  align-items: center;
   margin-bottom: calc(24px - 8px); }
   @media (min-width: 37.5em) {
     .button-list {
@@ -3380,11 +3396,17 @@ body.font-size-lg {
   display: block;
   width: 100%; }
 
-.button.large, a.button.large {
-  font-size: 1.1rem; }
+.button.xsmall, a.button.xsmall {
+  font-size: 0.75em;
+  padding: 0.5em 0.75em; }
 
 .button.small, .button.has-small-font-size, a.button.small, a.button.has-small-font-size {
-  font-size: 0.8rem; }
+  font-size: 0.875em;
+  padding: 0.6em 1em; }
+
+.button.large, a.button.large {
+  font-size: 1.25em;
+  padding: 0.75em 1.5em; }
 
 .button.primary, a.button.primary {
   /* // Button uses base color from SASS $colors map */
