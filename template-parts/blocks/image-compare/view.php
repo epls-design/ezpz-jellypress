@@ -61,8 +61,8 @@ else $after_label = __('After', 'jellypress');
       <?php if ( $block_width === 'full' ){ echo '<div class="vw-100">'; } ?>
         <div id="<?php echo $compare_id;?>" class="twentytwenty-container<?php if ($block['handle_color']) echo ' has-dark-handle';?>">
           <?php
-          echo wp_get_attachment_image( $block['image_one'], 'medium' );
-          echo wp_get_attachment_image( $block['image_two'], 'medium' );
+          echo wp_get_attachment_image( $block['image_one'], 'large' );
+          echo wp_get_attachment_image( $block['image_two'], 'large' );
           ?>
         </div>
       <?php if ( $block_width === 'full' ){ echo '</div>'; }?>
