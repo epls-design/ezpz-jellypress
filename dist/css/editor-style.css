@@ -4716,14 +4716,35 @@ table.is-hoverable tr:hover td {
 .bg-transparent {
   background-color: transparent !important; }
 
-.bold {
-  font-weight: 700 !important; }
-
-.light {
-  font-weight: 300 !important; }
-
 .italic {
   font-style: italic !important; }
+
+.weight-hairline {
+  font-weight: 100 !important; }
+
+.weight-thin {
+  font-weight: 200 !important; }
+
+.weight-light, .light {
+  font-weight: 300 !important; }
+
+.weight-normal {
+  font-weight: 400 !important; }
+
+.weight-medium {
+  font-weight: 500 !important; }
+
+.weight-semibold, .semibold {
+  font-weight: 600 !important; }
+
+.weight-bold, .bold {
+  font-weight: 700 !important; }
+
+.weight-xbold, .xbold {
+  font-weight: 800 !important; }
+
+.weight-black {
+  font-weight: 900 !important; }
 
 .full-width {
   width: 100% !important; }
