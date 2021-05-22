@@ -1,6 +1,6 @@
 <?php
 /**
- * Jellypress Theme Customizer
+ * Theme Customizer
  *
  * @package jellypress
  */

@@ -37,5 +37,5 @@ get_header();
 </div>
 
 <?php
-// jellypress_sidebar(); // By default, Jellypress does not support sidebars on page templates
+// jellypress_sidebar(); // By default, this boilerplate does not support sidebars on page templates
 get_footer();

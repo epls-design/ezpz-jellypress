@@ -44,7 +44,7 @@ add_action( 'after_setup_theme', 'jellypress_woocommerce_setup' );
 
 if ( ! function_exists( 'jellypress_woocommerce_scripts' ) ) {
   /**
-   * Enqueue jellypress woocommerce overrides.
+   * Enqueue Woocommerce overrides.
    *
    * @return void
    */

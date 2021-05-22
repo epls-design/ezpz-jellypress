@@ -1,7 +1,7 @@
 <?php
 /**
  * The template for displaying all single posts with a sidebar
- * Most projects using Jellypress tend to use ACF blocks for layout;
+ * Most projects using this boilerplate tend to use ACF blocks for layout;
  * sidebars are becoming increasingly less common.
  *
  * This template is a legacy template in the event that the client wants a sidebar,

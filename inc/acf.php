@@ -54,8 +54,8 @@ if (!function_exists('jellypress_restrict_acf_tinymce_opts')) {
 if(function_exists('acf_add_options_page') ) {
   acf_add_options_page(
     array(
-      'page_title' 	=> __('Jellypress Information and SEO', 'jellypress'),
-      'menu_title'	=> __('Jellypress', 'jellypress'),
+      'page_title' 	=> __('Information and SEO', 'jellypress'),
+      'menu_title'	=> __('Info & SEO', 'jellypress'),
       'menu_slug' 	=> 'theme-options',
       'capability'	=> 'edit_posts',
       'redirect'		=> true,

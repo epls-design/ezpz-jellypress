@@ -1,6 +1,6 @@
 <?php
 /**
- * Jellypress functions and definitions
+ * Theme functions and definitions
  * This file simply pulls in partials from /inc
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
@@ -53,7 +53,6 @@ $jellypress_includes = array(
   'inc/countdown.php',               // Initialize countdowns
   'inc/charts.php',                  // Functions which work with charts.js library
   'inc/compare.php',                 // Functions which work with TwentyTwenty Image Comparison
-//  'inc/security.php',                // Security enhancements.
 
   //~~~~~ CUSTOM POST TYPES
   'inc/post_types/post.php',
