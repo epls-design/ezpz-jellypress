@@ -12,7 +12,7 @@
       align: center;
     }
     font:{
-      size: 0.9rem;
+      size: $button-font-size;
       weight: $button-font-weight;
       family: $button-font-family;
     }
@@ -46,6 +46,7 @@
 }
 .button-list {
   display: flex;
+  align-items: center;
   @extend %button-groups;
   margin-bottom: calc(#{$element-margin} - #{$button-list-button-margin});
   @include above(sm) {
@@ -58,8 +59,8 @@
   }
 }
 .button-group {
-  display: inline-flex;
   @extend %button-groups;
+  display: inline-flex;
   margin-bottom: $element-margin;
   .button, a.button {
     margin: 0 0 0 n($button-border-width);
