@@ -65,6 +65,16 @@ function jellypress_register_required_plugins() {
 			'external_url' => 'https://github.com/unofficialmatt/boba-wp-starter',
     ),
 
+    array(
+      //
+			'name'         => 'EZPZ Cookies',
+			'slug'         => 'ezpz-cookies',
+			'source'       => 'https://github.com/epls-design/ezpz-cookies/archive/master.zip',
+      'required'     => true,
+      //'force_activation'  => true,
+			'external_url' => 'https://github.com/epls-design/ezpz-cookies',
+    ),
+
     /**
      * Plugins recommended by the theme
      * These aren't necessary for functionality but are plugins
@@ -79,10 +89,6 @@ function jellypress_register_required_plugins() {
     array(
 			'name'      => 'Autoptimize',
 			'slug'      => 'autoptimize',
-    ),
-    array(
-			'name'      => 'GDPR Cookie Consent',
-			'slug'      => 'cookie-law-info',
     ),
     array(
 			'name'      => 'User Role Editor',
