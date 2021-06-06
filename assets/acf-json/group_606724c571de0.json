@@ -3,58 +3,6 @@
     "title": "APIs",
     "fields": [
         {
-            "key": "field_60672b13f1236",
-            "label": "Google Integration Type",
-            "name": "google_integration_type",
-            "type": "select",
-            "instructions": "Please select the type of Google Tracking you would like (Tag Manager \/ Analytics).",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "33",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "gtag": "Tag Manager",
-                "analytics": "Analytics"
-            },
-            "default_value": false,
-            "allow_null": 1,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
-        },
-        {
-            "key": "field_60672b8bf1237",
-            "label": "Google Tracking ID",
-            "name": "google_tracking_id",
-            "type": "text",
-            "instructions": "Please add the Google Tracking ID; which will look like 'GTM-XXXX' for Tag Manager or 'UA-XXXXXXXXX' for Analytics.",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_60672b13f1236",
-                        "operator": "!=",
-                        "value": ""
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "33",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
             "key": "field_606724c578b1f",
             "label": "Google Maps API Key",
             "name": "google_maps_api_key",
@@ -64,25 +12,6 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "33",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_606724c578b26",
-            "label": "Facebook Pixel ID",
-            "name": "facebook_pixel_id",
-            "type": "text",
-            "instructions": "Please add the Facebook Pixel ID, if you would like to use <b>Facebook Pixel<\/b> on this website.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "34",
                 "class": "",
                 "id": ""
             },
@@ -110,5 +39,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1617374351
+    "modified": 1622966758
 }
