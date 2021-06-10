@@ -12,14 +12,15 @@ module.exports = function (grunt) {
   // Begin project config
   grunt.initConfig({
     pkg: grunt.file.readJSON("package.json"), // Import package.json
+    env: grunt.file.readJSON("env.json"), // Import env.json
     // Sets up global variables which will be used throughout the partials
     opts: {
       build_dir: "assets",
       dist_dir: "dist",
-      dev_url: "https://jellypress.local",
-      text_domain: "jellypress", // Used for translation
+      dev_url: "<%= env.DEV_URL %>",
+      text_domain: "<%= pkg.text_domain %>", // Used for translation
       banner:
-        "/* Jellypress Wordpress Theme <%= pkg.version %>\n" +
+        "/* <%= pkg.friendly_name %> Wordpress Theme <%= pkg.version %>\n" +
         ' * © <%= grunt.template.today("yyyy-mm") %> <%= pkg.author.name %> - <%= pkg.author.url %> */\n',
     },
   });

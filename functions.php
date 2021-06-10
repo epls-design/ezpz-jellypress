@@ -12,7 +12,8 @@
 defined( 'ABSPATH' ) || exit;
 
 if(file_exists( get_template_directory() . '/env.php' )) {
-  $vars = include get_template_directory() . '/env.php' ;
+  $vars = file_get_contents(get_template_directory() . '/env.json');
+  $vars = json_decode($vars, true);
   foreach ($vars as $key => $value) putenv("$key=$value");
 }
 
@@ -28,6 +29,7 @@ if(!function_exists('jellypress_env')) {
 if (! defined('DEV_URL') ) define('DEV_URL', jellypress_env('DEV_URL'));
 if (! defined('STAGING_URL') ) define('STAGING_URL', jellypress_env('STAGING_URL'));
 if (! defined('PROD_URL') ) define('PROD_URL', jellypress_env('PROD_URL'));
+
 
 $jellypress_includes = array(
   'inc/tgm-plugin-activation.php',   // Third party script to allow required/recommended plugins

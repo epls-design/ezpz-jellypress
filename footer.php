@@ -27,7 +27,7 @@ defined( 'ABSPATH' ) || exit;
             <span class="bobastudio">
             <?php
             /* translators: 1: Theme author and link to website. */
-            printf( esc_html__( 'Website design and build by %1$s', 'jellypress' ), '<a href="https://www.weareboba.com/?utm_source=client&utm_medium=website&utm_campaign=jellypress" rel="author">Boba Studio</a>' );
+            printf( esc_html__( 'Website design and build by %1$s', 'jellypress' ), '<a href="https://www.weareboba.com/?utm_source=client&utm_medium=website&utm_campaign='.sanitize_title(get_bloginfo('name')).'" rel="author">Boba Studio</a>' );
             ?>
             </span>
           </p>
