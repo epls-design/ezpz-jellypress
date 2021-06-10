@@ -11,8 +11,9 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-if(file_exists( get_template_directory() . '/env.php' )) {
-  $vars = include get_template_directory() . '/env.php' ;
+if(file_exists( get_template_directory() . '/env.json' )) {
+  $vars = file_get_contents(get_template_directory() . '/env.json');
+  $vars = json_decode($vars, true);
   foreach ($vars as $key => $value) putenv("$key=$value");
 }
 

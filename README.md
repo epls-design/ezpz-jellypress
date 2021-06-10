@@ -86,7 +86,7 @@ rm -rf .git && rm .gitignore
 
 ### Now it's time to modify the theme:
 
-6. Duplicate the `.env_example.php` to `.env` and modify the settings to fit your project
+6. Duplicate the `env_example.json` to `env.json` and modify the settings to fit your development environment
 
 7. Search for: `'jellypress'` (inside single quotations) and replace with your theme slug e.g. `'myawesometheme'` to capture the text domain. Search for: `@package jellypress` and replace with your theme slug e.g. `@package myawesometheme` to capture text domains in file headers.
 
@@ -98,30 +98,27 @@ rm -rf .git && rm .gitignore
 
 11. Update `package.json`:
   * Rename `friendly_name` to your Theme Friendly Name
+  * Rename `text_domain` to your Theme Text Domain
   * Update `description`, `homepage`, `repository` and `bugs`
 
-12. Update `Gruntfile.js` to replace the `opts.dev_url`, `opts.text_domain` and `opts.banner` to match your theme's Friendly Name and Slug
-
-13. In `footer.php` update the `utm_campaign` source to the theme slug.
-
-14. Install the dev dependencies:
+12. Install the dev dependencies:
 
 ```bash
 npm install
 ```
 
-15. Rebuild the theme and start grunt:
+13. Rebuild the theme and start grunt:
 
 ```bash
 grunt init
 ```
-16. Activate the theme and **make sure to install required plugins**. It is recommended to activate EZPZ WP Optimise straight away.
+14. Activate the theme and **make sure to install required plugins**. It is recommended to activate EZPZ WP Optimise straight away.
 
-17. Do a final check to see if there are any stragglers named `jellypress` - and amend as required
+15. Do a final check to see if there are any stragglers named `jellypress` - and amend as required
 
-18. Check the front end to ensure the theme has installed properly.
+16. Check the front end to ensure the theme has installed properly.
 
-19. Perform a `git commit` in the root Wordpress directory.
+17. Perform a `git commit` in the root Wordpress directory.
 
 ## Contribution guidelines
 

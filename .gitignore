@@ -3,6 +3,7 @@ node_modules/
 
 # ignore Environment file
 env.php
+env.json
 
 # ignore Git folder
 _.git/
