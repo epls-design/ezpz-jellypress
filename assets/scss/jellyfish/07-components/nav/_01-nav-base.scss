@@ -15,7 +15,7 @@
 %navbar-links {
   text-decoration: none;
   text-transform: $navbar-text-transform;
-  @include smooth(all);
+  @include smooth(background, color, font-weight);
   &, &:visited {
     color: $navbar-link-color;
     background-color: $navbar-link-bg-color;

@@ -12,6 +12,8 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+$is_menu_off_canvas = true; // change this to determine the menu type
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -50,14 +52,28 @@ defined( 'ABSPATH' ) || exit;
               <?php _e('<img src="'.get_stylesheet_directory_uri().'/dist/img/client-logo.svg'.'" alt="'.get_bloginfo( 'description', 'display' ).'">', 'jellypress'); ?>
             </a>-->
 
-            <button class="hamburger" type="button" aria-label="Menu" aria-controls="navbar-menu" aria-expanded="false">
+            <button class="hamburger" type="button" aria-label="<?php _e('Toggles the website navigation', 'jellypress');?>" aria-controls="navbar-menu" aria-expanded="false">
               <span class="hamburger-label">Menu</span>
               <span class="hamburger-box">
                 <span class="hamburger-inner"></span>
               </span>
             </button>
           </div>
-          <div id="navbar-menu" class="navbar-menu">
+
+          <?php if($is_menu_off_canvas): ?>
+          <div id="navbar-menu" class="navbar-menu is-off-canvas">
+            <div class="navbar-top">
+              <button class="hamburger" type="button" aria-label="<?php _e('Toggles the website navigation', 'jellypress');?>" aria-controls="navbar-menu" aria-expanded="false">
+                <span class="hamburger-label">Menu</span>
+                <span class="hamburger-box">
+                  <span class="hamburger-inner"></span>
+                </span>
+              </button>
+            </div>
+          <?php else: ?>
+            <div id="navbar-menu" class="navbar-menu">
+          <?php endif; ?>
+
             <div class="navbar-start">
               <?php
                 wp_nav_menu( array(

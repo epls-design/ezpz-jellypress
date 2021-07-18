@@ -36,6 +36,7 @@ $nav-fade-offset: 10px;
       width: auto;
 
       a {
+        font-size: $navbar-font-size-expanded;
         padding: $navbar-link-padding-expanded-y $navbar-link-padding-expanded-x;
         display: flex;
         align-items: center;
@@ -57,6 +58,9 @@ $nav-fade-offset: 10px;
         a {
           // Drop down link
           border-top: $navbar-link-border;
+          font: {
+            size: $navbar-sublink-font-size-expanded;
+          }
 
           &,
           &:visited {
@@ -174,5 +178,11 @@ $nav-fade-offset: 10px;
     margin-left: auto;
     display: flex;
     align-items: $navbar-end-flex-align;
+  }
+
+  .navbar-item {
+    font: {
+      size: $navbar-font-size-expanded;
+    }
   }
 }

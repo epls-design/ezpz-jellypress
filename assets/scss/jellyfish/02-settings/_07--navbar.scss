@@ -2,7 +2,8 @@
 $nav-expands: 900px !default; // Point at which the nav kicks in. You'll also need to change this in the .js to produce a clickable drop down when responsive
 $navbar-bg-color: get-color(primary) !default;
 // Parent Level Links
-$navbar-font-size: font-size(0) !default;
+$navbar-font-size: font-size(2) !default;
+$navbar-font-size-expanded: font-size(0) !default;
 $navbar-font-family: $font-primary !default;
 $navbar-font-weight: $weight-bold !default;
 $navbar-text-transform: none !default;
@@ -14,7 +15,8 @@ $navbar-link-hover-color: get-color(neutral,000) !default;
 $navbar-link-hover-bg-color: get-color(primary,600) !default;
 $navbar-link-hover-weight: $navbar-font-weight !default;
 // Child Level Links
-$navbar-sublink-font-size: font-size(-1) !default;
+$navbar-sublink-font-size: font-size(1) !default;
+$navbar-sublink-font-size-expanded: font-size(-1) !default;
 $navbar-sublink-font-family: $font-primary !default;
 $navbar-sublink-font-weight: $navbar-font-weight !default;
 $navbar-sublink-text-transform: $navbar-text-transform !default;
@@ -33,3 +35,10 @@ $navbar-dropdown-width: get-size(16) !default;
 $navbar-start-flex-align: stretch !default;
 $navbar-end-flex-align: center !default;
 $navbar-dropdown-anchors-right-after: 3 !default;
+
+// Off canvas navbar. Only applies if you add a class of .is-off-canvas to the .navbar-menu element
+$navbar-offcanvas-body-overlay: rgba(0,0,0,0.9) !default;
+$navbar-offcanvas-transition-speed: .35s !default;
+$navbar-offcanvas-bg-color: $navbar-bg-color !default;
+$navbar-offcanvas-width: 80% !default;
+$navbar-offcanvas-maxwidth: 480px !default;

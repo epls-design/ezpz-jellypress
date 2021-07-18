@@ -528,7 +528,7 @@ sup {
   .hamburger.is-active .hamburger-inner,
   .hamburger.is-active .hamburger-inner::before,
   .hamburger.is-active .hamburger-inner::after {
-    background-color: #000; }
+    background-color: white; }
 
 .hamburger-box {
   width: 24px;
@@ -543,7 +543,7 @@ sup {
   .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
     width: 24px;
     height: 3px;
-    background-color: #000;
+    background-color: white;
     border-radius: 3px;
     position: absolute;
     transition-property: transform;
@@ -2099,7 +2099,7 @@ input:checked + .checkbox__control {
 .navbar-menu li a {
   text-decoration: none;
   text-transform: none;
-  transition: all 0.2s ease; }
+  transition: background 0.2s ease, color 0.2s ease, font-weight 0.2s ease; }
   .navbar-menu li a, .navbar-menu li a:visited {
     color: white;
     background-color: #c32c78; }
@@ -2121,7 +2121,7 @@ input:checked + .checkbox__control {
     margin: 0; }
     .navbar-menu li a {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-      font-size: 1em;
+      font-size: 1.25em;
       font-weight: 700;
       display: block;
       position: relative;
@@ -2131,7 +2131,7 @@ input:checked + .checkbox__control {
       display: none; }
       .navbar-menu li > ul a {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        font-size: 0.875em;
+        font-size: 1.125em;
         font-weight: 700;
         text-transform: none; }
         .navbar-menu li > ul a:hover, .navbar-menu li > ul a:focus {
@@ -2173,7 +2173,7 @@ input:checked + .checkbox__control {
   flex-shrink: 0; }
 
 .navbar-item {
-  font-size: 1em;
+  font-size: 1.25em;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -2205,8 +2205,8 @@ input:checked + .checkbox__control {
   @media (min-width: 56.25em) {
     .hamburger {
       display: none; } }
-  .hamburger .is-active {
-    color: #000; }
+  .hamburger.is-active {
+    color: white; }
   .hamburger:focus {
     outline: 0;
     box-shadow: none !important; }
@@ -2217,7 +2217,7 @@ input:checked + .checkbox__control {
 
 .hamburger-label {
   font-weight: 700;
-  font-size: 1em;
+  font-size: 1.25em;
   text-transform: uppercase;
   margin: 0 12px 0 0; }
 
@@ -2247,6 +2247,7 @@ input:checked + .checkbox__control {
       align-items: stretch;
       width: auto; }
       .navbar-menu li a {
+        font-size: 1em;
         padding: 12px 12px;
         display: flex;
         align-items: center;
@@ -2262,7 +2263,8 @@ input:checked + .checkbox__control {
         opacity: 0.2;
         transition: transform 0.1s linear, opacity 0.05s linear; }
         .navbar-menu li > ul a {
-          border-top: 1px solid rgba(255, 255, 255, 0.1); }
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          font-size: 0.875em; }
           .navbar-menu li > ul a, .navbar-menu li > ul a:visited {
             color: white;
             background-color: #c32c78; }
@@ -2319,7 +2321,56 @@ input:checked + .checkbox__control {
     justify-content: flex-end;
     margin-left: auto;
     display: flex;
-    align-items: center; } }
+    align-items: center; }
+  .navbar-item {
+    font-size: 1em; } }
+
+@media (max-width: 56.1875em) {
+  #navbar-menu.is-off-canvas {
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 480px;
+    background: #c32c78;
+    transform: translateX(-100%); }
+    #navbar-menu.is-off-canvas.closing, #navbar-menu.is-off-canvas.is-active {
+      transition: transform 0.35s cubic-bezier(0.07, 0.23, 0.34, 1); }
+    #navbar-menu.is-off-canvas.is-active {
+      transform: translateX(0); }
+  .navbar-start, .navbar-end {
+    overflow: auto; }
+  .navbar-start + .navbar-end {
+    margin-top: auto;
+    overflow: hidden; } }
+
+.navbar-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+  .navbar-top .hamburger {
+    margin-left: auto; }
+  @media (min-width: 56.25em) {
+    .navbar-top {
+      display: none !important; } }
+
+@media (max-width: 56.1875em) {
+  body.has-active-nav {
+    overflow: hidden; }
+    body.has-active-nav::before {
+      content: "";
+      display: block;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1;
+      height: 100vh;
+      width: 100vw; }
+    body.has-active-nav .navbar-brand {
+      padding-right: 12px; } }
 
 .postal-address {
   display: inline-flex;
