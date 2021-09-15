@@ -10,6 +10,8 @@ module.exports = function (grunt) {
           separator: ";\r\n",
         },
         src: [
+          "<%= opts.build_dir %>/js/settings/**/*.js",
+          "node_modules/jellyfish-ui/dist/js/jellyfish.min.js",
           "<%= opts.build_dir %>/js/vendor/*.js",
           "<%= opts.build_dir %>/js/site/*.js",
           "template-parts/**/*.js",
