@@ -1,23 +1,23 @@
 $root-size: 16px;
 
-// Merge default colours into the map
+// Merge default sizes into the map
 $sizing-system: (
-  0.25: $root-size * .25,   // 4px default
-  0.5:  $root-size * .5,    // 8px default
-  0.75: $root-size * .75,   // 12px default
-  1:    $root-size * 1,     // 16px default
-  1.5:  $root-size * 1.5,   // 24px default
-  2:    $root-size * 2,     // 32px default
-  3:    $root-size * 3,     // 48px default
-  4:    $root-size * 4,     // 64px default
-  6:    $root-size * 6,     // 96px default
-  8:    $root-size * 8,     // 128px default
-  12:   $root-size * 12,    // 192px default
-  16:   $root-size * 16,    // 256px default
-  24:   $root-size * 24,    // 384px default
-  32:   $root-size * 32,    // 512px default
-  40:   $root-size * 40,    // 640px default
-  48:   $root-size * 48,    // 768px default
+  0.25: $root-size * 0.25,
+  0.5: $root-size * 0.5,
+  0.75: $root-size * 0.75,
+  1: $root-size * 1,
+  1.5: $root-size * 1.5,
+  2: $root-size * 2,
+  3: $root-size * 3,
+  4: $root-size * 4,
+  6: $root-size * 6,
+  8: $root-size * 8,
+  12: $root-size * 12,
+  16: $root-size * 16,
+  24: $root-size * 24,
+  32: $root-size * 32,
+  40: $root-size * 40,
+  48: $root-size * 48,
 );
 
 // GLOBAL PADDING/MARGINS
@@ -28,7 +28,7 @@ $sizing-system: (
 $block-padding: (
   "root": get-size(2),
   "sm": get-size(4),
-  "md": get-size(6)
+  "md": get-size(6),
 );
 
 $block-title-bottom-margin: get-size(3); // TODO: Convert this to a map
