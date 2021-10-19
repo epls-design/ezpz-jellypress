@@ -33,5 +33,3 @@ elseif ( is_search() ) {
 else {
   get_template_part( '404');
 }
-
-?>

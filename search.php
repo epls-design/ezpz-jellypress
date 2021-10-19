@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying search results pages
  *
@@ -8,7 +9,7 @@
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 get_header();
 ?>
@@ -16,33 +17,33 @@ get_header();
   <main id="main" class="site-main">
     <?php
 
-      // HERO
-      if ( have_posts() ) : // Search results found...
-        get_template_part( 'template-parts/layout/hero/hero', 'search' );
-        echo '<section class="block bg-white">';
-      else:
-        get_template_part( 'template-parts/layout/hero/hero', 'none' );
-        echo '<section class="block no-results not-found bg-white">';
-      endif;
+    // HERO
+    if (have_posts()) : // Search results found...
+      get_template_part('template-parts/layout/hero/hero', 'search');
+      echo '<section class="block bg-white">';
+    else :
+      get_template_part('template-parts/layout/hero/hero', 'none');
+      echo '<section class="block no-results not-found bg-white">';
+    endif;
 
-      echo '<div class="container">
+    echo '<div class="container">
             <div class="row">
             <div class="col">';
 
-      if ( have_posts() ) : // Search results found...
+    if (have_posts()) : // Search results found...
 
-        /* Start the Loop */
-        echo '<div class="row equal-height search-results">';
-        while ( have_posts() ) :
-          the_post();
-          echo '<section class="col xs-12 sm-6 md-4 xl-3 result">';
-            get_template_part( 'template-parts/components/card/card', get_post_type() );
-          echo '</section>';
-        endwhile;
-        echo '</div>';
-        jellypress_numeric_pagination(); // Paginate if there are older posts
+      /* Start the Loop */
+      echo '<div class="row equal-height search-results">';
+      while (have_posts()) :
+        the_post();
+        echo '<section class="col xs-12 sm-6 md-4 xl-3 result">';
+        get_template_part('template-parts/components/card/card', get_post_type());
+        echo '</section>';
+      endwhile;
+      echo '</div>';
+      jellypress_numeric_pagination(); // Paginate if there are older posts
     else :
-      get_template_part( 'template-parts/layout/content/content', 'none' );
+      get_template_part('template-parts/layout/content/content', 'none');
     endif;
 
     echo '</div>';
