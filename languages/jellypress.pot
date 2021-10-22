@@ -2,9 +2,9 @@
 # This file is distributed under the UNLICENSED.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: JellyPress 1.1.0\n"
+"Project-Id-Version: JellyPress 1.2.0\n"
 "Report-Msgid-Bugs-To: https://github.com/unofficialmatt/jellypress/issues\n"
-"POT-Creation-Date: 2021-09-15 20:54:48+00:00\n"
+"POT-Creation-Date: 2021-10-22 15:04:22+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,7 +24,7 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: archive.php:52 template-parts/blocks/post-archive/view.php:79
+#: archive.php:53 template-parts/blocks/post-archive/view.php:79
 msgid "Load More..."
 msgstr ""
 
@@ -545,15 +545,15 @@ msgstr ""
 msgid "Sections:"
 msgstr ""
 
-#: template-parts/layout/hero/hero-404.php:19
+#: template-parts/layout/hero/hero-404.php:20
 msgid "Page not found"
 msgstr ""
 
-#: template-parts/layout/hero/hero-none.php:19
+#: template-parts/layout/hero/hero-none.php:20
 msgid "Nothing Found"
 msgstr ""
 
-#: template-parts/layout/hero/hero-search.php:22
+#: template-parts/layout/hero/hero-search.php:23
 #. translators: %s: search query.
 msgid "Search Results for: %s"
 msgstr ""
