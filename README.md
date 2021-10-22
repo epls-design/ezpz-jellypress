@@ -1,6 +1,5 @@
-## Boba Studio
-
 # Jellypress Wordpress Boilerplate Theme
+## Boba Studio
 
 <p>
 <img src="https://img.shields.io/github/stars/unofficialmatt/jellypress.svg?style=flat-square&logo=github"/>
@@ -77,10 +76,10 @@ It is recommended to develop locally with [Local by Flywheel](https://localbyfly
 git clone https://github.com/unofficialmatt/jellypress.git cd myawesometheme
 ```
 
-5. Remove the `.git` folder from the theme, we will use the root `/public_html` as our git repository.
+5. Remove the `.git` and `.github` folders from the theme, we will use the root `/public_html` as our git repository.
 
 ```bash
-rm -rf .git && rm .gitignore
+rm -rf .git && rm .gitignore && rm -rf .github
 ```
 
 ### Now it's time to modify the theme:
