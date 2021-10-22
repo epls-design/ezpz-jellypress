@@ -57,3 +57,5 @@ jobs:
           VALIDATE_MARKDOWN: false
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CSS_FILE_NAME: .stylelintrc.yml
+          LINTER_RULES_PATH: /
