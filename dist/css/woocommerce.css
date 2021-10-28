@@ -1,5 +1,5 @@
-/* Jellypress Wordpress Theme 1.0.0
- * © 2021-05 EPLS Design - https://epls.design */
+/* JellyPress Wordpress Theme 1.2.0
+ * © 2021-10 EPLS Design - https://epls.design */
 
 /**
  * Calculate the luminance for a color.
@@ -14,6 +14,14 @@
 /**
  * Determine whether to use dark or light text on top of given color.
  */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  Breakpoints are defined here
+  Note: Comment out or remove a whole size to prevent it being iterated,
+  or individual elements to inherit from the previously defined point.
+  The shorthand names are used in column and modifier classes.
+  breakpoint, container-width and col-gutter are the only !required values.
+  Sensible breakpoint values @link https://www.freecodecamp.org/news/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862/
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #add_payment_method #payment,
 .woocommerce-cart #payment,
 .woocommerce-checkout #payment {
