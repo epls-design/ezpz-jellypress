@@ -16,6 +16,38 @@
                 "id": ""
             },
             "layouts": {
+                "layout_6172da627d00e": {
+                    "key": "layout_6172da627d00e",
+                    "name": "stack",
+                    "label": "<span class=\"dashicons dashicons-tagcloud\"><\/span>Stack",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6172da7d7d017",
+                            "label": "Stack",
+                            "name": "stack",
+                            "type": "post_object",
+                            "instructions": "Please select the stack that you would like to include from the Block Library.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "100",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "stack"
+                            ],
+                            "taxonomy": "",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "return_format": "id",
+                            "ui": 1
+                        }
+                    ],
+                    "min": "",
+                    "max": "1"
+                },
                 "layout_5d6a49999f6a8": {
                     "key": "layout_5d6a49999f6a8",
                     "name": "text",
@@ -336,7 +368,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "message": "If you'd like this block to only show at a certain time, you can schedule it here.",
+                            "message": "If you'd like this block to only show at a certain time, you can schedule it here. All times are relative to the server time which is 25-10-2021 14:10:29.",
                             "new_lines": "wpautop",
                             "esc_html": 0
                         },
@@ -350,7 +382,7 @@
                             "conditional_logic": 0,
                             "wrapper": {
                                 "width": "30",
-                                "class": "",
+                                "class": "show-from",
                                 "id": ""
                             },
                             "display_format": "F j, Y g:i a",
@@ -367,7 +399,7 @@
                             "conditional_logic": 0,
                             "wrapper": {
                                 "width": "30",
-                                "class": "",
+                                "class": "show-until",
                                 "id": ""
                             },
                             "display_format": "F j, Y g:i a",
@@ -4950,6 +4982,13 @@
                 "operator": "==",
                 "value": "post"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "stack"
+            }
         ]
     ],
     "menu_order": 0,
@@ -4968,5 +5007,5 @@
     ],
     "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1621672290
+    "modified": 1635171029
 }

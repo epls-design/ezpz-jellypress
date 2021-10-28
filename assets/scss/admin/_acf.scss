@@ -1,11 +1,10 @@
-$handle_color: get-color(neutral,900);
+$handle_color: get-color(neutral, 900);
 
 // ACF Flexible Content Heading
 .acf-fc-layout-handle {
-
   padding-left: get-size(1.5) !important;
   background: $handle_color !important;
-  color: get-color(neutral,000) !important;
+  color: get-color(neutral, 000) !important;
   font-weight: bold;
 
   .swatch {
@@ -18,7 +17,6 @@ $handle_color: get-color(neutral,900);
     left: 0;
     border-right: 1px solid rgba(255, 255, 255, 0.5);
   }
-
 }
 
 // Removes borders from groups with class seamless applied
@@ -38,7 +36,7 @@ $handle_color: get-color(neutral,900);
 
 .acf-field-repeater {
   &.seamless {
-    .acf-table{
+    .acf-table {
       border: 0;
       background: none;
       thead {
@@ -88,7 +86,7 @@ $handle_color: get-color(neutral,900);
 
 .acf-handle-right {
   .dashicons {
-    opacity: .4;
+    opacity: 0.4;
   }
   font-weight: normal;
   position: absolute;
@@ -108,14 +106,13 @@ $handle_color: get-color(neutral,900);
       display: none;
     }
   }
-  .acf-input>p.description {
+  .acf-input > p.description {
     // Description below input field
     margin-top: get-size(0.75);
   }
 }
 
 .acf-tab-button {
-
   // Fix dashicon size in tabs
   .dashicons {
     font-size: 15px;
@@ -179,7 +176,6 @@ $handle_color: get-color(neutral,900);
   }
 }
 
-
 // Flexible Layout Options into a two column layout
 .acf-fc-popup ul {
   flex-direction: row;
@@ -187,13 +183,22 @@ $handle_color: get-color(neutral,900);
   flex-wrap: wrap;
   display: flex;
   .dashicons {
-    opacity: .4
+    opacity: 0.4;
   }
   li {
     flex: 0 0 50%;
-    &:nth-of-type(odd) {
+    &:nth-of-type(even) {
       border-right: 1px solid rgba(get-color(neutral, 000), 0.2);
       box-sizing: border-box;
+    }
+    // Stacks
+    &:first-of-type() {
+      order: 1;
+      border-top: 1px solid rgba(get-color(neutral, 000), 0.2);
+      flex: 0 0 100%;
+      .dashicons {
+        margin-right: 0.2em;
+      }
     }
   }
 }
@@ -206,10 +211,13 @@ $handle_color: get-color(neutral,900);
   bottom: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255,255,255,0.4);
-  border: 2px dashed red;
+  background-color: rgba(255, 255, 255, 0.4);
+  //border: 2px dashed red;
   box-sizing: border-box;
   pointer-events: none;
+  .ui-sortable > & {
+    display: none;
+  }
 }
 
 // More easy to see repeaters
@@ -219,7 +227,7 @@ $handle_color: get-color(neutral,900);
       background-color: #eee;
     }
     td {
-      background-color: #F9F9F9;
+      background-color: #f9f9f9;
       .acf-fields {
         background: transparent;
       }
@@ -243,10 +251,10 @@ $handle_color: get-color(neutral,900);
   animation: blinking-text 1s linear infinite;
 }
 
-%flexible-content-description{
+%flexible-content-description {
   display: block;
   position: relative;
-  background: #F9F9F9;
+  background: #f9f9f9;
   padding: 10px 10px 0px 10px;
   color: #666;
   //font-size: font-size(-1)
@@ -256,92 +264,96 @@ $handle_color: get-color(neutral,900);
  * Pseudo descriptions onto the ACF Flexible repeater
  */
 .layout {
-  &[data-layout="cards"] .acf-fc-layout-controls+.acf-fields::before {
+  &[data-layout='cards'] .acf-fc-layout-controls + .acf-fields::before {
     @extend %flexible-content-description;
-    content: "The Cards block allows you to add a number of promotional cards to a page."
+    content: 'The Cards block allows you to add a number of promotional cards to a page.';
   }
-  &[data-layout="carousel"] .acf-fc-layout-controls+.acf-fields::before {
+  &[data-layout='carousel'] .acf-fc-layout-controls + .acf-fields::before {
     @extend %flexible-content-description;
-    content: "The Carousel block allows you to add a promotional carousel to a page."
+    content: 'The Carousel block allows you to add a promotional carousel to a page.';
   }
-  &[data-layout="chart"] .acf-fc-layout-controls+.acf-fields::before {
+  &[data-layout='chart'] .acf-fc-layout-controls + .acf-fields::before {
     @extend %flexible-content-description;
-    content: "The Chart block allows you to add a dynamic chart to a page. For best results, you should use a white background for chart blocks."
+    content: 'The Chart block allows you to add a dynamic chart to a page. For best results, you should use a white background for chart blocks.';
   }
-  &[data-layout="countdown"] .acf-fc-layout-controls+.acf-fields::before {
+  &[data-layout='countdown'] .acf-fc-layout-controls + .acf-fields::before {
     @extend %flexible-content-description;
-    content: "The Countdown block allows you to display a count down to a particular date and time."
+    content: 'The Countdown block allows you to display a count down to a particular date and time.';
   }
-  &[data-layout="cover"] .acf-fc-layout-controls+.acf-fields::before {
+  &[data-layout='cover'] .acf-fc-layout-controls + .acf-fields::before {
     @extend %flexible-content-description;
-    content: "The Cover block allows you to add a large text block over a background image."
+    content: 'The Cover block allows you to add a large text block over a background image.';
   }
-  &[data-layout="faqs"] .acf-fc-layout-controls+.acf-fields::before {
+  &[data-layout='faqs'] .acf-fc-layout-controls + .acf-fields::before {
     @extend %flexible-content-description;
-    content: "The FAQs block allows you to add a number of frequently asked questions which display in an accordion format on the page."
+    content: 'The FAQs block allows you to add a number of frequently asked questions which display in an accordion format on the page.';
   }
-  &[data-layout="gallery"] .acf-fc-layout-controls+.acf-fields::before {
+  &[data-layout='gallery'] .acf-fc-layout-controls + .acf-fields::before {
     @extend %flexible-content-description;
-    content: "The Gallery block allows you to add an image gallery to the page."
+    content: 'The Gallery block allows you to add an image gallery to the page.';
   }
-  &[data-layout="html"] .acf-fc-layout-controls+.acf-fields::before {
+  &[data-layout='html'] .acf-fc-layout-controls + .acf-fields::before {
     @extend %flexible-content-description;
-    content: "The Unfiltered HTML block allows you to insert HTML, for example an embeddable widget."
+    content: 'The Unfiltered HTML block allows you to insert HTML, for example an embeddable widget.';
   }
-  &[data-layout="iframe"] .acf-fc-layout-controls+.acf-fields::before {
+  &[data-layout='iframe'] .acf-fc-layout-controls + .acf-fields::before {
     @extend %flexible-content-description;
-    content: "The iFrame block allows you to embed a website in an iFrame on your page. Note: not all websites will allow embedding within an iFrame."
+    content: 'The iFrame block allows you to embed a website in an iFrame on your page. Note: not all websites will allow embedding within an iFrame.';
   }
-  &[data-layout="image"] .acf-fc-layout-controls+.acf-fields::before {
+  &[data-layout='image'] .acf-fc-layout-controls + .acf-fields::before {
     @extend %flexible-content-description;
-    content: "The Image block allows you to insert an image onto the page."
+    content: 'The Image block allows you to insert an image onto the page.';
   }
-  &[data-layout="image-compare"] .acf-fc-layout-controls+.acf-fields::before {
+  &[data-layout='image-compare'] .acf-fc-layout-controls + .acf-fields::before {
     @extend %flexible-content-description;
-    content: "The Image Compare block allows you to compare a before/after of two images."
+    content: 'The Image Compare block allows you to compare a before/after of two images.';
   }
-  &[data-layout="linked-posts"] .acf-fc-layout-controls+.acf-fields::before {
+  &[data-layout='linked-posts'] .acf-fc-layout-controls + .acf-fields::before {
     @extend %flexible-content-description;
-    content: "The Linked posts block allows you to link to other pages/posts on the site, displaying them as cards."
+    content: 'The Linked posts block allows you to link to other pages/posts on the site, displaying them as cards.';
   }
-  &[data-layout="magic-columns"] .acf-fc-layout-controls+.acf-fields::before {
+  &[data-layout='magic-columns'] .acf-fc-layout-controls + .acf-fields::before {
     @extend %flexible-content-description;
-    content: "The Magic Columns block is an incredibly powerful and flexible block that lets you create mixed rows of media such as text, images, video, posts, and more. You can also customise the column widths."
+    content: 'The Magic Columns block is an incredibly powerful and flexible block that lets you create mixed rows of media such as text, images, video, posts, and more. You can also customise the column widths.';
   }
-  &[data-layout="map"] .acf-fc-layout-controls+.acf-fields::before {
+  &[data-layout='map'] .acf-fc-layout-controls + .acf-fields::before {
     @extend %flexible-content-description;
-    content: "The Map block allows you to add a map with markers onto the page."
+    content: 'The Map block allows you to add a map with markers onto the page.';
   }
-  &[data-layout="number-counter"] .acf-fc-layout-controls+.acf-fields::before {
+  &[data-layout='number-counter'] .acf-fc-layout-controls + .acf-fields::before {
     @extend %flexible-content-description;
-    content: "The Number Counter block allows you to add a series of numbers to a block, which count up from 0 when scrolled into view."
+    content: 'The Number Counter block allows you to add a series of numbers to a block, which count up from 0 when scrolled into view.';
   }
-  &[data-layout="post-archive"] .acf-fc-layout-controls+.acf-fields::before {
+  &[data-layout='post-archive'] .acf-fc-layout-controls + .acf-fields::before {
     @extend %flexible-content-description;
-    content: "The Post Archive block allows you to add a post archive to a page, showing a card layout of all recent posts."
+    content: 'The Post Archive block allows you to add a post archive to a page, showing a card layout of all recent posts.';
   }
-  &[data-layout="slider"] .acf-fc-layout-controls+.acf-fields::before {
+  &[data-layout='slider'] .acf-fc-layout-controls + .acf-fields::before {
     @extend %flexible-content-description;
-    content: "The Slider block allows you to add a slider to the page, with slides containing an image, text and optional link."
+    content: 'The Slider block allows you to add a slider to the page, with slides containing an image, text and optional link.';
   }
-  &[data-layout="testimonials"] .acf-fc-layout-controls+.acf-fields::before {
+  &[data-layout='stack'] .acf-fc-layout-controls + .acf-fields::before {
     @extend %flexible-content-description;
-    content: "The Testimonials block allows you to add a number of testimonials to a page, which will appear in a slider."
+    content: 'The Stack block allows you to include a reusable block or set of blocks from the block library. To create a new stack, use the "Stacks" menu in the admin sidebar.';
   }
-  &[data-layout="text"] .acf-fc-layout-controls+.acf-fields::before {
+  &[data-layout='testimonials'] .acf-fc-layout-controls + .acf-fields::before {
     @extend %flexible-content-description;
-    content: "The Text block allows you to add a simple text block to a page."
+    content: 'The Testimonials block allows you to add a number of testimonials to a page, which will appear in a slider.';
   }
-  &[data-layout="text-columns"] .acf-fc-layout-controls+.acf-fields::before {
+  &[data-layout='text'] .acf-fc-layout-controls + .acf-fields::before {
     @extend %flexible-content-description;
-    content: "The Text Columns block allows you to add up to four columns of text to a page."
+    content: 'The Text block allows you to add a simple text block to a page.';
   }
-  &[data-layout="text-media"] .acf-fc-layout-controls+.acf-fields::before {
+  &[data-layout='text-columns'] .acf-fc-layout-controls + .acf-fields::before {
     @extend %flexible-content-description;
-    content: "The Text and Media block allows you to add a two column layout to a page with text and a media item (eg. image/video)."
+    content: 'The Text Columns block allows you to add up to four columns of text to a page.';
   }
-  &[data-layout="video"] .acf-fc-layout-controls+.acf-fields::before {
+  &[data-layout='text-media'] .acf-fc-layout-controls + .acf-fields::before {
     @extend %flexible-content-description;
-    content: "The Video block allows you to embed a video from YouTube / Vimeo onto the page."
+    content: 'The Text and Media block allows you to add a two column layout to a page with text and a media item (eg. image/video).';
+  }
+  &[data-layout='video'] .acf-fc-layout-controls + .acf-fields::before {
+    @extend %flexible-content-description;
+    content: 'The Video block allows you to embed a video from YouTube / Vimeo onto the page.';
   }
 }

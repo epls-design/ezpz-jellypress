@@ -1,16 +1,16 @@
-# <!=Copyright (C) 2021 EPLS Design <theteam@epls.design>
+# <!=Copyright (C) 2021 Matt Weet <matt@weareboba.com>
 # This file is distributed under the UNLICENSED.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: JellyPress 1.0.0\n"
-"Report-Msgid-Bugs-To: https://github.com/epls-design/ezpz-jellypress/issues\n"
-"POT-Creation-Date: 2021-05-22 10:44:46+00:00\n"
+"Project-Id-Version: JellyPress 1.2.0\n"
+"Report-Msgid-Bugs-To: https://github.com/unofficialmatt/jellypress/issues\n"
+"POT-Creation-Date: 2021-10-25 13:33:12+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
-"Last-Translator: EPLS Design <theteam@epls.design>\n"
-"Language-Team: EPLS Design <theteam@epls.design>\n"
+"Last-Translator: Matt Weet <matt@weareboba.com>\n"
+"Language-Team: Matt Weet <matt@weareboba.com>\n"
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Country: United Kingdom\n"
@@ -24,7 +24,7 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: archive.php:52 template-parts/blocks/post-archive/view.php:79
+#: archive.php:53 template-parts/blocks/post-archive/view.php:79
 msgid "Load More..."
 msgstr ""
 
@@ -42,59 +42,63 @@ msgstr ""
 msgid "Website design and build by %1$s"
 msgstr ""
 
-#: header.php:33
+#: header.php:35
 msgid "Skip to content"
 msgstr ""
 
-#: inc/acf.php:57
+#: header.php:55 header.php:66
+msgid "Toggles the website navigation"
+msgstr ""
+
+#: inc/acf.php:60
 msgid "Information and SEO"
 msgstr ""
 
-#: inc/acf.php:58
+#: inc/acf.php:61
 msgid "Info & SEO"
 msgstr ""
 
-#: inc/acf.php:68 inc/acf.php:69
+#: inc/acf.php:71 inc/acf.php:72
 msgid "Contact Details"
 msgstr ""
 
-#: inc/acf.php:74
+#: inc/acf.php:77
 msgid "Successfully updated Contact Details"
 msgstr ""
 
-#: inc/acf.php:79 inc/acf.php:80 inc/dry.php:268
+#: inc/acf.php:82 inc/acf.php:83 inc/dry.php:268
 msgid "Opening Hours"
 msgstr ""
 
-#: inc/acf.php:85
+#: inc/acf.php:88
 msgid "Successfully updated Opening Hours"
 msgstr ""
 
-#: inc/acf.php:90
+#: inc/acf.php:93
 msgid "Social Media and SEO"
 msgstr ""
 
-#: inc/acf.php:91
+#: inc/acf.php:94
 msgid "Social Media/SEO"
 msgstr ""
 
-#: inc/acf.php:96
+#: inc/acf.php:99
 msgid "Successfully updated Social Media and SEO"
 msgstr ""
 
-#: inc/acf.php:101 inc/acf.php:102
+#: inc/acf.php:104 inc/acf.php:105
 msgid "APIs"
 msgstr ""
 
-#: inc/acf.php:107
+#: inc/acf.php:110
 msgid "Successfully updated APIs"
 msgstr ""
 
-#: inc/acf.php:112 inc/acf.php:113
+#: inc/acf.php:115 inc/acf.php:116
 msgid "Theme Settings"
 msgstr ""
 
-#: inc/acf.php:118
+#: inc/acf.php:121
 msgid "Successfully updated Theme Settings"
 msgstr ""
 
@@ -134,149 +138,156 @@ msgstr ""
 msgid "Last Page"
 msgstr ""
 
-#: inc/post_types/example.php:25
+#: inc/post_types/example.php:26
 msgid "Campaign Archives"
 msgstr ""
 
-#: inc/post_types/example.php:26
+#: inc/post_types/example.php:27
 msgid "Campaign Attributes"
 msgstr ""
 
-#: inc/post_types/example.php:27
+#: inc/post_types/example.php:28
 msgid "Parent Campaign:"
 msgstr ""
 
-#: inc/post_types/example.php:28
+#: inc/post_types/example.php:29
 msgid "All Campaigns"
 msgstr ""
 
-#: inc/post_types/example.php:29
+#: inc/post_types/example.php:30
 msgid "Add New Campaign"
 msgstr ""
 
-#: inc/post_types/example.php:30 inc/post_types/post.php:21
+#: inc/post_types/example.php:31 inc/post_types/post.php:21
+#: inc/post_types/stacks.php:31
 msgid "Add New"
 msgstr ""
 
-#: inc/post_types/example.php:31
+#: inc/post_types/example.php:32
 msgid "New Campaign"
 msgstr ""
 
-#: inc/post_types/example.php:32
+#: inc/post_types/example.php:33
 msgid "Edit Campaign"
 msgstr ""
 
-#: inc/post_types/example.php:33
+#: inc/post_types/example.php:34
 msgid "Update Campaign"
 msgstr ""
 
-#: inc/post_types/example.php:34
+#: inc/post_types/example.php:35
 msgid "View Campaign"
 msgstr ""
 
-#: inc/post_types/example.php:35
+#: inc/post_types/example.php:36
 msgid "View Campaigns"
 msgstr ""
 
-#: inc/post_types/example.php:36
+#: inc/post_types/example.php:37
 msgid "Search Campaign"
 msgstr ""
 
-#: inc/post_types/example.php:37 inc/post_types/post.php:28
+#: inc/post_types/example.php:38 inc/post_types/post.php:28
+#: inc/post_types/stacks.php:38
 msgid "Not found"
 msgstr ""
 
-#: inc/post_types/example.php:38 inc/post_types/post.php:29
+#: inc/post_types/example.php:39 inc/post_types/post.php:29
+#: inc/post_types/stacks.php:39
 msgid "Not found in Trash"
 msgstr ""
 
-#: inc/post_types/example.php:39 inc/post_types/post.php:30
+#: inc/post_types/example.php:40 inc/post_types/post.php:30
+#: inc/post_types/stacks.php:40
 msgid "Featured Image"
 msgstr ""
 
-#: inc/post_types/example.php:40 inc/post_types/post.php:31
+#: inc/post_types/example.php:41 inc/post_types/post.php:31
+#: inc/post_types/stacks.php:41
 msgid "Set featured image"
 msgstr ""
 
-#: inc/post_types/example.php:41 inc/post_types/post.php:32
+#: inc/post_types/example.php:42 inc/post_types/post.php:32
+#: inc/post_types/stacks.php:42
 msgid "Remove featured image"
 msgstr ""
 
-#: inc/post_types/example.php:42 inc/post_types/post.php:33
+#: inc/post_types/example.php:43 inc/post_types/post.php:33
+#: inc/post_types/stacks.php:43
 msgid "Use as featured image"
 msgstr ""
 
-#: inc/post_types/example.php:43
+#: inc/post_types/example.php:44
 msgid "Insert into Campaign"
 msgstr ""
 
-#: inc/post_types/example.php:44
+#: inc/post_types/example.php:45
 msgid "Uploaded to this Campaign"
 msgstr ""
 
-#: inc/post_types/example.php:45
+#: inc/post_types/example.php:46
 msgid "Campaigns list"
 msgstr ""
 
-#: inc/post_types/example.php:46
+#: inc/post_types/example.php:47
 msgid "Campaigns list navigation"
 msgstr ""
 
-#: inc/post_types/example.php:47
+#: inc/post_types/example.php:48
 msgid "Filter Campaigns list"
 msgstr ""
 
-#: inc/post_types/example.php:50
+#: inc/post_types/example.php:51
 msgid "Campaign"
 msgstr ""
 
-#: inc/post_types/example.php:51
+#: inc/post_types/example.php:52
 msgid ""
 "This is an example file which can be edited or duplicated to quickly create "
 "a CPT. Do not forget to include it in functions.php"
 msgstr ""
 
-#: inc/post_types/example.php:100
+#: inc/post_types/example.php:101
 msgid "Search Campaign Tags"
 msgstr ""
 
-#: inc/post_types/example.php:101
+#: inc/post_types/example.php:102
 msgid "All Campaign Tags"
 msgstr ""
 
-#: inc/post_types/example.php:102
+#: inc/post_types/example.php:103
 msgid "Parent Campaign Tag"
 msgstr ""
 
-#: inc/post_types/example.php:103
+#: inc/post_types/example.php:104
 msgid "Parent Campaign Tag:"
 msgstr ""
 
-#: inc/post_types/example.php:104
+#: inc/post_types/example.php:105
 msgid "Edit Campaign Tag"
 msgstr ""
 
-#: inc/post_types/example.php:105
+#: inc/post_types/example.php:106
 msgid "Update Campaign Tag"
 msgstr ""
 
-#: inc/post_types/example.php:106
+#: inc/post_types/example.php:107
 msgid "Add New Campaign Tag"
 msgstr ""
 
-#: inc/post_types/example.php:107
+#: inc/post_types/example.php:108
 msgid "New Campaign Tag Name"
 msgstr ""
 
-#: inc/post_types/example.php:108
+#: inc/post_types/example.php:109
 msgid "Campaign Tags"
 msgstr ""
 
-#: inc/post_types/example.php:119
+#: inc/post_types/example.php:120
 msgid "Register an example taxonomy for a CPT"
 msgstr ""
 
-#: inc/post_types/example.php:147
+#: inc/post_types/example.php:148
 msgid ""
 "Please add all of your campaigns here. A campaign is determined as activity "
 "focused around a particular community or location. You may have an "
@@ -382,6 +393,88 @@ msgstr ""
 
 #: inc/post_types/post.php:38
 msgid "Filter News list"
+msgstr ""
+
+#: inc/post_types/stacks.php:26
+msgid "Stack Archives"
+msgstr ""
+
+#: inc/post_types/stacks.php:27
+msgid "Stack Attributes"
+msgstr ""
+
+#: inc/post_types/stacks.php:28
+msgid "Parent Stack:"
+msgstr ""
+
+#: inc/post_types/stacks.php:29
+msgid "All Stacks"
+msgstr ""
+
+#: inc/post_types/stacks.php:30
+msgid "Add New Stack"
+msgstr ""
+
+#: inc/post_types/stacks.php:32
+msgid "New Stack"
+msgstr ""
+
+#: inc/post_types/stacks.php:33
+msgid "Edit Stack"
+msgstr ""
+
+#: inc/post_types/stacks.php:34
+msgid "Update Stack"
+msgstr ""
+
+#: inc/post_types/stacks.php:35
+msgid "View Stack"
+msgstr ""
+
+#: inc/post_types/stacks.php:36
+msgid "View Stacks"
+msgstr ""
+
+#: inc/post_types/stacks.php:37
+msgid "Search Stack"
+msgstr ""
+
+#: inc/post_types/stacks.php:44
+msgid "Insert into Stack"
+msgstr ""
+
+#: inc/post_types/stacks.php:45
+msgid "Uploaded to this Stack"
+msgstr ""
+
+#: inc/post_types/stacks.php:46
+msgid "Stacks list"
+msgstr ""
+
+#: inc/post_types/stacks.php:47
+msgid "Stacks list navigation"
+msgstr ""
+
+#: inc/post_types/stacks.php:48
+msgid "Filter Stacks list"
+msgstr ""
+
+#: inc/post_types/stacks.php:51
+msgid "Stack"
+msgstr ""
+
+#: inc/post_types/stacks.php:52
+msgid ""
+"Stacks are collections of blocks (or singular blocks) that can be reused "
+"throughout your website."
+msgstr ""
+
+#: inc/post_types/stacks.php:96
+msgid ""
+"Stacks are collections of blocks (or singular blocks) that can be reused "
+"throughout your website. <strong>Please note, when you add or edit a stack, "
+"you should clear the server cache to ensure the block is updated across the "
+"website.</strong>"
 msgstr ""
 
 #: inc/template-functions.php:97
@@ -541,15 +634,15 @@ msgstr ""
 msgid "Sections:"
 msgstr ""
 
-#: template-parts/layout/hero/hero-404.php:19
+#: template-parts/layout/hero/hero-404.php:20
 msgid "Page not found"
 msgstr ""
 
-#: template-parts/layout/hero/hero-none.php:19
+#: template-parts/layout/hero/hero-none.php:20
 msgid "Nothing Found"
 msgstr ""
 
-#: template-parts/layout/hero/hero-search.php:22
+#: template-parts/layout/hero/hero-search.php:23
 #. translators: %s: search query.
 msgid "Search Results for: %s"
 msgstr ""
@@ -559,7 +652,7 @@ msgid "JellyPress"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "https://github.com/epls-design/ezpz-jellypress"
+msgid "https://github.com/unofficialmatt/jellypress"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -569,11 +662,11 @@ msgid ""
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "EPLS Design <theteam@epls.design>"
+msgid "Matt Weet <matt@weareboba.com>"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://epls.design"
+msgid "https://www.weareboba.com"
 msgstr ""
 
 #. Template Name of the plugin/theme
@@ -588,12 +681,17 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/post_types/example.php:21
+#: inc/post_types/example.php:22
 msgctxt "Post Type General Name"
 msgid "Campaigns"
 msgstr ""
 
-#: inc/post_types/example.php:22
+#: inc/post_types/stacks.php:22
+msgctxt "Post Type General Name"
+msgid "Stacks (Block Library)"
+msgstr ""
+
+#: inc/post_types/example.php:23
 msgctxt "Post Type Singular Name"
 msgid "Campaign"
 msgstr ""
@@ -603,7 +701,12 @@ msgctxt "Post Type Singular Name"
 msgid "News"
 msgstr ""
 
-#: inc/post_types/example.php:23
+#: inc/post_types/stacks.php:23
+msgctxt "Post Type Singular Name"
+msgid "Stack"
+msgstr ""
+
+#: inc/post_types/example.php:24
 msgctxt "Admin Menu text"
 msgid "Campaigns"
 msgstr ""
@@ -613,7 +716,12 @@ msgctxt "Admin Menu text"
 msgid "News"
 msgstr ""
 
-#: inc/post_types/example.php:24
+#: inc/post_types/stacks.php:24
+msgctxt "Admin Menu text"
+msgid "Stacks (Block Library)"
+msgstr ""
+
+#: inc/post_types/example.php:25
 msgctxt "Add New on Toolbar"
 msgid "Campaign"
 msgstr ""
@@ -623,7 +731,12 @@ msgctxt "Add New on Toolbar"
 msgid "News Article"
 msgstr ""
 
-#: inc/post_types/example.php:98
+#: inc/post_types/stacks.php:25
+msgctxt "Add New on Toolbar"
+msgid "Stack"
+msgstr ""
+
+#: inc/post_types/example.php:99
 msgctxt "taxonomy general name"
 msgid "Campaign Tags"
 msgstr ""
@@ -633,7 +746,7 @@ msgctxt "taxonomy general name"
 msgid "Page Type"
 msgstr ""
 
-#: inc/post_types/example.php:99
+#: inc/post_types/example.php:100
 msgctxt "taxonomy singular name"
 msgid "Campaign Tag"
 msgstr ""
