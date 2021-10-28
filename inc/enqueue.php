@@ -13,6 +13,24 @@ if (!defined('FAVICON_DIR')) {
   define('FAVICON_DIR', get_template_directory_uri() . '/dist/favicon');
 }
 
+/**
+ * Enqueues in Google Fonts with Pagespeed in mind
+ * by loading async and deffering
+ * Usage: comment in the add_action and update the font URL to optimise performance
+ */
+//add_action('wp_head', 'jellypress_optimise_google_fonts_enqueue', 5);
+if (!function_exists('jellypress_optimise_google_fonts_enqueue')) {
+
+  function jellypress_optimise_google_fonts_enqueue()
+  {
+    $fonts = 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap';
+?>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="<?= $fonts; ?>">
+    <link rel='stylesheet' id='google-fonts' href='<?= $fonts; ?>' media='print' onload="this.media='all'" />
+<?php }
+}
+
 if (!function_exists('jellypress_scripts')) {
   /**
    * Enqueue scripts and styles.
@@ -30,7 +48,6 @@ if (!function_exists('jellypress_scripts')) {
     // Enqueue Stylesheets
     wp_enqueue_style('jellypress-styles', get_stylesheet_uri(), array(), $css_version);
     wp_style_add_data('jellypress-styles', 'rtl', 'replace');
-    //wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap', null, null, 'all');
 
     /**
      * SVG4everybody gives SVG spritesheets background compatibility with polyfills
@@ -150,6 +167,19 @@ if (!function_exists('jellypress_scripts')) {
   }
 }
 add_action('wp_enqueue_scripts', 'jellypress_scripts');
+
+/**
+ * Modifies enqueued scripts to add attributes such as async.
+ * You can add plugin-provided scripts here to improve page load times.
+ */
+add_filter('script_loader_tag', 'jellypress_scripts_add_atts', 10, 3);
+function jellypress_scripts_add_atts($tag, $handle, $src)
+{
+  if ('svg4everybody' === $handle) {
+    $tag = str_replace("<script", "<script async", $tag);
+  }
+  return $tag;
+}
 
 if (!function_exists('jellypress_favicon_script')) {
   /**
