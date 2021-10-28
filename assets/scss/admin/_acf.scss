@@ -212,9 +212,12 @@ $handle_color: get-color(neutral, 900);
   width: 100%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.4);
-  border: 2px dashed red;
+  //border: 2px dashed red;
   box-sizing: border-box;
   pointer-events: none;
+  .ui-sortable > & {
+    display: none;
+  }
 }
 
 // More easy to see repeaters
