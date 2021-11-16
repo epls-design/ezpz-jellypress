@@ -54,10 +54,9 @@ $row_class = 'align-' . $block['row_vertical_align'];
             echo jellypress_content($column['text']);
             if ($column['buttons']) jellypress_display_cta_buttons($column['buttons']);
           } elseif ($column_type == 'image') {
-
             echo '<figure>';
             if ($image_link = $column['image_link']) echo '<a href="' . $image_link['url'] . '" title="' . $image_link['title'] . '" target="' . $image_link['target'] . '">';
-            echo wp_get_attachment_image($column['image'], 'medium');
+            echo wp_get_attachment_image($column['image'], 'small');
             if ($image_link) echo '</a>';
             if ($column_caption = $column['column_caption']) echo '<figcaption class="image-caption">' . jellypress_content($column_caption) . '</figcaption>';
             echo '</figure>';

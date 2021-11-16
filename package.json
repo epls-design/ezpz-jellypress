@@ -2,7 +2,7 @@
   "name": "jellypress-wordpress-theme",
   "friendly_name": "JellyPress",
   "text_domain": "jellypress",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": {
     "name": "Matt Weet",
     "email": "matt@weareboba.com",
@@ -40,9 +40,9 @@
   ],
   "browserslist": "last 5 versions",
   "devDependencies": {
-    "autoprefixer": "^9.8.6",
+    "autoprefixer": "^9.8.8",
     "cssnano": "^4.1.10",
-    "grunt": "^1.3.0",
+    "grunt": "^1.4.1",
     "grunt-banner": "^0.6.0",
     "grunt-browser-sync": "^2.2.0",
     "grunt-contrib-clean": "^2.0.0",
@@ -65,7 +65,7 @@
     "time-grunt": "^2.0.0"
   },
   "dependencies": {
-    "@splidejs/splide": "^2.4.21",
+    "@splidejs/splide": "^3.5.0",
     "a11y_accordions": "^3.2.1",
     "chart.js": "^2.9.4",
     "chartjs-plugin-deferred": "^1.0.2",
