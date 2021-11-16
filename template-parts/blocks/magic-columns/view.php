@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Flexible layout: Magic Columns
  * A super flexible layout component that alows the user to add columns,
@@ -10,7 +11,7 @@
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 // Get Params from get_template_part:
 $block = $args['block'];
@@ -20,83 +21,77 @@ $block_classes = $args['block_classes'];
 
 $block_title = $block['title'];
 
-$row_class = 'align-'.$block['row_vertical_align'];
+$row_class = 'align-' . $block['row_vertical_align'];
 
 ?>
 
-<section <?php if($block_id_opt = $block['section_id']) echo 'id="'.strtolower($block_id_opt).'"'; ?> class="<?php echo $block_classes;?>">
+<section <?php if ($block_id_opt = $block['section_id']) echo 'id="' . strtolower($block_id_opt) . '"'; ?> class="<?php echo $block_classes; ?>">
   <div class="container">
 
     <?php if ($block_title) : $title_align = $block['title_align'];
       $header_row_class = 'row block-title';
-      if($title_align == 'center') $header_row_class .= ' justify-center';
-      elseif($title_align == 'right') $header_row_class .= ' justify-end';
+      if ($title_align == 'center') $header_row_class .= ' justify-center';
+      elseif ($title_align == 'right') $header_row_class .= ' justify-end';
     ?>
-      <header class="<?php echo $header_row_class;?>">
+      <header class="<?php echo $header_row_class; ?>">
         <div class="col md-10 lg-8">
-          <h2 class="text-<?php echo $title_align;?>"><?php echo jellypress_bracket_tag_replace($block_title); ?></h2>
+          <h2 class="text-<?php echo $title_align; ?>"><?php echo jellypress_bracket_tag_replace($block_title); ?></h2>
         </div>
       </header>
     <?php endif; ?>
 
-    <div class="row <?php echo $row_class;?>">
-      <?php foreach($block['columns'] as $column):
+    <div class="row <?php echo $row_class; ?>">
+      <?php foreach ($block['columns'] as $column) :
         //var_dump($column);
         $col_class = 'col';
-        $col_class .= ' '.$column['width_xs'].' '.$column['width_sm'].' '.$column['width_md'].' '.$column['width_lg'];
+        $col_class .= ' ' . $column['width_xs'] . ' ' . $column['width_sm'] . ' ' . $column['width_md'] . ' ' . $column['width_lg'];
         $column_type = $column['column_type'];
-        $col_class .= ' column-'.$column_type;
-        ?>
-        <div class="<?php echo $col_class;?>">
+        $col_class .= ' column-' . $column_type;
+      ?>
+        <div class="<?php echo $col_class; ?>">
           <?php
-          if ($column_type == 'text'){
+          if ($column_type == 'text') {
             echo jellypress_content($column['text']);
-            if($column['buttons']) jellypress_display_cta_buttons($column['buttons']);
-          }
-          elseif ($column_type == 'image'){
+            if ($column['buttons']) jellypress_display_cta_buttons($column['buttons']);
+          } elseif ($column_type == 'image') {
             echo '<figure>';
-            if($image_link = $column['image_link']) echo '<a href="'.$image_link['url'].'" title="'.$image_link['title'].'" target="'.$image_link['target'].'">';
-            echo wp_get_attachment_image( $column['image'], 'medium' );
-            if($image_link) echo '</a>';
-            if($column_caption = $column['column_caption']) echo '<figcaption class="image-caption">'.jellypress_content($column_caption).'</figcaption>';
+            if ($image_link = $column['image_link']) echo '<a href="' . $image_link['url'] . '" title="' . $image_link['title'] . '" target="' . $image_link['target'] . '">';
+            echo wp_get_attachment_image($column['image'], 'small');
+            if ($image_link) echo '</a>';
+            if ($column_caption = $column['column_caption']) echo '<figcaption class="image-caption">' . jellypress_content($column_caption) . '</figcaption>';
             echo '</figure>';
-          }
-          elseif ($column_type == 'post'){
+          } elseif ($column_type == 'post') {
             global $post; // Call global $post variable
             $post = $column['post'][0]; // Set $post global variable to the current post object
-            setup_postdata( $post ); // Set up "environment" for template tags
-              get_template_part( 'template-parts/components/card/card' ); // Display the post information
+            setup_postdata($post); // Set up "environment" for template tags
+            get_template_part('template-parts/components/card/card'); // Display the post information
             wp_reset_postdata();
-          }
-          elseif ($column_type == 'video'){
+          } elseif ($column_type == 'video') {
             jellypress_embed_video($column['video'], $column['aspect_ratio']);
-            if($column_caption = $column['column_caption']) {
-              echo '<div class="video-caption">'.jellypress_content($column_caption).'</div>';
+            if ($column_caption = $column['column_caption']) {
+              echo '<div class="video-caption">' . jellypress_content($column_caption) . '</div>';
             }
-          }
-          elseif ($column_type == 'iframe'){
-            echo '<iframe class="embedded-iframe" src="'.$column['website_url'].'"></iframe>';
-          }
-          elseif ($column_type == 'html'){
+          } elseif ($column_type == 'iframe') {
+            echo '<iframe class="embedded-iframe" src="' . $column['website_url'] . '"></iframe>';
+          } elseif ($column_type == 'html') {
             echo $column['unfiltered_html'];
-          }
-          elseif ($column_type == 'map'){
+          } elseif ($column_type == 'map') {
             if (get_global_option('google_maps_api_key') && $map_locations = $column['location']) :
               jellypress_display_map_markers($map_locations);
-            elseif(current_user_can( 'publish_posts' )):
+            elseif (current_user_can('publish_posts')) :
               // Show a warning for the admin to add an API key
               echo '<div class="callout error">' .
-              sprintf(
-                /* translators: %s link to theme options page. */
-                __( 'You need to <a href="%s" class="callout-link">add a Google Maps API key</a> in order to display a map on your website.', 'jellypress' ),
-                esc_url( get_admin_url(null, 'admin.php?page=apis' ) )
-              )
-              . '</div>';
+                sprintf(
+                  /* translators: %s link to theme options page. */
+                  __('You need to <a href="%s" class="callout-link">add a Google Maps API key</a> in order to display a map on your website.', 'jellypress'),
+                  esc_url(get_admin_url(null, 'admin.php?page=apis'))
+                )
+                . '</div>';
             endif; // google_maps_api_key
           }
           ?>
         </div>
-      <?php endforeach;?>
+      <?php endforeach; ?>
     </div>
 
   </div>

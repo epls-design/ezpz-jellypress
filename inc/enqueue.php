@@ -51,9 +51,10 @@ if (!function_exists('jellypress_scripts')) {
 
     /**
      * SVG4everybody gives SVG spritesheets background compatibility with polyfills
+     * Push to footer and initialise on doc ready
      */
-    wp_enqueue_script('svg4everybody', 'https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.9/svg4everybody.min.js');
-    wp_add_inline_script('svg4everybody', 'svg4everybody();'); // Init
+    wp_enqueue_script('svg4everybody', 'https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.9/svg4everybody.min.js', '', '', true);
+    wp_add_inline_script('svg4everybody', 'jQuery(document).ready(function($){svg4everybody();});'); // Init
 
     /**
      * Register Scripts but don't enqueue them until they are required.
@@ -169,14 +170,19 @@ if (!function_exists('jellypress_scripts')) {
 add_action('wp_enqueue_scripts', 'jellypress_scripts');
 
 /**
- * Modifies enqueued scripts to add attributes such as async.
+ * Modifies enqueued scripts to defer loading.
  * You can add plugin-provided scripts here to improve page load times.
  */
 add_filter('script_loader_tag', 'jellypress_scripts_add_atts', 10, 3);
 function jellypress_scripts_add_atts($tag, $handle, $src)
 {
-  if ('svg4everybody' === $handle) {
-    $tag = str_replace("<script", "<script async", $tag);
+  // Anything to defer goes in this array...
+  $defer_scripts = ['svg4everybody', 'acf', 'search-filter-plugin-chosen', 'search-filter-plugin-build', 'acf-input', 'acf-input-conditional-taxonomy', 'jquery-ui-sortable', 'jquery-ui-resizable', 'wc-cart-fragments'];
+
+  if (in_array($handle, $defer_scripts)) {
+    if (false === stripos($tag, 'defer')) {
+      $tag = str_replace(' src', ' defer="defer" src', $tag);
+    }
   }
   return $tag;
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Basic theme setup including menus etc
  *
@@ -6,110 +7,112 @@
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
-if (! function_exists('jellypress_content_width') ) :
-    /**
-     * Set the content width in pixels, based on the theme's design and stylesheet.
-     * Priority 0 to make it available to lower priority callbacks.
-     *
-     * @global int $content_width
-     */
-    function jellypress_content_width()
-    {
-        // This variable is intended to be overruled from themes.
-        // @link https://pineco.de/why-we-should-set-the-content_width-variable-in-wordpress-themes/#:~:text=The%20%24content_width%20global%20variable%20was,for%20images%2C%20videos%20and%20embeds.
-        $GLOBALS['content_width'] = apply_filters('jellypress_content_width', 640);
-    }
+if (!function_exists('jellypress_content_width')) :
+  /**
+   * Set the content width in pixels, based on the theme's design and stylesheet.
+   * Priority 0 to make it available to lower priority callbacks.
+   *
+   * @global int $content_width
+   */
+  function jellypress_content_width()
+  {
+    // This variable is intended to be overruled from themes.
+    // @link https://pineco.de/why-we-should-set-the-content_width-variable-in-wordpress-themes/#:~:text=The%20%24content_width%20global%20variable%20was,for%20images%2C%20videos%20and%20embeds.
+    $GLOBALS['content_width'] = apply_filters('jellypress_content_width', 640);
+  }
 endif;
 add_action('after_setup_theme', 'jellypress_content_width', 0);
 
 add_action('after_setup_theme', 'jellypress_setup');
-if (! function_exists('jellypress_setup') ) :
-    /**
-     * Sets up theme defaults and registers support for various WordPress features.
-     *
-     * Note that this function is hooked into the after_setup_theme hook, which
-     * runs before the init hook. The init hook is too late for some features, such
-     * as indicating support for post thumbnails.
-     */
-    function jellypress_setup()
-    {
-        /*
+if (!function_exists('jellypress_setup')) :
+  /**
+   * Sets up theme defaults and registers support for various WordPress features.
+   *
+   * Note that this function is hooked into the after_setup_theme hook, which
+   * runs before the init hook. The init hook is too late for some features, such
+   * as indicating support for post thumbnails.
+   */
+  function jellypress_setup()
+  {
+    /*
         * Make theme available for translation.
         * Translations can be filed in the /languages/ directory.
         */
-        load_theme_textdomain('jellypress', get_template_directory() . '/languages');
+    load_theme_textdomain('jellypress', get_template_directory() . '/languages');
 
-        // Add default posts and comments RSS feed links to head.
-        add_theme_support('automatic-feed-links');
+    // Add default posts and comments RSS feed links to head.
+    add_theme_support('automatic-feed-links');
 
-        /*
+    /*
         * Let WordPress manage the document title.
         * By adding theme support, we declare that this theme does not use a
         * hard-coded <title> tag in the document head, and expect WordPress to
         * provide it for us.
         */
-        add_theme_support('title-tag');
+    add_theme_support('title-tag');
 
-        /*
+    /*
         * Enable support for Post Thumbnails on posts and pages.
         * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
         */
-        add_theme_support('post-thumbnails');
+    add_theme_support('post-thumbnails');
 
-        /**
-         * Register Nav Menus
-         */
-        register_nav_menus(
-            array(
-            'menu-primary' => esc_html__('Primary', 'jellypress'),
-            )
-        );
+    /**
+     * Register Nav Menus
+     */
+    register_nav_menus(
+      array(
+        'menu-primary' => esc_html__('Primary', 'jellypress'),
+      )
+    );
 
-       /*
+    /*
         * Switch default core markup for search form, comment form, and comments
         * to output valid HTML5.
         */
-        add_theme_support(
-            'html5', array(
-            'search-form',
-            'comment-form',
-            'comment-list',
-            'gallery',
-            'caption',
-            'style',
-            'script',
-            )
-        );
+    add_theme_support(
+      'html5',
+      array(
+        'search-form',
+        'comment-form',
+        'comment-list',
+        'gallery',
+        'caption',
+        'style',
+        'script',
+      )
+    );
 
-        // Add theme support for selective refresh for widgets.
-        add_theme_support('customize-selective-refresh-widgets');
+    // Add theme support for selective refresh for widgets.
+    add_theme_support('customize-selective-refresh-widgets');
 
-        /**
-         * Register Image Sizes
-         */
+    /**
+     * Register Image Sizes
+     */
 
-        add_image_size( 'icon', 40, 40, true ); // Used by Google Maps
-        add_image_size( 'medium_landscape', 400, 300, true );
+    add_image_size('icon', 40, 40, true); // Used by Google Maps
+    add_image_size('small', 350, 350);
+    add_image_size('medium_landscape', 400, 300, true);
 
-        /**
-         * Gutenberg Supports
-         * If the theme is going to heavily rely on Gutenberg block builder,
-         * You can add a custom colour pallette and more
-         * @link https://developer.wordpress.org/block-editor/developers/themes/theme-support/#default-block-styles
-         */
+    /**
+     * Gutenberg Supports
+     * If the theme is going to heavily rely on Gutenberg block builder,
+     * You can add a custom colour pallette and more
+     * @link https://developer.wordpress.org/block-editor/developers/themes/theme-support/#default-block-styles
+     */
 
-        // Add theme support for Gutenberg wide blocks
-        add_theme_support('align-wide');
+    // Add theme support for Gutenberg wide blocks
+    add_theme_support('align-wide');
 
-        // Prevent the user from being able to edit font-sizes
-        add_theme_support('disable-custom-font-sizes');
+    // Prevent the user from being able to edit font-sizes
+    add_theme_support('disable-custom-font-sizes');
 
-        // Enable editor styles in Gutenberg
-        //add_theme_support('editor-styles');
-        //add_editor_style( 'dist/css/editor-style.min.css' );
-    }
+    // Enable editor styles in Gutenberg
+    //add_theme_support('editor-styles');
+    //add_editor_style( 'dist/css/editor-style.min.css' );
+  }
 endif;
 
 add_filter('walker_nav_menu_start_el', 'jellypress_replace_menu_hash', 999);
@@ -119,12 +122,13 @@ add_filter('walker_nav_menu_start_el', 'jellypress_replace_menu_hash', 999);
  * @param string $menu_item item HTML
  * @return string item HTML
  */
-if (! function_exists('jellypress_replace_menu_hash') ) :
-  function jellypress_replace_menu_hash($menu_item) {
-      if (strpos($menu_item, 'href="#"') !== false) {
-          $menu_item = str_replace('href="#"', 'href="javascript:void(0);"', $menu_item);
-      }
-      return $menu_item;
+if (!function_exists('jellypress_replace_menu_hash')) :
+  function jellypress_replace_menu_hash($menu_item)
+  {
+    if (strpos($menu_item, 'href="#"') !== false) {
+      $menu_item = str_replace('href="#"', 'href="javascript:void(0);"', $menu_item);
+    }
+    return $menu_item;
   }
 endif;
 
@@ -133,15 +137,15 @@ endif;
  *
  * @return void
  */
-if ( ! function_exists( 'jellypress_show_dev_flag' ) ) :
-  function jellypress_show_dev_flag() {
+if (!function_exists('jellypress_show_dev_flag')) :
+  function jellypress_show_dev_flag()
+  {
     $dev_url = DEV_URL ? parse_url(DEV_URL) : null;
     $staging_url = STAGING_URL ? parse_url(STAGING_URL) : null;
     $current_url = parse_url(jellypress_get_full_url());
-    if ($dev_url['host'] == $current_url['host']){
+    if ($dev_url['host'] == $current_url['host']) {
       echo '<div class="dev-flag dev">' . __('Development Site', 'jellypress') . '</div>';
-    }
-    elseif ($staging_url['host'] == $current_url['host']){
+    } elseif ($staging_url['host'] == $current_url['host']) {
       echo '<div class="dev-flag staging">' . __('Staging Site', 'jellypress') . '</div>';
     }
   }
@@ -153,17 +157,17 @@ add_action('admin_footer', 'jellypress_show_dev_flag');
 /**
  * Function which pulls data from ACF Options Page and displays this as structured JSON schema in the website header.
  */
-add_action('wp_head', function() {
-  if(is_front_page()) : // Only display on home page according to best practice
+add_action('wp_head', function () {
+  if (is_front_page()) : // Only display on home page according to best practice
 
-    $contact_details_array = json_decode( file_get_contents( get_stylesheet_directory() . "/assets/acf-json/group_5ea7ebc9d7ff7.json" ), true );
-    $opening_hours_array = json_decode( file_get_contents( get_stylesheet_directory() . "/assets/acf-json/group_606724bcef942.json" ), true );
-    $social_media_array = json_decode( file_get_contents( get_stylesheet_directory() . "/assets/acf-json/group_606724c228c05.json" ), true );
+    $contact_details_array = json_decode(file_get_contents(get_stylesheet_directory() . "/assets/acf-json/group_5ea7ebc9d7ff7.json"), true);
+    $opening_hours_array = json_decode(file_get_contents(get_stylesheet_directory() . "/assets/acf-json/group_606724bcef942.json"), true);
+    $social_media_array = json_decode(file_get_contents(get_stylesheet_directory() . "/assets/acf-json/group_606724c228c05.json"), true);
 
-    $contact_details_opts = get_all_custom_field_meta( 'option', $contact_details_array );
-    $opening_hours_opts = get_all_custom_field_meta( 'option', $opening_hours_array );
-    $social_media_opts = get_all_custom_field_meta( 'option', $social_media_array );
-    $schema_config = array_merge($contact_details_opts,$opening_hours_opts,$social_media_opts);
+    $contact_details_opts = get_all_custom_field_meta('option', $contact_details_array);
+    $opening_hours_opts = get_all_custom_field_meta('option', $opening_hours_array);
+    $social_media_opts = get_all_custom_field_meta('option', $social_media_array);
+    $schema_config = array_merge($contact_details_opts, $opening_hours_opts, $social_media_opts);
 
     $schema = array(
       '@context'  => "http://schema.org",
@@ -182,26 +186,26 @@ add_action('wp_head', function() {
 
     // LOGO
     if (!empty($schema_config['organisation_logo'])) {
-      $schema['logo'] = wp_get_attachment_image_url( $schema_config['organisation_logo'], 'medium');
+      $schema['logo'] = wp_get_attachment_image_url($schema_config['organisation_logo'], 'medium');
     }
 
 
     // IMAGE
     if (!empty($schema_config['organisation_image'])) {
-      $schema['image'] = wp_get_attachment_image_url( $schema_config['organisation_image'], 'medium');
+      $schema['image'] = wp_get_attachment_image_url($schema_config['organisation_image'], 'medium');
     }
 
     // SOCIAL MEDIA
     if (!empty($schema_config['social_channels'])) {
       $schema['sameAs'] = array();
-      foreach($schema_config['social_channels'] as $channel):
+      foreach ($schema_config['social_channels'] as $channel) :
         array_push($schema['sameAs'], $channel['url']);
       endforeach;
     }
 
     // PHONE
     if (isset($schema_config['primary_phone_number'])) {
-      $link_number = jellypress_append_country_dialing_code($schema_config['primary_phone_number'], get_global_option( 'dialing_code'));
+      $link_number = jellypress_append_country_dialing_code($schema_config['primary_phone_number'], get_global_option('dialing_code'));
       $schema['telephone'] = $link_number;
     }
 
@@ -213,46 +217,46 @@ add_action('wp_head', function() {
     // CONTACT POINTS
     if (!empty($schema_config['departments'])) {
       $schema['contactPoint'] = array();
-      foreach($schema_config['departments'] as $contactPoint):
-          $telephone = jellypress_append_country_dialing_code($contactPoint['phone_number'], $contactPoint['dialing_code']);
+      foreach ($schema_config['departments'] as $contactPoint) :
+        $telephone = jellypress_append_country_dialing_code($contactPoint['phone_number'], $contactPoint['dialing_code']);
 
-          $contact = array(
-              '@type'       => 'ContactPoint',
-              'contactType' => $contactPoint['department'],
-              'telephone'   => $telephone
-          );
-          if ($email = $contactPoint['email_address']) {
-            $contact['email'] = $email;
-          }
+        $contact = array(
+          '@type'       => 'ContactPoint',
+          'contactType' => $contactPoint['department'],
+          'telephone'   => $telephone
+        );
+        if ($email = $contactPoint['email_address']) {
+          $contact['email'] = $email;
+        }
 
-          if ($telephone_opts = $contactPoint['telephone_opts']) {
-            $contact['contactOption'] = $telephone_opts;
-          }
-          array_push($schema['contactPoint'], $contact);
+        if ($telephone_opts = $contactPoint['telephone_opts']) {
+          $contact['contactOption'] = $telephone_opts;
+        }
+        array_push($schema['contactPoint'], $contact);
 
       endforeach;
     }
 
     // OPENING HOURS
-    if(isset($schema_config['opening_hours'])) {
+    if (isset($schema_config['opening_hours'])) {
       $schema['openingHoursSpecification'] = array();
-      foreach($schema_config['opening_hours'] as $hours):
+      foreach ($schema_config['opening_hours'] as $hours) :
         $closed = $hours['closed'];
         $from   = $closed ? '00:00' : $hours['from'];
         $to     = $closed ? '00:00' : $hours['to'];
         $openings = array(
-            '@type'     => 'OpeningHoursSpecification',
-            'dayOfWeek' => $hours['days'],
-            'opens'     => $from,
-            'closes'    => $to
+          '@type'     => 'OpeningHoursSpecification',
+          'dayOfWeek' => $hours['days'],
+          'opens'     => $from,
+          'closes'    => $to
         );
         array_push($schema['openingHoursSpecification'], $openings);
       endforeach;
     }
 
     // SPECIAL DAYS
-    if(!empty($schema_config['special_days'])) {
-      foreach($schema_config['special_days'] as $day):
+    if (!empty($schema_config['special_days'])) {
+      foreach ($schema_config['special_days'] as $day) :
         $closed = $day['closed'];
         $date_from   = $day['date_from'];
         $date_to     = $day['date_to'];
