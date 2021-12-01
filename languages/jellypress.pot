@@ -66,7 +66,7 @@ msgstr ""
 msgid "Successfully updated Contact Details"
 msgstr ""
 
-#: inc/acf.php:82 inc/acf.php:83 inc/dry.php:268
+#: inc/acf.php:82 inc/acf.php:83 inc/dry.php:272
 msgid "Opening Hours"
 msgstr ""
 
@@ -102,31 +102,35 @@ msgstr ""
 msgid "Successfully updated Theme Settings"
 msgstr ""
 
-#: inc/dry.php:189
+#: inc/dry.php:128
+msgid "Visit us on "
+msgstr ""
+
+#: inc/dry.php:192
 msgid " Postal Address"
 msgstr ""
 
-#: inc/dry.php:243
+#: inc/dry.php:246
 msgid "Telephone:"
 msgstr ""
 
-#: inc/dry.php:268
+#: inc/dry.php:272
 msgid "Day(s)"
 msgstr ""
 
-#: inc/dry.php:274
+#: inc/dry.php:278
 msgid "Closed"
 msgstr ""
 
-#: inc/dry.php:312
+#: inc/dry.php:316
 msgid "Department"
 msgstr ""
 
-#: inc/dry.php:312
+#: inc/dry.php:316
 msgid "Phone Number"
 msgstr ""
 
-#: inc/dry.php:312
+#: inc/dry.php:316
 msgid "Email Address"
 msgstr ""
 
@@ -508,15 +512,15 @@ msgstr ""
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
-#: inc/theme-setup.php:66
+#: inc/theme-setup.php:67
 msgid "Primary"
 msgstr ""
 
-#: inc/theme-setup.php:142
+#: inc/theme-setup.php:147
 msgid "Development Site"
 msgstr ""
 
-#: inc/theme-setup.php:145
+#: inc/theme-setup.php:149
 msgid "Staging Site"
 msgstr ""
 
@@ -588,7 +592,7 @@ msgstr ""
 msgid "No posts matched your criteria."
 msgstr ""
 
-#: template-parts/blocks/magic-columns/view.php:91
+#: template-parts/blocks/magic-columns/view.php:86
 #: template-parts/blocks/map/view.php:61
 #. translators: %s link to theme options page.
 msgid ""

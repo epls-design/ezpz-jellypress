@@ -177,7 +177,7 @@ add_filter('script_loader_tag', 'jellypress_scripts_add_atts', 10, 3);
 function jellypress_scripts_add_atts($tag, $handle, $src)
 {
   // Anything to defer goes in this array...
-  $defer_scripts = ['svg4everybody', 'acf', 'search-filter-plugin-chosen', 'search-filter-plugin-build', 'acf-input', 'acf-input-conditional-taxonomy', 'jquery-ui-sortable', 'jquery-ui-resizable', 'wc-cart-fragments'];
+  $defer_scripts = ['svg4everybody', 'search-filter-plugin-chosen', 'search-filter-plugin-build', 'jquery-ui-sortable', 'jquery-ui-resizable', 'wc-cart-fragments'];
 
   if (in_array($handle, $defer_scripts)) {
     if (false === stripos($tag, 'defer')) {
