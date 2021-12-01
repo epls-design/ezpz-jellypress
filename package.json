@@ -4,12 +4,12 @@
   "text_domain": "jellypress",
   "version": "1.2.1",
   "author": {
-    "name": "Matt Weet",
-    "email": "matt@weareboba.com",
-    "url": "https://www.weareboba.com"
+    "name": "EPLS Design",
+    "email": "theteam@epls.design",
+    "url": "https://epls.design"
   },
   "description": "Jellypress is a Wordpress starter theme based on the Jellyfish CSS framework and Automattic's Underscores(_S) theme.",
-  "homepage": "https://github.com/unofficialmatt/jellypress",
+  "homepage": "https://github.com/epls-design/ezpz-jellypress",
   "main": "Gruntfile.js",
   "scripts": {
     "build": "grunt build",
@@ -17,11 +17,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/unofficialmatt/jellypress.git"
+    "url": "https://github.com/epls-design/ezpz-jellypress.git"
   },
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/unofficialmatt/jellypress/issues"
+    "url": "https://github.com/epls-design/ezpz-jellypress/issues"
   },
   "private": true,
   "keywords": [

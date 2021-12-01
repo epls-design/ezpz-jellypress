@@ -1,16 +1,16 @@
-# <!=Copyright (C) 2021 Matt Weet <matt@weareboba.com>
+# <!=Copyright (C) 2021 EPLS Design <theteam@epls.design>
 # This file is distributed under the UNLICENSED.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: JellyPress 1.2.1\n"
-"Report-Msgid-Bugs-To: https://github.com/unofficialmatt/jellypress/issues\n"
-"POT-Creation-Date: 2021-11-17 10:59:02+00:00\n"
+"Project-Id-Version: JellyPress 1.2.0\n"
+"Report-Msgid-Bugs-To: https://github.com/epls-design/ezpz-jellypress/issues\n"
+"POT-Creation-Date: 2021-10-28 15:14:46+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Matt Weet <matt@weareboba.com>\n"
-"Language-Team: Matt Weet <matt@weareboba.com>\n"
+"Last-Translator: EPLS Design <theteam@epls.design>\n"
+"Language-Team: EPLS Design <theteam@epls.design>\n"
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Country: United Kingdom\n"
@@ -37,16 +37,16 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
-#: footer.php:30
+#: footer.php:32
 #. translators: 1: Theme author and link to website.
 msgid "Website design and build by %1$s"
 msgstr ""
 
-#: header.php:35
+#: header.php:36
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:55 header.php:66
+#: header.php:56 header.php:67
 msgid "Toggles the website navigation"
 msgstr ""
 
@@ -656,7 +656,7 @@ msgid "JellyPress"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "https://github.com/unofficialmatt/jellypress"
+msgid "https://github.com/epls-design/ezpz-jellypress"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -666,11 +666,11 @@ msgid ""
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Matt Weet <matt@weareboba.com>"
+msgid "EPLS Design <theteam@epls.design>"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://www.weareboba.com"
+msgid "https://epls.design"
 msgstr ""
 
 #. Template Name of the plugin/theme

@@ -1,5 +1,7 @@
-/* JellyPress Wordpress Theme 1.2.1
- * © 2021-11 Matt Weet - https://www.weareboba.com */
+
+/* JellyPress Wordpress Theme 1.2.0
+ * © 2021-10 EPLS Design - https://epls.design */
+
 
 /**
  * Calculate the luminance for a color.
@@ -2505,27 +2507,22 @@ a:hover .icon__snapchat, a:focus .icon__snapchat, a:active .icon__snapchat {
     background-color: #ffd000;
     color: black; }
 
-.bobastudio {
-  height: 24px;
-  line-height: 24px;
+.eplsdesign {
+  height: 18px;
+  line-height: 18px;
   text-decoration: none;
   white-space: nowrap; }
-  @media screen {
-    .bobastudio a {
-      background-image: url("dist/img/boba-studio/boba-studio.svg");
-      background-position: center center;
-      background-repeat: no-repeat;
-      display: inline-block;
-      height: 24px;
-      line-height: 24px;
-      text-indent: -9999px;
-      width: 84px;
-      margin-left: 4px; } }
-  @media print {
-    .bobastudio a::after {
-      content: " hello@weareboba.com";
-      display: inline-block;
-      position: absolute; } }
+  .eplsdesign a {
+    background-image: url("assets/img/epls/epls-design.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    text-indent: -9999px;
+    width: 100px; }
+    .eplsdesign a:hover {
+      background-image: url("assets/img/epls/epls-design-hover.svg"); }
 
 .icon {
   display: inline-block;
