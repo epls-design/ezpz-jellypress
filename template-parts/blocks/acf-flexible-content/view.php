@@ -48,7 +48,7 @@ if (!post_password_required()) :
 
       $block_classes = 'block'; // Reset class
 
-      if ($is_stack) $block_classes .= ' is_stack';
+      if ($is_stack) $block_classes .= ' is-stack';
 
       //if ($i == 0) {
       //  $block_classes .= ' first'; // This is not foolproof, if any blocks are disabled this will not be accurate - so it shouldn't be used for anything important
@@ -58,7 +58,7 @@ if (!post_password_required()) :
       //}
 
       $block_layout = $block['acf_fc_layout'];
-      $block_classes .= ' block__' . $block_layout; // Add layout to classes
+      $block_classes .= ' block-' . $block_layout; // Add layout to classes
 
       // Block scheduling options
       $block_show_from = $block['show_from'];
@@ -88,6 +88,9 @@ if (!post_password_required()) :
       if ($block_bg_color) {
         $block_classes .= ' bg-' . strtolower($block_bg_color);
       }
+
+      // Classes
+      if ($block['block_classes']) $block_classes .= ' ' . $block['block_classes'];
 
       if ($block['disable'] != 1 and $block_datetime_show == true) : // Display the block, if it is not disabled, and if the scheduling checks pass true
 

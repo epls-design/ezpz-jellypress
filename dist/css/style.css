@@ -1,7 +1,5 @@
-
-/* JellyPress Wordpress Theme 1.2.0
- * © 2021-10 EPLS Design - https://epls.design */
-
+/* JellyPress Wordpress Theme 1.2.1
+ * © 2021-12 EPLS Design - https://epls.design */
 
 /**
  * Calculate the luminance for a color.
@@ -1149,33 +1147,33 @@ p.has-background {
   .countdown.complete .complete-text {
     display: block; }
 
-.block__cover {
+.block-cover {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat; }
-  .block__cover.bg-is-fixed {
+  .block-cover.bg-is-fixed {
     background-attachment: fixed; }
-  .block__cover.text-white h2 {
+  .block-cover.text-white h2 {
     color: inherit; }
-  .block__cover.min-h-25vh {
+  .block-cover.min-h-25vh {
     min-height: 25vh; }
-  .block__cover.min-h-50vh {
+  .block-cover.min-h-50vh {
     min-height: 50vh; }
-  .block__cover.min-h-75vh {
+  .block-cover.min-h-75vh {
     min-height: 75vh; }
-  .block__cover.min-h-100vh {
+  .block-cover.min-h-100vh {
     min-height: 100vh; }
   @media (min-width: 56.25em) {
-    .block__cover h2 {
+    .block-cover h2 {
       font-size: 3em; } }
   @media (min-width: 75em) {
-    .block__cover h2 {
+    .block-cover h2 {
       font-size: 3.75em; } }
-  .block__cover .block-title {
+  .block-cover .block-title {
     margin-bottom: 16px; }
-  .block__cover .button-list {
+  .block-cover .button-list {
     margin-top: 48px; }
-  .block__cover.has-overlay::before {
+  .block-cover.has-overlay::before {
     content: "";
     display: block;
     position: absolute;
@@ -1546,21 +1544,24 @@ h4.accordion__heading {
 .twentytwenty-container.has-dark-handle .twentytwenty-down-arrow {
   border-top-color: #33404d; }
 
-.block__image img {
+.block-image img {
   width: 100%; }
 
-.block__magic-columns .column-image img {
+.block-magic-columns .column-image img {
   width: 100%; }
 
-.block__magic-columns .embedded-iframe, .block__magic-columns .google-map {
+.block-magic-columns .embedded-iframe,
+.block-magic-columns .google-map {
   height: auto;
   width: 100%;
   min-height: 300px; }
   @media (min-width: 75em) {
-    .block__magic-columns .embedded-iframe, .block__magic-columns .google-map {
+    .block-magic-columns .embedded-iframe,
+    .block-magic-columns .google-map {
       min-height: 384px; } }
 
-.column-map, .column-iframe {
+.column-map,
+.column-iframe {
   align-self: stretch;
   display: flex; }
 
