@@ -1,8 +1,6 @@
-$cover-min-heights: (
-  25vh,50vh,75vh,100vh
-);
+$cover-min-heights: (25vh, 50vh, 75vh, 100vh);
 
-.block__cover {
+.block-cover {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
