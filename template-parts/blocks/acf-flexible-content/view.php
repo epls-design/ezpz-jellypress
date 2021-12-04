@@ -89,6 +89,9 @@ if (!post_password_required()) :
         $block_classes .= ' bg-' . strtolower($block_bg_color);
       }
 
+      // Classes
+      if ($block['block_classes']) $block_classes .= ' ' . $block['block_classes'];
+
       if ($block['disable'] != 1 and $block_datetime_show == true) : // Display the block, if it is not disabled, and if the scheduling checks pass true
 
         // Append Stack ID to block; this will allow JS libs to work still
