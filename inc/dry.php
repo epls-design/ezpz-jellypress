@@ -125,7 +125,7 @@ if (!function_exists('jellypress_display_socials')) :
       while (have_rows('social_channels', 'option')) : the_row();
         $socialNetwork = get_sub_field('network');
         $socialUrl = get_sub_field('url');
-        $social_links_formatted .= '<li class="social-icon"><a href="' . $socialUrl . '" rel="noopener" title="' . __('Visit us on ', 'lincad') . ucfirst($socialNetwork) . ' ">' . jellypress_icon($socialNetwork) . '</a></li>';
+        $social_links_formatted .= '<li class="social-icon"><a href="' . $socialUrl . '" rel="noopener" title="' . __('Visit us on ', 'jellypress') . ucfirst($socialNetwork) . ' ">' . jellypress_icon($socialnetwork) . '</a></li>';
       endwhile;
       $social_links_formatted .= '</ul>';
       return $social_links_formatted;
