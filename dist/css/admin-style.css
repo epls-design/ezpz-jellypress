@@ -1,5 +1,5 @@
-/* JellyPress Wordpress Theme 1.2.1
- * © 2021-11 Matt Weet - https://www.weareboba.com */
+/* JellyPress Wordpress Theme 1.2.2
+ * © 2021-12 Matt Weet - https://www.weareboba.com */
 
 /**
  * Calculate the luminance for a color.
@@ -26,54 +26,68 @@
   padding-left: 24px !important;
   background: #1f2933 !important;
   color: white !important;
-  font-weight: bold; }
-  .acf-fc-layout-handle .swatch {
-    width: 16px;
-    display: inline-block;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-right: 1px solid rgba(255, 255, 255, 0.5); }
+  font-weight: bold;
+}
+.acf-fc-layout-handle .swatch {
+  width: 16px;
+  display: inline-block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
 
 .acf-field-group.seamless .acf-fields {
   border: 0;
   margin-left: -12px;
-  margin-right: -12px; }
-  .-table .acf-field-group.seamless .acf-fields {
-    margin-left: -8px;
-    margin-right: -8px; }
+  margin-right: -12px;
+}
+.-table .acf-field-group.seamless .acf-fields {
+  margin-left: -8px;
+  margin-right: -8px;
+}
 
 .acf-field-repeater.seamless .acf-table {
   border: 0;
-  background: none; }
-  .acf-field-repeater.seamless .acf-table thead {
-    display: none; }
-  .acf-field-repeater.seamless .acf-table tr:first-of-type td {
-    padding-top: 0; }
-  .acf-field-repeater.seamless .acf-table tr:last-of-type td {
-    padding-bottom: 0; }
-  .acf-field-repeater.seamless .acf-table td {
-    border: 0;
-    background: none !important; }
+  background: none;
+}
+.acf-field-repeater.seamless .acf-table thead {
+  display: none;
+}
+.acf-field-repeater.seamless .acf-table tr:first-of-type td {
+  padding-top: 0;
+}
+.acf-field-repeater.seamless .acf-table tr:last-of-type td {
+  padding-bottom: 0;
+}
+.acf-field-repeater.seamless .acf-table td {
+  border: 0;
+  background: none !important;
+}
 
 .acf-fc-layout-controls .acf-icon {
-  background: white !important; }
-  .acf-fc-layout-controls .acf-icon:hover {
-    background-color: #c32c78 !important;
-    border-color: #c32c78;
-    color: white; }
-  .acf-fc-layout-controls .acf-icon.-minus:hover {
-    background-color: #bb2525 !important;
-    border-color: #bb2525;
-    color: white; }
-  .acf-fc-layout-controls .acf-icon.-plus:hover {
-    background-color: #7bb027 !important;
-    border-color: #7bb027;
-    color: #1f2933; }
+  background: white !important;
+}
+.acf-fc-layout-controls .acf-icon:hover {
+  background-color: #c32c78 !important;
+  border-color: #c32c78;
+  color: white;
+}
+.acf-fc-layout-controls .acf-icon.-minus:hover {
+  background-color: #bb2525 !important;
+  border-color: #bb2525;
+  color: white;
+}
+.acf-fc-layout-controls .acf-icon.-plus:hover {
+  background-color: #7bb027 !important;
+  border-color: #7bb027;
+  color: #1f2933;
+}
 
 .acf-input label {
-  font-size: 1em; }
+  font-size: 1em;
+}
 
 .acf-handle-right {
   font-weight: normal;
@@ -81,78 +95,98 @@
   left: 70%;
   display: inline-block;
   border-left: 1px solid rgba(255, 255, 255, 0.5);
-  padding-left: 12px; }
-  .acf-handle-right .dashicons {
-    opacity: 0.4; }
+  padding-left: 12px;
+}
+.acf-handle-right .dashicons {
+  opacity: 0.4;
+}
 
 #poststuff .acf-postbox .hndle {
-  font-size: 1.2em; }
+  font-size: 1.2em;
+}
 
 .acf-field.spacer * {
-  display: none; }
-
+  display: none;
+}
 .acf-field .acf-input > p.description {
-  margin-top: 12px; }
+  margin-top: 12px;
+}
 
 .acf-tab-button .dashicons {
   font-size: 15px;
   height: 15px;
   width: 15px;
-  margin-top: 4px; }
+  margin-top: 4px;
+}
 
 .swatches label {
   padding: 0;
   border: 0;
   margin-right: 8px;
-  border-radius: 0px !important; }
-  .swatches label.selected {
-    border: 0 !important;
-    background: none !important; }
-    .swatches label.selected .swatch {
-      border: 3px solid #1e8cbe !important; }
-  .swatches label:hover .swatch {
-    border: 1px solid #1e8cbe !important; }
-
+  border-radius: 0px !important;
+}
+.swatches label.selected {
+  border: 0 !important;
+  background: none !important;
+}
+.swatches label.selected .swatch {
+  border: 3px solid #1e8cbe !important;
+}
+.swatches label:hover .swatch {
+  border: 1px solid #1e8cbe !important;
+}
 .swatches .swatch {
   width: 32px;
   height: 32px;
   display: block;
   box-sizing: border-box;
   border-radius: 6px !important;
-  border: 1px solid #eee; }
+  border: 1px solid #eee;
+}
 
 .acf-has-icons .acf-button-group {
-  min-width: 128px; }
-  .acf-has-icons .acf-button-group label {
-    text-align: left; }
+  min-width: 128px;
+}
+.acf-has-icons .acf-button-group label {
+  text-align: left;
+}
 
 .postbox-header .acf-hndle-cog {
   display: none !important;
-  visibility: hidden !important; }
+  visibility: hidden !important;
+}
 
 .acf-button-group {
-  flex-wrap: wrap; }
-  .acf-button-group label {
-    flex: 0; }
+  flex-wrap: wrap;
+}
+.acf-button-group label {
+  flex: 0;
+}
 
 .acf-fc-popup ul {
   flex-direction: row;
   width: 300px;
   flex-wrap: wrap;
-  display: flex; }
-  .acf-fc-popup ul .dashicons {
-    opacity: 0.4; }
-  .acf-fc-popup ul li {
-    flex: 0 0 50%; }
-    .acf-fc-popup ul li:nth-of-type(even) {
-      border-right: 1px solid rgba(255, 255, 255, 0.2);
-      box-sizing: border-box; }
-    .acf-fc-popup ul li:first-of-type {
-      order: 1;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      flex: 0 0 100%; }
-      .acf-fc-popup ul li:first-of-type .dashicons {
-        margin-right: 0.2em; }
+  display: flex;
+}
+.acf-fc-popup ul .dashicons {
+  opacity: 0.4;
+}
+.acf-fc-popup ul li {
+  flex: 0 0 50%;
+}
+.acf-fc-popup ul li:nth-of-type(even) {
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+}
+.acf-fc-popup ul li:first-of-type() {
+  order: 1;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  flex: 0 0 100%;
+}
+.acf-fc-popup ul li:first-of-type() .dashicons {
+  margin-right: 0.2em;
+}
 
 .acf-block-disabled {
   position: absolute;
@@ -164,125 +198,140 @@
   height: 100%;
   background-color: rgba(255, 255, 255, 0.4);
   box-sizing: border-box;
-  pointer-events: none; }
-  .ui-sortable > .acf-block-disabled {
-    display: none; }
+  pointer-events: none;
+}
+.ui-sortable > .acf-block-disabled {
+  display: none;
+}
 
 .acf-repeater .acf-row:nth-of-type(even) .acf-row-handle {
-  background-color: #eee; }
-
+  background-color: #eee;
+}
 .acf-repeater .acf-row:nth-of-type(even) td {
-  background-color: #f9f9f9; }
-  .acf-repeater .acf-row:nth-of-type(even) td .acf-fields {
-    background: transparent; }
+  background-color: #f9f9f9;
+}
+.acf-repeater .acf-row:nth-of-type(even) td .acf-fields {
+  background: transparent;
+}
 
 @keyframes blinking-text {
   from {
-    color: red; }
+    color: red;
+  }
   to {
-    color: blue; } }
-
+    color: blue;
+  }
+}
 .column-acf-json strong {
   color: red;
   font-size: 1.4em;
-  animation: blinking-text 1s linear infinite; }
+  animation: blinking-text 1s linear infinite;
+}
 
-.layout[data-layout='cards'] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout='carousel'] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout='chart'] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout='countdown'] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout='cover'] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout='faqs'] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout='gallery'] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout='html'] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout='iframe'] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout='image'] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout='image-compare'] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout='linked-posts'] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout='magic-columns'] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout='map'] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout='number-counter'] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout='post-archive'] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout='slider'] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout='stack'] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout='testimonials'] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout='text'] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout='text-columns'] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout='text-media'] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout='video'] .acf-fc-layout-controls + .acf-fields::before {
+.layout[data-layout=video] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout=text-media] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout=text-columns] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout=text] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout=testimonials] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout=stack] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout=slider] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout=post-archive] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout=number-counter] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout=map] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout=magic-columns] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout=linked-posts] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout=image-compare] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout=image] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout=iframe] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout=html] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout=gallery] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout=faqs] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout=cover] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout=countdown] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout=chart] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout=carousel] .acf-fc-layout-controls + .acf-fields::before, .layout[data-layout=cards] .acf-fc-layout-controls + .acf-fields::before {
   display: block;
   position: relative;
   background: #f9f9f9;
   padding: 10px 10px 0px 10px;
-  color: #666; }
+  color: #666;
+}
 
 /**
  * Pseudo descriptions onto the ACF Flexible repeater
  */
-.layout[data-layout='cards'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The Cards block allows you to add a number of promotional cards to a page.'; }
-
-.layout[data-layout='carousel'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The Carousel block allows you to add a promotional carousel to a page.'; }
-
-.layout[data-layout='chart'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The Chart block allows you to add a dynamic chart to a page. For best results, you should use a white background for chart blocks.'; }
-
-.layout[data-layout='countdown'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The Countdown block allows you to display a count down to a particular date and time.'; }
-
-.layout[data-layout='cover'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The Cover block allows you to add a large text block over a background image.'; }
-
-.layout[data-layout='faqs'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The FAQs block allows you to add a number of frequently asked questions which display in an accordion format on the page.'; }
-
-.layout[data-layout='gallery'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The Gallery block allows you to add an image gallery to the page.'; }
-
-.layout[data-layout='html'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The Unfiltered HTML block allows you to insert HTML, for example an embeddable widget.'; }
-
-.layout[data-layout='iframe'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The iFrame block allows you to embed a website in an iFrame on your page. Note: not all websites will allow embedding within an iFrame.'; }
-
-.layout[data-layout='image'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The Image block allows you to insert an image onto the page.'; }
-
-.layout[data-layout='image-compare'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The Image Compare block allows you to compare a before/after of two images.'; }
-
-.layout[data-layout='linked-posts'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The Linked posts block allows you to link to other pages/posts on the site, displaying them as cards.'; }
-
-.layout[data-layout='magic-columns'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The Magic Columns block is an incredibly powerful and flexible block that lets you create mixed rows of media such as text, images, video, posts, and more. You can also customise the column widths.'; }
-
-.layout[data-layout='map'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The Map block allows you to add a map with markers onto the page.'; }
-
-.layout[data-layout='number-counter'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The Number Counter block allows you to add a series of numbers to a block, which count up from 0 when scrolled into view.'; }
-
-.layout[data-layout='post-archive'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The Post Archive block allows you to add a post archive to a page, showing a card layout of all recent posts.'; }
-
-.layout[data-layout='slider'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The Slider block allows you to add a slider to the page, with slides containing an image, text and optional link.'; }
-
-.layout[data-layout='stack'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The Stack block allows you to include a reusable block or set of blocks from the block library. To create a new stack, use the "Stacks" menu in the admin sidebar.'; }
-
-.layout[data-layout='testimonials'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The Testimonials block allows you to add a number of testimonials to a page, which will appear in a slider.'; }
-
-.layout[data-layout='text'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The Text block allows you to add a simple text block to a page.'; }
-
-.layout[data-layout='text-columns'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The Text Columns block allows you to add up to four columns of text to a page.'; }
-
-.layout[data-layout='text-media'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The Text and Media block allows you to add a two column layout to a page with text and a media item (eg. image/video).'; }
-
-.layout[data-layout='video'] .acf-fc-layout-controls + .acf-fields::before {
-  content: 'The Video block allows you to embed a video from YouTube / Vimeo onto the page.'; }
+.layout[data-layout=cards] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Cards block allows you to add a number of promotional cards to a page.";
+}
+.layout[data-layout=carousel] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Carousel block allows you to add a promotional carousel to a page.";
+}
+.layout[data-layout=chart] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Chart block allows you to add a dynamic chart to a page. For best results, you should use a white background for chart blocks.";
+}
+.layout[data-layout=countdown] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Countdown block allows you to display a count down to a particular date and time.";
+}
+.layout[data-layout=cover] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Cover block allows you to add a large text block over a background image.";
+}
+.layout[data-layout=faqs] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The FAQs block allows you to add a number of frequently asked questions which display in an accordion format on the page.";
+}
+.layout[data-layout=gallery] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Gallery block allows you to add an image gallery to the page.";
+}
+.layout[data-layout=html] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Unfiltered HTML block allows you to insert HTML, for example an embeddable widget.";
+}
+.layout[data-layout=iframe] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The iFrame block allows you to embed a website in an iFrame on your page. Note: not all websites will allow embedding within an iFrame.";
+}
+.layout[data-layout=image] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Image block allows you to insert an image onto the page.";
+}
+.layout[data-layout=image-compare] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Image Compare block allows you to compare a before/after of two images.";
+}
+.layout[data-layout=linked-posts] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Linked posts block allows you to link to other pages/posts on the site, displaying them as cards.";
+}
+.layout[data-layout=magic-columns] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Magic Columns block is an incredibly powerful and flexible block that lets you create mixed rows of media such as text, images, video, posts, and more. You can also customise the column widths.";
+}
+.layout[data-layout=map] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Map block allows you to add a map with markers onto the page.";
+}
+.layout[data-layout=number-counter] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Number Counter block allows you to add a series of numbers to a block, which count up from 0 when scrolled into view.";
+}
+.layout[data-layout=post-archive] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Post Archive block allows you to add a post archive to a page, showing a card layout of all recent posts.";
+}
+.layout[data-layout=slider] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Slider block allows you to add a slider to the page, with slides containing an image, text and optional link.";
+}
+.layout[data-layout=stack] .acf-fc-layout-controls + .acf-fields::before {
+  content: 'The Stack block allows you to include a reusable block or set of blocks from the block library. To create a new stack, use the "Stacks" menu in the admin sidebar.';
+}
+.layout[data-layout=testimonials] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Testimonials block allows you to add a number of testimonials to a page, which will appear in a slider.";
+}
+.layout[data-layout=text] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Text block allows you to add a simple text block to a page.";
+}
+.layout[data-layout=text-columns] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Text Columns block allows you to add up to four columns of text to a page.";
+}
+.layout[data-layout=text-media] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Text and Media block allows you to add a two column layout to a page with text and a media item (eg. image/video).";
+}
+.layout[data-layout=video] .acf-fc-layout-controls + .acf-fields::before {
+  content: "The Video block allows you to embed a video from YouTube / Vimeo onto the page.";
+}
 
 .bg-white {
-  background-color: #fff; }
+  background-color: #fff;
+}
 
 .bg-dark {
-  background-color: #1f2933; }
+  background-color: #1f2933;
+}
 
 .bg-black {
-  background-color: #000; }
+  background-color: #000;
+}
 
 .bg-gray {
-  background-color: #6e7c8c; }
+  background-color: #6e7c8c;
+}
 
 .bg-primary {
-  background-color: #c32c78; }
+  background-color: #c32c78;
+}
 
 .bg-secondary {
-  background-color: #1cd4d4; }
+  background-color: #1cd4d4;
+}
 
 .dev-flag {
   position: fixed;
@@ -291,7 +340,7 @@
   font-size: 1.5em;
   bottom: 150px;
   right: 0;
-  padding: .5em;
+  padding: 0.5em;
   font-weight: bold;
   z-index: 99999999;
   margin: 0;
@@ -300,22 +349,28 @@
   transform: translate3d(50%, -50%, 0) rotate(270deg) translateY(-50%);
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25);
   border: 3px solid black;
-  border-bottom: 0; }
-  .dev-flag.dev {
-    background-color: #FF0000;
-    color: white; }
-  .dev-flag.staging {
-    background-color: #ffd000;
-    color: black; }
+  border-bottom: 0;
+}
+.dev-flag.dev {
+  background-color: #FF0000;
+  color: white;
+}
+.dev-flag.staging {
+  background-color: #ffd000;
+  color: black;
+}
 
 #mceu_71 {
   background: #fff;
   border: 1px solid #ddd;
   box-shadow: inset 0 1px 1px -1px rgba(0, 0, 0, 0.2);
-  padding: 2px 3px; }
-  #mceu_71:hover {
-    border-color: #b4b9be; }
-  #mceu_71 .mce-txt {
-    font-size: 13px; }
+  padding: 2px 3px;
+}
+#mceu_71:hover {
+  border-color: #b4b9be;
+}
+#mceu_71 .mce-txt {
+  font-size: 13px;
+}
 
 /*# sourceMappingURL=admin-style.css.map */
