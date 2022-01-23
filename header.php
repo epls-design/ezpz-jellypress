@@ -41,15 +41,15 @@ $is_menu_off_canvas = true; // change this to determine the menu type
             <div class="navbar-brand site-branding">
 
               <span class="site-title navbar-item" style="display:block">
-                <a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
+                <a href="<?= esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
                 <?php
                 $jellypress_description = get_bloginfo('description', 'display');
                 if ($jellypress_description || is_customize_preview()) : ?>
-                  <br /><span class="site-description"><?php echo $jellypress_description; ?></span>
+                  <br /><span class="site-description"><?= $jellypress_description; ?></span>
                 <?php endif; ?>
               </span>
               <!-- EXAMPLE OF EMBEDDING CLIENT LOGO -->
-              <!--<a class="site-logo navbar-item" href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+              <!--<a class="site-logo navbar-item" href="<?= esc_url(home_url('/')); ?>" rel="home">
               <?php _e('<img src="' . get_stylesheet_directory_uri() . '/dist/img/client-logo.svg' . '" alt="' . get_bloginfo('description', 'display') . '">', 'jellypress'); ?>
             </a>-->
 

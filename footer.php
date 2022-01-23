@@ -24,7 +24,7 @@ defined('ABSPATH') || exit;
       <div class="row">
         <div class="site-info col" id="colophon">
           <p class="small">
-            <?php echo jellypress_copyright(); ?>
+            <?= jellypress_copyright(); ?>
             <span class="sep"> | </span>
             <span class="eplsdesign">
               <?php

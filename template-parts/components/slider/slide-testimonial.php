@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template part for displaying a testimonial slide
  *
@@ -6,7 +7,7 @@
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 $testimonial = $args['testimonial'];
 $block_id = $args['block_id'];
@@ -20,18 +21,18 @@ $testimonial_citation = $testimonial['testimonial_citation'];
 //var_dump($testimonial);
 ?>
 
-<div class="<?php echo $testimonial_class;?>" id="slide-<?php echo $block_id.'-'.$testimonial_id;?>">
-<div class="row justify-center">
-  <div class="<?php echo $args['col_class'];?>">
-    <?php if($testimonial_link) echo '<a class="testimonial-link" href="'.$testimonial_link['url'].'" title="'.$testimonial_link['title'].'" target="'.$testimonial_link['target'].'">'; ?>
+<div class="<?= $testimonial_class; ?>" id="slide-<?= $block_id . '-' . $testimonial_id; ?>">
+  <div class="row justify-center">
+    <div class="<?= $args['col_class']; ?>">
+      <?php if ($testimonial_link) echo '<a class="testimonial-link" href="' . $testimonial_link['url'] . '" title="' . $testimonial_link['title'] . '" target="' . $testimonial_link['target'] . '">'; ?>
       <blockquote class="testimonial">
         <?php
-        if($testimonial_image) echo wp_get_attachment_image( $testimonial_image, 'thumbnail', '',  array( "class" => "testimonial-image alignright" ) );
+        if ($testimonial_image) echo wp_get_attachment_image($testimonial_image, 'thumbnail', '',  array("class" => "testimonial-image alignright"));
         echo jellypress_content($testimonial['testimonial_text']);
-        if($testimonial_citation) echo '<cite>'.$testimonial_citation.'</cite>';
+        if ($testimonial_citation) echo '<cite>' . $testimonial_citation . '</cite>';
         ?>
       </blockquote>
-      <?php if($testimonial_link) echo '</a>'; ?>
-      </div>
+      <?php if ($testimonial_link) echo '</a>'; ?>
+    </div>
   </div>
 </div>

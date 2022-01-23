@@ -25,7 +25,7 @@ $row_class = 'align-' . $block['row_vertical_align'];
 
 ?>
 
-<section <?php if ($block_id_opt = $block['section_id']) echo 'id="' . strtolower($block_id_opt) . '"'; ?> class="<?php echo $block_classes; ?>">
+<section <?php if ($block_id_opt = $block['section_id']) echo 'id="' . strtolower($block_id_opt) . '"'; ?> class="<?= $block_classes; ?>">
   <div class="container">
 
     <?php if ($block_title) : $title_align = $block['title_align'];
@@ -33,14 +33,14 @@ $row_class = 'align-' . $block['row_vertical_align'];
       if ($title_align == 'center') $header_row_class .= ' justify-center';
       elseif ($title_align == 'right') $header_row_class .= ' justify-end';
     ?>
-      <header class="<?php echo $header_row_class; ?>">
+      <header class="<?= $header_row_class; ?>">
         <div class="col md-10 lg-8">
-          <h2 class="text-<?php echo $title_align; ?>"><?php echo jellypress_bracket_tag_replace($block_title); ?></h2>
+          <h2 class="text-<?= $title_align; ?>"><?= jellypress_bracket_tag_replace($block_title); ?></h2>
         </div>
       </header>
     <?php endif; ?>
 
-    <div class="row <?php echo $row_class; ?>">
+    <div class="row <?= $row_class; ?>">
       <?php foreach ($block['columns'] as $column) :
         //var_dump($column);
         $col_class = 'col';
@@ -48,7 +48,7 @@ $row_class = 'align-' . $block['row_vertical_align'];
         $column_type = $column['column_type'];
         $col_class .= ' column-' . $column_type;
       ?>
-        <div class="<?php echo $col_class; ?>">
+        <div class="<?= $col_class; ?>">
           <?php
           if ($column_type == 'text') {
             echo jellypress_content($column['text']);
@@ -67,7 +67,9 @@ $row_class = 'align-' . $block['row_vertical_align'];
             get_template_part('template-parts/components/card/card'); // Display the post information
             wp_reset_postdata();
           } elseif ($column_type == 'video') {
-            jellypress_embed_video($column['video'], $column['aspect_ratio']);
+            if ($column['autoplay']) $autoplay = true;
+            else $autoplay = false;
+            jellypress_embed_video($column['video'], $column['aspect_ratio'], $autoplay);
             if ($column_caption = $column['column_caption']) {
               echo '<div class="video-caption">' . jellypress_content($column_caption) . '</div>';
             }
