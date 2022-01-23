@@ -24,7 +24,7 @@ if ($block_width == 'wide') $container_class .= ' is-wide';
 elseif ($block_width == 'full') $block_classes .= ' is-full-width';
 ?>
 
-<section <?php if ($block_id_opt = $block['section_id']) echo 'id="' . strtolower($block_id_opt) . '"'; ?> class="<?php echo $block_classes; ?>">
+<section <?php if ($block_id_opt = $block['section_id']) echo 'id="' . strtolower($block_id_opt) . '"'; ?> class="<?= $block_classes; ?>">
 
   <?php if ($block_title) : $title_align = $block['title_align'];
     if ($title_align == 'left') $justify = 'start';
@@ -34,14 +34,14 @@ elseif ($block_width == 'full') $block_classes .= ' is-full-width';
     <div class="container">
       <header class="row justify-<?= $justify; ?> block-title">
         <div class="col md-10 lg-8">
-          <h2 class="text-<?php echo $title_align; ?>"><?php echo jellypress_bracket_tag_replace($block_title); ?></h2>
+          <h2 class="text-<?= $title_align; ?>"><?= jellypress_bracket_tag_replace($block_title); ?></h2>
         </div>
       </header>
     </div>
   <?php endif; ?>
 
   <figure>
-    <div class="<?php echo $container_class; ?>">
+    <div class="<?= $container_class; ?>">
       <?php
       if ($block_width === 'full') echo '<div class="vw-100">';
       jellypress_embed_video($block['video'], $block['aspect_ratio']);
