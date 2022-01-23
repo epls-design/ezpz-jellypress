@@ -67,7 +67,9 @@ $row_class = 'align-' . $block['row_vertical_align'];
             get_template_part('template-parts/components/card/card'); // Display the post information
             wp_reset_postdata();
           } elseif ($column_type == 'video') {
-            jellypress_embed_video($column['video'], $column['aspect_ratio']);
+            if ($column['autoplay']) $autoplay = true;
+            else $autoplay = false;
+            jellypress_embed_video($column['video'], $column['aspect_ratio'], $autoplay);
             if ($column_caption = $column['column_caption']) {
               echo '<div class="video-caption">' . jellypress_content($column_caption) . '</div>';
             }

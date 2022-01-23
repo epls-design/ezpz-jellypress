@@ -44,7 +44,9 @@ elseif ($block_width == 'full') $block_classes .= ' is-full-width';
     <div class="<?= $container_class; ?>">
       <?php
       if ($block_width === 'full') echo '<div class="vw-100">';
-      jellypress_embed_video($block['video'], $block['aspect_ratio']);
+      if ($block['autoplay']) $autoplay = true;
+      else $autoplay = false;
+      jellypress_embed_video($block['video'], $block['aspect_ratio'], $autoplay);
       if ($block_width === 'full') echo '</div>'; ?>
     </div>
 

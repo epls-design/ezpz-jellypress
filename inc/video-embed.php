@@ -39,7 +39,7 @@ if (!function_exists('jellypress_embed_video')) :
    * @param string $video The URL that should be embedded.
    *
    */
-  function jellypress_embed_video($video, $aspect_ratio = '16x9')
+  function jellypress_embed_video($video, $aspect_ratio = '16x9', $autoplay = false)
   {
 
     $oembed = wp_oembed_get($video); // Full oEmbed Code
@@ -93,7 +93,7 @@ if (!function_exists('jellypress_embed_video')) :
         wp_enqueue_script('youtube-api');
       }
       if ($platform) { ?>
-        <div class="video-wrapper">
+        <div class="video-wrapper<?php if ($autoplay) echo ' video-autoplay'; ?>">
           <div class="video-overlay has-bg-img" style="background-image:url('<?= $video_thumbnail_lq; ?>')" data-bg-img="<?= $video_thumbnail_hq; ?>">
             <button class="play platform-<?php esc_attr_e($platform); ?>" data-src="<?= esc_url($oembed_url); ?>" title="<?php _e('Play Video', 'jellypress'); ?>"><?= jellypress_icon('play'); ?></button>
           </div>

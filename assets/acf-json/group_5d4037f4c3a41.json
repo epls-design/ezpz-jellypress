@@ -991,7 +991,7 @@
                                         ]
                                     ],
                                     "wrapper": {
-                                        "width": "30",
+                                        "width": "15",
                                         "class": "",
                                         "id": ""
                                     },
@@ -1008,6 +1008,33 @@
                                     "ajax": 0,
                                     "return_format": "value",
                                     "placeholder": ""
+                                },
+                                {
+                                    "key": "field_61ed303bbc37b",
+                                    "label": "Autoplay?",
+                                    "name": "autoplay",
+                                    "type": "true_false",
+                                    "instructions": "Would you like the video to autoplay when it comes into view?",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_60205d112aab8",
+                                                "operator": "==",
+                                                "value": "video"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "15",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "",
+                                    "default_value": 0,
+                                    "ui": 1,
+                                    "ui_on_text": "",
+                                    "ui_off_text": ""
                                 },
                                 {
                                     "key": "field_60214bf268fee",
@@ -2373,7 +2400,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "100",
+                                "width": "66",
                                 "class": "",
                                 "id": ""
                             },
@@ -2382,6 +2409,25 @@
                             "maxlength": 400,
                             "rows": 3,
                             "new_lines": "wpautop"
+                        },
+                        {
+                            "key": "field_61ed2e86c9a50",
+                            "label": "Autoplay?",
+                            "name": "autoplay",
+                            "type": "true_false",
+                            "instructions": "Would you like to autoplay the video when it comes into view?",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "34",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
                         },
                         {
                             "key": "field_5eb3b845bbf74",
@@ -5065,5 +5111,5 @@
     ],
     "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
-    "modified": 1642929527
+    "modified": 1642934439
 }
