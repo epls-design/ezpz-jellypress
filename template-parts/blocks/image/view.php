@@ -36,7 +36,7 @@ elseif ($block_width == 'full') $block_classes .= ' is-full-width';
   ?>
     <div class="container">
       <header class="row justify-<?= $justify; ?> block-title">
-        <div class="col md-10">
+        <div class="col md-10 lg-8">
           <h2 class="text-<?php echo $title_align; ?>"><?php echo jellypress_bracket_tag_replace($block_title); ?></h2>
         </div>
       </header>
@@ -65,7 +65,6 @@ elseif ($block_width == 'full') $block_classes .= ' is-full-width';
         </div>
       </figcaption>
     <?php endif; ?>
-
   </figure>
 
 </section>
