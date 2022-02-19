@@ -20,14 +20,7 @@ if ($is_stack) $stack_id = $args['stack_id'];
 
 if (!post_password_required()) :
 
-  /**
-   * Get all ACF field meta into a single array rather than querying the database for each field individually
-   * Massively improve performance
-   * @link https://github.com/timothyjensen/acf-field-group-values
-   */
-  $field_group_json = 'group_5d4037f4c3a41.json'; // Replace with the name of your field group JSON.
-  $field_group_array = json_decode(file_get_contents(get_stylesheet_directory() . "/assets/acf-json/{$field_group_json}"), true);
-  $block_data = get_all_custom_field_meta($id, $field_group_array);
+  $block_data = jellypress_get_acf_fields('5d4037f4c3a41');
 
   // If there are items in the flexible content field...
   if (!empty($block_data['sections'])) :

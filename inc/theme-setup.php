@@ -160,13 +160,10 @@ add_action('admin_footer', 'jellypress_show_dev_flag');
 add_action('wp_head', function () {
   if (is_front_page()) : // Only display on home page according to best practice
 
-    $contact_details_array = json_decode(file_get_contents(get_stylesheet_directory() . "/assets/acf-json/group_5ea7ebc9d7ff7.json"), true);
-    $opening_hours_array = json_decode(file_get_contents(get_stylesheet_directory() . "/assets/acf-json/group_606724bcef942.json"), true);
-    $social_media_array = json_decode(file_get_contents(get_stylesheet_directory() . "/assets/acf-json/group_606724c228c05.json"), true);
 
-    $contact_details_opts = get_all_custom_field_meta('option', $contact_details_array);
-    $opening_hours_opts = get_all_custom_field_meta('option', $opening_hours_array);
-    $social_media_opts = get_all_custom_field_meta('option', $social_media_array);
+    $contact_details_opts = jellypress_get_acf_fields('5ea7ebc9d7ff7', 'option');
+    $opening_hours_opts =   jellypress_get_acf_fields('606724bcef942', 'option');
+    $social_media_opts =    jellypress_get_acf_fields('606724c228c05', 'option');
     $schema_config = array_merge($contact_details_opts, $opening_hours_opts, $social_media_opts);
 
     $schema = array(
