@@ -157,118 +157,115 @@ add_action('admin_footer', 'jellypress_show_dev_flag');
 /**
  * Function which pulls data from ACF Options Page and displays this as structured JSON schema in the website header.
  */
+add_filter('wpseo_json_ld_output', '__return_false'); // Removes Yoast SEO schema output
 add_action('wp_head', function () {
-  if (is_front_page()) : // Only display on home page according to best practice
+  $contact_details_opts = jellypress_get_acf_fields('5ea7ebc9d7ff7', 'option');
+  $opening_hours_opts =   jellypress_get_acf_fields('606724bcef942', 'option');
+  $social_media_opts =    jellypress_get_acf_fields('606724c228c05', 'option');
+  $schema_config = array_merge($contact_details_opts, $opening_hours_opts, $social_media_opts);
+
+  $schema = array(
+    '@context'  => "http://schema.org",
+    '@type'     => $schema_config['schema_type'],
+    'name'      => get_bloginfo('name'),
+    'url'       => get_home_url(),
+    'address'   => array(
+      '@type'           => 'PostalAddress',
+      'streetAddress'   => $schema_config['address_street'],
+      'postalCode'      => $schema_config['address_postal'],
+      'addressLocality' => $schema_config['address_locality'],
+      'addressRegion'   => $schema_config['address_region'],
+      'addressCountry'  => $schema_config['address_country'],
+    ),
+  );
+
+  // LOGO
+  if (!empty($schema_config['organisation_logo'])) {
+    $schema['logo'] = wp_get_attachment_image_url($schema_config['organisation_logo'], 'medium');
+  }
 
 
-    $contact_details_opts = jellypress_get_acf_fields('5ea7ebc9d7ff7', 'option');
-    $opening_hours_opts =   jellypress_get_acf_fields('606724bcef942', 'option');
-    $social_media_opts =    jellypress_get_acf_fields('606724c228c05', 'option');
-    $schema_config = array_merge($contact_details_opts, $opening_hours_opts, $social_media_opts);
+  // IMAGE
+  if (!empty($schema_config['organisation_image'])) {
+    $schema['image'] = wp_get_attachment_image_url($schema_config['organisation_image'], 'medium');
+  }
 
-    $schema = array(
-      '@context'  => "http://schema.org",
-      '@type'     => $schema_config['schema_type'],
-      'name'      => get_bloginfo('name'),
-      'url'       => get_home_url(),
-      'address'   => array(
-        '@type'           => 'PostalAddress',
-        'streetAddress'   => $schema_config['address_street'],
-        'postalCode'      => $schema_config['address_postal'],
-        'addressLocality' => $schema_config['address_locality'],
-        'addressRegion'   => $schema_config['address_region'],
-        'addressCountry'  => $schema_config['address_country'],
-      ),
-    );
+  // SOCIAL MEDIA
+  if (!empty($schema_config['social_channels'])) {
+    $schema['sameAs'] = array();
+    foreach ($schema_config['social_channels'] as $channel) :
+      array_push($schema['sameAs'], $channel['url']);
+    endforeach;
+  }
 
-    // LOGO
-    if (!empty($schema_config['organisation_logo'])) {
-      $schema['logo'] = wp_get_attachment_image_url($schema_config['organisation_logo'], 'medium');
-    }
+  // PHONE
+  if (isset($schema_config['primary_phone_number'])) {
+    $link_number = jellypress_append_country_dialing_code($schema_config['primary_phone_number'], get_global_option('dialing_code'));
+    $schema['telephone'] = $link_number;
+  }
 
+  // EMAIL
+  if (isset($schema_config['email_address'])) {
+    $schema['email'] = $schema_config['email_address'];
+  }
 
-    // IMAGE
-    if (!empty($schema_config['organisation_image'])) {
-      $schema['image'] = wp_get_attachment_image_url($schema_config['organisation_image'], 'medium');
-    }
+  // CONTACT POINTS
+  if (!empty($schema_config['departments'])) {
+    $schema['contactPoint'] = array();
+    foreach ($schema_config['departments'] as $contactPoint) :
+      $telephone = jellypress_append_country_dialing_code($contactPoint['phone_number'], $contactPoint['dialing_code']);
 
-    // SOCIAL MEDIA
-    if (!empty($schema_config['social_channels'])) {
-      $schema['sameAs'] = array();
-      foreach ($schema_config['social_channels'] as $channel) :
-        array_push($schema['sameAs'], $channel['url']);
-      endforeach;
-    }
+      $contact = array(
+        '@type'       => 'ContactPoint',
+        'contactType' => $contactPoint['department'],
+        'telephone'   => $telephone
+      );
+      if ($email = $contactPoint['email_address']) {
+        $contact['email'] = $email;
+      }
 
-    // PHONE
-    if (isset($schema_config['primary_phone_number'])) {
-      $link_number = jellypress_append_country_dialing_code($schema_config['primary_phone_number'], get_global_option('dialing_code'));
-      $schema['telephone'] = $link_number;
-    }
+      if ($telephone_opts = $contactPoint['telephone_opts']) {
+        $contact['contactOption'] = $telephone_opts;
+      }
+      array_push($schema['contactPoint'], $contact);
 
-    // EMAIL
-    if (isset($schema_config['email_address'])) {
-      $schema['email'] = $schema_config['email_address'];
-    }
+    endforeach;
+  }
 
-    // CONTACT POINTS
-    if (!empty($schema_config['departments'])) {
-      $schema['contactPoint'] = array();
-      foreach ($schema_config['departments'] as $contactPoint) :
-        $telephone = jellypress_append_country_dialing_code($contactPoint['phone_number'], $contactPoint['dialing_code']);
+  // OPENING HOURS
+  if (isset($schema_config['opening_hours'])) {
+    $schema['openingHoursSpecification'] = array();
+    foreach ($schema_config['opening_hours'] as $hours) :
+      $closed = $hours['closed'];
+      $from   = $closed ? '00:00' : $hours['from'];
+      $to     = $closed ? '00:00' : $hours['to'];
+      $openings = array(
+        '@type'     => 'OpeningHoursSpecification',
+        'dayOfWeek' => $hours['days'],
+        'opens'     => $from,
+        'closes'    => $to
+      );
+      array_push($schema['openingHoursSpecification'], $openings);
+    endforeach;
+  }
 
-        $contact = array(
-          '@type'       => 'ContactPoint',
-          'contactType' => $contactPoint['department'],
-          'telephone'   => $telephone
-        );
-        if ($email = $contactPoint['email_address']) {
-          $contact['email'] = $email;
-        }
-
-        if ($telephone_opts = $contactPoint['telephone_opts']) {
-          $contact['contactOption'] = $telephone_opts;
-        }
-        array_push($schema['contactPoint'], $contact);
-
-      endforeach;
-    }
-
-    // OPENING HOURS
-    if (isset($schema_config['opening_hours'])) {
-      $schema['openingHoursSpecification'] = array();
-      foreach ($schema_config['opening_hours'] as $hours) :
-        $closed = $hours['closed'];
-        $from   = $closed ? '00:00' : $hours['from'];
-        $to     = $closed ? '00:00' : $hours['to'];
-        $openings = array(
-          '@type'     => 'OpeningHoursSpecification',
-          'dayOfWeek' => $hours['days'],
-          'opens'     => $from,
-          'closes'    => $to
-        );
-        array_push($schema['openingHoursSpecification'], $openings);
-      endforeach;
-    }
-
-    // SPECIAL DAYS
-    if (!empty($schema_config['special_days'])) {
-      foreach ($schema_config['special_days'] as $day) :
-        $closed = $day['closed'];
-        $date_from   = $day['date_from'];
-        $date_to     = $day['date_to'];
-        $time_from   = $closed ? '00:00' : $day['time_from'];
-        $time_to     = $closed ? '00:00' : $day['time_to'];
-        $special_days = array(
-          '@type'        => 'OpeningHoursSpecification',
-          'validFrom'    => $date_from,
-          'validThrough' => $date_to,
-          'opens'        => $time_from,
-          'closes'       => $time_to
-        );
-        array_push($schema['openingHoursSpecification'], $special_days);
-      endforeach;
-    }
-    echo '<script type="application/ld+json">' . json_encode($schema) . '</script>';
-  endif;
+  // SPECIAL DAYS
+  if (!empty($schema_config['special_days'])) {
+    foreach ($schema_config['special_days'] as $day) :
+      $closed = $day['closed'];
+      $date_from   = $day['date_from'];
+      $date_to     = $day['date_to'];
+      $time_from   = $closed ? '00:00' : $day['time_from'];
+      $time_to     = $closed ? '00:00' : $day['time_to'];
+      $special_days = array(
+        '@type'        => 'OpeningHoursSpecification',
+        'validFrom'    => $date_from,
+        'validThrough' => $date_to,
+        'opens'        => $time_from,
+        'closes'       => $time_to
+      );
+      array_push($schema['openingHoursSpecification'], $special_days);
+    endforeach;
+  }
+  echo '<script type="application/ld+json">' . json_encode($schema) . '</script>';
 });
