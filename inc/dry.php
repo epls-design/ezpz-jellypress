@@ -280,7 +280,7 @@ if (!function_exists('jellypress_display_opening_hours')) :
           $opening_hours = $from . ' - ' . $to;
         }
         $days = implode(", ", get_sub_field('days')); // Split into a comma sep string
-        $days = str_replace(array('Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'), array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'), $days); // Replace with actual words
+        $days = str_replace(array('Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'), array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'sunday'), $days); // Replace with actual words
         $opening_hours_formatted .= '<tr><td>' . $days . '</td><td>' . $opening_hours . '</td></tr>';
       endwhile;
       $opening_hours_formatted .= '</tbody></table>';

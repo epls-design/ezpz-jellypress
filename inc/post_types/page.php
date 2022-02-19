@@ -1,44 +1,46 @@
 <?php
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 /**
  * Remove support for WP Editor if you are using ACF exclusively for content
  */
 
 //add_action('init', 'jellypress_post_type_supports_page');
-if (! function_exists('jellypress_post_type_supports_page') ) :
-  function jellypress_post_type_supports_page() {
-    remove_post_type_support( 'page', 'editor' );
-    add_post_type_support( 'page', 'excerpt' );
+if (!function_exists('jellypress_post_type_supports_page')) :
+  function jellypress_post_type_supports_page()
+  {
+    remove_post_type_support('page', 'editor');
+    add_post_type_support('page', 'excerpt');
   }
 endif;
 
 /**
  * Register a custom taxonomy
  */
-if ( ! function_exists( 'jellypress_create_page_taxonomies' ) ) :
+if (!function_exists('jellypress_create_page_taxonomies')) :
 
   // Register Taxonomy Page Type
-  function jellypress_create_page_taxonomies() {
+  function jellypress_create_page_taxonomies()
+  {
 
     $labels = array(
-      'name'              => _x( 'Page Type', 'taxonomy general name', 'jellypress' ),
-      'singular_name'     => _x( 'Page Type', 'taxonomy singular name', 'jellypress' ),
-      'search_items'      => __( 'Search Page Types', 'jellypress' ),
-      'all_items'         => __( 'All Page Types', 'jellypress' ),
-      'parent_item'       => __( 'Parent Page Type', 'jellypress' ),
-      'parent_item_colon' => __( 'Parent Page Type:', 'jellypress' ),
-      'edit_item'         => __( 'Edit Page Type', 'jellypress' ),
-      'update_item'       => __( 'Update Page Type', 'jellypress' ),
-      'add_new_item'      => __( 'Add New Page Type', 'jellypress' ),
-      'new_item_name'     => __( 'New Page Type Name', 'jellypress' ),
-      'menu_name'         => __( 'Page Types', 'jellypress' ),
+      'name'              => _x('Page Type', 'taxonomy general name', 'jellypress'),
+      'singular_name'     => _x('Page Type', 'taxonomy singular name', 'jellypress'),
+      'search_items'      => __('Search Page Types', 'jellypress'),
+      'all_items'         => __('All Page Types', 'jellypress'),
+      'parent_item'       => __('Parent Page Type', 'jellypress'),
+      'parent_item_colon' => __('Parent Page Type:', 'jellypress'),
+      'edit_item'         => __('Edit Page Type', 'jellypress'),
+      'update_item'       => __('Update Page Type', 'jellypress'),
+      'add_new_item'      => __('Add New Page Type', 'jellypress'),
+      'new_item_name'     => __('New Page Type Name', 'jellypress'),
+      'menu_name'         => __('Page Types', 'jellypress'),
     );
     $args = array(
       'labels' => $labels,
-      'description' => __( 'Page Types for easy categorisation in the CMS', 'jellypress' ),
+      'description' => __('Page Types for easy categorisation in the CMS', 'jellypress'),
       'hierarchical' => false, // Whether the taxonomy is hierarchical. Default false.
       'public' => true, // Whether a taxonomy is intended for use publicly either via the admin interface or by front-end users.
       'publicly_queryable' => false, // Whether the taxonomy is publicly queryable.
@@ -52,7 +54,7 @@ if ( ! function_exists( 'jellypress_create_page_taxonomies' ) ) :
       //'meta_box_cb' => true, // Set to False to hide from the WYSIWIG Editor sidebar
       //'rewrite' => $rewrite,
     );
-    register_taxonomy( 'page-type', array('page'), $args );
+    register_taxonomy('page-type', array('page'), $args);
 
     // Create default terms
     wp_insert_term('Landing Pages', 'page-type', array(
@@ -75,8 +77,6 @@ if ( ! function_exists( 'jellypress_create_page_taxonomies' ) ) :
       'description' => 'Pages with live information, that updates frequently. For example, a page with a feed of latest news.',
       'slug' => 'dynamic'
     ));
-
   }
 endif;
-add_action( 'init', 'jellypress_create_page_taxonomies', 0 );
-
+add_action('init', 'jellypress_create_page_taxonomies', 0);
