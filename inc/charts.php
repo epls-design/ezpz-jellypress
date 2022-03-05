@@ -10,6 +10,8 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
+// TODO: Add Dataset structured data? https://developers.google.com/search/docs/advanced/structured-data/dataset
+
 /**
  * Initializes Charts.js on a given element
  *

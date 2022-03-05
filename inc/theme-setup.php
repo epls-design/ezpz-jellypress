@@ -157,13 +157,14 @@ add_action('admin_footer', 'jellypress_show_dev_flag');
 /**
  * Function which pulls data from ACF Options Page and displays this as structured JSON schema in the website header.
  */
-add_filter('wpseo_json_ld_output', '__return_false'); // Removes Yoast SEO schema output
+//add_filter('wpseo_json_ld_output', '__return_false'); // Removes Yoast SEO schema output
 add_action('wp_head', function () {
   $contact_details_opts = jellypress_get_acf_fields('5ea7ebc9d7ff7', 'option');
   $opening_hours_opts =   jellypress_get_acf_fields('606724bcef942', 'option');
   $social_media_opts =    jellypress_get_acf_fields('606724c228c05', 'option');
   $schema_config = array_merge($contact_details_opts, $opening_hours_opts, $social_media_opts);
 
+  // TODO: Add in more - https://developers.google.com/search/docs/advanced/structured-data/local-business
   $schema = array(
     '@context'  => "http://schema.org",
     '@type'     => $schema_config['schema_type'],

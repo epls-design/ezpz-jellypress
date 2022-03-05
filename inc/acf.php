@@ -393,6 +393,7 @@ if (!function_exists('jellypress_import_blocks_from_other_post')) :
       // Clear out the import fields
       $_POST['acf']['field_5fa6c2d0efc19'] = array(); // Relationship Field
       $_POST['acf']['field_5fa6c5ffe671c'] = 0; // 'enable_block_import' Boolean
+      return true;
     }
   }
 endif;
