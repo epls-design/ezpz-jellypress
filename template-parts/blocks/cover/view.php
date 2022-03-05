@@ -64,8 +64,10 @@ $block_classes .= ' flex align-middle';
       <div class="col <?= $col_class; ?>">
         <?= jellypress_content($block['text']); ?>
         <?php
-        if ($content_align == 'center') jellypress_display_cta_buttons($block['buttons'], 'justify-center');
-        else jellypress_display_cta_buttons($block['buttons']);
+        if (isset($block['buttons'])) :
+          if ($content_align == 'center') jellypress_display_cta_buttons($block['buttons'], 'justify-center');
+          else jellypress_display_cta_buttons($block['buttons']);
+        endif;
         ?>
       </div>
     </div>

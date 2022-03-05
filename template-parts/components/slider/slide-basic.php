@@ -13,7 +13,7 @@ $slide = $args['slide'];
 $block_id = $args['block_id'];
 $slide_id = $args['slide_id'];
 $slide_class = $args['slide_class'];
-$block_bg_color = $args['block_bg_color'];
+$block_bg_color = isset($args['block_bg_color']) ? $args['block_bg_color'] : null;
 
 // Determine what button color to use
 switch ($block_bg_color) {

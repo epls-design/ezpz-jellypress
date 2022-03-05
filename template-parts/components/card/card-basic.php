@@ -14,7 +14,7 @@ $card = $args['card'];
 //var_dump($card);
 
 $card_link = $card['card_link'];
-$block_bg_color = $args['block_bg_color'];
+$block_bg_color = isset($args['block_bg_color']) ? $args['block_bg_color'] : null;
 
 // Determine what button color to use
 switch ($block_bg_color) {

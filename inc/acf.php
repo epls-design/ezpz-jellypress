@@ -432,7 +432,7 @@ if (!function_exists('jellypress_excerpt_from_acf_flexible_content')) :
         $layout = get_row_layout();
         // Loop through to find first WYSIWIG field - increase performance by only using specified layouts
         //if($layout == 'text' || $layout == 'magic-columns' || $layout == 'text-columns') {
-        if (!$post_excerpt) {
+        if (!isset($post_excerpt)) {
           if ($layout == 'text') {
             $post_excerpt = get_sub_field('text');
             //break;

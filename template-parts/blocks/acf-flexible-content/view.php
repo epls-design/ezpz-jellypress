@@ -15,7 +15,7 @@ defined('ABSPATH') || exit;
 $id = get_the_ID();
 
 // Get Params from get_template_part:
-$is_stack = $args['is_stack'];
+$is_stack = isset($args['is_stack']) ? $args['is_stack'] : null;
 if ($is_stack) $stack_id = $args['stack_id'];
 
 if (!post_password_required()) :
@@ -75,8 +75,8 @@ if (!post_password_required()) :
 
       $prev_block_bg = isset($block_bg_color) ? $block_bg_color : null;
 
-      $block_bg_color = $block['background_color'];
-      $next_bg_color = $next_block['background_color'];
+      $block_bg_color = isset($block['background_color']) ? $block['background_color'] : null;
+      $next_bg_color = isset($next_block['background_color']) ? $next_block['background_color'] : null;
 
       if ($block_bg_color) {
         $block_classes .= ' bg-' . strtolower($block_bg_color);
