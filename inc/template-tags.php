@@ -151,7 +151,7 @@ if (!function_exists('jellypress_post_thumbnail')) :
 
     <?php else : ?>
 
-      <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+      <a class="post-thumbnail" href="<?php the_permalink(); ?>" tabindex="-1">
         <?php
         if ($classes) the_post_thumbnail($size, ['class' => $classes, 'alt' => the_title_attribute()]);
         else the_post_thumbnail($size, ['alt' => the_title_attribute()]);

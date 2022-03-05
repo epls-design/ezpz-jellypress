@@ -157,7 +157,6 @@ add_action('admin_footer', 'jellypress_show_dev_flag');
 /**
  * Function which pulls data from ACF Options Page and displays this as structured JSON schema in the website header.
  */
-//add_filter('wpseo_json_ld_output', '__return_false'); // Removes Yoast SEO schema output
 add_action('wp_head', function () {
   $contact_details_opts = jellypress_get_acf_fields('5ea7ebc9d7ff7', 'option');
   $opening_hours_opts =   jellypress_get_acf_fields('606724bcef942', 'option');

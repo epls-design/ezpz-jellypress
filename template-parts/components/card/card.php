@@ -22,14 +22,14 @@ if ($loaded == true) {
   <?php
   if (has_post_thumbnail()) : ?>
     <figure class="post-thumbnail card-image">
-      <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+      <a href="<?php the_permalink(); ?>" tabindex="-1">
         <?php the_post_thumbnail('medium'); ?>
       </a>
     </figure>
   <?php endif; ?>
 
   <header class="card-section entry-header">
-    <?php the_title('<h3 class="entry-title"><a href="' . esc_url(get_permalink()) . '" aria-hidden="true" tabindex="-1">', '</a></h3>'); ?>
+    <?php the_title('<h3 class="entry-title"><a href="' . esc_url(get_permalink()) . '" tabindex="-1">', '</a></h3>'); ?>
   </header>
 
   <?php if (jellypress_generate_excerpt()) echo '<div class="card-section entry-content">' . jellypress_generate_excerpt(200, true) . '</div>'; ?>
