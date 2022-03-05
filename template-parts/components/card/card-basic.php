@@ -14,7 +14,7 @@ $card = $args['card'];
 //var_dump($card);
 
 $card_link = $card['card_link'];
-$block_bg_color = $args['block_bg_color'];
+$block_bg_color = isset($args['block_bg_color']) ? $args['block_bg_color'] : null;
 
 // Determine what button color to use
 switch ($block_bg_color) {
@@ -32,7 +32,7 @@ switch ($block_bg_color) {
   <?php if ($card_image = $card['card_image']) : ?>
     <figure class="card-image">
       <?php
-      if ($card_link) echo '<a href="' . $card_link['url'] . '" title="' . $card_link['title'] . '" target="' . $card_link['target'] . '" aria-hidden="true" tabindex="-1">';
+      if ($card_link) echo '<a href="' . $card_link['url'] . '" title="' . $card_link['title'] . '" target="' . $card_link['target'] . '" tabindex="-1">';
       echo wp_get_attachment_image($card_image, 'medium');
       if ($card_link) echo '</a>';
       ?>

@@ -63,9 +63,9 @@ $show_progress_bar = false; // Progress Bar is an option in php rather than the 
 
       $slider_id = 'slider-' . $block_id;
 
-      $$number_of_testimonials = count($testimonials);
+      $number_of_testimonials = count($testimonials);
 
-      if ($$number_of_testimonials > 1) {
+      if ($number_of_testimonials > 1) {
         // Note: Apply class .has-pagination to the splide element to make the dots numbered instead of dots
         // Note: Apply class .has-inner-arrows to make the arrows stay inside the container
         echo '<div class="splide slider slider-testimonials" id="' . $slider_id . '">
@@ -94,9 +94,9 @@ $show_progress_bar = false; // Progress Bar is an option in php rather than the 
         $i++;
       endforeach;
 
-      if ($$number_of_testimonials > 1) echo '</div></div></div>';
+      if ($number_of_testimonials > 1) echo '</div></div></div>';
 
-      if ($$number_of_testimonials > 1 && $show_progress_bar) : ?>
+      if ($number_of_testimonials > 1 && $show_progress_bar) : ?>
         <div class="splide__progress">
           <div class="splide__progress__bar">
           </div>
@@ -111,7 +111,7 @@ $show_progress_bar = false; // Progress Bar is an option in php rather than the 
 </section>
 
 <?php
-if ($$number_of_testimonials > 1) {
+if ($number_of_testimonials > 1) {
   add_action(
     'wp_footer',
     jellypress_splide_init('#' . $slider_id, 1, 1, 1, 1, $display_arrows, $display_pagination, $slider_speed),

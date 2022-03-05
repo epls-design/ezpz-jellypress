@@ -393,6 +393,7 @@ if (!function_exists('jellypress_import_blocks_from_other_post')) :
       // Clear out the import fields
       $_POST['acf']['field_5fa6c2d0efc19'] = array(); // Relationship Field
       $_POST['acf']['field_5fa6c5ffe671c'] = 0; // 'enable_block_import' Boolean
+      return true;
     }
   }
 endif;
@@ -431,7 +432,7 @@ if (!function_exists('jellypress_excerpt_from_acf_flexible_content')) :
         $layout = get_row_layout();
         // Loop through to find first WYSIWIG field - increase performance by only using specified layouts
         //if($layout == 'text' || $layout == 'magic-columns' || $layout == 'text-columns') {
-        if (!$post_excerpt) {
+        if (!isset($post_excerpt)) {
           if ($layout == 'text') {
             $post_excerpt = get_sub_field('text');
             //break;

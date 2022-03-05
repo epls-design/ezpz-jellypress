@@ -16,7 +16,7 @@ $block_id = $args['block_id'];
 $block_classes = $args['block_classes'];
 //var_dump($block);
 
-$allow_multiple =  $block['allow_multiple'];
+$allow_multiple = isset($block['allow_multiple']) ? $block['allow_multiple'] : null;
 
 $block_title = $block['title'];
 $block_preamble = $block['preamble'];

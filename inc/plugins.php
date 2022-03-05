@@ -1,9 +1,10 @@
 <?php
+
 /**
- * This file represents an example of the code that themes would use to register
- * the required plugins.
- *
- * It is expected that theme authors would copy and paste this code into their
+				 * This file represents an example of the code that themes would use to register
+		 * the required plugins.
+		 *
+		 * It is expected that theme authors would copy and paste this code into their
  * functions.php file, and amend to suit.
  *
  * @see http://tgmpluginactivation.com/configuration/ for detailed documentation.
@@ -18,42 +19,43 @@
  */
 
 
-add_action( 'tgmpa_register', 'jellypress_register_required_plugins' );
+add_action('tgmpa_register', 'jellypress_register_required_plugins');
 
 /**
  * Register the required plugins for this theme.
  * This function is hooked into `tgmpa_register`, which is fired on the WP `init` action on priority 10.
  */
-function jellypress_register_required_plugins() {
+function jellypress_register_required_plugins()
+{
 	/*
 	 * Array of plugin arrays. Required keys are name and slug.
 	 * If the source is NOT from the .org repo, then source is also required.
 	 */
 	$plugins = array(
 
-    /**
+		/**
      * Plugins required by the theme
      */
 
-    // Include from an external source
+		// Include from an external source
 		array(
 			'name'         => 'ACF Field Group Values',
 			'slug'         => 'acf-field-group-values',
 			'source'       => 'https://github.com/timothyjensen/acf-field-group-values/archive/master.zip',
-      'required'     => true,
-      'force_activation'  => true,
-      'force_deactivation'  => true,
-      'external_url' => 'https://github.com/timothyjensen/acf-field-group-values',
-    ),
+			'required'     => true,
+			'force_activation'  => true,
+			'force_deactivation'  => true,
+			'external_url' => 'https://github.com/timothyjensen/acf-field-group-values',
+		),
 
 		array(
 			'name'         => 'Advanced Custom Fields PRO',
 			'slug'         => 'advanced-custom-fields-pro',
 			'source'       => 'https://github.com/wp-premium/advanced-custom-fields-pro/archive/master.zip',
-      'required'     => true,
-      'force_activation'  => true,
+			'required'     => true,
+			'force_activation'  => true,
 			'external_url' => 'https://github.com/wp-premium/advanced-custom-fields-pro',
-    ),
+		),
 
     array(
       //
@@ -65,17 +67,17 @@ function jellypress_register_required_plugins() {
 			'external_url' => 'https://github.com/epls-design/ezpz-cleanup',
     ),
 
-    array(
-      //
+		array(
+			//
 			'name'         => 'EZPZ Cookies',
 			'slug'         => 'ezpz-cookies',
 			'source'       => 'https://github.com/epls-design/ezpz-cookies/archive/master.zip',
-      'required'     => true,
-      //'force_activation'  => true,
+			'required'     => true,
+			//'force_activation'  => true,
 			'external_url' => 'https://github.com/epls-design/ezpz-cookies',
-    ),
+		),
 
-    /**
+		/**
      * Plugins recommended by the theme
      * These aren't necessary for functionality but are plugins
      * used most often in web builds.
@@ -85,28 +87,28 @@ function jellypress_register_required_plugins() {
 		array(
 			'name'      => 'ACF Content Analysis for Yoast SEO',
 			'slug'      => 'acf-content-analysis-for-yoast-seo',
-    ),
-    array(
+		),
+		array(
 			'name'      => 'Autoptimize',
 			'slug'      => 'autoptimize',
-    ),
-    array(
+		),
+		array(
 			'name'      => 'User Role Editor',
 			'slug'      => 'user-role-editor',
 		),
-    array(
+		array(
 			'name'      => 'Wordfence Security',
 			'slug'      => 'wordfence',
-    ),
-    array(
+		),
+		array(
 			'name'      => 'WP Migrate DB',
 			'slug'      => 'wp-migrate-db',
-    ),
-    array(
+		),
+		array(
 			'name'      => 'WPS Hide Login',
 			'slug'      => 'wps-hide-login',
-    ),
-    array(
+		),
+		array(
 			'name'      => 'Yoast SEO',
 			'slug'      => 'wordpress-seo',
 		),
@@ -122,8 +124,8 @@ function jellypress_register_required_plugins() {
 		'dismissable'  => false,
 		'is_automatic' => false,
 		'strings'      => array(
-			'page_title'                      => __( 'Install Required Theme Plugins', 'jellypress' ),
-			'menu_title'                      => __( 'Theme Plugins', 'jellypress' ),
+			'page_title'                      => __('Install Required Theme Plugins', 'jellypress'),
+			'menu_title'                      => __('Theme Plugins', 'jellypress'),
 			'notice_can_install_required'     => _n_noop(
 				/* translators: 1: plugin name(s). */
 				'This theme requires the following plugin to operate correctly: %1$s.',
@@ -138,5 +140,5 @@ function jellypress_register_required_plugins() {
 			),
 		),
 	);
-	tgmpa( $plugins, $config );
+	tgmpa($plugins, $config);
 }

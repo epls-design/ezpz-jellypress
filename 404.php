@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying 404 pages (not found)
  *
@@ -8,10 +9,10 @@
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
-if ( get_field( 'redirect_404', 'options' ) ) :
-  wp_safe_redirect( home_url() ); // Redirect to home page
+if (get_field('redirect_404', 'options')) :
+  wp_safe_redirect(home_url()); // Redirect to home page
   exit;
 endif;
 
@@ -22,8 +23,8 @@ get_header();
   <main id="main" class="site-main">
     <article class="error-404 not-found">
       <?php
-      get_template_part( 'template-parts/layout/hero/hero', '404' );
-      get_template_part( 'template-parts/layout/content/content', '404' );
+      get_template_part('template-parts/layout/hero/hero', '404');
+      get_template_part('template-parts/layout/content/content', '404');
       ?>
     </article>
   </main>
