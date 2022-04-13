@@ -1,5 +1,5 @@
-$transition: opacity .5s ease;
-$transition-delay: .5s;
+$transition: opacity 0.5s ease;
+$transition-delay: 0.5s;
 
 .play {
   z-index: 1;
@@ -8,10 +8,11 @@ $transition-delay: .5s;
   border-color: transparent !important;
   width: 30%;
   padding: 0;
-  color: get-color(neutral, 000);
+  color: $color-white;
   max-width: get-size(8);
   transition: opacity 1s ease;
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     opacity: 0.8;
     box-shadow: none;
   }
@@ -46,7 +47,7 @@ $transition-delay: .5s;
   z-index: 1;
   width: 100%;
   height: 100%;
-  background-color: get-color(neutral,000);
+  background-color: $color-white;
   background-size: cover;
   background-position: center;
   align-items: center;

@@ -42,8 +42,24 @@ module.exports = function (grunt) {
     eslint: {
       site: [
         "<%= opts.build_dir %>/js/site/**/*.js", // Validates javascript files in js/site only (doesn't validate vendor JS)
-      ],
+      ]
     },
+  });
+
+  grunt.config("json-format", {
+    acfjson: {
+      options: {
+        indent: 2
+      },
+      files: [
+        {
+          expand: true,
+          cwd: "<%= opts.build_dir %>/acf-json/",
+          src: ["group_*.json"],
+          dest: "<%= opts.build_dir %>/acf-json/",
+        }
+      ]
+    }
   });
 
   // Configure Watch task through config.merge as this task is used across multiple partials
@@ -56,6 +72,13 @@ module.exports = function (grunt) {
         },
         files: ["<%= opts.build_dir %>/js/**/*.js", "template-parts/**/*.js"],
         tasks: ["newer:eslint:site", "concat", "uglify"],
+      },
+      acfjson: {
+        options: {
+          event: ["changed", "added", "deleted"],
+        },
+        files: ["<%= opts.build_dir %>/acf-json/*.json"],
+        tasks: ["json-format"],
       },
     },
   });

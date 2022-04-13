@@ -16,6 +16,8 @@ Jellypress is a Wordpress starter theme based on [underscores](https://github.co
 
 This theme, like `underscores` is made for hacking and use as a standalone theme, rather than a Parent Theme.
 
+REQUIRES php 7.4+
+
 ### Included in `Jellypress`...
 
 * A just right amount of lean, well-commented, modern, HTML5 templates using the Wordpress templating engine and best practices
