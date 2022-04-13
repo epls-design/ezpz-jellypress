@@ -30,7 +30,7 @@
 
   .widget_shopping_cart {
     display: none;
-    background: get-color(neutral,000);
+    background: $color-white;
     text-align: left;
     padding: 0;
     border: $card-border-color $card-border-style $card-border-width;
@@ -38,7 +38,7 @@
     .total {
       border-top: 0;
       display: block;
-      margin-top: .6em;;
+      margin-top: 0.6em;
     }
   }
   .widget_shopping_cart_content {
@@ -60,11 +60,14 @@
     a {
       padding: 0;
     }
-    a, a:link, a:visited {
+    a,
+    a:link,
+    a:visited {
       background-color: transparent;
       color: $link-color;
     }
-    a:hover, a:focus {
+    a:hover,
+    a:focus {
       color: $link-visited;
     }
     img {
@@ -78,7 +81,7 @@
   }
   .mini_cart_item {
     margin-bottom: 0;
-    padding: .5em 0 .5em 2em;
+    padding: 0.5em 0 0.5em 2em;
     border-bottom: $borders;
     .quantity {
       font-size: font-size(-1);
@@ -86,7 +89,7 @@
   }
   a.remove {
     color: $color-text !important;
-    top: .2em;
+    top: 0.2em;
 
     &:hover {
       background: transparent;
@@ -103,7 +106,6 @@
   }
 
   @include above(768px) {
-
     .widget_shopping_cart {
       position: absolute;
       top: 100%;
@@ -116,7 +118,6 @@
 
     &:hover,
     &.focus {
-
       .widget_shopping_cart {
         left: auto;
         right: 0;

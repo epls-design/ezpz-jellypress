@@ -7,7 +7,7 @@
   .icon {
     height: 1em;
     width: 1em;
-    top: -.1em;
+    top: -0.1em;
   }
 
   .nav-next {
@@ -19,8 +19,8 @@
     margin-top: 0;
 
     &.active a {
-      background: get-color(neutral,600);
-      color: get-color(neutral,000) !important;
+      background: get-color(neutral, 600);
+      color: $color-white !important;
     }
 
     &.nav-total,
@@ -31,8 +31,8 @@
     }
 
     &.nav-total {
-      background: get-color(neutral,400);
-      color: get-color(neutral,000);
+      background: get-color(neutral, 400);
+      color: $color-white;
       border-right-width: 0px;
     }
     &:last-of-type a {
@@ -41,28 +41,27 @@
 
     &.nav-ellipses {
       border-right: 0;
-      color: get-color(neutral,400)
+      color: get-color(neutral, 400);
     }
-
   }
 
   li a {
     @include smooth(background, color);
     text-decoration: none;
-    background: get-color(neutral,000);
+    background: $color-white;
     border-right-width: 0px;
     display: block;
 
     &,
     &:link,
     &:visited {
-      color: get-color(neutral,700);
+      color: get-color(neutral, 700);
     }
 
     &:hover,
     &:focus {
       background: get-color(neutral);
-      color: get-color(neutral,000);
+      color: $color-white;
     }
   }
 }

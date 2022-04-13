@@ -11,7 +11,6 @@
   margin-right: calc(50% - 50vw) !important;
   max-width: 100vw;
   width: 100vw;
-
 }
 
 .alignwide {
@@ -25,24 +24,20 @@
 
 .alignfull,
 .alignwide {
-
-  &>figcaption,
-  &>.wp-caption-text {
+  & > figcaption,
+  & > .wp-caption-text {
     // Pull captions back into the container
     @include center-block;
-    width: calc(100% - #{$base-container-gutter}*2);
+    width: calc(100% - #{$base-container-gutter}* 2);
 
-    @each $point,
-    $i in $breakpoints {
+    @each $point, $i in $breakpoints {
       @include above($point) {
         $width: map-deep-get($breakpoints, $point, 'container-width');
         $margin: map-deep-get($breakpoints, $point, 'container-gutter');
 
         @if $margin {
-          width: calc(#{$width} - #{$margin}*2);
-        }
-
-        @else {
+          width: calc(#{$width} - #{$margin}* 2);
+        } @else {
           width: $width;
         }
       }
@@ -79,7 +74,7 @@
 }
 
 .wp-block-pullquote {
-  margin: $element-margin*2 auto;
+  margin: $element-margin * 2 auto;
   width: 80%;
   padding: 0;
 
@@ -124,13 +119,12 @@
       }
     }
   }
-
 }
 
 // Buttons
 
 .wp-block-button {
-  color: choose-contrast-color(get-color(primary),$button-text-color-light,$button-text-color-dark);
+  color: choose-contrast-color(get-color(primary), $button-text-color-light, $button-text-color-dark);
   a {
     @include create_button(get-color(primary));
   }
@@ -139,14 +133,16 @@
     a {
       color: inherit;
       background-color: transparent !important;
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         background-color: transparent !important;
       }
     }
   }
 }
 // Categories
-.wp-block-categories, .wp-block-latest-posts {
+.wp-block-categories,
+.wp-block-latest-posts {
   list-style: none;
   margin-left: 0;
   li {
@@ -174,7 +170,8 @@
 // Columns
 $gutenberg-collapse-cols: 600px;
 
-.wp-block-text-columns, .wp-block-columns  {
+.wp-block-text-columns,
+.wp-block-columns {
   flex-wrap: wrap;
 }
 
@@ -196,8 +193,9 @@ $gutenberg-collapse-cols: 600px;
   }
 }
 
-.wp-block-text-columns, .wp-block-columns {
-   .wp-block-column {
+.wp-block-text-columns,
+.wp-block-columns {
+  .wp-block-column {
     @include below($gutenberg-collapse-cols) {
       margin: 0 !important;
     }
@@ -208,10 +206,9 @@ $gutenberg-collapse-cols: 600px;
       flex: 1;
     }
 
-    @each $point,
-    $i in $breakpoints {
+    @each $point, $i in $breakpoints {
       @include above($point) {
-        $gutter: map-deep-get($breakpoints, $point, 'col-gutter')/2;
+        $gutter: map-deep-get($breakpoints, $point, 'col-gutter') / 2;
         margin: 0 $gutter;
       }
     }
@@ -236,11 +233,10 @@ $gutenberg-collapse-cols: 600px;
 
 .wp-block-cover-image .wp-block-cover__inner-container,
 .wp-block-cover .wp-block-cover__inner-container {
-  color: get-color(neutral,000);
+  color: $color-white;
 }
 
 .wp-block-cover {
-
   &.alignwide,
   &.alignfull {
     width: auto;
@@ -252,7 +248,7 @@ $gutenberg-collapse-cols: 600px;
 // Images
 .wp-block-image {
   //clear: both; // Clear floats
-  img+figcaption {
+  img + figcaption {
     margin-top: n($element-margin) + 10px;
     @extend %caption;
   }
@@ -267,7 +263,7 @@ $gutenberg-collapse-cols: 600px;
 }
 
 .wp-block-separator.is-style-dots:before {
-  content: "\00b7 \00b7 \00b7 \00b7 \00b7 \00b7";
+  content: '\00b7 \00b7 \00b7 \00b7 \00b7 \00b7';
   color: $border-color;
 }
 
@@ -279,9 +275,7 @@ $gutenberg-collapse-cols: 600px;
   }
 }
 
-
 .wp-block-cover {
-
   &.alignwide,
   &.alignfull {
     width: auto;
@@ -354,7 +348,7 @@ p.has-background {
 .wp-block-embed.alignwide iframe,
 .wp-block-video.alignfull video,
 .wp-block-video.alignwide video {
-    width: 100%;
+  width: 100%;
 }
 
 .wp-block-video {
