@@ -1,27 +1,28 @@
 $colors: (
   // Base color is always set at 500, tints and shades should also be set where possible
-    //  primary: (
-    //    900: hsl(330, 79%, 20%),
-    //    800: hsl(331, 74%, 27%),
-    //    700: hsl(330, 70%, 36%),
-    //    600: hsl(330, 68%, 40%),
-    //    500: hsl(330, 63%, 47%),
-    //    400: hsl(330, 66%, 57%),
-    //    300: hsl(330, 77%, 76%),
-    //    200: hsl(330, 87%, 85%),
-    //    100: hsl(329, 100%, 96%)
-    //  ),
-    //  secondary: (
-    //    900: hsl(188, 91%, 23%),
-    //    800: hsl(186, 91%, 29%),
-    //    700: hsl(184, 90%, 34%),
-    //    600: hsl(182, 85%, 39%),
-    //    500: hsl(180, 77%, 47%),
-    //    400: hsl(176, 87%, 67%),
-    //    300: hsl(174, 96%, 78%),
-    //    200: hsl(172, 97%, 88%),
-    //    100: hsl(171, 82%, 96%)
-    //  ),
+    //   primary:
+    //   (
+    //     900: hsl(330, 79%, 20%),
+    //     800: hsl(331, 74%, 27%),
+    //     700: hsl(330, 70%, 36%),
+    //     600: hsl(330, 68%, 40%),
+    //     500: hsl(330, 63%, 47%),
+    //     400: hsl(330, 66%, 57%),
+    //     300: hsl(330, 77%, 76%),
+    //     200: hsl(330, 87%, 85%),
+    //     100: hsl(329, 100%, 96%),
+    //   ),
+    // secondary: (
+    //   900: hsl(188, 91%, 23%),
+    //   800: hsl(186, 91%, 29%),
+    //   700: hsl(184, 90%, 34%),
+    //   600: hsl(182, 85%, 39%),
+    //   500: hsl(180, 77%, 47%),
+    //   400: hsl(176, 87%, 67%),
+    //   300: hsl(174, 96%, 78%),
+    //   200: hsl(172, 97%, 88%),
+    //   100: hsl(171, 82%, 96%),
+    // ),
     neutral:
     (
       900: hsl(210, 24%, 16%),
@@ -70,21 +71,21 @@ $colors: (
     //    )
 );
 
+$color-white: get-color(neutral, 000);
+$color-black: get-color(neutral, 900);
+
 // Keys added to the map will have the following classes created for them: .button.*, callout.*, .tag.*, .text-*, .progress.*
 // Values can either be a string that matches a key from the $colors map, or a valid CSS value
-$theme-colors: (
-  //  "primary": "primary",
-    //  "secondary": "secondary",
-    //  "success": "success",
-    //  "warning": "warning",
-    //  "error": "error"
-);
+$theme-colors: ();
 
 // Keys added to the map will have the following classes created for them: .bg-*
 $background-colors: (
-  "white": #fff,
-  "black": #000,
+  //'primary': get-color('primary'),
+    //'secondary': get-color('secondary'),
+    //'success': get-color('success'),
+    //'warning': get-color('warning'),
+    //'error': get-color('error'),
 );
 
-// $color-text: get-color(neutral, 900);
+// $color-text: $color-black;
 // $color-headings-preferred: get-color(neutral, 800);

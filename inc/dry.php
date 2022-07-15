@@ -123,9 +123,9 @@ if (!function_exists('jellypress_display_socials')) :
     if (have_rows('social_channels', 'option')) :
       $social_links_formatted = '<ul class="social-channels">';
       while (have_rows('social_channels', 'option')) : the_row();
-        $socialNetwork = get_sub_field('network');
+        $socialnetwork = get_sub_field('network');
         $socialUrl = get_sub_field('url');
-        $social_links_formatted .= '<li class="social-icon"><a href="' . $socialUrl . '" rel="noopener" title="' . __('Visit us on ', 'lincad') . ucfirst($socialNetwork) . ' ">' . jellypress_icon($socialNetwork) . '</a></li>';
+        $social_links_formatted .= '<li class="social-icon"><a href="' . $socialUrl . '" rel="noopener" title="' . __('Visit us on ', 'jellypress') . ucfirst($socialnetwork) . ' ">' . jellypress_icon($socialnetwork) . '</a></li>';
       endwhile;
       $social_links_formatted .= '</ul>';
       return $social_links_formatted;
@@ -280,7 +280,7 @@ if (!function_exists('jellypress_display_opening_hours')) :
           $opening_hours = $from . ' - ' . $to;
         }
         $days = implode(", ", get_sub_field('days')); // Split into a comma sep string
-        $days = str_replace(array('Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'), array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'), $days); // Replace with actual words
+        $days = str_replace(array('Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'), array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'sunday'), $days); // Replace with actual words
         $opening_hours_formatted .= '<tr><td>' . $days . '</td><td>' . $opening_hours . '</td></tr>';
       endwhile;
       $opening_hours_formatted .= '</tbody></table>';

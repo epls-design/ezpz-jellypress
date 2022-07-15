@@ -1,43 +1,43 @@
 {
-    "key": "group_606724c571de0",
-    "title": "APIs",
-    "fields": [
-        {
-            "key": "field_606724c578b1f",
-            "label": "Google Maps API Key",
-            "name": "google_maps_api_key",
-            "type": "text",
-            "instructions": "To display Google Maps on your website, you need an API key. Please add it here.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "33",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        }
-    ],
-    "location": [
-        [
-            {
-                "param": "options_page",
-                "operator": "==",
-                "value": "apis"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "seamless",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": true,
-    "description": "",
-    "modified": 1622966758
+  "key": "group_606724c571de0",
+  "title": "APIs",
+  "fields": [
+    {
+      "key": "field_606724c578b1f",
+      "label": "Google Maps API Key",
+      "name": "google_maps_api_key",
+      "type": "text",
+      "instructions": "To display Google Maps on your website, you need an API key. Please add it here.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "apis"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "seamless",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "modified": 1622966758
 }

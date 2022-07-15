@@ -4,7 +4,7 @@ $handle_color: get-color(neutral, 900);
 .acf-fc-layout-handle {
   padding-left: get-size(1.5) !important;
   background: $handle_color !important;
-  color: get-color(neutral, 000) !important;
+  color: $color-white !important;
   font-weight: bold;
 
   .swatch {
@@ -62,21 +62,21 @@ $handle_color: get-color(neutral, 900);
 
 // Nicer styling of handle icons
 .acf-fc-layout-controls .acf-icon {
-  background: get-color(neutral, 000) !important;
+  background: $color-white !important;
   &:hover {
     background-color: get-color(primary) !important;
     border-color: get-color(primary);
-    color: choose-contrast-color(get-color(primary), get-color(neutral, 000), $handle_color);
+    color: choose-contrast-color(get-color(primary), $color-white, $handle_color);
   }
   &.-minus:hover {
     background-color: get-color(error) !important;
     border-color: get-color(error);
-    color: choose-contrast-color(get-color(error), get-color(neutral, 000), $handle_color);
+    color: choose-contrast-color(get-color(error), $color-white, $handle_color);
   }
   &.-plus:hover {
     background-color: get-color(success) !important;
     border-color: get-color(success);
-    color: choose-contrast-color(get-color(success), get-color(neutral, 000), $handle_color);
+    color: choose-contrast-color(get-color(success), $color-white, $handle_color);
   }
 }
 
@@ -188,13 +188,13 @@ $handle_color: get-color(neutral, 900);
   li {
     flex: 0 0 50%;
     &:nth-of-type(even) {
-      border-right: 1px solid rgba(get-color(neutral, 000), 0.2);
+      border-right: 1px solid rgba($color-white, 0.2);
       box-sizing: border-box;
     }
     // Stacks
     &:first-of-type() {
       order: 1;
-      border-top: 1px solid rgba(get-color(neutral, 000), 0.2);
+      border-top: 1px solid rgba($color-white, 0.2);
       flex: 0 0 100%;
       .dashicons {
         margin-right: 0.2em;

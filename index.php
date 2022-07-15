@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The main template file
  *
@@ -16,20 +17,16 @@
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
-if ( (is_front_page() && is_home()) || is_archive() ) {
-  get_template_part( 'archive');
-}
-elseif ( is_front_page() ){
-  get_template_part( 'page');
-}
-elseif ( is_singular() ){
-  get_template_part( 'single');
-}
-elseif ( is_search() ) {
-  get_template_part( 'search');
-}
-else {
-  get_template_part( '404');
+if ((is_front_page() && is_home()) || is_archive()) {
+  get_template_part('archive');
+} elseif (is_front_page()) {
+  get_template_part('page');
+} elseif (is_singular()) {
+  get_template_part('single');
+} elseif (is_search()) {
+  get_template_part('search');
+} else {
+  get_template_part('404');
 }

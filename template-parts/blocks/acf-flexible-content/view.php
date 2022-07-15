@@ -15,19 +15,12 @@ defined('ABSPATH') || exit;
 $id = get_the_ID();
 
 // Get Params from get_template_part:
-$is_stack = $args['is_stack'];
+$is_stack = isset($args['is_stack']) ? $args['is_stack'] : null;
 if ($is_stack) $stack_id = $args['stack_id'];
 
 if (!post_password_required()) :
 
-  /**
-   * Get all ACF field meta into a single array rather than querying the database for each field individually
-   * Massively improve performance
-   * @link https://github.com/timothyjensen/acf-field-group-values
-   */
-  $field_group_json = 'group_5d4037f4c3a41.json'; // Replace with the name of your field group JSON.
-  $field_group_array = json_decode(file_get_contents(get_stylesheet_directory() . "/assets/acf-json/{$field_group_json}"), true);
-  $block_data = get_all_custom_field_meta($id, $field_group_array);
+  $block_data = jellypress_get_acf_fields('5d4037f4c3a41');
 
   // If there are items in the flexible content field...
   if (!empty($block_data['sections'])) :
@@ -48,7 +41,7 @@ if (!post_password_required()) :
 
       $block_classes = 'block'; // Reset class
 
-      if ($is_stack) $block_classes .= ' is_stack';
+      if ($is_stack) $block_classes .= ' is-stack';
 
       //if ($i == 0) {
       //  $block_classes .= ' first'; // This is not foolproof, if any blocks are disabled this will not be accurate - so it shouldn't be used for anything important
@@ -58,7 +51,7 @@ if (!post_password_required()) :
       //}
 
       $block_layout = $block['acf_fc_layout'];
-      $block_classes .= ' block__' . $block_layout; // Add layout to classes
+      $block_classes .= ' block-' . $block_layout; // Add layout to classes
 
       // Block scheduling options
       $block_show_from = $block['show_from'];
@@ -82,12 +75,15 @@ if (!post_password_required()) :
 
       $prev_block_bg = isset($block_bg_color) ? $block_bg_color : null;
 
-      $block_bg_color = $block['background_color'];
-      $next_bg_color = $next_block['background_color'];
+      $block_bg_color = isset($block['background_color']) ? $block['background_color'] : null;
+      $next_bg_color = isset($next_block['background_color']) ? $next_block['background_color'] : null;
 
       if ($block_bg_color) {
         $block_classes .= ' bg-' . strtolower($block_bg_color);
       }
+
+      // Classes
+      if ($block['block_classes']) $block_classes .= ' ' . $block['block_classes'];
 
       if ($block['disable'] != 1 and $block_datetime_show == true) : // Display the block, if it is not disabled, and if the scheduling checks pass true
 

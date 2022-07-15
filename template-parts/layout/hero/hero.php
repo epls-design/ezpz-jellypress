@@ -13,7 +13,7 @@
 defined('ABSPATH') || exit;
 
 ?>
-<header class="block hero hero-<?php echo get_post_type(); ?> bg-white">
+<header class="block hero hero-<?= get_post_type(); ?> bg-white">
   <div class="container">
     <div class="row">
       <div class="col">

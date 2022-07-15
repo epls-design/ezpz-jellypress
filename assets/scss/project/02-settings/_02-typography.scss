@@ -64,6 +64,18 @@ $font-sizes-h6: (
     //  "md": font-size(3)
 );
 
+$cover-heading: (
+  "root": font-size(4),
+  "md": font-size(5),
+  "lg": font-size(6),
+);
+
+$cover-text: (
+  "root": font-size(3),
+  "md": font-size(4),
+  "lg": font-size(5),
+);
+
 // $heading-line-height: 1.2;
 
 $weight-hairline: 100;

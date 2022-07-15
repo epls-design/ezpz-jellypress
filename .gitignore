@@ -5,6 +5,13 @@ node_modules/
 env.php
 env.json
 
+# Compiled files
+languages/jellypress.pot
+style.css
+style-rtl.css
+dist/css/*
+dist/js/*
+
 # ignore Git folder
 _.git/
 
