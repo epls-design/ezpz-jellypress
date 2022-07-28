@@ -22,12 +22,14 @@ $block_title = $block['title'];
 $block_width = $block['content_width'];
 if ($block_width == 'wide') $container_class .= ' is-wide';
 elseif ($block_width == 'full') $block_classes .= ' is-full-width';
+elseif ($block_width === 'smaller') $justify = 'center';
 ?>
 
 <section <?php if ($block_id_opt = $block['section_id']) echo 'id="' . strtolower($block_id_opt) . '"'; ?> class="<?= $block_classes; ?>">
 
   <?php if ($block_title) : $title_align = $block['title_align'];
-    if ($title_align == 'left') $justify = 'start';
+    if($block_width === 'smaller') $justify = 'center';
+    elseif ($title_align == 'left') $justify = 'start';
     elseif ($title_align == 'right') $justify = 'end';
     else $justify = 'center';
   ?>
@@ -44,10 +46,14 @@ elseif ($block_width == 'full') $block_classes .= ' is-full-width';
     <div class="<?= $container_class; ?>">
       <?php
       if ($block_width === 'full') echo '<div class="vw-100">';
+      elseif ($block_width === 'smaller') echo '<div class="row justify-'.$justify.'"><div class="col md-10 lg-8">';
+
       if ($block['autoplay']) $autoplay = true;
       else $autoplay = false;
       jellypress_embed_video($block['video'], $block['aspect_ratio'], $autoplay);
-      if ($block_width === 'full') echo '</div>'; ?>
+
+      if ($block_width === 'full') echo '</div>';
+      elseif ($block_width === 'smaller') echo '</div></div>'; ?>
     </div>
 
     <?php if ($block['caption']) :
