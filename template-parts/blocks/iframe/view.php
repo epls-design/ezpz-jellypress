@@ -50,15 +50,17 @@ elseif ($block_width == 'full') $block_classes .= ' is-full-width';
     <div class="<?= $container_class; ?>">
       <div class="row">
         <div class="col">
-          <?php if ($block_width === 'full') {
-            echo '<div class="vw-100">';
-          } ?>
+          <?php
+            if ($block_width === 'full') echo '<div class="vw-100">';
+            elseif ($block_width === 'smaller') echo '<div class="row justify-center"><div class="col md-10 lg-8">';
+          ?>
           <div class="embed-container">
             <iframe class="embedded-iframe" src="<?= $website_url; ?>"></iframe>
           </div>
-          <?php if ($block_width === 'full') {
-            echo '</div>';
-          } ?>
+          <?php
+            if ($block_width === 'full') echo '</div>';
+            elseif ($block_width === 'smaller') echo '</div></div>';
+          ?>
         </div>
       </div>
     </div>

@@ -59,18 +59,20 @@ else $after_label = __('After', 'jellypress');
 
     <div class="row">
       <div class="col">
-        <?php if ($block_width === 'full') {
-          echo '<div class="vw-100">';
-        } ?>
+        <?php
+          if ($block_width === 'full') echo '<div class="vw-100">';
+          elseif ($block_width === 'smaller') echo '<div class="row justify-center"><div class="col md-10 lg-8">';
+        ?>
         <div id="<?= $compare_id; ?>" class="twentytwenty-container<?php if ($block['handle_color']) echo ' has-dark-handle'; ?>">
           <?php
           echo wp_get_attachment_image($block['image_one'], 'large');
           echo wp_get_attachment_image($block['image_two'], 'large');
           ?>
         </div>
-        <?php if ($block_width === 'full') {
-          echo '</div>';
-        } ?>
+        <?php
+          if ($block_width === 'full') echo '</div>';
+          elseif ($block_width === 'smaller') echo '</div></div>';
+        ?>
       </div>
     </div>
 

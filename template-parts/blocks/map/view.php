@@ -30,7 +30,8 @@ elseif ($block_width == 'full') $block_classes .= ' is-full-width';
 <section <?php if ($block_id_opt = $block['section_id']) echo 'id="' . strtolower($block_id_opt) . '"'; ?> class="<?= $block_classes; ?>">
   <?php if ($block_title || $block_preamble) echo '<div class="container">'; ?>
 
-  <?php if ($block_title) : $title_align = $block['title_align']; ?>
+  <?php if ($block_title) : $title_align = $block['title_align'];
+  ?>
     <header class="row justify-center block-title">
       <div class="col md-10 lg-8">
         <h2 class="text-<?= $title_align; ?>"><?= jellypress_bracket_tag_replace($block_title); ?></h2>
@@ -49,11 +50,10 @@ elseif ($block_width == 'full') $block_classes .= ' is-full-width';
   <?php if ($block_title || $block_preamble) echo '</div>'; ?>
 
   <div class="<?= $container_class; ?>">
-    <div class="row">
-      <div class="col">
-        <?php if ($block_width === 'full') {
-          echo '<div class="vw-100">';
-        }
+        <?php
+        if ($block_width === 'full') echo '<div class="vw-100">';
+        elseif ($block_width === 'smaller') echo '<div class="row justify-center"><div class="col md-10 lg-8">';
+
         if (get_global_option('google_maps_api_key') && ($map_locations = $block['locations'])) :
           jellypress_display_map_markers($map_locations);
         elseif (current_user_can('publish_posts')) :
@@ -66,11 +66,9 @@ elseif ($block_width == 'full') $block_classes .= ' is-full-width';
             )
             . '</div>';
         endif; // google_maps_api_key
-        if ($block_width === 'full') {
-          echo '</div>';
-        } ?>
-      </div>
-    </div>
+
+        if ($block_width === 'full') echo '</div>';
+        elseif ($block_width === 'smaller') echo '</div></div>'; ?>
   </div>
 
 </section>
