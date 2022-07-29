@@ -12,19 +12,21 @@
 defined('ABSPATH') || exit;
 
 ?>
-<header class="block hero hero-search bg-white">
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div class="page-header">
-          <h1 class="page-title">
-            <?php
-            /* translators: %s: search query. */
-            printf(esc_html__('Search Results for: %s', 'jellypress'), '<span>' . get_search_query() . '</span>');
-            ?>
-          </h1>
+<header class="block hero hero-search hero-small bg-neutral-200">
+  <div class="hero-main">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="page-header">
+            <h1 class="page-title">
+              <?php
+              /* translators: %s: search query. */
+              printf(esc_html__('Search Results for: %s', 'jellypress'), '<span>' . get_search_query() . '</span>');
+              ?>
+            </h1>
+            </d>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 </header>

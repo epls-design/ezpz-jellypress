@@ -12,12 +12,14 @@
 defined('ABSPATH') || exit;
 
 ?>
-<header class="block hero hero-not-found bg-white">
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div class="page-header">
-          <h1 class="page-title"><?php esc_html_e('Nothing Found', 'jellypress'); ?></h1>
+<header class="block hero hero-not-found hero-small bg-neutral-200">
+  <div class="hero-main">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="page-header">
+            <h1 class="page-title"><?php esc_html_e('Nothing Found', 'jellypress'); ?></h1>
+          </div>
         </div>
       </div>
     </div>
