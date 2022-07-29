@@ -11,8 +11,7 @@
 defined('ABSPATH') || exit;
 
 if (!function_exists('jellypress_loadmore_script')) :
-  function jellypress_loadmore_script()
-  {
+  function jellypress_loadmore_script() {
     $theme_version = wp_get_theme()->get('Version'); // Get current version of theme
     $js_version = $theme_version . '.' . filemtime(get_template_directory() . '/dist/js/site.min.js'); // Appends time stamp to help with cache busting
     // register our main scripts but do not enqueue them yet. These scripts will get enqueued by the jellypress_initialize_ajax_posts() function.
@@ -23,8 +22,7 @@ if (!function_exists('jellypress_loadmore_script')) :
 endif;
 
 if (!function_exists('jellypress_loadmore_ajax_handler')) :
-  function jellypress_loadmore_ajax_handler()
-  {
+  function jellypress_loadmore_ajax_handler() {
     // prepare our arguments for the query
     $args = json_decode(stripslashes($_POST['query']), true);
     $args['paged'] = $_POST['page'] + 1; // we need next page to be loaded
@@ -56,8 +54,7 @@ if (!function_exists('jellypress_initialize_ajax_posts')) :
    * @param string $load_type - Either button or scroll
    * @return void
    */
-  function jellypress_initialize_ajax_posts($query = null, $load_type = 'scroll')
-  {
+  function jellypress_initialize_ajax_posts($query = null, $load_type = 'scroll') {
 
     $script_name = 'jellypress_loadmore_' . $load_type;
 
