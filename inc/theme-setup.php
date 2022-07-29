@@ -94,6 +94,7 @@ if (!function_exists('jellypress_setup')) :
 
     add_image_size('icon', 40, 40, true); // Used by Google Maps
     add_image_size('small', 350, 350);
+    add_image_size('site_logo', 200, 999999, false);
     add_image_size('medium_landscape', 400, 300, true);
 
     /**
@@ -104,7 +105,7 @@ if (!function_exists('jellypress_setup')) :
      */
 
     // Add theme support for Gutenberg wide blocks
-    add_theme_support('align-wide');
+    // add_theme_support('align-wide');
 
     // Prevent the user from being able to edit font-sizes
     add_theme_support('disable-custom-font-sizes');

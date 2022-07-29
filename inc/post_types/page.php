@@ -7,10 +7,9 @@ defined('ABSPATH') || exit;
  * Remove support for WP Editor if you are using ACF exclusively for content
  */
 
-//add_action('init', 'jellypress_post_type_supports_page');
+add_action('init', 'jellypress_post_type_supports_page');
 if (!function_exists('jellypress_post_type_supports_page')) :
-  function jellypress_post_type_supports_page()
-  {
+  function jellypress_post_type_supports_page() {
     remove_post_type_support('page', 'editor');
     add_post_type_support('page', 'excerpt');
   }
@@ -22,8 +21,7 @@ endif;
 if (!function_exists('jellypress_create_page_taxonomies')) :
 
   // Register Taxonomy Page Type
-  function jellypress_create_page_taxonomies()
-  {
+  function jellypress_create_page_taxonomies() {
 
     $labels = array(
       'name'              => _x('Page Type', 'taxonomy general name', 'jellypress'),

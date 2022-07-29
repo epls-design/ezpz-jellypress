@@ -80,6 +80,11 @@ if (!function_exists('jellypress_mce_before_init_insert_formats')) {
         'block' => 'p',
       ),
       array(
+        'title' => 'Check List',
+        'classes' => 'check-mark-list',
+        'block' => 'ul',
+      ),
+      array(
         'title' => 'Small',
         'classes' => 'small',
         'block' => 'p',

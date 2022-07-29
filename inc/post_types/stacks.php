@@ -10,13 +10,12 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
-if (!function_exists('jellypress_create_campaign_cpt')) :
+if (!function_exists('jellypress_create_stack_cpt')) :
 
   /**
    * Register a CPT Stack
    */
-  function jellypress_create_campaign_cpt()
-  {
+  function jellypress_create_stack_cpt() {
 
     $labels = array(
       'name' => _x('Stacks (Block Library)', 'Post Type General Name', 'jellypress'),
@@ -84,13 +83,12 @@ if (!function_exists('jellypress_create_campaign_cpt')) :
   }
 endif;
 
-add_action('init', 'jellypress_create_campaign_cpt', 0);
+add_action('init', 'jellypress_create_stack_cpt', 0);
 /**
  * Creates notice for post edit screen to explain what this CPT is for
  */
-if (!function_exists('jellypress_campaign_cpt_notice')) :
-  function jellypress_campaign_cpt_notice()
-  {
+if (!function_exists('jellypress_stack_cpt_notice')) :
+  function jellypress_stack_cpt_notice() {
     global $pagenow;
     if (($pagenow == 'edit.php') && ($_GET['post_type'] == 'stack')) {
       echo '<div class="notice custom-notice notice-info"><p>' . __('Stacks are collections of blocks (or singular blocks) that can be reused throughout your website. <strong>Please note, when you add or edit a stack, you should clear the server cache to ensure the block is updated across the website.</strong>', 'jellypress') . '</p></div>';
@@ -98,7 +96,7 @@ if (!function_exists('jellypress_campaign_cpt_notice')) :
   }
 endif;
 
-add_action('admin_notices', 'jellypress_campaign_cpt_notice');
+add_action('admin_notices', 'jellypress_stack_cpt_notice');
 
 
 /**
@@ -106,8 +104,7 @@ add_action('admin_notices', 'jellypress_campaign_cpt_notice');
  */
 add_action('template_redirect', 'jellypress_redirect_cpt_stack_to_home');
 if (!function_exists('jellypress_redirect_cpt_stack_to_home')) :
-  function jellypress_redirect_cpt_stack_to_home()
-  {
+  function jellypress_redirect_cpt_stack_to_home() {
     $queried_post_type = get_query_var('post_type');
     if (is_single() && 'stack' ==  $queried_post_type && !current_user_can('edit_posts')) {
       wp_redirect(home_url('/'), 301);

@@ -4,11 +4,10 @@
 defined('ABSPATH') || exit;
 
 // Change "Posts" to "News". Customise as you wish.
-add_action('init', 'jellypress_change_post_object_labels', 0);
+//add_action( 'init', 'jellypress_change_post_object_labels', 0 );
 
 if (!function_exists('jellypress_change_post_object_labels')) :
-  function jellypress_change_post_object_labels()
-  {
+  function jellypress_change_post_object_labels() {
     global $wp_post_types;
     $labels = &$wp_post_types['post']->labels;
     $labels->singular_name = _x('News', 'Post Type Singular Name', 'jellypress');
@@ -41,7 +40,7 @@ if (!function_exists('jellypress_change_post_object_labels')) :
 endif;
 
 // Change "Posts" icon
-add_filter('register_post_type_args', 'jellypress_change_post_object_args', 20, 2);
+// add_filter( 'register_post_type_args', 'jellypress_change_post_object_args', 20, 2 );
 
 if (!function_exists('jellypress_change_post_object_args')) :
   function jellypress_change_post_object_args($args, $post_type)
@@ -52,5 +51,17 @@ if (!function_exists('jellypress_change_post_object_args')) :
     }
 
     return $args;
+  }
+endif;
+
+
+/**
+ * Remove support for WP Editor if you are using ACF exclusively for content
+ */
+
+add_action('init', 'jellypress_post_type_supports_post');
+if (!function_exists('jellypress_post_type_supports_post')) :
+  function jellypress_post_type_supports_post() {
+    remove_post_type_support('post', 'editor');
   }
 endif;
