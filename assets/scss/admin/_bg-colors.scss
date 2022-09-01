@@ -4,7 +4,12 @@
     background-color: $color;
   }
 }
-
+@each $name, $color in $background-vars {
+  // Loop through $background-vars map and create classes for .bg-*
+  .bg-#{$name} {
+    background-color: $color;
+  }
+}
 // Set up default colors for button-group swatches
 // No need to create all utility classes by adding them to the $background-colors map if not used in the theme
 .bg-gray {

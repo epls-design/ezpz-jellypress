@@ -1,4 +1,4 @@
 // ANCHOR LINKS
-// $link-color: get-color(primary);
-// $link-active: get-color(primary,600);
-// $link-visited: get-color(primary,400);
+$link-color: var(--link_colour);
+$link-active: var(--link_active_colour);
+$link-visited: var(--link_visited_colour);

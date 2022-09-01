@@ -1,0 +1,8 @@
+// Does the same thing for $background-vars that Jellyfish does for $background-colors
+// But without setting a text color (this is done with php)
+@each $name, $color in $background-vars {
+  // Loop through $background-vars map and create classes for .bg-*
+  .bg-#{$name} {
+    background-color: $color;
+  }
+}

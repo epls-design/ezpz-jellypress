@@ -1,0 +1,16 @@
+// This file is needed because the mixins rely on $color-text being an actual color reference.
+// So this is mostly undoing what is done automatically by that mixin
+// Wherever the choose-contrast-function is used, we will revert back to whatever is set in SASS for $color-text
+// TODO: check that this actually overrides everything on real-world sites
+
+body,
+select,
+:not(pre) > code {
+  color: var(--text_colour);
+}
+abbr {
+  border-bottom-color: var(--text_colour);
+}
+kbd {
+  background-color: var(--text_colour);
+}

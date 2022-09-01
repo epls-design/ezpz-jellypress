@@ -1,0 +1,130 @@
+.button.primary,
+.button.primary:disabled:hover,
+.button.primary:visited,
+a.button.primary,
+a.button.primary:disabled:hover,
+a.button.primary:visited {
+  background-color: var(--button_primary_colour) !important;
+  border-color: var(--button_primary_colour) !important;
+  color: var(--button_primary_text_colour) !important;
+}
+
+.button.primary.outline,
+.button.primary.outline:disabled:hover,
+.button.primary.outline:visited,
+a.button.primary.outline,
+a.button.primary.outline:disabled:hover,
+a.button.primary.outline:visited {
+  background-color: $color-white !important;
+  border-color: var(--button_primary_colour) !important;
+  color: var(--button_primary_colour) !important;
+}
+
+.button.primary.ghost,
+.button.primary.ghost:disabled:hover,
+.button.primary.ghost:visited,
+a.button.primary.ghost,
+a.button.primary.ghost:disabled:hover,
+a.button.primary.ghost:visited {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: var(--button_primary_colour) !important;
+}
+
+.button.primary:hover,
+.button.primary:hover,
+a.button.primary:hover {
+  background-color: var(--button_primary_hover_colour) !important;
+  border-color: var(--button_primary_hover_colour) !important;
+  color: var(--button_primary_hover_text_colour) !important;
+}
+
+.button.primary.outline:hover,
+.button.primary.outline:hover,
+a.button.primary.outline:hover {
+  background-color: var(--button_primary_hover_colour) !important;
+  border-color: var(--button_primary_hover_colour) !important;
+  color: var(--button_primary_hover_text_colour) !important;
+}
+
+.button.primary.ghost:hover,
+a.button.primary.ghost:hover {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: var(--button_primary_colour) !important;
+}
+
+.button.secondary,
+.button.secondary:disabled:hover,
+.button.secondary:visited,
+a.button.secondary,
+a.button.secondary:disabled:hover,
+a.button.secondary:visited {
+  background-color: var(--button_secondary_colour) !important;
+  border-color: var(--button_secondary_colour) !important;
+  color: var(--button_secondary_text_colour) !important;
+}
+
+.button.secondary.outline,
+.button.secondary.outline:disabled:hover,
+.button.secondary.outline:visited,
+a.button.secondary.outline,
+a.button.secondary.outline:disabled:hover,
+a.button.secondary.outline:visited {
+  background-color: $color-white !important;
+  border-color: var(--button_secondary_colour) !important;
+  color: var(--button_secondary_colour) !important;
+}
+
+.button.secondary.ghost,
+.button.secondary.ghost:disabled:hover,
+.button.secondary.ghost:visited,
+a.button.secondary.ghost,
+a.button.secondary.ghost:disabled:hover,
+a.button.secondary.ghost:visited {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: var(--button_secondary_colour) !important;
+}
+
+.button.secondary:hover,
+.button.secondary:hover,
+a.button.secondary:hover {
+  background-color: var(--button_secondary_hover_colour) !important;
+  border-color: var(--button_secondary_hover_colour) !important;
+  color: var(--button_secondary_hover_text_colour) !important;
+}
+
+.button.secondary.outline:hover,
+.button.secondary.outline:hover,
+a.button.secondary.outline:hover {
+  background-color: var(--button_secondary_hover_colour) !important;
+  border-color: var(--button_secondary_hover_colour) !important;
+  color: var(--button_secondary_hover_text_colour) !important;
+}
+
+.button.secondary.ghost:hover,
+a.button.secondary.ghost:hover {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: var(--button_secondary_colour) !important;
+}
+
+.button.white,
+.button.white:disabled:hover,
+.button.white:visited,
+a.button.white,
+a.button.white:disabled:hover,
+a.button.white:visited {
+  background-color: $color-white !important;
+  border-color: $color-white !important;
+  color: $button-text-color-dark !important;
+}
+
+.button.white:hover,
+.button.white:hover,
+a.button.white:hover {
+  background-color: $color-white !important;
+  border-color: $color-white !important;
+  color: $button-text-color-dark !important;
+}

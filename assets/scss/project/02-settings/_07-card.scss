@@ -1,6 +1,6 @@
 // CARDS
-// $card-border-radius: 0px;
+$card-border-radius: var(--card_border_radius);
 // $card-border-style: $border-style;
 // $card-border-color: $border-color;
-// $card-border-width: $border-width;
+$card-border-width: var(--card_border_width);
 // $card-padding: $element-padding;

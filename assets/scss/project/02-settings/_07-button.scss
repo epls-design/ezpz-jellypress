@@ -1,8 +1,8 @@
 // BUTTONS
 // $buttons: ('.button, a.button, button, [type=submit], [type=reset], [type=button]'); // Stack of elements to target
-// $button-border-width: 1px;
-// $button-border-radius: 3px;
-// $button-font-family: $font-secondary;
+$button-border-width: var(--button_border_width);
+$button-border-radius: var(--button_border_radius);
+$button-font-family: var(--button_font_family);
 // $button-padding-xsmall: 0.5em 0.75em;
 // $button-padding-small: 0.6em 1em;
 // $button-padding: 0.75em 1.25em;
@@ -20,5 +20,3 @@
 // $button-disabled-opacity: .65;
 // $button-list-button-margin: get-size(.5);
 // $button-base-color: 'neutral';
-
-// TODO: Change button mods to .is-small etc

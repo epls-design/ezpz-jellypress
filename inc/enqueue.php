@@ -9,41 +9,18 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
-if (!defined('FAVICON_DIR')) {
-  define('FAVICON_DIR', get_template_directory_uri() . '/dist/favicon');
-}
-
-/**
- * Enqueues in Google Fonts with Pagespeed in mind
- * by loading async and deffering
- * Usage: comment in the add_action and update the font URL to optimise performance
- */
-//add_action('wp_head', 'jellypress_optimise_google_fonts_enqueue', 5);
-if (!function_exists('jellypress_optimise_google_fonts_enqueue')) {
-
-  function jellypress_optimise_google_fonts_enqueue()
-  {
-    $fonts = 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap';
-?>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="<?= $fonts; ?>">
-    <link rel='stylesheet' id='google-fonts' href='<?= $fonts; ?>' media='print' onload="this.media='all'" />
-<?php }
-}
-
 if (!function_exists('jellypress_scripts')) {
   /**
    * Enqueue scripts and styles.
    */
-  function jellypress_scripts()
-  {
+  function jellypress_scripts() {
     $theme_version = wp_get_theme()->get('Version'); // Get current version of theme
     $css_version = $theme_version . ':' . filemtime(get_template_directory() . '/style.css'); // Appends time stamp to help with cache busting
     $js_version = $theme_version . ':' . filemtime(get_template_directory() . '/dist/js/site.min.js'); // Appends time stamp to help with cache busting
 
     // NOTE: Not using Gutenberg in this theme? Then remove these comments
-    //wp_dequeue_style('wp-block-library');
-    //wp_dequeue_style('wc-block-style'); // WooCommerce - you can remove this if you don't use Woocommerce
+    wp_dequeue_style('wp-block-library');
+    wp_dequeue_style('wc-block-style'); // WooCommerce - you can remove this if you don't use Woocommerce
 
     // Enqueue Stylesheets
     wp_enqueue_style('jellypress-styles', get_stylesheet_uri(), array(), $css_version);
@@ -140,6 +117,13 @@ if (!function_exists('jellypress_scripts')) {
       true
     );
 
+    wp_register_style(
+      'font-awesome',
+      'https://use.fontawesome.com/releases/v5.5.0/css/all.css',
+      array(),
+      '5.5.0'
+    );
+
     $get_gmaps_api = get_global_option('google_maps_api_key');
     if ($get_gmaps_api) {
       wp_register_script(
@@ -195,34 +179,14 @@ function jellypress_scripts_add_atts($tag, $handle, $src)
   return $tag;
 }
 
-if (!function_exists('jellypress_favicon_script')) {
-  /**
-   * Hook Favicons into wp_head() using a range of sizes and specifications
-   * TODO: Visit https://realfavicongenerator.net/ to generate the pack, replace the below with the latest standards as these often change
-   */
-  function jellypress_favicon_script()
-  {
-    echo '
-    <link rel="apple-touch-icon" sizes="180x180" href="' . FAVICON_DIR . '/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="' . FAVICON_DIR . '/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="' . FAVICON_DIR . '/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="' . FAVICON_DIR . '/manifest.json">
-    <link rel="mask-icon" href="' . FAVICON_DIR . '/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="' . FAVICON_DIR . '/favicon.ico">
-    <meta name="msapplication-config" content="' . FAVICON_DIR . '/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    ';
-  }
-}
-add_action('wp_head', 'jellypress_favicon_script');
-
-if (!function_exists('jellypress_add_favicon_to_admin')) {
+if (!function_exists('jellypress_add_favicon')) {
   // Add favicon to admin areas
-  function jellypress_add_favicon_to_admin()
-  {
-    $favicon_url = FAVICON_DIR . '/favicon.ico';
-    echo '<link rel="shortcut icon" href="' . $favicon_url . '" />';
+  function jellypress_add_favicon() {
+    $theme_options = jellypress_get_acf_fields('60c219d0bd368', 'option');
+    if ($favicon = wp_get_attachment_image_src($theme_options['favicon'], 'icon'))
+      echo '<link rel="shortcut icon" type="image/png" href="' . $favicon[0] . '" />';
   }
 }
-add_action('login_head', 'jellypress_add_favicon_to_admin');
-add_action('admin_head', 'jellypress_add_favicon_to_admin');
+add_action('login_head', 'jellypress_add_favicon', 10, 0);
+add_action('admin_head', 'jellypress_add_favicon', 10, 0);
+add_action('wp_head', 'jellypress_add_favicon', 10, 0);

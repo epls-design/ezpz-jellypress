@@ -45,7 +45,7 @@ if ($loaded == true) {
   <?php endif; ?>
 
   <footer class="card-section card-footer">
-    <a class="button small" href="<?php the_permalink(); ?>" rel="bookmark"><?php _e('Continue Reading <span class="screen-reader-text">' . get_the_title() . '</span>', 'jellypress'); ?></a>
+    <a class="button primary small" href="<?php the_permalink(); ?>" rel="bookmark"><?php _e('Continue Reading <span class="screen-reader-text">' . get_the_title() . '</span>', 'jellypress'); ?></a>
   </footer>
 
 </div>

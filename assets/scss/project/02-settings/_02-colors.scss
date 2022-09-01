@@ -76,15 +76,36 @@ $color-black: get-color(neutral, 900);
 
 // Keys added to the map will have the following classes created for them: .button.*, callout.*, .tag.*, .text-*, .progress.*
 // Values can either be a string that matches a key from the $colors map, or a valid CSS value
-$theme-colors: ();
+$theme-colors: (
+//  "primary": "primary",
+//  "secondary": "secondary",
+//  "success": "success",
+//  "warning": "warning",
+//  "error": "error"
+);
 
 // Keys added to the map will have the following classes created for them: .bg-*
 $background-colors: (
-  //'primary': get-color('primary'),
-    //'secondary': get-color('secondary'),
-    //'success': get-color('success'),
-    //'warning': get-color('warning'),
-    //'error': get-color('error'),
+  "white": #fff,
+  "black": #000,
+  "neutral-900": get-color(neutral,900),
+  "neutral-800": get-color(neutral,800),
+  "neutral-700": get-color(neutral,700),
+  "neutral-600": get-color(neutral,600),
+  "neutral-500": get-color(neutral,500),
+  "neutral-400": get-color(neutral,400),
+  "neutral-300": get-color(neutral,300),
+  "neutral-200": get-color(neutral,200),
+  "neutral-100": get-color(neutral,100),
+);
+
+$background-vars: (
+  "primary": var(--primary_colour),
+  "primary-dark": var(--primary_colour_dark),
+  "primary-light": var(--primary_colour_light),
+  "secondary": var(--secondary_colour),
+  "secondary-dark": var(--secondary_colour_dark),
+  "secondary-light": var(--secondary_colour_light),
 );
 
 // $color-text: $color-black;

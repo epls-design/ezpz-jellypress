@@ -45,7 +45,7 @@ switch ($block_bg_color) {
     $button_color = '';
 }
 ?>
-<div class="card card-statistic no-border">
+<div class="card card-statistic b-0">
   <div class="card-section">
     <?= '<div class="count-to number ' . $statistic_font_size . '" ' . $data_attribs . '>' . $initial_value . '</div>'; ?>
     <h3><?= jellypress_content($statistic_title); ?></h3>
