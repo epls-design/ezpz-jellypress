@@ -1,0 +1,436 @@
+{
+  "key": "group_5ff5b93d03614",
+  "title": "Hero",
+  "fields": [
+    {
+      "key": "field_5ff5b9450cabb",
+      "label": "Hero Height",
+      "name": "hero_height",
+      "type": "select",
+      "instructions": "Please select how high you would like the hero to be.",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "18",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "large": "Large",
+        "medium": "Medium",
+        "small": "Small"
+      },
+      "default_value": "medium",
+      "allow_null": 0,
+      "multiple": 0,
+      "ui": 0,
+      "return_format": "value",
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_5ff5b9950cabc",
+      "label": "Background Type",
+      "name": "background_type",
+      "type": "button_group",
+      "instructions": "Please select the type of content you want to use for the hero background.",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "image": "<i class=\"dashicons dashicons-format-image\"></i> Image",
+        "color": "<i class=\"dashicons dashicons-color-picker\"></i> Color",
+        "video": "<i class=\"dashicons dashicons-format-video\"></i> Video"
+      },
+      "allow_null": 0,
+      "default_value": "image",
+      "layout": "horizontal",
+      "return_format": "value"
+    },
+    {
+      "key": "field_5ff5c1fd73cd7",
+      "label": "Background Image",
+      "name": "hero_image",
+      "type": "image",
+      "instructions": "Please select your background image. <strong>Recommended min-width 1920px</strong>",
+      "required": 1,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_5ff5b9950cabc",
+            "operator": "==",
+            "value": "image"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "100",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "array",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": "",
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": ""
+    },
+    {
+      "key": "field_5ff5d1e2c9a47",
+      "label": "Background Color",
+      "name": "background_color",
+      "type": "button_group",
+      "instructions": "Please select the colour for the hero background",
+      "required": 1,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_5ff5b9950cabc",
+            "operator": "==",
+            "value": "color"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "34",
+        "class": "swatches",
+        "id": ""
+      },
+      "choices": {
+        "white": "<span class=\"swatch bg-white\"></span>",
+        "neutral-200": "<span class=\"swatch bg-neutral-200\"></span>",
+        "neutral-900": "<span class=\"swatch bg-neutral-900\"></span>",
+        "primary-dark": "<span class=\"swatch bg-primary-dark\"></span>",
+        "primary": "<span class=\"swatch bg-primary\"></span>",
+        "primary-light": "<span class=\"swatch bg-primary-light\"></span>",
+        "secondary-dark": "<span class=\"swatch bg-secondary-dark\"></span>",
+        "secondary": "<span class=\"swatch bg-secondary\"></span>",
+        "secondary-light": "<span class=\"swatch bg-secondary-light\"></span>"
+      },
+      "allow_null": 0,
+      "default_value": "dark",
+      "layout": "horizontal",
+      "return_format": "value"
+    },
+    {
+      "key": "field_5ff5d4a7aa49d",
+      "label": "Background Video",
+      "name": "background_video",
+      "type": "group",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_5ff5b9950cabc",
+            "operator": "==",
+            "value": "video"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "100",
+        "class": "seamless",
+        "id": ""
+      },
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_5ff5d753aa49f",
+          "label": "Poster",
+          "name": "video_poster",
+          "type": "image",
+          "instructions": "Please upload poster artwork for the video. This is displayed before the video is loaded, and in place of the video on some mobile devices. <strong>Min 600px x 400px</strong>",
+          "required": 1,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "20",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "preview_size": "thumbnail",
+          "library": "all",
+          "min_width": 600,
+          "min_height": 400,
+          "min_size": "",
+          "max_width": "",
+          "max_height": "",
+          "max_size": "",
+          "mime_types": "jpeg, jpeg, png, gif"
+        },
+        {
+          "key": "field_5ff5d51caa49e",
+          "label": "Video Sources",
+          "name": "video_sources",
+          "type": "repeater",
+          "instructions": "Add up to three video sources (usually an .mp4 is sufficient, however you can also add webm and ogg files to support older browsers). <strong>Max video size 14MB.</strong>",
+          "required": 1,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "30",
+            "class": "",
+            "id": ""
+          },
+          "collapsed": "",
+          "min": 1,
+          "max": 3,
+          "layout": "table",
+          "button_label": "Add Source",
+          "sub_fields": [
+            {
+              "key": "field_5ff5d860aa4a0",
+              "label": "Video Source",
+              "name": "video_source",
+              "type": "file",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "return_format": "id",
+              "library": "all",
+              "min_size": "",
+              "max_size": 14,
+              "mime_types": "webm, ogg, mp4"
+            }
+          ]
+        },
+        {
+          "key": "field_600a985c6efb7",
+          "label": "External Video Link",
+          "name": "external_video_link",
+          "type": "oembed",
+          "instructions": "If you'd like the visitor to be able to play a full version of the background, you can add a YouTube / Vimeo link here, which will be shown when the play button is pressed.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "30",
+            "class": "",
+            "id": ""
+          },
+          "width": "",
+          "height": ""
+        },
+        {
+          "key": "field_60229269584c3",
+          "label": "Aspect Ratio",
+          "name": "aspect_ratio",
+          "type": "select",
+          "instructions": "Please select the video's aspect ratio.",
+          "required": 1,
+          "conditional_logic": [
+            [
+              {
+                "field": "field_60205d112aab8",
+                "operator": "==",
+                "value": "video"
+              }
+            ]
+          ],
+          "wrapper": {
+            "width": "20",
+            "class": "",
+            "id": ""
+          },
+          "choices": {
+            "16x9": "16x9",
+            "21x9": "21x9",
+            "1x1": "1x1",
+            "4x3": "4x3"
+          },
+          "default_value": "16x9",
+          "allow_null": 0,
+          "multiple": 0,
+          "ui": 1,
+          "ajax": 0,
+          "return_format": "value",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "key": "field_60181b157f8ac",
+      "label": "Title Image",
+      "name": "title_image",
+      "type": "image",
+      "instructions": "If you would like to replace the page title with an image, please add the image here. <strong>Minimum width 600px. Filetype png</strong>",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "preview_size": "thumbnail",
+      "library": "all",
+      "min_width": 600,
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": "png"
+    },
+    {
+      "key": "field_5ff5ba5e0cabd",
+      "label": "Subhead",
+      "name": "subhead",
+      "type": "textarea",
+      "instructions": "If you would like to add a sub-heading to the page, please do so here. <strong>You can enclose text in double square brackets <code>[[  ]]</code> to emphasise certain words. For example <code>[[I am emphasised!]] I am not!</code></strong>",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "66",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "maxlength": "",
+      "rows": "",
+      "new_lines": ""
+    },
+    {
+      "key": "field_60e42b7a52064",
+      "label": "Hero Title Colour",
+      "name": "hero_title_colour",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "ui": 1,
+      "ui_on_text": "Light",
+      "ui_off_text": "Dark"
+    },
+    {
+      "key": "field_61654cee6b87f",
+      "label": "Buttons",
+      "name": "buttons",
+      "type": "repeater",
+      "instructions": "You can add up to three Call to Action buttons to this block. <strong>Note: you don't want the website to look like a rainbow. Follow the design language of your site to ensure that key messages are highlighted the same colour, and secondary buttons are less prominent.</strong>",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "collapsed": "",
+      "min": 0,
+      "max": 0,
+      "layout": "table",
+      "button_label": "",
+      "sub_fields": [
+        {
+          "key": "field_61654db46b880",
+          "label": "Button Link",
+          "name": "button_link",
+          "type": "link",
+          "instructions": "Please select a link for the button.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "50",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array"
+        },
+        {
+          "key": "field_61654ddd6b881",
+          "label": "Button Color",
+          "name": "button_color",
+          "type": "button_group",
+          "instructions": "Please select a color for the button.",
+          "required": 1,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "25",
+            "class": "swatches",
+            "id": ""
+          },
+          "choices": {
+            "white": "<span class=\"swatch bg-white\"></span>",
+            "primary": "<span class=\"swatch bg-primary\"></span>",
+            "secondary": "<span class=\"swatch bg-secondary\"></span>"
+          },
+          "allow_null": 0,
+          "default_value": "default",
+          "layout": "horizontal",
+          "return_format": "value"
+        },
+        {
+          "key": "field_61654e156b882",
+          "label": "Button Style",
+          "name": "button_style",
+          "type": "select",
+          "instructions": "Please select a style for the button.",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "25",
+            "class": "",
+            "id": ""
+          },
+          "choices": {
+            "filled": "Filled",
+            "outline": "Outline",
+            "ghost": "Ghost"
+          },
+          "default_value": false,
+          "allow_null": 0,
+          "multiple": 0,
+          "ui": 0,
+          "return_format": "value",
+          "ajax": 0,
+          "placeholder": ""
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "page"
+      }
+    ],
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "post"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "modified": 1662565979
+}

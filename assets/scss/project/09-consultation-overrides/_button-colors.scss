@@ -109,22 +109,3 @@ a.button.secondary.ghost:hover {
   border-color: transparent !important;
   color: var(--button_secondary_colour) !important;
 }
-
-.button.white,
-.button.white:disabled:hover,
-.button.white:visited,
-a.button.white,
-a.button.white:disabled:hover,
-a.button.white:visited {
-  background-color: $color-white !important;
-  border-color: $color-white !important;
-  color: $button-text-color-dark !important;
-}
-
-.button.white:hover,
-.button.white:hover,
-a.button.white:hover {
-  background-color: $color-white !important;
-  border-color: $color-white !important;
-  color: $button-text-color-dark !important;
-}

@@ -1,0 +1,155 @@
+.bg-image {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.text-hide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.hero {
+  &.block {
+    padding: 0;
+  }
+
+  @include above(md) {
+    &-large {
+      .hero-main {
+        min-height: 85vh;
+      }
+    }
+    &-medium {
+      .hero-main {
+        min-height: get-size(32);
+      }
+    }
+    &-small {
+      .hero-main {
+        min-height: get-size(24);
+      }
+    }
+  }
+
+  .hero-button-container {
+    margin-top: get-size(3);
+  }
+
+  @include below(md) {
+    &-large {
+      .hero-main {
+        //  height: get-size(56);
+        min-height: get-size(24);
+      }
+    }
+    &-medium {
+      .hero-main {
+        min-height: get-size(24);
+      }
+    }
+    &-small {
+      .hero-main {
+        min-height: get-size(24);
+      }
+    }
+  }
+
+  .bg-video {
+    @include below(sm) {
+      height: get-size(24);
+      max-height: 60vh;
+    }
+    //max-height: 50vh;
+    @include between(sm, md) {
+      height: get-size(32);
+      max-height: 70vh;
+    }
+  }
+  h1 {
+    margin: 0 auto;
+    line-height: 1.1;
+    text-align: center;
+    font-weight: $weight-light;
+    @include smooth(font-size);
+    @include above(sm) {
+      //max-width: 90%
+    }
+  }
+  .bg-image {
+    @include above(md) {
+      //background-attachment: fixed;
+    }
+  }
+}
+
+.hero-subhead {
+  @extend h1;
+  margin-bottom: $element-margin !important;
+  margin-top: get-size(0.5) !important;
+  font-size: font-size(3);
+  @include above(lg) {
+    font-size: font-size(4);
+  }
+}
+
+.hero-main {
+  display: flex;
+  align-items: center;
+}
+
+.hero-main.bg-image,
+.hero-main.bg-video {
+  position: relative;
+  &:before {
+    @include pseudo;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background: black;
+    opacity: 0.4;
+    z-index: 1;
+  }
+  .container {
+    z-index: 2;
+  }
+}
+
+.hero-main.bg-video {
+  overflow: hidden;
+}
+
+.hero-video {
+  object-fit: cover;
+  //width: 100vw;
+  //height: 100vh;
+  width: 100%;
+  height: 100%;
+  //@media (max-aspect-ratio: 16/9) {
+  //  width:auto;
+  //  height: 100%;
+  //}
+  //@media (min-aspect-ratio: 16/9) {
+  //  width:100%;
+  //  height: auto;
+  //}
+  position: absolute;
+  @include above(md) {
+  }
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero .play-button {
+  margin-top: get-size(2);
+}
+
+.page-title-light {
+  color: white;
+}

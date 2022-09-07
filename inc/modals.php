@@ -23,10 +23,27 @@ if (!function_exists('jellypress_modal_init')) :
    * @param string $close_button_inside -> Whether the close button should be inside the modal or outside.
    * @return void
    */
-  function jellypress_modal_init($modal_selector, $delegate = null, $is_gallery = true, $modal_type = 'image', $close_button_inside = 'false')
-  {
+  function jellypress_modal_init($modal_selector, $delegate = null, $is_gallery = true, $modal_type = 'image', $close_button_inside = 'false', $callback = null) {
 
     wp_enqueue_script('magnific-popup');
+
+    $callback_script = '';
+    if ($callback == 'video') {
+      $callback_script = '
+      callbacks: {
+        open: function(item) {
+          var activeModal = this.content,
+          button = activeModal.find("button.play"),
+          videoWrapper = button.closest(".video-wrapper"),
+          iframeElement = videoWrapper.find("iframe");
+          playVideoScript(videoWrapper, iframeElement, button);
+        },
+        close: function(item) {
+          var activeModal = this.content;
+          jellypressStopVideo(activeModal);
+        }
+      }';
+    }
 
     // Code to output in the DOM
     $output =
@@ -44,7 +61,8 @@ if (!function_exists('jellypress_modal_init')) :
     $output .= '
           closeBtnInside: ' . $close_button_inside . ',
           removalDelay: 400,
-          mainClass: "modal-fade"
+          mainClass: "modal-fade",'
+      . $callback_script . '
         });
       })( jQuery );
   </script>
