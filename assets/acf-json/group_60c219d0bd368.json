@@ -1,0 +1,1070 @@
+{
+  "key": "group_60c219d0bd368",
+  "title": "Theme Design Settings",
+  "fields": [
+    {
+      "key": "field_60ca130d46fcf",
+      "label": "Colours",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_60ca0abd54ba6",
+      "label": "Primary Colour",
+      "name": "primary_colour",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33.3",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60c21aabffdbb",
+      "label": "Primary Colour Dark",
+      "name": "primary_colour_dark",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33.3",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60c21ac8ffdbc",
+      "label": "Primary Colour Light",
+      "name": "primary_colour_light",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33.3",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60ca0ad854ba7",
+      "label": "Secondary Colour",
+      "name": "secondary_colour",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33.3",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60c223d0ffdbe",
+      "label": "Secondary Colour Dark",
+      "name": "secondary_colour_dark",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33.3",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60c223e8ffdbf",
+      "label": "Secondary Colour Light",
+      "name": "secondary_colour_light",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33.3",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60c9d586d79e1",
+      "label": "H1 (preferred colour)",
+      "name": "h1",
+      "type": "color_picker",
+      "instructions": "The theme will override this if the selected colour needs more contrast against the block background colour.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33.3",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60c9d5a7d79e2",
+      "label": "H2 (preferred colour)",
+      "name": "h2",
+      "type": "color_picker",
+      "instructions": "The theme will override this if the selected colour needs more contrast against the block background colour.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33.3",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60c9d5b0d79e3",
+      "label": "H3 (preferred colour)",
+      "name": "h3",
+      "type": "color_picker",
+      "instructions": "The theme will override this if the selected colour needs more contrast against the block background colour.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33.3",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60c9d5bad79e4",
+      "label": "H4 (preferred colour)",
+      "name": "h4",
+      "type": "color_picker",
+      "instructions": "The theme will override this if the selected colour needs more contrast against the block background colour.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33.3",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60c9d5ccd79e5",
+      "label": "H5 (preferred colour)",
+      "name": "h5",
+      "type": "color_picker",
+      "instructions": "The theme will override this if the selected colour needs more contrast against the block background colour.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33.3",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60c9d5d4d79e6",
+      "label": "H6 (preferred colour)",
+      "name": "h6",
+      "type": "color_picker",
+      "instructions": "The theme will override this if the selected colour needs more contrast against the block background colour.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33.3",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60c22409ffdc0",
+      "label": "Text Colour",
+      "name": "text_colour",
+      "type": "color_picker",
+      "instructions": "The theme will override this if the selected colour needs more contrast against the block background colour.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60ca143b2fefc",
+      "label": "Link Colour",
+      "name": "link_colour",
+      "type": "color_picker",
+      "instructions": "The theme will override this if the selected colour needs more contrast against the block background colour.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60ca146f2fefd",
+      "label": "Link Active Colour",
+      "name": "link_active_colour",
+      "type": "color_picker",
+      "instructions": "The theme will override this if the selected colour needs more contrast against the block background colour.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60ca14b42fefe",
+      "label": "Link Visited Colour",
+      "name": "link_visited_colour",
+      "type": "color_picker",
+      "instructions": "The theme will override this if the selected colour needs more contrast against the block background colour.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60ca132546fd0",
+      "label": "Fonts",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_60ca15192feff",
+      "label": "Body Font",
+      "name": "body_font",
+      "type": "text",
+      "instructions": "Please copy the font family from the website for the body text",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
+    },
+    {
+      "key": "field_60ca15892ff00",
+      "label": "H1 Font",
+      "name": "h1_font",
+      "type": "text",
+      "instructions": "Please copy the font family from the website for the h1 text",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
+    },
+    {
+      "key": "field_60ca15962ff01",
+      "label": "H2 Font",
+      "name": "h2_font",
+      "type": "text",
+      "instructions": "Please copy the font family from the website for the h2 text",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
+    },
+    {
+      "key": "field_60ca15cb2ff02",
+      "label": "H3 Font",
+      "name": "h3_font",
+      "type": "text",
+      "instructions": "Please copy the font family from the website for the h3 text",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
+    },
+    {
+      "key": "field_60ca15ef2ff03",
+      "label": "H4 Font",
+      "name": "h4_font",
+      "type": "text",
+      "instructions": "Please copy the font family from the website for the h4 text",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
+    },
+    {
+      "key": "field_60ca15fe2ff04",
+      "label": "H5 Font",
+      "name": "h5_font",
+      "type": "text",
+      "instructions": "Please copy the font family from the website for the h5 text",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
+    },
+    {
+      "key": "field_60ca160f2ff05",
+      "label": "H6 Font",
+      "name": "h6_font",
+      "type": "text",
+      "instructions": "Please copy the font family from the website for the h6 text",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
+    },
+    {
+      "key": "field_60d1b799f6fb9",
+      "label": "Font Links",
+      "name": "font_links",
+      "type": "textarea",
+      "instructions": "Please copy and paste the adobe or the google fonts link script that you will get from the website",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "maxlength": "",
+      "rows": "",
+      "new_lines": ""
+    },
+    {
+      "key": "field_60ca16242ff06",
+      "label": "Nav",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_60ca16432ff07",
+      "label": "Navbar Background Colour",
+      "name": "nav_background_colour",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33.3",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60ca16702ff08",
+      "label": "Navbar Font",
+      "name": "nav_font",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "66.6",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
+    },
+    {
+      "key": "field_60ca16912ff09",
+      "label": "Navbar Link Colour",
+      "name": "nav_link_colour",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33.3",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60ca16b52ff0a",
+      "label": "Navbar Link Hover Colour",
+      "name": "nav_link_hover_colour",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33.3",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60ca16d12ff0b",
+      "label": "Navbar Link Hover Background Color",
+      "name": "nav_link_hover_background_color",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33.3",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60ca193c2ff0c",
+      "label": "Navbar Sublink Colour",
+      "name": "nav_sublink_colour",
+      "type": "color_picker",
+      "instructions": "Only applies on larger screens (when the drop down is active)",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60ca19a82ff0e",
+      "label": "Navbar Sublink Hover Colour",
+      "name": "nav_sublink_hover_colour",
+      "type": "color_picker",
+      "instructions": "Only applies on larger screens (when the drop down is active)",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60ca19722ff0d",
+      "label": "Navbar Sublink Background Colour",
+      "name": "nav_sublink_background_colour",
+      "type": "color_picker",
+      "instructions": "Only applies on larger screens (when the drop down is active)",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60ca19c72ff0f",
+      "label": "Navbar Sublink Hover Background Colour",
+      "name": "nav_sublink_hover_background_colour",
+      "type": "color_picker",
+      "instructions": "Only applies on larger screens (when the drop down is active)",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60ca1a0ef479c",
+      "label": "Buttons",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_60ca1a22f479d",
+      "label": "Button Border Width",
+      "name": "button_border_width",
+      "type": "number",
+      "instructions": "Please enter the border width you would like to have in px",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33.3",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "min": "",
+      "max": "",
+      "step": ""
+    },
+    {
+      "key": "field_60ca1a4df479e",
+      "label": "Button Border Radius",
+      "name": "button_border_radius",
+      "type": "number",
+      "instructions": "Please enter the px value you would like for the border radius",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33.3",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "min": "",
+      "max": "",
+      "step": ""
+    },
+    {
+      "key": "field_60ca1a73f479f",
+      "label": "Button Font Family",
+      "name": "button_font_family",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33.3",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
+    },
+    {
+      "key": "field_611272100bb4f",
+      "label": "Primary Colour",
+      "name": "button_primary_colour",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_6112727d0bb50",
+      "label": "Primary Text Colour",
+      "name": "button_primary_text_colour",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_611272990bb51",
+      "label": "Primary Hover Colour",
+      "name": "button_primary_hover_colour",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_611272c80bb52",
+      "label": "Primary Hover Text Colour",
+      "name": "button_primary_hover_text_colour",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_611272eb0bb53",
+      "label": "Secondary Colour",
+      "name": "button_secondary_colour",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_6112730d0bb54",
+      "label": "Secondary Text Colour",
+      "name": "button_secondary_text_colour",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_611273270bb55",
+      "label": "Secondary Hover Colour",
+      "name": "button_secondary_hover_colour",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_611273c20bb56",
+      "label": "Secondary Hover Text Colour",
+      "name": "button_secondary_hover_text_colour",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_60ca1aabf47a0",
+      "label": "Cards",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_60ca1ac7f47a1",
+      "label": "Card Border Radius",
+      "name": "card_border_radius",
+      "type": "number",
+      "instructions": "Please enter the border radius value in px",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "min": "",
+      "max": "",
+      "step": ""
+    },
+    {
+      "key": "field_60ca1aebf47a2",
+      "label": "Card Border Width",
+      "name": "card_border_width",
+      "type": "number",
+      "instructions": "Please enter the px value you would like for the border width",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "min": "",
+      "max": "",
+      "step": ""
+    },
+    {
+      "key": "field_60cb51a8141bf",
+      "label": "Custom CSS",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_60cb5123141be",
+      "label": "Custom CSS",
+      "name": "custom_css",
+      "type": "textarea",
+      "instructions": "Write your own css in here and it will be displayed in the header",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "maxlength": "",
+      "rows": "",
+      "new_lines": ""
+    },
+    {
+      "key": "field_60cb6f4e5f913",
+      "label": "Footer",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_60cb6f9e5f914",
+      "label": "Footer Stack",
+      "name": "footer_selector",
+      "type": "page_link",
+      "instructions": "Please select the stack you would like to use as the site-wide footer",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "post_type": [
+        "stack"
+      ],
+      "taxonomy": "",
+      "allow_null": 0,
+      "allow_archives": 0,
+      "multiple": 0
+    },
+    {
+      "key": "field_60cb7776730ab",
+      "label": "Branding",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_60cb7791730ac",
+      "label": "Main Logo",
+      "name": "main_logo",
+      "type": "image",
+      "instructions": "Used in the Navbar",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "array",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 180,
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": ""
+    },
+    {
+      "key": "field_60cb77b2730ad",
+      "label": "Favicon",
+      "name": "favicon",
+      "type": "image",
+      "instructions": "A small 80x80 graphic shown in the browser tab",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "array",
+      "preview_size": "medium",
+      "library": "all",
+      "min_width": 80,
+      "min_height": 80,
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": ""
+    },
+    {
+      "key": "field_60e4080e98c22",
+      "label": "Header",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_60e4083398c23",
+      "label": "Header Picker",
+      "name": "header_picker",
+      "type": "select",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "Option 1": "Logo Left",
+        "Option 2": "Logo Middle"
+      },
+      "default_value": "Option 1",
+      "allow_null": 0,
+      "multiple": 0,
+      "ui": 0,
+      "return_format": "value",
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_620397e08cfcc",
+      "label": "Translate",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_620397f28cfcd",
+      "label": "Translate",
+      "name": "translate_check",
+      "type": "true_false",
+      "instructions": "If you want this please make sure that you have downloaded the G Translate plugin first: https://en-gb.wordpress.org/plugins/gtranslate/",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "ui": 1,
+      "ui_on_text": "",
+      "ui_off_text": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "theme-designer"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "modified": 1644402786
+}
