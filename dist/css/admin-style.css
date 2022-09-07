@@ -1,5 +1,5 @@
-/* JellyPress Wordpress Theme 1.2.4
- * © 2022-07 EPLS Design - https://epls.design */
+/* EPLS Consultations Wordpress Theme 1.2.4
+ * © 2022-09 EPLS Design - https://epls.design */
 
 /**
  * Calculate the luminance for a color.
@@ -310,23 +310,75 @@
 }
 
 .bg-white {
-  background-color: white;
+  background-color: #fff;
 }
 
 .bg-dark {
   background-color: #1f2933;
 }
 
-.bg-gray {
+.bg-black {
+  background-color: #000;
+}
+
+.bg-neutral-900 {
+  background-color: #1f2933;
+}
+
+.bg-neutral-800 {
+  background-color: #33404d;
+}
+
+.bg-neutral-700 {
+  background-color: #3f4d5a;
+}
+
+.bg-neutral-600 {
+  background-color: #515f6c;
+}
+
+.bg-neutral-500 {
   background-color: #6e7c8c;
 }
 
+.bg-neutral-400 {
+  background-color: #9aa5b1;
+}
+
+.bg-neutral-300 {
+  background-color: #cad1d8;
+}
+
+.bg-neutral-200 {
+  background-color: #e5e8eb;
+}
+
+.bg-neutral-100 {
+  background-color: #f5f7fa;
+}
+
 .bg-primary {
-  background-color: #c32c78;
+  background-color: var(--primary_colour);
+}
+
+.bg-primary-dark {
+  background-color: var(--primary_colour_dark);
+}
+
+.bg-primary-light {
+  background-color: var(--primary_colour_light);
 }
 
 .bg-secondary {
-  background-color: #1cd4d4;
+  background-color: var(--secondary_colour);
+}
+
+.bg-secondary-dark {
+  background-color: var(--secondary_colour_dark);
+}
+
+.bg-secondary-light {
+  background-color: var(--secondary_colour_light);
 }
 
 .dev-flag {
@@ -367,6 +419,10 @@
 }
 #mceu_71 .mce-txt {
   font-size: 13px;
+}
+
+body#tinymce {
+  font-family: var(--body_font);
 }
 
 /*# sourceMappingURL=admin-style.css.map */

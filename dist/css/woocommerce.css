@@ -1,5 +1,5 @@
-/* JellyPress Wordpress Theme 1.2.4
- * © 2022-07 EPLS Design - https://epls.design */
+/* EPLS Consultations Wordpress Theme 1.2.4
+ * © 2022-09 EPLS Design - https://epls.design */
 
 /**
  * Calculate the luminance for a color.
@@ -67,10 +67,10 @@
   text-align: center;
   font-size: 0.9rem;
   font-weight: 700;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  border-width: 1px;
+  font-family: var(--button_font_family);
+  border-width: var(--button_border_width);
   border-style: solid;
-  border-radius: 3px;
+  border-radius: var(--button_border_radius);
   /* // Button uses base color from SASS $colors map */
   /* // Button uses value `600` in key `neutral`, in the $colors map for it's :hover color */
 }
@@ -312,7 +312,7 @@
   background: white;
   text-align: left;
   padding: 0;
-  border: #cad1d8 solid 1px;
+  border: #cad1d8 solid var(--card_border_width);
   padding: 24px;
 }
 #site-header-cart .widget_shopping_cart .total {
@@ -341,11 +341,11 @@
 #site-header-cart .product_list_widget a:link,
 #site-header-cart .product_list_widget a:visited {
   background-color: transparent;
-  color: #c32c78;
+  color: var(--link_colour);
 }
 #site-header-cart .product_list_widget a:hover,
 #site-header-cart .product_list_widget a:focus {
-  color: #da4991;
+  color: var(--link_visited_colour);
 }
 #site-header-cart .product_list_widget img {
   width: 40px;
@@ -786,11 +786,11 @@
   opacity: 0.25;
 }
 .woocommerce p.stars:hover a::before {
-  color: #c32c78;
+  color: var(--link_colour);
   opacity: 1;
 }
 .woocommerce p.stars.selected a.active::before {
-  color: #c32c78;
+  color: var(--link_colour);
   opacity: 1;
 }
 .woocommerce p.stars.selected a.active ~ a::before {
@@ -798,7 +798,7 @@
   opacity: 0.25;
 }
 .woocommerce p.stars.selected a:not(.active)::before {
-  color: #c32c78;
+  color: var(--link_colour);
   opacity: 1;
 }
 
@@ -951,7 +951,7 @@
   height: 1em;
   cursor: ew-resize;
   outline: none;
-  background: #c32c78;
+  background: var(--link_colour);
   box-sizing: border-box;
   margin-top: -0.25em;
   opacity: 1;
@@ -967,7 +967,7 @@
   z-index: 1;
   display: block;
   border: 0;
-  background: #c32c78;
+  background: var(--link_colour);
 }
 .widget_price_filter .price_slider_wrapper .ui-widget-content {
   background: rgba(0, 0, 0, 0.1);

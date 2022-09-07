@@ -1,0 +1,31 @@
+// Header
+@include above(md) {
+  .center-logo {
+    text-align: center;
+    display: block !important;
+  }
+
+  .center-menu {
+    margin: auto;
+    flex: none !important;
+  }
+
+  .center-brand {
+    width: 100%;
+    margin: auto;
+    display: block !important;
+  }
+}
+
+.translate-container-fixed {
+  position: fixed;
+  top: 40%;
+  right: 0;
+  background-color: #fff;
+  z-index: 99;
+  border: 1px solid lightgray;
+  padding: 1rem 0.5rem;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  box-shadow: 10px 10px 5px #3e3e3e2b;
+}
