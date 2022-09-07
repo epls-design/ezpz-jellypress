@@ -1,0 +1,21 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  STICKY NAV
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.navbar {
+  & > .container {
+    @include above($nav-expands) {
+      width: 100%;
+      padding-left: get-size(2);
+      padding-right: get-size(2);
+    }
+  }
+}
+
+.navbar-menu li {
+  a {
+    @include above($nav-expands) {
+      font-size: font-size(1);
+    }
+  }
+}

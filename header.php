@@ -14,6 +14,7 @@
 defined('ABSPATH') || exit;
 
 $is_menu_off_canvas = true; // change this to determine the menu type
+$theme_options = jellypress_get_acf_fields('60c219d0bd368', 'option');
 
 ?>
 <!doctype html>
@@ -24,8 +25,40 @@ $is_menu_off_canvas = true; // change this to determine the menu type
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <link rel="profile" href="https://gmpg.org/xfn/11">
-  <?php wp_head(); ?>
+
+  <?php
+  // TODO: these are better hooking into wp_head. Can you add them to the theme-settings function?
+  $custom_css = $theme_options['custom_css'];
+  $font_links = $theme_options['font_links'];
+  $header_picker = $theme_options['header_picker'];
+
+  if ($font_links) echo $font_links;
+  if ($custom_css) echo '<style>' . $custom_css . '</style>';
+
+  // Changing the look of the header depending on what option they select
+
+  $nav_logo = 'site-logo navbar-item';
+  $nav_menu = 'navbar-menu';
+  $nav_brand = 'navbar-brand site-branding';
+
+  if ($header_picker == 'Option 2') {
+    $nav_logo = $nav_logo . ' center-logo';
+    $nav_menu = $nav_menu . ' center-menu';
+    $nav_brand = $nav_brand . ' center-brand';
+  }
+
+  wp_head();
+
+  ?>
 </head>
+<?php
+if ($theme_options['translate_check']) {
+?>
+  <div class="translate-container-fixed">
+    <?php echo do_shortcode('[gtranslate]'); ?>
+  </div>
+<?php
+} ?>
 
 <body <?php body_class(); ?>>
   <?php wp_body_open(); ?>
@@ -38,23 +71,15 @@ $is_menu_off_canvas = true; // change this to determine the menu type
       <header id="masthead" class="site-header">
         <nav id="site-navigation" class="navbar main-navigation">
           <div class="container">
-            <div class="navbar-brand site-branding">
+            <div class="<?php echo $nav_brand; ?>">
 
-              <span class="site-title navbar-item" style="display:block">
-                <a href="<?= esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
-                <?php
-                $jellypress_description = get_bloginfo('description', 'display');
-                if ($jellypress_description || is_customize_preview()) : ?>
-                  <br /><span class="site-description"><?= $jellypress_description; ?></span>
-                <?php endif; ?>
-              </span>
-              <!-- EXAMPLE OF EMBEDDING CLIENT LOGO -->
-              <!--<a class="site-logo navbar-item" href="<?= esc_url(home_url('/')); ?>" rel="home">
-              <?php _e('<img src="' . get_stylesheet_directory_uri() . '/dist/img/client-logo.svg' . '" alt="' . get_bloginfo('description', 'display') . '">', 'jellypress'); ?>
-            </a>-->
+              <?php if ($logo_image = $theme_options['main_logo']) : ?>
+                <a class="<?php echo $nav_logo ?>" href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+                  <?php echo wp_get_attachment_image($logo_image, 'site_logo'); ?>
+                </a>
+              <?php endif; ?>
 
               <button class="hamburger" type="button" aria-label="<?php _e('Toggles the website navigation', 'jellypress'); ?>" aria-controls="navbar-menu" aria-expanded="false">
-                <span class="hamburger-label">Menu</span>
                 <span class="hamburger-box">
                   <span class="hamburger-inner"></span>
                 </span>
@@ -62,20 +87,18 @@ $is_menu_off_canvas = true; // change this to determine the menu type
             </div>
 
             <?php if ($is_menu_off_canvas) : ?>
-              <div id="navbar-menu" class="navbar-menu is-off-canvas">
+              <div id="navbar-menu" class="<?php echo $nav_menu; ?> is-off-canvas">
                 <div class="navbar-top">
                   <button class="hamburger" type="button" aria-label="<?php _e('Toggles the website navigation', 'jellypress'); ?>" aria-controls="navbar-menu" aria-expanded="false">
-                    <span class="hamburger-label">Menu</span>
                     <span class="hamburger-box">
                       <span class="hamburger-inner"></span>
                     </span>
                   </button>
                 </div>
               <?php else : ?>
-                <div id="navbar-menu" class="navbar-menu">
+                <div id="navbar-menu" class="<?php echo $nav_menu; ?>">
                 <?php endif; ?>
-
-                <div class="navbar-start">
+                <div class="navbar-end">
                   <?php
                   wp_nav_menu(array(
                     'theme_location' => 'menu-primary',
@@ -83,10 +106,6 @@ $is_menu_off_canvas = true; // change this to determine the menu type
                     'container'      => false,
                   ));
                   ?>
-                </div>
-                <div class="navbar-end">
-                  <a href="#" class="button secondary">Example Button</a>
-                  <?php if (class_exists('woocommerce')) jellypress_woocommerce_header_cart(); ?>
                 </div>
                 </div>
               </div>
