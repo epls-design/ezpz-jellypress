@@ -858,6 +858,7 @@
                     "icon_list": "Icon List",
                     "time_lines": "Time Line",
                     "html": "HTML",
+                    "text_and_image": "Text and Images"
                   },
                   "default_value": "image",
                   "allow_null": 0,

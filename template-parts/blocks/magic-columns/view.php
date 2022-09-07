@@ -56,7 +56,7 @@ $row_class = 'align-' . $block['row_vertical_align'];
           } elseif ($column_type == 'image') {
             echo '<figure>';
             if ($image_link = $column['image_link']) echo '<a href="' . $image_link['url'] . '" title="' . $image_link['title'] . '" target="' . $image_link['target'] . '">';
-            echo wp_get_attachment_image($column['image'], 'small');
+            echo wp_get_attachment_image($column['image'], 'medium');
             if ($image_link) echo '</a>';
             if ($column_caption = $column['column_caption']) echo '<figcaption class="image-caption">' . jellypress_content($column_caption) . '</figcaption>';
             echo '</figure>';
@@ -90,6 +90,11 @@ $row_class = 'align-' . $block['row_vertical_align'];
                 )
                 . '</div>';
             endif; // google_maps_api_key
+          } elseif ($column_type == 'text_and_image') {
+            foreach ($column['text_and_images'] as $row) :
+              if ($row['text']) echo jellypress_content($row['text']);
+              if ($row['image']) echo wp_get_attachment_image($row['image'], 'medium', '',  array("class" => "w-100"));
+            endforeach;
           } elseif ($column_type == 'icon_list') {
             //var_dump($column);
             $icon_size = 'icon-list-size-' . $column['icon_size'];
