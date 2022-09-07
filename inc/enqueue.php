@@ -117,13 +117,6 @@ if (!function_exists('jellypress_scripts')) {
       true
     );
 
-    wp_register_style(
-      'font-awesome',
-      'https://use.fontawesome.com/releases/v5.5.0/css/all.css',
-      array(),
-      '5.5.0'
-    );
-
     $get_gmaps_api = get_global_option('google_maps_api_key');
     if ($get_gmaps_api) {
       wp_register_script(
