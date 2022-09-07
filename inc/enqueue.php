@@ -158,8 +158,7 @@ add_action('wp_enqueue_scripts', 'jellypress_scripts');
  * You can add plugin-provided scripts here to improve page load times.
  */
 add_filter('script_loader_tag', 'jellypress_scripts_add_atts', 10, 3);
-function jellypress_scripts_add_atts($tag, $handle, $src)
-{
+function jellypress_scripts_add_atts($tag, $handle, $src) {
   // Anything to defer goes in this array...
   $defer_scripts = ['svg4everybody', 'search-filter-plugin-chosen', 'search-filter-plugin-build', 'jquery-ui-sortable', 'jquery-ui-resizable', 'wc-cart-fragments'];
 

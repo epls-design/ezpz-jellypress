@@ -58,7 +58,7 @@ if (function_exists('acf_add_options_page')) {
   acf_add_options_page(
     array(
       'page_title'   => __('Information and SEO', 'jellypress'),
-      'menu_title'  => __('Info & SEO', 'jellypress'),
+      'menu_title'  => __('Theme Setup', 'jellypress'),
       'menu_slug'   => 'theme-options',
       'capability'  => 'edit_posts',
       'redirect'    => true,
@@ -112,13 +112,26 @@ if (function_exists('acf_add_options_page')) {
   );
   acf_add_options_sub_page(
     array(
-      'page_title'     => __('Theme Settings', 'jellypress'),
-      'menu_title'    => __('Theme Settings', 'jellypress'),
-      'menu_slug'     => 'theme-settings',
+      'page_title'     => __('Theme Designer', 'jellypress'),
+      'menu_title'    => __('Theme Designer', 'jellypress'),
+      'menu_slug'     => 'theme-designer',
       'parent_slug' => 'theme-options',
       'capability'    => 'edit_posts',
       'autoload' => true, // Speeds up load times
-      'updated_message' => __("Successfully updated Theme Settings", 'jellypress'),
+      'updated_message' => __("Successfully updated Theme Design Settings", 'jellypress'),
+    )
+  );
+
+
+  acf_add_options_sub_page(
+    array(
+      'page_title'     => __('Misc Settings', 'jellypress'),
+      'menu_title'    => __('Misc Settings', 'jellypress'),
+      'menu_slug'     => 'theme-misc',
+      'parent_slug' => 'theme-options',
+      'capability'    => 'edit_posts',
+      'autoload' => true, // Speeds up load times
+      'updated_message' => __("Successfully updated Misc Settings", 'jellypress'),
     )
   );
 }
@@ -134,8 +147,7 @@ if (!function_exists('jellypress_hide_acf_admin')) {
    * @link https://www.awesomeacf.com/snippets/hide-the-acf-admin-menu-item-on-selected-sites/
    * @link https://support.advancedcustomfields.com/forums/topic/the-acf-json-workflow/
    */
-  function jellypress_hide_acf_admin()
-  {
+  function jellypress_hide_acf_admin() {
     // get the current site url
     $site_url = get_bloginfo('url');
     // an array of development environment URLs
@@ -159,8 +171,7 @@ add_filter('acf/settings/show_admin', 'jellypress_hide_acf_admin');
  */
 add_action('acf/init', 'jellypress_google_maps_api_key');
 if (!function_exists('jellypress_google_maps_api_key')) {
-  function jellypress_google_maps_api_key()
-  {
+  function jellypress_google_maps_api_key() {
     $get_gmaps_api = get_global_option('google_maps_api_key');
     if ($get_gmaps_api) {
       acf_update_setting('google_api_key', $get_gmaps_api);
@@ -174,8 +185,7 @@ if (!function_exists('jellypress_google_maps_api_key')) {
  */
 add_action('admin_init', 'jellypress_acf_dashicons_support');
 if (!function_exists('jellypress_acf_dashicons_support')) {
-  function jellypress_acf_dashicons_support()
-  {
+  function jellypress_acf_dashicons_support() {
     wp_enqueue_style('dashicons');
   }
 }
@@ -194,8 +204,7 @@ if (!function_exists('jellypress_acf_dashicons_support')) {
  * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_join
  */
 if (!function_exists('jellypress_search_acf_join')) {
-  function jellypress_search_acf_join($join)
-  {
+  function jellypress_search_acf_join($join) {
     global $wpdb;
     if (is_search()) {
       $join .= ' LEFT JOIN ' . $wpdb->postmeta . ' ON ' . $wpdb->posts . '.ID = ' . $wpdb->postmeta . '.post_id ';
@@ -210,8 +219,7 @@ add_filter('posts_join', 'jellypress_search_acf_join');
  * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_where
  */
 if (!function_exists('jellypress_search_acf_where')) {
-  function jellypress_search_acf_where($where)
-  {
+  function jellypress_search_acf_where($where) {
     global $pagenow, $wpdb;
     if (is_search()) {
       $where = preg_replace(
@@ -230,8 +238,7 @@ add_filter('posts_where', 'jellypress_search_acf_where');
  * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_distinct
  */
 if (!function_exists('jellypress_search_acf_distinct')) {
-  function jellypress_search_acf_distinct($where)
-  {
+  function jellypress_search_acf_distinct($where) {
     global $wpdb;
     if (is_search()) {
       return "DISTINCT";
@@ -246,8 +253,7 @@ add_filter('posts_distinct', 'jellypress_search_acf_distinct');
  * so that editors can see at a glance what content is contained within a block.
  */
 if (!function_exists('jellypress_acf_flexible_titles')) {
-  function jellypress_acf_flexible_titles($title, $field, $block_layout, $i)
-  {
+  function jellypress_acf_flexible_titles($title, $field, $block_layout, $i) {
     $block_layout = get_row_layout();
     $block_bg_color = 'bg-' . strtolower(get_sub_field('background_color'));
 
@@ -324,15 +330,14 @@ add_filter('acf/fields/flexible_content/layout_title', 'jellypress_acf_flexible_
  * https://github.com/Hube2/acf-filters-and-functions/blob/master/acf-form-kses.php
  */
 if (!function_exists('jellypress_kses_acf')) :
-  function jellypress_kses_acf($data, $post_id, $field)
-  {
+  function jellypress_kses_acf($data, $post_id, $field) {
     if (!is_array($data)) {
+      $allowed_fields = ['unfiltered_html', 'font_links', 'custom_css'];
       // If it's not an array, sanitize
-      if ($field['_name'] != 'unfiltered_html') {
-        return wp_kses_post($data);
-      } else {
-        // if fieldName = 'unfiltered_html' don't sanitize
+      if (in_array($field['_name'], $allowed_fields)) {
         return $data;
+      } else {
+        return wp_kses_post($data);
       }
     }
     $return = array();
@@ -359,8 +364,7 @@ add_filter('acf/settings/remove_wp_meta_box', '__return_true');
  */
 add_action('acf/save_post', 'jellypress_import_blocks_from_other_post', 1);
 if (!function_exists('jellypress_import_blocks_from_other_post')) :
-  function jellypress_import_blocks_from_other_post($post_id)
-  {
+  function jellypress_import_blocks_from_other_post($post_id) {
 
     // Bail early if no ACF data or if 'enable_block_import' is not TRUE
     if (empty($_POST['acf']) || $_POST['acf']['field_5fa6c5ffe671c'] != 1) {
@@ -404,14 +408,12 @@ endif;
  * @link https://barebones.dev/articles/acf-and-wpml-get-global-options-value/
  */
 if (!function_exists('jellypress_acf_set_language')) :
-  function jellypress_acf_set_language()
-  {
+  function jellypress_acf_set_language() {
     return acf_get_setting('default_language');
   }
 endif;
 if (!function_exists('get_global_option')) :
-  function get_global_option($name)
-  {
+  function get_global_option($name) {
     add_filter('acf/settings/current_language', 'jellypress_acf_set_language', 100);
     $option = get_field($name, 'option');
     remove_filter('acf/settings/current_language', 'jellypress_acf_set_language', 100);
@@ -425,8 +427,7 @@ endif;
  * @return string text from a WYSIWIG field
  */
 if (!function_exists('jellypress_excerpt_from_acf_flexible_content')) :
-  function jellypress_excerpt_from_acf_flexible_content()
-  {
+  function jellypress_excerpt_from_acf_flexible_content() {
     if (have_rows('sections')) {
       while (have_rows('sections')) : the_row();
         $layout = get_row_layout();
