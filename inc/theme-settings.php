@@ -255,17 +255,6 @@ if (!function_exists('ezpz_get_theme_design_options')) :
       '.bg-secondary' => $theme_secondary_colour,
       '.bg-secondary-dark' => $theme_secondary_dark,
       '.bg-secondary-light' => $theme_secondary_light,
-      '.bg-white' => '#ffffff',
-      '.bg-black' => '#000000',
-      '.bg-neutral-900' => "#1f2933",
-      '.bg-neutral-800' => "#33404d",
-      '.bg-neutral-700' => "#3f4d5a",
-      '.bg-neutral-600' => "#515f6c",
-      '.bg-neutral-500' => "#6e7c8c",
-      '.bg-neutral-400' => "#9aa5b1",
-      '.bg-neutral-300' => "#cad1d8",
-      '.bg-neutral-200' => "#e5e8eb",
-      '.bg-neutral-100' => "#f5f7fa"
     );
 
     foreach ($theme_bg_colors as $css_class => $bg_color) {

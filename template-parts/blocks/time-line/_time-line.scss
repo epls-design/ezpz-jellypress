@@ -1,0 +1,141 @@
+// TODO: Below MD
+$timeline-circle-size: get-size(1.5);
+$timeline-margin: get-size(3);
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: get-size(0.5);
+  background-color: get-color(neutral, 300);
+  top: 0;
+  margin-left: n(get-size(0.25));
+  bottom: 0;
+  @include above(md) {
+    left: 50%;
+  }
+}
+
+/* Container around content */
+.timeline-container {
+  position: relative;
+  background-color: inherit;
+  padding-left: $timeline-margin;
+
+  // Arrows
+  &.left::before,
+  &.right::before {
+    @include pseudo();
+    top: get-size(1);
+    border: 1.25rem transparent solid;
+    border-top-width: get-size(1.5);
+    border-bottom-width: get-size(1.5);
+    height: 0px;
+    width: 0px;
+    z-index: 1;
+  }
+  @include above(md) {
+    width: 50%;
+    padding-left: 0;
+    /* Place the container to the left */
+    &.left {
+      padding-right: $timeline-margin;
+      &::after {
+        right: n(get-size(0.75));
+      }
+      &::before {
+        border-left-color: get-color(neutral, 900);
+        right: calc(#{$timeline-margin} - 2.5rem);
+      }
+    }
+    /* Place the container to the right */
+    &.right {
+      left: 50%;
+      padding-left: $timeline-margin;
+      &::after {
+        left: n(get-size(0.75));
+      }
+      &::before {
+        border-right-color: get-color(neutral, 900);
+        left: calc(#{$timeline-margin} - 2.5rem);
+      }
+    }
+  }
+}
+
+/* The circles on the timeline */
+.timeline-container::after {
+  content: "";
+  position: absolute;
+  width: $timeline-circle-size;
+  height: $timeline-circle-size;
+  right: n(get-size(1)); // width - 2xborder width
+  background-color: $color-white;
+  border: get-size(0.25) solid get-color(neutral, 500);
+  top: get-size(2);
+  border-radius: 50%;
+  z-index: 1;
+  @include below(md) {
+    left: n(get-size(0.75));
+  }
+}
+
+/* The actual content */
+.timeline-item {
+  min-height: get-size(8);
+  padding: get-size(1.5) get-size(2);
+  position: relative;
+  border-radius: get-size(0.75);
+  margin-bottom: $element-margin;
+  &::before {
+    @include pseudo();
+    border-radius: get-size(0.75);
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    background: $color-white;
+  }
+  // TODO: Need to put in a pseudo here that overlays the arrow
+  &.o-9::before {
+    opacity: 0.05;
+  }
+  &.o-8::before {
+    opacity: 0.1;
+  }
+  &.o-7::before {
+    opacity: 0.15;
+  }
+  &.o-6::before {
+    opacity: 0.2;
+  }
+  &.o-5::before {
+    opacity: 0.25;
+  }
+  &.o-4::before {
+    opacity: 0.3;
+  }
+  &.o-3::before {
+    opacity: 0.35;
+  }
+}
+
+.block-magic-columns .timeline-container {
+  width: 100%;
+  left: 0;
+}
+
+.block-magic-columns .timeline:after {
+  left: 0;
+}
+
+.block-magic-columns .right {
+  left: 0;
+}
