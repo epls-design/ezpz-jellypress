@@ -1,0 +1,36 @@
+.icon-list {
+  list-style-type: none;
+  margin-left: 1em;
+  .icon {
+    margin-right: $inline-icon-margin;
+  }
+}
+
+.icon-list-size-sm {
+  font-size: get-size(1);
+}
+
+.icon-list-size-md {
+  font-size: get-size(1.5);
+}
+
+.icon-list-size-lg {
+  font-size: get-size(2);
+}
+
+.icon-list-size-xl {
+  font-size: get-size(3);
+}
+
+.icon-list-size-xxl {
+  font-size: get-size(4);
+}
+
+.icon-list-section-ul {
+  margin: 0px;
+  list-style: none;
+}
+
+.icon-list-section-ul li {
+  margin-bottom: get-size(0.5);
+}

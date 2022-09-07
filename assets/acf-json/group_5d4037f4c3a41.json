@@ -35,7 +35,9 @@
                 "class": "",
                 "id": ""
               },
-              "post_type": ["stack"],
+              "post_type": [
+                "stack"
+              ],
               "taxonomy": "",
               "allow_null": 0,
               "multiple": 0,
@@ -200,7 +202,7 @@
                     "id": ""
                   },
                   "choices": {
-                    "default": "<span class=\"swatch bg-gray\"></span>",
+                    "white": "<span class=\"swatch bg-white\"></span>",
                     "primary": "<span class=\"swatch bg-primary\"></span>",
                     "secondary": "<span class=\"swatch bg-secondary\"></span>"
                   },
@@ -269,8 +271,14 @@
               "choices": {
                 "white": "<span class=\"swatch bg-white\"></span>",
                 "black": "<span class=\"swatch bg-black\"></span>",
+                "neutral-200": "<span class=\"swatch bg-neutral-200\"></span>",
+                "neutral-900": "<span class=\"swatch bg-neutral-900\"></span>",
+                "primary-dark": "<span class=\"swatch bg-primary-dark\"></span>",
                 "primary": "<span class=\"swatch bg-primary\"></span>",
-                "secondary": "<span class=\"swatch bg-secondary\"></span>"
+                "primary-light": "<span class=\"swatch bg-primary-light\"></span>",
+                "secondary-dark": "<span class=\"swatch bg-secondary-dark\"></span>",
+                "secondary": "<span class=\"swatch bg-secondary\"></span>",
+                "secondary-light": "<span class=\"swatch bg-secondary-light\"></span>"
               },
               "allow_null": 0,
               "default_value": "white",
@@ -509,7 +517,10 @@
                 "class": "",
                 "id": ""
               },
-              "clone": ["field_5f6dee6e93d94", "field_5f6eee9d835b9"],
+              "clone": [
+                "field_5f6dee6e93d94",
+                "field_5f6eee9d835b9"
+              ],
               "display": "seamless",
               "layout": "block",
               "prefix_label": 0,
@@ -528,7 +539,10 @@
                 "class": "",
                 "id": ""
               },
-              "clone": ["field_5eb3b7b903856", "field_5f79f27510540"],
+              "clone": [
+                "field_5eb3b7b903856",
+                "field_5f79f27510540"
+              ],
               "display": "seamless",
               "layout": "block",
               "prefix_label": 0,
@@ -566,6 +580,214 @@
           "min": "",
           "max": ""
         },
+        "layout_611937538ff28": {
+          "key": "layout_611937538ff28",
+          "name": "icon-list",
+          "label": "<span class=\"dashicons dashicons-list-view\"></span> Icon List",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_611937538ff29",
+              "label": "Clone Content Tab Only",
+              "name": "clone_content_tab_only",
+              "type": "clone",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "clone": [
+                "field_5d74386a19942"
+              ],
+              "display": "seamless",
+              "layout": "block",
+              "prefix_label": 0,
+              "prefix_name": 0
+            },
+            {
+              "key": "field_6127914e4af7a",
+              "label": "Colour",
+              "name": "colour",
+              "type": "color_picker",
+              "instructions": "",
+              "required": 1,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": ""
+            },
+            {
+              "key": "field_6119422354876",
+              "label": "Size",
+              "name": "icon_size",
+              "type": "select",
+              "instructions": "",
+              "required": 1,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "choices": {
+                "sm": "SM",
+                "md": "MD",
+                "lg": "LG",
+                "xl": "XL",
+                "xxl": "XXL"
+              },
+              "default_value": false,
+              "allow_null": 0,
+              "multiple": 0,
+              "ui": 0,
+              "return_format": "value",
+              "ajax": 0,
+              "placeholder": ""
+            },
+            {
+              "key": "field_6119375c8ff2e",
+              "label": "Icon List",
+              "name": "icon",
+              "type": "repeater",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "collapsed": "",
+              "min": 0,
+              "max": 0,
+              "layout": "table",
+              "button_label": "",
+              "sub_fields": [
+                {
+                  "key": "field_61193a508ff2f",
+                  "label": "Icon",
+                  "name": "icon-selector",
+                  "type": "font-awesome",
+                  "instructions": "Please select the icon",
+                  "required": 1,
+                  "conditional_logic": 0,
+                  "wrapper": {
+                    "width": "33",
+                    "class": "",
+                    "id": ""
+                  },
+                  "icon_sets": [
+                    "far"
+                  ],
+                  "custom_icon_set": "",
+                  "default_label": "<i class=\"fa-solid fa-circle-info fa-fw\"></i> Circle info",
+                  "default_value": "{ \"style\" : \"solid\", \"id\" : \"circle-info\", \"label\" : \"Circle info\", \"unicode\" : \"f05a\" }",
+                  "save_format": "class",
+                  "allow_null": 0,
+                  "show_preview": 1,
+                  "enqueue_fa": 1,
+                  "fa_live_preview": "",
+                  "choices": []
+                },
+                {
+                  "key": "field_61193dcf7c031",
+                  "label": "Text",
+                  "name": "text",
+                  "type": "textarea",
+                  "instructions": "Please provide accompanying text.",
+                  "required": 1,
+                  "conditional_logic": 0,
+                  "wrapper": {
+                    "width": "60",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "",
+                  "placeholder": "",
+                  "maxlength": "",
+                  "rows": "",
+                  "new_lines": ""
+                }
+              ]
+            },
+            {
+              "key": "field_611937538ff2b",
+              "label": "Clone Design",
+              "name": "clone_design",
+              "type": "clone",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "clone": [
+                "field_5eb3b7f9bbf71"
+              ],
+              "display": "seamless",
+              "layout": "block",
+              "prefix_label": 0,
+              "prefix_name": 0
+            },
+            {
+              "key": "field_611937538ff2c",
+              "label": "Content Width",
+              "name": "content_width",
+              "type": "select",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+              },
+              "choices": {
+                "standard": "Standard",
+                "wide": "Wide",
+                "full": "Full-Width"
+              },
+              "default_value": "standard",
+              "allow_null": 0,
+              "multiple": 0,
+              "ui": 1,
+              "ajax": 0,
+              "return_format": "value",
+              "placeholder": ""
+            },
+            {
+              "key": "field_611937538ff2d",
+              "label": "Clone Settings",
+              "name": "clone_settings",
+              "type": "clone",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "clone": [
+                "field_5d75eff42a6ac"
+              ],
+              "display": "seamless",
+              "layout": "block",
+              "prefix_label": 0,
+              "prefix_name": 0
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
         "layout_6020589ef5a3e": {
           "key": "layout_6020589ef5a3e",
           "name": "magic-columns",
@@ -585,7 +807,9 @@
                 "class": "",
                 "id": ""
               },
-              "clone": ["field_5d75eff42a6aa"],
+              "clone": [
+                "field_5d75eff42a6aa"
+              ],
               "display": "seamless",
               "layout": "block",
               "prefix_label": 0,
@@ -631,7 +855,9 @@
                     "post": "Post",
                     "map": "Map",
                     "iframe": "iFrame",
-                    "html": "HTML"
+                    "icon_list": "Icon List",
+                    "time_lines": "Time Line",
+                    "html": "HTML",
                   },
                   "default_value": "image",
                   "allow_null": 0,
@@ -848,7 +1074,7 @@
                         "id": ""
                       },
                       "choices": {
-                        "default": "<span class=\"swatch bg-gray\"></span>",
+                        "white": "<span class=\"swatch bg-white\"></span>",
                         "primary": "<span class=\"swatch bg-primary\"></span>",
                         "secondary": "<span class=\"swatch bg-secondary\"></span>"
                       },

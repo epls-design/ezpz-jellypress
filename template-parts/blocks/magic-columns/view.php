@@ -90,7 +90,48 @@ $row_class = 'align-' . $block['row_vertical_align'];
                 )
                 . '</div>';
             endif; // google_maps_api_key
-          }
+          } elseif ($column_type == 'icon_list') {
+            //var_dump($column);
+            $icon_size = 'icon-list-size-' . $column['icon_size'];
+            echo '<ul class="icon-list-section-ul ' . $icon_size . '">';
+            foreach ($column['icon_list'] as $icon) {
+              //var_dump($icon);
+              echo '<li><span class="fa-li"><i style="color: ' . $column['colour'] . ' " class="' . $icon['icon_selector'] . '"></i></span>' . $icon['text'] . '</li>';
+            }
+            echo '</ul>';
+          } elseif ($column_type == 'time_lines') {
+            $magic = true;
+          ?>
+            <div class="timeline">
+
+              <?php
+
+              $i = 0;
+
+              foreach ($column['time_lines'] as $time_line) :
+
+                $date = $time_line['date'];
+                $main_title = $time_line['main_title'];
+                $time_title = $time_line['time_title'];
+                $time_text = $time_line['time_text'];
+
+                $time_params = array(
+                  'block_id' => $block_id,
+                  'count' => $i,
+                  'main_title' => $main_title,
+                  'time_title' => $time_title,
+                  'time_text' => $time_text,
+                  'date' => $date,
+                  'magic_columns' => $magic,
+
+                );
+                get_template_part('template-parts/components/time-line/time', 'basic', $time_params);
+
+                $i++;
+              endforeach;
+              ?>
+            </div>
+          <?php }
           ?>
         </div>
       <?php endforeach; ?>
