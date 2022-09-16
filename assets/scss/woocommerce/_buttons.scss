@@ -26,13 +26,13 @@
     @include create_button('neutral');
 
     &.alt {
-      @include create_button(get-color(primary));
+      @include create_button('primary');
     }
 
     &.single_add_to_cart_button,
     &.checkout-button,
       {
-      @include create_button(get-color(success));
+      @include create_button('success');
 
     }
 

@@ -5,6 +5,7 @@
 // $border-radius: 4px;
 
 // FORMS
+// $form-accent-color: get-color(primary);
 // $input-background: $color-white;
 // $placeholder-color: get-color(neutral,500);
 // $form-border-hover: get-color(neutral);
@@ -40,6 +41,5 @@
 // $range-track-border-color: $border-color;
 // $range-track-radius: $border-radius;
 
-// $radio-check-box-color: get-color(neutral,600);
-// $radio-check-box-focus-shadow: get-color(neutral,300);
-// $radio-check-box-transform-adjust: 0px;
+// Import Jellyfish
+@import "../../../../node_modules/jellyfish-ui/assets/scss/jellyfish/02-settings/_04-forms";

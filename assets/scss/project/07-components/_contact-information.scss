@@ -1,37 +1,5 @@
-.postal-address {
-  display: inline-flex;
-  span {
-    display: block;
-  }
+ .email-address {
   margin-bottom: $element-margin;
-}
-
-.telephone-number, .email-address {
-  margin-bottom: $element-margin;
-}
-
-.phone-numbers {
-  @extend %no-bullets;
-}
-
-.telephone-number, .phone-numbers {
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-}
-
-.opening-hours, .department-contacts {
-  width: auto;
-}
-
-.postal-address, .telephone-number, .opening-hours, .department-contacts, .email-address {
-  .icon {
-    width: 1em;
-    height: 1em;
-    top: 0;
-    margin-right: $inline-icon-margin;
-  }
 }
 
 @each $channel, $color in $social-channels {

@@ -1,69 +1,29 @@
 {
   "key": "group_606724c228c05",
-  "title": "Social Media / SEO",
+  "title": "Theme Options",
   "fields": [
     {
-      "key": "field_606724c2304cc",
-      "label": "Schema: Logo",
-      "name": "organisation_logo",
-      "type": "image",
-      "instructions": "Please upload an image with a square aspect ratio 1:1 to represent your organisation's logo.",
-      "required": 0,
-      "conditional_logic": [
-        [
-          {
-            "field": "field_606724c2304f6",
-            "operator": "!=",
-            "value": "Person"
-          }
-        ]
-      ],
-      "wrapper": {
-        "width": "50",
-        "class": "",
-        "id": ""
-      },
-      "return_format": "url",
-      "preview_size": "thumbnail",
-      "library": "all",
-      "min_width": 112,
-      "min_height": 112,
-      "min_size": "",
-      "max_width": 500,
-      "max_height": 500,
-      "max_size": "",
-      "mime_types": "jpg, png"
-    },
-    {
-      "key": "field_606724c2304d2",
-      "label": "Schema: Organisation Image",
-      "name": "organisation_image",
-      "type": "image",
-      "instructions": "Please upload a photo that best represents your organisation.",
+      "key": "field_632475ef8e2aa",
+      "label": "<span class=\"dashicons dashicons-facebook\"></span>Social",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
       "required": 0,
       "conditional_logic": 0,
       "wrapper": {
-        "width": "50",
+        "width": "",
         "class": "",
         "id": ""
       },
-      "return_format": "url",
-      "preview_size": "thumbnail",
-      "library": "uploadedTo",
-      "min_width": 200,
-      "min_height": 200,
-      "min_size": "",
-      "max_width": "",
-      "max_height": "",
-      "max_size": "",
-      "mime_types": "jpg, png"
+      "placement": "left",
+      "endpoint": 0
     },
     {
       "key": "field_606724c23052e",
       "label": "Social Media Channels",
       "name": "social_channels",
       "type": "repeater",
-      "instructions": "Add all of the social media channels you are on here.",
+      "instructions": "Add all of the social media channels you are on here. These can be displayed by your developers within the theme.",
       "required": 0,
       "conditional_logic": 0,
       "wrapper": {
@@ -134,6 +94,41 @@
           "maxlength": ""
         }
       ]
+    },
+    {
+      "key": "field_632476492552b",
+      "label": "<span class=\"dashicons dashicons-rest-api\"></span>APIs",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "left",
+      "endpoint": 0
+    },
+    {
+      "key": "field_606724c578b1f",
+      "label": "Google Maps API Key",
+      "name": "google_maps_api_key",
+      "type": "text",
+      "instructions": "To display Google Maps on your website, you need an API key. Please add it here.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
     }
   ],
   "location": [
@@ -141,7 +136,7 @@
       {
         "param": "options_page",
         "operator": "==",
-        "value": "social-seo"
+        "value": "theme-options"
       }
     ]
   ],
@@ -152,6 +147,7 @@
   "instruction_placement": "label",
   "hide_on_screen": "",
   "active": true,
-  "description": "",
-  "modified": 1617372661
+  "description": "Available options to enhance your website theme.",
+  "show_in_rest": 0,
+  "modified": 1663334091
 }

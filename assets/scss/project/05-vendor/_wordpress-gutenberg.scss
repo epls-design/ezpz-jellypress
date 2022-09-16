@@ -126,7 +126,7 @@
 .wp-block-button {
   color: choose-contrast-color(get-color(primary), $button-text-color-light, $button-text-color-dark);
   a {
-    @include create_button(get-color(primary));
+    @include create_button('primary');
   }
 
   &.is-style-outline {
@@ -157,7 +157,7 @@
 
 .wp-block-latest-posts {
   li {
-    margin-bottom: $element-margin/2;
+    margin-bottom: $element-margin*0.5;
   }
 }
 
@@ -208,7 +208,7 @@ $gutenberg-collapse-cols: 600px;
 
     @each $point, $i in $breakpoints {
       @include above($point) {
-        $gutter: map-deep-get($breakpoints, $point, 'col-gutter') / 2;
+        $gutter: map-deep-get($breakpoints, $point, 'col-gutter') * 0.5;
         margin: 0 $gutter;
       }
     }

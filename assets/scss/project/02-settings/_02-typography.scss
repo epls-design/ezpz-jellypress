@@ -1,26 +1,16 @@
 // Type sizes used throughout the project.
 $type-scale: (
-  -2: em($root-size * 0.75),
-  // 12px default
-    -1: em($root-size * 0.875),
-  // 14px default
-    0: em($root-size * 1),
-  // 16px default
-    1: em($root-size * 1.125),
-  // 18px default
-    2: em($root-size * 1.25),
-  // 20px default
-    3: em($root-size * 1.5),
-  // 24px default
-    4: em($root-size * 1.875),
-  // 30px default
-    5: em($root-size * 2.25),
-  // 36px default
-    6: em($root-size * 3),
-  // 48px default
-    7: em($root-size * 3.75),
-  // 60px default
-    8: em($root-size * 4.5) // 72px default
+  -2: em($root-size * .75),     // 12px default
+  -1: em($root-size * .875),    // 14px default
+  0:  em($root-size * 1),       // 16px default
+  1:  em($root-size * 1.125),   // 18px default
+  2:  em($root-size * 1.25),    // 20px default
+  3:  em($root-size * 1.5),     // 24px default
+  4:  em($root-size * 1.875),   // 30px default
+  5:  em($root-size * 2.25),    // 36px default
+  6:  em($root-size * 3),       // 48px default
+  7:  em($root-size * 3.75),    // 60px default
+  8:  em($root-size * 4.5)      // 72px default
 );
 
 // DOCUMENT ROOT FONT SIZE AND LINE HEIGHT AT SMALLEST DEVICE WIDTH
@@ -78,12 +68,15 @@ $cover-text: (
 
 // $heading-line-height: 1.2;
 
-$weight-hairline: 100;
-$weight-thin: 200;
-$weight-light: 300;
-$weight-normal: 400;
-$weight-medium: 500;
-$weight-semibold: 600;
-$weight-bold: 700;
-$weight-xbold: 800;
-$weight-black: 900;
+//$weight-hairline: 100;
+//$weight-thin: 200;
+//$weight-light: 300;
+//$weight-normal: 400;
+//$weight-medium: 500;
+//$weight-semibold: 600;
+//$weight-bold: 700;
+//$weight-xbold: 800;
+//$weight-black: 900;
+
+// Import Jellyfish
+@import "../../../../node_modules/jellyfish-ui/assets/scss/jellyfish/02-settings/_02-typography";

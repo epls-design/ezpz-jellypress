@@ -99,10 +99,10 @@
   }
 
   .wc-forward {
-    @include create_button(get-color(secondary));
+    @include create_button('secondary');
   }
   .checkout {
-    @include create_button(get-color(primary));
+    @include create_button('primary');
   }
 
   @include above(768px) {
