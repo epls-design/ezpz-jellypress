@@ -62,7 +62,16 @@ switch ($block_bg_color) {
       'post_type' => $query_post_type,
       //'order' => 'ASC',
       'orderby' => 'date',
+      'post__not_in' => get_option( 'sticky_posts' ), // Exclude sticky
+      'has_password' => FALSE // Exclude password protected
     );
+
+    if($loading_type == 'paginated'){
+      $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+      $offset = $paged!=1 ? get_option( 'posts_per_page' ) * ($paged-1): 0;
+      $args_posts_query['offset'] = $offset;
+    }
+
     if ($block['post_categories']) $args_posts_query['tax_query'] = array(array('taxonomy' => 'category', 'field' => 'term_id', 'terms' => $block['post_categories']));
 
     $archive_query = new WP_Query($args_posts_query);
@@ -98,7 +107,9 @@ switch ($block_bg_color) {
       </div>
     <?php endif; ?>
 
-    <?php jellypress_initialize_ajax_posts($archive_query, $loading_type); ?>
+    <?php
+    if($loading_type == 'paginated') jellypress_numeric_pagination('false', 4 ,$archive_query,'#feed-'.$query_post_type);
+    else jellypress_initialize_ajax_posts($archive_query, $loading_type); ?>
 
   </div>
 </section>

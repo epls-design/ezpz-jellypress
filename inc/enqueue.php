@@ -176,19 +176,13 @@ add_action('wp_enqueue_scripts', 'jellypress_scripts');
 add_filter('script_loader_tag', 'jellypress_scripts_add_atts', 10, 3);
 function jellypress_scripts_add_atts($tag, $handle, $src)
 {
-  // Anything to defer goes in this array...
-  $defer_scripts = ['svg4everybody', 'search-filter-plugin-chosen', 'search-filter-plugin-build', 'jquery-ui-sortable', 'jquery-ui-resizable', 'wc-cart-fragments'];
+  if (!is_admin()) {
+    // Anything to defer goes in this array...
+    $defer_scripts = ['svg4everybody', 'search-filter-plugin-chosen', 'search-filter-plugin-build', 'jquery-ui-sortable', 'jquery-ui-resizable', 'wc-cart-fragments'];
 
-  // TODO: Make it so ACF is deferred on front end only (not admin) - or do these get wrapped in a not logged in function?
-  if (in_array($handle, $defer_scripts)) {
-    if (!is_admin()) {
-      // Anything to defer goes in this array...
-      $defer_scripts = ['svg4everybody', 'search-filter-plugin-chosen', 'search-filter-plugin-build', 'jquery-ui-sortable', 'jquery-ui-resizable', 'wc-cart-fragments'];
-
-      if (in_array($handle, $defer_scripts)) {
-        if (false === stripos($tag, 'defer')) {
-          $tag = str_replace(' src', ' defer="defer" src', $tag);
-        }
+    if (in_array($handle, $defer_scripts)) {
+      if (false === stripos($tag, 'defer')) {
+        $tag = str_replace(' src', ' defer="defer" src', $tag);
       }
     }
   }

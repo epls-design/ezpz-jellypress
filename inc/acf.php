@@ -57,68 +57,15 @@ if (!function_exists('jellypress_restrict_acf_tinymce_opts')) {
 if (function_exists('acf_add_options_page')) {
   acf_add_options_page(
     array(
-      'page_title'   => __('Information and SEO', 'jellypress'),
-      'menu_title'  => __('Info & SEO', 'jellypress'),
+      'page_title'   => __('Theme Options', 'jellypress'),
+      'menu_title'  => __('Theme Options', 'jellypress'),
       'menu_slug'   => 'theme-options',
       'capability'  => 'edit_posts',
-      'redirect'    => true,
+      //'redirect'    => true,
       'icon_url' => 'dashicons-info',
-      'position' => 90.1,
-    )
-  );
-  acf_add_options_sub_page(
-    array(
-      'page_title'     => __('Contact Details', 'jellypress'),
-      'menu_title'    => __('Contact Details', 'jellypress'),
-      'menu_slug'     => 'contact-details',
-      'parent_slug' => 'theme-options',
-      'capability'    => 'edit_posts',
-      'autoload' => true, // Speeds up load times
-      'updated_message' => __("Successfully updated Contact Details", 'jellypress'),
-    )
-  );
-  acf_add_options_sub_page(
-    array(
-      'page_title'     => __('Opening Hours', 'jellypress'),
-      'menu_title'    => __('Opening Hours', 'jellypress'),
-      'menu_slug'     => 'opening-hours',
-      'parent_slug' => 'theme-options',
-      'capability'    => 'edit_posts',
-      'autoload' => true, // Speeds up load times
-      'updated_message' => __("Successfully updated Opening Hours", 'jellypress'),
-    )
-  );
-  acf_add_options_sub_page(
-    array(
-      'page_title'     => __('Social Media and SEO', 'jellypress'),
-      'menu_title'    => __('Social Media/SEO', 'jellypress'),
-      'menu_slug'     => 'social-seo',
-      'parent_slug' => 'theme-options',
-      'capability'    => 'edit_posts',
+      'position' => 90,
       'autoload' => true, // Speeds up load times
       'updated_message' => __("Successfully updated Social Media and SEO", 'jellypress'),
-    )
-  );
-  acf_add_options_sub_page(
-    array(
-      'page_title'     => __('APIs', 'jellypress'),
-      'menu_title'    => __('APIs', 'jellypress'),
-      'menu_slug'     => 'apis',
-      'parent_slug' => 'theme-options',
-      'capability'    => 'edit_posts',
-      'autoload' => true, // Speeds up load times
-      'updated_message' => __("Successfully updated APIs", 'jellypress'),
-    )
-  );
-  acf_add_options_sub_page(
-    array(
-      'page_title'     => __('Theme Settings', 'jellypress'),
-      'menu_title'    => __('Theme Settings', 'jellypress'),
-      'menu_slug'     => 'theme-settings',
-      'parent_slug' => 'theme-options',
-      'capability'    => 'edit_posts',
-      'autoload' => true, // Speeds up load times
-      'updated_message' => __("Successfully updated Theme Settings", 'jellypress'),
     )
   );
 }
@@ -179,67 +126,6 @@ if (!function_exists('jellypress_acf_dashicons_support')) {
     wp_enqueue_style('dashicons');
   }
 }
-
-/**
- * Extend WordPress search to include custom fields
- * Note: if using Search and Filter Pro, this isn't always reliable and
- * it's best to use a plugin like "Search Everything" or try
- * https://gist.github.com/charleslouis/5924863
- *
- * @link https://adambalee.com/search-wordpress-by-custom-fields-without-a-plugin/
- */
-
-/**
- * Join posts and postmeta tables
- * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_join
- */
-if (!function_exists('jellypress_search_acf_join')) {
-  function jellypress_search_acf_join($join)
-  {
-    global $wpdb;
-    if (is_search()) {
-      $join .= ' LEFT JOIN ' . $wpdb->postmeta . ' ON ' . $wpdb->posts . '.ID = ' . $wpdb->postmeta . '.post_id ';
-    }
-    return $join;
-  }
-}
-add_filter('posts_join', 'jellypress_search_acf_join');
-
-/**
- * Modify the search query with posts_where
- * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_where
- */
-if (!function_exists('jellypress_search_acf_where')) {
-  function jellypress_search_acf_where($where)
-  {
-    global $pagenow, $wpdb;
-    if (is_search()) {
-      $where = preg_replace(
-        "/\(\s*" . $wpdb->posts . ".post_title\s+LIKE\s*(\'[^\']+\')\s*\)/",
-        "(" . $wpdb->posts . ".post_title LIKE $1) OR (" . $wpdb->postmeta . ".meta_value LIKE $1)",
-        $where
-      );
-    }
-    return $where;
-  }
-}
-add_filter('posts_where', 'jellypress_search_acf_where');
-
-/**
- * Prevent duplicates
- * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_distinct
- */
-if (!function_exists('jellypress_search_acf_distinct')) {
-  function jellypress_search_acf_distinct($where)
-  {
-    global $wpdb;
-    if (is_search()) {
-      return "DISTINCT";
-    }
-    return $where;
-  }
-}
-add_filter('posts_distinct', 'jellypress_search_acf_distinct');
 
 /**
  * Hooks into Flexible Content Fields to append useful titles to header handles,

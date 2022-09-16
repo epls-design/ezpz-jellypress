@@ -29,7 +29,6 @@ REQUIRES php 7.4+
 * Lazy loading of background images with `assets/js/site/lazyload-bg.js`.
 * Full support for `WooCommerce plugin` integration with hooks in `inc/woocommerce.php`, styling override woocommerce.css with product gallery features (zoom, swipe, lightbox) enabled.
 * Lots of other custom functions and helpers. Take a look around the `/inc` folder
-* SEO support and rich schema mark up using ACF for data input
 * Automatic language translation if you use the proper Wordpress hooks eg. `_e('Translate this', 'textdomain')` or `echo __('Translate this', 'textdomain')`
 * Bundled with recommended and necessary plugins through [TGM Plugin Activation](http://tgmpluginactivation.com/)
 * Support for ACF and baked-in use of ACF flexible content for page layout using flexible content fields. A range of 'out of the box' layout options:

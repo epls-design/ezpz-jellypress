@@ -2,9 +2,9 @@
 # This file is distributed under the UNLICENSED.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: JellyPress 1.2.4\n"
+"Project-Id-Version: JellyPress 1.3.0\n"
 "Report-Msgid-Bugs-To: https://github.com/epls-design/ezpz-jellypress/issues\n"
-"POT-Creation-Date: 2022-07-28 14:19:09+00:00\n"
+"POT-Creation-Date: 2022-09-16 15:32:39+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,7 +24,7 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: archive.php:53 template-parts/blocks/post-archive/view.php:80
+#: archive.php:53 template-parts/blocks/post-archive/view.php:89
 msgid "Load More..."
 msgstr ""
 
@@ -50,88 +50,16 @@ msgstr ""
 msgid "Toggles the website navigation"
 msgstr ""
 
-#: inc/acf.php:60
-msgid "Information and SEO"
+#: inc/acf.php:60 inc/acf.php:61
+msgid "Theme Options"
 msgstr ""
 
-#: inc/acf.php:61
-msgid "Info & SEO"
-msgstr ""
-
-#: inc/acf.php:71 inc/acf.php:72
-msgid "Contact Details"
-msgstr ""
-
-#: inc/acf.php:77
-msgid "Successfully updated Contact Details"
-msgstr ""
-
-#: inc/acf.php:82 inc/acf.php:83 inc/dry.php:272
-msgid "Opening Hours"
-msgstr ""
-
-#: inc/acf.php:88
-msgid "Successfully updated Opening Hours"
-msgstr ""
-
-#: inc/acf.php:93
-msgid "Social Media and SEO"
-msgstr ""
-
-#: inc/acf.php:94
-msgid "Social Media/SEO"
-msgstr ""
-
-#: inc/acf.php:99
+#: inc/acf.php:68
 msgid "Successfully updated Social Media and SEO"
-msgstr ""
-
-#: inc/acf.php:104 inc/acf.php:105
-msgid "APIs"
-msgstr ""
-
-#: inc/acf.php:110
-msgid "Successfully updated APIs"
-msgstr ""
-
-#: inc/acf.php:115 inc/acf.php:116
-msgid "Theme Settings"
-msgstr ""
-
-#: inc/acf.php:121
-msgid "Successfully updated Theme Settings"
 msgstr ""
 
 #: inc/dry.php:128
 msgid "Visit us on "
-msgstr ""
-
-#: inc/dry.php:192
-msgid " Postal Address"
-msgstr ""
-
-#: inc/dry.php:246
-msgid "Telephone:"
-msgstr ""
-
-#: inc/dry.php:272
-msgid "Day(s)"
-msgstr ""
-
-#: inc/dry.php:278
-msgid "Closed"
-msgstr ""
-
-#: inc/dry.php:316
-msgid "Department"
-msgstr ""
-
-#: inc/dry.php:316
-msgid "Phone Number"
-msgstr ""
-
-#: inc/dry.php:316
-msgid "Email Address"
 msgstr ""
 
 #: inc/helpers.php:159
@@ -489,11 +417,11 @@ msgid ""
 "website.</strong>"
 msgstr ""
 
-#: inc/template-functions.php:103
+#: inc/template-functions.php:74
 msgid "%1$s"
 msgstr ""
 
-#: inc/template-functions.php:118
+#: inc/template-functions.php:88
 msgid ""
 "Please add a featured image. This will be used as the main image for the "
 "page on search engines and may be displayed on the page itself depending on "
@@ -595,8 +523,8 @@ msgstr ""
 msgid "After"
 msgstr ""
 
-#: template-parts/blocks/linked-posts/view.php:97
-#: template-parts/blocks/post-archive/view.php:83
+#: template-parts/blocks/linked-posts/view.php:99
+#: template-parts/blocks/post-archive/view.php:92
 msgid "No posts matched your criteria."
 msgstr ""
 
@@ -606,6 +534,10 @@ msgstr ""
 msgid ""
 "You need to <a href=\"%s\" class=\"callout-link\">add a Google Maps API "
 "key</a> in order to display a map on your website."
+msgstr ""
+
+#: template-parts/components/card/card-search.php:30
+msgid "Last updated "
 msgstr ""
 
 #: template-parts/layout/content/content-404.php:19

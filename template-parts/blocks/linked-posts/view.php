@@ -67,7 +67,9 @@ $posts_array = array(); // Create an empty array to store posts ready for the lo
       $query_posts_from_db = new WP_Query(array(
         'post_type' => $query_post_type, // Accepts an array
         'posts_per_page' => $query_quantity,
-        'orderby' => $query_type
+        'orderby' => $query_type,
+        'post__not_in' => get_option( 'sticky_posts' ), // Exclude sticky
+        'has_password' => FALSE // Exclude password protected
       ));
 
       if ($query_posts_from_db->have_posts()) :

@@ -40,17 +40,6 @@ if (!function_exists('jellypress_pingback_header')) {
 }
 add_action('wp_head', 'jellypress_pingback_header');
 
-if (!function_exists('jellypress_yoastprioritylow')) {
-  /**
-   * Move Yoast Meta Box to bottom of editor
-   */
-  function jellypress_yoastprioritylow()
-  {
-    return 'low';
-  }
-}
-add_filter('wpseo_metabox_prio', 'jellypress_yoastprioritylow');
-
 if (!function_exists('jellypress_unset_image_sizes')) {
   /**
    * Wordpress 5.3+ adds additional image sizes. All of these get generated every time an image is
@@ -71,24 +60,6 @@ if (!function_exists('jellypress_unset_image_sizes')) {
 }
 add_action('intermediate_image_sizes_advanced', 'jellypress_unset_image_sizes');
 
-
-/**
- * Change the default search page to /search/$s rather than ?s=$s
- * Remove this if using Search and Filter Pro as it can cause a conflict.
- *
- * @return void
- */
-if (!function_exists('jellypress_change_search_url')) :
-  function jellypress_change_search_url()
-  {
-    if (is_search() && !empty($_GET['s'])) {
-      wp_redirect(home_url("/search/") . urlencode(get_query_var('s'))); // Redirect to slug search
-      exit();
-    }
-  }
-  add_action('template_redirect', 'jellypress_change_search_url');
-endif;
-
 /**
  * Filter to remove the leading text from archive pages (eg 'Category:', 'Author:')
  */
@@ -106,7 +77,6 @@ add_filter('get_the_archive_title', function ($title) {
   return $title;
 });
 
-
 /**
  * Adds helper text to the featured image box. This only works on classic editor as Gutenberg
  * does not support the filter, or have any equivalents (as of Oct 2020)
@@ -121,41 +91,19 @@ if (!function_exists('jellypress_featured_image_admin_prompt')) :
 endif;
 
 /**
- * Get Primary Post Category
- * @Link https://www.lab21.gr/blog/wordpress-get-primary-category-post/
+ * Get Primary Post Category - RankMath SEO plugin makes it the first one which is handy!
  *
  */
 if (!function_exists('jellypress_get_post_primary_category')) :
-  function jellypress_get_post_primary_category($post_id, $term = 'category', $return_all_categories = false)
+  function jellypress_get_post_primary_category($post_id, $term = 'category')
   {
     $return = array();
 
-    if (class_exists('WPSEO_Primary_Term')) {
-      // Show Primary category by Yoast if it is enabled & set
-      $wpseo_primary_term = new WPSEO_Primary_Term($term, $post_id);
-      $primary_term = get_term($wpseo_primary_term->get_primary_term());
-
-      if (!is_wp_error($primary_term)) {
-        $return['primary_category'] = $primary_term;
-      }
-    }
-
-    if (empty($return['primary_category']) || $return_all_categories) {
       $categories_list = get_the_terms($post_id, $term);
 
-      if (empty($return['primary_category']) && !empty($categories_list)) {
+      if (!empty($categories_list)) {
         $return['primary_category'] = $categories_list[0];  //get the first category
       }
-      if ($return_all_categories) {
-        $return['all_categories'] = array();
-
-        if (!empty($categories_list)) {
-          foreach ($categories_list as &$category) {
-            $return['all_categories'][] = $category->term_id;
-          }
-        }
-      }
-    }
 
     return $return;
   }
@@ -179,7 +127,6 @@ endif;
 /**
  * A function which can be used to generate an excerpt whilst in the loop
  * Use $possible_excerpts to determine the order in which excerpts are found.
- * Yoast SEO hooks into this function to populate the %%excerpt%% tag with jellypress_filter_wpseo_excerpt()
  *
  * @param integer $trim Optional amount of characters to trim the output to
  * @param boolean or string $ellipses Whether or not to append the output with an ellipses.
@@ -212,22 +159,5 @@ if (!function_exists('jellypress_generate_excerpt')) :
       $post_excerpt = $post_excerpt . $ellipses;
     }
     return $post_excerpt;
-  }
-endif;
-
-/**
- * Replaces Excerpt Variable in Yoast SEO by using function jellypress_generate_excerpt()
- * @link http://hookr.io/functions/wpseo_register_var_replacement/
- * @link https://stackoverflow.com/questions/36281915/yoast-seo-how-to-create-custom-variables
- *
- * @return void
- */
-add_filter('wpseo_replacements', 'jellypress_filter_wpseo_excerpt', 10, 1);
-if (!function_exists('jellypress_filter_wpseo_excerpt')) :
-  function jellypress_filter_wpseo_excerpt($replacements)
-  {
-    global $post;
-    $replacements['%%excerpt%%'] = jellypress_generate_excerpt(160, true);
-    return $replacements;
   }
 endif;

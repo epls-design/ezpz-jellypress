@@ -36,9 +36,9 @@ get_header();
       echo '<div class="row equal-height search-results">';
       while (have_posts()) :
         the_post();
-        echo '<section class="col xs-12 sm-6 md-4 xl-3 result">';
-        get_template_part('template-parts/components/card/card', get_post_type());
-        echo '</section>';
+        echo '<div class="col xs-12 sm-6 md-4 xl-3 result">';
+        get_template_part('template-parts/components/card/card', 'search');
+        echo '</div>';
       endwhile;
       echo '</div>';
       jellypress_numeric_pagination(); // Paginate if there are older posts

@@ -85,12 +85,18 @@ function jellypress_register_required_plugins()
 
 		// Include from the WordPress Plugin Repository.
 		array(
-			'name'      => 'ACF Content Analysis for Yoast SEO',
-			'slug'      => 'acf-content-analysis-for-yoast-seo',
-		),
-		array(
 			'name'      => 'Autoptimize',
 			'slug'      => 'autoptimize',
+    ),
+    array(
+			'name'      => 'ACF: Better Search',
+      'slug'      => 'acf-better-search',
+			'force_activation'  => true,
+			'required'     => true,
+		),
+		array(
+			'name'      => 'Rank Math SEO',
+      'slug'      => 'seo-by-rank-math',
 		),
 		array(
 			'name'      => 'User Role Editor',
@@ -107,10 +113,6 @@ function jellypress_register_required_plugins()
 		array(
 			'name'      => 'WPS Hide Login',
 			'slug'      => 'wps-hide-login',
-		),
-		array(
-			'name'      => 'Yoast SEO',
-			'slug'      => 'wordpress-seo',
 		),
 	);
 

@@ -55,7 +55,7 @@ $cover-min-heights: (25vh, 50vh, 75vh, 100vh);
 @for $i from 1 through 100 {
   @if $i % 10 == 0 {
     .overlay-opacity-#{$i}::before {
-      opacity: $i/100;
+      opacity: $i*0.01;
     }
   }
 }

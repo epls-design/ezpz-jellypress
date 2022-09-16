@@ -16,7 +16,7 @@ if (!function_exists('jellypress_numeric_pagination')) :
    * @param integer $range = how many posts to show
    *
    */
-  function jellypress_numeric_pagination($show_total = false, $range = 4, $query = 'default')
+  function jellypress_numeric_pagination($show_total = false, $range = 4, $query = 'default', $scrollto = '')
   {
 
     // $paged - number of the active page
@@ -54,7 +54,7 @@ if (!function_exists('jellypress_numeric_pagination')) :
         if ($paged < $range) :
           for ($i = 1; $i <= ($range + 1); $i++) {
             $class = $i == $paged ? 'active' : '';
-            echo '<li class="paged-num ' . $class . '"><a href="' . get_pagenum_link($i) . '" title="' . __('Page ' . $i . ' of ' . $max_page, 'jellypress') . '"> ' . $i . ' </a></li>';
+            echo '<li class="paged-num ' . $class . '"><a href="' . get_pagenum_link($i) .$scrollto. '" title="' . __('Page ' . $i . ' of ' . $max_page, 'jellypress') . '"> ' . $i . ' </a></li>';
           }
           echo '<li class="nav-ellipses">' . jellypress_icon('ellipses') . '</li>';
         // When closer to the ends
@@ -62,14 +62,14 @@ if (!function_exists('jellypress_numeric_pagination')) :
           echo '<li class="nav-ellipses">' . jellypress_icon('ellipses') . '</li>';
           for ($i = $max_page - $range; $i <= $max_page; $i++) {
             $class = $i == $paged ? 'active' : '';
-            echo '<li class="paged-num ' . $class . '"><a href="' . get_pagenum_link($i) . '" title="' . __('Page ' . $i . ' of ' . $max_page, 'jellypress') . '"> ' . $i . ' </a></li>';
+            echo '<li class="paged-num ' . $class . '"><a href="' . get_pagenum_link($i) .$scrollto. '" title="' . __('Page ' . $i . ' of ' . $max_page, 'jellypress') . '"> ' . $i . ' </a></li>';
           }
         // Somewhere in the middle
         elseif ($paged >= $range && $paged < ($max_page - ceil($range / 2))) :
           echo '<li class="nav-ellipses">' . jellypress_icon('ellipses') . '</li>';
           for ($i = ($paged - ceil($range / 2)); $i <= ($paged + ceil($range / 2)); $i++) {
             $class = $i == $paged ? 'active' : '';
-            echo '<li class="paged-num ' . $class . '"><a href="' . get_pagenum_link($i) . '" title="' . __('Page ' . $i . ' of ' . $max_page, 'jellypress') . '"> ' . $i . ' </a></li>';
+            echo '<li class="paged-num ' . $class . '"><a href="' . get_pagenum_link($i) .$scrollto. '" title="' . __('Page ' . $i . ' of ' . $max_page, 'jellypress') . '"> ' . $i . ' </a></li>';
           }
           echo '<li class="nav-ellipses">' . jellypress_icon('ellipses') . '</li>';
         endif;
