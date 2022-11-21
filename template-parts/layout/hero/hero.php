@@ -20,7 +20,10 @@ defined('ABSPATH') || exit;
         <div class="page-header">
           <?php
           jellypress_post_thumbnail('medium', 'alignright');
-          the_title('<h1 class="page-title">', '</h1>');
+          echo '<h1 class="page-title">';
+          the_title();
+          if (get_post_type() == 'stack') echo ' <div class="tag primary">' . __('stack', 'jellypress') . '</div> ';
+          echo '</h1>';
           if ('post' === get_post_type()) : ?>
             <div class="entry-meta">
               <?php

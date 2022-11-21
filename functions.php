@@ -19,8 +19,7 @@ if (file_exists(get_template_directory() . '/env.json')) {
 }
 
 if (!function_exists('jellypress_env')) {
-  function jellypress_env($key, $default = null)
-  {
+  function jellypress_env($key, $default = null) {
     $value = getenv($key);
     if ($value === false) return $default;
     return $value;
@@ -34,6 +33,7 @@ if (!defined('PROD_URL')) define('PROD_URL', jellypress_env('PROD_URL'));
 $jellypress_includes = array(
   'inc/tgm-plugin-activation.php',   // Third party script to allow required/recommended plugins
   'inc/plugins.php',                 // Require and recommend plugins for this theme
+  'inc/classes.php',                 // Special classes to speed up dev
   'inc/helpers.php',                 // Useful helper functions
   'inc/theme-setup.php',             // Basic theme setup
   'inc/widgets.php',                 // Register widget areas
@@ -57,7 +57,7 @@ $jellypress_includes = array(
   'inc/compare.php',                 // Functions which work with TwentyTwenty Image Comparison
 
   //~~~~~ CUSTOM POST TYPES
-  'inc/post_types/post.php',
+  // 'inc/post_types/example.php',
   'inc/post_types/page.php',
   'inc/post_types/stacks.php',
 
