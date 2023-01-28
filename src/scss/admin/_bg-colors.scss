@@ -1,0 +1,12 @@
+@each $name, $color in $background-colors {
+  // Loop through $theme-colors map and create classes for .bg-*
+  .bg-#{$name} {
+    background-color: $color;
+  }
+}
+
+// Set up default colors for button-group swatches
+// No need to create all utility classes by adding them to the $background-colors map if not used in the theme
+.bg-gray {
+  background-color: get-color(neutral);
+}

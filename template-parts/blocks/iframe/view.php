@@ -18,6 +18,7 @@ $container_class = 'container';
 //var_dump($block);
 
 $block_title = $block['title'];
+$title_align = $block_title ? $block['title_align'] : 'left';
 $website_url = $block['website_url'];
 $block_preamble = $block['preamble'];
 
@@ -29,7 +30,7 @@ elseif ($block_width == 'full') $block_classes .= ' is-full-width';
 <section <?php if ($block_id_opt = $block['section_id']) echo 'id="' . strtolower($block_id_opt) . '"'; ?> class="<?= $block_classes; ?>">
   <?php if ($block_title || $block_preamble) echo '<div class="container">'; ?>
 
-  <?php if ($block_title) : $title_align = $block['title_align']; ?>
+  <?php if ($block_title) : ?>
     <header class="row justify-center block-title">
       <div class="col md-10 lg-8">
         <h2 class="text-<?= $title_align; ?>"><?= jellypress_bracket_tag_replace($block_title); ?></h2>
@@ -51,15 +52,15 @@ elseif ($block_width == 'full') $block_classes .= ' is-full-width';
       <div class="row">
         <div class="col">
           <?php
-            if ($block_width === 'full') echo '<div class="vw-100">';
-            elseif ($block_width === 'smaller') echo '<div class="row justify-center"><div class="col md-10 lg-8">';
+          if ($block_width === 'full') echo '<div class="vw-100">';
+          elseif ($block_width === 'smaller') echo '<div class="row justify-center"><div class="col md-10 lg-8">';
           ?>
           <div class="embed-container">
             <iframe class="embedded-iframe" src="<?= $website_url; ?>"></iframe>
           </div>
           <?php
-            if ($block_width === 'full') echo '</div>';
-            elseif ($block_width === 'smaller') echo '</div></div>';
+          if ($block_width === 'full') echo '</div>';
+          elseif ($block_width === 'smaller') echo '</div></div>';
           ?>
         </div>
       </div>

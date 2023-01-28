@@ -4,7 +4,7 @@
 defined('ABSPATH') || exit;
 
 /**
- * Pass through an existing post type slug to customPostType to create an object for it
+ * Pass through an existing post type slug or name to customPostType to create an object for it
  */
 $page = new customPostType('page');
 

@@ -20,7 +20,15 @@ defined('ABSPATH') || exit;
 $options = array(
   // 'publicly_queryable' => false
 );
-$film = new customPostType('Film', 'Films', 'dashicons-video-alt', $options);
+$film = new customPostType(
+  array(
+    'singular' => 'Film',
+    // 'plural' => 'Films', // Defaults to ${singular}s
+    //'slug' => 'film', // Defaults to lowercase ($singular)
+  ),
+  'dashicons-video-alt',
+  $options
+);
 
 /**
  * Use the method add_support to add additional support to a post type
@@ -57,7 +65,14 @@ $options = array(
   // 'hierarchical' => true,
   // 'meta_box_cb' => false,
 );
-$film->register_taxonomy('Genre', 'Genres', $options);
+$film->register_taxonomy(
+  array(
+    'singular' => 'Genre',
+    //'plural' => 'Genres', // Defaults to ${singular}s
+    //'slug' => 'genre', // Defaults to lowercase ($singular)
+  ),
+  $options
+);
 
 /**
  * Assign an existing taxonomy by passing through just the taxonomy slug

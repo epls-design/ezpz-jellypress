@@ -1,0 +1,153 @@
+{
+    "key": "group_606724c228c05",
+    "title": "Theme Options",
+    "fields": [
+        {
+            "key": "field_632475ef8e2aa",
+            "label": "<span class=\"dashicons dashicons-facebook\"></span>Social",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_606724c23052e",
+            "label": "Social Media Channels",
+            "name": "social_channels",
+            "type": "repeater",
+            "instructions": "Add all of the social media channels you are on here. These can be displayed by your developers within the theme.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Channel",
+            "sub_fields": [
+                {
+                    "key": "field_606724c2bd5cb",
+                    "label": "Network",
+                    "name": "network",
+                    "type": "select",
+                    "instructions": "Please select the network",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "facebook": "Facebook",
+                        "instagram": "Instagram",
+                        "linkedin": "Linkedin",
+                        "pinterest": "Pinterest",
+                        "twitter": "Twitter",
+                        "snapchat": "Snapchat",
+                        "vimeo": "Vimeo",
+                        "youtube": "YouTube",
+                        "whatsapp": "WhatsApp",
+                        "microsoftteams": "MS Teams",
+                        "wikipedia": "Wikipedia",
+                        "skype": "Skype",
+                        "zoom": "Zoom",
+                        "github": "Github"
+                    },
+                    "default_value": false,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_606724c2bd5d4",
+                    "label": "URL",
+                    "name": "url",
+                    "type": "text",
+                    "instructions": "Please add the <b>full URL</b> for your profile on this social channel.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "60",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        },
+        {
+            "key": "field_632476492552b",
+            "label": "<span class=\"dashicons dashicons-rest-api\"></span>APIs",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_606724c578b1f",
+            "label": "Google Maps API Key",
+            "name": "google_maps_api_key",
+            "type": "text",
+            "instructions": "To display Google Maps on your website, you need an API key. Please add it here.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-options"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Available options to enhance your website theme.",
+    "show_in_rest": 0,
+    "modified": 1672653973
+}

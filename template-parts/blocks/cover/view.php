@@ -19,6 +19,7 @@ $block_classes = $args['block_classes'];
 $block_classes .= ' has-bg-img';
 
 $block_title = $block['title'];
+$title_align = $block_title ? $block['title_align'] : 'left';
 
 $background_image = $block['background_image'];
 if ($block['parallax_background']) $block_classes .= ' bg-is-fixed';
@@ -52,7 +53,7 @@ $block_classes .= ' flex align-middle';
 <section <?php if ($block_id_opt = $block['section_id']) echo 'id="' . strtolower($block_id_opt) . '"'; ?> class="<?= $block_classes; ?>" data-bg-img="<?= wp_get_attachment_image_url($background_image, 'large'); ?>" style="background-image:url(<?= wp_get_attachment_image_url($background_image, 'medium'); ?>)">
   <div class="container">
 
-    <?php if ($block_title) : $title_align = $block['title_align']; ?>
+    <?php if ($block_title) : ?>
       <header class="row justify-<?= $row_justify; ?> block-title">
         <div class="col <?= $col_class; ?>">
           <h2 class="text-<?= $title_align; ?>"><?= jellypress_bracket_tag_replace($block_title); ?></h2>

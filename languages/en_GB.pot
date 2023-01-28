@@ -1,0 +1,865 @@
+Copyright (C) 2023 EPLS Design <theteam@epls.design>
+msgid ""
+msgstr ""
+"Project-Id-Version: JellyPress 1.4.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: EPLS Design <theteam@epls.design>\n"
+"Last-Translator: EPLS Design <theteam@epls.design>\n"
+"POT-Creation-Date: 2023-01-28 14:21+0000\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: archive.php:53, template-parts/blocks/post-archive/view.php:90
+msgid "Load More..."
+msgstr ""
+
+#. translators: 1: comment count number, 2: title.
+#: comments.php:46
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:40
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr ""
+
+#: comments.php:71
+msgid "Comments are closed."
+msgstr ""
+
+#. translators: 1: Theme author and link to website.
+#: footer.php:32
+msgid "Website design and build by %1$s"
+msgstr ""
+
+#: header.php:36
+msgid "Skip to content"
+msgstr ""
+
+#: header.php:56, header.php:67
+msgid "Toggles the website navigation"
+msgstr ""
+
+#: page-simple.php:3
+msgid "Simple Page (No Header/Footer)"
+msgstr ""
+
+#: searchform.php:19
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:20
+msgid "I'm looking for&hellip;"
+msgstr ""
+
+#: searchform.php:22
+msgid "Search"
+msgstr ""
+
+#: inc/acf.php:60, inc/acf.php:61
+msgid "Theme Options"
+msgstr ""
+
+#: inc/acf.php:68
+msgid "Successfully updated Social Media and SEO"
+msgstr ""
+
+#: inc/classes.php:111
+msgid "You registered an instance of a new CustomPostType but did not pass through a singular. This is required"
+msgstr ""
+
+#: inc/classes.php:201, inc/classes.php:202, inc/classes.php:405, inc/classes.php:406, inc/classes.php:407, inc/classes.php:538
+msgid "%s"
+msgstr ""
+
+#: inc/classes.php:203
+msgid "Add New"
+msgstr ""
+
+#: inc/classes.php:204, inc/classes.php:412
+msgid "Add New %s"
+msgstr ""
+
+#: inc/classes.php:205, inc/classes.php:409
+msgid "Edit %s"
+msgstr ""
+
+#: inc/classes.php:206
+msgid "New %s"
+msgstr ""
+
+#: inc/classes.php:207, inc/classes.php:208, inc/classes.php:410
+msgid "View %s"
+msgstr ""
+
+#: inc/classes.php:209, inc/classes.php:416
+msgid "Search %s"
+msgstr ""
+
+#: inc/classes.php:210, inc/classes.php:421
+msgid "No %s found"
+msgstr ""
+
+#: inc/classes.php:211
+msgid "No %s found in trask"
+msgstr ""
+
+#: inc/classes.php:212, inc/classes.php:414
+msgid "Parent %s"
+msgstr ""
+
+#: inc/classes.php:213, inc/classes.php:408
+msgid "All %s"
+msgstr ""
+
+#: inc/classes.php:214
+msgid "%s Archives"
+msgstr ""
+
+#: inc/classes.php:215
+msgid "%s Attributes"
+msgstr ""
+
+#: inc/classes.php:216
+msgid "Uploaded to this %s"
+msgstr ""
+
+#: inc/classes.php:217
+msgid "Filter %s"
+msgstr ""
+
+#: inc/classes.php:218
+msgid "%s list navigation"
+msgstr ""
+
+#: inc/classes.php:219
+msgid "%s list"
+msgstr ""
+
+#: inc/classes.php:220
+msgid "%s published"
+msgstr ""
+
+#: inc/classes.php:221
+msgid "%s published privately"
+msgstr ""
+
+#: inc/classes.php:222
+msgid "%s reverted to draft"
+msgstr ""
+
+#: inc/classes.php:223
+msgid "%s scheduled"
+msgstr ""
+
+#: inc/classes.php:224
+msgid "%s updated"
+msgstr ""
+
+#: inc/classes.php:225
+msgid "%s Link"
+msgstr ""
+
+#: inc/classes.php:226
+msgid "A link to a %s"
+msgstr ""
+
+#: inc/classes.php:375
+msgid "You registered an instance of a new taxonomy but did not pass through a singular. This is required"
+msgstr ""
+
+#: inc/classes.php:411
+msgid "Update %s"
+msgstr ""
+
+#: inc/classes.php:413
+msgid "New %s Name"
+msgstr ""
+
+#: inc/classes.php:415
+msgid "Parent %s:"
+msgstr ""
+
+#: inc/classes.php:417
+msgid "Popular %s"
+msgstr ""
+
+#: inc/classes.php:418
+msgid "Seperate %s with commas"
+msgstr ""
+
+#: inc/classes.php:419
+msgid "Add or remove %s"
+msgstr ""
+
+#: inc/classes.php:420
+msgid "Choose from most used %s"
+msgstr ""
+
+#: inc/classes.php:610
+msgid "No %s"
+msgstr ""
+
+#: inc/classes.php:735
+msgid "Show all %s"
+msgstr ""
+
+#: inc/classes.php:925, inc/classes.php:928, inc/classes.php:930
+msgid "%s updated."
+msgstr ""
+
+#: inc/classes.php:926
+msgid "Custom field updated."
+msgstr ""
+
+#: inc/classes.php:927
+msgid "Custom field deleted."
+msgstr ""
+
+#: inc/classes.php:929
+msgid "%2$s restored to revision from %1$s"
+msgstr ""
+
+#: inc/classes.php:931
+msgid "%s saved."
+msgstr ""
+
+#: inc/classes.php:932
+msgid "%s submitted."
+msgstr ""
+
+#: inc/classes.php:934
+msgid "%2$s scheduled for: <strong>%1$s</strong>."
+msgstr ""
+
+#: inc/classes.php:935
+msgid "M j, Y @ G:i"
+msgstr ""
+
+#: inc/classes.php:938
+msgid "%s draft updated."
+msgstr ""
+
+#: inc/dry.php:128
+msgid "Visit us on "
+msgstr ""
+
+#: inc/helpers.php:159
+msgid "The ACF data can not be displayed. Have you installed the <a href=\"https://github.com/timothyjensen/acf-field-group-values\" target=\"_blank\" rel=\"nofollow\" class=\"callout-link\">ACF Field Group Values</a> plugin?"
+msgstr ""
+
+#: inc/pagination.php:46
+msgid "First Page"
+msgstr ""
+
+#: inc/pagination.php:83
+msgid "Last Page"
+msgstr ""
+
+#: inc/plugins.php:129
+msgid "Install Required Theme Plugins"
+msgstr ""
+
+#: inc/plugins.php:130
+msgid "Theme Plugins"
+msgstr ""
+
+#: inc/plugins.php:131
+msgid "This theme requires the following plugin to operate correctly: %1$s."
+msgid_plural "This theme requires the following plugins to operate correctly: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/plugins.php:137
+msgid "This theme recommends the following plugin to add additional functionality: %1$s."
+msgid_plural "This theme recommends the following plugins to add additional functionality: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/template-functions.php:88
+msgid "Please add a featured image. This will be used as the main image for the page on search engines and may be displayed on the page itself depending on the design. "
+msgstr ""
+
+#. translators: %s: post date.
+#: inc/template-tags.php:35
+msgctxt "post date"
+msgid "Posted on %s"
+msgstr ""
+
+#. translators: %s: post author.
+#: inc/template-tags.php:51
+msgctxt "post author"
+msgid "by %s"
+msgstr ""
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:70
+msgid ", "
+msgstr ""
+
+#. translators: 1: list of categories.
+#: inc/template-tags.php:73
+msgid "Posted in %1$s"
+msgstr ""
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:77
+msgctxt "list item separator"
+msgid ", "
+msgstr ""
+
+#. translators: 1: list of tags.
+#: inc/template-tags.php:80
+msgid "Tagged %1$s"
+msgstr ""
+
+#. translators: %s: post title
+#: inc/template-tags.php:91
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:340
+msgid "Install Required Plugins"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:341
+msgid "Install Plugins"
+msgstr ""
+
+#. translators: %s: plugin name.
+#: inc/tgm-plugin-activation.php:343
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#. translators: %s: plugin name.
+#: inc/tgm-plugin-activation.php:345
+msgid "Updating Plugin: %s"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:346
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:347
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm-plugin-activation.php:353
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm-plugin-activation.php:359
+msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
+msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm-plugin-activation.php:365
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm-plugin-activation.php:371
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm-plugin-activation.php:377
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm-plugin-activation.php:383
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm-plugin-activation.php:388
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm-plugin-activation.php:393
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm-plugin-activation.php:398
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:399, inc/tgm-plugin-activation.php:939, inc/tgm-plugin-activation.php:2705, inc/tgm-plugin-activation.php:3783
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:400, inc/tgm-plugin-activation.php:3352
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:401, inc/tgm-plugin-activation.php:3137
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: plugin name.
+#: inc/tgm-plugin-activation.php:403
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: inc/tgm-plugin-activation.php:405
+msgid "Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin."
+msgstr ""
+
+#. translators: 1: dashboard link.
+#: inc/tgm-plugin-activation.php:407
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:408
+msgid "Dismiss this notice"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:409
+msgid "There are one or more required or recommended plugins to install, update or activate."
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:410
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:620
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:621
+msgid "Update Required"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:742
+msgid "Set the parent_slug config variable instead."
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:1051
+msgid "The remote plugin package consists of more than one file, but the files are not packaged in a folder."
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:1051, inc/tgm-plugin-activation.php:1048
+msgid "Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines."
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:1048
+msgid "The remote plugin package does not contain a folder with the desired slug and renaming did not work."
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:1241, inc/tgm-plugin-activation.php:3133
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr ""
+
+#. translators: %s: version number
+#: inc/tgm-plugin-activation.php:2137
+msgid "TGMPA v%s"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2438
+msgid "Required"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2441
+msgid "Recommended"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2458
+msgid "WordPress Repository"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2461
+msgid "External Source"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2464
+msgid "Pre-Packaged"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2482
+msgid "Not Installed"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2488
+msgid "Active"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2486
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2498
+msgid "Update recommended"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2496
+msgid "Requires Update"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2494
+msgid "Required Update not Available"
+msgstr ""
+
+#. translators: 1: install status, 2: update status
+#: inc/tgm-plugin-activation.php:2507
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr ""
+
+#. translators: 1: number of plugins.
+#: inc/tgm-plugin-activation.php:2555
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: inc/tgm-plugin-activation.php:2559
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: inc/tgm-plugin-activation.php:2563
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: 1: number of plugins.
+#: inc/tgm-plugin-activation.php:2567
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm-plugin-activation.php:2653
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2661
+msgid "Installed version:"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2669
+msgid "Minimum required version:"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2681
+msgid "Available version:"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2705
+msgid "No plugins to install, update or activate."
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2720
+msgid "Plugin"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2721
+msgid "Source"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2722
+msgid "Type"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2726
+msgid "Version"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2727
+msgid "Status"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: inc/tgm-plugin-activation.php:2784
+msgid "Update %2$s"
+msgstr ""
+
+#. translators: %2$s: plugin name in screen reader markup
+#: inc/tgm-plugin-activation.php:2790
+msgid "Activate %2$s"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2779
+msgid "Install %2$s"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2862
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2899
+msgid "Install"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2905
+msgid "Update"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2908
+msgid "Activate"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2942
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2940
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2985
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:2983
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:3093
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:3119
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:3351
+msgid "Plugin activation failed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: error message.
+#: inc/tgm-plugin-activation.php:3701
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: inc/tgm-plugin-activation.php:3703
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:3715
+msgid "The installation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#. translators: 1: plugin name.
+#: inc/tgm-plugin-activation.php:3717
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:3717, inc/tgm-plugin-activation.php:3709
+msgid "Show Details"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:3717, inc/tgm-plugin-activation.php:3709
+msgid "Hide Details"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:3718
+msgid "All installations have been completed."
+msgstr ""
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: inc/tgm-plugin-activation.php:3720
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:3707
+msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:3709
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:3710
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:3712
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/tgm-plugin-activation.php:3698
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/theme-setup.php:67
+msgid "Primary"
+msgstr ""
+
+#: inc/theme-setup.php:149
+msgid "Staging Site"
+msgstr ""
+
+#: inc/theme-setup.php:147
+msgid "Development Site"
+msgstr ""
+
+#: inc/video-embed.php:98
+msgid "Play Video"
+msgstr ""
+
+#: inc/widgets.php:18
+msgid "Sidebar"
+msgstr ""
+
+#: inc/widgets.php:20
+msgid "Add your widgets here."
+msgstr ""
+
+#: inc/woocommerce.php:204
+msgid "View your shopping cart"
+msgstr ""
+
+#. translators: number of items in the mini cart.
+#: inc/woocommerce.php:208
+msgid "%d item"
+msgid_plural "%d items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/post_types/example.php:89, inc/post_types/stacks.php:29
+msgid "Title"
+msgstr ""
+
+#: inc/post_types/example.php:90
+msgid "Genres"
+msgstr ""
+
+#: inc/post_types/example.php:91
+msgid "Box Office Takings"
+msgstr ""
+
+#: inc/post_types/example.php:92
+msgid "Rating"
+msgstr ""
+
+#: inc/post_types/example.php:93, inc/post_types/stacks.php:31
+msgid "Date"
+msgstr ""
+
+#: inc/post_types/stacks.php:30
+msgid "Used"
+msgstr ""
+
+#: inc/post_types/stacks.php:65
+msgid "Not used on any post"
+msgstr ""
+
+#: template-parts/blocks/chart/view.php:39
+msgid "A data chart"
+msgstr ""
+
+#: template-parts/blocks/countdown/view.php:55
+msgid "Days"
+msgstr ""
+
+#: template-parts/blocks/countdown/view.php:59
+msgid "Hours"
+msgstr ""
+
+#: template-parts/blocks/countdown/view.php:63
+msgid "Minutes"
+msgstr ""
+
+#: template-parts/blocks/countdown/view.php:67
+msgid "Seconds"
+msgstr ""
+
+#: template-parts/blocks/image-compare/view.php:32
+msgid "Before"
+msgstr ""
+
+#: template-parts/blocks/image-compare/view.php:35
+msgid "After"
+msgstr ""
+
+#: template-parts/blocks/linked-posts/view.php:100, template-parts/blocks/post-archive/view.php:93
+msgid "No posts matched your criteria."
+msgstr ""
+
+#. translators: %s link to theme options page.
+#: template-parts/blocks/magic-columns/view.php:89, template-parts/blocks/map/view.php:65
+msgid "You need to <a href=\"%s\" class=\"callout-link\">add a Google Maps API key</a> in order to display a map on your website."
+msgstr ""
+
+#: template-parts/components/card/card-search.php:30
+msgid "Last updated "
+msgstr ""
+
+#: template-parts/layout/content/content-404.php:19
+msgid "It looks like nothing was found at this location. Can we help you find the page you were looking for?"
+msgstr ""
+
+#: template-parts/layout/content/content-404.php:23
+msgid "Back to last page"
+msgstr ""
+
+#: template-parts/layout/content/content-404.php:28
+msgid "Search this website:"
+msgstr ""
+
+#: template-parts/layout/content/content-none.php:42
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: template-parts/layout/content/content-none.php:34
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: template-parts/layout/content/content-none.php:22
+msgid "Ready to publish your first post? <a href=\"%1$s\" class=\"callout-link\">Get started here</a>."
+msgstr ""
+
+#: template-parts/layout/content/content-page.php:27, template-parts/layout/content/content.php:29
+msgid "Sections:"
+msgstr ""
+
+#: template-parts/layout/hero/hero-404.php:20
+msgid "Page not found"
+msgstr ""
+
+#: template-parts/layout/hero/hero-none.php:20
+msgid "Nothing Found"
+msgstr ""
+
+#. translators: %s: search query.
+#: template-parts/layout/hero/hero-search.php:23
+msgid "Search Results for: %s"
+msgstr ""
+
+#: template-parts/layout/hero/hero.php:25
+msgid "stack"
+msgstr ""

@@ -18,6 +18,7 @@ $container_class = 'container';
 //var_dump($block);
 
 $block_title = $block['title'];
+$title_align = $block_title ? $block['title_align'] : 'left';
 
 $image_id = $block['image'];
 $image_size = 'full';
@@ -30,8 +31,8 @@ elseif ($block_width === 'smaller') $justify = 'center';
 
 <section <?php if ($block_id_opt = $block['section_id']) echo 'id="' . strtolower($block_id_opt) . '"'; ?> class="<?= $block_classes; ?>">
 
-  <?php if ($block_title) : $title_align = $block['title_align'];
-    if($block_width === 'smaller') $justify = 'center';
+  <?php if ($block_title) : $title_align = isset($block['title_align']) ? $block['title_align'] : null;
+    if ($block_width === 'smaller') $justify = 'center';
     elseif ($title_align == 'left') $justify = 'start';
     elseif ($title_align == 'right') $justify = 'end';
     else $justify = 'center';
@@ -49,7 +50,7 @@ elseif ($block_width === 'smaller') $justify = 'center';
     <div class="<?= $container_class; ?>">
       <?php
       if ($block_width === 'full') echo '<div class="vw-100">';
-      elseif ($block_width === 'smaller') echo '<div class="row justify-'.$justify.'"><div class="col md-10 lg-8">';
+      elseif ($block_width === 'smaller') echo '<div class="row justify-' . $justify . '"><div class="col md-10 lg-8">';
 
       echo wp_get_attachment_image($image_id, $image_size);
 

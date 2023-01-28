@@ -102,7 +102,7 @@ if (!function_exists('jellypress_mce_before_init_insert_formats')) {
  * Loads a stylesheet to define styles for the admin area
  */
 add_action('admin_head', function () {
-  echo '<link rel="stylesheet" href="' . get_stylesheet_directory_uri() . '/dist/css/admin-style.min.css" />';
+  echo '<link rel="stylesheet" href="' . get_stylesheet_directory_uri() . '/dist/css/admin-style.css" />';
 });
 
 if (!function_exists('jellypress_tinymce_cleanup')) {

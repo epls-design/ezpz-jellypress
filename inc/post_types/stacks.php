@@ -8,8 +8,11 @@
 defined('ABSPATH') || exit;
 
 $stacks = new customPostType(
-  'Stack',
-  'Stacks',
+  array(
+    'singular' => 'Stack',
+    // 'plural' => 'Stacks',
+    // 'slug' => 'stack',
+  ),
   'dashicons-tagcloud',
   array(
     'menu_position' => 2

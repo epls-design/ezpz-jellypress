@@ -20,6 +20,7 @@ $block_classes = $args['block_classes'];
 //var_dump($block);
 
 $block_title = $block['title'];
+$title_align = $block_title ? $block['title_align'] : 'left';
 $block_preamble = $block['preamble'];
 $query_post_type = $block['query_post_type'];
 $loading_type = $block['loading_type'];
@@ -40,7 +41,7 @@ switch ($block_bg_color) {
 <section <?php if ($block_id_opt = $block['section_id']) echo 'id="' . strtolower($block_id_opt) . '"'; ?> class="<?= $block_classes; ?>">
   <div class="container">
 
-    <?php if ($block_title) : $title_align = $block['title_align']; ?>
+    <?php if ($block_title) : ?>
       <header class="row justify-center block-title">
         <div class="col md-10 lg-8">
           <h2 class="text-<?= $title_align; ?>"><?= jellypress_bracket_tag_replace($block_title); ?></h2>
@@ -62,13 +63,13 @@ switch ($block_bg_color) {
       'post_type' => $query_post_type,
       //'order' => 'ASC',
       'orderby' => 'date',
-      'post__not_in' => get_option( 'sticky_posts' ), // Exclude sticky
+      'post__not_in' => get_option('sticky_posts'), // Exclude sticky
       'has_password' => FALSE // Exclude password protected
     );
 
-    if($loading_type == 'paginated'){
+    if ($loading_type == 'paginated') {
       $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-      $offset = $paged!=1 ? get_option( 'posts_per_page' ) * ($paged-1): 0;
+      $offset = $paged != 1 ? get_option('posts_per_page') * ($paged - 1) : 0;
       $args_posts_query['offset'] = $offset;
     }
 
@@ -108,7 +109,7 @@ switch ($block_bg_color) {
     <?php endif; ?>
 
     <?php
-    if($loading_type == 'paginated') jellypress_numeric_pagination('false', 4 ,$archive_query,'#feed-'.$query_post_type);
+    if ($loading_type == 'paginated') jellypress_numeric_pagination('false', 4, $archive_query, '#feed-' . $query_post_type);
     else jellypress_initialize_ajax_posts($archive_query, $loading_type); ?>
 
   </div>

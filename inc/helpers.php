@@ -153,7 +153,7 @@ if (!function_exists('jellypress_get_acf_fields')) :
   {
     if (is_plugin_active('acf-field-group-values/acf-field-group-values.php')) :
       if ($post_id == 'default') $post_id = get_the_ID();
-      $field_group_array = json_decode(file_get_contents(get_stylesheet_directory() . "/assets/acf-json/group_" . $fieldgroup . ".json"), true);
+      $field_group_array = json_decode(file_get_contents(get_stylesheet_directory() . "/src/acf-json/group_" . $fieldgroup . ".json"), true);
       $data = get_all_custom_field_meta($post_id, $field_group_array, $cloned_fields, $field_labels);
     elseif (current_user_can('administrator')) :
       echo '<div class="callout error">' . __('The ACF data can not be displayed. Have you installed the <a href="https://github.com/timothyjensen/acf-field-group-values" target="_blank" rel="nofollow" class="callout-link">ACF Field Group Values</a> plugin?', 'jellypress') . '</div>';

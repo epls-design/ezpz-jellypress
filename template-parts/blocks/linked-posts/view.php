@@ -21,6 +21,7 @@ $block_classes = $args['block_classes'];
 //var_dump($block);
 
 $block_title = $block['title'];
+$title_align = $block_title ? $block['title_align'] : 'left';
 $block_preamble = $block['preamble'];
 $query_type = $block['query_type'];
 $posts_array = array(); // Create an empty array to store posts ready for the loop
@@ -29,7 +30,7 @@ $posts_array = array(); // Create an empty array to store posts ready for the lo
 <section <?php if ($block_id_opt = $block['section_id']) echo 'id="' . strtolower($block_id_opt) . '"'; ?> class="<?= $block_classes; ?>">
   <div class="container">
 
-    <?php if ($block_title) : $title_align = $block['title_align']; ?>
+    <?php if ($block_title) : ?>
       <header class="row justify-center block-title">
         <div class="col md-10 lg-8">
           <h2 class="text-<?= $title_align; ?>"><?= jellypress_bracket_tag_replace($block_title); ?></h2>
@@ -68,7 +69,7 @@ $posts_array = array(); // Create an empty array to store posts ready for the lo
         'post_type' => $query_post_type, // Accepts an array
         'posts_per_page' => $query_quantity,
         'orderby' => $query_type,
-        'post__not_in' => get_option( 'sticky_posts' ), // Exclude sticky
+        'post__not_in' => get_option('sticky_posts'), // Exclude sticky
         'has_password' => FALSE // Exclude password protected
       ));
 

@@ -21,7 +21,7 @@ if (!function_exists('jellypress_acf_json_load_point')) {
     // remove original path (optional)
     unset($paths[0]);
     // append path
-    $paths[] = get_stylesheet_directory() . '/assets/acf-json';
+    $paths[] = get_stylesheet_directory() . '/src/acf-json';
     // return
     return $paths;
   }
@@ -30,7 +30,7 @@ if (!function_exists('jellypress_acf_json_save_point')) {
   function jellypress_acf_json_save_point($path)
   {
     // update path
-    $path = get_stylesheet_directory() . '/assets/acf-json';
+    $path = get_stylesheet_directory() . '/src/acf-json';
     // return
     return $path;
   }

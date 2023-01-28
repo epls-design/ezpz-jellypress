@@ -20,6 +20,7 @@ $block_classes = $args['block_classes'];
 //var_dump($block);
 
 $block_title = $block['title'];
+$title_align = $block_title ? $block['title_align'] : 'left';
 
 $row_class = 'align-' . $block['row_vertical_align'];
 
@@ -28,7 +29,7 @@ $row_class = 'align-' . $block['row_vertical_align'];
 <section <?php if ($block_id_opt = $block['section_id']) echo 'id="' . strtolower($block_id_opt) . '"'; ?> class="<?= $block_classes; ?>">
   <div class="container">
 
-    <?php if ($block_title) : $title_align = $block['title_align'];
+    <?php if ($block_title) :
       $header_row_class = 'row block-title';
       if ($title_align == 'center') $header_row_class .= ' justify-center';
       elseif ($title_align == 'right') $header_row_class .= ' justify-end';
@@ -52,7 +53,7 @@ $row_class = 'align-' . $block['row_vertical_align'];
           <?php
           if ($column_type == 'text') {
             echo jellypress_content($column['text']);
-            if ($column['buttons']) jellypress_display_cta_buttons($column['buttons']);
+            if (isset($column['buttons'])) jellypress_display_cta_buttons($column['buttons']);
           } elseif ($column_type == 'image') {
             echo '<figure>';
             if ($image_link = $column['image_link']) echo '<a href="' . $image_link['url'] . '" title="' . $image_link['title'] . '" target="' . $image_link['target'] . '">';

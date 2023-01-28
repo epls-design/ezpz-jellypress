@@ -19,6 +19,7 @@ $container_class = 'container';
 //var_dump($block);
 
 $block_title = $block['title'];
+$title_align = $block_title ? $block['title_align'] : 'left';
 $block_preamble = $block['preamble'];
 
 $compare_id = 'image-compare-' . $block_id;
@@ -38,7 +39,7 @@ else $after_label = __('After', 'jellypress');
 <section <?php if ($block_id_opt = $block['section_id']) echo 'id="' . strtolower($block_id_opt) . '"'; ?> class="<?= $block_classes; ?>">
   <div class="container">
 
-    <?php if ($block_title) : $title_align = $block['title_align']; ?>
+    <?php if ($block_title) : ?>
       <header class="row justify-center block-title">
         <div class="col md-10 lg-8">
           <h2 class="text-<?= $title_align; ?>"><?= jellypress_bracket_tag_replace($block_title); ?></h2>
@@ -60,8 +61,8 @@ else $after_label = __('After', 'jellypress');
     <div class="row">
       <div class="col">
         <?php
-          if ($block_width === 'full') echo '<div class="vw-100">';
-          elseif ($block_width === 'smaller') echo '<div class="row justify-center"><div class="col md-10 lg-8">';
+        if ($block_width === 'full') echo '<div class="vw-100">';
+        elseif ($block_width === 'smaller') echo '<div class="row justify-center"><div class="col md-10 lg-8">';
         ?>
         <div id="<?= $compare_id; ?>" class="twentytwenty-container<?php if ($block['handle_color']) echo ' has-dark-handle'; ?>">
           <?php
@@ -70,8 +71,8 @@ else $after_label = __('After', 'jellypress');
           ?>
         </div>
         <?php
-          if ($block_width === 'full') echo '</div>';
-          elseif ($block_width === 'smaller') echo '</div></div>';
+        if ($block_width === 'full') echo '</div>';
+        elseif ($block_width === 'smaller') echo '</div></div>';
         ?>
       </div>
     </div>

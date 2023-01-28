@@ -1,24 +1,19 @@
-# ignore node/grunt dependency directories
+# ignore node modules
 node_modules/
 
 # ignore Environment file
-env.php
 env.json
 
 # Compiled files
-languages/jellypress.pot
-style.css
-style-rtl.css
-dist/css/*
-dist/js/*
+# languages/en_GB.pot
+# style.css
+# style-rtl.css
+# dist/css/*
+# dist/js/*
 
 # ignore Git folder
 _.git/
-
-# ignore src folder and working files
-src/
-deprecated/
-*.old
+.vscode/
 
 ### macOS ###
 # General
@@ -93,3 +88,4 @@ $RECYCLE.BIN/
 # track these files, if they exist
 !.gitignore
 !.editorconfig
+!.stylelintrc.yml

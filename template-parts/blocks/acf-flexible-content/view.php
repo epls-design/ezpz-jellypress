@@ -34,19 +34,18 @@ if (!post_password_required()) :
       //var_dump($block);
 
       // Get next block info
-      if ($i < $total_blocks) {
+      if ($i < ($total_blocks - 1)) {
         $next_block = $blocks[$i + 1];
-        //var_dump($next_block);
       }
 
       $block_classes = 'block'; // Reset class
 
       if ($is_stack) $block_classes .= ' is-stack';
 
-      //if ($i == 0) {
+      //if ($i == 1) {
       //  $block_classes .= ' first'; // This is not foolproof, if any blocks are disabled this will not be accurate - so it shouldn't be used for anything important
       //}
-      //if ($i == $total_blocks - 1) {
+      //if ($i == $total_blocks) {
       //  $block_classes .= ' last'; // This is not foolproof, if any blocks are disabled this will not be accurate - so it shouldn't be used for anything important
       //}
 

@@ -19,7 +19,8 @@ if (file_exists(get_template_directory() . '/env.json')) {
 }
 
 if (!function_exists('jellypress_env')) {
-  function jellypress_env($key, $default = null) {
+  function jellypress_env($key, $default = null)
+  {
     $value = getenv($key);
     if ($value === false) return $default;
     return $value;

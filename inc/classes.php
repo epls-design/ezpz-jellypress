@@ -9,14 +9,12 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
-// TODO: Add option to rewrite slug to avoid conflicts eg. 'event' may not be a good post type name but is a good slug
-// TODO: Dopes ti work with existing post types, see the source
-
 /**
  * Class to register a CPT and add Taxonomies to it.
  * @see https://github.com/jjgrainger/wp-custom-post-type-class/blob/master/src/CPT.php for inspiration
  */
-class customPostType {
+class customPostType
+{
 
   /**
    * Holds the singular name of the post type.
@@ -105,21 +103,43 @@ class customPostType {
    */
   public $sortable;
 
-  public function __construct($singular, $plural = null, $icon = null, $options = array()) {
+  public function __construct($post_type_names, $icon = null, $options = array())
+  {
 
-    if (post_type_exists($singular)) {
-      $this->slug = $singular;
-      $postType = get_post_type_object(get_post_type($singular));
-      $this->singular = $postType->labels->singular_name;
-      $this->plural   = $plural;
-    } else {
-      $this->singular = $singular;
-      $this->plural   = $plural;
-      $this->slug = $this->get_slug($singular);
-      if (strpos($icon, "<svg") === 0) {
-        $this->icon = 'data:image/svg+xml;base64,' . base64_encode($icon);
+    if (is_array($post_type_names)) {
+      if (!isset($post_type_names['singular'])) {
+        throw new Exception(__('You registered an instance of a new CustomPostType but did not pass through a singular. This is required', 'jellypress'));
       } else {
+        $this->singular = $post_type_names['singular'];
+      }
+
+      if (isset($post_type_names['plural'])) {
+        $this->plural = $post_type_names['plural'];
+      } else {
+        $this->plural = $post_type_names['singular'] . 's';
+      }
+
+      if (isset($post_type_names['slug'])) {
+        $this->slug = $post_type_names['slug'];
+      } else {
+        $this->slug = $this->get_slug($post_type_names['singular']);
+      }
+    } else {
+      // Only the single name is passed, eg. is this an existing post type
+      $slug = sanitize_title($post_type_names);
+      $singular = $this->human_friendly_name($post_type_names);
+
+      $this->singular = $singular;
+      $this->plural = $singular . 's';
+      $this->slug = $slug;
+    }
+
+    if ($icon) {
+      if (is_string($icon) && stripos($icon, "dashicons") !== false) {
         $this->icon = $icon;
+      } else {
+        // Set a default menu icon
+        $this->icon = "dashicons-admin-page";
       }
     }
 
@@ -151,9 +171,18 @@ class customPostType {
   }
 
   /**
+   * Converts a slug type string into a human readable string
+   */
+  function human_friendly_name($name)
+  {
+    return ucwords(strtolower(str_replace("-", " ", str_replace("_", " ", $name))));
+  }
+
+  /**
    * Creates a URL friendly slug for the post type
    */
-  function get_slug($singular) {
+  function get_slug($singular)
+  {
     return sanitize_title($singular);
   }
 
@@ -162,7 +191,8 @@ class customPostType {
    *
    * @see https://developer.wordpress.org/reference/functions/register_post_type/
    */
-  function register_post_type() {
+  function register_post_type()
+  {
 
     $plural = $this->plural;
     $singular = $this->singular;
@@ -226,8 +256,8 @@ class customPostType {
    * @param string/array $supports supported item(s) to add
    * @return array Full list of $args assigned to post
    */
-  public function add_support($supports) {
-
+  public function add_support($supports)
+  {
 
     if (post_type_exists($this->slug)) {
       add_action('init', function () use ($supports) {
@@ -269,7 +299,8 @@ class customPostType {
    * @param string/array $supports supported item(s) to remove
    * @return array Full list of $args assigned to post
    */
-  public function remove_support($supports) {
+  public function remove_support($supports)
+  {
 
     // We need a different method if the post type already exists, eg. post / page
     if (post_type_exists($this->slug)) {
@@ -315,7 +346,8 @@ class customPostType {
    * @param string $message Message to display
    * @return markup Echos out a message below the H1
    */
-  public function add_admin_message($message) {
+  public function add_admin_message($message)
+  {
 
     add_action('admin_notices', function () use ($message) {
       global $pagenow;
@@ -330,17 +362,43 @@ class customPostType {
    *
    * @see https://developer.wordpress.org/reference/functions/register_taxonomy/
    *
-   * @param string $singular Singular name for the taxonomy
-   * @param string $plural Plural name for the taxonomy
+   * @param array/string $taxonomy_names Array of names or singular
    * @param array  $options Taxonomy options.
    */
-  function register_taxonomy($singular, $plural = null, $options = array()) {
+  function register_taxonomy($taxonomy_names, $options = array())
+  {
 
     // Check if taxonomy exists, eg. if assigning 'category' to a CPT
 
-    $taxonomy_name = $this->get_slug($singular);
+    if (is_array($taxonomy_names)) {
+      if (!isset($taxonomy_names['singular'])) {
+        throw new Exception(__('You registered an instance of a new taxonomy but did not pass through a singular. This is required', 'jellypress'));
+      } else {
+        $singular = $taxonomy_names['singular'];
+      }
 
-    if (!taxonomy_exists($taxonomy_name)) {
+      if (isset($taxonomy_names['plural'])) {
+        $plural = $taxonomy_names['plural'];
+      } else {
+        $plural = $taxonomy_names['singular'] . 's';
+      }
+
+      if (isset($taxonomy_names['slug'])) {
+        $slug = $taxonomy_names['slug'];
+      } else {
+        $slug = $this->get_slug($taxonomy_names['singular']);
+      }
+    } else {
+      // Only the single name is passed, eg. is this an existing post type
+      $slug = sanitize_title($taxonomy_names);
+      $singular = $this->human_friendly_name($taxonomy_names);
+
+      $singular = $singular;
+      $plural = $singular . 's';
+      $slug = $slug;
+    }
+
+    if (!taxonomy_exists($slug)) {
 
       // Default labels.
       $labels = array(
@@ -369,21 +427,22 @@ class customPostType {
         'hierarchical' => false,
 
         'rewrite' => array(
-          'slug' => $this->slug . '/' . $taxonomy_name,
+          'slug' => $this->slug . '/' . $slug,
           // 'with_front' => true,
           // 'hierarchical' => true,
         )
       );
 
       // Merge default options with user submitted options.
-      $options = array_replace_recursive($defaults, $options);
+      if (is_array($options))
+        $options = array_replace_recursive($defaults, $options);
     }
 
     // Add the taxonomy to the object array, this is used to add columns and filters to admin panel.
-    $this->taxonomies[] = $taxonomy_name;
+    $this->taxonomies[] = $slug;
 
     // Create array used when registering taxonomies.
-    $this->taxonomy_settings[$taxonomy_name] = $options;
+    $this->taxonomy_settings[$slug] = $options;
   }
 
   /**
@@ -391,7 +450,8 @@ class customPostType {
    *
    * Cycles through taxonomies added with the class and registers them.
    */
-  function register_taxonomies() {
+  function register_taxonomies()
+  {
 
     if (is_array($this->taxonomy_settings)) {
 
@@ -417,7 +477,8 @@ class customPostType {
    *
    * Cycles through existing taxonomies and registers them after the post type has been registered
    */
-  function register_existing_taxonomies() {
+  function register_existing_taxonomies()
+  {
     if (is_array($this->existing_taxonomies)) {
       foreach ($this->existing_taxonomies as $taxonomy_name) {
         register_taxonomy_for_object_type($taxonomy_name, $this->slug);
@@ -434,7 +495,8 @@ class customPostType {
    * @param array $columns Columns to be added to the admin edit screen.
    * @return array
    */
-  function add_admin_columns($columns) {
+  function add_admin_columns($columns)
+  {
 
     // If no user columns have been specified, add taxonomies
     if (!isset($this->columns)) {
@@ -498,7 +560,8 @@ class customPostType {
    * @param string $column The name of the column.
    * @param integer $post_id The post ID.
    */
-  function populate_admin_columns($column, $post_id) {
+  function populate_admin_columns($column, $post_id)
+  {
 
     // Get wordpress $post object.
     global $post;
@@ -614,7 +677,8 @@ class customPostType {
    *
    * @param array $filters An array of taxonomy filters to display.
    */
-  function filters($filters = array()) {
+  function filters($filters = array())
+  {
 
     $this->filters = $filters;
   }
@@ -624,7 +688,8 @@ class customPostType {
    *
    * Creates select fields for filtering posts by taxonomies on admin edit screen.
    */
-  function add_taxonomy_filters() {
+  function add_taxonomy_filters()
+  {
 
     global $typenow;
     global $wp_query;
@@ -698,7 +763,8 @@ class customPostType {
    *
    * @param array $columns An array of columns to be displayed.
    */
-  function columns($columns) {
+  function columns($columns)
+  {
 
     // If columns is set.
     if (isset($columns)) {
@@ -716,7 +782,8 @@ class customPostType {
    * @param string $column_name The name of the column to populate.
    * @param mixed $callback An anonyous function or callable array to call when populating the column.
    */
-  function populate_column($column_name, $callback) {
+  function populate_column($column_name, $callback)
+  {
 
     $this->custom_populate_columns[$column_name] = $callback;
   }
@@ -728,7 +795,8 @@ class customPostType {
    *
    * @param array $columns An array of columns that are sortable.
    */
-  function sortable($columns = array()) {
+  function sortable($columns = array())
+  {
 
     // Assign user defined sortable columns to object variable.
     $this->sortable = $columns;
@@ -748,7 +816,8 @@ class customPostType {
    * @param array $columns Columns to be sortable.
    *
    */
-  function make_columns_sortable($columns) {
+  function make_columns_sortable($columns)
+  {
 
     // For each sortable column.
     foreach ($this->sortable as $column => $values) {
@@ -770,7 +839,8 @@ class customPostType {
    *
    * @see http://codex.wordpress.org/Plugin_API/Filter_Reference/request
    */
-  function load_edit() {
+  function load_edit()
+  {
 
     // Run filter to sort columns when requested
     add_filter('request', array(&$this, 'sort_columns'));
@@ -786,7 +856,8 @@ class customPostType {
    * @param array $vars The query vars submitted by user.
    * @return array A sorted array.
    */
-  function sort_columns($vars) {
+  function sort_columns($vars)
+  {
 
     // Cycle through all sortable columns submitted by the user
     foreach ($this->sortable as $column => $values) {
@@ -843,7 +914,8 @@ class customPostType {
    *
    * @param array $messages an array of post updated messages
    */
-  function updated_messages($messages) {
+  function updated_messages($messages)
+  {
 
     $post = get_post();
     $singular = $this->singular;
@@ -876,7 +948,8 @@ class customPostType {
    *
    * @param array $messages an array of bulk updated messages
    */
-  function bulk_updated_messages($bulk_messages, $bulk_counts) {
+  function bulk_updated_messages($bulk_messages, $bulk_counts)
+  {
 
     $singular = $this->singular;
     $plural = $this->plural;

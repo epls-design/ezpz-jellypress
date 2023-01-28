@@ -17,6 +17,7 @@ $block_classes = $args['block_classes'];
 //var_dump($block);
 
 $block_title = $block['title'];
+$title_align = $block_title ? $block['title_align'] : 'left';
 $block_preamble = $block['preamble'];
 
 // Chart Variables
@@ -48,7 +49,7 @@ elseif ($chart_type === 'stackedHorizontalBar') $chart_type = 'horizontalBar';
 <section <?php if ($block_id_opt = $block['section_id']) echo 'id="' . strtolower($block_id_opt) . '"'; ?> class="<?= $block_classes; ?>">
   <div class="container">
 
-    <?php if ($block_title) : $title_align = $block['title_align']; ?>
+    <?php if ($block_title) : ?>
       <header class="row justify-center block-title">
         <div class="col md-10 lg-8">
           <h2 class="text-<?= $title_align; ?>"><?= jellypress_bracket_tag_replace($block_title); ?></h2>
