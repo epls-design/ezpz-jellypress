@@ -2,7 +2,7 @@
   "name": "jellypress-wordpress-theme",
   "friendly_name": "JellyPress",
   "text_domain": "jellypress",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "author": {
     "name": "EPLS Design",
     "email": "theteam@epls.design",
@@ -67,7 +67,7 @@
     "a11y_accordions": "^3.2.1",
     "chart.js": "^2.9.4",
     "chartjs-plugin-deferred": "^1.0.2",
-    "jellyfish-ui": "^3.4.0",
+    "jellyfish-ui": "^3.4.1",
     "magnific-popup": "^1.1.0",
     "zurb-twentytwenty": "^0.1.1"
   }
