@@ -27,8 +27,8 @@ if (!current_user_can('edit_posts')) {
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
       <?php while (have_posts()) :
         the_post();
-        get_template_part('template-parts/layout/hero/hero', get_post_type());
-        get_template_part('template-parts/blocks/acf-flexible-content/view'); // Get flexible content from ACF
+        get_template_part('template-parts/partials/hero', get_post_type());
+        get_template_part('template-parts/blocks/acf-flexible-content'); // Get flexible content from ACF
       ?>
     </article>
   <?php

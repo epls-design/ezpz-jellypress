@@ -19,10 +19,10 @@ get_header();
 
     // HERO
     if (have_posts()) : // Search results found...
-      get_template_part('template-parts/layout/hero/hero', 'search');
+      get_template_part('template-parts/partials/hero', 'search');
       echo '<section class="block bg-white">';
     else :
-      get_template_part('template-parts/layout/hero/hero', 'none');
+      get_template_part('template-parts/partials/hero', 'none');
       echo '<section class="block no-results not-found bg-white">';
     endif;
 
@@ -37,17 +37,16 @@ get_header();
       while (have_posts()) :
         the_post();
         echo '<div class="col xs-12 sm-6 md-4 xl-3 result">';
-        get_template_part('template-parts/components/card/card', 'search');
+        get_template_part('template-parts/partials/card', 'search');
         echo '</div>';
       endwhile;
       echo '</div>';
       jellypress_numeric_pagination(); // Paginate if there are older posts
     else :
-      get_template_part('template-parts/layout/content/content', 'none');
+      get_template_part('template-parts/partials/content', 'none');
     endif;
 
     echo '</div>';
-    jellypress_sidebar();
     echo '</div>
           </div>
           </section>';

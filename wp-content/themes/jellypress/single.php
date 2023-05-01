@@ -21,10 +21,10 @@ get_header();
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
       <?php while (have_posts()) :
         the_post();
-        get_template_part('template-parts/layout/hero/hero', get_post_type());
-        get_template_part('template-parts/layout/content/content', get_post_type());
+        get_template_part('template-parts/partials/hero', get_post_type());
+        get_template_part('template-parts/partials/content', get_post_type());
         jellypress_show_password_form();
-        get_template_part('template-parts/blocks/acf-flexible-content/view'); // Get flexible content from ACF
+        get_template_part('template-parts/blocks/acf-flexible-content'); // Get flexible content from ACF
         jellypress_entry_footer(); // Call function from template-tags
       ?>
     </article>
@@ -37,5 +37,4 @@ get_header();
 </div>
 
 <?php
-// jellypress_sidebar(); // By default, this boilerplate does not support sidebars on post templates. You can re-enable this if you like, but it will be quicker to use the template single-sidebar instead
 get_footer();

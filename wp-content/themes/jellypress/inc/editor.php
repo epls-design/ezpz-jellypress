@@ -1,24 +1,21 @@
 <?php
 
 /**
-       * Functions which add features to the WYSIWIG editor
-       *
-       * @package jellypress
-       */
+ * Functions which add features to the WYSIWIG editor
+ *
+ * @package jellypress
+ */
 
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
+/**
+ * Registers an editor stylesheet for the theme.
+ */
 add_action('admin_init', 'jellypress_add_editor_styles');
-if (!function_exists('jellypress_add_editor_styles')) :
-  /**
-   * Registers an editor stylesheet for the theme.
-   */
-  function jellypress_add_editor_styles()
-  {
-    add_editor_style('dist/css/editor-style.min.css');
-  }
-endif;
+function jellypress_add_editor_styles() {
+  add_editor_style('dist/editor-style.min.css');
+}
 
 /**
  * Add custom styles to the WYSIWIG
@@ -27,38 +24,31 @@ endif;
  */
 
 // Callback function to insert 'styleselect' into the $buttons array
-if (!function_exists('jellypress_additional_styles')) {
-  function jellypress_additional_styles($buttons)
-  {
-    array_unshift($buttons, 'styleselect');
-    return $buttons;
-  }
-  // Register our callback to the appropriate filter
-  add_filter('mce_buttons', 'jellypress_additional_styles');
+add_filter('mce_buttons', 'jellypress_additional_styles');
+function jellypress_additional_styles($buttons) {
+  array_unshift($buttons, 'styleselect');
+  return $buttons;
 }
 
 /**
-       *  Remove the h1 tag from the WordPress editor.
-       *
-       *  @param   array  $settings  The array of editor settings
-       *  @return  array             The modified edit settings
-       */
-function jellypress_remove_h1_tinymce($settings)
-{
+ *  Remove the h1 tag from the WordPress editor.
+ *
+ *  @param   array  $settings  The array of editor settings
+ *  @return  array             The modified edit settings
+ */
+add_filter('tiny_mce_before_init', 'jellypress_remove_h1_tinymce');
+function jellypress_remove_h1_tinymce($settings) {
   $settings['block_formats'] = 'Paragraph=p;Heading 2=h2;Heading 3=h3;Heading 4=h4;Heading 5=h5;Heading 6=h6;Preformatted=pre;Code=code';
   return $settings;
 }
-add_filter('tiny_mce_before_init', 'jellypress_remove_h1_tinymce');
 
 // Callback function to filter the MCE settings
-if (!function_exists('jellypress_mce_before_init_insert_formats')) {
+add_filter('tiny_mce_before_init', 'jellypress_mce_before_init_insert_formats');
+function jellypress_mce_before_init_insert_formats($init_array) {
+  // Define the style_formats array
+  $style_formats = array(
 
-  function jellypress_mce_before_init_insert_formats($init_array)
-  {
-    // Define the style_formats array
-    $style_formats = array(
-
-      /**
+    /**
      * Each array child is a format with it's own settings
      * Notice that each array has title, block, classes, and wrapper arguments
      * Title is the label which will be visible in Formats menu
@@ -74,46 +64,42 @@ if (!function_exists('jellypress_mce_before_init_insert_formats')) {
      * exact – Disables the merge similar styles feature when used. This is needed for some CSS inheritance issues such as text-decoration for underline/strikethrough.
      * wrapper – State that tells that the current format is a container format for block elements. For example a div wrapper or blockquote.
      */
-      array(
-        'title' => 'Standfirst',
-        'classes' => 'standfirst',
-        'block' => 'p',
-      ),
-      array(
-        'title' => 'Small',
-        'classes' => 'small',
-        'block' => 'p',
-      ),
-      array(
-        'title' => 'TO-DO Note',
-        'classes' => 'to-do',
-        'inline' => 'span',
-      )
-    );
-    // Insert the array, JSON ENCODED, into 'style_formats'
-    $init_array['style_formats'] = json_encode($style_formats);
-    return $init_array;
-  }
-  // Attach callback to 'tiny_mce_before_init'
-  add_filter('tiny_mce_before_init', 'jellypress_mce_before_init_insert_formats');
+    array(
+      'title' => 'Standfirst',
+      'classes' => 'standfirst',
+      'block' => 'p',
+    ),
+    array(
+      'title' => 'Small',
+      'classes' => 'small',
+      'block' => 'p',
+    ),
+    array(
+      'title' => 'TO-DO Note',
+      'classes' => 'to-do',
+      'inline' => 'span',
+    )
+  );
+  // Insert the array, JSON ENCODED, into 'style_formats'
+  $init_array['style_formats'] = json_encode($style_formats);
+  return $init_array;
 }
 
 /**
  * Loads a stylesheet to define styles for the admin area
  */
 add_action('admin_head', function () {
-  echo '<link rel="stylesheet" href="' . get_stylesheet_directory_uri() . '/dist/css/admin-style.css" />';
+  echo '<link rel="stylesheet" href="' . get_stylesheet_directory_uri() . '/dist/admin-style.css" />';
 });
 
-if (!function_exists('jellypress_tinymce_cleanup')) {
-  /**
-   * Hooks into TinyMCE to remove unwanted HTML tags and formatting from pasted text
-   * @link https://jonathannicol.com/blog/2015/02/19/clean-pasted-text-in-wordpress/
-   * @link see also https://sundari-webdesign.com/wordpress-removing-classes-styles-and-tag-attributes-from-pasted-content/
-   */
-  function jellypress_tinymce_cleanup($in)
-  {
-    $in['paste_preprocess'] = "function(plugin, args){
+/**
+ * Hooks into TinyMCE to remove unwanted HTML tags and formatting from pasted text
+ * @link https://jonathannicol.com/blog/2015/02/19/clean-pasted-text-in-wordpress/
+ * @link see also https://sundari-webdesign.com/wordpress-removing-classes-styles-and-tag-attributes-from-pasted-content/
+ */
+add_filter('tiny_mce_before_init', 'jellypress_tinymce_cleanup');
+function jellypress_tinymce_cleanup($in) {
+  $in['paste_preprocess'] = "function(plugin, args){
       // Strip all HTML tags except those we have whitelisted
       var whitelist = 'p,a,span,b,strong,i,em,br,h2,h3,h4,h5,h6,ul,li,ol,table,tr,td,th,tbody,thead,img,iframe,embed,code,blockquote,cite';
       var stripped = jQuery('<div>' + args.content + '</div>');
@@ -127,23 +113,19 @@ if (!function_exists('jellypress_tinymce_cleanup')) {
       // Return the clean HTML
       args.content = stripped.html();
     }";
-    return $in;
-  }
+  return $in;
 }
-add_filter('tiny_mce_before_init', 'jellypress_tinymce_cleanup');
 
 /**
  * Allow SVG uploads to the media library
  */
 add_filter('upload_mimes', 'jellypress_allow_svg_upload');
-function jellypress_allow_svg_upload($mimes)
-{
+function jellypress_allow_svg_upload($mimes) {
   $mimes['svg'] = 'image/svg+xml';
   return $mimes;
 }
 add_action('admin_head', 'jellypress_svg_admin_style');
-function jellypress_svg_admin_style()
-{
+function jellypress_svg_admin_style() {
   $css = '';
   $css = 'td.media-icon img[src$=".svg"] { width: 100% !important; height: auto !important; }';
   echo '<style type="text/css">' . $css . '</style>';
@@ -158,42 +140,33 @@ function jellypress_svg_admin_style()
  */
 add_filter('the_content', 'jellypress_filter_external_links_rel');
 add_filter('the_excerpt', 'jellypress_filter_external_links_rel');
-if (!function_exists('jellypress_filter_external_links_rel')) :
-  function jellypress_filter_external_links_rel($content)
-  {
-    return preg_replace_callback('/<a[^>]+/', 'jellypress_add_rel_external_to_outbound_links', $content);
+function jellypress_filter_external_links_rel($content) {
+  return preg_replace_callback('/<a[^>]+/', 'jellypress_add_rel_external_to_outbound_links', $content);
+}
+function jellypress_add_rel_external_to_outbound_links($matches) {
+  $link = $matches[0];
+  $site_link = get_bloginfo('url');
+  if (strpos($link, 'rel') === false) {
+    // If the link doesn't have a rel, and it is not an internal link, add rel="external"
+    $link = preg_replace("%(href=\S(?!$site_link))%i", 'rel="external" $1', $link);
   }
-endif;
-if (!function_exists('jellypress_add_rel_external_to_outbound_links')) :
-  function jellypress_add_rel_external_to_outbound_links($matches)
-  {
-    $link = $matches[0];
-    $site_link = get_bloginfo('url');
-    if (strpos($link, 'rel') === false) {
-      // If the link doesn't have a rel, and it is not an internal link, add rel="external"
-      $link = preg_replace("%(href=\S(?!$site_link))%i", 'rel="external" $1', $link);
-    }
-    // Commented out - respect any manual rel that has been added by the author
-    //elseif (preg_match("%href=\S(?!$site_link)%i", $link)) {
-    //    $link = preg_replace('/rel=\S(?!external)\S*/i', 'rel="external"', $link);
-    //}
-    return $link;
-  }
-endif;
+  // Commented out - respect any manual rel that has been added by the author
+  //elseif (preg_match("%href=\S(?!$site_link)%i", $link)) {
+  //    $link = preg_replace('/rel=\S(?!external)\S*/i', 'rel="external"', $link);
+  //}
+  return $link;
+}
 
 /**
  * Restricts the maximum character count of Link Text to prevent massive buttons and links
  */
 add_action('admin_footer', 'jellypress_restrict_link_text_length');
-if (!function_exists('jellypress_restrict_link_text_length')) :
-  function jellypress_restrict_link_text_length()
-  { ?>
-    <script type="text/javascript">
-      document.addEventListener("DOMContentLoaded", function(event) {
-        var linkText = document.getElementById('wp-link-text'),
-          maxCharacters = 40;
-        linkText.setAttribute("maxlength", maxCharacters);
-      });
-    </script>
+function jellypress_restrict_link_text_length() { ?>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var linkText = document.getElementById('wp-link-text'),
+        maxCharacters = 70;
+      linkText.setAttribute("maxlength", maxCharacters);
+    });
+  </script>
 <?php }
-endif;

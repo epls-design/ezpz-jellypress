@@ -12,6 +12,8 @@
 
 ## About Jellypress
 
+Jellypress is a Wordpress starter theme based on [underscores](https://github.com/Automattic/_s) and designed to work with [Jellyfish SCSS framework](https://github.com/unofficialmatt/jellyfish) by [Matt Weet](https://github.com/unofficialmatt).
+
 This theme, like `underscores` is made for hacking and use as a standalone theme, rather than a Parent Theme.
 
 REQUIRES php 7.4+
@@ -21,14 +23,10 @@ REQUIRES php 7.4+
 - A just right amount of lean, well-commented, modern, HTML5 templates using the Wordpress templating engine and best practices
 - A helpful 404 template.
 - Custom template tags in `inc/template-tags.php` and `inc/dry.php` that keep your templates clean and neat and prevent code duplication.
-- Support for registering custom post types in `inc/post_types`.
-- Support for setting user capabilities in `inc/user_caps`.
 - AJAX loading of posts in archives.
-- Lazy loading of background images with `assets/js/site/lazyload-bg.js`.
 - Full support for `WooCommerce plugin` integration with hooks in `inc/woocommerce.php`, styling override woocommerce.css with product gallery features (zoom, swipe, lightbox) enabled.
 - Lots of other custom functions and helpers. Take a look around the `/inc` folder
-- Automatic language translation if you use the proper Wordpress hooks eg. `_e('Translate this', 'textdomain')` or `echo __('Translate this', 'textdomain')`
-- Bundled with recommended and necessary plugins through [TGM Plugin Activation](http://tgmpluginactivation.com/)
+- Automatic language notation if you use the proper Wordpress hooks eg. `_e('Translate this', 'textdomain')` or `echo __('Translate this', 'textdomain')`
 - Support for ACF and baked-in use of ACF flexible content for page layout using flexible content fields. A range of 'out of the box' layout options:
   - Cards
   - Countdown timer
@@ -49,9 +47,6 @@ REQUIRES php 7.4+
   - Text Columns
   - Video
 - Optimised loading of JS scripts by only enqueuing them when they are needed on page
-- .env file which is used to:
-  - Set up a helpful 'developer' flag in the UI
-  - Pull remote images to save local hard drive space
 
 ### Plus, all of the awesome benefits from [Jellyfish](https://unofficialmatt.github.io/jellyfish/):
 
@@ -64,58 +59,46 @@ REQUIRES php 7.4+
 
 It is recommended to develop locally with [Local by Flywheel](https://localbyflywheel.com/) which makes setting up a new Wordpress installation a breeze. Even more so if you use a Blueprint.
 
-1. Once Wordpress has been installed, copy the standard .gitignore file in to the root folder `/public_html`
-2. Make sure that you have npm, browsersync and Gulp installed on your system following the guides on their respective websites. You only need to do this once.
-3. Decide on the following naming conventions:
+1. Make sure that you have npm, browsersync and Gulp installed on your system following the guides on their respective websites. You only need to do this once.
+
+2. Decide on the following naming conventions:
+
    - Theme friendly name eg. `My Awesome Theme`
    - Theme slug eg. `myawesometheme` - also used as the Text Domain
-4. Then, clone this theme into `wp-content/themes/`, replacing `myawesometheme` with the slug of your theme:
 
-```bash
-git clone https://github.com/epls-design/ezpz-jellypress.git cd myawesometheme
-```
+3. Duplicate the `env_example.json` to `env.json` and modify the DEV_URL to fit your development environment - this is used by the Gulp php server as a proxy
 
-5. Remove the `.git` and `.github` folders from the theme, we will use the root `/public_html` as our git repository.
+4. Search for: `'jellypress'` (inside single quotations) and replace with your theme slug e.g. `'myawesometheme'` to capture the text domain. Search for: `@package jellypress` and replace with your theme slug e.g. `@package myawesometheme` to capture text domains in file headers.
 
-```bash
-rm -rf .git && rm .gitignore && rm -rf .github
-```
+5. Search for: `jellypress_` and replace with your theme slug e.g. `myawesometheme_` to capture all the php function names.
 
-### Now it's time to modify the theme:
+6. Search for: `jellypress-` and replace with your theme slug e.g. `myawesometheme-` to capture prefixed handles.
 
-6. Duplicate the `env_example.json` to `env.json` and modify the settings to fit your development environment
-
-7. Search for: `'jellypress'` (inside single quotations) and replace with your theme slug e.g. `'myawesometheme'` to capture the text domain. Search for: `@package jellypress` and replace with your theme slug e.g. `@package myawesometheme` to capture text domains in file headers.
-
-8. Search for: `jellypress_` and replace with your theme slug e.g. `myawesometheme_` to capture all the php function names.
-
-9. Search for: `jellypress-` and replace with your theme slug e.g. `myawesometheme-` to capture prefixed handles.
-
-10. Update `package.json`:
+7. Update `package.json`:
 
 - Rename `friendly_name` to your Theme Friendly Name
 - Rename `text_domain` to your Theme Text Domain
 - Update `description`, `homepage`, `repository` and `bugs`
 
-11. Install the dev dependencies:
+8. Install the dev dependencies:
 
 ```bash
 npm install
 ```
 
-12. Rebuild the theme and start Gulp:
+9. Rebuild the theme and start Gulp:
 
 ```bash
 gulp init
 ```
 
-13. Activate the theme and **make sure to install required plugins**. It is recommended to activate EZPZ WP Optimise straight away.
+10. Do a final check to see if there are any stragglers named `jellypress` - and amend as required
 
-14. Do a final check to see if there are any stragglers named `jellypress` - and amend as required
+11. Check the front end to ensure the theme has installed properly.
 
-15. Check the front end to ensure the theme has installed properly.
+12. Perform a `git commit` in the root Wordpress directory.
 
-16. Perform a `git commit` in the root Wordpress directory.
+13. Alternatively, run the bash script and this will all be done for you ;)
 
 ## Contribution guidelines
 
@@ -126,13 +109,7 @@ Please update the README guidelines any time key changes are made to the theme b
 ## Some tips and usage notes
 
 - Where possible you should use Wordpress localization for displaying text that is hard coded into the theme.
-- It is recommended not to edit any of the files in `assets/scss/jellyfish` as this allows us to make upstream changes to the scss framework.
-- You should try to keep code modularised following a simple MVC framework; for example, the scss for a card module should sit in the same folder as the view.
 - If you know the theme does not require some of the built in blocks, it's good practice to remove them from ACF so as to not overwhelm the client. We can also reinstate these from core later if required. They are good to have in the back pocket!
-
-## Known bugs
-
-- SASS watch does not always see newly added files, particular in the `template-parts` folder, so sometimes you have to stop the gulp task and reload to see these new files.
 
 ## Who do I talk to?
 

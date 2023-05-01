@@ -26,9 +26,9 @@ var sass = require("gulp-sass")(require("sass"));
 var postcss = require("gulp-postcss");
 var pxtorem = require("postcss-pxtorem");
 var autoprefixer = require("autoprefixer");
-var cssclean = require("gulp-clean-css");
 var cssjanus = require("gulp-cssjanus");
 var wpPot = require("gulp-wp-pot");
+var cssnano = require("cssnano");
 
 // Processors used by postcss
 var sassProcessors = [
@@ -41,6 +41,7 @@ var sassProcessors = [
     mediaQuery: false, // Do not apply within media queries (we use em instead)
     minPixelValue: 0,
   }),
+  cssnano(),
 ];
 
 // Sets options which are used later on in this file
@@ -86,7 +87,7 @@ function copyLibs() {
 
   var magnificCSS = src("node_modules/magnific-popup/dist/magnific-popup.css")
     .pipe(rename("_magnific-popup.scss"))
-    .pipe(dest("./template-parts/components/modal/"));
+    .pipe(dest(opts.src_dir + "/scss/05-vendor/"));
 
   var splideJS = src(
     "node_modules/@splidejs/splide/dist/js/splide.min.js"
@@ -96,8 +97,8 @@ function copyLibs() {
   var splideCSS = src(
     "node_modules/@splidejs/splide/dist/css/splide-core.min.css"
   )
-    .pipe(rename("_1_splide-core.scss"))
-    .pipe(dest("./template-parts/components/slider/"));
+    .pipe(rename("_splide-core.scss"))
+    .pipe(dest(opts.src_dir + "/scss/05-vendor/"));
 
   var accordionJS = src(
     "node_modules/a11y_accordions/assets/js/aria.accordion.min.js"
@@ -120,7 +121,7 @@ function watchTask(done) {
   watch(opts.src_dir + "/**/!(__all).scss", sassTasks);
 
   watch(
-    [opts.src_dir + "/js/**/*.js", "./template-parts/**/*.js"],
+    [opts.src_dir + "/js/**/*.js"],
     series(javascriptLint, javascriptProcess)
   );
   watch("./gulpfile.js", series(gulpfileLint, buildScripts));
@@ -194,11 +195,7 @@ function imagesMinify() {
 
 // eslint all first party JS
 function javascriptLint(done) {
-  return src([
-    opts.src_dir + "/js/settings/**/*.js",
-    opts.src_dir + "/js/site/**/*.js",
-    "./template-parts/**/*.js",
-  ])
+  return src([opts.src_dir + "/js/**/*.*"])
     .pipe(eslint())
     .pipe(eslint.format());
 
@@ -207,24 +204,24 @@ function javascriptLint(done) {
 
 // Tasks which process the core javascript files
 function javascriptProcess() {
-  return src([
-    opts.src_dir + "/js/settings/**/*.js",
-    "node_modules/jellyfish-ui/dist/js/jellyfish.min.js",
-    opts.src_dir + "/js/vendor/**/*.js",
-    opts.src_dir + "/js/site/**/*.js",
-    "./template-parts/**/*.js",
-  ])
-    .pipe(sourcemaps.init())
-    .pipe(concat("site.min.js"))
-    .pipe(uglify({ mangle: true }))
-    .pipe(
-      banner(opts.bannerText, {
-        pkg: pkg,
-      })
-    )
-    .pipe(sourcemaps.write("."))
-    .pipe(dest(opts.dist_dir + "/js"))
-    .pipe(browsersync.reload({ stream: true }));
+  return (
+    src([
+      opts.src_dir + "/js/01-breakpoints.js",
+      opts.src_dir + "/js/*.*",
+      "node_modules/jellyfish-ui/dist/js/jellyfish.min.js",
+    ])
+      // .pipe(sourcemaps.init())
+      .pipe(concat("site.min.js"))
+      .pipe(uglify({ mangle: true }))
+      .pipe(
+        banner(opts.bannerText, {
+          pkg: pkg,
+        })
+      )
+      //.pipe(sourcemaps.write("."))
+      .pipe(dest(opts.dist_dir))
+      .pipe(browsersync.reload({ stream: true }))
+  );
 }
 
 // Recursive task which traverses a directory and it's subdirectories to compile an array of all sass partials
@@ -317,66 +314,69 @@ function makePot() {
 
 // Process Theme Sass
 function sassProcessSite() {
-  return src(opts.src_dir + "/scss/compile/main.scss")
-    .pipe(sourcemaps.init())
-    .pipe(sass({ includePaths: ["node_modules"] }).on("error", sass.logError))
-    .pipe(postcss(sassProcessors))
-    .pipe(cssclean())
-    .pipe(rename("style.css"))
-    .pipe(
-      banner(opts.bannerText, {
-        pkg: pkg,
-      })
-    )
-    .pipe(sourcemaps.write("."))
-    .pipe(dest("./"))
-    .pipe(browsersync.reload({ stream: true }))
-    .pipe(cssjanus())
-    .pipe(rename({ suffix: "-rtl" }))
-    .pipe(dest("./"));
+  return (
+    src(opts.src_dir + "/scss/main.scss")
+      //.pipe(sourcemaps.init())
+      .pipe(sass({ includePaths: ["node_modules"] }).on("error", sass.logError))
+      .pipe(postcss(sassProcessors))
+      .pipe(rename("style.css"))
+      .pipe(
+        banner(opts.bannerText, {
+          pkg: pkg,
+        })
+      )
+      // .pipe(sourcemaps.write("."))
+      .pipe(dest("./"))
+      .pipe(browsersync.reload({ stream: true }))
+      .pipe(cssjanus())
+      .pipe(rename({ suffix: "-rtl" }))
+      .pipe(dest("./"))
+  );
 }
 
 // Process Woocommerce Sass
 function sassProcessWoo() {
-  return src(opts.src_dir + "/scss/compile/woocommerce.scss")
-    .pipe(sourcemaps.init())
-    .pipe(sass({ includePaths: ["node_modules"] }).on("error", sass.logError))
-    .pipe(postcss(sassProcessors))
-    .pipe(cssclean())
-    .pipe(rename("woocommerce.min.css"))
-    .pipe(
-      banner(opts.bannerText, {
-        pkg: pkg,
-      })
-    )
-    .pipe(sourcemaps.write("."))
-    .pipe(dest(opts.dist_dir + "/css/"))
-    .pipe(browsersync.reload({ stream: true }));
+  return (
+    src(opts.src_dir + "/scss/woocommerce.scss")
+      //.pipe(sourcemaps.init())
+      .pipe(sass({ includePaths: ["node_modules"] }).on("error", sass.logError))
+      .pipe(postcss(sassProcessors))
+      .pipe(rename("woocommerce.min.css"))
+      .pipe(
+        banner(opts.bannerText, {
+          pkg: pkg,
+        })
+      )
+      // .pipe(sourcemaps.write("."))
+      .pipe(dest(opts.dist_dir))
+      .pipe(browsersync.reload({ stream: true }))
+  );
 }
 
 // Process Editor Sass
 function sassProcessEditor() {
-  return src(opts.src_dir + "/scss/compile/editor.scss")
-    .pipe(sourcemaps.init())
-    .pipe(sass({ includePaths: ["node_modules"] }).on("error", sass.logError))
-    .pipe(postcss(sassProcessors))
-    .pipe(cssclean())
-    .pipe(rename("editor-style.min.css"))
-    .pipe(
-      banner(opts.bannerText, {
-        pkg: pkg,
-      })
-    )
-    .pipe(sourcemaps.write("."))
-    .pipe(dest(opts.dist_dir + "/css/"))
-    .pipe(browsersync.reload({ stream: true }));
+  return (
+    src(opts.src_dir + "/scss/editor.scss")
+      //.pipe(sourcemaps.init())
+      .pipe(sass({ includePaths: ["node_modules"] }).on("error", sass.logError))
+      .pipe(postcss(sassProcessors))
+      .pipe(rename("editor-style.min.css"))
+      .pipe(
+        banner(opts.bannerText, {
+          pkg: pkg,
+        })
+      )
+      //.pipe(sourcemaps.write("."))
+      .pipe(dest(opts.dist_dir))
+      .pipe(browsersync.reload({ stream: true }))
+  );
 }
 
 // Process Admin Sass
 function sassProcessAdmin() {
   return (
-    src(opts.src_dir + "/scss/compile/admin-style.scss")
-      .pipe(sourcemaps.init())
+    src(opts.src_dir + "/scss/admin-style.scss")
+      //.pipe(sourcemaps.init())
       .pipe(sass({ includePaths: ["node_modules"] }).on("error", sass.logError))
       .pipe(postcss(sassProcessors))
       // .pipe(cssclean())
@@ -386,8 +386,8 @@ function sassProcessAdmin() {
           pkg: pkg,
         })
       )
-      .pipe(sourcemaps.write("."))
-      .pipe(dest(opts.dist_dir + "/css/"))
+      //.pipe(sourcemaps.write("."))
+      .pipe(dest(opts.dist_dir))
       .pipe(browsersync.reload({ stream: true }))
   );
 }

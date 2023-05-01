@@ -25,13 +25,13 @@ get_header();
       <?php
       while (have_posts()) :
         the_post();
-        get_template_part('template-parts/layout/hero/hero', get_post_type());
-        get_template_part('template-parts/layout/content/content', get_post_type());
+        get_template_part('template-parts/partials/hero', get_post_type());
+        get_template_part('template-parts/partials/content', get_post_type());
         jellypress_show_password_form();
-        get_template_part('template-parts/blocks/acf-flexible-content/view'); // Get flexible content from ACF
+        get_template_part('template-parts/blocks/acf-flexible-content'); // Get flexible content from ACF
       ?>
     </article>
-  <?php
+    <?php
         jellypress_get_comments();
       endwhile; // End of the loop.
   ?>
@@ -39,5 +39,4 @@ get_header();
 </div>
 
 <?php
-// jellypress_sidebar(); // By default, this boilerplate does not support sidebars on page templates
 get_footer();
