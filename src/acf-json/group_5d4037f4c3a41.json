@@ -7,7 +7,7 @@
             "label": "Page Blocks",
             "name": "sections",
             "type": "flexible_content",
-            "instructions": "You can design the layout of your page by adding different block types. <strong>Click the 'Add New Block' button below to get started.</strong>",
+            "instructions": "You can design the layout of your page by adding different block types. <strong>Click the 'Add New Block' button below to get started.<\/strong>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -19,7 +19,7 @@
                 "layout_6172da627d00e": {
                     "key": "layout_6172da627d00e",
                     "name": "stack",
-                    "label": "<span class=\"dashicons dashicons-tagcloud\"></span>Stack",
+                    "label": "<span class=\"dashicons dashicons-tagcloud\"><\/span>Stack",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -35,7 +35,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "post_type": ["stack"],
+                            "post_type": [
+                                "stack"
+                            ],
                             "taxonomy": "",
                             "allow_null": 0,
                             "multiple": 0,
@@ -49,12 +51,12 @@
                 "layout_5d6a49999f6a8": {
                     "key": "layout_5d6a49999f6a8",
                     "name": "text",
-                    "label": "<span class=\"dashicons dashicons-editor-alignleft\"></span> Text",
+                    "label": "<span class=\"dashicons dashicons-editor-alignleft\"><\/span> Text",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_5d74386a19942",
-                            "label": "<span class=\"dashicons dashicons-edit\"></span> Content",
+                            "label": "<span class=\"dashicons dashicons-edit\"><\/span> Content",
                             "name": "",
                             "type": "tab",
                             "instructions": "",
@@ -73,7 +75,7 @@
                             "label": "Block Title",
                             "name": "title",
                             "type": "textarea",
-                            "instructions": "If you'd like to add a title to the block, you can do so here. <strong>You can enclose text in double square brackets <code>[[  ]]</code> to emphasise certain words. For example <code>[[I am emphasised!]] I am not!</code></strong> <strong>Max 90 characters</strong>",
+                            "instructions": "If you'd like to add a title to the block, you can do so here. <strong>You can enclose text in double square brackets <code>[[  ]]<\/code> to emphasise certain words. For example <code>[[I am emphasised!]] I am not!<\/code><\/strong> <strong>Max 90 characters<\/strong>",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -108,9 +110,9 @@
                                 "id": ""
                             },
                             "choices": {
-                                "left": "<i class=\"dashicons dashicons-editor-alignleft\"></i>",
-                                "center": "<i class=\"dashicons dashicons-editor-aligncenter\"></i>",
-                                "right": "<i class=\"dashicons dashicons-editor-alignright\"></i>"
+                                "left": "<i class=\"dashicons dashicons-editor-alignleft\"><\/i>",
+                                "center": "<i class=\"dashicons dashicons-editor-aligncenter\"><\/i>",
+                                "right": "<i class=\"dashicons dashicons-editor-alignright\"><\/i>"
                             },
                             "allow_null": 0,
                             "default_value": "left",
@@ -138,7 +140,7 @@
                         },
                         {
                             "key": "field_5f6dee6e93d94",
-                            "label": "<span class=\"dashicons dashicons-arrow-right-alt\"></span> Call to Actions",
+                            "label": "<span class=\"dashicons dashicons-arrow-right-alt\"><\/span> Call to Actions",
                             "name": "",
                             "type": "tab",
                             "instructions": "",
@@ -157,7 +159,7 @@
                             "label": "Buttons",
                             "name": "buttons",
                             "type": "repeater",
-                            "instructions": "You can add up to three Call to Action buttons to this block. <strong>Note: you don't want the website to look like a rainbow. Follow the design language of your site to ensure that key messages are highlighted the same colour, and secondary buttons are less prominent.</strong>",
+                            "instructions": "You can add up to three Call to Action buttons to this block. <strong>Note: you don't want the website to look like a rainbow. Follow the design language of your site to ensure that key messages are highlighted the same colour, and secondary buttons are less prominent.<\/strong>",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -200,9 +202,9 @@
                                         "id": ""
                                     },
                                     "choices": {
-                                        "white": "<span class=\"swatch bg-white\"></span>",
-                                        "primary": "<span class=\"swatch bg-primary-500\"></span>",
-                                        "secondary": "<span class=\"swatch bg-secondary-500\"></span>"
+                                        "white": "<span class=\"swatch bg-white\"><\/span>",
+                                        "primary": "<span class=\"swatch bg-primary-500\"><\/span>",
+                                        "secondary": "<span class=\"swatch bg-secondary-500\"><\/span>"
                                     },
                                     "allow_null": 0,
                                     "default_value": "default",
@@ -239,7 +241,7 @@
                         },
                         {
                             "key": "field_5eb3b7b903856",
-                            "label": "<span class=\"dashicons dashicons-art\"></span> Design",
+                            "label": "<span class=\"dashicons dashicons-art\"><\/span> Design",
                             "name": "",
                             "type": "tab",
                             "instructions": "",
@@ -267,9 +269,9 @@
                                 "id": ""
                             },
                             "choices": {
-                                "white": "<span class=\"swatch bg-white\"></span>",
-                                "primary-500": "<span class=\"swatch bg-primary-500\"></span>",
-                                "secondary-500": "<span class=\"swatch bg-secondary-500\"></span>"
+                                "white": "<span class=\"swatch bg-white\"><\/span>",
+                                "primary-500": "<span class=\"swatch bg-primary-500\"><\/span>",
+                                "secondary-500": "<span class=\"swatch bg-secondary-500\"><\/span>"
                             },
                             "allow_null": 0,
                             "default_value": "white",
@@ -278,7 +280,7 @@
                         },
                         {
                             "key": "field_5d7425944f9af",
-                            "label": "<span class=\"dashicons dashicons-admin-settings\"></span> Settings",
+                            "label": "<span class=\"dashicons dashicons-admin-settings\"><\/span> Settings",
                             "name": "",
                             "type": "tab",
                             "instructions": "",
@@ -373,7 +375,7 @@
                         },
                         {
                             "key": "field_5eb3fd50091ce",
-                            "label": "<span class=\"dashicons dashicons-calendar-alt\"></span> Schedule Block",
+                            "label": "<span class=\"dashicons dashicons-calendar-alt\"><\/span> Schedule Block",
                             "name": "",
                             "type": "message",
                             "instructions": "",
@@ -429,7 +431,7 @@
                 "layout_5d75eff42a6a9": {
                     "key": "layout_5d75eff42a6a9",
                     "name": "text-columns",
-                    "label": "<span class=\"dashicons dashicons-editor-table\"></span> Text Columns",
+                    "label": "<span class=\"dashicons dashicons-editor-table\"><\/span> Text Columns",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -460,7 +462,7 @@
                             "label": "Columns",
                             "name": "columns",
                             "type": "repeater",
-                            "instructions": "Please add your text columns here. You can add between two and four columns to a block.\r\n\r\n<strong>Please be mindful of putting too much text in a column as you do not want your users to have to scroll up and down to read each column in turn.</strong>",
+                            "instructions": "Please add your text columns here. You can add between two and four columns to a block.\r\n\r\n<strong>Please be mindful of putting too much text in a column as you do not want your users to have to scroll up and down to read each column in turn.<\/strong>",
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -574,7 +576,7 @@
                 "layout_6020589ef5a3e": {
                     "key": "layout_6020589ef5a3e",
                     "name": "magic-columns",
-                    "label": "<span class=\"dashicons dashicons-columns\"></span> Magic Columns",
+                    "label": "<span class=\"dashicons dashicons-columns\"><\/span> Magic Columns",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -590,7 +592,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6aa"],
+                            "clone": [
+                                "field_5d75eff42a6aa"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -709,7 +713,7 @@
                                     "label": "Width @ Medium",
                                     "name": "width_md",
                                     "type": "select",
-                                    "instructions": "How wide should this column be at medium device width? (e.g. laptop). <strong>You are advised to only use <25% for 'spacer' and not use >58.33% for text</strong>",
+                                    "instructions": "How wide should this column be at medium device width? (e.g. laptop). <strong>You are advised to only use <25% for 'spacer' and not use >58.33% for text<\/strong>",
                                     "required": 1,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -742,7 +746,7 @@
                                     "label": "Width @ Large",
                                     "name": "width_lg",
                                     "type": "select",
-                                    "instructions": "How wide should this column be at large device width? (e.g. desktop). <strong>You are advised to only use <25% for 'spacer' and not use >58.33% for text</strong>",
+                                    "instructions": "How wide should this column be at large device width? (e.g. desktop). <strong>You are advised to only use <25% for 'spacer' and not use >58.33% for text<\/strong>",
                                     "required": 1,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -853,9 +857,9 @@
                                                 "id": ""
                                             },
                                             "choices": {
-                                                "white": "<span class=\"swatch bg-white\"></span>",
-                                                "primary": "<span class=\"swatch bg-primary-500\"></span>",
-                                                "secondary": "<span class=\"swatch bg-secondary-500\"></span>"
+                                                "white": "<span class=\"swatch bg-white\"><\/span>",
+                                                "primary": "<span class=\"swatch bg-primary-500\"><\/span>",
+                                                "secondary": "<span class=\"swatch bg-secondary-500\"><\/span>"
                                             },
                                             "allow_null": 0,
                                             "default_value": "default",
@@ -895,7 +899,7 @@
                                     "label": "Image",
                                     "name": "image",
                                     "type": "image",
-                                    "instructions": "Please select your image. <strong>Minimum width 400px</strong>",
+                                    "instructions": "Please select your image. <strong>Minimum width 400px<\/strong>",
                                     "required": 1,
                                     "conditional_logic": [
                                         [
@@ -1036,7 +1040,7 @@
                                     "label": "Caption",
                                     "name": "column_caption",
                                     "type": "textarea",
-                                    "instructions": "Add an optional caption for this column. <strong>Max 300 characters.</strong>",
+                                    "instructions": "Add an optional caption for this column. <strong>Max 300 characters.<\/strong>",
                                     "required": 0,
                                     "conditional_logic": [
                                         [
@@ -1086,7 +1090,10 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "post_type": ["post", "page"],
+                                    "post_type": [
+                                        "post",
+                                        "page"
+                                    ],
                                     "taxonomy": "",
                                     "filters": [
                                         "search",
@@ -1103,7 +1110,7 @@
                                     "label": "HTML",
                                     "name": "unfiltered_html",
                                     "type": "textarea",
-                                    "instructions": "You can add HTML here and it will not be sanitized. E.g. you can paste <script> tags here and the code will be executed. <strong>Please use with caution!</strong>",
+                                    "instructions": "You can add HTML here and it will not be sanitized. E.g. you can paste <script> tags here and the code will be executed. <strong>Please use with caution!<\/strong>",
                                     "required": 1,
                                     "conditional_logic": [
                                         [
@@ -1215,7 +1222,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5eb3b7f9bbf71"],
+                            "clone": [
+                                "field_5eb3b7f9bbf71"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -1226,7 +1235,7 @@
                             "label": "Row Vertical Align",
                             "name": "row_vertical_align",
                             "type": "select",
-                            "instructions": "How would you like the content in this row to be aligned vertically? <strong>(Note: applies to all columns)</strong>",
+                            "instructions": "How would you like the content in this row to be aligned vertically? <strong>(Note: applies to all columns)<\/strong>",
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -1260,7 +1269,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6ac"],
+                            "clone": [
+                                "field_5d75eff42a6ac"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -1273,7 +1284,7 @@
                 "layout_5d769956a449b": {
                     "key": "layout_5d769956a449b",
                     "name": "image",
-                    "label": "<span class=\"dashicons dashicons-format-image\"></span> Image",
+                    "label": "<span class=\"dashicons dashicons-format-image\"><\/span> Image",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -1289,7 +1300,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6aa"],
+                            "clone": [
+                                "field_5d75eff42a6aa"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -1324,7 +1337,7 @@
                             "label": "Caption",
                             "name": "caption",
                             "type": "textarea",
-                            "instructions": "You can add an image caption which will appear below the image. <strong>Max 400 characters</strong>",
+                            "instructions": "You can add an image caption which will appear below the image. <strong>Max 400 characters<\/strong>",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -1351,7 +1364,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5eb3b7f9bbf71"],
+                            "clone": [
+                                "field_5eb3b7f9bbf71"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -1397,7 +1412,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6ac"],
+                            "clone": [
+                                "field_5d75eff42a6ac"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -1410,7 +1427,7 @@
                 "layout_5ebf9c845ba66": {
                     "key": "layout_5ebf9c845ba66",
                     "name": "gallery",
-                    "label": "<span class=\"dashicons dashicons-images-alt\"></span> Gallery",
+                    "label": "<span class=\"dashicons dashicons-images-alt\"><\/span> Gallery",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -1426,7 +1443,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d74386a19942"],
+                            "clone": [
+                                "field_5d74386a19942"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -1518,7 +1537,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5eb3b7f9bbf71"],
+                            "clone": [
+                                "field_5eb3b7f9bbf71"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -1537,7 +1558,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6ac"],
+                            "clone": [
+                                "field_5d75eff42a6ac"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -1550,7 +1573,7 @@
                 "layout_60201991610c0": {
                     "key": "layout_60201991610c0",
                     "name": "cover",
-                    "label": "<span class=\"dashicons dashicons-align-wide\"></span> Cover",
+                    "label": "<span class=\"dashicons dashicons-align-wide\"><\/span> Cover",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -1589,9 +1612,9 @@
                                 "id": ""
                             },
                             "choices": {
-                                "left": "<i class=\"dashicons dashicons-editor-alignleft\"></i>",
-                                "center": "<i class=\"dashicons dashicons-editor-aligncenter\"></i>",
-                                "right": "<i class=\"dashicons dashicons-editor-alignright\"></i>"
+                                "left": "<i class=\"dashicons dashicons-editor-alignleft\"><\/i>",
+                                "center": "<i class=\"dashicons dashicons-editor-aligncenter\"><\/i>",
+                                "right": "<i class=\"dashicons dashicons-editor-alignright\"><\/i>"
                             },
                             "allow_null": 0,
                             "default_value": "left",
@@ -1603,7 +1626,7 @@
                             "label": "Text",
                             "name": "text",
                             "type": "textarea",
-                            "instructions": "Add some text to this block. <strong>Max 280 characters.</strong>",
+                            "instructions": "Add some text to this block. <strong>Max 280 characters.<\/strong>",
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -1668,7 +1691,7 @@
                             "label": "Background Image",
                             "name": "background_image",
                             "type": "image",
-                            "instructions": "Please select a background image for this block. Minimum size <strong>1920px wide x 1080px high</strong>",
+                            "instructions": "Please select a background image for this block. Minimum size <strong>1920px wide x 1080px high<\/strong>",
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -1720,10 +1743,10 @@
                                 "id": ""
                             },
                             "choices": {
-                                "white": "<span class=\"swatch bg-white\"></span>",
-                                "black": "<span class=\"swatch bg-black\"></span>",
-                                "primary-500": "<span class=\"swatch bg-primary-500\"></span>",
-                                "secondary-500": "<span class=\"swatch bg-secondary-500\"></span>"
+                                "white": "<span class=\"swatch bg-white\"><\/span>",
+                                "black": "<span class=\"swatch bg-black\"><\/span>",
+                                "primary-500": "<span class=\"swatch bg-primary-500\"><\/span>",
+                                "secondary-500": "<span class=\"swatch bg-secondary-500\"><\/span>"
                             },
                             "allow_null": 1,
                             "default_value": "none",
@@ -1770,7 +1793,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5f6e4539d9407"],
+                            "clone": [
+                                "field_5f6e4539d9407"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -1789,7 +1814,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6ac"],
+                            "clone": [
+                                "field_5d75eff42a6ac"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -1802,7 +1829,7 @@
                 "layout_602f91d2aab7f": {
                     "key": "layout_602f91d2aab7f",
                     "name": "slider",
-                    "label": "<span class=\"dashicons dashicons-slides\"></span> Slider",
+                    "label": "<span class=\"dashicons dashicons-slides\"><\/span> Slider",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -1818,7 +1845,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d74386a19942"],
+                            "clone": [
+                                "field_5d74386a19942"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -1848,7 +1877,7 @@
                             "label": "Display Pagination",
                             "name": "display_pagination",
                             "type": "true_false",
-                            "instructions": "Would you like to show the slider pagination / dots?",
+                            "instructions": "Would you like to show the slider pagination \/ dots?",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -1959,7 +1988,7 @@
                                     "label": "Image",
                                     "name": "slide_image",
                                     "type": "image",
-                                    "instructions": "Please add an image to this slide. <strong>Minimum size 600px wide x 300px high</strong>",
+                                    "instructions": "Please add an image to this slide. <strong>Minimum size 600px wide x 300px high<\/strong>",
                                     "required": 1,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -1993,7 +2022,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5eb3b7f9bbf71"],
+                            "clone": [
+                                "field_5eb3b7f9bbf71"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -2012,7 +2043,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6ac"],
+                            "clone": [
+                                "field_5d75eff42a6ac"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -2025,7 +2058,7 @@
                 "layout_602fad2365298": {
                     "key": "layout_602fad2365298",
                     "name": "testimonials",
-                    "label": "<span class=\"dashicons dashicons-editor-quote\"></span> Testimonials",
+                    "label": "<span class=\"dashicons dashicons-editor-quote\"><\/span> Testimonials",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -2041,7 +2074,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6aa"],
+                            "clone": [
+                                "field_5d75eff42a6aa"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -2060,7 +2095,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5f6facb5b7c07"],
+                            "clone": [
+                                "field_5f6facb5b7c07"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -2068,7 +2105,7 @@
                         },
                         {
                             "key": "field_60313c1ccabd1",
-                            "label": "<span class=\"dashicons dashicons-editor-quote\"></span> Testimonials",
+                            "label": "<span class=\"dashicons dashicons-editor-quote\"><\/span> Testimonials",
                             "name": "",
                             "type": "tab",
                             "instructions": "",
@@ -2106,7 +2143,7 @@
                             "label": "Display Pagination",
                             "name": "display_pagination",
                             "type": "true_false",
-                            "instructions": "Would you like to show the slider pagination / dots?",
+                            "instructions": "Would you like to show the slider pagination \/ dots?",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -2217,7 +2254,7 @@
                                     "label": "Image",
                                     "name": "testimonial_image",
                                     "type": "image",
-                                    "instructions": "You can add an optional image to the testimonial, eg. a logo or photo. <strong>Minimum size 300px wide x 300px high</strong>",
+                                    "instructions": "You can add an optional image to the testimonial, eg. a logo or photo. <strong>Minimum size 300px wide x 300px high<\/strong>",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -2251,7 +2288,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5eb3b7f9bbf71"],
+                            "clone": [
+                                "field_5eb3b7f9bbf71"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -2270,7 +2309,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6ac"],
+                            "clone": [
+                                "field_5d75eff42a6ac"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -2283,7 +2324,7 @@
                 "layout_5eb3b510797e0": {
                     "key": "layout_5eb3b510797e0",
                     "name": "video",
-                    "label": "<span class=\"dashicons dashicons-format-video\"></span> Video",
+                    "label": "<span class=\"dashicons dashicons-format-video\"><\/span> Video",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -2299,7 +2340,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6aa"],
+                            "clone": [
+                                "field_5d75eff42a6aa"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -2353,7 +2396,7 @@
                             "label": "Caption",
                             "name": "caption",
                             "type": "textarea",
-                            "instructions": "You can add an optional caption which will appear below the video. <strong>Max 400 characters</strong>",
+                            "instructions": "You can add an optional caption which will appear below the video. <strong>Max 400 characters<\/strong>",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -2399,7 +2442,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5eb3b7f9bbf71"],
+                            "clone": [
+                                "field_5eb3b7f9bbf71"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -2418,7 +2463,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_604a67e1f397e"],
+                            "clone": [
+                                "field_604a67e1f397e"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -2437,7 +2484,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6ac"],
+                            "clone": [
+                                "field_5d75eff42a6ac"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -2450,7 +2499,7 @@
                 "layout_5f6fac4cb7c01": {
                     "key": "layout_5f6fac4cb7c01",
                     "name": "iframe",
-                    "label": "<span class=\"dashicons dashicons-admin-site-alt3\"></span> iFrame",
+                    "label": "<span class=\"dashicons dashicons-admin-site-alt3\"><\/span> iFrame",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -2466,7 +2515,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6aa"],
+                            "clone": [
+                                "field_5d75eff42a6aa"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -2520,7 +2571,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5eb3b7f9bbf71"],
+                            "clone": [
+                                "field_5eb3b7f9bbf71"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -2539,7 +2592,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_604a67e1f397e"],
+                            "clone": [
+                                "field_604a67e1f397e"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -2558,7 +2613,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6ac"],
+                            "clone": [
+                                "field_5d75eff42a6ac"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -2571,7 +2628,7 @@
                 "layout_5f6faff304977": {
                     "key": "layout_5f6faff304977",
                     "name": "map",
-                    "label": "<span class=\"dashicons dashicons-location-alt\"></span> Map",
+                    "label": "<span class=\"dashicons dashicons-location-alt\"><\/span> Map",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -2587,7 +2644,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6aa"],
+                            "clone": [
+                                "field_5d75eff42a6aa"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -2606,7 +2665,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5f6facb5b7c07"],
+                            "clone": [
+                                "field_5f6facb5b7c07"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -2614,7 +2675,7 @@
                         },
                         {
                             "key": "field_5f72e2903b374",
-                            "label": "<span class=\"dashicons dashicons-location\"></span> Markers",
+                            "label": "<span class=\"dashicons dashicons-location\"><\/span> Markers",
                             "name": "",
                             "type": "tab",
                             "instructions": "",
@@ -2776,7 +2837,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5eb3b7f9bbf71"],
+                            "clone": [
+                                "field_5eb3b7f9bbf71"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -2795,7 +2858,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_604a67e1f397e"],
+                            "clone": [
+                                "field_604a67e1f397e"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -2814,242 +2879,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6ac"],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "layout_60673588e88a1": {
-                    "key": "layout_60673588e88a1",
-                    "name": "image-compare",
-                    "label": "<span class=\"dashicons dashicons-image-flip-horizontal\"></span> Image Compare",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_60673588e88a2",
-                            "label": "Clone Content",
-                            "name": "clone_content",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": ["field_5d75eff42a6aa"],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        },
-                        {
-                            "key": "field_606735e4e88a8",
-                            "label": "Clone Preamble",
-                            "name": "clone_preamble",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": ["field_5f6facb5b7c07"],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        },
-                        {
-                            "key": "field_60673608e88a9",
-                            "label": "Image One",
-                            "name": "image_one",
-                            "type": "image",
-                            "instructions": "Please select the first image for comparison. <strong>The images should be the same size. Minimum size 600px wide x 400px high</strong>",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "33",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "id",
-                            "preview_size": "thumbnail",
-                            "library": "all",
-                            "min_width": 600,
-                            "min_height": 400,
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": ""
-                        },
-                        {
-                            "key": "field_6067363be88aa",
-                            "label": "Image Two",
-                            "name": "image_two",
-                            "type": "image",
-                            "instructions": "Please select the second image for comparison. <strong>The images should be the same size. Minimum size 600px wide x 400px high</strong>",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "33",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "id",
-                            "preview_size": "thumbnail",
-                            "library": "all",
-                            "min_width": 600,
-                            "min_height": 400,
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": ""
-                        },
-                        {
-                            "key": "field_60674419b5f67",
-                            "label": "Orientation",
-                            "name": "orientation",
-                            "type": "select",
-                            "instructions": "Please select the orientation for the comparison",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "34",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "horizontal": "Horizontal",
-                                "vertical": "Vertical"
-                            },
-                            "default_value": "horizontal",
-                            "allow_null": 0,
-                            "multiple": 0,
-                            "ui": 1,
-                            "ajax": 0,
-                            "return_format": "value",
-                            "placeholder": ""
-                        },
-                        {
-                            "key": "field_60674443b5f68",
-                            "label": "Before Label",
-                            "name": "before_label",
-                            "type": "text",
-                            "instructions": "Please add an optional before label (default: Before) <strong>Max 25 characters</strong>",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "33",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": 25
-                        },
-                        {
-                            "key": "field_6067446cb5f69",
-                            "label": "After Label",
-                            "name": "after_label",
-                            "type": "text",
-                            "instructions": "Please add an optional after label (default: After) <strong>Max 25 characters</strong>",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "33",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": 25
-                        },
-                        {
-                            "key": "field_60a0befbb81f2",
-                            "label": "Slider Colour",
-                            "name": "handle_color",
-                            "type": "true_false",
-                            "instructions": "If your images are lighter or have white backgrounds, choose 'Dark'.",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "34",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 0,
-                            "ui": 1,
-                            "ui_on_text": "Dark",
-                            "ui_off_text": "Light"
-                        },
-                        {
-                            "key": "field_60673588e88a5",
-                            "label": "Clone Design",
-                            "name": "clone_design",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": ["field_5eb3b7f9bbf71"],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        },
-                        {
-                            "key": "field_60673588e88a6",
-                            "label": "Content Width Clone",
-                            "name": "content_width_clone",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "30",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": ["field_604a67e1f397e"],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        },
-                        {
-                            "key": "field_60673588e88a7",
-                            "label": "Clone Settings",
-                            "name": "clone_settings",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": ["field_5d75eff42a6ac"],
+                            "clone": [
+                                "field_5d75eff42a6ac"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -3062,7 +2894,7 @@
                 "layout_5f75a54e23c79": {
                     "key": "layout_5f75a54e23c79",
                     "name": "faqs",
-                    "label": "<span class=\"dashicons dashicons-format-chat\"></span> FAQs",
+                    "label": "<span class=\"dashicons dashicons-format-chat\"><\/span> FAQs",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -3078,7 +2910,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6aa"],
+                            "clone": [
+                                "field_5d75eff42a6aa"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -3097,7 +2931,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5f6facb5b7c07"],
+                            "clone": [
+                                "field_5f6facb5b7c07"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -3105,7 +2941,7 @@
                         },
                         {
                             "key": "field_5f75a66da20f6",
-                            "label": "<span class=\"dashicons dashicons-format-chat\"></span> FAQs",
+                            "label": "<span class=\"dashicons dashicons-format-chat\"><\/span> FAQs",
                             "name": "",
                             "type": "tab",
                             "instructions": "",
@@ -3143,7 +2979,7 @@
                             "label": "Generate Schema?",
                             "name": "generate_schema",
                             "type": "true_false",
-                            "instructions": "Do you want to generate SEO-friendly FAQPage schema for this block? <strong>Please note: you should uncheck this option if the block is not an actual Q&A style block</strong>",
+                            "instructions": "Do you want to generate SEO-friendly FAQPage schema for this block? <strong>Please note: you should uncheck this option if the block is not an actual Q&A style block<\/strong>",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -3250,7 +3086,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5f6e4539d9407"],
+                            "clone": [
+                                "field_5f6e4539d9407"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -3269,7 +3107,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5eb3b7f9bbf71"],
+                            "clone": [
+                                "field_5eb3b7f9bbf71"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -3288,7 +3128,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6ac"],
+                            "clone": [
+                                "field_5d75eff42a6ac"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -3301,7 +3143,7 @@
                 "layout_5fa2939607394": {
                     "key": "layout_5fa2939607394",
                     "name": "cards",
-                    "label": "<span class=\"dashicons dashicons-align-full-width\"></span> Cards",
+                    "label": "<span class=\"dashicons dashicons-align-full-width\"><\/span> Cards",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -3317,7 +3159,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6aa"],
+                            "clone": [
+                                "field_5d75eff42a6aa"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -3336,7 +3180,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5f6facb5b7c07"],
+                            "clone": [
+                                "field_5f6facb5b7c07"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -3344,7 +3190,7 @@
                         },
                         {
                             "key": "field_5fa2939607397",
-                            "label": "<span class=\"dashicons dashicons-align-full-width\"></span> Cards",
+                            "label": "<span class=\"dashicons dashicons-align-full-width\"><\/span> Cards",
                             "name": "",
                             "type": "tab",
                             "instructions": "",
@@ -3382,7 +3228,7 @@
                                     "label": "Image",
                                     "name": "card_image",
                                     "type": "image",
-                                    "instructions": "Add an image for the card here. <strong>Minimum size: 400px wide x 300px high</strong>",
+                                    "instructions": "Add an image for the card here. <strong>Minimum size: 400px wide x 300px high<\/strong>",
                                     "required": 1,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -3450,7 +3296,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5eb3b7f9bbf71"],
+                            "clone": [
+                                "field_5eb3b7f9bbf71"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -3469,7 +3317,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6ac"],
+                            "clone": [
+                                "field_5d75eff42a6ac"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -3482,7 +3332,7 @@
                 "layout_5f994ee198dfa": {
                     "key": "layout_5f994ee198dfa",
                     "name": "number-counter",
-                    "label": "<span class=\"dashicons dashicons-plus-alt\"></span> Number Counter",
+                    "label": "<span class=\"dashicons dashicons-plus-alt\"><\/span> Number Counter",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -3498,7 +3348,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6aa"],
+                            "clone": [
+                                "field_5d75eff42a6aa"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -3517,7 +3369,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5f6facb5b7c07"],
+                            "clone": [
+                                "field_5f6facb5b7c07"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -3525,7 +3379,7 @@
                         },
                         {
                             "key": "field_5f994ee198dfd",
-                            "label": "<span class=\"dashicons dashicons-plus-alt\"></span> Statistics",
+                            "label": "<span class=\"dashicons dashicons-plus-alt\"><\/span> Statistics",
                             "name": "",
                             "type": "tab",
                             "instructions": "",
@@ -3637,7 +3491,7 @@
                                     "label": "Title",
                                     "name": "statistic_title",
                                     "type": "text",
-                                    "instructions": "What does this statistic relate to? <strong>Max 60 characters</strong>",
+                                    "instructions": "What does this statistic relate to? <strong>Max 60 characters<\/strong>",
                                     "required": 1,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -3656,7 +3510,7 @@
                                     "label": "Description",
                                     "name": "statistic_description",
                                     "type": "textarea",
-                                    "instructions": "Add any additional description here. <strong>The description will not display on smaller devices. Max: 200 characters.</strong>",
+                                    "instructions": "Add any additional description here. <strong>The description will not display on smaller devices. Max: 200 characters.<\/strong>",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -3706,7 +3560,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5eb3b7f9bbf71"],
+                            "clone": [
+                                "field_5eb3b7f9bbf71"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -3725,379 +3581,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6ac"],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "layout_6055bf92392b1": {
-                    "key": "layout_6055bf92392b1",
-                    "name": "chart",
-                    "label": "<span class=\"dashicons dashicons-chart-pie\"></span> Chart",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_6055bf92392b2",
-                            "label": "Clone Content",
-                            "name": "clone_content",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": ["field_5d75eff42a6aa"],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        },
-                        {
-                            "key": "field_6055bf92392b3",
-                            "label": "Clone Preamble",
-                            "name": "clone_preamble",
-                            "type": "clone",
-                            "instructions": "If you'd like to add a preamble to this block, you can do so here.",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "100",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": ["field_5f6facb5b7c07"],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        },
-                        {
-                            "key": "field_6055de280c0e5",
-                            "label": "<span class=\"dashicons dashicons-chart-pie\"></span> Chart",
-                            "name": "",
-                            "type": "tab",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "placement": "top",
-                            "endpoint": 0
-                        },
-                        {
-                            "key": "field_6055db96b1eb4",
-                            "label": "Chart Type",
-                            "name": "chart_type",
-                            "type": "select",
-                            "instructions": "Please select the type of chart you wish to display.",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "25",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "bar": "Bar",
-                                "stackedBar": "Bar - Stacked",
-                                "horizontalBar": "Bar - Horizontal",
-                                "stackedHorizontalBar": "Bar - Horizontal & Stacked",
-                                "pie": "Pie",
-                                "pie-half": "Pie - Half",
-                                "doughnut": "Doughnut",
-                                "doughnut-half": "Doughnut - Half",
-                                "polarArea": "Polar Area",
-                                "radar": "Radar",
-                                "line": "Line",
-                                "table": "Table"
-                            },
-                            "default_value": "pie",
-                            "allow_null": 0,
-                            "multiple": 0,
-                            "ui": 1,
-                            "ajax": 0,
-                            "return_format": "value",
-                            "placeholder": ""
-                        },
-                        {
-                            "key": "field_605af7e15b132",
-                            "label": "Mutliple Datasets?",
-                            "name": "multiple_datasets",
-                            "type": "true_false",
-                            "instructions": "If you would like to compare multiple sets of data in the chart, please select this option.",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "25",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 0,
-                            "ui": 1,
-                            "ui_on_text": "",
-                            "ui_off_text": ""
-                        },
-                        {
-                            "key": "field_6055dce4b1eb5",
-                            "label": "Chart Title",
-                            "name": "chart_title",
-                            "type": "text",
-                            "instructions": "Please add an optional title for the chart. <strong>Max 100 characters</strong>",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": 100
-                        },
-                        {
-                            "key": "field_6055dcffb1eb6",
-                            "label": "Chart Data",
-                            "name": "chart_data",
-                            "type": "repeater",
-                            "instructions": "Please add the data for the chart here.",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "100",
-                                "class": "",
-                                "id": ""
-                            },
-                            "collapsed": "",
-                            "min": 1,
-                            "max": 0,
-                            "layout": "table",
-                            "button_label": "Add Data",
-                            "sub_fields": [
-                                {
-                                    "key": "field_6055dd10b1eb7",
-                                    "label": "Label",
-                                    "name": "data_label",
-                                    "type": "text",
-                                    "instructions": "Please specify a label for the data eg. 'January' <strong>Max 25 characters</strong>",
-                                    "required": 1,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "50",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
-                                },
-                                {
-                                    "key": "field_6055dd2eb1eb8",
-                                    "label": "Primary Dataset Value",
-                                    "name": "data_value",
-                                    "type": "number",
-                                    "instructions": "Please provide the value for this data point. This value corresponds to the label 'Primary Dataset Label'.",
-                                    "required": 1,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "25",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "min": "",
-                                    "max": "",
-                                    "step": ""
-                                },
-                                {
-                                    "key": "field_605a56fdb56ab",
-                                    "label": "Additional Values",
-                                    "name": "additional_values",
-                                    "type": "repeater",
-                                    "instructions": "You can specify additional values if you want to compare datasets. eg. new visitors vs. returning visitors. These values correspond to the labels in 'Additional Dataset Labels'.",
-                                    "required": 0,
-                                    "conditional_logic": [
-                                        [
-                                            {
-                                                "field": "field_605af7e15b132",
-                                                "operator": "==",
-                                                "value": "1"
-                                            }
-                                        ]
-                                    ],
-                                    "wrapper": {
-                                        "width": "25",
-                                        "class": "seamless",
-                                        "id": ""
-                                    },
-                                    "collapsed": "",
-                                    "min": 4,
-                                    "max": 4,
-                                    "layout": "table",
-                                    "button_label": "",
-                                    "sub_fields": [
-                                        {
-                                            "key": "field_605a5706b56ac",
-                                            "label": "Value",
-                                            "name": "data_value",
-                                            "type": "number",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "placeholder": "",
-                                            "prepend": "",
-                                            "append": "",
-                                            "min": "",
-                                            "max": "",
-                                            "step": ""
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "key": "field_605a5a090df50",
-                            "label": "Dataset Label",
-                            "name": "dataset_label",
-                            "type": "text",
-                            "instructions": "Please specify a label for the primary dataset eg. 'People' or 'New Customers'. <strong>Max 20 characters</strong>",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": 20
-                        },
-                        {
-                            "key": "field_605af5ffafff4",
-                            "label": "Additional Dataset Labels",
-                            "name": "additional_dataset_labels",
-                            "type": "repeater",
-                            "instructions": "You can specify additional dataset labels if you want to compare datasets. eg. new visitors vs. returning visitors. These labels correspond to the values in 'Additional Values'.",
-                            "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_605af7e15b132",
-                                        "operator": "==",
-                                        "value": "1"
-                                    }
-                                ]
+                            "clone": [
+                                "field_5d75eff42a6ac"
                             ],
-                            "wrapper": {
-                                "width": "50",
-                                "class": "seamless",
-                                "id": ""
-                            },
-                            "collapsed": "",
-                            "min": 4,
-                            "max": 4,
-                            "layout": "table",
-                            "button_label": "",
-                            "sub_fields": [
-                                {
-                                    "key": "field_605af69eafff6",
-                                    "label": "Dataset Label",
-                                    "name": "dataset_label",
-                                    "type": "text",
-                                    "instructions": "Please specify a label for the default dataset eg. 'People' or 'New Customers'. <strong>Max 20 characters</strong>",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "40",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": 20
-                                }
-                            ]
-                        },
-                        {
-                            "key": "field_605a358b5a78d",
-                            "label": "Clone CTA",
-                            "name": "clone_cta",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": ["field_5f6e4539d9407"],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        },
-                        {
-                            "key": "field_6055bf92392b5",
-                            "label": "Clone Design",
-                            "name": "clone_design",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": ["field_5eb3b7f9bbf71"],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        },
-                        {
-                            "key": "field_6055bf92392b6",
-                            "label": "Clone Settings",
-                            "name": "clone_settings",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": ["field_5d75eff42a6ac"],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -4110,7 +3596,7 @@
                 "layout_602c33de6ea10": {
                     "key": "layout_602c33de6ea10",
                     "name": "countdown",
-                    "label": "<span class=\"dashicons dashicons-clock\"></span> Countdown Timer",
+                    "label": "<span class=\"dashicons dashicons-clock\"><\/span> Countdown Timer",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -4126,7 +3612,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6aa"],
+                            "clone": [
+                                "field_5d75eff42a6aa"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -4145,7 +3633,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5f6facb5b7c07"],
+                            "clone": [
+                                "field_5f6facb5b7c07"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -4164,8 +3654,8 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "display_format": "d/m/Y g:i a",
-                            "return_format": "d/m/Y g:i a",
+                            "display_format": "d\/m\/Y g:i a",
+                            "return_format": "d\/m\/Y g:i a",
                             "first_day": 1
                         },
                         {
@@ -4236,7 +3726,7 @@
                             "label": "Complete Text",
                             "name": "complete_text",
                             "type": "textarea",
-                            "instructions": "Please enter an optional message you would like to display once the countdown is complete. <strong>Please note: although this text will only display on the page once the countdown is complete, the text itself is visible in the HTML code so could be viewed by someone with the know-how. Therefore you should only use it for informational purposes and not for secrets!</strong>",
+                            "instructions": "Please enter an optional message you would like to display once the countdown is complete. <strong>Please note: although this text will only display on the page once the countdown is complete, the text itself is visible in the HTML code so could be viewed by someone with the know-how. Therefore you should only use it for informational purposes and not for secrets!<\/strong>",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -4263,7 +3753,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5f6e4539d9407"],
+                            "clone": [
+                                "field_5f6e4539d9407"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -4282,7 +3774,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5eb3b7f9bbf71"],
+                            "clone": [
+                                "field_5eb3b7f9bbf71"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -4301,7 +3795,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6ac"],
+                            "clone": [
+                                "field_5d75eff42a6ac"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -4314,7 +3810,7 @@
                 "layout_5f9ae75650a39": {
                     "key": "layout_5f9ae75650a39",
                     "name": "html",
-                    "label": "<span class=\"dashicons dashicons-html\"></span> Unfiltered HTML",
+                    "label": "<span class=\"dashicons dashicons-html\"><\/span> Unfiltered HTML",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -4330,7 +3826,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6aa"],
+                            "clone": [
+                                "field_5d75eff42a6aa"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -4349,7 +3847,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5f6facb5b7c07"],
+                            "clone": [
+                                "field_5f6facb5b7c07"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -4360,7 +3860,7 @@
                             "label": "HTML",
                             "name": "unfiltered_html",
                             "type": "textarea",
-                            "instructions": "You can add HTML here and it will not be sanitized. E.g. you can paste <script> tags here and the code will be executed. <strong>Please use with caution!</strong>",
+                            "instructions": "You can add HTML here and it will not be sanitized. E.g. you can paste <script> tags here and the code will be executed. <strong>Please use with caution!<\/strong>",
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -4387,7 +3887,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5eb3b7f9bbf71"],
+                            "clone": [
+                                "field_5eb3b7f9bbf71"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -4406,7 +3908,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6ac"],
+                            "clone": [
+                                "field_5d75eff42a6ac"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -4419,7 +3923,7 @@
                 "layout_5f718bfbcc200": {
                     "key": "layout_5f718bfbcc200",
                     "name": "linked-posts",
-                    "label": "<span class=\"dashicons dashicons-randomize\"></span> Linked Post(s)",
+                    "label": "<span class=\"dashicons dashicons-randomize\"><\/span> Linked Post(s)",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -4435,7 +3939,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6aa"],
+                            "clone": [
+                                "field_5d75eff42a6aa"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -4454,7 +3960,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5f6facb5b7c07"],
+                            "clone": [
+                                "field_5f6facb5b7c07"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -4474,9 +3982,9 @@
                                 "id": ""
                             },
                             "choices": {
-                                "specified": "<i class=\"dashicons dashicons-saved\"></i> Specified",
-                                "rand": "<i class=\"dashicons dashicons-randomize\"></i> Random",
-                                "date": "<i class=\"dashicons dashicons-calendar-alt\"></i> Latest"
+                                "specified": "<i class=\"dashicons dashicons-saved\"><\/i> Specified",
+                                "rand": "<i class=\"dashicons dashicons-randomize\"><\/i> Random",
+                                "date": "<i class=\"dashicons dashicons-calendar-alt\"><\/i> Latest"
                             },
                             "allow_null": 0,
                             "default_value": "specified",
@@ -4488,7 +3996,7 @@
                             "label": "Posts",
                             "name": "specified_posts",
                             "type": "relationship",
-                            "instructions": "Please select all of the posts you would like to feature. <strong>Posts will display in the order added.</strong>",
+                            "instructions": "Please select all of the posts you would like to feature. <strong>Posts will display in the order added.<\/strong>",
                             "required": 1,
                             "conditional_logic": [
                                 [
@@ -4504,9 +4012,16 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "post_type": ["post", "page"],
+                            "post_type": [
+                                "post",
+                                "page"
+                            ],
                             "taxonomy": "",
-                            "filters": ["search", "post_type", "taxonomy"],
+                            "filters": [
+                                "search",
+                                "post_type",
+                                "taxonomy"
+                            ],
                             "elements": "",
                             "min": "",
                             "max": 12,
@@ -4537,7 +4052,9 @@
                                 "post": "Posts",
                                 "page": "Pages"
                             },
-                            "default_value": ["post"],
+                            "default_value": [
+                                "post"
+                            ],
                             "allow_null": 0,
                             "multiple": 1,
                             "ui": 1,
@@ -4586,7 +4103,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5f6e4539d9407"],
+                            "clone": [
+                                "field_5f6e4539d9407"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -4605,7 +4124,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5eb3b7f9bbf71"],
+                            "clone": [
+                                "field_5eb3b7f9bbf71"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -4624,7 +4145,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6ac"],
+                            "clone": [
+                                "field_5d75eff42a6ac"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -4637,7 +4160,7 @@
                 "layout_5f7355d68f5de": {
                     "key": "layout_5f7355d68f5de",
                     "name": "post-archive",
-                    "label": "<span class=\"dashicons dashicons-ellipsis\"></span> Posts Archive",
+                    "label": "<span class=\"dashicons dashicons-ellipsis\"><\/span> Posts Archive",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -4653,7 +4176,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6aa"],
+                            "clone": [
+                                "field_5d75eff42a6aa"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -4672,7 +4197,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5f6facb5b7c07"],
+                            "clone": [
+                                "field_5f6facb5b7c07"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -4747,9 +4274,9 @@
                                 "id": ""
                             },
                             "choices": {
-                                "button": "<i class=\"dashicons dashicons-button\"></i> Infinite Button",
-                                "scroll": "<i class=\"dashicons dashicons-arrow-down-alt\"></i> Infinite Scroll",
-                                "paginated": "<i class=\"dashicons dashicons-editor-ol\"></i> Paginated"
+                                "button": "<i class=\"dashicons dashicons-button\"><\/i> Infinite Button",
+                                "scroll": "<i class=\"dashicons dashicons-arrow-down-alt\"><\/i> Infinite Scroll",
+                                "paginated": "<i class=\"dashicons dashicons-editor-ol\"><\/i> Paginated"
                             },
                             "allow_null": 0,
                             "default_value": "paginated",
@@ -4769,7 +4296,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5f6e4539d9407"],
+                            "clone": [
+                                "field_5f6e4539d9407"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -4788,7 +4317,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5eb3b7f9bbf71"],
+                            "clone": [
+                                "field_5eb3b7f9bbf71"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -4807,7 +4338,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "clone": ["field_5d75eff42a6ac"],
+                            "clone": [
+                                "field_5d75eff42a6ac"
+                            ],
                             "display": "seamless",
                             "layout": "block",
                             "prefix_label": 0,
@@ -4842,7 +4375,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "1) Check the toggle \"Enable Import\" to \"Yes\".\r\n2) Using the select box, find the page or post you wish to import fields from.\r\n3) Save/Publish the post.\r\n4) When the post has been saved, you may need to refresh the editor to see the imported blocks.",
+            "message": "1) Check the toggle \"Enable Import\" to \"Yes\".\r\n2) Using the select box, find the page or post you wish to import fields from.\r\n3) Save\/Publish the post.\r\n4) When the post has been saved, you may need to refresh the editor to see the imported blocks.",
             "new_lines": "br",
             "esc_html": 0
         },
@@ -4897,9 +4430,16 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": ["page", "post"],
+            "post_type": [
+                "page",
+                "post"
+            ],
             "taxonomy": "",
-            "filters": ["search", "post_type", "taxonomy"],
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
             "elements": "",
             "min": "",
             "max": "",
@@ -4946,5 +4486,5 @@
     "active": true,
     "description": "This flexible content field group allows the editor to create dynamic layouts with ease using ACF flexible content blocks.",
     "show_in_rest": 0,
-    "modified": 1674909233
+    "modified": 1682929735
 }

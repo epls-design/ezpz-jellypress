@@ -19,8 +19,7 @@ if (file_exists(get_template_directory() . '/env.json')) {
 }
 
 if (!function_exists('jellypress_env')) {
-  function jellypress_env($key, $default = null)
-  {
+  function jellypress_env($key, $default = null) {
     $value = getenv($key);
     if ($value === false) return $default;
     return $value;
@@ -54,8 +53,6 @@ $jellypress_includes = array(
   'inc/modals.php',                  // Initialize and manipulate modals
   'inc/slider.php',                  // Integrate sliders using SplideJS
   'inc/countdown.php',               // Initialize countdowns
-  'inc/charts.php',                  // Functions which work with charts.js library
-  'inc/compare.php',                 // Functions which work with TwentyTwenty Image Comparison
 
   //~~~~~ CUSTOM POST TYPES
   // 'inc/post_types/example.php',

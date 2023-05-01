@@ -88,27 +88,6 @@ function copyLibs() {
     .pipe(rename("_magnific-popup.scss"))
     .pipe(dest("./template-parts/components/modal/"));
 
-  var twentytwentyJS = src([
-    "node_modules/zurb-twentytwenty/js/jquery.event.move.js",
-    "node_modules/zurb-twentytwenty/js/jquery.twentytwenty.js",
-  ])
-    .pipe(concat("twentytwenty.min.js"))
-    .pipe(uglify({ mangle: true }))
-    .pipe(dest("./lib/"));
-
-  var chartJS = src([
-    "node_modules/chart.js/dist/Chart.bundle.min.js",
-    "node_modules/chartjs-plugin-deferred/dist/chartjs-plugin-deferred.min.js",
-  ])
-    .pipe(concat("charts.min.js"))
-    .pipe(uglify({ mangle: true }))
-    .pipe(dest("./lib/"));
-
-  // Commented out because it uses divide by 2 which is not supported in newer SASS
-  // var twentytwentyCSS = src('node_modules/zurb-twentytwenty/scss/twentytwenty-no-compass.scss')
-  //   .pipe(rename('_twentytwenty-lib.scss'))
-  //   .pipe(dest('./template-parts/blocks/image-compare/'));
-
   var splideJS = src(
     "node_modules/@splidejs/splide/dist/js/splide.min.js"
   ).pipe(dest("./lib/"));
@@ -124,15 +103,7 @@ function copyLibs() {
     "node_modules/a11y_accordions/assets/js/aria.accordion.min.js"
   ).pipe(dest("./lib/"));
 
-  return merge(
-    magnificJS,
-    magnificCSS,
-    twentytwentyJS,
-    chartJS,
-    splideJS,
-    splideCSS,
-    accordionJS
-  );
+  return merge(magnificJS, magnificCSS, splideJS, splideCSS, accordionJS);
 }
 
 // Tasks which watch for changes in specified files/dirs and run tasks based on filetypes edited

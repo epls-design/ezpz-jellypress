@@ -12,7 +12,6 @@
 
 ## About Jellypress
 
-
 This theme, like `underscores` is made for hacking and use as a standalone theme, rather than a Parent Theme.
 
 REQUIRES php 7.4+
@@ -32,7 +31,6 @@ REQUIRES php 7.4+
 - Bundled with recommended and necessary plugins through [TGM Plugin Activation](http://tgmpluginactivation.com/)
 - Support for ACF and baked-in use of ACF flexible content for page layout using flexible content fields. A range of 'out of the box' layout options:
   - Cards
-  - Charts with charts.js
   - Countdown timer
   - Cover
   - Aria accessibly FAQS that also generate rich Schema markup
@@ -40,7 +38,6 @@ REQUIRES php 7.4+
   - Unfiltered HTML
   - iFrame
   - Image
-  - Image compare using TwentyTwenty.js
   - Linked Posts
   - Magic Column layouts
   - Map using Google Maps API

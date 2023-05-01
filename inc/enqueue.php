@@ -25,9 +25,9 @@ if (!function_exists('jellypress_optimise_google_fonts_enqueue')) {
   {
     $fonts = 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap';
 ?>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="<?= $fonts; ?>">
-    <link rel='stylesheet' id='google-fonts' href='<?= $fonts; ?>' media='print' onload="this.media='all'" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="<?= $fonts; ?>">
+<link rel='stylesheet' id='google-fonts' href='<?= $fonts; ?>' media='print' onload="this.media='all'" />
 <?php }
 }
 
@@ -112,30 +112,6 @@ if (!function_exists('jellypress_scripts')) {
       'splide-slider',
       get_template_directory_uri() . '/lib/splide.min.js',
       array(),
-      $js_version,
-      true
-    );
-
-    wp_register_script(
-      'twentytwenty',
-      get_template_directory_uri() . '/lib/twentytwenty.min.js',
-      array('jquery'),
-      $js_version,
-      true
-    );
-
-    wp_register_script(
-      'charts',
-      get_template_directory_uri() . '/lib/charts.min.js',
-      array(),
-      $js_version,
-      true
-    );
-
-    wp_register_script(
-      'charts-opts',
-      get_template_directory_uri() . '/lib/charts-opts.js',
-      array('charts'),
       $js_version,
       true
     );
