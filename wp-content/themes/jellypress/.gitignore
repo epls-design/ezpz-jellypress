@@ -4,6 +4,9 @@ node_modules/
 # ignore Environment file
 env.json
 
+# ignore build files
+package-lock.json
+
 # -------------------------
 # BEGIN Whitelisted Files
 # -------------------------
