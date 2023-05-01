@@ -1,91 +1,67 @@
-# ignore node modules
-node_modules/
+### Project ###
 
-# ignore Environment file
-env.json
+# ignore everything in the root except the "wp-content" directory.
+/*
+!wp-content/
 
-# Compiled files
-# languages/en_GB.pot
-# style.css
-# style-rtl.css
-# dist/css/*
-# dist/js/*
+# ignore all files starting with .
+.*
 
-# ignore Git folder
-_.git/
-.vscode/
-
-### macOS ###
-# General
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Thumbnails
-._*
-
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-
-### Windows ###
-# Windows thumbnail cache files
+# ignore OS generated files
 Thumbs.db
-Thumbs.db:encryptable
 ehthumbs.db
-ehthumbs_vista.db
 
-# Dump file
-*.stackdump
+# ignore log files and databases
+*.log
+*.sql
+*.sqlite
 
-# Folder config file
-[Dd]esktop.ini
+# ignore compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
 
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
+# ignore packaged files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
 
-# Windows Installer files
-*.cab
-*.msi
-*.msix
-*.msm
-*.msp
+# Add Favicons
+!browserconfig.xml
+!favicon/
+!favicon.ico
+!site.webmanifest
 
-# Windows shortcuts
-*.lnk
+# ignore everything in the "wp-content" directory, except:
+# "themes" directory
+# "mu-plugins" directory
+# "uploads" directory
+wp-content/*
+!wp-content/themes/
+!wp-content/mu-plugins/
+!wp-content/plugins/
+!wp-content/uploads/
 
-### Linux ###
-*~
+# ignore contents of plugins, include only those specified
+wp-content/plugins/*
+!wp-content/plugins/ezpz-*
 
-# temporary files which can be created if a process still has a handle open of a deleted file
-.fuse_hidden*
+# ignore contents of mu-plugins, include only those specified
+wp-content/mu-plugins/*
+!wp-content/mu-plugins/ezpz-*
 
-# KDE directory preferences
-.directory
+# Ignore WP themes
+wp-content/themes/twenty*
 
-# Linux trash folder which might appear on any partition or disk
-.Trash-*
+# ignore contents of "uploads" directory, include only those specified
+wp-content/uploads/*
 
-# .nfs files are created when an open file is removed but is still being accessed
-.nfs*
-
-# -------------------------
-# BEGIN Whitelisted Files
-# -------------------------
-
-# track these files, if they exist
-!.gitignore
 !.editorconfig
-!.stylelintrc.yml

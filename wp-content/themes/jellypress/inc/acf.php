@@ -16,8 +16,7 @@ defined('ABSPATH') || exit;
 add_filter('acf/settings/load_json', 'jellypress_acf_json_load_point');
 add_filter('acf/settings/save_json', 'jellypress_acf_json_save_point');
 if (!function_exists('jellypress_acf_json_load_point')) {
-  function jellypress_acf_json_load_point($paths)
-  {
+  function jellypress_acf_json_load_point($paths) {
     // remove original path (optional)
     unset($paths[0]);
     // append path
@@ -27,8 +26,7 @@ if (!function_exists('jellypress_acf_json_load_point')) {
   }
 }
 if (!function_exists('jellypress_acf_json_save_point')) {
-  function jellypress_acf_json_save_point($path)
-  {
+  function jellypress_acf_json_save_point($path) {
     // update path
     $path = get_stylesheet_directory() . '/src/acf-json';
     // return
@@ -41,8 +39,7 @@ if (!function_exists('jellypress_acf_json_save_point')) {
  */
 add_filter('acf/fields/wysiwyg/toolbars', 'jellypress_restrict_acf_tinymce_opts');
 if (!function_exists('jellypress_restrict_acf_tinymce_opts')) {
-  function jellypress_restrict_acf_tinymce_opts($toolbars)
-  {
+  function jellypress_restrict_acf_tinymce_opts($toolbars) {
     $toolbars['Full'] = array(
       1 => array('formatselect', 'bold', 'italic', 'blockquote', 'bullist', 'numlist', 'link', 'unlink', 'spellchecker', 'wp_adv'),
       2 => array('styleselect', 'pastetext', 'removeformat', 'charmap', 'alignleft', 'aligncenter', 'alignright', 'undo', 'redo')
@@ -81,8 +78,7 @@ if (!function_exists('jellypress_hide_acf_admin')) {
    * @link https://www.awesomeacf.com/snippets/hide-the-acf-admin-menu-item-on-selected-sites/
    * @link https://support.advancedcustomfields.com/forums/topic/the-acf-json-workflow/
    */
-  function jellypress_hide_acf_admin()
-  {
+  function jellypress_hide_acf_admin() {
     // get the current site url
     $site_url = get_bloginfo('url');
     // an array of development environment URLs
@@ -99,15 +95,14 @@ if (!function_exists('jellypress_hide_acf_admin')) {
     }
   }
 }
-add_filter('acf/settings/show_admin', 'jellypress_hide_acf_admin');
+//add_filter('acf/settings/show_admin', 'jellypress_hide_acf_admin');
 
 /**
  * Adds Google Maps API Key if the user has added one to the options page
  */
 add_action('acf/init', 'jellypress_google_maps_api_key');
 if (!function_exists('jellypress_google_maps_api_key')) {
-  function jellypress_google_maps_api_key()
-  {
+  function jellypress_google_maps_api_key() {
     $get_gmaps_api = get_global_option('google_maps_api_key');
     if ($get_gmaps_api) {
       acf_update_setting('google_api_key', $get_gmaps_api);
@@ -121,8 +116,7 @@ if (!function_exists('jellypress_google_maps_api_key')) {
  */
 add_action('admin_init', 'jellypress_acf_dashicons_support');
 if (!function_exists('jellypress_acf_dashicons_support')) {
-  function jellypress_acf_dashicons_support()
-  {
+  function jellypress_acf_dashicons_support() {
     wp_enqueue_style('dashicons');
   }
 }
@@ -132,8 +126,7 @@ if (!function_exists('jellypress_acf_dashicons_support')) {
  * so that editors can see at a glance what content is contained within a block.
  */
 if (!function_exists('jellypress_acf_flexible_titles')) {
-  function jellypress_acf_flexible_titles($title, $field, $block_layout, $i)
-  {
+  function jellypress_acf_flexible_titles($title, $field, $block_layout, $i) {
     $block_layout = get_row_layout();
     $block_bg_color = 'bg-' . strtolower(get_sub_field('background_color'));
 
@@ -210,8 +203,7 @@ add_filter('acf/fields/flexible_content/layout_title', 'jellypress_acf_flexible_
  * https://github.com/Hube2/acf-filters-and-functions/blob/master/acf-form-kses.php
  */
 if (!function_exists('jellypress_kses_acf')) :
-  function jellypress_kses_acf($data, $post_id, $field)
-  {
+  function jellypress_kses_acf($data, $post_id, $field) {
     if (!is_array($data)) {
       // If it's not an array, sanitize
       if ($field['_name'] != 'unfiltered_html') {
@@ -245,8 +237,7 @@ add_filter('acf/settings/remove_wp_meta_box', '__return_true');
  */
 add_action('acf/save_post', 'jellypress_import_blocks_from_other_post', 1);
 if (!function_exists('jellypress_import_blocks_from_other_post')) :
-  function jellypress_import_blocks_from_other_post($post_id)
-  {
+  function jellypress_import_blocks_from_other_post($post_id) {
 
     // Bail early if no ACF data or if 'enable_block_import' is not TRUE
     if (empty($_POST['acf']) || $_POST['acf']['field_5fa6c5ffe671c'] != 1) {
@@ -290,14 +281,12 @@ endif;
  * @link https://barebones.dev/articles/acf-and-wpml-get-global-options-value/
  */
 if (!function_exists('jellypress_acf_set_language')) :
-  function jellypress_acf_set_language()
-  {
+  function jellypress_acf_set_language() {
     return acf_get_setting('default_language');
   }
 endif;
 if (!function_exists('get_global_option')) :
-  function get_global_option($name)
-  {
+  function get_global_option($name) {
     add_filter('acf/settings/current_language', 'jellypress_acf_set_language', 100);
     $option = get_field($name, 'option');
     remove_filter('acf/settings/current_language', 'jellypress_acf_set_language', 100);
@@ -311,8 +300,7 @@ endif;
  * @return string text from a WYSIWIG field
  */
 if (!function_exists('jellypress_excerpt_from_acf_flexible_content')) :
-  function jellypress_excerpt_from_acf_flexible_content()
-  {
+  function jellypress_excerpt_from_acf_flexible_content() {
     if (have_rows('sections')) {
       while (have_rows('sections')) : the_row();
         $layout = get_row_layout();
@@ -349,8 +337,7 @@ endif;
  * Filter to replace string %SERVER_TIME% with current server time in Admin panel
  */
 if (!function_exists('jellypress_server_time_message_acf_settings')) :
-  function jellypress_server_time_message_acf_settings($field)
-  {
+  function jellypress_server_time_message_acf_settings($field) {
     $field['message'] = str_replace(
       '%SERVER_TIME%',
       date('j-m-Y H:i:s'),
@@ -365,8 +352,7 @@ add_filter('acf/load_field/key=field_5eb3fd50091ce', 'jellypress_server_time_mes
 /**
  * Don't save changes to the %SERVER_TIME% message field when editing.
  */
-function jellypress_do_not_save_servertime_message($value, $post_id, $field)
-{
+function jellypress_do_not_save_servertime_message($value, $post_id, $field) {
   return null;
 }
 add_filter('acf/update_value/key=field_5eb3fd50091ce', 'jellypress_do_not_save_servertime_message', 10, 3);

@@ -1,0 +1,15 @@
+# ignore node modules
+node_modules/
+
+# ignore Environment file
+env.json
+
+# -------------------------
+# BEGIN Whitelisted Files
+# -------------------------
+
+# track these files, if they exist
+!.gitignore
+!.editorconfig
+!.stylelintrc.yml
+!.eslintrc
