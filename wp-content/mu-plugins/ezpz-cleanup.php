@@ -146,7 +146,7 @@ if (!class_exists('ezpzCleanUp')) {
     }
 
     // Automatically adds Alt tags to images uploaded, based on the image title or filename.
-    private function auto_alt_tags($post_ID) {
+    function auto_alt_tags($post_ID) {
 
       // Check if uploaded file is an image, else do nothing
 
@@ -181,7 +181,7 @@ if (!class_exists('ezpzCleanUp')) {
     /**
      * Modifies #more link to not use hashtag anchor
      */
-    public function more_jump_link_anchor($link) {
+    function more_jump_link_anchor($link) {
 
       $offset = strpos($link, '#more-');
 
@@ -199,7 +199,7 @@ if (!class_exists('ezpzCleanUp')) {
     /**
      * Fixes curly quotes and badly formatted characters when pasting from Word
      */
-    public function curly_other_chars($fixChars) {
+    function curly_other_chars($fixChars) {
 
       $fixChars = str_replace(
         array("\xe2\x80\x98", "\xe2\x80\x99", "\xe2\x80\x9c", "\xe2\x80\x9d", "\xe2\x80\x93", "\xe2\x80\x94", "\xe2\x80\xa6"),
