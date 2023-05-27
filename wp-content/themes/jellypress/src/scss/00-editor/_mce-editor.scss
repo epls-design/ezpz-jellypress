@@ -1,0 +1,27 @@
+.mce-i-resize {
+  &:before {
+    font-family: "tinymce", Arial;
+  }
+}
+html .mceContentBody {
+  padding: 20px;
+  margin: 0;
+  //font-size: 1em;
+}
+
+.mce-statusbar {
+  border-top: 1px solid #dcdcde;
+}
+
+.mce-caret {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 0;
+  height: 0;
+  vertical-align: top;
+  border-top: 4px solid #b5bcc2;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  content: "";
+}

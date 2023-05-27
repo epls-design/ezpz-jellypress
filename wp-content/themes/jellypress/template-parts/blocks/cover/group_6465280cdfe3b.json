@@ -1,0 +1,172 @@
+{
+    "key": "group_6465280cdfe3b",
+    "title": "Block > Cover",
+    "fields": [
+        {
+            "key": "field_6465280d579d7",
+            "label": "Clone Content and Title",
+            "name": "clone_content_and_title",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": ["field_646259d55774d", "field_6462598a12f14"],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_64677a162f267",
+            "label": "Text",
+            "name": "text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Add some text to this block. <strong>Max 280 characters.</strong>",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "60",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": 280,
+            "rows": 4,
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_64677a2a2f26a",
+            "label": "Background Image",
+            "name": "background_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Please select a background image for this block. Minimum size <strong>1920px wide x 1080px high</strong>",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": 1920,
+            "min_height": 1080,
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_64677a302f26b",
+            "label": "Parallax Background?",
+            "name": "parallax_background",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Would you like to add a parallax scroll style to the background?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_64677a392f26c",
+            "label": "Overlay Opacity",
+            "name": "overlay_opacity",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 80,
+            "min": 10,
+            "max": 100,
+            "step": 10,
+            "prepend": "",
+            "append": "%"
+        },
+        {
+            "key": "field_646782255ca31",
+            "label": "Min-Height",
+            "name": "min_height",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "Please select the minimum height for the cover relative to the browser window.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 80,
+            "min": 25,
+            "max": 100,
+            "step": 1,
+            "prepend": "",
+            "append": "vh"
+        },
+        {
+            "key": "field_64677a412f26d",
+            "label": "Clone CTA",
+            "name": "clone_cta",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": ["field_646263b78b3bc", "field_646263778b3b8"],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "jellypress/cover"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1684505350
+}

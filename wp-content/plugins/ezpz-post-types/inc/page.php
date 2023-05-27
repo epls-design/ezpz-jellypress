@@ -8,8 +8,5 @@ defined('ABSPATH') || exit;
  */
 $page = new ezpzPostType('page');
 
-// Remove support for the editor - useful if using ACF flexible content for page layout
-$page->remove_support(array('editor'));
-
 // Add Excerpt support to pages
 $page->add_support(array('excerpt'));

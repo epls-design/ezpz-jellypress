@@ -1,0 +1,52 @@
+// Styles are automatically wrapped in .editor-styles-wrapper
+// so we don't need to worry about specificity.
+
+// Make sure the container elements are not running outside of the editor.
+.container {
+  width: 90% !important;
+  max-width: 1020px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+// Highlights blocks that have been set to hide
+.block.hide,
+.block.hide-above-sm,
+.block.hide-below-sm {
+  display: block !important;
+  border: 2px dashed lightgrey;
+  .container {
+    z-index: 2;
+    position: relative;
+  }
+  &::before {
+    content: "Hidden block";
+    display: block;
+    top: 0;
+    padding: 0.3em 0.8em;
+    position: absolute;
+    line-height: 1;
+    font-size: 0.9em;
+    background: lightgray;
+    z-index: 1;
+  }
+  &::after {
+    @include pseudo;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(lightgray, 0.1),
+      rgba(lightgray, 0.1) 10px,
+      rgba(lightgray, 0) 10px,
+      rgba(lightgray, 0) 20px
+    );
+  }
+}
+.block.hide-above-sm::before {
+  content: "Hidden above mobile";
+}
+.block.hide-below-sm::before {
+  content: "Hidden below mobile";
+}

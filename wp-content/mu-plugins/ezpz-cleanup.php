@@ -181,7 +181,7 @@ if (!class_exists('ezpzCleanUp')) {
     /**
      * Modifies #more link to not use hashtag anchor
      */
-    function more_jump_link_anchor($link) {
+    public function more_jump_link_anchor($link) {
 
       $offset = strpos($link, '#more-');
 

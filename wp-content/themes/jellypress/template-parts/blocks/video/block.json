@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "jellypress/video",
+  "title": "Video",
+  "category": "media",
+  "icon": "format-video",
+  "description": "Renders a block containing a Youtube or Vimeo video.",
+  "keywords": ["video", "youtube", "vimeo", "embed", "media", "player"],
+  "version": "1.0.0",
+  "textdomain": "jellypress",
+  "supports": {
+    "align": ["center", "wide", "full"],
+    "alignText": true,
+    "anchor": true,
+    "color": {
+      "background": true,
+      "gradients": false,
+      "link": false,
+      "text": false
+    },
+    "customClassName": true,
+    "html": false
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "center"
+    }
+  },
+  "styles": [
+    { "name": "default", "label": "Default", "isDefault": true },
+    { "name": "hide-below-sm", "label": "Hide Mob" },
+    { "name": "hide-above-sm", "label": "Hide Above Mob" }
+  ],
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "view.php",
+    "postTypes": ["post", "page"]
+  }
+}

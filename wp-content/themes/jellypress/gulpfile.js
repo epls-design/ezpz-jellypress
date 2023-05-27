@@ -120,11 +120,13 @@ function watchTask(done) {
 
   watch(opts.src_dir + "/**/!(__all).scss", sassTasks);
 
+  // Watch for changes to acf-json
+  watch(opts.src_dir + "/acf-json/*.json", moveBlockJson);
+
   watch(
     [opts.src_dir + "/js/**/*.js"],
     series(javascriptLint, javascriptProcess)
   );
-  watch("./gulpfile.js", series(gulpfileLint, buildScripts));
   done();
 }
 
@@ -200,6 +202,43 @@ function javascriptLint(done) {
     .pipe(eslint.format());
 
   done();
+}
+
+function moveBlockJson(done) {
+  /** Get All files within the acf-json folder
+   * Loop through each file, and look for the property location.value
+   * If location.param == 'block' then search in value for the text after the character '/'
+   * Save this value as a variable and then check if a folder exists in template-parts/blocks
+   * with the same name. If it does, move the file to that folder.
+   */
+  // Get all files in acf-json
+  files = fs.readdirSync(opts.src_dir + "/acf-json");
+  let blocksFolder = "template-parts/blocks";
+
+  files.forEach(function (stream, file) {
+    // Get the absolute path to the acf json file
+    // Get relative path to the acf json file
+    file = opts.src_dir + "/acf-json/" + stream;
+
+    // Convert the file into a json object
+    var jsonContent = JSON.parse(fs.readFileSync(file));
+
+    // If jsonContent.title contains 'Blocks > ' then we know it's a block
+    let acfTitle = jsonContent.title;
+    if (acfTitle.includes("Block > ")) {
+      let blockName = acfTitle.split("Block > ")[1];
+      // Remove 'and' from the block name
+      blockName = blockName.replace("and", "");
+      // Replace whitespace with hyphens and make lowercase
+      blockName = blockName.replace(/\s+/g, "-").toLowerCase();
+      // Check if the block folder exists
+      if (fs.existsSync(blocksFolder + "/" + blockName)) {
+        // Move the file to the block folder
+        fs.renameSync(file, blocksFolder + "/" + blockName + "/" + stream);
+      }
+    }
+    done();
+  });
 }
 
 // Tasks which process the core javascript files
@@ -372,30 +411,10 @@ function sassProcessEditor() {
   );
 }
 
-// Process Admin Sass
-function sassProcessAdmin() {
-  return (
-    src(opts.src_dir + "/scss/admin-style.scss")
-      //.pipe(sourcemaps.init())
-      .pipe(sass({ includePaths: ["node_modules"] }).on("error", sass.logError))
-      .pipe(postcss(sassProcessors))
-      // .pipe(cssclean())
-      .pipe(rename("admin-style.css"))
-      .pipe(
-        banner(opts.bannerText, {
-          pkg: pkg,
-        })
-      )
-      //.pipe(sourcemaps.write("."))
-      .pipe(dest(opts.dist_dir))
-      .pipe(browsersync.reload({ stream: true }))
-  );
-}
-
 // Tasks for SASS compilation
 const sassTasks = series(
   sassAutomaticImports,
-  parallel(sassProcessSite, sassProcessWoo, sassProcessEditor, sassProcessAdmin)
+  parallel(sassProcessSite, sassProcessWoo, sassProcessEditor)
 );
 
 // Tasks which run on $ gulp build
@@ -414,6 +433,7 @@ const buildScripts = series(
 // Tasks which run on $ gulp
 const serverScripts = parallel(browsersyncInit, watchTask);
 
+exports.watch = watchTask;
 exports.reload = browsersyncReload;
 exports.build = buildScripts;
 exports.default = serverScripts;

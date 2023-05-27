@@ -201,19 +201,6 @@ function jellypress_post_navigation() {
   endif;
 }
 
-/* @Recreate the default filters on the_content so we can pull formatted content with get_post_meta and get_all_custom_field_meta */
-add_filter('meta_content', 'wptexturize');
-add_filter('meta_content', 'convert_smilies');
-add_filter('meta_content', 'convert_chars');
-add_filter('meta_content', 'wpautop');
-add_filter('meta_content', 'shortcode_unautop');
-add_filter('meta_content', 'prepend_attachment');
-add_filter('meta_content', 'do_shortcode', 11);
-add_filter('meta_content', [$wp_embed, 'run_shortcode'], 8);
-add_filter('meta_content', [$wp_embed, 'autoembed'], 8);
-function jellypress_content($unformatted_content) {
-  return apply_filters('meta_content', wp_kses_post($unformatted_content));
-}
 
 function jellypress_get_comments() {
   // If comments are open or we have at least one comment, load up the comment template.

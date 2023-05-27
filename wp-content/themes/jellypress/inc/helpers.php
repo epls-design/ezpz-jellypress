@@ -10,6 +10,47 @@
 defined('ABSPATH') || exit;
 
 /**
+ * Helper function to set up the attributes for a custom Gutenberg block
+ *
+ * @param array $block Gutenberg block
+ * @return array $attributes Array of attributes for the block
+ */
+function jellypress_get_block_attributes($block) {
+  $block_classes = 'block block-' . sanitize_title($block['title']);
+  $block_type = $block['name'];
+
+  // Merge in block classes from Gutenberg Editor
+  if (isset($block['className'])) $block_classes .= ' ' . $block['className'];
+
+  // Add background colour class if set
+  // Example of how to override the background colour for a specific block
+  if (strpos($block_type, 'page-hero') !== false || strpos($block_type, 'post-hero') !== false) {
+    $block_classes .= ' bg-primary-500';
+  } elseif (isset($block['backgroundColor'])) {
+    $block_classes .= ' bg-' . $block['backgroundColor'];
+  } else {
+    $block_classes .= ' bg-white';
+  }
+
+  // Remove 'is-style- ' from the block classes
+  $block_classes = str_replace('is-style-', '', $block_classes);
+
+  $attributes = array(
+    'anchor' => isset($block['anchor']) ? "id='" . esc_attr($block['anchor']) . "'" : '',
+    'class' => $block_classes,
+    'block_id' => $block['id'],
+    'bg_color' => isset($block['backgroundColor']) ? $block['backgroundColor'] : 'white',
+    'text_align' => isset($block['alignText']) ? 'text-' . $block['alignText'] : 'text-left',
+  );
+
+  if (isset($block['alignContent']))  $attributes['align_content'] = sanitize_title($block['alignContent']);
+
+  if (!empty($block['align'])) $attributes['align'] = $block['align'];
+
+  return $attributes;
+}
+
+/**
  * Function which trims supplied text to a specified length.
  *
  * @param $text = Text to Trim
@@ -55,62 +96,32 @@ function jellypress_icon($icon) {
 }
 
 /**
- * Calculates the approximate reading time for a string.
- * Sanitizes and removes tags to give an accurate read out.
- *
- * @param string $string = text to count
- * @param integer $wpm = Words Per Minute
- * @return integer Approximate reading time in minutes
- */
-function jellypress_calculate_reading_time($string, $wpm = 265) {
-  $text_content = strip_shortcodes($string);    // Remove shortcodes
-  $str_content = strip_tags($text_content);   // Remove tags
-  $word_count = str_word_count($str_content); // Count Words
-
-  $reading_time = ceil($word_count / $wpm);
-  return $reading_time;
-}
-
-/**
- * Wrapper function for get_all_custom_field_meta()
- * @link https://github.com/timothyjensen/acf-field-group-values
- * @param string $fieldgroup Field Group String
- * @param string/int $post_id Post ID to get data for, or can be 'option' or a termID
- * @param boolean $field_labels Whether to return field labels
- * @param array $cloned_fields In order to retrieve values for clone fields you must pass a third argument: all field group arrays that contain the fields that will be cloned
- * @return array Array of Data from ACF
- */
-function jellypress_get_acf_fields($fieldgroup, $post_id = 'default', $field_labels = false, $cloned_fields = []) {
-  if (is_plugin_active('acf-field-group-values/acf-field-group-values.php')) :
-    if ($post_id == 'default') $post_id = get_the_ID();
-    $field_group_array = json_decode(file_get_contents(get_stylesheet_directory() . "/src/acf-json/group_" . $fieldgroup . ".json"), true);
-    $data = get_all_custom_field_meta($post_id, $field_group_array, $cloned_fields, $field_labels);
-  elseif (current_user_can('administrator')) :
-    echo '<div class="callout error">' . __('The ACF data can not be displayed. Have you installed the <a href="https://github.com/timothyjensen/acf-field-group-values" target="_blank" rel="nofollow" class="callout-link">ACF Field Group Values</a> plugin?', 'jellypress') . '</div>';
-    $data = null;
-  endif;
-  return $data;
-}
-
-/**
  * Loops through an array and displays buttons if the array is not empty
  * Uses data from ACF repeater field
  */
-function jellypress_display_cta_buttons($buttons, $classes = null) {
+function jellypress_display_cta_buttons($buttons, $bg_color, $classes = null) {
   if ($buttons) :
     if (isset($classes)) echo '<div class="button-list ' . $classes . '">';
     else echo '<div class="button-list">';
+
+    switch ($bg_color) {
+      case 'primary-500':
+      case 'secondary-500':
+      case 'black';
+        $button_color = 'white';
+        break;
+      default:
+        $button_color = ''; // Default to theme button colour
+    }
+
     foreach ($buttons as $button) :
 
       // Default button class and get variables from ACF
       $button_classes = 'button';
       $button_link = $button['button_link'];
-      $button_color = $button['button_color'];
       $button_style = $button['button_style'];
 
-      if ($button_color != 'default') {
-        $button_classes .= ' ' . $button_color;
-      }
+      $button_classes .= ' ' . $button_color;
 
       if ($button_style != 'filled') {
         // 'filled' is the default state so we don't need a class for this
@@ -172,7 +183,7 @@ function jellypress_display_map_markers($locations) {
       if ($location_tooltip_text || $display_address == 1) :
         echo '<div class="marker" data-lat="' . $location_marker['lat'] . '" data-lng="' . $location_marker['lng'] . '" ' . $data_icon . '>';
         if ($location_tooltip_text)
-          echo jellypress_content($location_tooltip_text);
+          echo $location_tooltip_text;
         if ($display_address == 1) {
           echo $address;
         }
@@ -206,19 +217,6 @@ function jellypress_display_socials() {
   endif;
 }
 
-/**
- * A function which displays the wordpress content area (used to show a password form)
- * if the post is password protected and the_content() is empty (in which case we can assume
- * the page is designed entirely with ACF.)
- */
-function jellypress_show_password_form() {
-  if ((empty(get_the_content())  || '' == get_post()->post_content) && post_password_required()) {
-    echo '<section class="container block bg-white password-protected"><div class="row"><div class="col">';
-    the_content();
-    echo '</div></div></section>';
-  }
-}
-
 /*************************************
  * FUNCTIONS TO HELP WITH EMBEDDING
  * VIDEO CONTENT FROM VIMEO OR YOUTUBE
@@ -248,7 +246,21 @@ function jellypress_get_video_platform($video) {
  */
 function jellypress_embed_video($video, $aspect_ratio = '16x9', $autoplay = false) {
 
-  $oembed = wp_oembed_get($video); // Full oEmbed Code
+  if (strpos($video, 'iframe') === false) {
+    $oembed = wp_oembed_get($video); // Full oEmbed Code
+  } else {
+    $oembed = $video;
+  }
+
+  // Get the title if it exists in the oembed code
+  if (strpos($oembed, ' title="') !== false) {
+    $title = explode(' title="', $oembed);
+    $title = explode('"', $title[1]);
+    $title = $title[0];
+  } else {
+    $title = '';
+  }
+
   $oembed = explode(' src="', $oembed); // Explode to put the URL and options into [1]
   if (isset($oembed[1])) {
     $oembed[1] = explode('" ', $oembed[1]); // Put's the URL into [1]
@@ -304,7 +316,7 @@ function jellypress_embed_video($video, $aspect_ratio = '16x9', $autoplay = fals
           <button class="play platform-<?php esc_attr_e($platform); ?>" data-src="<?php echo esc_url($oembed_url); ?>" title="<?php _e('Play Video', 'jellypress'); ?>"><?php echo jellypress_icon('play'); ?></button>
         </div>
         <div class="embed-container ratio-<?php echo $aspect_ratio; ?>">
-          <iframe width="640" height="390" type="text/html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <iframe width="640" height="390" type="text/html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="<?php echo $title; ?>"></iframe>
         </div>
       </div>
 <?php } // if ( $platform )

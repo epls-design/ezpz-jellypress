@@ -17,8 +17,6 @@ defined('ABSPATH') || exit;
 </div><?php //#content .site-content
       ?>
 
-<?php if (!is_page_template('page-simple.php')) : ?>
-
 <footer class="site-footer">
   <div class="container">
     <div class="row">
@@ -37,8 +35,6 @@ defined('ABSPATH') || exit;
     </div>
   </div>
 </footer>
-
-<?php endif; ?>
 
 </div>
 <?php wp_footer(); ?>

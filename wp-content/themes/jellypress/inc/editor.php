@@ -10,14 +10,6 @@
 defined('ABSPATH') || exit;
 
 /**
- * Registers an editor stylesheet for the theme.
- */
-add_action('admin_init', 'jellypress_add_editor_styles');
-function jellypress_add_editor_styles() {
-  add_editor_style('dist/editor-style.min.css');
-}
-
-/**
  * Add custom styles to the WYSIWIG
  * @link https://www.wpbeginner.com/wp-tutorials/how-to-add-custom-styles-to-wordpress-visual-editor/
  * @link https://shellcreeper.com/complete-guide-to-style-format-drop-down-in-wp-editor/
@@ -86,13 +78,6 @@ function jellypress_mce_before_init_insert_formats($init_array) {
 }
 
 /**
- * Loads a stylesheet to define styles for the admin area
- */
-add_action('admin_head', function () {
-  echo '<link rel="stylesheet" href="' . get_stylesheet_directory_uri() . '/dist/admin-style.css" />';
-});
-
-/**
  * Hooks into TinyMCE to remove unwanted HTML tags and formatting from pasted text
  * @link https://jonathannicol.com/blog/2015/02/19/clean-pasted-text-in-wordpress/
  * @link see also https://sundari-webdesign.com/wordpress-removing-classes-styles-and-tag-attributes-from-pasted-content/
@@ -117,22 +102,8 @@ function jellypress_tinymce_cleanup($in) {
 }
 
 /**
- * Allow SVG uploads to the media library
- */
-add_filter('upload_mimes', 'jellypress_allow_svg_upload');
-function jellypress_allow_svg_upload($mimes) {
-  $mimes['svg'] = 'image/svg+xml';
-  return $mimes;
-}
-add_action('admin_head', 'jellypress_svg_admin_style');
-function jellypress_svg_admin_style() {
-  $css = '';
-  $css = 'td.media-icon img[src$=".svg"] { width: 100% !important; height: auto !important; }';
-  echo '<style type="text/css">' . $css . '</style>';
-}
-
-/**
- * Applies a filter to the_content and the_excerpt to automatically add rel="external to outbound links
+ * TODO: Check this works
+ * Applies a filter to the_content and the_excerpt to automatically add rel="external" to outbound links
  * @link https://crunchify.com/how-to-add-relsponsored-or-relnofollow-to-all-external-links-in-wordpress/
  *
  * @param string $content

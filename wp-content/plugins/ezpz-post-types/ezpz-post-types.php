@@ -28,8 +28,6 @@ if (!class_exists('ezpzPostTypes')) {
     function register_post_types() {
       // Include your custom post type files here...
       require_once plugin_dir_path(__FILE__) . 'inc/page.php';
-      require_once plugin_dir_path(__FILE__) . 'inc/post.php';
-      require_once plugin_dir_path(__FILE__) . 'inc/stacks.php';
     }
   }
 }

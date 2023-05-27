@@ -1,15 +1,15 @@
 // ACCORDION
-$accordion-heading-color: get-color(neutral, 800);
+$accordion-heading-color: $color-headings-preferred;
 $accordion-heading-font-size: font-size(2);
 $accordion-heading-font-weight: $weight-bold;
-$accordion-heading-background-color: get-color(neutral,200);
-$accordion-heading-arrow-color: get-color(neutral);
+$accordion-heading-background-color: get-color(primary, 50);
+$accordion-heading-arrow-color: $accordion-heading-color;
 
-$accordion-heading-hover-color: $accordion-heading-color;
-$accordion-heading-hover-background-color: get-color(neutral,300);
-$accordion-heading-hover-arrow-color: $accordion-heading-color;
+$accordion-heading-hover-color: $color-white;
+$accordion-heading-hover-background-color: get-color(primary, 300);
+$accordion-heading-hover-arrow-color: $accordion-heading-hover-color;
 
-$accordion-heading-active-color: $accordion-heading-color;
+$accordion-heading-active-color: $accordion-heading-hover-color;
 $accordion-heading-active-background-color: $accordion-heading-hover-background-color;
 $accordion-heading-active-arrow-color: $accordion-heading-hover-arrow-color;
 

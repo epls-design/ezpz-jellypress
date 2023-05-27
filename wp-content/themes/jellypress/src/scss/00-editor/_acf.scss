@@ -1,0 +1,180 @@
+// --------------------------------------------------------------------------
+//  RESET ACF STYLING
+// --------------------------------------------------------------------------
+
+// Fix acf-true-false because the css reset is too aggressive
+.acf-switch span {
+  display: inline-block;
+  float: left;
+  text-align: center;
+  font-size: 13px;
+  line-height: 22px;
+  padding: 4px 10px;
+  min-width: 15px;
+}
+
+.mce-ico {
+  font: normal 20px/1 dashicons;
+}
+
+a.acf-button.button-primary,
+.acf-link a.button,
+.acf-image-uploader .button {
+  background: #2271b1;
+  border-color: #2271b1;
+  color: #fff;
+  &:hover,
+  &:focus {
+    background: #135e96;
+    border-color: #135e96;
+    color: #fff;
+  }
+}
+
+.acf-icon {
+  display: inline-block;
+  height: 28px;
+  width: 28px;
+  border: transparent solid 1px;
+  border-radius: 100%;
+  font-size: 20px;
+  line-height: 21px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+
+.select2-container.-acf .select2-selection--multiple .select2-search__field {
+  outline: none !important;
+}
+
+// Fixes align full blocks so they dont overflow
+.acf-block-body {
+  max-width: 1140px !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+}
+
+// Fix for cover block background image
+.acf-block-preview.alignfull .block-cover {
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  .vw-100 {
+    width: 100% !important;
+    margin: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
+}
+
+// Google Maps block can't render in preview mode, so display a placeholder
+.acf-block-preview .google-map {
+  .marker {
+    display: none;
+  }
+  height: 180px;
+  background-color: #f4f4f4;
+  position: relative;
+  &::before {
+    content: "Your map will display here. Please preview the page to see it.";
+    display: block;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #999;
+  }
+}
+
+// Accordions also don't render in preview mode, so display a message
+.acf-block-preview [data-aria-accordion]::before {
+  content: "Your accordion will display with collapsible functionality on the front end. Please preview the page to see it.";
+  display: block;
+  position: relative;
+  padding: 1rem;
+  background-color: #f4f4f4;
+  color: #999;
+  margin-bottom: $element-margin;
+}
+.acf-block-preview .accordion .answer {
+  display: none;
+}
+
+// And the same for sliders...
+.acf-block-preview .splide__slider {
+  .splide__track::before {
+    visibility: visible;
+    content: "Your slider will display correctly on the front end. Please preview the page to see it.";
+    display: block;
+    position: relative;
+    padding: 1rem;
+    background-color: #f4f4f4;
+    color: #999;
+    margin-bottom: $element-margin;
+  }
+  .slide {
+    visibility: visible;
+  }
+}
+
+// --------------------------------------------------------------------------
+//  ENHANCE THE ACF UI
+// --------------------------------------------------------------------------
+
+.acf-accordion .acf-accordion-title,
+.acf-accordion .acf-accordion-title label {
+  font-size: font-size(1);
+  font-weight: $weight-bold;
+}
+.acf-field.acf-accordion.-open .acf-label.acf-accordion-title {
+  background: #f4f4f4;
+}
+
+.acf-spacer .acf-label {
+  display: none !important;
+}
+
+.acf-relationship {
+  border: 1px solid #dfdfdf;
+}
+
+// More easy to see repeaters
+.acf-repeater {
+  .acf-table {
+    border: 1px solid #eee;
+  }
+  .acf-row:nth-of-type(even) {
+    .acf-row-handle {
+      background-color: #eee;
+    }
+    td {
+      background-color: #f9f9f9;
+      .acf-fields {
+        background: transparent;
+      }
+    }
+  }
+}
+
+// Removes borders from groups with class seamless applied
+.acf-field-group {
+  &.seamless {
+    .acf-fields {
+      border: 0;
+      margin-left: n(get-size(0.75));
+      margin-right: n(get-size(0.75));
+      .-table & {
+        margin-left: n(get-size(0.5));
+        margin-right: n(get-size(0.5));
+      }
+    }
+  }
+}

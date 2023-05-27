@@ -3,25 +3,10 @@
     "title": "Theme Options",
     "fields": [
         {
-            "key": "field_632475ef8e2aa",
-            "label": "<span class=\"dashicons dashicons-facebook\"></span>Social",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "left",
-            "endpoint": 0
-        },
-        {
             "key": "field_606724c23052e",
             "label": "Social Media Channels",
             "name": "social_channels",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "Add all of the social media channels you are on here. These can be displayed by your developers within the theme.",
             "required": 0,
@@ -36,11 +21,13 @@
             "max": 0,
             "layout": "table",
             "button_label": "Add Channel",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_606724c2bd5cb",
                     "label": "Network",
                     "name": "network",
+                    "aria-label": "",
                     "type": "select",
                     "instructions": "Please select the network",
                     "required": 1,
@@ -72,14 +59,16 @@
                     "ui": 1,
                     "return_format": "value",
                     "ajax": 0,
-                    "placeholder": ""
+                    "placeholder": "",
+                    "parent_repeater": "field_606724c23052e"
                 },
                 {
                     "key": "field_606724c2bd5d4",
                     "label": "URL",
                     "name": "url",
+                    "aria-label": "",
                     "type": "text",
-                    "instructions": "Please add the <b>full URL</b> for your profile on this social channel.",
+                    "instructions": "Please add the <b>full URL<\/b> for your profile on this social channel.",
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -91,30 +80,16 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_606724c23052e"
                 }
             ]
-        },
-        {
-            "key": "field_632476492552b",
-            "label": "<span class=\"dashicons dashicons-rest-api\"></span>APIs",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "left",
-            "endpoint": 0
         },
         {
             "key": "field_606724c578b1f",
             "label": "Google Maps API Key",
             "name": "google_maps_api_key",
+            "aria-label": "",
             "type": "text",
             "instructions": "To display Google Maps on your website, you need an API key. Please add it here.",
             "required": 0,
@@ -149,5 +124,5 @@
     "active": true,
     "description": "Available options to enhance your website theme.",
     "show_in_rest": 0,
-    "modified": 1672653973
+    "modified": 1685014137
 }

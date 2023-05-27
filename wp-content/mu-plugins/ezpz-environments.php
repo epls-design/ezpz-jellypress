@@ -3,7 +3,7 @@
 /**
  * Plugin Name:  EZPZ Environments
  * Plugin URI:   https://github.com/epls-design
- * Description:  Displays a banner on the admin dashboard to indicate which environment you're working in. Additionally, allows to define WP_REMOTE_URL for staging and development environments to load images from a remote server. In order for this plugin to work, you need to set the WP_ENV and WP_REMOTE_URL constants in your wp-config.php file.
+ * Description:  Displays a banner on the admin dashboard to indicate which environment you're working in. Additionally, allows to define WP_REMOTE_URL for staging and development environments to load images from a remote server. In order for this plugin to work, you need to set the WP_ENVIRONMENT_TYPE and WP_REMOTE_URL constants in your wp-config.php file.
  * Version:      1.0.0
  * Author:       EPLS
  * Author URI:   https://epls.design
@@ -34,10 +34,10 @@ if (!class_exists('ezpzEnvironments')) {
       add_filter('wp_calculate_image_srcset', array($this, 'wp_calculate_image_srcset_remote'), 10);
     }
 
-    // Set the environment - reads from WP_ENV constant in wp-config.php
+    // Set the environment - reads from WP_ENVIRONMENT_TYPE constant in wp-config.php
     function set_environment() {
-      if (defined('WP_ENV')) {
-        $this->environment = WP_ENV;
+      if (defined('WP_ENVIRONMENT_TYPE')) {
+        $this->environment = WP_ENVIRONMENT_TYPE;
       } else {
         $this->environment = 'production';
       }
@@ -55,7 +55,7 @@ if (!class_exists('ezpzEnvironments')) {
     // Hide ACF admin menu if not in production
     // @link https://www.awesomeacf.com/snippets/hide-the-acf-admin-menu-item-on-selected-sites/
     function hide_acf_admin() {
-      if ($this->environment != 'development') {
+      if ($this->environment != 'development' && $this->environment != 'local') {
         return false; // Hide
       } else {
         return true;

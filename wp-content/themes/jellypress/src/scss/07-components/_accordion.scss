@@ -9,7 +9,7 @@ h4.accordion__heading {
   }
 }
 
-[type=button].accordion__trigger {
+[type="button"].accordion__trigger {
   // The Actual Button
   -webkit-appearance: none;
   color: $accordion-heading-color;
@@ -32,22 +32,23 @@ h4.accordion__heading {
   width: 100%;
 
   &::before {
-    @include pseudo('',inline-block,absolute);
-    transition: transform .2s ease-in-out, background-color .2s ease-in-out;
+    @include pseudo("", inline-block, absolute);
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
     transform-origin: center center;
     width: 1.2em;
     height: 1.2em;
-    mask: url(assets/icons/arrow-right.svg) no-repeat 50% 50%;
+    mask: url(dist/icons/arrow-right.svg) no-repeat 50% 50%;
     mask-size: cover;
     background: $accordion-heading-arrow-color;
-    right: .4em;
+    right: 0.4em;
     top: 50%;
     transform: translateY(-50%) rotate(0deg);
   }
   &:focus {
     box-shadow: none;
   }
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background-color: $accordion-heading-hover-background-color;
     color: $accordion-heading-hover-color;
     outline: none;
@@ -72,7 +73,8 @@ h4.accordion__heading {
   &[aria-expanded="true"] {
     // Active State
     background-color: $accordion-heading-active-background-color;
-    &, & a {
+    &,
+    & a {
       color: $accordion-heading-active-color;
     }
     &::before {
@@ -99,9 +101,7 @@ h4.accordion__heading {
     visibility: visible;
   }
   &--transition {
-    transition:
-      max-height .2s ease-in-out,
-      padding-top .2s ease-in-out,
-      padding-bottom .2s ease-in-out;
+    transition: max-height 0.2s ease-in-out, padding-top 0.2s ease-in-out,
+      padding-bottom 0.2s ease-in-out;
   }
 }

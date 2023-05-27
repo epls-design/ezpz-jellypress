@@ -1,0 +1,252 @@
+{
+    "key": "group_6465286c975b3",
+    "title": "Block > Testimonials",
+    "fields": [
+        {
+            "key": "field_6465286c9ab01",
+            "label": "Clone Content and Title",
+            "name": "clone_content_and_title",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": ["field_646259d55774d", "field_6462598a12f14"],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_6466489ba96c4",
+            "label": "Clone Preamble",
+            "name": "clone_preamble",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": ["field_6463a4e8aaf07"],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_646648a0a96c5",
+            "label": "Testimonials",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 1,
+            "endpoint": 0
+        },
+        {
+            "key": "field_646648a5a96c6",
+            "label": "Display Arrows?",
+            "name": "display_arrows",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Would you like to show the slider arrows?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_646648a8a96c7",
+            "label": "Display Pagination",
+            "name": "display_pagination",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Would you like to show the slider pagination / dots?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_646648ada96c8",
+            "label": "Slide Duration",
+            "name": "slider_duration",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "How long would you like each slide to be displayed?",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "34",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 8,
+            "min": 3,
+            "max": 12,
+            "step": "0.2",
+            "prepend": "",
+            "append": "seconds"
+        },
+        {
+            "key": "field_646648b0a96c9",
+            "label": "Testimonials",
+            "name": "testimonials",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Please add your slides here.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 1,
+            "max": 12,
+            "layout": "block",
+            "button_label": "Add Slide",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_646648bda96ca",
+                    "label": "Testimonial",
+                    "name": "testimonial_text",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Please add the testimonial here, including any quotation marks.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "wpautop",
+                    "parent_repeater": "field_646648b0a96c9"
+                },
+                {
+                    "key": "field_646648c1a96cb",
+                    "label": "Link",
+                    "name": "testimonial_link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "You can add an optional link to this testimonial. Eg. a link to an external website.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_646648b0a96c9"
+                },
+                {
+                    "key": "field_646648c5a96cc",
+                    "label": "Citation",
+                    "name": "testimonial_citation",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Please add an optional citation eg. the person's name.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": 50,
+                    "parent_repeater": "field_646648b0a96c9"
+                },
+                {
+                    "key": "field_646648c9a96cd",
+                    "label": "Image",
+                    "name": "testimonial_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "You can add an optional image to the testimonial, eg. a logo or photo. <strong>Minimum size 300px wide x 300px high</strong>",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "library": "all",
+                    "min_width": 300,
+                    "min_height": 300,
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "thumbnail",
+                    "parent_repeater": "field_646648b0a96c9"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "jellypress/testimonials"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1684956897
+}

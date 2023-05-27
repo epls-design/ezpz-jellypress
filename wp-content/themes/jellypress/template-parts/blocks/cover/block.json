@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "jellypress/cover",
+  "title": "Cover",
+  "category": "media",
+  "icon": "cover-image",
+  "description": "Renders a block containing a background image with overlaid text.",
+  "keywords": [
+    "cover",
+    "image",
+    "text",
+    "overlay",
+    "background",
+    "parallax",
+    "scroll"
+  ],
+  "version": "1.0.0",
+  "textdomain": "jellypress",
+  "supports": {
+    "align": ["center", "wide", "full"],
+    "alignContent": "matrix",
+    "alignText": true,
+    "anchor": true,
+    "color": {
+      "background": true,
+      "gradients": false,
+      "link": false,
+      "text": false
+    },
+    "customClassName": true,
+    "html": false
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "black"
+    }
+  },
+  "styles": [
+    { "name": "default", "label": "Default", "isDefault": true },
+    { "name": "hide-below-sm", "label": "Hide Mob" },
+    { "name": "hide-above-sm", "label": "Hide Above Mob" }
+  ],
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "view.php",
+    "postTypes": ["post", "page"]
+  }
+}

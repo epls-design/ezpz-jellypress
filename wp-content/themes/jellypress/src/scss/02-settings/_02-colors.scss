@@ -5,7 +5,7 @@ $colors: (
   //neutral: makeColorPalette(hsl(211, 12%, 49%)),
   //success: makeColorPalette(#19c945),
   //warning: makeColorPalette(#ddac24),
-  //error: makeColorPalette(#be2d2d),,,
+  //error: makeColorPalette(#be2d2d),,,,,,,
 );
 
 $color-white: #ffffff;
@@ -21,6 +21,7 @@ $theme-colors: (
 $background-colors: (
   "primary-500": get-color(primary),
   "secondary-500": get-color(secondary),
+  "black": #000000,
 );
 
 // $color-text: $color-black;

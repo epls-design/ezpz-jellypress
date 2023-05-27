@@ -92,6 +92,33 @@ function jellypress_add_navbar_descriptions($item_output, $item, $depth, $args) 
 }
 
 /**
+ * Loops through the ACF created Gutenberg posts on the current post
+ * and returns any text based fields as a long string. This is used by
+ * the jellypress_generate_excerpt function to create an excerpt from
+ * the ACF content.
+ */
+function jellypress_excerpt_from_acf_blocks() {
+  $blocks = parse_blocks(get_the_content());
+  $parsed_content = '';
+
+  // This array should match the field names of any ACF field containing text
+  $allowable_fields = [
+    'title', 'text'
+  ];
+
+  foreach ($blocks as $block) {
+    if (strpos($block['blockName'], 'jellypress/') !== false) {
+      foreach ($block['attrs']['data'] as $key => $value) {
+        if (in_array($key, $allowable_fields)) {
+          $parsed_content .= $value;
+        }
+      }
+    }
+  }
+  return $parsed_content;
+}
+
+/**
  * A function which can be used to generate an excerpt whilst in the loop
  * Use $possible_excerpts to determine the order in which excerpts are found.
  *
@@ -103,12 +130,12 @@ function jellypress_generate_excerpt($trim = null, $ellipses = false) {
   $possible_excerpts = array(
     //get_field('excerpt'), // Example use with a custom field
     get_the_excerpt(), // User defined excerpt - will fallback to the_content() gracefully
-    'sections', // Loop through ACF Flexible content to look for a WYSIWIG field
+    'the_content', // Loop through ACF Flexible content to look for a WYSIWIG field
     //get_bloginfo( 'description', 'display' ), // Website description
   );
   foreach ($possible_excerpts as $possible_excerpt) {
-    if ($possible_excerpt === 'sections') {
-      $post_excerpt = jellypress_excerpt_from_acf_flexible_content();
+    if ($possible_excerpt === 'the_content') {
+      $post_excerpt = jellypress_excerpt_from_acf_blocks();
     } else {
       $post_excerpt = $possible_excerpt;
     }

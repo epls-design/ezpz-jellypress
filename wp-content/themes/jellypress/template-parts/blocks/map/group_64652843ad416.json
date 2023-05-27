@@ -1,0 +1,233 @@
+{
+    "key": "group_64652843ad416",
+    "title": "Block > Map",
+    "fields": [
+        {
+            "key": "field_646528432c440",
+            "label": "Clone Content and Title",
+            "name": "clone_content_and_title",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_646259d55774d",
+                "field_6462598a12f14"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_646622d0280da",
+            "label": "Clone Preamble",
+            "name": "clone_preamble",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_6463a4e8aaf07"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_646622d4280db",
+            "label": "Markers",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 1,
+            "endpoint": 0
+        },
+        {
+            "key": "field_646622db280dc",
+            "label": "Locations",
+            "name": "locations",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 1,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Marker",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_646622e6280dd",
+                    "label": "Location",
+                    "name": "location_group",
+                    "aria-label": "",
+                    "type": "group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "seamless",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "parent_repeater": "field_646622db280dc",
+                    "sub_fields": [
+                        {
+                            "key": "field_6466239419f60",
+                            "label": "Location",
+                            "name": "location_marker",
+                            "aria-label": "",
+                            "type": "google_map",
+                            "instructions": "Please select a location for the marker on this map.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "center_lat": "51.0748634",
+                            "center_lng": "-1.2963674",
+                            "zoom": "",
+                            "height": ""
+                        },
+                        {
+                            "key": "field_6466239819f61",
+                            "label": "Location Icon",
+                            "name": "location_icon",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "Add an optional image for the marker, if you want to override the default.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "icon",
+                            "library": "all",
+                            "min_width": 40,
+                            "min_height": 40,
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "png, jpg, jpeg"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_646622e9280de",
+                    "label": "Tooltip",
+                    "name": "tooltip_information",
+                    "aria-label": "",
+                    "type": "group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "60",
+                        "class": "seamless",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "parent_repeater": "field_646622db280dc",
+                    "sub_fields": [
+                        {
+                            "key": "field_6466241019f62",
+                            "label": "Tooltip Text",
+                            "name": "location_tooltip_text",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "Please add some optional text for this location's tooltip.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 0,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_6466241219f63",
+                            "label": "Display Address",
+                            "name": "display_address",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Would you like to display the address information on the tooltip?",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "jellypress\/map"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1684956868
+}

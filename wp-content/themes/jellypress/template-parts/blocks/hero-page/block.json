@@ -1,0 +1,32 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "jellypress/page-hero",
+  "title": "Page Hero",
+  "category": "theme",
+  "icon": "heading",
+  "description": "The main hero section for a page. Cannot be removed or used more than once per page.",
+  "keywords": ["hero", "heading", "title", "header"],
+  "version": "1.0.0",
+  "textdomain": "jellypress",
+  "supports": {
+    "align": false,
+    "alignContent": false,
+    "alignText": false,
+    "anchor": false,
+    "color": {
+      "background": false,
+      "gradients": false,
+      "link": false,
+      "text": false
+    },
+    "customClassName": false,
+    "html": false,
+    "multiple": false
+  },
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "view.php",
+    "postTypes": ["page"]
+  }
+}

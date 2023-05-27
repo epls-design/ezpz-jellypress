@@ -18,9 +18,9 @@ function jellypress_scripts() {
   $css_version = $theme_version . ':' . filemtime(get_template_directory() . '/style.css'); // Appends time stamp to help with cache busting
   $js_version = $theme_version . ':' . filemtime(get_template_directory() . '/dist/site.min.js'); // Appends time stamp to help with cache busting
 
-  // NOTE: Using Gutenberg in this theme? Then remove these lines
+  // Dequeue Gutenberg block library CSS because we only use custom blocks in this theme
   wp_dequeue_style('wp-block-library');
-  wp_dequeue_style('wc-block-style'); // WooCommerce - you can remove this if you don't use Woocommerce
+  wp_dequeue_style('wc-block-style');
 
   // Enqueue Stylesheets
   wp_enqueue_style('jellypress-styles', get_stylesheet_uri(), array(), $css_version);

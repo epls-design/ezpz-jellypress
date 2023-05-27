@@ -26,15 +26,6 @@ add_action(
 
     $plugins = array(
       array(
-        'name'         => 'ACF Field Group Values',
-        'slug'         => 'acf-field-group-values',
-        'source'       => 'https://github.com/timothyjensen/acf-field-group-values/archive/master.zip',
-        'required'     => true,
-        'force_activation'  => true,
-        'force_deactivation'  => true,
-        'external_url' => 'https://github.com/timothyjensen/acf-field-group-values',
-      ),
-      array(
         'name'         => 'Advanced Custom Fields PRO',
         'slug'         => 'advanced-custom-fields-pro',
         'source'       => 'https://github.com/wp-premium/advanced-custom-fields-pro/archive/master.zip',
@@ -57,10 +48,6 @@ add_action(
       array(
         'name'      => 'Wordfence Security',
         'slug'      => 'wordfence',
-      ),
-      array(
-        'name'      => 'ACF: Better Search',
-        'slug'      => 'acf-better-search',
       ),
       array(
         'name'      => 'Rank Math SEO',

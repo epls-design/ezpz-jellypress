@@ -1,0 +1,222 @@
+{
+    "key": "group_64652833b8bac",
+    "title": "Block > Linked Posts",
+    "fields": [
+        {
+            "key": "field_646528340c114",
+            "label": "Clone Content and Title",
+            "name": "clone_content_and_title",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_646259d55774d",
+                "field_6462598a12f14"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_64664238854cb",
+            "label": "Clone Preamble",
+            "name": "clone_preamble",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_6463a4e8aaf07"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_6466423c854cc",
+            "label": "Type",
+            "name": "query_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "How would you like to determine the posts to show?",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "specified": "Specified",
+                "rand": "Random",
+                "date": "Latest"
+            },
+            "default_value": "specified",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_64664245854cd",
+            "label": "Posts",
+            "name": "specified_posts",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Please select all of the posts you would like to feature. <strong>Posts will display in the order added.<\/strong>",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5f718cd9cc208",
+                        "operator": "==",
+                        "value": "specified"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "75",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post",
+                "page"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
+            "elements": "",
+            "min": "",
+            "max": 12,
+            "return_format": "object"
+        },
+        {
+            "key": "field_6466424b854ce",
+            "label": "Post Type",
+            "name": "query_post_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Please select the post type you would like to display.",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5f718cd9cc208",
+                        "operator": "!=",
+                        "value": "specified"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "post": "Posts",
+                "page": "Pages"
+            },
+            "default_value": [
+                "post"
+            ],
+            "allow_null": 0,
+            "multiple": 1,
+            "ui": 1,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
+        },
+        {
+            "key": "field_64664252854cf",
+            "label": "Quantity",
+            "name": "query_quantity",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "How many posts would you like to show?",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5f718cd9cc208",
+                        "operator": "!=",
+                        "value": "specified"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 1,
+            "max": 20,
+            "step": 1,
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_64664272854d0",
+            "label": "Clone CTA",
+            "name": "clone_cta",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_646263b78b3bc",
+                "field_646263778b3b8"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "jellypress\/linked-posts"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1685170271
+}

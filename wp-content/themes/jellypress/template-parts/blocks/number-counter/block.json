@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "jellypress/number-counter",
+  "title": "Number Counter",
+  "category": "widgets",
+  "icon": "plus-alt",
+  "description": "Renders a block containing a series of numbers that count up to a target value.",
+  "keywords": [
+    "count",
+    "counter",
+    "number",
+    "animate",
+    "animation",
+    "counter",
+    "impact"
+  ],
+  "version": "1.0.0",
+  "textdomain": "jellypress",
+  "supports": {
+    "align": false,
+    "alignText": true,
+    "anchor": true,
+    "color": {
+      "background": true,
+      "gradients": false,
+      "link": false,
+      "text": false
+    },
+    "customClassName": true,
+    "html": false
+  },
+  "styles": [
+    { "name": "default", "label": "Default", "isDefault": true },
+    { "name": "hide-below-sm", "label": "Hide Mob" },
+    { "name": "hide-above-sm", "label": "Hide Above Mob" }
+  ],
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "view.php",
+    "postTypes": ["post", "page"]
+  }
+}

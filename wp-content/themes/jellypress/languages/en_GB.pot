@@ -1,13 +1,13 @@
 Copyright (C) 2023 EPLS Design <theteam@epls.design>
 msgid ""
 msgstr ""
-"Project-Id-Version: JellyPress 2.0.0\n"
+"Project-Id-Version: JellyPress 2.1.0\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: EPLS Design <theteam@epls.design>\n"
 "Last-Translator: EPLS Design <theteam@epls.design>\n"
-"POT-Creation-Date: 2023-05-01 09:18+0000\n"
+"POT-Creation-Date: 2023-05-27 10:12+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: archive.php:58, template-parts/blocks/post-archive.php:92
+#: archive.php:58, template-parts/blocks/post-archive/view.php:90
 msgid "Load More..."
 msgstr ""
 
@@ -36,20 +36,16 @@ msgid "Comments are closed."
 msgstr ""
 
 #. translators: 1: Theme author and link to website.
-#: footer.php:32
+#: footer.php:30
 msgid "Website design and build by %1$s"
 msgstr ""
 
-#: header.php:36
+#: header.php:34
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:56, header.php:67
+#: header.php:54, header.php:65
 msgid "Toggles the website navigation"
-msgstr ""
-
-#: page-simple.php:3
-msgid "Simple Page (No Header/Footer)"
 msgstr ""
 
 #: searchform.php:19
@@ -64,15 +60,11 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: inc/helpers.php:89
-msgid "The ACF data can not be displayed. Have you installed the <a href=\"https://github.com/timothyjensen/acf-field-group-values\" target=\"_blank\" rel=\"nofollow\" class=\"callout-link\">ACF Field Group Values</a> plugin?"
-msgstr ""
-
-#: inc/helpers.php:202
+#: inc/helpers.php:213
 msgid "Visit us on "
 msgstr ""
 
-#: inc/helpers.php:304
+#: inc/helpers.php:316
 msgid "Play Video"
 msgstr ""
 
@@ -114,31 +106,31 @@ msgstr ""
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
-#: inc/template-tags.php:266
+#: inc/template-tags.php:253
 msgid "First Page"
 msgstr ""
 
-#: inc/template-tags.php:303
+#: inc/template-tags.php:290
 msgid "Last Page"
 msgstr ""
 
-#: inc/theme-setup.php:91
+#: inc/theme-setup.php:77
 msgid "Primary"
 msgstr ""
 
-#: inc/theme-setup.php:107, inc/theme-setup.php:108
+#: inc/theme-setup.php:93, inc/theme-setup.php:94
 msgid "Theme Options"
 msgstr ""
 
-#: inc/theme-setup.php:115
-msgid "Successfully updated Social Media and SEO"
+#: inc/theme-setup.php:101
+msgid "Successfully updated Theme options"
 msgstr ""
 
-#: inc/theme-setup.php:126
+#: inc/theme-setup.php:112
 msgid "Sidebar"
 msgstr ""
 
-#: inc/theme-setup.php:128
+#: inc/theme-setup.php:114
 msgid "Add your widgets here."
 msgstr ""
 
@@ -152,31 +144,6 @@ msgid "%d item"
 msgid_plural "%d items"
 msgstr[0] ""
 msgstr[1] ""
-
-#: template-parts/blocks/countdown.php:57
-msgid "Days"
-msgstr ""
-
-#: template-parts/blocks/countdown.php:61
-msgid "Hours"
-msgstr ""
-
-#: template-parts/blocks/countdown.php:65
-msgid "Minutes"
-msgstr ""
-
-#: template-parts/blocks/countdown.php:69
-msgid "Seconds"
-msgstr ""
-
-#: template-parts/blocks/linked-posts.php:102, template-parts/blocks/post-archive.php:95
-msgid "No posts matched your criteria."
-msgstr ""
-
-#. translators: %s link to theme options page.
-#: template-parts/blocks/magic-columns.php:91, template-parts/blocks/map.php:67
-msgid "You need to <a href=\"%s\" class=\"callout-link\">add a Google Maps API key</a> in order to display a map on your website."
-msgstr ""
 
 #: template-parts/partials/card-search.php:30
 msgid "Last updated "
@@ -194,20 +161,16 @@ msgstr ""
 msgid "Search this website:"
 msgstr ""
 
-#: template-parts/partials/content-none.php:42
+#: template-parts/partials/content-none.php:41
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: template-parts/partials/content-none.php:34
+#: template-parts/partials/content-none.php:33
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
-#: template-parts/partials/content-none.php:22
+#: template-parts/partials/content-none.php:21
 msgid "Ready to publish your first post? <a href=\"%1$s\" class=\"callout-link\">Get started here</a>."
-msgstr ""
-
-#: template-parts/partials/content-page.php:27, template-parts/partials/content.php:29
-msgid "Sections:"
 msgstr ""
 
 #: template-parts/partials/hero-404.php:20
@@ -223,6 +186,27 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: template-parts/partials/hero.php:25
-msgid "stack"
+#: template-parts/blocks/countdown/view.php:75
+msgid "Days"
+msgstr ""
+
+#: template-parts/blocks/countdown/view.php:79
+msgid "Hours"
+msgstr ""
+
+#: template-parts/blocks/countdown/view.php:83
+msgid "Minutes"
+msgstr ""
+
+#: template-parts/blocks/countdown/view.php:87
+msgid "Seconds"
+msgstr ""
+
+#: template-parts/blocks/linked-posts/view.php:109, template-parts/blocks/post-archive/view.php:93
+msgid "No posts matched your criteria."
+msgstr ""
+
+#. translators: %s link to theme options page.
+#: template-parts/blocks/map/view.php:75
+msgid "You need to <a href=\"%s\" class=\"callout-link\">add a Google Maps API key</a> in order to display a map on your website."
 msgstr ""

@@ -1,0 +1,214 @@
+{
+    "key": "group_646528653610a",
+    "title": "Block > Slider",
+    "fields": [
+        {
+            "key": "field_64652865e289c",
+            "label": "Clone Content Tab Only",
+            "name": "clone_content_tab_only",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": ["field_646259d55774d"],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_646645ab7da59",
+            "label": "Display Arrows?",
+            "name": "display_arrows",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Would you like to show the slider arrows?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_646645ae7da5a",
+            "label": "Display Pagination",
+            "name": "display_pagination",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Would you like to show the slider pagination / dots?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_646645b37da5b",
+            "label": "Slide Duration",
+            "name": "slider_duration",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "How long would you like each slide to be displayed?",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "34",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 8,
+            "min": 3,
+            "max": 12,
+            "step": "0.2",
+            "prepend": "",
+            "append": "seconds"
+        },
+        {
+            "key": "field_646645b77da5c",
+            "label": "Slides",
+            "name": "slides",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Please add your slides here.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 1,
+            "max": 6,
+            "layout": "block",
+            "button_label": "Add Slide",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_646645c37da5d",
+                    "label": "Title",
+                    "name": "slide_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Please add an optional title to this slide.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_646645b77da5c"
+                },
+                {
+                    "key": "field_646645cb7da5f",
+                    "label": "Link",
+                    "name": "slide_link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Please add an optional link to this slide.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_646645b77da5c"
+                },
+                {
+                    "key": "field_646645cf7da60",
+                    "label": "Text",
+                    "name": "slide_text",
+                    "aria-label": "",
+                    "type": "wysiwyg",
+                    "instructions": "Please add some text to this slide.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "basic",
+                    "media_upload": 0,
+                    "delay": 0,
+                    "parent_repeater": "field_646645b77da5c"
+                },
+                {
+                    "key": "field_646645d27da61",
+                    "label": "Image",
+                    "name": "slide_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Please add an image to this slide. <strong>Minimum size 600px wide x 300px high</strong>",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "library": "all",
+                    "min_width": 600,
+                    "min_height": 300,
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "thumbnail",
+                    "parent_repeater": "field_646645b77da5c"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "jellypress/slider"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1684437845
+}

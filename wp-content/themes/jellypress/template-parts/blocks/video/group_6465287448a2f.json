@@ -1,0 +1,133 @@
+{
+    "key": "group_6465287448a2f",
+    "title": "Block > Video",
+    "fields": [
+        {
+            "key": "field_64652874bd588",
+            "label": "Clone Content and Title",
+            "name": "clone_content_and_title",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_646259d55774d",
+                "field_6462598a12f14"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_6466178f9b7d0",
+            "label": "Video",
+            "name": "video",
+            "aria-label": "",
+            "type": "oembed",
+            "instructions": "Please specify the URL of your video; it must be hosted on YouTube or Vimeo.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "width": "",
+            "height": ""
+        },
+        {
+            "key": "field_646617959b7d1",
+            "label": "Aspect Ratio",
+            "name": "aspect_ratio",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Please select the video's aspect ratio.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "34",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "16x9": "16x9",
+                "21x9": "21x9",
+                "1x1": "1x1",
+                "4x3": "4x3"
+            },
+            "default_value": "16x9",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
+        },
+        {
+            "key": "field_646617a29b7d2",
+            "label": "Caption",
+            "name": "caption",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "You can add an optional caption which will appear below the video. <strong>Max 400 characters<\/strong>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "66",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": 400,
+            "rows": 3,
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_646617a79b7d3",
+            "label": "Autoplay?",
+            "name": "autoplay",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Would you like to autoplay the video when it comes into view?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "34",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "jellypress\/video"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1684956773
+}

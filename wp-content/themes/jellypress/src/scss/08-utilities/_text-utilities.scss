@@ -1,3 +1,11 @@
 .text-white {
   color: #fff !important;
 }
+
+a[tabindex="-1"] {
+  text-decoration: none;
+}
+
+h3 a {
+  color: inherit !important;
+}

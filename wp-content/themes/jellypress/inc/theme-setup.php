@@ -5,7 +5,6 @@
  * - Content Width
  * - Theme Support
  * - Image Sizes
- * - Gutenberg Supports
  * - Nav Menus
  * - Sidebars
  * - Options Pages
@@ -26,7 +25,7 @@ add_action('after_setup_theme', 'jellypress_content_width', 0);
 function jellypress_content_width() {
   // This variable is intended to be overruled from themes.
   // @link https://pineco.de/why-we-should-set-the-content_width-variable-in-wordpress-themes/#:~:text=The%20%24content_width%20global%20variable%20was,for%20images%2C%20videos%20and%20embeds.
-  $GLOBALS['content_width'] = apply_filters('jellypress_content_width', 640);
+  $GLOBALS['content_width'] = apply_filters('jellypress_content_width', 1280);
 }
 
 add_action('after_setup_theme', 'jellypress_setup');
@@ -68,22 +67,9 @@ function jellypress_setup() {
     )
   );
 
-  /**
-   * Gutenberg Supports
-   * If the theme is going to heavily rely on Gutenberg block builder,
-   * You can add a custom colour pallette and more
-   * @link https://developer.wordpress.org/block-editor/developers/themes/theme-support/#default-block-styles
-   */
-
-  // Add theme support for Gutenberg wide blocks
-  add_theme_support('align-wide');
-
-  // Prevent the user from being able to edit font-sizes
-  add_theme_support('disable-custom-font-sizes');
-
   // Enable editor styles in Gutenberg
-  //add_theme_support('editor-styles');
-  //add_editor_style( 'dist/editor-style.min.css' );
+  add_theme_support('editor-styles');
+  add_editor_style('dist/editor-style.min.css');
 
   // Register Nav Menus
   register_nav_menus(
@@ -112,7 +98,7 @@ if (function_exists('acf_add_options_page')) {
       'icon_url' => 'dashicons-info',
       'position' => 90,
       'autoload' => true, // Speeds up load times
-      'updated_message' => __("Successfully updated Social Media and SEO", 'jellypress'),
+      'updated_message' => __("Successfully updated Theme options", 'jellypress'),
     )
   );
 }

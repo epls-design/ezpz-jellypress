@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "jellypress/iframe",
+  "title": "iFrame",
+  "category": "embed",
+  "icon": "admin-site-alt3",
+  "description": "Renders a block containing an embedded external website.",
+  "keywords": ["iframe", "embed", "external", "website"],
+  "version": "1.0.0",
+  "textdomain": "jellypress",
+  "supports": {
+    "align": ["center", "wide", "full"],
+    "alignText": true,
+    "anchor": true,
+    "color": {
+      "background": true,
+      "gradients": false,
+      "link": false,
+      "text": false
+    },
+    "customClassName": true,
+    "html": false
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "center"
+    }
+  },
+  "styles": [
+    { "name": "default", "label": "Default", "isDefault": true },
+    { "name": "hide-below-sm", "label": "Hide Mob" },
+    { "name": "hide-above-sm", "label": "Hide Above Mob" }
+  ],
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "view.php",
+    "postTypes": ["post", "page"]
+  }
+}

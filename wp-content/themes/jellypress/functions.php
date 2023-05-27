@@ -18,6 +18,7 @@ $jellypress_includes = array(
   'inc/enqueue.php',                 // Register and enqueue scripts and styles.
   'inc/editor.php',                  // Customise editor
   'inc/acf.php',                     // Functions which hook into ACF to add additional functionality to the site.
+  'inc/blocks.php',                  // Set up the blocks used by this theme
   'inc/seo.php',                     // SEO filters, hooks and functions for Rank Math SEO Plugin and the theme
   'inc/customizer.php',              // Customizer additions.
   'inc/template-tags.php',           // Custom template tags for this theme.

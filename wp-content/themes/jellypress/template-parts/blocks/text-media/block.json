@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "jellypress/text-media",
+  "title": "Text and Media",
+  "category": "media",
+  "icon": "align-right",
+  "description": "Renders a block containing a column of text and a media item (image / video).",
+  "keywords": [
+    "text",
+    "wysiwig",
+    "columns",
+    "media",
+    "image",
+    "video",
+    "embed"
+  ],
+  "version": "1.0.0",
+  "textdomain": "jellypress",
+  "supports": {
+    "align": false,
+    "alignContent": true,
+    "alignText": true,
+    "anchor": true,
+    "color": {
+      "background": true,
+      "gradients": false,
+      "link": false,
+      "text": false
+    },
+    "customClassName": true,
+    "html": false
+  },
+  "styles": [
+    { "name": "default", "label": "Default", "isDefault": true },
+    { "name": "hide-below-sm", "label": "Hide Mob" },
+    { "name": "hide-above-sm", "label": "Hide Above Mob" }
+  ],
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "view.php",
+    "postTypes": ["post", "page"]
+  }
+}
