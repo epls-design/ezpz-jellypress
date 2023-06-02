@@ -74,8 +74,19 @@ function jellypress_allowed_blocks($block_editor_context, $editor_context) {
       $allowed_blocks[] = 'jellypress/' . $block;
     }
 
+    // Add a filter to allow plugins to add their own allowed blocks
+    $allowed_blocks = apply_filters('ezpz_allowed_blocks', $allowed_blocks);
+
     // If required, you can add additional blocks back in to the allowed blocks array
     //$allowed_blocks[] = 'core/paragraph';
+
+    /**
+     * You can also use the filter to add blocks, eg. from a plugin. Like this:
+     * add_filter('ezpz_allowed_blocks', function($allowed_blocks) {
+     *  $allowed_blocks[] = 'core/paragraph';
+     * return $allowed_blocks;
+     * });
+     */
 
     return $allowed_blocks;
   }
