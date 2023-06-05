@@ -13,21 +13,21 @@ defined('ABSPATH') || exit;
  * Move location of ACF-JSON local Json folder
  * https://www.advancedcustomfields.com/resources/local-json/
  */
-add_filter('acf/settings/load_json', 'jellypress_acf_json_load_point');
-add_filter('acf/settings/save_json', 'jellypress_acf_json_save_point');
+add_filter('acf/settings/load_json', 'jellypress_acf_json_load_point', 10, 1);
+add_filter('acf/settings/save_json', 'jellypress_acf_json_save_point', 10, 1);
 
 function jellypress_acf_json_load_point($paths) {
   // remove original path (optional)
   unset($paths[0]);
   // append path
-  $paths[] = get_stylesheet_directory() . '/src/acf-json';
+  $paths[] = get_template_directory() . '/src/acf-json';
   // return
   return $paths;
 }
 
 function jellypress_acf_json_save_point($path) {
   // update path
-  $path = get_stylesheet_directory() . '/src/acf-json';
+  $path = get_template_directory() . '/src/acf-json';
   // return
   return $path;
 }

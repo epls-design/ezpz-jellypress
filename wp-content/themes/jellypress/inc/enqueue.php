@@ -23,7 +23,7 @@ function jellypress_scripts() {
   wp_dequeue_style('wc-block-style');
 
   // Enqueue Stylesheets
-  wp_enqueue_style('jellypress-styles', get_stylesheet_uri(), array(), $css_version);
+  wp_enqueue_style('jellypress-styles', get_template_directory_uri() . '/style.css', array(), $css_version);
   wp_style_add_data('jellypress-styles', 'rtl', 'replace');
 
   /**

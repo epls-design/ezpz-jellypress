@@ -48,7 +48,7 @@ $is_menu_off_canvas = true; // change this to determine the menu type
             </span>
             <!-- EXAMPLE OF EMBEDDING CLIENT LOGO -->
             <!--<a class="site-logo navbar-item" href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-              <?php _e('<img src="' . get_stylesheet_directory_uri() . '/dist/img/client-logo.svg' . '" alt="' . get_bloginfo('description', 'display') . '">', 'jellypress'); ?>
+              <?php _e('<img src="' . get_template_directory_uri() . '/dist/img/client-logo.svg' . '" alt="' . get_bloginfo('description', 'display') . '">', 'jellypress'); ?>
             </a>-->
 
             <button class="hamburger" type="button" aria-label="<?php _e('Toggles the website navigation', 'jellypress'); ?>" aria-controls="navbar-menu" aria-expanded="false">

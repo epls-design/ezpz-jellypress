@@ -54,7 +54,6 @@ wp-content/*
 wp-content/plugins/*
 !wp-content/plugins/ezpz-*
 wp-content/plugins/ezpz-blocks
-wp-content/plugins/ezpz-consultations
 
 # ignore contents of mu-plugins, include only those specified
 wp-content/mu-plugins/*
