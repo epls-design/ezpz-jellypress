@@ -150,4 +150,4 @@ function jellypress_block_templates() {
     )),
   );
 }
-add_action('init', 'jellypress_block_templates');
+add_action('init', 'jellypress_block_templates', 20);
