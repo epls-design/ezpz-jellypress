@@ -78,13 +78,14 @@ function jellypress_allowed_blocks($block_editor_context, $editor_context) {
     $allowed_blocks = apply_filters('ezpz_allowed_blocks', $allowed_blocks);
 
     // If required, you can add additional blocks back in to the allowed blocks array
-    //$allowed_blocks[] = 'core/paragraph';
+    $allowed_blocks[] = 'core/paragraph';
     $allowed_blocks[] = 'core/block';
+    // $allowed_blocks[] = 'core/table'; // TODO: WORK ON ADDING SUPPORT FOR TABLES
 
     /**
      * You can also use the filter to add blocks, eg. from a plugin. Like this:
      * add_filter('ezpz_allowed_blocks', function($allowed_blocks) {
-     *  $allowed_blocks[] = 'core/paragraph';
+     *  $allowed_blocks[] = 'core/image';
      * return $allowed_blocks;
      * });
      */
@@ -152,3 +153,47 @@ function jellypress_block_templates() {
   );
 }
 add_action('init', 'jellypress_block_templates', 20);
+
+/**
+ * Overrides the output of core/paragraph block
+ * @param string $block_content
+ * @param WP_Block $block
+ */
+function jellypress_core_paragraph_block_wrapper($block_content, $block) {
+
+  // Bail if not core/paragraph block
+  if ($block['blockName'] !== 'core/paragraph')
+    return $block_content;
+
+  // 'anchor' is not passed in $block['attrs'] so we need to get it from $block_content - check if id="$*" is present
+  if (preg_match('/id="([^"]+)"/', $block_content, $matches)) {
+    $block['attrs']['anchor'] = $matches[1];
+  }
+
+  // Strip any inline styles, classes or ids from the paragraph
+  $block_content = preg_replace('/\s?style="[^"]+"/', '', $block_content);
+  $block_content = preg_replace('/\s?class="[^"]+"/', '', $block_content);
+  $block_content = preg_replace('/\s?id="[^"]+"/', '', $block_content);
+
+  // Block attrs as stored in attrs not in $block
+  $block_attrs = $block['attrs'];
+  $block_attrs['title'] = 'Paragraph';
+  $block_attrs['alignText'] = $block_attrs['align'] ?? 'left'; // rename to match the theme naming convention
+
+  // Get template part from blocks/core-paragraph/view.php
+  ob_start();
+  get_template_part('template-parts/blocks/core/paragraph', null, array('content' => $block_content, 'block' => $block_attrs));
+  return ob_get_clean();
+}
+add_filter('render_block', 'jellypress_core_paragraph_block_wrapper', 10, 2);
+
+/**
+ * Enqueue JS to override Gutenberg core block settings
+ */
+add_action('enqueue_block_editor_assets', function () {
+  wp_enqueue_script(
+    'jellypress-gutenberg-overrides',
+    get_template_directory_uri() . '/lib/gutenberg-overrides.js',
+    array('wp-blocks', 'wp-dom-ready', 'wp-edit-post'),
+  );
+});
