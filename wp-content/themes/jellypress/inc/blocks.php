@@ -79,6 +79,7 @@ function jellypress_allowed_blocks($block_editor_context, $editor_context) {
 
     // If required, you can add additional blocks back in to the allowed blocks array
     //$allowed_blocks[] = 'core/paragraph';
+    $allowed_blocks[] = 'core/block';
 
     /**
      * You can also use the filter to add blocks, eg. from a plugin. Like this:
