@@ -16,7 +16,10 @@
                 "class": "",
                 "id": ""
             },
-            "clone": ["field_646259d55774d", "field_6462598a12f14"],
+            "clone": [
+                "field_646259d55774d",
+                "field_6462598a12f14"
+            ],
             "display": "seamless",
             "layout": "block",
             "prefix_label": 0,
@@ -36,7 +39,9 @@
                 "class": "",
                 "id": ""
             },
-            "clone": ["field_6463a4e8aaf07"],
+            "clone": [
+                "field_6463a4e8aaf07"
+            ],
             "display": "seamless",
             "layout": "block",
             "prefix_label": 0,
@@ -86,7 +91,7 @@
             "name": "display_pagination",
             "aria-label": "",
             "type": "true_false",
-            "instructions": "Would you like to show the slider pagination / dots?",
+            "instructions": "Would you like to show the slider pagination \/ dots?",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -207,7 +212,7 @@
                     "name": "testimonial_image",
                     "aria-label": "",
                     "type": "image",
-                    "instructions": "You can add an optional image to the testimonial, eg. a logo or photo. <strong>Minimum size 300px wide x 300px high</strong>",
+                    "instructions": "You can add an optional image to the testimonial, eg. a logo or photo. <strong>Minimum size 300px wide x 300px high<\/strong>",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -235,7 +240,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "jellypress/testimonials"
+                "value": "ezpz\/testimonials"
             }
         ]
     ],
@@ -248,5 +253,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684956897
+    "modified": 1688316219
 }

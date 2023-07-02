@@ -216,7 +216,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "jellypress\/map"
+                "value": "ezpz\/map"
             }
         ]
     ],
@@ -229,5 +229,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684956868
+    "modified": 1688316226
 }

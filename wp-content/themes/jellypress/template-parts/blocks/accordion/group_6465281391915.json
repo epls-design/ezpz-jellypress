@@ -200,7 +200,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "jellypress\/accordion"
+                "value": "ezpz\/accordion"
             }
         ]
     ],
@@ -213,5 +213,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684956819
+    "modified": 1688316246
 }

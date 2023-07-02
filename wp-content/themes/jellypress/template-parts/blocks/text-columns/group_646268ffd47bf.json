@@ -16,7 +16,10 @@
                 "class": "",
                 "id": ""
             },
-            "clone": ["field_646259d55774d", "field_6462598a12f14"],
+            "clone": [
+                "field_646259d55774d",
+                "field_6462598a12f14"
+            ],
             "display": "seamless",
             "layout": "block",
             "prefix_label": 0,
@@ -28,7 +31,7 @@
             "name": "columns",
             "aria-label": "",
             "type": "repeater",
-            "instructions": "Please add your text columns here. You can add between two and four columns to a block.\r\n\r\n<strong>Please be mindful of putting too much text in a column as you do not want your users to have to scroll up and down to read each column in turn.</strong>",
+            "instructions": "Please add your text columns here. You can add between two and four columns to a block.\r\n\r\n<strong>Please be mindful of putting too much text in a column as you do not want your users to have to scroll up and down to read each column in turn.<\/strong>",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -80,7 +83,10 @@
                 "class": "",
                 "id": ""
             },
-            "clone": ["field_646263b78b3bc", "field_646263778b3b8"],
+            "clone": [
+                "field_646263b78b3bc",
+                "field_646263778b3b8"
+            ],
             "display": "seamless",
             "layout": "block",
             "prefix_label": 0,
@@ -92,7 +98,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "jellypress/text-columns"
+                "value": "ezpz\/text-columns"
             }
         ]
     ],
@@ -105,5 +111,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684437840
+    "modified": 1688316259
 }

@@ -159,7 +159,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "jellypress\/post-archive"
+                "value": "ezpz\/post-archive"
             }
         ]
     ],
@@ -172,5 +172,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685176923
+    "modified": 1688316223
 }

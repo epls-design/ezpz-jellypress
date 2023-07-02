@@ -26,7 +26,7 @@
             "name": "title",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "If you'd like to add a title to the block, you can do so here.<strong>Max 90 characters</strong>",
+            "instructions": "If you'd like to add a title to the block, you can do so here.<strong>Max 90 characters<\/strong>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -165,5 +165,5 @@
     "active": true,
     "description": "These fields are not attached to any specific block, instead they are cloned by other block templates.",
     "show_in_rest": 0,
-    "modified": 1684956925
+    "modified": 1688316238
 }

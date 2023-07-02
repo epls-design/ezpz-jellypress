@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "jellypress/slider",
+  "name": "ezpz/slider",
   "title": "Slider",
   "category": "media",
   "icon": "slides",

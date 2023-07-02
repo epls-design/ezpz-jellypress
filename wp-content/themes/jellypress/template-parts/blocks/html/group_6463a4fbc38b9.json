@@ -16,7 +16,10 @@
                 "class": "",
                 "id": ""
             },
-            "clone": ["field_646259d55774d", "field_6462598a12f14"],
+            "clone": [
+                "field_646259d55774d",
+                "field_6462598a12f14"
+            ],
             "display": "seamless",
             "layout": "block",
             "prefix_label": 0,
@@ -36,7 +39,9 @@
                 "class": "",
                 "id": ""
             },
-            "clone": ["field_6463a4e8aaf07"],
+            "clone": [
+                "field_6463a4e8aaf07"
+            ],
             "display": "seamless",
             "layout": "block",
             "prefix_label": 0,
@@ -48,7 +53,7 @@
             "name": "unfiltered_html",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "You can add HTML here and it will not be sanitized. E.g. you can paste <script> tags here and the code will be executed. <strong>Please use with caution!</strong>",
+            "instructions": "You can add HTML here and it will not be sanitized. E.g. you can paste <script> tags here and the code will be executed. <strong>Please use with caution!<\/strong>",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -68,7 +73,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "jellypress/html"
+                "value": "ezpz\/html"
             }
         ]
     ],
@@ -81,5 +86,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684437840
+    "modified": 1688316236
 }

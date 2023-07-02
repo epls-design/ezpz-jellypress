@@ -71,7 +71,7 @@ function jellypress_allowed_blocks($block_editor_context, $editor_context) {
     $allowed_blocks = [];
 
     foreach ($blocks as $block) {
-      $allowed_blocks[] = 'jellypress/' . $block;
+      $allowed_blocks[] = 'ezpz/' . $block;
     }
 
     // Add a filter to allow plugins to add their own allowed blocks
@@ -135,7 +135,7 @@ add_filter('block_editor_settings_all', 'jellypress_restrict_locking_ui', 10, 2)
 function jellypress_block_templates() {
   $post_type_object = get_post_type_object('page');
   $post_type_object->template = array(
-    array('jellypress/page-hero', array(
+    array('ezpz/page-hero', array(
       'lock' => array(
         'move'   => true,
         'remove' => true,
@@ -144,7 +144,7 @@ function jellypress_block_templates() {
   );
   $post_type_object = get_post_type_object('post');
   $post_type_object->template = array(
-    array('jellypress/post-hero', array(
+    array('ezpz/post-hero', array(
       'lock' => array(
         'move'   => true,
         'remove' => true,

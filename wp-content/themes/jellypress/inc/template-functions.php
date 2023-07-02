@@ -107,7 +107,7 @@ function jellypress_excerpt_from_acf_blocks() {
   ];
 
   foreach ($blocks as $block) {
-    if (strpos($block['blockName'], 'jellypress/') !== false) {
+    if (strpos($block['blockName'], 'ezpz/') !== false) {
       foreach ($block['attrs']['data'] as $key => $value) {
         if (in_array($key, $allowable_fields)) {
           $parsed_content .= $value;

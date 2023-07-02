@@ -16,7 +16,10 @@
                 "class": "",
                 "id": ""
             },
-            "clone": ["field_646259d55774d", "field_6462598a12f14"],
+            "clone": [
+                "field_646259d55774d",
+                "field_6462598a12f14"
+            ],
             "display": "seamless",
             "layout": "block",
             "prefix_label": 0,
@@ -36,7 +39,9 @@
                 "class": "",
                 "id": ""
             },
-            "clone": ["field_6463a4e8aaf07"],
+            "clone": [
+                "field_6463a4e8aaf07"
+            ],
             "display": "seamless",
             "layout": "block",
             "prefix_label": 0,
@@ -56,8 +61,8 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "d/m/Y g:i a",
-            "return_format": "d/m/Y g:i a",
+            "display_format": "d\/m\/Y g:i a",
+            "return_format": "d\/m\/Y g:i a",
             "first_day": 1
         },
         {
@@ -130,7 +135,7 @@
             "name": "complete_text",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "Please enter an optional message you would like to display once the countdown is complete. <strong>Please note: although this text will only display on the page once the countdown is complete, the text itself is visible in the HTML code so could be viewed by someone with the know-how. Therefore you should only use it for informational purposes and not for secrets!</strong>",
+            "instructions": "Please enter an optional message you would like to display once the countdown is complete. <strong>Please note: although this text will only display on the page once the countdown is complete, the text itself is visible in the HTML code so could be viewed by someone with the know-how. Therefore you should only use it for informational purposes and not for secrets!<\/strong>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -158,7 +163,10 @@
                 "class": "",
                 "id": ""
             },
-            "clone": ["field_646263b78b3bc", "field_646263778b3b8"],
+            "clone": [
+                "field_646263b78b3bc",
+                "field_646263778b3b8"
+            ],
             "display": "seamless",
             "layout": "block",
             "prefix_label": 0,
@@ -170,7 +178,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "jellypress/countdown"
+                "value": "ezpz\/countdown"
             }
         ]
     ],
@@ -183,5 +191,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684437840
+    "modified": 1688316241
 }

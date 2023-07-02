@@ -241,7 +241,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "jellypress\/number-counter"
+                "value": "ezpz\/number-counter"
             }
         ]
     ],
@@ -254,5 +254,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684956878
+    "modified": 1688316224
 }

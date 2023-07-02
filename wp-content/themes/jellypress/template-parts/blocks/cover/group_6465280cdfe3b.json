@@ -16,7 +16,10 @@
                 "class": "",
                 "id": ""
             },
-            "clone": ["field_646259d55774d", "field_6462598a12f14"],
+            "clone": [
+                "field_646259d55774d",
+                "field_6462598a12f14"
+            ],
             "display": "seamless",
             "layout": "block",
             "prefix_label": 0,
@@ -28,7 +31,7 @@
             "name": "text",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "Add some text to this block. <strong>Max 280 characters.</strong>",
+            "instructions": "Add some text to this block. <strong>Max 280 characters.<\/strong>",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -48,7 +51,7 @@
             "name": "background_image",
             "aria-label": "",
             "type": "image",
-            "instructions": "Please select a background image for this block. Minimum size <strong>1920px wide x 1080px high</strong>",
+            "instructions": "Please select a background image for this block. Minimum size <strong>1920px wide x 1080px high<\/strong>",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -143,7 +146,10 @@
                 "class": "",
                 "id": ""
             },
-            "clone": ["field_646263b78b3bc", "field_646263778b3b8"],
+            "clone": [
+                "field_646263b78b3bc",
+                "field_646263778b3b8"
+            ],
             "display": "seamless",
             "layout": "block",
             "prefix_label": 0,
@@ -155,7 +161,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "jellypress/cover"
+                "value": "ezpz\/cover"
             }
         ]
     ],
@@ -168,5 +174,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684505350
+    "modified": 1688316240
 }

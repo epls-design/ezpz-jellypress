@@ -16,7 +16,10 @@
                 "class": "",
                 "id": ""
             },
-            "clone": ["field_646259d55774d", "field_6462598a12f14"],
+            "clone": [
+                "field_646259d55774d",
+                "field_6462598a12f14"
+            ],
             "display": "seamless",
             "layout": "block",
             "prefix_label": 0,
@@ -140,7 +143,7 @@
                     "name": "width_md",
                     "aria-label": "",
                     "type": "select",
-                    "instructions": "How wide should this column be at medium device width? (e.g. laptop). <strong>You are advised to only use <25% for 'spacer' and not use >58.33% for text</strong>",
+                    "instructions": "How wide should this column be at medium device width? (e.g. laptop). <strong>You are advised to only use <25% for 'spacer' and not use >58.33% for text<\/strong>",
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -175,7 +178,7 @@
                     "name": "width_lg",
                     "aria-label": "",
                     "type": "select",
-                    "instructions": "How wide should this column be at large device width? (e.g. desktop). <strong>You are advised to only use <25% for 'spacer' and not use >58.33% for text</strong>",
+                    "instructions": "How wide should this column be at large device width? (e.g. desktop). <strong>You are advised to only use <25% for 'spacer' and not use >58.33% for text<\/strong>",
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -261,6 +264,7 @@
                     "collapsed": "",
                     "button_label": "Add Button",
                     "rows_per_page": 20,
+                    "parent_repeater": "field_64679a9be5ff9",
                     "sub_fields": [
                         {
                             "key": "field_64679b9f55f7d",
@@ -307,8 +311,7 @@
                             "placeholder": "",
                             "parent_repeater": "field_64679ab8e6000"
                         }
-                    ],
-                    "parent_repeater": "field_64679a9be5ff9"
+                    ]
                 },
                 {
                     "key": "field_64679ab9e6001",
@@ -316,7 +319,7 @@
                     "name": "image",
                     "aria-label": "",
                     "type": "image",
-                    "instructions": "Please select your image. <strong>Minimum width 400px</strong>",
+                    "instructions": "Please select your image. <strong>Minimum width 400px<\/strong>",
                     "required": 1,
                     "conditional_logic": [
                         [
@@ -467,7 +470,7 @@
                     "name": "column_caption",
                     "aria-label": "",
                     "type": "textarea",
-                    "instructions": "Add an optional caption for this column. <strong>Max 300 characters.</strong>",
+                    "instructions": "Add an optional caption for this column. <strong>Max 300 characters.<\/strong>",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -505,7 +508,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "jellypress/magic-columns"
+                "value": "ezpz\/magic-columns"
             }
         ]
     ],
@@ -518,5 +521,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684511985
+    "modified": 1688316228
 }

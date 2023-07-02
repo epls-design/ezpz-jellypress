@@ -16,7 +16,10 @@
                 "class": "",
                 "id": ""
             },
-            "clone": ["field_646259d55774d", "field_6462598a12f14"],
+            "clone": [
+                "field_646259d55774d",
+                "field_6462598a12f14"
+            ],
             "display": "seamless",
             "layout": "block",
             "prefix_label": 0,
@@ -256,7 +259,10 @@
                 "class": "",
                 "id": ""
             },
-            "clone": ["field_646263b78b3bc", "field_646263778b3b8"],
+            "clone": [
+                "field_646263b78b3bc",
+                "field_646263778b3b8"
+            ],
             "display": "seamless",
             "layout": "block",
             "prefix_label": 0,
@@ -268,7 +274,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "jellypress/text-media"
+                "value": "ezpz\/text-media"
             }
         ]
     ],
@@ -281,5 +287,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684957992
+    "modified": 1688316152
 }

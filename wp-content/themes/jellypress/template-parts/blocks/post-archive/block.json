@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "jellypress/post-archive",
+  "name": "ezpz/post-archive",
   "title": "Post Archive",
   "category": "widgets",
   "icon": "archive",

@@ -16,7 +16,9 @@
                 "class": "",
                 "id": ""
             },
-            "clone": ["field_646259d55774d"],
+            "clone": [
+                "field_646259d55774d"
+            ],
             "display": "seamless",
             "layout": "block",
             "prefix_label": 0,
@@ -48,7 +50,7 @@
             "name": "display_pagination",
             "aria-label": "",
             "type": "true_false",
-            "instructions": "Would you like to show the slider pagination / dots?",
+            "instructions": "Would you like to show the slider pagination \/ dots?",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -169,7 +171,7 @@
                     "name": "slide_image",
                     "aria-label": "",
                     "type": "image",
-                    "instructions": "Please add an image to this slide. <strong>Minimum size 600px wide x 300px high</strong>",
+                    "instructions": "Please add an image to this slide. <strong>Minimum size 600px wide x 300px high<\/strong>",
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -197,7 +199,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "jellypress/slider"
+                "value": "ezpz\/slider"
             }
         ]
     ],
@@ -210,5 +212,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684437845
+    "modified": 1688316221
 }

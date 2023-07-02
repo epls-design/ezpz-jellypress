@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "jellypress/magic-columns",
+  "name": "ezpz/magic-columns",
   "title": "Magic Columns",
   "category": "design",
   "icon": "columns",

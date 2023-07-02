@@ -76,7 +76,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "jellypress\/image"
+                "value": "ezpz\/image"
             }
         ]
     ],
@@ -89,5 +89,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685176017
+    "modified": 1688316233
 }

@@ -159,7 +159,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "jellypress\/cards"
+                "value": "ezpz\/cards"
             }
         ]
     ],
@@ -172,5 +172,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1685170836
+    "modified": 1688316245
 }
