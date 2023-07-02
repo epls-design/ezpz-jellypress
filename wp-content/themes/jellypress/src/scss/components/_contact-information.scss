@@ -1,0 +1,37 @@
+.email-address {
+  margin-bottom: $element-margin;
+}
+
+@each $channel, $color in $social-channels {
+  .icon__#{$channel} {
+    color: $color;
+  }
+  a:hover,
+  a:focus,
+  a:active {
+    .icon__#{$channel} {
+      color: shade($color, 80%);
+    }
+  }
+}
+
+.social-channels {
+  margin-left: 0;
+  list-style-type: none;
+  li {
+    display: inline-block;
+  }
+  .icon {
+    margin-right: $inline-icon-margin;
+    width: 1em;
+    height: 1em;
+    @include smooth(color, transform);
+  }
+  a:hover,
+  a:focus,
+  a:active {
+    .icon {
+      transform: scale(1.1);
+    }
+  }
+}

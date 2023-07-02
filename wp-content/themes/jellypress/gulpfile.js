@@ -87,7 +87,7 @@ function copyLibs() {
 
   var magnificCSS = src("node_modules/magnific-popup/dist/magnific-popup.css")
     .pipe(rename("_magnific-popup.scss"))
-    .pipe(dest(opts.src_dir + "/scss/05-vendor/"));
+    .pipe(dest(opts.src_dir + "/scss/vendors/"));
 
   var splideJS = src(
     "node_modules/@splidejs/splide/dist/js/splide.min.js"
@@ -98,7 +98,7 @@ function copyLibs() {
     "node_modules/@splidejs/splide/dist/css/splide-core.min.css"
   )
     .pipe(rename("_splide-core.scss"))
-    .pipe(dest(opts.src_dir + "/scss/05-vendor/"));
+    .pipe(dest(opts.src_dir + "/scss/vendors/"));
 
   var accordionJS = src(
     "node_modules/a11y_accordions/assets/js/aria.accordion.min.js"

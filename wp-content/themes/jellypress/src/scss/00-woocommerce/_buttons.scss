@@ -1,46 +1,26 @@
 .woocommerce {
-
   #respond input#submit,
   a.button,
   button.button,
   input.button {
-
     // Make consistent with Jellyfish...
     padding: $button-padding;
-    text:{
+    text: {
       decoration: none;
       transform: $button-text-transform;
       align: center;
     }
-    font:{
+    font: {
       size: 0.9rem;
       weight: $button-font-weight;
       family: $button-font-family;
     }
-    border:{
+    border: {
       width: $button-border-width;
       style: solid;
       radius: $button-border-radius;
     }
 
-    @include create_button('neutral');
-
-    &.alt {
-      @include create_button('primary');
-    }
-
-    &.single_add_to_cart_button,
-    &.checkout-button,
-      {
-      @include create_button('success');
-
-    }
-
-    &.disabled,
-    &.disabled.alt,
-    &:disabled {
-      opacity: $button-disabled-opacity;
-      padding: $button-padding;
-    }
+    // TODO: Come back to replace the buttons? Removed on upgrading Jellyfish UI to v4.0.0
   }
 }

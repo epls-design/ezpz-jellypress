@@ -1,0 +1,22 @@
+$colors: (
+  "primary": makeColorPalette(#ff3c74),
+  "secondary": makeColorPalette(#ffa0cd),
+  "neutral": makeColorPalette(#64748b),
+  // "success": makeColorPalette(#00c851),
+  // "warning": makeColorPalette(#ffbb33),
+  // "error": makeColorPalette(#ff4444),,,,,,,
+);
+
+// $color-white: #ffffff;
+// $color-black: #000000;
+// $body-background-color: v(color-white);
+
+$background-colors: (
+  "primary-500": get-color(primary),
+  "secondary-500": get-color(secondary),
+  "black": #000000,
+);
+
+// These both need to be css color values rather than CSS props as they are used to check for contrast
+// $color-text: get-color-raw(neutral, 1000);
+// $color-headings-preferred: get-color-raw(neutral, 700);

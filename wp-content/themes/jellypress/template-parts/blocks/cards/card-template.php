@@ -26,7 +26,7 @@ switch ($block_bg_color) {
 
 ?>
 
-<div class="card">
+<div class="card bg-white">
 
   <?php if ($card_image = $card['card_image']) : ?>
     <figure class="card-image">

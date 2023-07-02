@@ -83,7 +83,7 @@ $is_menu_off_canvas = true; // change this to determine the menu type
                 ?>
               </div>
               <div class="navbar-end">
-                <a href="#" class="button secondary">Example Button</a>
+                <a href="#" class="button white">Example Button</a>
                 <?php if (class_exists('woocommerce')) jellypress_woocommerce_header_cart(); ?>
               </div>
               </div>

@@ -1,24 +1,41 @@
 @charset "UTF-8";
-@import "jellyfish-ui/src/scss/jellyfish/01-tools/__all";
-@import "01-tools/__all";
-@import "02-settings/__all";
+
+@import "jellyfish-ui/src/scss/abstracts/01-tools/__all";
+@import "abstracts/__all";
+@import "jellyfish-ui/src/scss/abstracts/02-settings/__all";
+
+@import "jellyfish-ui/src/scss/base/__all";
+
+@import "jellyfish-ui/src/scss/vendors/hamburgers/hamburgers";
+@import "vendors/__all";
+
+/**
+  * Specify which Jellyfish-Ui elements to include, we don't want forms
+  * as it will conflict with the editor styles. This is a bit of a pain but
+  * it's better than having to override all the form styles.
+  */
+@import "jellyfish-ui/src/scss/layout/nav/01-nav-base";
+@import "jellyfish-ui/src/scss/layout/nav/02-hamburger";
+@import "jellyfish-ui/src/scss/layout/nav/03-nav-expanded";
+@import "jellyfish-ui/src/scss/layout/nav/04-off-canvas-nav";
+@import "jellyfish-ui/src/scss/layout/embedded-images";
+@import "jellyfish-ui/src/scss/layout/grid";
+@import "jellyfish-ui/src/scss/layout/range-slider";
+@import "jellyfish-ui/src/scss/layout/responsive-embed";
+@import "layout/__all";
+
 $buttons: ("a.button"); // Remove button styles from editor
-@import "jellyfish-ui/src/scss/jellyfish/03-generic/__all";
-@import "03-generic/__all";
-// Specify which Jellyfish-Ui elements to include, we don't want forms
-// as it would fight with the ACF form styles.
-@import "jellyfish-ui/src/scss/jellyfish/04-elements/scaffolding";
-@import "jellyfish-ui/src/scss/jellyfish/04-elements/typography";
-@import "jellyfish-ui/src/scss/jellyfish/04-elements/tables";
-@import "04-elements/__all";
-@import "jellyfish-ui/src/scss/jellyfish/05-vendor/hamburgers/hamburgers";
-@import "05-vendor/__all";
-@import "jellyfish-ui/src/scss/jellyfish/06-objects/__all";
-@import "06-objects/__all";
-@import "jellyfish-ui/src/scss/jellyfish/07-components/__all";
-@import "07-components/__all";
-@import "jellyfish-ui/src/scss/jellyfish/08-utilities/__all";
-@import "08-utilities/__all";
+
+@import "jellyfish-ui/src/scss/components/__all";
+@import "components/__all";
+
+@import "post-types/__all";
+
+@import "jellyfish-ui/src/scss/themes/__all";
+@import "themes/__all";
+
+@import "jellyfish-ui/src/scss/utilities/__all";
+@import "utilities/__all";
 
 // Finally import the editor specific styles
 @import "00-editor/__all";

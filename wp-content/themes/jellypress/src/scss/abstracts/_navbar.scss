@@ -1,0 +1,66 @@
+// $generate-navbar: true;
+// $nav-expands: 1200px; // Point at which the nav kicks in. You'll also need to change this in the .js to produce a clickable drop down when responsive
+$navbar-bg-color: get-color(primary);
+// Parent Level Links
+// $navbar-font-size: font-size(2);
+// $navbar-font-size-expanded: font-size(0);
+// $navbar-font-family: v(font-primary);
+// $navbar-font-weight: $weight-bold;
+// $navbar-text-transform: none;
+// $navbar-link-color: v(color-white);
+// $navbar-link-bg-color: $navbar-bg-color;
+// $navbar-link-border: 1px solid rgba($color-white, 0.1);
+// Links: Hover
+// $navbar-link-hover-color: v(color-white);
+$navbar-link-hover-bg-color: get-color(primary, 700);
+// $navbar-link-hover-weight: $navbar-font-weight;
+// Child Level Links
+// $navbar-sublink-font-size: font-size(1);
+// $navbar-sublink-font-size-expanded: font-size(-1);
+// $navbar-sublink-font-family: v(font-primary);
+// $navbar-sublink-font-weight: $navbar-font-weight;
+// $navbar-sublink-text-transform: $navbar-text-transform;
+// $navbar-sublink-font-weight-hover: $navbar-link-hover-weight;
+// Links: Padding
+// $navbar-link-padding-x: get-size(0.75);
+// $navbar-link-padding-y: get-size(0.5);
+// $navbar-link-padding-expanded-x: get-size(0.75);
+// $navbar-link-padding-expanded-y: get-size(0.75);
+// THESE SETTINGS APPLY ABOVE $nav-expands ONLY
+// $navbar-sublink-color: $navbar-link-color;
+// $navbar-sublink-bg-color: $navbar-link-bg-color;
+// $navbar-sublink-hover-color: $navbar-link-hover-color;
+// $navbar-sublink-hover-bg-color: $navbar-link-hover-bg-color;
+// $navbar-dropdown-width: get-size(16);
+// $navbar-start-flex-align: stretch;
+// $navbar-end-flex-align: center;
+// $navbar-dropdown-anchors-right-after: 3;
+
+// Off canvas navbar. Only applies if you add a class of .is-off-canvas to the .navbar-menu element
+// $navbar-offcanvas-body-overlay: rgba(0, 0, 0, 0.9);
+// $navbar-offcanvas-transition-speed: 0.35s;
+// $navbar-offcanvas-bg-color: $navbar-bg-color;
+// $navbar-offcanvas-width: 80%;
+// $navbar-offcanvas-maxwidth: 480px;
+// $navbar-offcanvas-position: right;
+
+// HAMBURGER MENU
+// @link https://github.com/jonsuh/hamburgers
+// $primary-hamburger-type: spin; // Change this to modify animation
+// $hamburger-margin-y: 0px;
+// $hamburger-layer-width: get-size(1.5); // Width of the hamburger icon
+// $hamburger-layer-height: 3px; // Thickness of hamburger lines
+// $hamburger-layer-spacing: 4px; // Spacing between hamburger lines
+// $hamburger-layer-border-radius: 3px; // Radius of hamburger lines
+// $hamburger-bg-color: $navbar-bg-color;
+// $hamburger-border: $border-width $border-style $hamburger-bg-color;
+// $hamburger-border-radius: 0px;
+// $hamburger-color: $navbar-link-color; // Color of hamburger
+// $hamburger-layer-color: $hamburger-color; // Color of label
+// $hamburger-hover-bg-color: $navbar-link-hover-bg-color;
+// $hamburger-hover-border: $border-width $border-style $hamburger-hover-bg-color;
+// $hamburger-hover-color: $hamburger-color;
+// $hamburger-hover-opacity: 1;
+// $hamburger-position: right; // left or right
+// Override Vendor options with site-specific hamburger animation
+// $hamburger-types: ($primary-hamburger-type);

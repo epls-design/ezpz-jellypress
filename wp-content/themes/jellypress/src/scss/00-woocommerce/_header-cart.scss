@@ -97,12 +97,11 @@
       transform: scale(1.1);
     }
   }
-
   .wc-forward {
-    @include create_button('secondary');
+    // TODO: Come back to replace the buttons? Removed on upgrading Jellyfish UI to v4.0.0
   }
   .checkout {
-    @include create_button('primary');
+    // TODO: Come back to replace the buttons? Removed on upgrading Jellyfish UI to v4.0.0
   }
 
   @include above(768px) {

@@ -13,12 +13,12 @@
       "palette": [
         {
           "slug": "primary-500",
-          "color": "#554994",
+          "color": "#ff3c74",
           "name": "Primary"
         },
         {
           "slug": "secondary-500",
-          "color": "#cf447c",
+          "color": "#ffa0cd",
           "name": "Secondary"
         }
       ]

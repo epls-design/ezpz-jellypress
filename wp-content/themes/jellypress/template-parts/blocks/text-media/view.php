@@ -49,7 +49,7 @@ if ($media_align == 'left') {
         <?php
         if ($fields['media_type'] == 'image') {
           echo '<figure>';
-          echo wp_get_attachment_image($fields['image'], 'large', false, array('class' => 'w-100'));
+          echo wp_get_attachment_image($fields['image'], 'large', false, array('class' => 'full-width'));
           echo '</figure>';
         } elseif ($fields['media_type'] == 'video') {
           $autoplay = $fields['autoplay'] ? true : false;

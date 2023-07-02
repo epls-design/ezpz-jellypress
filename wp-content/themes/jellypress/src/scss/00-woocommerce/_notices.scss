@@ -1,28 +1,4 @@
-@mixin create_woomessage($base-color) {
-  @include create_callout($base-color);
-  border-top-color: get-color($base-color, 800);
-
-  a {
-    color: get-color($base-color);
-
-    &:hover,
-    &:focus
-     {
-      color: get-color($base-color, 700)
-    }
-  }
-
-  &::before {
-    color: get-color($base-color, 700);
-  }
-
-  a.button {
-    @include create_button($base-color);
-  }
-}
-
 .woocommerce {
-
   &-message,
   &-info,
   &-error,
@@ -32,17 +8,17 @@
     border: $borders;
     padding: $element-padding;
     border-radius: $callout-border-radius;
-    @include create_woomessage('success');
+    @include createCallout(success);
   }
 
   &-info,
   &-noreviews,
   p.no-comments {
-    @include create_woomessage('primary');
+    @include createCallout(primary);
   }
 
   &-error {
-    @include create_woomessage('error');
+    @include createCallout(error);
   }
 
   &-error,

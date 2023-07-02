@@ -1,7 +1,7 @@
 .woocommerce {
   span.onsale {
     background-color: get-color(success);
-    color: choose-contrast-color(get-color(success));
+    color: resolve-contrast-color(get-color-raw(success));
     min-height: get-size(3);
     min-width: get-size(3);
   }
