@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Unfiltered HTML Block Template.
+ * Unfiltered HTML Block Template. Can only be used inside ezpz/content.
  *
  * @param array $block The block settings and attributes.
- * @param string $content The block inner HTML (empty).
+ * @param string $content The block inner HTML
  * @param bool $is_preview True during backend preview render.
  * @param int $post_id The post ID the block is rendering content against.
  *        This is either the post ID currently being displayed inside a query loop,
@@ -22,39 +22,15 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
-$block_attributes = jellypress_get_block_attributes($block);
 $fields = get_fields();
-$text_align = $block_attributes['text_align'];
 
-?>
-<section class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
-  <div class="container">
-
-    <?php if ($fields['title']) { ?>
-      <header class="row justify-center block-title">
-        <div class="col md-10 lg-8">
-          <h2 class="<?php echo $text_align; ?>">
-            <?php echo wp_strip_all_tags($fields['title']); ?>
-          </h2>
-        </div>
-      </header>
-    <?php } ?>
-
-    <?php if ($fields['preamble']) { ?>
-      <header class="row justify-center block-preamble <?php echo $text_align; ?>">
-        <div class="col md-10 lg-8">
-          <?php echo $fields['preamble']; ?>
-        </div>
-      </header>
-    <?php } ?>
-
-    <div class="row justify-center">
-      <div class="col md-10 lg-8">
-        <?php
-        echo $fields['unfiltered_html'];
-        ?>
-      </div>
-    </div>
-
-  </div>
-</section>
+jellypress_acf_placeholder(
+  $fields['unfiltered_html'],
+  __('Please add your html to this block - click here to get started.', 'jellypress'),
+  $is_preview
+);
+if (!$is_preview) {
+  echo $fields['unfiltered_html'];
+} elseif ($is_preview && $fields['unfiltered_html']) {
+  echo '<div class="callout">' . __('Your HTML will only render on the front end', 'jellypress') . '</div>';
+}
