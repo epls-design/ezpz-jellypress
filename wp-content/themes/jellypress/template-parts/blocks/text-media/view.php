@@ -4,7 +4,7 @@
  * Text and Media Block Template.
  *
  * @param array $block The block settings and attributes.
- * @param string $content The block inner HTML (empty).
+ * @param string $content The block inner HTML
  * @param bool $is_preview True during backend preview render.
  * @param int $post_id The post ID the block is rendering content against.
  *        This is either the post ID currently being displayed inside a query loop,
@@ -23,12 +23,14 @@
 defined('ABSPATH') || exit;
 
 $block_attributes = jellypress_get_block_attributes($block);
+$allowed_blocks = jellypress_get_allowed_blocks();
+$block_template = jellypress_get_block_template();
+
 $fields = get_fields();
 $text_align = $block_attributes['text_align'];
 
 $row_class = isset($block_attributes['align_content']) ? 'align-' . $block_attributes['align_content'] : 'align-top';
 $row_class = str_replace('center', 'middle', $row_class);
-
 $media_class = 'col sm-12 md-6 column-media';
 $text_class = 'col sm-12 md-5 column-text ' . $text_align;
 $media_align = $fields['media_position'] ? $fields['media_position'] : 'left';
@@ -39,6 +41,7 @@ if ($media_align == 'left') {
   $text_class .= ' order-md-1';
   $media_class .= ' order-md-2';
 }
+
 ?>
 
 <section class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
@@ -47,9 +50,29 @@ if ($media_align == 'left') {
     <div class="row <?php echo $row_class; ?> justify-between">
       <div class="<?php echo $media_class; ?>">
         <?php
+
+        // Placeholder shows if neither image nor video has been added
+        jellypress_acf_placeholder(
+          array(
+            $fields['image'],
+            $fields['video'],
+          ),
+          __('Please click here to add a media item to this block.', 'jellypress'),
+          $is_preview
+        );
+
         if ($fields['media_type'] == 'image') {
           echo '<figure>';
+          // TODO: Add zoom option
+          if ($fields['link']) {
+            $link = $fields['link'];
+            if ($is_preview) $class = 'prevent-clicks';
+            echo '<a class="' . $class . '" href="' . $link['url'] . '" target="' . $link['target'] . '" title="' . $link['title'] . '">';
+          }
           echo wp_get_attachment_image($fields['image'], 'large', false, array('class' => 'full-width'));
+          if ($fields['link']) {
+            echo '</a>';
+          }
           echo '</figure>';
         } elseif ($fields['media_type'] == 'video') {
           $autoplay = $fields['autoplay'] ? true : false;
@@ -58,21 +81,10 @@ if ($media_align == 'left') {
         ?>
       </div>
       <div class="<?php echo $text_class; ?>">
-        <?php
-        if ($fields['title']) { ?>
-          <header class="block-title">
-            <h2 class="<?php echo $text_align; ?>">
-              <?php echo wp_strip_all_tags($fields['title']); ?>
-            </h2>
-          </header>
-        <?php
-        }
-        echo $fields['text'];
-        if ($text_align == 'text-center') jellypress_display_cta_buttons($fields['buttons'], $block_attributes['bg_color'], 'justify-center');
-        elseif ($text_align == 'text-right') jellypress_display_cta_buttons($fields['buttons'], $block_attributes['bg_color'], 'justify-end');
-        else jellypress_display_cta_buttons($fields['buttons'], $block_attributes['bg_color']); ?>
+        <InnerBlocks allowedBlocks="<?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
       </div>
     </div>
+  </div>
 
   </div>
 </section>

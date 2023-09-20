@@ -3,29 +3,6 @@
     "title": "Block > Text and Media",
     "fields": [
         {
-            "key": "field_646e62b9d4522",
-            "label": "Clone Content and Title",
-            "name": "clone_content_and_title",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "field_646259d55774d",
-                "field_6462598a12f14"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
             "key": "field_646e6352d4525",
             "label": "Media Type",
             "name": "media_type",
@@ -76,32 +53,6 @@
             "ui": 0,
             "ajax": 0,
             "placeholder": ""
-        },
-        {
-            "key": "field_646e65204b96d",
-            "label": "Spacer",
-            "name": "",
-            "aria-label": "",
-            "type": "message",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_646e6352d4525",
-                        "operator": "==",
-                        "value": "image"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "50",
-                "class": "acf-spacer",
-                "id": ""
-            },
-            "message": "",
-            "new_lines": "wpautop",
-            "esc_html": 0
         },
         {
             "key": "field_646e638ad4527",
@@ -168,26 +119,6 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_646e62f0d4523",
-            "label": "Editor",
-            "name": "text",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "Please add your text here.",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0
-        },
-        {
             "key": "field_646e6340d4524",
             "label": "Image",
             "name": "image",
@@ -246,27 +177,28 @@
             "height": ""
         },
         {
-            "key": "field_646e67eba9ce8",
-            "label": "Clone CTA",
-            "name": "clone_cta",
+            "key": "field_64fac773b5782",
+            "label": "Link",
+            "name": "link",
             "aria-label": "",
-            "type": "clone",
-            "instructions": "",
+            "type": "link",
+            "instructions": "Do you want this media item to link elsewhere?",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_646e6352d4525",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "clone": [
-                "field_646263b78b3bc",
-                "field_646263778b3b8"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
+            "return_format": "array"
         }
     ],
     "location": [
@@ -287,5 +219,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688316152
+    "modified": 1695210397
 }
