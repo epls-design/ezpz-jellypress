@@ -4,7 +4,7 @@
  * Page Hero Block Template.
  *
  * @param array $block The block settings and attributes.
- * @param string $content The block inner HTML (empty).
+ * @param string $content The block inner HTML
  * @param bool $is_preview True during backend preview render.
  * @param int $post_id The post ID the block is rendering content against.
  *        This is either the post ID currently being displayed inside a query loop,
@@ -30,9 +30,9 @@ $block_attributes['class'] .= ' page-header';
 <header class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
   <div class="container">
     <div class="row">
-      <div class="col">
+      <div class="col md-10 lg-8">
         <?php
-        jellypress_post_thumbnail('medium', 'alignright');
+        // TODO: Add inner block for core/post-title, will need to strip out all the styling
         the_title('<h1 class="page-title">', '</h1>');
         ?>
       </div>
