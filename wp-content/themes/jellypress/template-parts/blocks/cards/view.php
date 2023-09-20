@@ -4,7 +4,7 @@
  * Cards Block Template.
  *
  * @param array $block The block settings and attributes.
- * @param string $content The block inner HTML (empty).
+ * @param string $content The block inner HTML
  * @param bool $is_preview True during backend preview render.
  * @param int $post_id The post ID the block is rendering content against.
  *        This is either the post ID currently being displayed inside a query loop,
@@ -23,6 +23,9 @@
 defined('ABSPATH') || exit;
 
 $block_attributes = jellypress_get_block_attributes($block);
+$allowed_blocks = jellypress_get_allowed_blocks();
+$block_template = jellypress_get_block_template();
+
 $fields = get_fields();
 $text_align = $block_attributes['text_align'];
 
@@ -30,28 +33,20 @@ if ($text_align == 'text-center') $justify = 'justify-center';
 elseif ($text_align == 'text-right') $justify = 'justify-end';
 else $justify = 'justify-start';
 
+// TODO: Card may be better as a block pattern?
+
 ?>
 
 <section class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
   <div class="container">
 
-    <?php if ($fields['title']) { ?>
-      <header class="row <?php echo $justify; ?> block-title">
+    <?php if ($content || $is_preview) : ?>
+      <header class="row <?php echo $justify; ?>">
         <div class="col md-10 lg-8">
-          <h2 class="<?php echo $text_align; ?>">
-            <?php echo wp_strip_all_tags($fields['title']); ?>
-          </h2>
+          <InnerBlocks className="<?php echo $block_attributes['text_align']; ?>" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
         </div>
       </header>
-    <?php } ?>
-
-    <?php if ($fields['preamble']) { ?>
-      <div class="row <?php echo $justify; ?> block-preamble">
-        <div class="col md-10 lg-8 <?php echo $text_align; ?>">
-          <?php echo $fields['preamble']; ?>
-        </div>
-      </div>
-    <?php } ?>
+    <?php endif; ?>
 
     <?php if ($cards = $fields['cards']) : ?>
       <div class="row <?php echo $justify; ?> cards equal-height">

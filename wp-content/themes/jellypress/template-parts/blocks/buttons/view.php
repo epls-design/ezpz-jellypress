@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Buttons Block Template.
+ * Buttons Block Template. Can only be used inside ezpz/content.
  *
  * @param array $block The block settings and attributes.
  * @param string $content The block inner HTML (empty as).
