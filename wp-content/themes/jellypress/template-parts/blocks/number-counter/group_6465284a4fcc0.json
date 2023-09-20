@@ -3,51 +3,6 @@
     "title": "Block > Number Counter",
     "fields": [
         {
-            "key": "field_6465284af6e9a",
-            "label": "Clone Content and Title",
-            "name": "clone_content_and_title",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "field_646259d55774d",
-                "field_6462598a12f14"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
-            "key": "field_64662c805f152",
-            "label": "Clone Preamble",
-            "name": "clone_preamble",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "field_6463a4e8aaf07"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
             "key": "field_64662c855f153",
             "label": "Statistics",
             "name": "",
@@ -254,5 +209,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688316224
+    "modified": 1695249558
 }

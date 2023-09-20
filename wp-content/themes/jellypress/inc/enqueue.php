@@ -70,6 +70,14 @@ function jellypress_scripts() {
   );
 
   wp_register_script(
+    'countdown-init',
+    get_template_directory_uri() . '/template-parts/blocks/countdown/countdown-init.js',
+    array('jquery'),
+    filemtime(get_template_directory() . '/template-parts/blocks/countdown/countdown-init.js'),
+    true
+  );
+
+  wp_register_script(
     'magnific-popup',
     get_template_directory_uri() . '/lib/magnific-popup.min.js',
     array('jquery'),

@@ -4,7 +4,7 @@
  * Number Counter Block Template.
  *
  * @param array $block The block settings and attributes.
- * @param string $content The block inner HTML (empty).
+ * @param string $content The block inner HTML
  * @param bool $is_preview True during backend preview render.
  * @param int $post_id The post ID the block is rendering content against.
  *        This is either the post ID currently being displayed inside a query loop,
@@ -23,9 +23,12 @@
 defined('ABSPATH') || exit;
 
 $block_attributes = jellypress_get_block_attributes($block);
-$fields = get_fields();
-$text_align = $block_attributes['text_align'];
+$allowed_blocks = jellypress_get_allowed_blocks();
+$block_template = jellypress_get_block_template();
 
+$fields = get_fields();
+
+$text_align = $block_attributes['text_align'];
 if ($text_align == 'text-center') $justify = 'justify-center';
 elseif ($text_align == 'text-right') $justify = 'justify-end';
 else $justify = 'justify-start';
@@ -34,23 +37,13 @@ else $justify = 'justify-start';
 <section class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
   <div class="container">
 
-    <?php if ($fields['title']) { ?>
-    <header class="row <?php echo $justify; ?> block-title">
-      <div class="col md-10 lg-8">
-        <h2 class="<?php echo $text_align; ?>">
-          <?php echo wp_strip_all_tags($fields['title']); ?>
-        </h2>
-      </div>
-    </header>
-    <?php } ?>
-
-    <?php if ($fields['preamble']) { ?>
-    <div class="row <?php echo $justify; ?> block-preamble">
-      <div class="col md-10 lg-8 <?php echo $text_align; ?>">
-        <?php echo $fields['preamble']; ?>
-      </div>
-    </div>
-    <?php } ?>
+    <?php if ($content || $is_preview) : ?>
+      <header class="row <?php echo $justify; ?>">
+        <div class="col md-10 lg-8">
+          <InnerBlocks className="<?php echo $text_align; ?>" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
+        </div>
+      </header>
+    <?php endif; ?>
 
     <?php
     $stats_have_large_numbers = false;
@@ -69,18 +62,26 @@ else $justify = 'justify-start';
     elseif ($stats_have_large_numbers == true) $statistic_font_size = 'small';
     else $statistic_font_size = 'regular';
 
-    echo '<div class="row ' . $justify . ' equal-height statistics">';
-    foreach ($fields['statistics'] as $statistic) :
-      echo '<div class="col xs-6 md-4">';
-      $card_params = array(
-        'statistic' => $statistic,
-        'font_size' => $statistic_font_size,
-        'block_bg_color' => $args['block_bg_color']
-      );
-      get_template_part('template-parts/blocks/number-counter/statistic-template', null, $card_params);
+    jellypress_acf_placeholder(
+      $fields['statistics'][0]['statistic_value'],
+      __('Please add statistics to this block - click here to get started.', 'jellypress'),
+      $is_preview
+    );
+
+    if ($fields['statistics'][0]['statistic_value']) {
+      echo '<div class="row ' . $justify . ' equal-height statistics">';
+      foreach ($fields['statistics'] as $statistic) :
+        echo '<div class="col xs-6 md-4">';
+        $card_params = array(
+          'statistic' => $statistic,
+          'font_size' => $statistic_font_size,
+          'block_bg_color' => $args['block_bg_color']
+        );
+        get_template_part('template-parts/blocks/number-counter/statistic-template', null, $card_params);
+        echo '</div>';
+      endforeach;
       echo '</div>';
-    endforeach;
-    echo '</div>';
+    }
     ?>
 
   </div>

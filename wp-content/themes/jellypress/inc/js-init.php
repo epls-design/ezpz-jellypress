@@ -10,27 +10,6 @@
 defined('ABSPATH') || exit;
 
 /**
- * Native Javascript function to initialise a countdown clock
- *
- * @param string $element_id The id of the element to attach the countdown to
- * @param datetime $deadline The date and time to countdown to
- * @return void
- */
-function jellypress_countdown_init($element_id, $deadline) {
-  // FIXME: Countdowns dont seem to work in Safari or Vivaldi?
-  $output =
-    "<script type='text/javascript'>
-      const countTo = '$deadline';
-      jfInitializeClock('$element_id', countTo);
-      </script>";
-  $output = str_replace(array("\r", "\n", "  "), '', $output) . "\n";
-  $func = function () use ($output) {
-    print $output;
-  };
-  return $func;
-}
-
-/**
  * Initialises a Splide Slider.
  * @link https://splidejs.com/category/users-guide/
  * NOTE: In the longer term it might be better to have this all as a init.js file, and to use inline data attributes to pass the settings to the JS.

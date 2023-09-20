@@ -3,7 +3,7 @@
   "apiVersion": 2,
   "name": "ezpz/slider",
   "title": "Slider",
-  "category": "media",
+  "category": "widgets",
   "icon": "slides",
   "description": "Renders a block containing a simple slider / carousel.",
   "keywords": ["slider", "carousel", "slide", "image", "slides"],
@@ -11,7 +11,9 @@
   "textdomain": "jellypress",
   "supports": {
     "align": false,
+    "alignContent": true,
     "anchor": true,
+    "alignText": true,
     "color": {
       "background": true,
       "gradients": false,
@@ -21,13 +23,9 @@
     "customClassName": true,
     "html": false
   },
-  "styles": [
-    { "name": "default", "label": "Default", "isDefault": true },
-    { "name": "hide-below-sm", "label": "Hide Mob" },
-    { "name": "hide-above-sm", "label": "Hide Above Mob" }
-  ],
+  "styles": [],
   "acf": {
-    "mode": "auto",
+    "mode": "preview",
     "renderTemplate": "view.php",
     "postTypes": ["post", "page"]
   }
