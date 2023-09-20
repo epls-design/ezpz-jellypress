@@ -85,6 +85,14 @@ function jellypress_scripts() {
     true
   );
 
+  wp_register_script(
+    'photoswipe-init',
+    get_template_directory_uri() . '/lib/photoswipe-init.js',
+    array('jquery'),
+    filemtime(get_template_directory() . '/lib/photoswipe-init.js'),
+    true
+  );
+
   $get_gmaps_api = get_global_option('google_maps_api_key');
   if ($get_gmaps_api) {
     wp_register_script(
@@ -127,6 +135,11 @@ function jellypress_scripts_add_atts($tag, $handle, $src) {
         $tag = str_replace(' src', ' defer="defer" src', $tag);
       }
     }
+  }
+
+  // Set photoswipe to enqueue as a module
+  if ('photoswipe-init' == $handle) {
+    $tag = '<script type="module" src="' . esc_url($src) . '"></script>';
   }
   return $tag;
 }

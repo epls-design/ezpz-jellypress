@@ -1,0 +1,46 @@
+.lightbox-image {
+  $size: 2rem;
+  $padding: $size * 0.15;
+  a {
+    display: block;
+    &::before,
+    &::after {
+      @include pseudo("", block, absolute);
+      z-index: 1;
+      top: 0;
+      right: 0;
+      pointer-events: none;
+      @include smooth(background);
+    }
+    &::before {
+      width: $size;
+      height: $size;
+      background: $link-color;
+    }
+    &::after {
+      width: $size - $padding * 2;
+      height: $size - $padding * 2;
+      top: $padding;
+      right: $padding;
+      mask: url(dist/icons/zoom-in.svg) no-repeat 50% 50%;
+      mask-size: cover;
+      background: v(color-white);
+    }
+    &:hover,
+    &:focus {
+      &::before {
+        background: $link-active;
+      }
+    }
+  }
+}
+
+.pswp__button {
+  padding: 0 !important;
+  background: none !important;
+  border: none !important;
+}
+
+.pswp__img {
+  background: white;
+}

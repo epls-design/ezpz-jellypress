@@ -104,7 +104,28 @@ function copyLibs() {
     "node_modules/a11y_accordions/assets/js/aria.accordion.min.js"
   ).pipe(dest("./template-parts/blocks/accordion"));
 
-  return merge(magnificJS, magnificCSS, splideJS, splideCSS, accordionJS);
+  var photoswipeJS = src(
+    "node_modules/photoswipe/dist/photoswipe.esm.min.js"
+  ).pipe(dest("./lib/"));
+
+  var photoswipeLightboxJS = src(
+    "node_modules/photoswipe/dist/photoswipe-lightbox.esm.min.js"
+  ).pipe(dest("./lib/"));
+
+  var photoswipeCSS = src("node_modules/photoswipe/dist/photoswipe.css")
+    .pipe(rename("_photoswipe.scss"))
+    .pipe(dest(opts.src_dir + "/scss/vendors/"));
+
+  return merge(
+    magnificJS,
+    magnificCSS,
+    splideJS,
+    splideCSS,
+    accordionJS,
+    photoswipeJS,
+    photoswipeLightboxJS,
+    photoswipeCSS
+  );
 }
 
 // Tasks which watch for changes in specified files/dirs and run tasks based on filetypes edited

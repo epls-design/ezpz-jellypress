@@ -3,29 +3,6 @@
     "title": "Block > Image Gallery",
     "fields": [
         {
-            "key": "field_64652826d1989",
-            "label": "Clone Content and Title",
-            "name": "clone_content_and_title",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "field_646259d55774d",
-                "field_6462598a12f14"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
             "key": "field_64661d8de6f4c",
             "label": "Images",
             "name": "images",
@@ -55,41 +32,13 @@
         },
         {
             "key": "field_64661d92e6f4d",
-            "label": "Add Lightbox?",
-            "name": "add_lightbox",
+            "label": "Allow Zoom?",
+            "name": "allow_zoom",
             "aria-label": "",
             "type": "true_false",
-            "instructions": "If you'd like the user to be able to click images to view them larger in a lightbox, enable this option.",
+            "instructions": "If you'd like the user to be able to click images to zoom in, enable this option.",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": {
-                "width": "33",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui_on_text": "",
-            "ui_off_text": "",
-            "ui": 1
-        },
-        {
-            "key": "field_64661d96e6f4e",
-            "label": "Display Image Titles?",
-            "name": "lightbox_display_titles",
-            "aria-label": "",
-            "type": "true_false",
-            "instructions": "If you enable this, images in the lightbox will have a caption underneath them derived from the image title.",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_6029872ac795e",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
             "wrapper": {
                 "width": "33",
                 "class": "",
@@ -120,5 +69,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688316231
+    "modified": 1695245177
 }

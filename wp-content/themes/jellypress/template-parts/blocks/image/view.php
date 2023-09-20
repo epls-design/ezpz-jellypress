@@ -56,6 +56,13 @@ elseif ($block_width === 'center') $justify = 'center';
 
       if ($block_width === 'full') $size = 'full';
       else $size = 'large';
+
+      jellypress_acf_placeholder(
+        $fields['image'],
+        __('Please add an image to this block - click here to get started.', 'jellypress'),
+        $is_preview
+      );
+
       echo wp_get_attachment_image($fields['image'], $size);
 
       if ($block_width === 'full') echo '</div>';
