@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ezpz/content",
+  "version": "0.1.0",
+  "title": "Content",
+  "category": "text",
+  "description": "Use this block to add text content to your page.",
+  "parent": [
+    "ezpz/section",
+    "ezpz/column"
+  ],
+  "supports": {
+    "html": false,
+    "customClassName": false
+  },
+  "textdomain": "ezpz-content",
+  "editorScript": "file:./index.js"
+}

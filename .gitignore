@@ -53,7 +53,6 @@ wp-content/*
 # ignore contents of plugins, include only those specified
 wp-content/plugins/*
 !wp-content/plugins/ezpz-*
-wp-content/plugins/ezpz-blocks
 
 # ignore contents of mu-plugins, include only those specified
 wp-content/mu-plugins/*

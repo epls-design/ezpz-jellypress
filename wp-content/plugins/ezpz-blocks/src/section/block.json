@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ezpz/section",
+	"version": "0.1.0",
+	"title": "Section",
+	"category": "text",
+	"description": "Full width section to include text, lists and buttons.",
+	"keywords": ["section", "text", "list"],
+	"supports": {
+		"html": false,
+		"customClassName": true,
+		"anchor": true,
+		"color": {
+			"background": true,
+			"text": false
+		}
+	},
+	"textdomain": "ezpz-section",
+	"editorScript": "file:./index.js"
+}

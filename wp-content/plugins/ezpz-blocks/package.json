@@ -1,0 +1,23 @@
+{
+	"name": "ezpz-blocks",
+	"version": "0.1.0",
+	"description": "Registers blocks for use with Gutenberg, using @create-block. This plugin supports the theme by creating a generic 'content' block for text",
+	"author": "EPLS Design",
+	"license": "GPL-2.0-or-later",
+	"main": "build/index.js",
+	"scripts": {
+		"build": "wp-scripts build",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"start": "wp-scripts start"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^26.8.0"
+	},
+	"dependencies": {
+		"@wordpress/icons": "^9.32.0"
+	}
+}
