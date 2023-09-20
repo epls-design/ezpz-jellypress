@@ -3,51 +3,6 @@
     "title": "Block > Countdown",
     "fields": [
         {
-            "key": "field_646528042d5d5",
-            "label": "Clone Content and Title",
-            "name": "clone_content_and_title",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "field_646259d55774d",
-                "field_6462598a12f14"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
-            "key": "field_64664a2cc62a1",
-            "label": "Clone Preamble",
-            "name": "clone_preamble",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "field_6463a4e8aaf07"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
             "key": "field_64664a30c62a2",
             "label": "Countdown To",
             "name": "countdown_to",
@@ -62,7 +17,7 @@
                 "id": ""
             },
             "display_format": "d\/m\/Y g:i a",
-            "return_format": "d\/m\/Y g:i a",
+            "return_format": "F j Y H:i:s",
             "first_day": 1
         },
         {
@@ -148,29 +103,6 @@
             "maxlength": "",
             "rows": 4,
             "new_lines": ""
-        },
-        {
-            "key": "field_64664a3cc62a5",
-            "label": "Clone CTA",
-            "name": "clone_cta",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "field_646263b78b3bc",
-                "field_646263778b3b8"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
         }
     ],
     "location": [
@@ -191,5 +123,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688316241
+    "modified": 1695249151
 }
