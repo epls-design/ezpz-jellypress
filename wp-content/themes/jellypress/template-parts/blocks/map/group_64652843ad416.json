@@ -3,69 +3,6 @@
     "title": "Block > Map",
     "fields": [
         {
-            "key": "field_646528432c440",
-            "label": "Clone Content and Title",
-            "name": "clone_content_and_title",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "field_646259d55774d",
-                "field_6462598a12f14"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
-            "key": "field_646622d0280da",
-            "label": "Clone Preamble",
-            "name": "clone_preamble",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "field_6463a4e8aaf07"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
-            "key": "field_646622d4280db",
-            "label": "Markers",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 1,
-            "endpoint": 0
-        },
-        {
             "key": "field_646622db280dc",
             "label": "Locations",
             "name": "locations",
@@ -79,10 +16,11 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
+            "layout": "block",
+            "pagination": 0,
             "min": 1,
             "max": 0,
-            "layout": "table",
+            "collapsed": "",
             "button_label": "Add Marker",
             "rows_per_page": 20,
             "sub_fields": [
@@ -229,5 +167,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688316226
+    "modified": 1695249926
 }
