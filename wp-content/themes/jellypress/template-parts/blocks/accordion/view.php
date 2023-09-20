@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Accordion Block Template.
+ * Accordion Block Template. Can only be used inside ezpz/content.
  *
  * @param array $block The block settings and attributes.
- * @param string $content The block inner HTML (empty).
+ * @param string $content The block inner HTML
  * @param bool $is_preview True during backend preview render.
  * @param int $post_id The post ID the block is rendering content against.
  *        This is either the post ID currently being displayed inside a query loop,
@@ -23,89 +23,51 @@
 defined('ABSPATH') || exit;
 
 $block_attributes = jellypress_get_block_attributes($block);
-$fields = get_fields();
-$text_align = $block_attributes['text_align'];
+$allowed_blocks = jellypress_get_allowed_blocks();
+$block_template = jellypress_get_block_template();
 
-$allow_multiple =  $fields['allow_multiple'];
+$fields = get_fields();
+
 $generate_schema = $fields['generate_schema'];
 $allow_multiple =  $fields['allow_multiple'] == 1 ? 'data-multi' : '';
 
+jellypress_acf_placeholder(
+  $fields['accordion_items'][0]['question'],
+  __('Please add accordion items to this block - click here to get started.', 'jellypress'),
+  $is_preview
+);
+
+if ($accordion_items = $fields['accordion_items']) {
+
+  global $faq_schema;
+  if (empty($faq_schema) && $generate_schema) {
+    // Initialise if empty.
+    $faq_schema = array(
+      '@context'   => "https://schema.org",
+      '@type'      => "FAQPage",
+      'mainEntity' => array()
+    );
+  };
+
 ?>
+  <div data-aria-accordion data-transition data-default <?php echo $allow_multiple; ?>>
+    <?php foreach ($accordion_items as $item) :
 
-<section class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
-  <div class="container">
-
-    <?php if ($fields['title']) { ?>
-      <header class="row justify-center block-title">
-        <div class="col md-10 lg-8">
-          <h2 class="<?php echo $text_align; ?>">
-            <?php echo wp_strip_all_tags($fields['title']); ?>
-          </h2>
-        </div>
-      </header>
-    <?php } ?>
-
-    <?php if ($fields['preamble']) { ?>
-      <div class="row justify-center block-preamble">
-        <div class="col md-10 lg-8 <?php echo $text_align; ?>">
-          <?php echo $fields['preamble']; ?>
-        </div>
-      </div>
-    <?php } ?>
-
-    <?php
-    if ($accordion_items = $fields['accordion_items']) :
-
-      global $faq_schema;
-      if (empty($faq_schema) && $generate_schema) {
-        // Initialise if empty.
-        $faq_schema = array(
-          '@context'   => "https://schema.org",
-          '@type'      => "FAQPage",
-          'mainEntity' => array()
+      if ($generate_schema) {
+        // Push data to schema array
+        $questions = array(
+          '@type'          => 'Question',
+          'name'           => wp_strip_all_tags($item['question']),
+          'acceptedAnswer' => array(
+            '@type' => "Answer",
+            'text' => wp_strip_all_tags($item['answer'])
+          )
         );
-      };
+        array_push($faq_schema['mainEntity'], $questions);
+      }
 
-    ?>
-
-      <div class="row accordion justify-center">
-        <div class="col md-10 lg-8">
-          <section data-aria-accordion data-transition data-default <?php echo $allow_multiple; ?>>
-            <?php foreach ($accordion_items as $item) :
-
-              if ($generate_schema) {
-                // Push data to schema array
-                $questions = array(
-                  '@type'          => 'Question',
-                  'name'           => wp_strip_all_tags($item['question']),
-                  'acceptedAnswer' => array(
-                    '@type' => "Answer",
-                    'text' => wp_strip_all_tags($item['answer'])
-                  )
-                );
-                array_push($faq_schema['mainEntity'], $questions);
-              }
-
-              echo '<h4 class="question" data-aria-accordion-heading>' . $item['question'] . '</h4>';
-              echo '<div class="answer" data-aria-accordion-panel>' . $item['answer'] . '</div>';
-            endforeach; ?>
-          </section>
-        </div>
-      </div>
-
-    <?php endif; ?>
-
-    <?php if (!empty($fields['buttons'])) : ?>
-      <div class="row justify-center">
-        <div class="col md-10 lg-8 text-center">
-          <?php
-          if ($text_align == 'text-center') jellypress_display_cta_buttons($fields['buttons'], $block_attributes['bg_color'], 'justify-center');
-          elseif ($text_align == 'text-right') jellypress_display_cta_buttons($fields['buttons'], $block_attributes['bg_color'], 'justify-end');
-          else jellypress_display_cta_buttons($fields['buttons'], $block_attributes['bg_color']);
-          ?>
-        </div>
-      </div>
-    <?php endif; ?>
-
+      echo '<h4 class="question" data-aria-accordion-heading>' . $item['question'] . '</h4>';
+      echo '<div class="answer" data-aria-accordion-panel>' . $item['answer'] . '</div>';
+    endforeach; ?>
   </div>
-</section>
+<?php } ?>

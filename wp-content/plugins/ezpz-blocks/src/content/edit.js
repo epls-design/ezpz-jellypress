@@ -32,13 +32,12 @@ import "./editor.scss";
 export default function Edit() {
 	const ALLOWED_BLOCKS = [
 		"core/heading",
-		"ezpz/icon-heading",
-		"ezpz/video-embed",
-		"ezpz/hubspot-form",
 		"core/paragraph",
 		"core/table",
 		"core/list",
+		"ezpz/video-embed",
 		"ezpz/buttons",
+		"ezpz/accordion",
 	];
 	const TEMPLATE = [
 		[

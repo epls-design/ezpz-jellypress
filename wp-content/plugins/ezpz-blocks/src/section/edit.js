@@ -58,8 +58,8 @@ export default function Edit() {
 	return (
 		<section {...blockProps}>
 			<div className="container">
-				<div className="row">
-					<div className="col md-8">
+				<div className="row justify-center">
+					<div className="col md-10 lg-8">
 						<InnerBlocks
 							allowedBlocks={ALLOWED_BLOCKS}
 							template={TEMPLATE}

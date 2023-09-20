@@ -3,69 +3,6 @@
     "title": "Block > Accordion",
     "fields": [
         {
-            "key": "field_646528132a4f5",
-            "label": "Clone Content and Title",
-            "name": "clone_content_and_title",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "field_646259d55774d",
-                "field_6462598a12f14"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
-            "key": "field_6465305084db1",
-            "label": "Clone Preamble",
-            "name": "clone_preamble",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "field_6463a4e8aaf07"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
-            "key": "field_6465306684db2",
-            "label": "Accordion",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 1,
-            "endpoint": 0
-        },
-        {
             "key": "field_6465307684db3",
             "label": "Allow Multiple?",
             "name": "allow_multiple",
@@ -119,7 +56,8 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
+            "relevanssi_exclude": 0,
+            "layout": "block",
             "pagination": 0,
             "min": 1,
             "max": 0,
@@ -170,29 +108,6 @@
                     "parent_repeater": "field_6465308884db6"
                 }
             ]
-        },
-        {
-            "key": "field_646530a284db9",
-            "label": "Clone CTA",
-            "name": "clone_cta",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "field_646263b78b3bc",
-                "field_646263778b3b8"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
         }
     ],
     "location": [
@@ -213,5 +128,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688316246
+    "modified": 1690290844
 }

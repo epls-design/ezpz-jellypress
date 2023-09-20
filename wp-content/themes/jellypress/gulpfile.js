@@ -102,7 +102,7 @@ function copyLibs() {
 
   var accordionJS = src(
     "node_modules/a11y_accordions/assets/js/aria.accordion.min.js"
-  ).pipe(dest("./lib/"));
+  ).pipe(dest("./template-parts/blocks/accordion"));
 
   return merge(magnificJS, magnificCSS, splideJS, splideCSS, accordionJS);
 }
