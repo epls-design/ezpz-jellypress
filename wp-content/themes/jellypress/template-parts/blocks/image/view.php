@@ -4,7 +4,7 @@
  * Image Block Template.
  *
  * @param array $block The block settings and attributes.
- * @param string $content The block inner HTML (empty).
+ * @param string $content The block inner HTML
  * @param bool $is_preview True during backend preview render.
  * @param int $post_id The post ID the block is rendering content against.
  *        This is either the post ID currently being displayed inside a query loop,
@@ -23,10 +23,12 @@
 defined('ABSPATH') || exit;
 
 $block_attributes = jellypress_get_block_attributes($block);
-$fields = get_fields();
-$text_align = $block_attributes['text_align'];
+$allowed_blocks = jellypress_get_allowed_blocks();
+$block_template = jellypress_get_block_template();
 
+$fields = get_fields();
 $container_class = 'container';
+$text_align = $block_attributes['text_align'];
 
 $block_width = isset($block_attributes['align']) ? $block_attributes['align'] : '';
 if ($block_width == 'wide') $container_class .= ' is-wide';
@@ -36,21 +38,15 @@ elseif ($block_width === 'center') $justify = 'center';
 
 <section class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
 
-  <?php if ($fields['title']) {
-    if ($block_width === 'center') $justify = 'center';
-    elseif ($text_align == 'text-left') $justify = 'start';
-    else $justify = 'center';
-  ?>
+  <?php if ($content || $is_preview) : ?>
     <div class="container">
-      <header class="row justify-<?php echo $justify; ?> block-title">
+      <header class="row justify-center">
         <div class="col md-10 lg-8">
-          <h2 class="<?php echo $text_align; ?>">
-            <?php echo wp_strip_all_tags($fields['title']); ?>
-          </h2>
+          <InnerBlocks templateLock="all" className="<?php echo $text_align; ?>" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
         </div>
       </header>
     </div>
-  <?php } ?>
+  <?php endif; ?>
 
   <figure>
     <div class="<?php echo $container_class; ?>">

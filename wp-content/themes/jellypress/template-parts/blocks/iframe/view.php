@@ -4,7 +4,7 @@
  * iFrame Block Template.
  *
  * @param array $block The block settings and attributes.
- * @param string $content The block inner HTML (empty).
+ * @param string $content The block inner HTML
  * @param bool $is_preview True during backend preview render.
  * @param int $post_id The post ID the block is rendering content against.
  *        This is either the post ID currently being displayed inside a query loop,
@@ -24,8 +24,10 @@
 defined('ABSPATH') || exit;
 
 $block_attributes = jellypress_get_block_attributes($block);
+$allowed_blocks = jellypress_get_allowed_blocks();
+$block_template = jellypress_get_block_template();
+
 $fields = get_fields();
-$text_align = $block_attributes['text_align'];
 
 $container_class = 'container';
 
@@ -36,28 +38,15 @@ elseif ($block_width == 'full') $block_attributes['class'] .= ' is-full-width';
 
 <section class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
 
-  <?php
-  if ($fields['title'] || $fields['preamble']) echo '<div class="container">';
-
-  if ($fields['title']) { ?>
-    <header class="row justify-center block-title">
+  <?php if ($content || $is_preview) : ?>
+  <div class="container">
+    <header class="row justify-center">
       <div class="col md-10 lg-8">
-        <h2 class="<?php echo $text_align; ?>">
-          <?php echo wp_strip_all_tags($fields['title']); ?>
-        </h2>
+        <InnerBlocks className="<?php echo $block_attributes['text_align']; ?>" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
       </div>
     </header>
-  <?php } ?>
-
-  <?php if ($fields['preamble']) { ?>
-    <div class="row justify-center block-preamble">
-      <div class="col md-10 lg-8 <?php echo $text_align; ?>">
-        <?php echo $fields['preamble']; ?>
-      </div>
-    </div>
-  <?php } ?>
-
-  <?php if ($fields['title'] || $fields['preamble']) echo '</div>'; ?>
+  </div>
+  <?php endif; ?>
 
   <div class="<?php echo $container_class; ?>">
     <div class="row">
@@ -65,6 +54,13 @@ elseif ($block_width == 'full') $block_attributes['class'] .= ' is-full-width';
         <?php
         if ($block_width === 'full') echo '<div class="vw-100">';
         elseif ($block_width === 'center') echo '<div class="row justify-center"><div class="col md-10 lg-8">';
+
+        jellypress_acf_placeholder(
+          $fields['website_url'],
+          __('Please add a website URL to this block - click here to get started.', 'jellypress'),
+          $is_preview
+        );
+
         ?>
         <div class="embed-container">
           <iframe allowfullscreen class="embedded-iframe" src="<?php echo $fields['website_url']; ?>"></iframe>

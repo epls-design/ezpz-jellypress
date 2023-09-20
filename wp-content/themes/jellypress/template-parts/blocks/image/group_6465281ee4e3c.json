@@ -3,29 +3,6 @@
     "title": "Block > Image",
     "fields": [
         {
-            "key": "field_6465281f41626",
-            "label": "Clone Content and Title",
-            "name": "clone_content_and_title",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "field_646259d55774d",
-                "field_6462598a12f14"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
             "key": "field_646537251fcc5",
             "label": "Image",
             "name": "image",
@@ -89,5 +66,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688316233
+    "modified": 1695244207
 }
