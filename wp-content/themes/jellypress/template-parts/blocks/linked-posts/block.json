@@ -34,13 +34,9 @@
     "html": false,
     "multiple": false
   },
-  "styles": [
-    { "name": "default", "label": "Default", "isDefault": true },
-    { "name": "hide-below-sm", "label": "Hide Mob" },
-    { "name": "hide-above-sm", "label": "Hide Above Mob" }
-  ],
+  "styles": [],
   "acf": {
-    "mode": "auto",
+    "mode": "preview",
     "renderTemplate": "view.php",
     "postTypes": ["post", "page"]
   }

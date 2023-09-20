@@ -4,7 +4,7 @@
  * Post Archive Block Template.
  *
  * @param array $block The block settings and attributes.
- * @param string $content The block inner HTML (empty).
+ * @param string $content The block inner HTML
  * @param bool $is_preview True during backend preview render.
  * @param int $post_id The post ID the block is rendering content against.
  *        This is either the post ID currently being displayed inside a query loop,
@@ -23,9 +23,12 @@
 defined('ABSPATH') || exit;
 
 $block_attributes = jellypress_get_block_attributes($block);
-$fields = get_fields();
-$text_align = $block_attributes['text_align'];
+$allowed_blocks = jellypress_get_allowed_blocks();
+$block_template = jellypress_get_block_template();
 
+$fields = get_fields();
+
+$text_align = $block_attributes['text_align'];
 if ($text_align == 'text-center') $justify = 'justify-center';
 elseif ($text_align == 'text-right') $justify = 'justify-end';
 else $justify = 'justify-start';
@@ -38,23 +41,13 @@ $loading_type = $fields['loading_type'];
 <section class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
   <div class="container">
 
-    <?php if ($fields['title']) { ?>
-    <header class="row <?php echo $justify; ?> block-title">
-      <div class="col md-10 lg-8">
-        <h2 class="<?php echo $text_align; ?>">
-          <?php echo wp_strip_all_tags($fields['title']); ?>
-        </h2>
-      </div>
-    </header>
-    <?php } ?>
-
-    <?php if ($fields['preamble']) { ?>
-    <div class="row <?php echo $justify; ?> block-preamble">
-      <div class="col md-10 lg-8 <?php echo $text_align; ?>">
-        <?php echo $fields['preamble']; ?>
-      </div>
-    </div>
-    <?php } ?>
+    <?php if ($content || $is_preview) : ?>
+      <header class="row <?php echo $justify; ?>">
+        <div class="col md-10 lg-8">
+          <InnerBlocks className="<?php echo $text_align; ?>" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
+        </div>
+      </header>
+    <?php endif; ?>
 
     <?php
     // Set up a new WP_Query for the specified post_type
@@ -95,18 +88,6 @@ $loading_type = $fields['loading_type'];
     echo '</div>';
     wp_reset_postdata();
     ?>
-
-    <?php if (!empty($fields['buttons'])) : ?>
-    <div class="row <?php echo $justify; ?>">
-      <div class="col md-10 lg-8 text-center">
-        <?php
-          if ($text_align == 'text-center') jellypress_display_cta_buttons($fields['buttons'], $block_attributes['bg_color'], 'justify-center');
-          elseif ($text_align == 'text-right') jellypress_display_cta_buttons($fields['buttons'], $block_attributes['bg_color'], 'justify-end');
-          else jellypress_display_cta_buttons($fields['buttons'], $block_attributes['bg_color']);
-          ?>
-      </div>
-    </div>
-    <?php endif; ?>
 
     <?php
     if ($loading_type == 'paginated' && $preview != 1) jellypress_numeric_pagination('false', 4, $archive_query, '#feed-' . $query_post_type);

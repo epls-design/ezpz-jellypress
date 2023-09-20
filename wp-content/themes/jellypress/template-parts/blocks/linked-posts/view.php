@@ -4,7 +4,7 @@
  * Linked Posts Block Template.
  *
  * @param array $block The block settings and attributes.
- * @param string $content The block inner HTML (empty).
+ * @param string $content The block inner HTML
  * @param bool $is_preview True during backend preview render.
  * @param int $post_id The post ID the block is rendering content against.
  *        This is either the post ID currently being displayed inside a query loop,
@@ -22,10 +22,15 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
-$block_attributes = jellypress_get_block_attributes($block);
-$fields = get_fields();
-$text_align = $block_attributes['text_align'];
+// TODO: Option to display as a list or slider
 
+$block_attributes = jellypress_get_block_attributes($block);
+$allowed_blocks = jellypress_get_allowed_blocks();
+$block_template = jellypress_get_block_template();
+
+$fields = get_fields();
+
+$text_align = $block_attributes['text_align'];
 if ($text_align == 'text-center') $justify = 'justify-center';
 elseif ($text_align == 'text-right') $justify = 'justify-end';
 else $justify = 'justify-start';
@@ -37,23 +42,13 @@ $posts_array = array(); // Create an empty array to store posts ready for the lo
 <section class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
   <div class="container">
 
-    <?php if ($fields['title']) { ?>
-      <header class="row <?php echo $justify; ?> block-title">
+    <?php if ($content || $is_preview) : ?>
+      <header class="row <?php echo $justify; ?>">
         <div class="col md-10 lg-8">
-          <h2 class="<?php echo $text_align; ?>">
-            <?php echo wp_strip_all_tags($fields['title']); ?>
-          </h2>
+          <InnerBlocks className="<?php echo $text_align; ?>" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
         </div>
       </header>
-    <?php } ?>
-
-    <?php if ($fields['preamble']) { ?>
-      <div class="row <?php echo $justify; ?> block-preamble">
-        <div class="col md-10 lg-8 <?php echo $text_align; ?>">
-          <?php echo $fields['preamble']; ?>
-        </div>
-      </div>
-    <?php } ?>
+    <?php endif; ?>
 
     <?php
     /**
