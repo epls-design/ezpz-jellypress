@@ -311,14 +311,14 @@ function jellypress_embed_video($video, $aspect_ratio = '16x9', $autoplay = fals
       wp_enqueue_script('youtube-api');
     }
     if ($platform) { ?>
-      <div class="video-wrapper<?php if ($autoplay) echo ' video-autoplay'; ?>">
+      <figure class="video-wrapper<?php if ($autoplay) echo ' video-autoplay'; ?>">
         <div class="video-overlay has-bg-img" style="background-image:url('<?php echo $video_thumbnail_lq; ?>')" data-bg-img="<?php echo $video_thumbnail_hq; ?>">
           <button class="play platform-<?php esc_attr_e($platform); ?>" data-src="<?php echo esc_url($oembed_url); ?>" title="<?php _e('Play Video', 'jellypress'); ?>"><?php echo jellypress_icon('play'); ?></button>
         </div>
         <div class="embed-container ratio-<?php echo $aspect_ratio; ?>">
           <iframe width="640" height="390" type="text/html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="<?php echo $title; ?>"></iframe>
         </div>
-      </div>
+      </figure>
 <?php } // if ( $platform )
   } // if ( isset( $oembed[1] ))
 }

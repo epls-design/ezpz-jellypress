@@ -103,3 +103,21 @@ if (!function_exists('get_global_option')) :
     return $option;
   }
 endif;
+
+/**
+ * Displays a placeholder in Gutenberg editor if ACF field is empty
+ * @param string|array $field The ACF field(s) to check.
+ * @param string $placeholder The placeholder text to display.
+ * @param bool $is_preview True during backend preview render.
+ */
+function jellypress_acf_placeholder($field, $placeholder, $is_preview) {
+  if ($is_preview) {
+
+    if (is_array($field)) {
+      $field = array_filter($field);
+    }
+
+    if (empty($field))
+      echo '<p class="acf-placeholder">' . $placeholder . '</p>';
+  }
+}

@@ -4,7 +4,7 @@
  * Video Block Template.
  *
  * @param array $block The block settings and attributes.
- * @param string $content The block inner HTML (empty).
+ * @param string $content The block inner HTML
  * @param bool $is_preview True during backend preview render.
  * @param int $post_id The post ID the block is rendering content against.
  *        This is either the post ID currently being displayed inside a query loop,
@@ -24,7 +24,6 @@ defined('ABSPATH') || exit;
 
 $block_attributes = jellypress_get_block_attributes($block);
 $fields = get_fields();
-$text_align = $block_attributes['text_align'];
 
 $container_class = 'container';
 
@@ -33,53 +32,27 @@ if ($block_width == 'wide') $container_class .= ' is-wide';
 elseif ($block_width == 'full') $block_attributes['class'] .= ' is-full-width';
 elseif ($block_width === 'center') $justify = 'center';
 
+$blocks = array(
+  "ezpz/video-embed",
+);
+$allowed_blocks = jellypress_get_allowed_blocks($allowed_blocks);
+$block_template = array(
+  array(
+    'ezpz/video-embed', array()
+  )
+);
+$block_template = jellypress_get_block_template($block_template);
 ?>
 
 <section class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
-
-  <?php if ($fields['title']) {
-    if ($block_width === 'center') $justify = 'center';
-    elseif ($text_align == 'text-left') $justify = 'start';
-    else $justify = 'center';
-  ?>
-    <div class="container">
-      <header class="row justify-<?php echo $justify; ?> block-title">
-        <div class="col md-10 lg-8">
-          <h2 class="<?php echo $text_align; ?>">
-            <?php echo wp_strip_all_tags($fields['title']); ?>
-          </h2>
-        </div>
-      </header>
-    </div>
-  <?php } ?>
-
-  <figure>
-    <div class="<?php echo $container_class; ?>">
-      <?php
-      if ($block_width === 'full') echo '<div class="vw-100">';
-      elseif ($block_width === 'center') echo '<div class="row justify-' . $justify . '"><div class="col md-10 lg-8">';
-
-      if ($fields['autoplay']) $autoplay = true;
-      else $autoplay = false;
-      jellypress_embed_video($fields['video'], $fields['aspect_ratio'], $autoplay);
-
-      if ($block_width === 'full') echo '</div>';
-      elseif ($block_width === 'center') echo '</div></div>'; ?>
-    </div>
-
-    <?php if ($fields['caption']) :
-      if (!$block_title && !$justify) {
-        $justify = 'start';
-      }
+  <div class="<?php echo $container_class; ?>">
+    <?php
+    if ($block_width === 'full') echo '<div class="vw-100">';
+    elseif ($block_width === 'center') echo '<div class="row justify-' . $justify . '"><div class="col md-10 lg-8">';
     ?>
-      <figcaption class="caption container">
-        <div class="row justify-<?php echo $justify; ?>">
-          <div class="col md-10 lg-8 <?php echo $text_align; ?>">
-            <?php echo $fields['caption']; ?>
-          </div>
-        </div>
-      </figcaption>
-    <?php endif; ?>
-  </figure>
-
+    <InnerBlocks templateLock="all" allowedBlocks="<?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
+    <?php
+    if ($block_width === 'full') echo '</div>';
+    elseif ($block_width === 'center') echo '</div></div>'; ?>
+  </div>
 </section>
