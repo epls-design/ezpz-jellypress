@@ -11,8 +11,12 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  display: flex;
   &.bg-is-fixed {
     background-attachment: fixed;
+  }
+  > .row {
+    width: 100%;
   }
   h2 {
     @each $point, $size in $cover-heading {
@@ -26,9 +30,6 @@
         }
       }
     }
-  }
-  .block-title {
-    margin-bottom: get-size(1);
   }
   .button-list {
     margin-top: get-size(3);
@@ -115,7 +116,7 @@
 @for $i from 1 through 100 {
   @if $i % 10 == 0 {
     .overlay-opacity-#{$i}::before {
-      opacity: $i * 0.01;
+      opacity: $i * 0.01 !important;
     }
   }
 }

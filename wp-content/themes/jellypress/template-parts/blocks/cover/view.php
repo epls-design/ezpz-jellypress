@@ -4,7 +4,7 @@
  * Cover Block Template.
  *
  * @param array $block The block settings and attributes.
- * @param string $content The block inner HTML (empty).
+ * @param string $content The block inner HTML
  * @param bool $is_preview True during backend preview render.
  * @param int $post_id The post ID the block is rendering content against.
  *        This is either the post ID currently being displayed inside a query loop,
@@ -23,8 +23,27 @@
 defined('ABSPATH') || exit;
 
 $block_attributes = jellypress_get_block_attributes($block);
+
+$block_template = array(
+  array(
+    'ezpz/content', array(), array(
+      array('core/heading', array(
+        'placeholder' => 'Sub Title',
+        'level' => 2,
+      )),
+      array(
+        'core/paragraph', array(
+          'placeholder' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rhoncus neque nisl, a malesuada sapien cursus a. Aliquam metus mi, vestibulum venenatis ligula et, mollis laoreet quam. Aenean sed ultrices ex, a vulputate urna. Integer tellus arcu, placerat sit amet erat et, feugiat malesuada erat. Nulla nunc metus, tempus eu nibh sit amet, tincidunt fringilla massa.',
+        )
+      ),
+      array('ezpz/buttons', array())
+    )
+  )
+);
+$allowed_blocks = jellypress_get_allowed_blocks();
+$block_template = jellypress_get_block_template($block_template);
+
 $fields = get_fields();
-$text_align = $block_attributes['text_align'];
 
 /**
  * Set up all the block attributes, note that we are using an inner container as a faux block
@@ -36,7 +55,6 @@ $background_image = $fields['background_image'];
 $overlay_color = $block_attributes['bg_color'];
 $block_attributes['class']  .= ' has-overlay overlay-' . $overlay_color;
 $block_attributes['class']  .= ' overlay-opacity-' . $fields['overlay_opacity'];
-$block_attributes['class'] .= ' flex';
 
 // Remove 'block' and 'block-cover' in  $block_attributes['class'] because we are using a container inside the block
 $block_attributes['class'] = str_replace(array('block-cover', 'block'), '', $block_attributes['class']);
@@ -77,51 +95,19 @@ if (strpos($block_attributes['align_content'], 'right') !== false) {
   $row_class .= ' justify-center';
 }
 
-// Work out the block width
-$block_width = isset($block_attributes['align']) ? $block_attributes['align'] : '';
-
-if ($block_width == 'wide') {
-  $container_class .= ' is-wide';
-} elseif ($block_width == 'full') {
-  $block_attributes['class'] .= ' is-width-full';
-} elseif ($block_width == 'center') {
-  $block_attributes['class'] .= ' is-width-small';
-} else {
-  $block_attributes['class'] .= ' is-width-normal';
-}
+$block_attributes['class'] .= ' is-width-full';
 ?>
 
 <section class="block block-cover" <?php echo $block_attributes['anchor']; ?>>
-
   <div class="<?php echo $container_class; ?>">
-    <?php if ($block_width === 'full') echo '<div class="vw-100">'; ?>
-    <div class="<?php echo $block_attributes['class']; ?>" data-bg-img="<?php echo wp_get_attachment_image_url($background_image, 'large'); ?>" <?php echo $block_styles; ?>>
-
-      <div class="<?php echo $row_class; ?>">
-        <div class="col md-7 lg-6">
-          <?php if ($fields['title']) { ?>
-            <header class="block-title">
-              <h2 class="<?php echo $text_align; ?>">
-                <?php echo wp_strip_all_tags($fields['title']); ?>
-              </h2>
-            </header>
-          <?php } ?>
-          <div class="cover-text <?php echo $text_align; ?>">
-            <?php echo $fields['text']; ?>
+    <div class="vw-100">
+      <div class="<?php echo $block_attributes['class']; ?>" data-bg-img="<?php echo wp_get_attachment_image_url($background_image, 'large'); ?>" <?php echo $block_styles; ?>>
+        <div class="<?php echo $row_class; ?>">
+          <div class="col md-7 lg-6">
+            <InnerBlocks className="<?php echo $block_attributes['text_align']; ?>" templateLock="all" allowedBlocks="<?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
           </div>
-          <?php
-          if (isset($fields['buttons'])) :
-            if ($text_align == 'text-center') jellypress_display_cta_buttons($fields['buttons'], $overlay_color, 'justify-center');
-            elseif ($text_align == 'text-right') jellypress_display_cta_buttons($fields['buttons'], $overlay_color, 'justify-end');
-            else jellypress_display_cta_buttons($fields['buttons'], $overlay_color);
-          endif;
-          ?>
         </div>
       </div>
     </div>
-  </div>
-
-  <?php if ($block_width === 'full') echo '</div>'; ?>
-
   </div>
 </section>

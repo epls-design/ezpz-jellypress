@@ -3,49 +3,6 @@
     "title": "Block > Cover",
     "fields": [
         {
-            "key": "field_6465280d579d7",
-            "label": "Clone Content and Title",
-            "name": "clone_content_and_title",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "field_646259d55774d",
-                "field_6462598a12f14"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
-            "key": "field_64677a162f267",
-            "label": "Text",
-            "name": "text",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "Add some text to this block. <strong>Max 280 characters.<\/strong>",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "60",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": 280,
-            "rows": 4,
-            "new_lines": "wpautop"
-        },
-        {
             "key": "field_64677a2a2f26a",
             "label": "Background Image",
             "name": "background_image",
@@ -131,29 +88,6 @@
             "step": 1,
             "prepend": "",
             "append": "vh"
-        },
-        {
-            "key": "field_64677a412f26d",
-            "label": "Clone CTA",
-            "name": "clone_cta",
-            "aria-label": "",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "field_646263b78b3bc",
-                "field_646263778b3b8"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
         }
     ],
     "location": [
@@ -174,5 +108,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688316240
+    "modified": 1695224966
 }

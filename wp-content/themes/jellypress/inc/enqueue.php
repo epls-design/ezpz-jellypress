@@ -63,9 +63,9 @@ function jellypress_scripts() {
 
   wp_register_script(
     'aria-accordion',
-    get_template_directory_uri() . '/lib/aria.accordion.min.js',
+    get_template_directory_uri() . '/template-parts/blocks/accordion/aria.accordion.min.js',
     array(),
-    $js_version,
+    filemtime(get_template_directory() . '/template-parts/blocks/accordion/aria.accordion.min.js'),
     true
   );
 
