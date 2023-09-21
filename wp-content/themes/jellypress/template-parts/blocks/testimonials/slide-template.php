@@ -10,8 +10,6 @@
 defined('ABSPATH') || exit;
 
 $testimonial = $args['testimonial'];
-$block_id = $args['block_id'];
-$testimonial_id = $args['testimonial_id'];
 $testimonial_class = $args['testimonial_class'];
 
 $testimonial_link = $testimonial['testimonial_link'];
@@ -20,7 +18,7 @@ $testimonial_citation = $testimonial['testimonial_citation'];
 
 ?>
 
-<div class="<?php echo $testimonial_class; ?>" id="slide-<?php echo $block_id . '-' . $testimonial_id; ?>">
+<div class="<?php echo $testimonial_class; ?>">
   <div class="row justify-center">
     <div class="<?php echo $args['col_class']; ?>">
       <?php if ($testimonial_link) echo '<a class="testimonial-link" href="' . $testimonial_link['url'] . '" title="' . $testimonial_link['title'] . '" target="' . $testimonial_link['target'] . '">'; ?>

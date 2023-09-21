@@ -4,7 +4,7 @@
  * Slider Block Template.
  *
  * @param array $block The block settings and attributes.
- * @param string $content The block inner HTML (empty).
+ * @param string $content The block inner HTML
  * @param bool $is_preview True during backend preview render.
  * @param int $post_id The post ID the block is rendering content against.
  *        This is either the post ID currently being displayed inside a query loop,
@@ -26,6 +26,8 @@ $block_id = str_replace('block_', '', $block['id']);
 $block_attributes = jellypress_get_block_attributes($block);
 $fields = get_fields();
 
+// TODO: Add option for left / right align
+
 if ($display_arrows = $fields['display_arrows']) $display_arrows = 'slider';
 else $display_arrows = 'false';
 
@@ -41,62 +43,52 @@ $show_progress_bar = false; // Progress Bar is an option in php rather than the 
 <section class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
   <div class="container">
 
-    <?php if ($slides = $fields['slides']) :
+    <?php
+    jellypress_acf_placeholder(
+      $fields['slides'][0]['slide_title'],
+      __('Please add slides to this block - click here to get started.', 'jellypress'),
+      $is_preview
+    );
+
+    if ($slides = $fields['slides']) :
+      // Note: Apply class .has-pagination to the splide element to make the dots numbered instead of dots
+      // Note: Apply class .has-inner-arrows to make the arrows stay inside the container
 
       $slider_id = 'slider-' . $block_id;
-
       $number_of_slides = count($slides);
+      $row_class = isset($block_attributes['align_content']) ? 'align-' . $block_attributes['align_content'] : 'align-top';
+      $row_class = str_replace('center', 'middle', $row_class);
 
-      if ($number_of_slides > 1) {
-        // Note: Apply class .has-pagination to the splide element to make the dots numbered instead of dots
-        // Note: Apply class .has-inner-arrows to make the arrows stay inside the container
-        echo '<div class="splide slider" id="' . $slider_id . '">
-          <div class="splide__slider">
-          <div class="splide__track">
-          <div class="splide__list">';
-        $slide_class = 'splide__slide slide';
-      } else {
-        echo '<div class="slider">';
-        $slide_class = 'slide single';
-      }
-
-      $i = 0;
-
-      foreach ($slides as $slide) :
-
-        $slide_params = array(
-          'slide' => $slide,
-          'block_id' => $block_id,
-          'slide_id' => $i,
-          'slide_class' => $slide_class,
-        );
-        get_template_part('template-parts/blocks/slider/slide-template', null, $slide_params);
-
-        $i++;
-      endforeach;
-
-      if ($number_of_slides > 1) echo '</div></div></div>';
-
-      if ($number_of_slides > 1 && $show_progress_bar) : ?>
-        <div class="splide__progress">
-          <div class="splide__progress__bar">
+      add_action(
+        'wp_footer',
+        jellypress_splide_init('#' . $slider_id, 1, 1, 1, 1, $number_of_slides, $display_arrows, $display_pagination, $slider_speed),
+        30
+      );
+    ?>
+      <div class="splide slider" id="<?php echo $slider_id; ?>">
+        <div class="splide__track">
+          <div class="splide__list">
+            <?php
+            foreach ($slides as $slide) :
+              $slide_params = array(
+                'slide' => $slide,
+                'slide_class' => 'splide__slide slide',
+                'text_align' => $block_attributes['text_align'],
+                'row_align' => $row_class,
+              );
+              get_template_part('template-parts/blocks/slider/slide-template', null, $slide_params);
+            endforeach;
+            ?>
           </div>
         </div>
-    <?php endif;
-
-      echo '</div>';
-
-    endif; ?>
+        <?php if ($show_progress_bar) : ?>
+          <div class="splide__progress">
+            <div class="splide__progress__bar">
+            </div>
+          </div>
+        <?php endif; ?>
+      </div>
+    <?php endif; ?>
 
   </div>
 </section>
-
-<?php
-if ($number_of_slides > 1) {
-  add_action(
-    'wp_footer',
-    jellypress_splide_init('#' . $slider_id, 1, 1, 1, 1, $display_arrows, $display_pagination, $slider_speed),
-    30
-  );
-}
-?>

@@ -4,7 +4,7 @@
  * Testimonials Block Template.
  *
  * @param array $block The block settings and attributes.
- * @param string $content The block inner HTML (empty).
+ * @param string $content The block inner HTML
  * @param bool $is_preview True during backend preview render.
  * @param int $post_id The post ID the block is rendering content against.
  *        This is either the post ID currently being displayed inside a query loop,
@@ -23,8 +23,13 @@
 defined('ABSPATH') || exit;
 
 $block_id = str_replace('block_', '', $block['id']);
+
 $block_attributes = jellypress_get_block_attributes($block);
+$allowed_blocks = jellypress_get_allowed_blocks();
+$block_template = jellypress_get_block_template();
+
 $fields = get_fields();
+
 $text_align = $block_attributes['text_align'];
 
 if ($display_arrows = $fields['display_arrows']) {
@@ -47,83 +52,60 @@ $show_progress_bar = false; // Progress Bar is an option in php rather than the 
 <section class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
   <div class="container">
 
-    <?php if ($fields['title']) { ?>
-    <header class="row justify-center block-title">
-      <div class="col md-10 lg-8">
-        <h2 class="<?php echo $text_align; ?>">
-          <?php echo wp_strip_all_tags($fields['title']); ?>
-        </h2>
-      </div>
-    </header>
-    <?php } ?>
+    <?php if ($content || $is_preview) : ?>
+      <header class="row justify-center">
+        <div class="col md-10 lg-8">
+          <InnerBlocks className="<?php echo $text_align; ?>" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
+        </div>
+      </header>
+    <?php endif; ?>
 
-    <?php if ($fields['preamble']) { ?>
-    <div class="row justify-center block-preamble">
-      <div class="col md-10 lg-8 <?php echo $text_align; ?>">
-        <?php echo $fields['preamble']; ?>
-      </div>
-    </div>
-    <?php } ?>
+    <?php
+    jellypress_acf_placeholder(
+      $$fields['testimonials'][0]['testimonial_text'],
+      __('Please add testimonials to this block - click here to get started.', 'jellypress'),
+      $is_preview
+    );
 
-    <?php if ($testimonials = $fields['testimonials']) :
-
-      echo '<div class="row justify-center"><div class="col md-10 lg-8">';
+    if ($testimonials = $fields['testimonials']) :
+      // Note: Apply class .has-pagination to the splide element to make the dots numbered instead of dots
+      // Note: Apply class .has-inner-arrows to make the arrows stay inside the container
 
       $slider_id = 'slider-' . $block_id;
+      $number_of_slides = count($testimonials);
 
-      $number_of_testimonials = count($testimonials);
+      add_action(
+        'wp_footer',
+        jellypress_splide_init('#' . $slider_id, 1, 1, 1, 1, $number_of_slides, $display_arrows, $display_pagination, $slider_speed),
+        30
+      );
+    ?>
 
-      if ($number_of_testimonials > 1) {
-        // Note: Apply class .has-pagination to the splide element to make the dots numbered instead of dots
-        // Note: Apply class .has-inner-arrows to make the arrows stay inside the container
-        echo '<div class="splide slider slider-testimonials" id="' . $slider_id . '">
-          <div class="splide__slider">
-          <div class="splide__track">
-          <div class="splide__list">';
-        $testimonial_class = 'splide__slide slide';
-      } else {
-        echo '<div class="slider slider-testimonials">';
-        $testimonial_class = 'slide single';
-      }
-
-      $i = 0;
-
-      foreach ($testimonials as $testimonial) :
-
-        $testimonial_params = array(
-          'testimonial' => $testimonial,
-          'block_id' => $block_id,
-          'testimonial_id' => $i,
-          'testimonial_class' => $testimonial_class,
-          'col_class' => $testimonial_col_class,
-        );
-        get_template_part('template-parts/blocks/testimonials/slide-template', null, $testimonial_params);
-
-        $i++;
-      endforeach;
-
-      if ($number_of_testimonials > 1) echo '</div></div></div>';
-
-      if ($number_of_testimonials > 1 && $show_progress_bar) : ?>
-    <div class="splide__progress">
-      <div class="splide__progress__bar">
+      <div class="row justify-center">
+        <div class="col md-10 lg-8">
+          <div class="splide slider slider-testimonials" id="<?php echo $slider_id; ?>" aria-label="<?php _e('Testimonials', 'jellypress'); ?>">
+            <div class="splide__track">
+              <div class="splide__list">
+                <?php
+                foreach ($testimonials as $testimonial) :
+                  $testimonial_params = array(
+                    'testimonial' => $testimonial,
+                    'testimonial_class' => 'splide__slide slide',
+                    'col_class' => $testimonial_col_class,
+                  );
+                  get_template_part('template-parts/blocks/testimonials/slide-template', null, $testimonial_params);
+                endforeach;
+                ?>
+              </div>
+            </div>
+            <?php if ($show_progress_bar) : ?>
+              <div class="splide__progress">
+                <div class="splide__progress__bar">
+                </div>
+              </div>
+            <?php endif; ?>
+          </div>
+        <?php endif; ?>
+        </div>
       </div>
-    </div>
-    <?php endif;
-
-      echo '</div></div></div>';
-
-    endif; ?>
-
-  </div>
 </section>
-
-<?php
-if ($number_of_testimonials > 1) {
-  add_action(
-    'wp_footer',
-    jellypress_splide_init('#' . $slider_id, 1, 1, 1, 1, $display_arrows, $display_pagination, $slider_speed),
-    30
-  );
-}
-?>
