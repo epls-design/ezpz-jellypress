@@ -17,6 +17,7 @@
   ],
   "version": "1.0.0",
   "textdomain": "jellypress",
+  "script": ["video-embed"],
   "parent": ["ezpz/content", "ezpz/video"],
   "supports": {
     "align": false,

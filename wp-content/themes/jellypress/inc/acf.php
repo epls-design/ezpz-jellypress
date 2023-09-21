@@ -37,8 +37,13 @@ function jellypress_acf_json_save_point($path) {
  */
 add_filter('acf/fields/wysiwyg/toolbars', 'jellypress_restrict_acf_tinymce_opts');
 function jellypress_restrict_acf_tinymce_opts($toolbars) {
+
+  $toolbars['Basic'] = array(
+    1 => array('bold', 'italic', 'link', 'unlink', 'bullist', 'numlist'),
+  );
+
   $toolbars['Full'] = array(
-    1 => array('formatselect', 'bold', 'italic', 'blockquote', 'bullist', 'numlist', 'link', 'unlink', 'spellchecker', 'wp_adv'),
+    1 => array('formatselect', 'bold', 'italic', 'bullist', 'numlist', 'link', 'unlink', 'spellchecker', 'wp_adv'),
     2 => array('styleselect', 'pastetext', 'removeformat', 'charmap', 'alignleft', 'aligncenter', 'alignright', 'undo', 'redo')
   );
   return $toolbars;

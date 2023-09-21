@@ -102,7 +102,6 @@ function jellypress_tinymce_cleanup($in) {
 }
 
 /**
- * TODO: Check this works
  * Applies a filter to the_content and the_excerpt to automatically add rel="external" to outbound links
  * @link https://crunchify.com/how-to-add-relsponsored-or-relnofollow-to-all-external-links-in-wordpress/
  *

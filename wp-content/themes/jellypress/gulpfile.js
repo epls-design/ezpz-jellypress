@@ -10,7 +10,7 @@ const env = require("./env.json");
 const browsersync = require("browser-sync").create();
 const fs = require("fs");
 const path = require("path");
-const glob = require("glob");
+const { glob } = require("glob");
 const del = require("del");
 
 var eslint = require("gulp-eslint");
@@ -240,22 +240,23 @@ function moveBlockJson(done) {
     // Get the absolute path to the acf json file
     // Get relative path to the acf json file
     file = opts.src_dir + "/acf-json/" + stream;
+    if (stream != ".DS_Store") {
+      // Convert the file into a json object
+      var jsonContent = JSON.parse(fs.readFileSync(file));
 
-    // Convert the file into a json object
-    var jsonContent = JSON.parse(fs.readFileSync(file));
-
-    // If jsonContent.title contains 'Blocks > ' then we know it's a block
-    let acfTitle = jsonContent.title;
-    if (acfTitle.includes("Block > ")) {
-      let blockName = acfTitle.split("Block > ")[1];
-      // Remove 'and' from the block name
-      blockName = blockName.replace("and", "");
-      // Replace whitespace with hyphens and make lowercase
-      blockName = blockName.replace(/\s+/g, "-").toLowerCase();
-      // Check if the block folder exists
-      if (fs.existsSync(blocksFolder + "/" + blockName)) {
-        // Move the file to the block folder
-        fs.renameSync(file, blocksFolder + "/" + blockName + "/" + stream);
+      // If jsonContent.title contains 'Blocks > ' then we know it's a block
+      let acfTitle = jsonContent.title;
+      if (acfTitle.includes("Block > ")) {
+        let blockName = acfTitle.split("Block > ")[1];
+        // Remove 'and' from the block name
+        blockName = blockName.replace("and", "");
+        // Replace whitespace with hyphens and make lowercase
+        blockName = blockName.replace(/\s+/g, "-").toLowerCase();
+        // Check if the block folder exists
+        if (fs.existsSync(blocksFolder + "/" + blockName)) {
+          // Move the file to the block folder
+          fs.renameSync(file, blocksFolder + "/" + blockName + "/" + stream);
+        }
       }
     }
     done();

@@ -7,7 +7,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: EPLS Design <theteam@epls.design>\n"
 "Last-Translator: EPLS Design <theteam@epls.design>\n"
-"POT-Creation-Date: 2023-09-21 07:45+0000\n"
+"POT-Creation-Date: 2023-09-21 08:30+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -60,11 +60,11 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: inc/helpers.php:213
+#: inc/helpers.php:250
 msgid "Visit us on "
 msgstr ""
 
-#: inc/helpers.php:316
+#: inc/helpers.php:363
 msgid "Play Video"
 msgstr ""
 
@@ -112,26 +112,6 @@ msgstr ""
 
 #: inc/template-tags.php:290
 msgid "Last Page"
-msgstr ""
-
-#: inc/theme-setup.php:77
-msgid "Primary"
-msgstr ""
-
-#: inc/theme-setup.php:93, inc/theme-setup.php:94
-msgid "Theme Options"
-msgstr ""
-
-#: inc/theme-setup.php:101
-msgid "Successfully updated Theme options"
-msgstr ""
-
-#: inc/theme-setup.php:112
-msgid "Sidebar"
-msgstr ""
-
-#: inc/theme-setup.php:114
-msgid "Add your widgets here."
 msgstr ""
 
 #: inc/woocommerce.php:153

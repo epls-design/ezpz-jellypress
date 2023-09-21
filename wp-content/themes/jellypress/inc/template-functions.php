@@ -184,3 +184,46 @@ function jellypress_replace_menu_hash($menu_item) {
   }
   return $menu_item;
 }
+
+
+/**
+ * Hook into pre render block to get the attributes
+ * from the parent block and pass them to the child
+ * Currently, this only passes through to ezpz/buttons and ezpz/content
+ * as these are the only required ones for this theme.
+ * Note: this can probably be made a little more DRY later
+ * @link https://developer.wordpress.org/reference/hooks/render_block_data/
+ * @since 5.9.0
+ */
+
+add_filter('render_block_data', 'jellypress_inherit_block_attrs', 10, 3);
+function jellypress_inherit_block_attrs($parsed_block, $source_block, $parent_block) {
+
+  if ($source_block['blockName'] === 'ezpz/buttons') {
+
+    // Bail if no parent block - it should always have one but this is a safety net
+    if (!isset($parent_block->parsed_block))
+      return $parsed_block;
+
+    $parsed_parent = $parent_block->parsed_block;
+    if (isset($parsed_parent['attrs'])) {
+
+      // Merge parent attributes with child attributes
+      $parsed_block['attrs'] = array_merge($parsed_block['attrs'], $parsed_parent['attrs']);
+    }
+  } elseif ($source_block['blockName'] === 'ezpz/content') {
+
+    // Bail if no parent block - it should always have one but this is a safety net
+    if (!isset($parent_block->parsed_block))
+      return $parsed_block;
+
+    $parsed_parent = $parent_block->parsed_block;
+
+    if (isset($parsed_parent['attrs'])) {
+      // Set these attributes to the child block
+      $parsed_block['attrs']['parent'] = $parsed_parent['attrs'];
+    }
+  }
+
+  return $parsed_block;
+}

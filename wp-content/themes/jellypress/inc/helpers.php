@@ -24,12 +24,27 @@ function jellypress_get_block_attributes($block) {
 
   // Add background colour class if set
   // Example of how to override the background colour for a specific block
-  if (strpos($block_type, 'page-hero') !== false || strpos($block_type, 'post-hero') !== false) {
-    $block_classes .= ' bg-primary-500';
+
+  $excluded_blocks = [
+    'ezpz/page-hero',
+    'ezpz/post-hero',
+  ];
+  if (in_array($block_type, $excluded_blocks)) {
+    echo 'DO NOTHING';
+    // Do nothing as it's set in the view.php
   } elseif (isset($block['backgroundColor'])) {
     $block_classes .= ' bg-' . $block['backgroundColor'];
   } else {
     $block_classes .= ' bg-white';
+  }
+
+  $bg_color = isset($block['backgroundColor']) ? $block['backgroundColor'] : 'white';
+
+  /**
+   * We are in a child block, so lets set the bg_color to the parent block's bg color
+   */
+  if (isset($block['parent'])) {
+    isset($block['parent']['backgroundColor']) ? $bg_color = $block['parent']['backgroundColor'] : $bg_color;
   }
 
   // Remove 'is-style- ' from the block classes
@@ -39,7 +54,7 @@ function jellypress_get_block_attributes($block) {
     'anchor' => isset($block['anchor']) ? "id='" . esc_attr($block['anchor']) . "'" : '',
     'class' => $block_classes,
     'block_id' => $block['id'],
-    'bg_color' => isset($block['backgroundColor']) ? $block['backgroundColor'] : 'white',
+    'bg_color' => $bg_color,
     'text_align' => isset($block['alignText']) ? 'text-' . $block['alignText'] : 'text-left',
   );
 
@@ -83,16 +98,36 @@ function jellypress_trimpara($text, $maxchar, $end = '...') {
 /**
  * Display an SVG icon from the spritesheet
  */
-function jellypress_icon($icon) {
+function jellypress_icon($icon, $class = '') {
   // Define SVG sprite file.
   $icon_path = get_theme_file_path('/dist/icons/' . $icon . '.svg');
   // If it exists, include it.
   if (file_exists($icon_path)) {
-    $use_link = get_template_directory_uri() . '/dist/icons/icons.svg#icon-' . $icon;
-    return '<svg class="icon icon__' . $icon . '"><use xlink:href="' . $use_link . '" /></use></svg>';
+    $use_link = get_template_directory_uri() . '/dist/icons/icons.svg?v=' . filemtime($icon_path) . '#icon-' . $icon;
+    // Append filemtime to link to prevent caching in development.
+    $classes = [
+      'icon',
+      'icon-' . $icon,
+    ];
+    if ($class) {
+      $classes[] = $class;
+    }
+    return '<svg class="' . implode(" ", $classes) . '"><use xlink:href="' . $use_link . '" /></use></svg>';
   } else {
     return '';
   }
+}
+
+/**
+ * Determine if a link is external
+ *
+ * @param string $url URL to check
+ * @return bool True if the URL is external
+ */
+function is_link_external($url) {
+  $url_host = parse_url($url, PHP_URL_HOST);
+  $site_host = parse_url(get_site_url(), PHP_URL_HOST);
+  return ($url_host && $url_host !== $site_host);
 }
 
 /**
@@ -121,7 +156,8 @@ function jellypress_display_cta_buttons($buttons, $bg_color, $classes = null) {
       $button_link = $button['button_link'];
       $button_style = $button['button_style'];
 
-      $button_classes .= ' ' . $button_color;
+      if ($button_color != null)
+        $button_classes .= ' ' . $button_color;
 
       if ($button_style != 'filled') {
         // 'filled' is the default state so we don't need a class for this
@@ -129,12 +165,12 @@ function jellypress_display_cta_buttons($buttons, $bg_color, $classes = null) {
       };
 
       // Check if the URL is external, if so add a rel="external"
-      $button_url = parse_url($button_link['url']);
-      $blog_url = parse_url(get_bloginfo('url'));
-      if ($button_url['host'] == $blog_url['host']) {
+      $is_external = is_link_external($button_link['url']);
+      if (!$is_external) {
         echo '<a class="' . $button_classes . '" href="' . $button_link['url'] . '" title="' . $button_link['title'] . '" target="' . $button_link['target'] . '">' . $button_link['title'] . '</a>';
       } else {
-        // Outbound link - add rel=external
+        // Outbound link - add rel=external and force target=_blank
+        $button_link['target'] = '_blank';
         echo '<a class="' . $button_classes . '" href="' . $button_link['url'] . '" title="' . $button_link['title'] . '" target="' . $button_link['target'] . '" rel="external">' . $button_link['title'] . '</a>';
       }
     endforeach;
@@ -269,14 +305,18 @@ function jellypress_embed_video($video, $aspect_ratio = '16x9', $autoplay = fals
 
     if ($platform === 'vimeo') {
 
-      if (preg_match('%^https?:\/\/(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)(?:[?]?.*)$%im', $oembed_url, $match)) {
-        // Strip out the video ID
-        $video_id = $match[3];
-      }
+      if (!$video_thumbnail_lq) {
 
-      $vimeo_data = unserialize(file_get_contents("http://vimeo.com/api/v2/video/$video_id.php")); // Use Vimeo API to get video information
-      $video_thumbnail_lq = $vimeo_data[0]['thumbnail_medium']; // Get a mid res thumbnail
-      $video_thumbnail_hq = $vimeo_data[0]['thumbnail_large']; // Get a high res thumbnail
+        if (preg_match('%^https?:\/\/(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)(?:[?]?.*)$%im', $oembed_url, $match)) {
+          // Strip out the video ID
+          $video_id = $match[3];
+        }
+
+        $vimeo_data = unserialize(file_get_contents("http://vimeo.com/api/v2/video/$video_id.php")); // Use Vimeo API to get video information
+        $video_thumbnail_lq = $vimeo_data[0]['thumbnail_medium']; // Get a mid res thumbnail
+        $video_thumbnail_hq = $vimeo_data[0]['thumbnail_large']; // Get a high res thumbnail
+
+      }
 
       // Vimeo params
       $params = array(
@@ -289,12 +329,18 @@ function jellypress_embed_video($video, $aspect_ratio = '16x9', $autoplay = fals
       $oembed_url = add_query_arg($params, $oembed_url);
       wp_enqueue_script('vimeo-api');
     } elseif ($platform === 'youtube') {
-      if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/\s]{11})%i', $oembed_url, $match)) {
-        // Strip out the video ID
-        $video_id = $match[1];
+
+      if (!$video_thumbnail_lq) {
+
+        if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/\s]{11})%i', $oembed_url, $match)) {
+          // Strip out the video ID
+          $video_id = $match[1];
+        }
+        $video_thumbnail_lq = 'https://i.ytimg.com/vi/' . $video_id . '/mqdefault.jpg'; // Get a mid res thumbnail
+        $video_thumbnail_hq = 'https://i.ytimg.com/vi/' . $video_id . '/maxresdefault.jpg'; // Get a high res thumbnail
+
       }
-      $video_thumbnail_lq = 'https://i.ytimg.com/vi/' . $video_id . '/mqdefault.jpg'; // Get a mid res thumbnail
-      $video_thumbnail_hq = 'https://i.ytimg.com/vi/' . $video_id . '/maxresdefault.jpg'; // Get a high res thumbnail
+
       // YouTube params
       $params = array(
         'rel'            => 0,

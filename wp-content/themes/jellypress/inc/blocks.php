@@ -158,7 +158,8 @@ add_action('enqueue_block_editor_assets', function () {
   wp_enqueue_script(
     'jellypress-gutenberg-overrides',
     get_template_directory_uri() . '/lib/gutenberg-overrides.js',
-    array('wp-blocks', 'wp-dom-ready', 'wp-edit-post'),
+    array('react', 'react-dom', 'wp-data', 'wp-blocks', 'wp-dom-ready', 'wp-edit-post', 'wp-hooks'),
+    filemtime(get_template_directory() . '/lib/gutenberg-overrides.js'),
   );
 });
 
