@@ -57,7 +57,7 @@ a.acf-button.button-primary,
 }
 
 // Fix for cover block background image
-.acf-block-preview.alignfull .block-cover {
+.block-cover {
   .container {
     width: 100% !important;
     max-width: 100% !important;
@@ -109,20 +109,19 @@ a.acf-button.button-primary,
 }
 
 // And the same for sliders...
-.acf-block-preview .splide__slider {
-  .splide__track::before {
-    visibility: visible;
-    content: "Your slider will display correctly on the front end. Please preview the page to see it.";
-    display: block;
-    position: relative;
-    padding: 1rem;
-    background-color: #f4f4f4;
-    color: #999;
-    margin-bottom: $element-margin;
-  }
-  .slide {
-    visibility: visible;
-  }
+// TODO: Be nice if this worked a bit better
+.acf-block-preview .splide__slider::before {
+  visibility: visible;
+  content: "Your slider will display correctly on the front end. Please preview the page to see it.";
+  display: block;
+  position: relative;
+  padding: 1rem;
+  background-color: #f4f4f4;
+  color: #999;
+  margin-bottom: $element-margin;
+}
+.acf-block-preview .slide {
+  visibility: visible;
 }
 
 // --------------------------------------------------------------------------

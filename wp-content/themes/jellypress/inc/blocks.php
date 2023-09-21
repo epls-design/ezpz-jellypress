@@ -178,6 +178,7 @@ function jellypress_get_allowed_blocks($blocks = null) {
 
 /**
  * Returns the standard block template
+ * TODO: How to lock the inner template of this so that eg. on the image block cant add more than heading and para
  */
 function jellypress_get_block_template($template = null) {
   if (!$template) {

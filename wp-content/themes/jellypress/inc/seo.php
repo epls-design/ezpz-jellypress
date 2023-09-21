@@ -36,7 +36,9 @@ add_filter('rank_math/metabox/priority', function ($priority) {
 
 /**
  * Create Meta Description from jellypress_generate_excerpt(), if the description is missing in the Post metabox
+ * FIXME: Commented out because it was causing the wp_footer hooks to run twice
  */
+/*
 add_action('rank_math/frontend/description', function ($description) {
   global $post;
   $desc = RankMath\Post::get_meta('description', $post->ID);
@@ -51,7 +53,7 @@ add_action('rank_math/frontend/description', function ($description) {
 
   return $description;
 });
-
+*/
 /**
  * Disable Gutenberg Sidebar Integration for Rank Math Options
  */

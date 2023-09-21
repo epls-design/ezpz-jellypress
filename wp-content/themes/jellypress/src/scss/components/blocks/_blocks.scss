@@ -1,74 +1,58 @@
 .block {
   @each $point, $size in $block-padding {
-    @if $point == 'root' {
+    @if $point == "root" {
       padding-top: $size;
-      padding-bottom: $size - $element-margin; // Negates for the last element in a block, rather than using :last-of-type
-    }
-    @else {
+      // Negates for the last element in a block, rather than using :last-of-type
+      padding-bottom: $size - $element-margin;
+    } @else {
       @include above($point) {
         padding-top: $size;
-        padding-bottom: $size - $element-margin; // Negates for the last element in a block, rather than using :last-of-type
+        // Negates for the last element in a block, rather than using :last-of-type
+        padding-bottom: $size - $element-margin;
       }
     }
   }
   position: relative;
 }
 
-.block-preamble {
-  margin-bottom: $block-title-bottom-margin;
-  .col *:last-child {
-    margin-bottom: 0;
-  }
-}
 .block.is-full-width {
-  // Fixes issues of letterboxing
+  // TODO: Fixes issues of letterboxing - might be better to do this differently
   padding-top: 0;
   padding-bottom: 0;
-  img, .embed-container, .google-map {
+  img,
+  .embed-container,
+  .google-map {
     margin-bottom: 0;
   }
-
-  // Some full width blocks have headers or preambles - reinstate the top padding on these to open them back up and prevent crashing
-  .block-title, .block-preamble {
+  // Some full width blocks have innerblocks - reinstate the top padding on these to open them back up and prevent crashing
+  .inner-content {
     @each $point, $size in $block-padding {
-      @if $point == 'root' {
+      @if $point == "root" {
         padding-top: $size;
-      }
-      @else {
+      } @else {
         @include above($point) {
           padding-top: $size;
         }
       }
     }
   }
-  .block-title+.block-preamble {
-    // If there is a header we don't want the top margin
-    padding-top: 0 !important;
-  }
 }
 
 // If two blocks follow with the same bg color, remove the top padding so that there is not a chasm of space
 @each $name, $color in $background-colors {
   .block.bg-#{$name} {
-    &:not(.is-full-width) { // Parent container not also full width
-      &+& {
-        padding-top: 0;  // Remove padding top if it follows a block with the same bg color
+    &:not(.is-full-width) {
+      // Parent container not also full width
+      & + & {
+        padding-top: 0; // Remove padding top if it follows a block with the same bg color
       }
     }
-    // If it's a full width block, normally these have the padding added to the block-title and block-preamble. Let's reset this.
-    &:not(.is-full-width)+&.is-full-width {
-      .block-title, .block-preamble {
+    &:not(.is-full-width) + &.is-full-width {
+      .inner-content {
         padding-top: 0;
       }
     }
   }
-}
-
-.block-title {
-  h2 {
-    margin-bottom: 0;
-  }
-  margin-bottom: $block-title-bottom-margin;
 }
 
 .block .button-list {

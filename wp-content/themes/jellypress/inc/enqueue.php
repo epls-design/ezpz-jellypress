@@ -78,6 +78,14 @@ function jellypress_scripts() {
   );
 
   wp_register_script(
+    'number-counter',
+    get_template_directory_uri() . '/template-parts/blocks/number-counter/counter.js',
+    array('jquery'),
+    filemtime(get_template_directory() . '/template-parts/blocks/number-counter/counter.js'),
+    true
+  );
+
+  wp_register_script(
     'magnific-popup',
     get_template_directory_uri() . '/lib/magnific-popup.min.js',
     array('jquery'),

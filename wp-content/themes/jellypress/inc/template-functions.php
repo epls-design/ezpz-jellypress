@@ -118,6 +118,18 @@ function jellypress_excerpt_from_acf_blocks() {
   return $parsed_content;
 }
 
+// https://stackoverflow.com/questions/965235/how-can-i-truncate-a-string-to-the-first-20-words-in-php
+function jellypress_truncate_string($str, $chars, $to_space, $replacement = "...") {
+  if ($chars > strlen($str)) return $str;
+
+  $str = substr($str, 0, $chars);
+  $space_pos = strrpos($str, " ");
+  if ($to_space && $space_pos >= 0)
+    $str = substr($str, 0, strrpos($str, " "));
+
+  return ($str . $replacement);
+}
+
 /**
  * A function which can be used to generate an excerpt whilst in the loop
  * Use $possible_excerpts to determine the order in which excerpts are found.
@@ -127,28 +139,34 @@ function jellypress_excerpt_from_acf_blocks() {
  * @return string Sanitized and processed excerpt
  */
 function jellypress_generate_excerpt($trim = null, $ellipses = false) {
-  $possible_excerpts = array(
-    //get_field('excerpt'), // Example use with a custom field
-    get_the_excerpt(), // User defined excerpt - will fallback to the_content() gracefully
-    'the_content', // Loop through ACF Flexible content to look for a WYSIWIG field
-    //get_bloginfo( 'description', 'display' ), // Website description
-  );
-  foreach ($possible_excerpts as $possible_excerpt) {
-    if ($possible_excerpt === 'the_content') {
-      $post_excerpt = jellypress_excerpt_from_acf_blocks();
-    } else {
-      $post_excerpt = $possible_excerpt;
-    }
-    if ($post_excerpt) break; // Something found, end foreach
-  }
-  $post_excerpt = wp_strip_all_tags($post_excerpt); // Strip all HTML
-  $post_excerpt = mb_substr($post_excerpt, 0, $trim, 'UTF-8'); // trim to $trim chars
 
-  if ($post_excerpt && !preg_match('/[\p{P}]$/u', $post_excerpt) && $ellipses) {
-    // Set an ellipses or string to the end, if the $post_excerpt does not end in a punctuation mark.
-    if (is_string($ellipses)) $ellipses = sanitize_text_field($ellipses); // Pass a string eg '[...]'
-    else $ellipses = '&#8230;'; // Fallback to an ellipses
-    $post_excerpt = $post_excerpt . $ellipses;
+  if (has_excerpt()) {
+    $post_excerpt = get_the_excerpt();
+  } else {
+    $content = get_the_content();
+    $content = apply_filters('the_content', $content);
+
+    // Remove any classes from teh content
+    $content = preg_replace('/ class=".*?"/', '', $content);
+
+    // Remove any tags from content except <p> and <br>
+    $content = strip_tags($content, '<p><br>');
+
+    $post_excerpt = $content;
+  }
+
+  $post_excerpt = jellypress_truncate_string($post_excerpt, $trim, true);
+
+  // Remove any white space at the start of the excerpt
+  $post_excerpt = ltrim($post_excerpt);
+
+  // If the $post_excerpt doesnt start with a <p> tag, add one
+  if (substr($post_excerpt, 0, 3) !== '<p>') {
+    $post_excerpt = '<p>' . $post_excerpt;
+  }
+  // // If it doesnt end with a </p> tag, add one
+  if (substr($post_excerpt, -4) !== '</p>') {
+    $post_excerpt = $post_excerpt . '</p>';
   }
   return $post_excerpt;
 }

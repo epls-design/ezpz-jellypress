@@ -7,7 +7,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: EPLS Design <theteam@epls.design>\n"
 "Last-Translator: EPLS Design <theteam@epls.design>\n"
-"POT-Creation-Date: 2023-07-02 16:49+0000\n"
+"POT-Creation-Date: 2023-09-21 07:45+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: archive.php:58, template-parts/blocks/post-archive/view.php:90
+#: archive.php:58, template-parts/blocks/post-archive/view.php:83
 msgid "Load More..."
 msgstr ""
 
@@ -186,27 +186,79 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: template-parts/blocks/countdown/view.php:75
+#: template-parts/blocks/accordion/view.php:32
+msgid "Please add accordion items to this block - click here to get started."
+msgstr ""
+
+#: template-parts/blocks/buttons/view.php:37
+msgid "Please add some buttons to this block - click here to get started."
+msgstr ""
+
+#: template-parts/blocks/countdown/view.php:58
 msgid "Days"
 msgstr ""
 
-#: template-parts/blocks/countdown/view.php:79
+#: template-parts/blocks/countdown/view.php:62
 msgid "Hours"
 msgstr ""
 
-#: template-parts/blocks/countdown/view.php:83
+#: template-parts/blocks/countdown/view.php:66
 msgid "Minutes"
 msgstr ""
 
-#: template-parts/blocks/countdown/view.php:87
+#: template-parts/blocks/countdown/view.php:70
 msgid "Seconds"
 msgstr ""
 
-#: template-parts/blocks/linked-posts/view.php:109, template-parts/blocks/post-archive/view.php:93
+#: template-parts/blocks/html/view.php:29
+msgid "Please add your html to this block - click here to get started."
+msgstr ""
+
+#: template-parts/blocks/html/view.php:35
+msgid "Your HTML will only render on the front end"
+msgstr ""
+
+#: template-parts/blocks/iframe/view.php:60
+msgid "Please add a website URL to this block - click here to get started."
+msgstr ""
+
+#: template-parts/blocks/image/view.php:62
+msgid "Please add an image to this block - click here to get started."
+msgstr ""
+
+#: template-parts/blocks/image-gallery/view.php:59
+msgid "Please add some images to this block - click here to get started."
+msgstr ""
+
+#: template-parts/blocks/linked-posts/view.php:104, template-parts/blocks/post-archive/view.php:86
 msgid "No posts matched your criteria."
 msgstr ""
 
 #. translators: %s link to theme options page.
-#: template-parts/blocks/map/view.php:75
+#: template-parts/blocks/map/view.php:65
 msgid "You need to <a href=\"%s\" class=\"callout-link\">add a Google Maps API key</a> in order to display a map on your website."
+msgstr ""
+
+#: template-parts/blocks/number-counter/view.php:67
+msgid "Please add statistics to this block - click here to get started."
+msgstr ""
+
+#: template-parts/blocks/slider/view.php:49
+msgid "Please add slides to this block - click here to get started."
+msgstr ""
+
+#: template-parts/blocks/testimonials/view.php:66
+msgid "Please add testimonials to this block - click here to get started."
+msgstr ""
+
+#: template-parts/blocks/testimonials/view.php:86
+msgid "Testimonials"
+msgstr ""
+
+#: template-parts/blocks/text-media/view.php:60
+msgid "Please click here to add a media item to this block."
+msgstr ""
+
+#: template-parts/blocks/video-embed/view.php:30
+msgid "Please add a video to this block - click here to get started."
 msgstr ""

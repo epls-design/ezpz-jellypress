@@ -50,3 +50,18 @@
 .block.hide-below-sm::before {
   content: "Hidden below mobile";
 }
+.is-root-container {
+  font-size: 16px;
+}
+
+.prevent-clicks a {
+  pointer-events: none;
+  cursor: default;
+}
+
+.acf-placeholder {
+  cursor: pointer;
+  padding: get-size(0.25);
+  color: red;
+  font-weight: $weight-bold;
+}

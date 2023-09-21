@@ -10,6 +10,8 @@
       "custom": false,
       "defaultGradients": false,
       "defaultPalette": false,
+      "duotone": [],
+      "customDuotone": false,
       "palette": [
         {
           "slug": "primary-500",
@@ -25,12 +27,34 @@
     },
     "typography": {
       "customFontSize": false,
-      "lineHeight": false
+      "lineHeight": false,
+      "fontSizes": [
+        {
+          "slug": "small",
+          "size": "0.875rem",
+          "name": "Small"
+        },
+        {
+          "slug": "medium",
+          "size": "1.25rem",
+          "name": "Medium"
+        },
+        {
+          "slug": "large",
+          "size": "1.5rem",
+          "name": "Large"
+        }
+      ]
     },
     "blocks": {
       "core/paragraph": {
         "color": {
-          "text": false
+          "background": false,
+          "gradients": [],
+          "palette": [],
+          "text": true,
+          "custom": false,
+          "customGradient": false
         },
         "typography": {
           "customFontSize": false,
@@ -41,7 +65,6 @@
           "letterSpacing": false,
           "textDecoration": false,
           "textTransform": false,
-          "fontSizes": [],
           "fontFamilies": []
         }
       },
@@ -59,6 +82,121 @@
               "name": "White"
             }
           ]
+        }
+      },
+      "core/list": {
+        "color": {
+          "background": false,
+          "gradients": [],
+          "palette": [],
+          "text": false,
+          "custom": false,
+          "customGradient": false
+        },
+        "typography": {
+          "customFontSize": false,
+          "lineHeight": false,
+          "dropCap": false,
+          "fontStyle": false,
+          "fontWeight": false,
+          "letterSpacing": false,
+          "textDecoration": false,
+          "textTransform": false,
+          "fontSizes": [],
+          "fontFamilies": []
+        }
+      },
+      "core/list-item": {
+        "typography": {
+          "customFontSize": false,
+          "lineHeight": false,
+          "dropCap": false,
+          "fontStyle": false,
+          "fontWeight": false,
+          "letterSpacing": false,
+          "textDecoration": false,
+          "textTransform": false,
+          "fontSizes": [],
+          "fontFamilies": []
+        }
+      },
+      "core/heading": {
+        "align": false,
+        "color": {
+          "background": false,
+          "gradients": [],
+          "palette": [],
+          "text": false,
+          "custom": false,
+          "customGradient": false
+        },
+        "typography": {
+          "customFontSize": false,
+          "lineHeight": false,
+          "dropCap": false,
+          "fontStyle": false,
+          "fontWeight": false,
+          "letterSpacing": false,
+          "textDecoration": false,
+          "textTransform": false,
+          "fontSizes": [],
+          "fontFamilies": []
+        }
+      },
+      "core/pullquote": {
+        "color": {
+          "background": false,
+          "gradients": [],
+          "palette": [],
+          "text": false,
+          "custom": false,
+          "customGradient": false
+        },
+        "typography": {
+          "customFontSize": false,
+          "lineHeight": false,
+          "dropCap": false,
+          "fontStyle": false,
+          "fontWeight": false,
+          "letterSpacing": false,
+          "textDecoration": false,
+          "textTransform": false,
+          "fontSizes": [],
+          "fontFamilies": []
+        },
+        "border": {
+          "color": false,
+          "radius": false,
+          "style": false,
+          "width": false
+        }
+      },
+      "core/quote": {
+        "color": {
+          "background": false,
+          "gradients": [],
+          "palette": [],
+          "text": false,
+          "custom": false,
+          "customGradient": false
+        },
+        "typography": {
+          "customFontSize": false,
+          "lineHeight": false,
+          "dropCap": false,
+          "fontStyle": false,
+          "fontWeight": false,
+          "letterSpacing": false,
+          "textDecoration": false,
+          "textTransform": false,
+          "fontSizes": [],
+          "fontFamilies": []
+        },
+        "border": {
+          "color": false,
+          "radius": false,
+          "style": false,
+          "width": false
         }
       }
     }
