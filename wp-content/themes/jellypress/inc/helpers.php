@@ -30,7 +30,6 @@ function jellypress_get_block_attributes($block) {
     'ezpz/post-hero',
   ];
   if (in_array($block_type, $excluded_blocks)) {
-    echo 'DO NOTHING';
     // Do nothing as it's set in the view.php
   } elseif (isset($block['backgroundColor'])) {
     $block_classes .= ' bg-' . $block['backgroundColor'];
@@ -44,7 +43,12 @@ function jellypress_get_block_attributes($block) {
    * We are in a child block, so lets set the bg_color to the parent block's bg color
    */
   if (isset($block['parent'])) {
-    isset($block['parent']['backgroundColor']) ? $bg_color = $block['parent']['backgroundColor'] : $bg_color;
+
+    if ($block['parent']['name'] == 'ezpz/cover') {
+      $bg_color = 'primary-500';
+    } else {
+      isset($block['parent']['backgroundColor']) ? $bg_color = $block['parent']['backgroundColor'] : $bg_color;
+    }
   }
 
   // Remove 'is-style- ' from the block classes

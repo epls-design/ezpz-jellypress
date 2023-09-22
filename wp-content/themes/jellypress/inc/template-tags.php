@@ -127,21 +127,21 @@ function jellypress_post_thumbnail($size = 'medium', $classes = null) {
   if (is_singular()) :
 ?>
 
-<figure class="post-thumbnail">
-  <?php
+    <figure class="post-thumbnail">
+      <?php
       if ($classes) the_post_thumbnail($size, ['class' => $classes]);
       else the_post_thumbnail($size)
       ?>
-</figure>
+    </figure>
 
-<?php else : ?>
+  <?php else : ?>
 
-<a class="post-thumbnail" href="<?php the_permalink(); ?>" tabindex="-1">
-  <?php
+    <a class="post-thumbnail" href="<?php the_permalink(); ?>" tabindex="-1">
+      <?php
       if ($classes) the_post_thumbnail($size, ['class' => $classes, 'alt' => the_title_attribute()]);
       else the_post_thumbnail($size, ['alt' => the_title_attribute()]);
       ?>
-</a>
+    </a>
 
 <?php
   endif; // End is_singular().
@@ -161,7 +161,7 @@ function jellypress_copyright() {
     FROM
     $wpdb->posts
     WHERE
-    post_status = 'publish'
+    post_status = 'publish' AND post_type = 'page'
     ");
   $output = '';
   if ($copyright_dates) {

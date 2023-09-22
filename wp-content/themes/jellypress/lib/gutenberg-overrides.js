@@ -20,8 +20,8 @@ function filterBlockParents(settings, name) {
     "core/list",
     "core/shortcode",
     "core/table",
+    "gravityforms/form",
   ];
-  // TODO: Allow gravity form embed
 
   // Bail if not in array of child blocks
   if (!childBlocks.includes(name)) return settings;

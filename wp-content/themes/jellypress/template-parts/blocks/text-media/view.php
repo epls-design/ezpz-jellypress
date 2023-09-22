@@ -31,9 +31,12 @@ $text_align = $block_attributes['text_align'];
 
 $row_class = isset($block_attributes['align_content']) ? 'align-' . $block_attributes['align_content'] : 'align-top';
 $row_class = str_replace('center', 'middle', $row_class);
-$media_class = 'col sm-12 md-6 column-media';
-$text_class = 'col sm-12 md-5 column-text ' . $text_align;
+
 $media_align = $fields['media_position'] ? $fields['media_position'] : 'left';
+
+$media_class = 'col sm-12 md-6 column-media';
+$text_class = 'col  column-text ' . $text_align . ' ';
+
 if ($media_align == 'left') {
   $text_class .= ' order-md-2';
   $media_class .= ' order-md-1';
@@ -86,5 +89,4 @@ if ($media_align == 'left') {
     </div>
   </div>
 
-  </div>
 </section>

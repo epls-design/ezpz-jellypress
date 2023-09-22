@@ -38,6 +38,8 @@ export default function Edit() {
 		"ezpz/video-embed",
 		"ezpz/buttons",
 		"ezpz/accordion",
+		"ezpz/image-zoom",
+		"gravityforms/form",
 	];
 	const TEMPLATE = [
 		[

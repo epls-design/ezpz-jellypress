@@ -1,6 +1,7 @@
 .lightbox-image {
   $size: 2rem;
   $padding: $size * 0.15;
+  position: relative;
   a {
     display: block;
     &::before,

@@ -50,7 +50,7 @@ $block_id = 'gallery-' . str_replace('block_', '', $block_attributes['block_id']
     </div>
   <?php endif; ?>
 
-  <div class="gallery" id="<? echo $block_id; ?>">
+  <div class="gallery" id="<?php echo $block_id; ?>">
     <div class="<?php echo $container_class; ?>">
       <?php if ($block_width === 'full') echo '<div class="vw-100">'; ?>
       <?php

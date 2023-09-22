@@ -39,13 +39,13 @@ elseif ($block_width == 'full') $block_attributes['class'] .= ' is-full-width';
 <section class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
 
   <?php if ($content || $is_preview) : ?>
-  <div class="container">
-    <header class="row justify-center">
-      <div class="col md-10 lg-8">
-        <InnerBlocks className="<?php echo $block_attributes['text_align']; ?>" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
-      </div>
-    </header>
-  </div>
+    <div class="container">
+      <header class="row justify-center">
+        <div class="col md-10 lg-8">
+          <InnerBlocks className="<?php echo $block_attributes['text_align']; ?>" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
+        </div>
+      </header>
+    </div>
   <?php endif; ?>
 
   <div class="<?php echo $container_class; ?>">

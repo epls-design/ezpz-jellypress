@@ -13,7 +13,6 @@ if (galleries.length > 0) {
   galleries.forEach((item) => {
     let id = item.id;
     id = "#" + id;
-    console.log(id);
     new PhotoSwipeLightbox({
       gallery: id,
       childSelector: "a",

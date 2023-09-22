@@ -107,17 +107,5 @@ $posts_array = array(); // Create an empty array to store posts ready for the lo
 
     ?>
 
-    <?php if (!empty($fields['buttons'])) : ?>
-      <div class="row <?php echo $justify; ?>">
-        <div class="col md-10 lg-8 text-center">
-          <?php
-          if ($text_align == 'text-center') jellypress_display_cta_buttons($fields['buttons'], $block_attributes['bg_color'], 'justify-center');
-          elseif ($text_align == 'text-right') jellypress_display_cta_buttons($fields['buttons'], $block_attributes['bg_color'], 'justify-end');
-          else jellypress_display_cta_buttons($fields['buttons'], $block_attributes['bg_color']);
-          ?>
-        </div>
-      </div>
-    <?php endif; ?>
-
   </div>
 </section>

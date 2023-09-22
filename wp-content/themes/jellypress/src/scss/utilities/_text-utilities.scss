@@ -16,3 +16,18 @@ h6 {
     color: inherit !important;
   }
 }
+
+.has-medium-font-size {
+  @include above(md) {
+    line-height: 1.4;
+  }
+}
+.has-large-font-size {
+  @include above(md) {
+    line-height: 1.5;
+  }
+}
+
+.color-white {
+  color: v(color-white) !important;
+}
