@@ -87,6 +87,7 @@ function jellypress_allowed_blocks($block_editor_context, $editor_context) {
      * });
      */
 
+
     return $allowed_blocks;
   }
 
@@ -167,37 +168,30 @@ add_action('enqueue_block_editor_assets', function () {
 
 /**
  * Returns the default <InnerBlocks /> template
+ * @param array $blocks The blocks to use if the default is not required
  *
- * @return void
+ * @return array The default block, json encoded
  */
 function jellypress_get_allowed_blocks($blocks = null) {
   if (!$blocks) {
     $blocks = array(
-      "ezpz/content",
+      "ezpz/content-preamble",
     );
   }
   return esc_attr(wp_json_encode($blocks));
 }
 
 /**
- * Returns the standard block template
- * TODO: How to lock the inner template of this so that eg. on the image block cant add more than heading and para
+ * Returns the standard block template which is the 'ezpz/content-pramble' block defined in the ezpz/blocks plugin
+ * @param array $template The block template to use if the default is not required
+ * @return array The block template, json encoded
+ *
  */
 function jellypress_get_block_template($template = null) {
   if (!$template) {
     $template = array(
       array(
-        'ezpz/content', array(), array(
-          array('core/heading', array(
-            'placeholder' => 'Sub Title',
-            'level' => 2,
-          )),
-          array(
-            'core/paragraph', array(
-              'placeholder' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rhoncus neque nisl, a malesuada sapien cursus a. Aliquam metus mi, vestibulum venenatis ligula et, mollis laoreet quam. Aenean sed ultrices ex, a vulputate urna. Integer tellus arcu, placerat sit amet erat et, feugiat malesuada erat. Nulla nunc metus, tempus eu nibh sit amet, tincidunt fringilla massa.',
-            )
-          ),
-        )
+        'ezpz/content-preamble', array(),
       )
     );
   }

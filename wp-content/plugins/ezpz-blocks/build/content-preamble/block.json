@@ -1,0 +1,16 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ezpz/content-preamble",
+  "version": "0.1.0",
+  "title": "Content",
+  "category": "text",
+  "description": "A restricted content block that can display simple text and buttons.",
+  "parent": [],
+  "supports": {
+    "html": false,
+    "customClassName": false
+  },
+  "textdomain": "ezpz-content-preamble",
+  "editorScript": "file:./index.js"
+}

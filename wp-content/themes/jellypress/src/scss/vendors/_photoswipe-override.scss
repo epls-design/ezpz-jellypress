@@ -2,6 +2,9 @@
   $size: 2rem;
   $padding: $size * 0.15;
   position: relative;
+  img {
+    width: 100%;
+  }
   a {
     display: block;
     &::before,
