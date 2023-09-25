@@ -65,3 +65,4 @@ wp-content/themes/twenty*
 wp-content/uploads/*
 
 !.editorconfig
+!.gitignore

@@ -72,8 +72,9 @@ function jellypress_allowed_blocks($block_editor_context, $editor_context) {
 
     foreach ($blocks as $block) {
       $allowed_blocks[] = 'ezpz/' . $block;
-      $allowed_blocks[] = 'gravityforms/form';
     }
+
+    $allowed_blocks[] = 'gravityforms/form';
 
     // Add a filter to allow plugins to add their own allowed blocks
     $allowed_blocks = apply_filters('ezpz_allowed_blocks', $allowed_blocks);

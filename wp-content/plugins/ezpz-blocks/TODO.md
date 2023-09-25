@@ -1,1 +1,2 @@
-Work out how to get the background color of the parnt block, from inside a child. Eg. so we can do a CTA block inner and do a swithc/case to determine button color
+TODO: Add in block previews
+TODO: Modify columns block to llow user to sceficy numberr of cols they want / the layout
