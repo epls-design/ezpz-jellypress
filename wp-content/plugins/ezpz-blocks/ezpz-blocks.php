@@ -78,6 +78,9 @@ class ezpzBlocks {
 				'core/list-item',
 				'core/shortcode',
 				'core/table',
+				'core/columns',
+				'core/column',
+				'core/image'
 			];
 
 			// Merge $additional_blocks with $plugin_blocks

@@ -1,7 +1,6 @@
 /**
  * @see https://github.com/WordPress/gutenberg/blob/wp/5.5/packages/block-library/src/columns/index.js
  * for reference as to how core handles columns
- * TODO: Add in example block
  */
 
 /**
@@ -10,12 +9,12 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 import { registerBlockType } from "@wordpress/blocks";
-import { columns as icon } from "@wordpress/icons";
+import { column as icon } from "@wordpress/icons";
 
 /**
  * Internal dependencies
  */
-import Edit from "./edit";
+import edit from "./edit";
 import save from "./save";
 import metadata from "./block.json";
 
@@ -27,15 +26,6 @@ import metadata from "./block.json";
  */
 registerBlockType(metadata.name, {
 	icon,
-	/**
-	 * @see ./edit.js
-	 */
-	edit: Edit,
-
-	/**
-	 * @see ./save.js
-	 */
+	edit,
 	save,
 });
-
-// TODO: Change the renderAppender

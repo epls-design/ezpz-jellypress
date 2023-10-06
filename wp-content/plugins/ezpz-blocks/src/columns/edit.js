@@ -92,9 +92,9 @@ function EditColumns({
 	clientId,
 }) {
 	const { isStackedOnMobile, verticalAlignment, templateLock } = attributes;
-	console.log(isStackedOnMobile);
-	console.log(verticalAlignment);
-	console.log(templateLock);
+	// console.log(isStackedOnMobile);
+	// console.log(verticalAlignment);
+	// console.log(templateLock);
 
 	const { count, canInsertColumnBlock, minCount } = useSelect(
 		(select) => {
@@ -122,9 +122,9 @@ function EditColumns({
 		},
 		[clientId]
 	);
-	console.log(count);
-	console.log(canInsertColumnBlock);
-	console.log(minCount);
+	// console.log(count);
+	// console.log(canInsertColumnBlock);
+	// console.log(minCount);
 
 	const blockProps = useBlockProps({});
 	const innerBlocksProps = useInnerBlocksProps(blockProps, {
@@ -133,8 +133,30 @@ function EditColumns({
 		renderAppender: false,
 		templateLock,
 	});
-	console.log(blockProps);
-	console.log(innerBlocksProps);
+	// console.log(blockProps);
+	// console.log(innerBlocksProps);
+
+	// Explode blockProps.className
+	let classes = blockProps.className.split(" ");
+	// If any of the classes look like has-*-background-color, get the bit in the wildcard
+	// and add it to the classes array with a prefix of bg-* to match the theme classes
+	classes.forEach((className) => {
+		if (className.match(/has-(.*)-background-color/)) {
+			classes.push("bg-" + RegExp.$1);
+			// Remove the original class
+			classes = classes.filter((c) => c !== className);
+		}
+	});
+	// If the block has no background color set, add a class of bg-white
+	if (!classes.some((c) => c.match(/bg-/))) {
+		classes.push("bg-white");
+	}
+
+	classes.push("block"); // Add the block class to match the theme styles
+
+	// Set the new classes
+	blockProps.className = classes.join(" ");
+
 	return (
 		<>
 			<BlockControls>
@@ -179,7 +201,11 @@ function EditColumns({
 					/>
 				</PanelBody>
 			</InspectorControls>
-			<div {...innerBlocksProps} />
+			<section {...blockProps}>
+				<div className="container">
+					<div className="row">{innerBlocksProps.children}</div>
+				</div>
+			</section>
 		</>
 	);
 }
@@ -210,6 +236,7 @@ function Placeholder({ clientId, name, setAttributes }) {
 	);
 	const { replaceInnerBlocks } = useDispatch(blockEditorStore);
 	const blockProps = useBlockProps();
+
 	return (
 		<div {...blockProps}>
 			<__experimentalBlockVariationPicker
@@ -218,6 +245,7 @@ function Placeholder({ clientId, name, setAttributes }) {
 				variations={variations}
 				instructions="Please select the layout you would like for this block. These layouts apply to larger screens only."
 				onSelect={(nextVariation = defaultVariation) => {
+					console.log(nextVariation);
 					if (nextVariation.attributes) {
 						setAttributes(nextVariation.attributes);
 					}

@@ -124,9 +124,10 @@ function EditColumns({
     verticalAlignment,
     templateLock
   } = attributes;
-  console.log(isStackedOnMobile);
-  console.log(verticalAlignment);
-  console.log(templateLock);
+  // console.log(isStackedOnMobile);
+  // console.log(verticalAlignment);
+  // console.log(templateLock);
+
   const {
     count,
     canInsertColumnBlock,
@@ -154,9 +155,10 @@ function EditColumns({
       minCount: Math.max(...preventRemovalBlockIndexes) + 1
     };
   }, [clientId]);
-  console.log(count);
-  console.log(canInsertColumnBlock);
-  console.log(minCount);
+  // console.log(count);
+  // console.log(canInsertColumnBlock);
+  // console.log(minCount);
+
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)({});
   const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useInnerBlocksProps)(blockProps, {
     allowedBlocks: ALLOWED_BLOCKS,
@@ -164,8 +166,28 @@ function EditColumns({
     renderAppender: false,
     templateLock
   });
-  console.log(blockProps);
-  console.log(innerBlocksProps);
+  // console.log(blockProps);
+  // console.log(innerBlocksProps);
+
+  // Explode blockProps.className
+  let classes = blockProps.className.split(" ");
+  // If any of the classes look like has-*-background-color, get the bit in the wildcard
+  // and add it to the classes array with a prefix of bg-* to match the theme classes
+  classes.forEach(className => {
+    if (className.match(/has-(.*)-background-color/)) {
+      classes.push("bg-" + RegExp.$1);
+      // Remove the original class
+      classes = classes.filter(c => c !== className);
+    }
+  });
+  // If the block has no background color set, add a class of bg-white
+  if (!classes.some(c => c.match(/bg-/))) {
+    classes.push("bg-white");
+  }
+  classes.push("block"); // Add the block class to match the theme styles
+
+  // Set the new classes
+  blockProps.className = classes.join(" ");
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.BlockVerticalAlignmentToolbar, {
     onChange: updateAlignment,
     value: verticalAlignment
@@ -187,9 +209,13 @@ function EditColumns({
     onChange: () => setAttributes({
       isStackedOnMobile: !isStackedOnMobile
     })
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ...innerBlocksProps
-  }));
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
+    ...blockProps
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "container"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "row"
+  }, innerBlocksProps.children))));
 }
 
 /**
@@ -235,6 +261,7 @@ function Placeholder({
     variations: variations,
     instructions: "Please select the layout you would like for this block. These layouts apply to larger screens only.",
     onSelect: (nextVariation = defaultVariation) => {
+      console.log(nextVariation);
       if (nextVariation.attributes) {
         setAttributes(nextVariation.attributes);
       }
@@ -350,7 +377,11 @@ const variations = [{
     d: "M39 12C40.1046 12 41 12.8954 41 14V34C41 35.1046 40.1046 36 39 36H9C7.89543 36 7 35.1046 7 34V14C7 12.8954 7.89543 12 9 12H39ZM39 34V14H25V34H39ZM23 34H9V14H23V34Z"
   })),
   isDefault: true,
-  innerBlocks: [["ezpz/column"], ["ezpz/column"]],
+  innerBlocks: [["ezpz/column", {
+    width: "50%"
+  }], ["ezpz/column", {
+    width: "50%"
+  }]],
   scope: ["block"]
 }, {
   name: "two-columns-one-third-two-thirds",
@@ -405,7 +436,13 @@ const variations = [{
     fillRule: "evenodd",
     d: "M41 14a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h30a2 2 0 0 0 2-2V14zM28.5 34h-9V14h9v20zm2 0V14H39v20h-8.5zm-13 0H9V14h8.5v20z"
   })),
-  innerBlocks: [["ezpz/column"], ["ezpz/column"], ["ezpz/column"]],
+  innerBlocks: [["ezpz/column", {
+    width: "33.33%"
+  }], ["ezpz/column", {
+    width: "33.33%"
+  }], ["ezpz/column", {
+    width: "33.33%"
+  }]],
   scope: ["block"]
 }, {
   name: "four-columns-equal",
@@ -419,7 +456,15 @@ const variations = [{
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Path, {
     d: "M39,12H9c-1.1,0-2,0.9-2,2v20c0,1.1,0.9,2,2,2h30c1.1,0,2-0.9,2-2V14C41,12.9,40.1,12,39,12z M11.2,34H9V14h2.2H15v20H11.2z M19.5,34h-2H17V14h0.5h2H23v20H19.5z M30.5,34h-2H25V14h3.5h2H31v20H30.5z M39,34h-0.9H33V14h5.1H39V34z"
   })),
-  innerBlocks: [["ezpz/column"], ["ezpz/column"], ["ezpz/column"], ["ezpz/column"]],
+  innerBlocks: [["ezpz/column", {
+    width: "25%"
+  }], ["ezpz/column", {
+    width: "25%"
+  }], ["ezpz/column", {
+    width: "25%"
+  }], ["ezpz/column", {
+    width: "25%"
+  }]],
   scope: ["block"]
 }];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (variations);

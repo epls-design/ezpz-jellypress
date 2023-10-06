@@ -31,7 +31,10 @@ const variations = [
 			</SVG>
 		),
 		isDefault: true,
-		innerBlocks: [["ezpz/column"], ["ezpz/column"]],
+		innerBlocks: [
+			["ezpz/column", { width: "50%" }],
+			["ezpz/column", { width: "50%" }],
+		],
 		scope: ["block"],
 	},
 	{
@@ -99,7 +102,11 @@ const variations = [
 				/>
 			</SVG>
 		),
-		innerBlocks: [["ezpz/column"], ["ezpz/column"], ["ezpz/column"]],
+		innerBlocks: [
+			["ezpz/column", { width: "33.33%" }],
+			["ezpz/column", { width: "33.33%" }],
+			["ezpz/column", { width: "33.33%" }],
+		],
 		scope: ["block"],
 	},
 	{
@@ -120,10 +127,10 @@ const variations = [
 			</SVG>
 		),
 		innerBlocks: [
-			["ezpz/column"],
-			["ezpz/column"],
-			["ezpz/column"],
-			["ezpz/column"],
+			["ezpz/column", { width: "25%" }],
+			["ezpz/column", { width: "25%" }],
+			["ezpz/column", { width: "25%" }],
+			["ezpz/column", { width: "25%" }],
 		],
 		scope: ["block"],
 	},

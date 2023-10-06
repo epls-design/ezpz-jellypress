@@ -1,17 +1,36 @@
 /**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
+ * WordPress dependencies
  */
-import { __ } from "@wordpress/i18n";
+import { sprintf, __ } from "@wordpress/i18n";
 
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
-import { InnerBlocks, useBlockProps } from "@wordpress/block-editor";
+import {
+	InnerBlocks,
+	BlockControls,
+	BlockVerticalAlignmentToolbar,
+	InspectorControls,
+	useBlockProps,
+	useSetting,
+	useInnerBlocksProps,
+	store as blockEditorStore,
+} from "@wordpress/block-editor";
+
+import { PanelBody, SelectControl } from "@wordpress/components";
+import { useSelect, useDispatch } from "@wordpress/data";
+
+function widthToClass(width) {
+	switch (width) {
+		case "66.66%":
+			return "md-8";
+		case "50%":
+			return "md-6";
+		case "33.33%":
+			return "md-4";
+		case "25%":
+			return "md-3";
+		default:
+			return "";
+	}
+}
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -21,16 +40,57 @@ import { InnerBlocks, useBlockProps } from "@wordpress/block-editor";
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit({
+	attributes: { width },
+	setAttributes,
+	clientId,
+}) {
 	const ALLOWED_BLOCKS = ["ezpz/content"];
 	const TEMPLATE = [["ezpz/content", {}]];
+
+	// Get blockProps
+	const blockProps = useBlockProps();
+
+	let colClass = "col sm-12";
+	// console.log("blockProps", blockProps);
+
+	// Get the width property of this column
+	const columnWidth = width;
+
+	// Add to colClass
+	colClass += " " + widthToClass(columnWidth);
+
+	// Merge into blockProps.className
+	blockProps.className = blockProps.className + " " + colClass;
+
 	return (
-		<div className="col sm-12 md-0">
-			<InnerBlocks
-				allowedBlocks={ALLOWED_BLOCKS}
-				template={TEMPLATE}
-				templateLock="all"
-			/>
-		</div>
+		<>
+			<InspectorControls>
+				<PanelBody title={__("Column settings")}>
+					<SelectControl
+						label={__("Width (tablet and up))")}
+						value={width || ""}
+						options={[
+							{ label: "Two thirds", value: "66.66%" },
+							{ label: "Half", value: "50%" },
+							{ label: "One third", value: "33.33%" },
+							{ label: "One quarter", value: "25%" },
+						]}
+						onChange={(newWidth) => {
+							setAttributes({ width: newWidth });
+						}}
+					/>
+				</PanelBody>
+			</InspectorControls>
+			<div {...blockProps}>
+				<InnerBlocks
+					allowedBlocks={ALLOWED_BLOCKS}
+					template={TEMPLATE}
+					templateLock="all"
+				/>
+			</div>
+		</>
 	);
 }
+
+// TODO CHANGE THE RENDERAPPENDER
