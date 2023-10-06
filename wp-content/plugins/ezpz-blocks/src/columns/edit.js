@@ -10,16 +10,7 @@
 import { __ } from "@wordpress/i18n";
 
 import {
-	Notice,
-	PanelBody,
-	RangeControl,
-	ToggleControl,
-} from "@wordpress/components";
-
-import {
-	InspectorControls,
 	useInnerBlocksProps,
-	BlockControls,
 	BlockVerticalAlignmentToolbar,
 	__experimentalBlockVariationPicker,
 	useBlockProps,
@@ -159,48 +150,6 @@ function EditColumns({
 
 	return (
 		<>
-			<BlockControls>
-				<BlockVerticalAlignmentToolbar
-					onChange={updateAlignment}
-					value={verticalAlignment}
-				/>
-			</BlockControls>
-			<InspectorControls>
-				<PanelBody>
-					{canInsertColumnBlock && (
-						<>
-							<RangeControl
-								__nextHasNoMarginBottom
-								__next40pxDefaultSize
-								label={__("Columns")}
-								value={count}
-								onChange={(value) =>
-									updateColumns(count, Math.max(minCount, value))
-								}
-								min={Math.max(1, minCount)}
-								max={Math.max(6, count)}
-							/>
-							{count > 6 && (
-								<Notice status="warning" isDismissible={false}>
-									{__(
-										"This column count exceeds the recommended amount and may cause visual breakage."
-									)}
-								</Notice>
-							)}
-						</>
-					)}
-					<ToggleControl
-						__nextHasNoMarginBottom
-						label={__("Stack on mobile")}
-						checked={isStackedOnMobile}
-						onChange={() =>
-							setAttributes({
-								isStackedOnMobile: !isStackedOnMobile,
-							})
-						}
-					/>
-				</PanelBody>
-			</InspectorControls>
 			<section {...blockProps}>
 				<div className="container">
 					<div className="row">{innerBlocksProps.children}</div>
