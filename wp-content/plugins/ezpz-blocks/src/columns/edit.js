@@ -1,35 +1,33 @@
 /**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
+ * This block uses variations to allow the user to select a layout for the columns block.
+ * @see https://github.com/WordPress/gutenberg/tree/trunk/packages/block-editor/src/components/block-variation-picker
+ * Based on the core columns block.
+ */
+
+/**
+ * WordPress dependencies
  */
 import { __ } from "@wordpress/i18n";
 
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
-import { useBlockProps, useInnerBlocksProps } from "@wordpress/block-editor";
+import {
+	InspectorControls,
+	useInnerBlocksProps,
+	BlockControls,
+	BlockVerticalAlignmentToolbar,
+	__experimentalBlockVariationPicker,
+	useBlockProps,
+	store as blockEditorStore,
+} from "@wordpress/block-editor";
 
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * Those files can contain any CSS code that gets applied to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
-import "./editor.scss";
+import { withDispatch, useDispatch, useSelect } from "@wordpress/data";
 
-/**
- * The edit function describes the structure of your block in the context of the
- * editor. This represents what the editor will render when the block is used.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
- *
- * @return {WPElement} Element to render.
- */
-export default function Edit() {
+import {
+	createBlock,
+	createBlocksFromInnerBlocksTemplate,
+	store as blocksStore,
+} from "@wordpress/blocks";
+
+function TestEdit() {
 	const ALLOWED_BLOCKS = ["ezpz/column"];
 	const TEMPLATE = [
 		["ezpz/column", {}],
@@ -71,3 +69,69 @@ export default function Edit() {
 		</section>
 	);
 }
+
+function EditColumns({ clientId }) {}
+
+/**
+ * Placeholder component shows when the block is first added. It allows the editor to specify the layout they would like for the columns block.
+ */
+function Placeholder({ clientId, name, setAttributes }) {
+	/**
+	 * Sets up the block variations for the block type.
+	 * @returns blockType {Object} The block type object.
+	 * @returns defaultVariation {Object} The default variation object.
+	 * @returns variations {Object} All variations available
+	 */
+	const { blockType, defaultVariation, variations } = useSelect(
+		(select) => {
+			// Gets these functions from the blocks store
+			const { getBlockVariations, getBlockType, getDefaultBlockVariation } =
+				select(blocksStore);
+
+			return {
+				blockType: getBlockType(name),
+				defaultVariation: getDefaultBlockVariation(name, "block"),
+				variations: getBlockVariations(name, "block"),
+			};
+		},
+		[name]
+	);
+	const { replaceInnerBlocks } = useDispatch(blockEditorStore);
+	const blockProps = useBlockProps();
+	return (
+		<div {...blockProps}>
+			<__experimentalBlockVariationPicker
+				icon={blockType?.icon?.src}
+				label={blockType?.title}
+				variations={variations}
+				instructions="Please select the layout you would like for this block. These layouts apply to larger screens only."
+				onSelect={(nextVariation = defaultVariation) => {
+					if (nextVariation.attributes) {
+						setAttributes(nextVariation.attributes);
+					}
+					if (nextVariation.innerBlocks) {
+						replaceInnerBlocks(
+							clientId,
+							createBlocksFromInnerBlocksTemplate(nextVariation.innerBlocks),
+							true
+						);
+					}
+				}}
+				allowSkip
+			/>
+		</div>
+	);
+}
+
+const Edit = (props) => {
+	const { clientId } = props;
+	const hasInnerBlocks = useSelect(
+		(select) => select(blockEditorStore).getBlocks(clientId).length > 0,
+		[clientId]
+	);
+	const Component = hasInnerBlocks ? EditColumns : Placeholder;
+
+	return <Component {...props} />;
+};
+
+export default Edit;
