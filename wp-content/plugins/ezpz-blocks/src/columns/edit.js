@@ -10,6 +10,13 @@
 import { __ } from "@wordpress/i18n";
 
 import {
+	Notice,
+	PanelBody,
+	RangeControl,
+	ToggleControl,
+} from "@wordpress/components";
+
+import {
 	InspectorControls,
 	useInnerBlocksProps,
 	BlockControls,
@@ -27,8 +34,15 @@ import {
 	store as blocksStore,
 } from "@wordpress/blocks";
 
+/**
+ * Allowed blocks constant is passed to InnerBlocks precisely as specified here.
+ * The contents of the array should never change.
+ * The array should contain the name of each block that is allowed.
+ * In columns block, the only block we allow is 'core/column'.
+ */
+const ALLOWED_BLOCKS = ["ezpz/column"];
+
 function TestEdit() {
-	const ALLOWED_BLOCKS = ["ezpz/column"];
 	const TEMPLATE = [
 		["ezpz/column", {}],
 		["ezpz/column", {}],
@@ -70,7 +84,105 @@ function TestEdit() {
 	);
 }
 
-function EditColumns({ clientId }) {}
+function EditColumns({
+	attributes,
+	setAttributes,
+	updateAlignment,
+	updateColumns,
+	clientId,
+}) {
+	const { isStackedOnMobile, verticalAlignment, templateLock } = attributes;
+	console.log(isStackedOnMobile);
+	console.log(verticalAlignment);
+	console.log(templateLock);
+
+	const { count, canInsertColumnBlock, minCount } = useSelect(
+		(select) => {
+			const { canInsertBlockType, canRemoveBlock, getBlocks, getBlockCount } =
+				select(blockEditorStore);
+			const innerBlocks = getBlocks(clientId);
+
+			// Get the indexes of columns for which removal is prevented.
+			// The highest index will be used to determine the minimum column count.
+			const preventRemovalBlockIndexes = innerBlocks.reduce(
+				(acc, block, index) => {
+					if (!canRemoveBlock(block.clientId)) {
+						acc.push(index);
+					}
+					return acc;
+				},
+				[]
+			);
+
+			return {
+				count: getBlockCount(clientId),
+				canInsertColumnBlock: canInsertBlockType("core/column", clientId),
+				minCount: Math.max(...preventRemovalBlockIndexes) + 1,
+			};
+		},
+		[clientId]
+	);
+	console.log(count);
+	console.log(canInsertColumnBlock);
+	console.log(minCount);
+
+	const blockProps = useBlockProps({});
+	const innerBlocksProps = useInnerBlocksProps(blockProps, {
+		allowedBlocks: ALLOWED_BLOCKS,
+		orientation: "horizontal",
+		renderAppender: false,
+		templateLock,
+	});
+	console.log(blockProps);
+	console.log(innerBlocksProps);
+	return (
+		<>
+			<BlockControls>
+				<BlockVerticalAlignmentToolbar
+					onChange={updateAlignment}
+					value={verticalAlignment}
+				/>
+			</BlockControls>
+			<InspectorControls>
+				<PanelBody>
+					{canInsertColumnBlock && (
+						<>
+							<RangeControl
+								__nextHasNoMarginBottom
+								__next40pxDefaultSize
+								label={__("Columns")}
+								value={count}
+								onChange={(value) =>
+									updateColumns(count, Math.max(minCount, value))
+								}
+								min={Math.max(1, minCount)}
+								max={Math.max(6, count)}
+							/>
+							{count > 6 && (
+								<Notice status="warning" isDismissible={false}>
+									{__(
+										"This column count exceeds the recommended amount and may cause visual breakage."
+									)}
+								</Notice>
+							)}
+						</>
+					)}
+					<ToggleControl
+						__nextHasNoMarginBottom
+						label={__("Stack on mobile")}
+						checked={isStackedOnMobile}
+						onChange={() =>
+							setAttributes({
+								isStackedOnMobile: !isStackedOnMobile,
+							})
+						}
+					/>
+				</PanelBody>
+			</InspectorControls>
+			<div {...innerBlocksProps} />
+		</>
+	);
+}
 
 /**
  * Placeholder component shows when the block is first added. It allows the editor to specify the layout they would like for the columns block.
