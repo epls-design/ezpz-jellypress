@@ -11,7 +11,6 @@ import { __ } from "@wordpress/i18n";
 
 import {
 	useInnerBlocksProps,
-	BlockVerticalAlignmentToolbar,
 	__experimentalBlockVariationPicker,
 	useBlockProps,
 	store as blockEditorStore,
@@ -33,47 +32,11 @@ import {
  */
 const ALLOWED_BLOCKS = ["ezpz/column"];
 
-function TestEdit() {
-	const TEMPLATE = [
-		["ezpz/column", {}],
-		["ezpz/column", {}],
-	];
-	let blockProps = useBlockProps();
-
-	// Explode blockProps.className
-	let classes = blockProps.className.split(" ");
-	// If any of the classes look like has-*-background-color, get the bit in the wildcard
-	// and add it to the classes array with a prefix of bg-* to match the theme classes
-	classes.forEach((className) => {
-		if (className.match(/has-(.*)-background-color/)) {
-			classes.push("bg-" + RegExp.$1);
-			// Remove the original class
-			classes = classes.filter((c) => c !== className);
-		}
-	});
-	// If the block has no background color set, add a class of bg-white
-	if (!classes.some((c) => c.match(/bg-/))) {
-		classes.push("bg-white");
-	}
-
-	classes.push("block"); // Add the block class to match the theme styles
-
-	// Set the new classes
-	blockProps.className = classes.join(" ");
-
-	const innerBlocksProps = useInnerBlocksProps(blockProps, {
-		allowedBlocks: ALLOWED_BLOCKS,
-		template: TEMPLATE,
-	});
-
-	return (
-		<section {...blockProps}>
-			<div className="container">
-				<div className="row">{innerBlocksProps.children}</div>
-			</div>
-		</section>
-	);
-}
+const EditColumnsWrapper = withDispatch((dispatch, ownProps, registry) => ({
+	updateColumns(columns) {
+		console.log("columns", columns);
+	},
+}))(EditColumns);
 
 function EditColumns({
 	attributes,
@@ -196,6 +159,7 @@ function Placeholder({ clientId, name, setAttributes }) {
 				onSelect={(nextVariation = defaultVariation) => {
 					console.log(nextVariation);
 					if (nextVariation.attributes) {
+						console.log(nextVariation.attributes);
 						setAttributes(nextVariation.attributes);
 					}
 					if (nextVariation.innerBlocks) {
@@ -213,12 +177,15 @@ function Placeholder({ clientId, name, setAttributes }) {
 }
 
 const Edit = (props) => {
+	// Check if this block has inner blocks.
 	const { clientId } = props;
 	const hasInnerBlocks = useSelect(
 		(select) => select(blockEditorStore).getBlocks(clientId).length > 0,
 		[clientId]
 	);
-	const Component = hasInnerBlocks ? EditColumns : Placeholder;
+
+	// Determines which component to render based on whether the block has inner blocks or not.
+	const Component = hasInnerBlocks ? EditColumnsWrapper : Placeholder;
 
 	return <Component {...props} />;
 };

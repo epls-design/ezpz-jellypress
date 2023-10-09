@@ -74,41 +74,11 @@ __webpack_require__.r(__webpack_exports__);
  * In columns block, the only block we allow is 'core/column'.
  */
 const ALLOWED_BLOCKS = ["ezpz/column"];
-function TestEdit() {
-  const TEMPLATE = [["ezpz/column", {}], ["ezpz/column", {}]];
-  let blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
-
-  // Explode blockProps.className
-  let classes = blockProps.className.split(" ");
-  // If any of the classes look like has-*-background-color, get the bit in the wildcard
-  // and add it to the classes array with a prefix of bg-* to match the theme classes
-  classes.forEach(className => {
-    if (className.match(/has-(.*)-background-color/)) {
-      classes.push("bg-" + RegExp.$1);
-      // Remove the original class
-      classes = classes.filter(c => c !== className);
-    }
-  });
-  // If the block has no background color set, add a class of bg-white
-  if (!classes.some(c => c.match(/bg-/))) {
-    classes.push("bg-white");
+const EditColumnsWrapper = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.withDispatch)((dispatch, ownProps, registry) => ({
+  updateColumns(columns) {
+    console.log("columns", columns);
   }
-  classes.push("block"); // Add the block class to match the theme styles
-
-  // Set the new classes
-  blockProps.className = classes.join(" ");
-  const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useInnerBlocksProps)(blockProps, {
-    allowedBlocks: ALLOWED_BLOCKS,
-    template: TEMPLATE
-  });
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
-    ...blockProps
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "container"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "row"
-  }, innerBlocksProps.children)));
-}
+}))(EditColumns);
 function EditColumns({
   attributes,
   setAttributes,
@@ -239,6 +209,7 @@ function Placeholder({
     onSelect: (nextVariation = defaultVariation) => {
       console.log(nextVariation);
       if (nextVariation.attributes) {
+        console.log(nextVariation.attributes);
         setAttributes(nextVariation.attributes);
       }
       if (nextVariation.innerBlocks) {
@@ -249,11 +220,14 @@ function Placeholder({
   }));
 }
 const Edit = props => {
+  // Check if this block has inner blocks.
   const {
     clientId
   } = props;
   const hasInnerBlocks = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => select(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.store).getBlocks(clientId).length > 0, [clientId]);
-  const Component = hasInnerBlocks ? EditColumns : Placeholder;
+
+  // Determines which component to render based on whether the block has inner blocks or not.
+  const Component = hasInnerBlocks ? EditColumnsWrapper : Placeholder;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Component, {
     ...props
   });
@@ -401,7 +375,7 @@ const variations = [{
   scope: ["block"]
 }, {
   name: "three-columns-equal",
-  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("33 / 33 / 33"),
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("3 columns"),
   description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Three columns; equal split"),
   icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SVG, {
     width: "48",
@@ -422,7 +396,7 @@ const variations = [{
   scope: ["block"]
 }, {
   name: "four-columns-equal",
-  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("25/25/25/25"),
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("4 columns"),
   description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Four columns; equal split"),
   icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SVG, {
     width: "48",
@@ -440,6 +414,32 @@ const variations = [{
     width: "25%"
   }], ["ezpz/column", {
     width: "25%"
+  }]],
+  scope: ["block"]
+}, {
+  name: "six-columns-equal",
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("6 columns"),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Six columns; equal split"),
+  icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SVG, {
+    width: "48",
+    height: "48",
+    viewBox: "0 0 48 48",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Path, {
+    d: "M39,12H9c-1.1,0-2,0.9-2,2v20c0,1.1,0.9,2,2,2h30c1.1,0,2-0.9,2-2V14C41,12.9,40.1,12,39,12z M11.2,34H9.6H9V14h0.6h1.6h1.1 v20H11.2z M17.5,34H17h-2h-0.7V14H15h2h0.5h0.2v20H17.5z M19.7,34V14H23v20H19.7z M25,34V14h3.3v20H25z M33,34h-2h-0.5h-0.2V14h0.2 H31h2h0.7v20H33z M38.4,34h-0.3h-2.4V14h2.4h0.3H39v20H38.4z"
+  })),
+  innerBlocks: [["ezpz/column", {
+    width: "16.66%"
+  }], ["ezpz/column", {
+    width: "16.66%"
+  }], ["ezpz/column", {
+    width: "16.66%"
+  }], ["ezpz/column", {
+    width: "16.66%"
+  }], ["ezpz/column", {
+    width: "16.66%"
+  }], ["ezpz/column", {
+    width: "16.66%"
   }]],
   scope: ["block"]
 }];
@@ -523,7 +523,7 @@ module.exports = window["wp"]["primitives"];
   \********************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"ezpz/columns","version":"0.1.0","title":"Columns","category":"text","description":"Allows you to add multiple text columns to a section.","supports":{"html":false,"customClassName":true,"anchor":true,"color":{"background":true,"text":false}},"textdomain":"ezpz-columns","editorScript":"file:./index.js"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"ezpz/columns","version":"0.1.0","title":"Columns","category":"text","description":"Allows you to add multiple columns to a section.","supports":{"html":false,"customClassName":true,"anchor":true,"color":{"background":true,"text":false}},"textdomain":"ezpz-columns","editorScript":"file:./index.js"}');
 
 /***/ })
 

@@ -18,6 +18,31 @@ import edit from "./edit";
 import save from "./save";
 import metadata from "./block.json";
 
+export function colWidthToClassName(width) {
+	let className;
+	switch (width) {
+		case "66.66%":
+			className = " md-8";
+			break;
+		case "50%":
+			className = " md-6";
+			break;
+		case "33.33%":
+			className = " md-4";
+			break;
+		case "25%":
+			className = " md-3";
+			break;
+		case "16.66%":
+			className = " md-4 lg-2";
+			break;
+		default:
+			className = "";
+			break;
+	}
+	return "col sm-12" + className;
+}
+
 /**
  * Every block starts by registering a new block type definition.
  * @see https://wphelpers.dev/icons/group for icon SVG

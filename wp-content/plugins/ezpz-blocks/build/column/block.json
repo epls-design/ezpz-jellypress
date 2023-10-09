@@ -18,6 +18,12 @@
       "text": false
     }
   },
+  "attributes": {
+    "width": {
+      "type": "string",
+      "default": "50%"
+    }
+  },
   "textdomain": "ezpz-column",
   "editorScript": "file:./index.js"
 }

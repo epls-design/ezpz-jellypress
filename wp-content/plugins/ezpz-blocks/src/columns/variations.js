@@ -87,7 +87,7 @@ const variations = [
 	},
 	{
 		name: "three-columns-equal",
-		title: __("33 / 33 / 33"),
+		title: __("3 columns"),
 		description: __("Three columns; equal split"),
 		icon: (
 			<SVG
@@ -111,7 +111,7 @@ const variations = [
 	},
 	{
 		name: "four-columns-equal",
-		title: __("25/25/25/25"),
+		title: __("4 columns"),
 		description: __("Four columns; equal split"),
 		icon: (
 			<SVG
@@ -131,6 +131,34 @@ const variations = [
 			["ezpz/column", { width: "25%" }],
 			["ezpz/column", { width: "25%" }],
 			["ezpz/column", { width: "25%" }],
+		],
+		scope: ["block"],
+	},
+	{
+		name: "six-columns-equal",
+		title: __("6 columns"),
+		description: __("Six columns; equal split"),
+		icon: (
+			<SVG
+				width="48"
+				height="48"
+				viewBox="0 0 48 48"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<Path
+					d="M39,12H9c-1.1,0-2,0.9-2,2v20c0,1.1,0.9,2,2,2h30c1.1,0,2-0.9,2-2V14C41,12.9,40.1,12,39,12z M11.2,34H9.6H9V14h0.6h1.6h1.1
+	v20H11.2z M17.5,34H17h-2h-0.7V14H15h2h0.5h0.2v20H17.5z M19.7,34V14H23v20H19.7z M25,34V14h3.3v20H25z M33,34h-2h-0.5h-0.2V14h0.2
+	H31h2h0.7v20H33z M38.4,34h-0.3h-2.4V14h2.4h0.3H39v20H38.4z"
+				/>
+			</SVG>
+		),
+		innerBlocks: [
+			["ezpz/column", { width: "16.66%" }],
+			["ezpz/column", { width: "16.66%" }],
+			["ezpz/column", { width: "16.66%" }],
+			["ezpz/column", { width: "16.66%" }],
+			["ezpz/column", { width: "16.66%" }],
+			["ezpz/column", { width: "16.66%" }],
 		],
 		scope: ["block"],
 	},

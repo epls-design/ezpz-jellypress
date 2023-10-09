@@ -3,6 +3,9 @@
  */
 import { sprintf, __ } from "@wordpress/i18n";
 
+// Use the colWidthToClassName function from src/column/index.js
+import { colWidthToClassName } from "../column";
+
 import {
 	InnerBlocks,
 	BlockControls,
@@ -16,21 +19,6 @@ import {
 
 import { PanelBody, SelectControl } from "@wordpress/components";
 import { useSelect, useDispatch } from "@wordpress/data";
-
-function widthToClass(width) {
-	switch (width) {
-		case "66.66%":
-			return "md-8";
-		case "50%":
-			return "md-6";
-		case "33.33%":
-			return "md-4";
-		case "25%":
-			return "md-3";
-		default:
-			return "";
-	}
-}
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -48,20 +36,15 @@ export default function Edit({
 	const ALLOWED_BLOCKS = ["ezpz/content"];
 	const TEMPLATE = [["ezpz/content", {}]];
 
+	console.log(width);
+	// console.log(attributes);
+
 	// Get blockProps
 	const blockProps = useBlockProps();
 
-	let colClass = "col sm-12";
-	// console.log("blockProps", blockProps);
-
-	// Get the width property of this column
-	const columnWidth = width;
-
-	// Add to colClass
-	colClass += " " + widthToClass(columnWidth);
-
 	// Merge into blockProps.className
-	blockProps.className = blockProps.className + " " + colClass;
+	blockProps.className =
+		blockProps.className + " " + colWidthToClassName(width);
 
 	return (
 		<>

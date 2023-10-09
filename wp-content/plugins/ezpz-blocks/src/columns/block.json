@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Columns",
 	"category": "text",
-	"description": "Allows you to add multiple text columns to a section.",
+	"description": "Allows you to add multiple columns to a section.",
 	"supports": {
 		"html": false,
 		"customClassName": true,

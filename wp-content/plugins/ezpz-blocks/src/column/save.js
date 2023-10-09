@@ -6,6 +6,9 @@
  */
 import { InnerBlocks, useBlockProps } from "@wordpress/block-editor";
 
+// Use the colWidthToClassName function from src/column/index.js
+import { colWidthToClassName } from "../column";
+
 /**
  * The save function defines the way in which the different attributes should
  * be combined into the final markup, which is then serialized by the block
@@ -17,11 +20,16 @@ import { InnerBlocks, useBlockProps } from "@wordpress/block-editor";
  */
 
 const Save = (props) => {
+	let blockProps = useBlockProps.save();
+
+	// Get the width prop
+	const columnWidth = props.attributes.width;
+	// Append the width class to the blockProps
+	blockProps.className += " " + colWidthToClassName(columnWidth);
+
 	return (
-		<div className="col sm-12 md-0">
-			<div class="sticky">
-				<InnerBlocks.Content />
-			</div>
+		<div {...blockProps}>
+			<InnerBlocks.Content />
 		</div>
 	);
 };
