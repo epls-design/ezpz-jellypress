@@ -4,7 +4,7 @@
 	"name": "ezpz/section",
 	"version": "0.1.0",
 	"title": "Section",
-	"category": "text",
+	"category": "layout",
 	"description": "Full width section to include text, lists and buttons.",
 	"keywords": ["section", "text", "list"],
 	"supports": {

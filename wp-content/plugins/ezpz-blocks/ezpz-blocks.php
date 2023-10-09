@@ -78,8 +78,6 @@ class ezpzBlocks {
 				'core/list-item',
 				'core/shortcode',
 				'core/table',
-				'core/columns',
-				'core/column',
 				'core/image'
 			];
 
@@ -93,8 +91,6 @@ class ezpzBlocks {
 		}
 		return $block_editor_context;
 	}
-
-
 
 	/**
 	 * Hook into block render function to strip out tags that we dont want to render
@@ -124,7 +120,6 @@ class ezpzBlocks {
 				'block',
 				'block-' . $block_name,
 			];
-
 
 			// TODO: This may be better done in JS but it works now
 			$background = isset($block['attrs']['backgroundColor']) ? 'bg-' . $block['attrs']['backgroundColor'] : 'bg-white';
@@ -159,3 +154,6 @@ class ezpzBlocks {
 	}
 }
 new ezpzBlocks();
+
+// TODO: How to remove ' Media' tab in block editor
+// TODO: Fix it so that aloign tags work on core/paragraph

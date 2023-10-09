@@ -1,16 +1,7 @@
 /**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
+ * WordPress dependencies
  */
 import { __ } from "@wordpress/i18n";
-
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
 import { InnerBlocks, useBlockProps } from "@wordpress/block-editor";
 
 /**
@@ -36,7 +27,10 @@ export default function Edit() {
 	const TEMPLATE = [
 		[
 			"core/paragraph",
-			{ placeholder: "Start typing or paste your text here." },
+			{
+				placeholder:
+					"Start typing or paste your text here. Type / to see all available blocks.",
+			},
 		],
 	];
 	let blockProps = useBlockProps();

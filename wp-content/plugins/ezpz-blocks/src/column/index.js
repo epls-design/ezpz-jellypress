@@ -8,8 +8,12 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
+
+/**
+ * WordPress dependencies
+ */
 import { registerBlockType } from "@wordpress/blocks";
-import { column as icon } from "@wordpress/icons";
+import { column as icon } from "@wordpress/icons"; // @see https://wphelpers.dev/icons/ for icon ref
 
 /**
  * Internal dependencies
@@ -18,6 +22,11 @@ import edit from "./edit";
 import save from "./save";
 import metadata from "./block.json";
 
+/**
+ * Function used within this block to convert the width attribute to a class name
+ * @param string width The width attribute of the column
+ * @returns string The class name to be used for the column
+ */
 export function colWidthToClassName(width) {
 	let className;
 	switch (width) {
@@ -45,8 +54,6 @@ export function colWidthToClassName(width) {
 
 /**
  * Every block starts by registering a new block type definition.
- * @see https://wphelpers.dev/icons/group for icon SVG
- *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType(metadata.name, {

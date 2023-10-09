@@ -27,5 +27,5 @@ registerBlockType(metadata.name, {
 	variations,
 	edit,
 	save,
-	// TODO: Add an example
 });
+// TODO: Add an example

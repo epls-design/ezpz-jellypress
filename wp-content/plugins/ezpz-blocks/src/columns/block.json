@@ -4,7 +4,7 @@
 	"name": "ezpz/columns",
 	"version": "0.1.0",
 	"title": "Columns",
-	"category": "text",
+	"category": "layout",
 	"description": "Allows you to add multiple columns to a section.",
 	"supports": {
 		"html": false,

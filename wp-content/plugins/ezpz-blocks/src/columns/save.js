@@ -16,7 +16,7 @@ import { InnerBlocks, useBlockProps } from "@wordpress/block-editor";
  * @return {WPElement} Element to render.
  */
 
-const Save = (props) => {
+const Save = () => {
 	return (
 		<section {...useBlockProps.save()}>
 			<div className="container">

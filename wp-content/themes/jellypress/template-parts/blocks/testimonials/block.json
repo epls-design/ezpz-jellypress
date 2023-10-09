@@ -3,7 +3,7 @@
   "apiVersion": 2,
   "name": "ezpz/testimonials",
   "title": "Testimonials",
-  "category": "text",
+  "category": "widgets",
   "icon": "testimonial",
   "description": "Renders a block containing a slider of testimonials.",
   "keywords": [

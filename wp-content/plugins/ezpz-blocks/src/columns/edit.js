@@ -11,84 +11,28 @@ import { __ } from "@wordpress/i18n";
 
 import {
 	useInnerBlocksProps,
-	__experimentalBlockVariationPicker,
+	__experimentalBlockVariationPicker as BlockVariationPicker,
 	useBlockProps,
 	store as blockEditorStore,
 } from "@wordpress/block-editor";
 
-import { withDispatch, useDispatch, useSelect } from "@wordpress/data";
+import { useDispatch, useSelect } from "@wordpress/data";
 
 import {
-	createBlock,
 	createBlocksFromInnerBlocksTemplate,
 	store as blocksStore,
 } from "@wordpress/blocks";
 
-/**
- * Allowed blocks constant is passed to InnerBlocks precisely as specified here.
- * The contents of the array should never change.
- * The array should contain the name of each block that is allowed.
- * In columns block, the only block we allow is 'core/column'.
- */
 const ALLOWED_BLOCKS = ["ezpz/column"];
 
-const EditColumnsWrapper = withDispatch((dispatch, ownProps, registry) => ({
-	updateColumns(columns) {
-		console.log("columns", columns);
-	},
-}))(EditColumns);
-
-function EditColumns({
-	attributes,
-	setAttributes,
-	updateAlignment,
-	updateColumns,
-	clientId,
-}) {
-	const { isStackedOnMobile, verticalAlignment, templateLock } = attributes;
-	// console.log(isStackedOnMobile);
-	// console.log(verticalAlignment);
-	// console.log(templateLock);
-
-	const { count, canInsertColumnBlock, minCount } = useSelect(
-		(select) => {
-			const { canInsertBlockType, canRemoveBlock, getBlocks, getBlockCount } =
-				select(blockEditorStore);
-			const innerBlocks = getBlocks(clientId);
-
-			// Get the indexes of columns for which removal is prevented.
-			// The highest index will be used to determine the minimum column count.
-			const preventRemovalBlockIndexes = innerBlocks.reduce(
-				(acc, block, index) => {
-					if (!canRemoveBlock(block.clientId)) {
-						acc.push(index);
-					}
-					return acc;
-				},
-				[]
-			);
-
-			return {
-				count: getBlockCount(clientId),
-				canInsertColumnBlock: canInsertBlockType("core/column", clientId),
-				minCount: Math.max(...preventRemovalBlockIndexes) + 1,
-			};
-		},
-		[clientId]
-	);
-	// console.log(count);
-	// console.log(canInsertColumnBlock);
-	// console.log(minCount);
-
+function EditColumns() {
 	const blockProps = useBlockProps({});
 	const innerBlocksProps = useInnerBlocksProps(blockProps, {
 		allowedBlocks: ALLOWED_BLOCKS,
 		orientation: "horizontal",
 		renderAppender: false,
-		templateLock,
+		templateLock: "insert",
 	});
-	// console.log(blockProps);
-	// console.log(innerBlocksProps);
 
 	// Explode blockProps.className
 	let classes = blockProps.className.split(" ");
@@ -112,13 +56,11 @@ function EditColumns({
 	blockProps.className = classes.join(" ");
 
 	return (
-		<>
-			<section {...blockProps}>
-				<div className="container">
-					<div className="row">{innerBlocksProps.children}</div>
-				</div>
-			</section>
-		</>
+		<section {...blockProps}>
+			<div className="container">
+				<div className="row">{innerBlocksProps.children}</div>
+			</div>
+		</section>
 	);
 }
 
@@ -146,20 +88,23 @@ function Placeholder({ clientId, name, setAttributes }) {
 		},
 		[name]
 	);
+
 	const { replaceInnerBlocks } = useDispatch(blockEditorStore);
 	const blockProps = useBlockProps();
 
+	/**
+	 * Outputs a variation picker. This allows the user to select a layout for the columns block.
+	 * OnSelect, the block attributes and inner blocks are updated.
+	 */
 	return (
 		<div {...blockProps}>
-			<__experimentalBlockVariationPicker
+			<BlockVariationPicker
 				icon={blockType?.icon?.src}
 				label={blockType?.title}
 				variations={variations}
 				instructions="Please select the layout you would like for this block. These layouts apply to larger screens only."
 				onSelect={(nextVariation = defaultVariation) => {
-					console.log(nextVariation);
 					if (nextVariation.attributes) {
-						console.log(nextVariation.attributes);
 						setAttributes(nextVariation.attributes);
 					}
 					if (nextVariation.innerBlocks) {
@@ -170,7 +115,6 @@ function Placeholder({ clientId, name, setAttributes }) {
 						);
 					}
 				}}
-				allowSkip
 			/>
 		</div>
 	);
@@ -185,7 +129,7 @@ const Edit = (props) => {
 	);
 
 	// Determines which component to render based on whether the block has inner blocks or not.
-	const Component = hasInnerBlocks ? EditColumnsWrapper : Placeholder;
+	const Component = hasInnerBlocks ? EditColumns : Placeholder;
 
 	return <Component {...props} />;
 };

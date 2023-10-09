@@ -1,2 +1,2 @@
 TODO: Add in block previews
-TODO: Modify columns block to llow user to sceficy numberr of cols they want / the layout
+TODO: Add bg color to column blocks?
