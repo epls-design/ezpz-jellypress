@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "title": "Column",
   "category": "layout",
-  "description": "Column containing content",
+  "description": "A single column containing content.",
   "parent": [
     "ezpz/columns"
   ],

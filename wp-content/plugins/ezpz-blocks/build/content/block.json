@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "title": "Content",
   "category": "text",
-  "description": "Use this block to add text content to your page.",
+  "description": "Use this block to add a mix of different content blocks to your page, for example text, images, etc.",
   "parent": [
     "ezpz/section",
     "ezpz/column"
