@@ -31,3 +31,16 @@ h6 {
 .color-white {
   color: v(color-white) !important;
 }
+
+/**
+  * Text alignment classes added by Gutenberg
+  */
+.has-text-align-center {
+  text-align: center !important;
+}
+.has-text-align-right {
+  text-align: right !important;
+}
+.has-text-align-left {
+  text-align: left !important;
+}

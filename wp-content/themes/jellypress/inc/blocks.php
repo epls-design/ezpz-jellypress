@@ -155,18 +155,6 @@ function jellypress_block_templates() {
 add_action('init', 'jellypress_block_templates', 20);
 
 /**
- * Enqueue JS to override Gutenberg core block settings
- */
-add_action('enqueue_block_editor_assets', function () {
-  wp_enqueue_script(
-    'jellypress-gutenberg-overrides',
-    get_template_directory_uri() . '/lib/gutenberg-overrides.js',
-    array('react', 'react-dom', 'wp-data', 'wp-blocks', 'wp-dom-ready', 'wp-edit-post', 'wp-hooks'),
-    filemtime(get_template_directory() . '/lib/gutenberg-overrides.js'),
-  );
-});
-
-/**
  * Returns the default <InnerBlocks /> template
  * @param array $blocks The blocks to use if the default is not required
  *

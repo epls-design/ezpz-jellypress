@@ -22,6 +22,8 @@ class ezpzBlocks {
 		add_filter('allowed_block_types_all', [$this, 'filter_allowed_blocks'], 20, 2);
 		add_filter('plugin_action_links', [$this, 'prevent_deactivation'], 10, 2);
 		add_filter('render_block', [$this, 'overwrite_render'], 20, 2);
+		add_action('enqueue_block_editor_assets', [$this, 'enqueue_js']);
+		add_action('admin_enqueue_scripts', [$this, 'admin_css']);
 	}
 
 	/**
@@ -78,7 +80,7 @@ class ezpzBlocks {
 				'core/list-item',
 				'core/shortcode',
 				'core/table',
-				'core/image'
+				'core/image',
 			];
 
 			// Merge $additional_blocks with $plugin_blocks
@@ -121,7 +123,6 @@ class ezpzBlocks {
 				'block-' . $block_name,
 			];
 
-			// TODO: This may be better done in JS but it works now
 			$background = isset($block['attrs']['backgroundColor']) ? 'bg-' . $block['attrs']['backgroundColor'] : 'bg-white';
 
 			$classes[] = $background;
@@ -131,9 +132,44 @@ class ezpzBlocks {
 
 			// Add the classes to the block
 			$block_content = str_replace('<section', '<section class="' . implode(" ", $classes) . '"', $block_content);
+		} elseif ($block_name == 'core/paragraph') {
+			/**
+			 * We use a placeholder in ezpz/content and ezpz/content-preamble, so we know that
+			 * if it doesn't have this it's top level and must not be displayed on the front
+			 * end. We only enable it at the top level, so that the editor can use '/' to insert
+			 * blocks, and also 'insert before' and 'insert after;
+			 *
+			 */
+			if (!isset($block['attrs']['placeholder'])) {
+				return; // Return so nothing is displayed
+			}
 		}
 
 		return $block_content;
+	}
+
+	/**
+	 * Enqueue the JS for the block editor
+	 */
+	function enqueue_js() {
+		wp_enqueue_script(
+			'ezpz-blocks',
+			plugin_dir_url(__FILE__) . 'editor/plugin.js',
+			array('react', 'react-dom', 'wp-data', 'wp-blocks', 'wp-dom-ready', 'wp-edit-post', 'wp-hooks'),
+			filemtime(plugin_dir_path(__FILE__) . 'editor/plugin.js'),
+		);
+	}
+
+	/**
+	 * Enqueue the CSS for the block editor
+	 */
+	function admin_css() {
+		wp_enqueue_style(
+			'ezpz-blocks',
+			plugin_dir_url(__FILE__) . 'editor/plugin.css',
+			array(),
+			filemtime(plugin_dir_path(__FILE__) . 'editor/plugin.css'),
+		);
 	}
 
 	/**
@@ -156,4 +192,3 @@ class ezpzBlocks {
 new ezpzBlocks();
 
 // TODO: How to remove ' Media' tab in block editor
-// TODO: Fix it so that aloign tags work on core/paragraph
