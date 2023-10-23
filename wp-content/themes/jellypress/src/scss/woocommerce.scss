@@ -1,5 +1,5 @@
 @charset "UTF-8";
 @import "jellyfish-ui/src/scss/abstracts/01-tools/__all";
-@import "abstracts/__all";
+@import "abstracts/**/*.scss";
 @import "jellyfish-ui/src/scss/abstracts/02-settings/__all";
-@import "00-woocommerce/__all";
+@import "00-woocommerce/**/*.scss";

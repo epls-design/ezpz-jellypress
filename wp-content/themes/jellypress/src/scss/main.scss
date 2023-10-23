@@ -1,25 +1,26 @@
 @charset "UTF-8";
 
 @import "jellyfish-ui/src/scss/abstracts/01-tools/__all";
-@import "abstracts/__all";
+@import "abstracts/**/*.scss";
 @import "jellyfish-ui/src/scss/abstracts/02-settings/__all";
 
-@import "base/__all";
+@import "base/**/*.scss";
 @import "jellyfish-ui/src/scss/base/__all";
 
 @import "jellyfish-ui/src/scss/vendors/hamburgers/hamburgers";
-@import "vendors/__all";
+@import "vendors/**/*.scss";
 
 @import "jellyfish-ui/src/scss/layout/__all";
-@import "layout/__all";
+@import "layout/**/*.scss";
 
 @import "jellyfish-ui/src/scss/components/__all";
-@import "components/__all";
+@import "components/**/*.scss";
+@import "../../template-parts/**/*.scss";
 
-@import "post-types/__all";
+@import "post-types/**/*.scss";
 
 @import "jellyfish-ui/src/scss/themes/__all";
-@import "themes/__all";
+@import "themes/**/*.scss";
 
 @import "jellyfish-ui/src/scss/utilities/__all";
-@import "utilities/__all";
+@import "utilities/**/*.scss";

@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
 @import "jellyfish-ui/src/scss/abstracts/01-tools/__all";
-@import "abstracts/__all";
+@import "abstracts/**/*.scss";
 @import "jellyfish-ui/src/scss/abstracts/02-settings/__all";
 
 @import "jellyfish-ui/src/scss/base/__all";
 
 @import "jellyfish-ui/src/scss/vendors/hamburgers/hamburgers";
-@import "vendors/__all";
+@import "vendors/**/*.scss";
 
 /**
   * Specify which Jellyfish-Ui elements to include, we don't want forms
@@ -22,20 +22,20 @@
 @import "jellyfish-ui/src/scss/layout/grid";
 @import "jellyfish-ui/src/scss/layout/range-slider";
 @import "jellyfish-ui/src/scss/layout/responsive-embed";
-@import "layout/__all";
+@import "layout/**/*.scss";
 
 $buttons: ("a.button"); // Remove button styles from editor
 
 @import "jellyfish-ui/src/scss/components/__all";
-@import "components/__all";
+@import "components/**/*.scss";
 
-@import "post-types/__all";
+@import "post-types/**/*.scss";
 
 @import "jellyfish-ui/src/scss/themes/__all";
-@import "themes/__all";
+@import "themes/**/*.scss";
 
 @import "jellyfish-ui/src/scss/utilities/__all";
-@import "utilities/__all";
+@import "utilities/**/*.scss";
 
 // Finally import the editor specific styles
-@import "00-editor/__all";
+@import "00-editor/**/*.scss";
