@@ -141,8 +141,8 @@ if (!class_exists('ezpzCleanUp')) {
       add_filter('the_content_more_link', array($this, 'more_jump_link_anchor'));
 
       /* Fixes curly quotes and badly formatted characters */
-      add_filter('content_save_pre',      array($this, 'curly_other_chars'));
-      add_filter('title_save_pre',        array($this, 'curly_other_chars'));
+      // add_filter('content_save_pre',      array($this, 'curly_other_chars'));
+      // add_filter('title_save_pre',        array($this, 'curly_other_chars'));
     }
 
     // Automatically adds Alt tags to images uploaded, based on the image title or filename.
