@@ -28,6 +28,7 @@ $buttons: ("a.button"); // Remove button styles from editor
 
 @import "jellyfish-ui/src/scss/components/__all";
 @import "components/**/*.scss";
+@import "../../template-parts/**/*.scss";
 
 @import "post-types/**/*.scss";
 

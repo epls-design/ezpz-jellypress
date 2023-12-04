@@ -57,7 +57,7 @@ if (!class_exists('ezpzWhiteLabel')) {
 
       /* IF A USER LOGIN FAILS DON'T TELL THEM WHAT ITEM WAS INCORRECT (USERNAME/PASSWORD) */
       function failed_login_text() {
-        return __('Login failed because either your username or password was incorrect. Please try again.' . 'ezpz-whitelabel');
+        return __('Login failed because either your username or password was incorrect. Please try again.', 'ezpz-whitelabel');
       }
       add_filter('login_errors', 'failed_login_text');
     }

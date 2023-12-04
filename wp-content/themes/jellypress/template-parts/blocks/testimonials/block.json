@@ -35,6 +35,6 @@
   "acf": {
     "mode": "preview",
     "renderTemplate": "view.php",
-    "postTypes": ["post", "page"]
+    "postTypes": []
   }
 }

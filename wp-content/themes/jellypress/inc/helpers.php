@@ -44,8 +44,9 @@ function jellypress_get_block_attributes($block) {
    */
   if (isset($block['parent'])) {
 
-    if ($block['parent']['name'] == 'ezpz/cover') {
-      $bg_color = 'primary-500';
+    if ($block['parent']['name'] == 'ezpz/cover' && !isset($block['parent']['backgroundColor'])) {
+      // If bgColor is not set, it's because the user has left it as the default. So we need to set it to match whatever the value is in the block.json
+      $bg_color = 'black';
     } else {
       isset($block['parent']['backgroundColor']) ? $bg_color = $block['parent']['backgroundColor'] : $bg_color;
     }
