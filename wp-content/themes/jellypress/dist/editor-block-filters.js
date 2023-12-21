@@ -122,7 +122,7 @@ window.wp.domReady(function () {
  */
 
 function jellypressFilterBlockParents(settings, name) {
-  var childBlocks = ["core/heading", "core/table", "core/list", "core/quote", "core/audio", "core/pullquote", "core/embed", "core/separator", "core/html", "core/shortcode", "core/code", "gravityforms/form"];
+  var childBlocks = ["core/heading", "core/table", "core/list", "core/image", "core/quote", "core/audio", "core/pullquote", "core/embed", "core/separator", "core/html", "core/shortcode", "core/code", "gravityforms/form"];
 
   // Bail if not in array of child blocks
   if (!childBlocks.includes(name)) return settings;
@@ -139,3 +139,7 @@ wp.hooks.addFilter("blocks.registerBlockType", "ezpz/content", jellypressFilterB
  * - Add option for autoplay on core/block
  * - GET RID OF ALL IMAGE FILTER STUFF
  */
+
+// TODO: NAtive support for details block for FAQs
+// TODO: How to make tables responsive
+// TODO: Remvoe options to resize on core/image

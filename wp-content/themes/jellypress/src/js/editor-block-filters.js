@@ -168,6 +168,7 @@ function jellypressFilterBlockParents(settings, name) {
     "core/heading",
     "core/table",
     "core/list",
+    "core/image",
     "core/quote",
     "core/audio",
     "core/pullquote",
@@ -199,3 +200,7 @@ wp.hooks.addFilter(
  * - Add option for autoplay on core/block
  * - GET RID OF ALL IMAGE FILTER STUFF
  */
+
+// TODO: NAtive support for details block for FAQs
+// TODO: How to make tables responsive
+// TODO: Remvoe options to resize on core/image

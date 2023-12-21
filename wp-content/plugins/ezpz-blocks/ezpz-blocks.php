@@ -91,6 +91,7 @@ class ezpzBlocks {
 				"core/heading",
 				"core/paragraph",
 				"core/table",
+				"core/image",
 				"core/list",
 				"core/quote",
 				"core/audio",
@@ -100,6 +101,7 @@ class ezpzBlocks {
 				"core/html",
 				"core/shortcode",
 				"core/code",
+				"core/footnotes",
 				"gravityforms/form",
 				// "core/group", // TODO: Add support for group, but by default its doing row/stack which we dont want
 				"core/block"

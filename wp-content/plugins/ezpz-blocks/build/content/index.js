@@ -64,7 +64,7 @@ __webpack_require__.r(__webpack_exports__);
  * @return {WPElement} Element to render.
  */
 function Edit() {
-  const ALLOWED_BLOCKS = ["core/heading", "core/paragraph", "core/table", "core/list", "core/quote", "core/audio", "core/pullquote", "core/embed", "core/separator", "core/html", "core/shortcode", "core/code", "gravityforms/form"
+  const ALLOWED_BLOCKS = ["core/heading", "core/paragraph", "core/table", "core/list", "core/image", "core/quote", "core/audio", "core/pullquote", "core/embed", "core/separator", "core/html", "core/shortcode", "core/code", "gravityforms/form"
 
   //"ezpz/buttons",
   //"ezpz/accordion",

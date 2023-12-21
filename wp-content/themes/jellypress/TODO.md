@@ -7,4 +7,3 @@ TODO: MAKE TABLES RESPONSIVE
 TODO: Add prism.js to core/code block
 
 TODO: core/image
-TODO: core/footnotes

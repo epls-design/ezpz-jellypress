@@ -63,7 +63,7 @@ add_filter('acf/settings/load_json', 'jellypress_load_acf_block_fields');
 /**
  * Specify which blocks are exposed to Gutenberg Editor
  */
-add_filter('allowed_block_types_all', 'jellypress_allowed_blocks', 10, 2);
+// add_filter('allowed_block_types_all', 'jellypress_allowed_blocks', 10, 2);
 function jellypress_allowed_blocks($block_editor_context, $editor_context) {
   if (!empty($editor_context->post)) {
     $blocks = jellypress_get_blocks();
@@ -220,6 +220,14 @@ function jellypress_core_block_overwrite_render($block_content, $block) {
       get_template_part('template-parts/blocks/core/embed', null, $args);
       return ob_get_clean();
     }
+  } elseif ($block_name == 'core/footnotes') {
+    ob_start();
+    $args = [
+      'block' => $block,
+      'block_content' => $block_content,
+    ];
+    get_template_part('template-parts/blocks/core/footnotes', null, $args);
+    return ob_get_clean();
   }
 
   return $block_content;
