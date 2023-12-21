@@ -264,28 +264,10 @@ function jellypress_display_socials() {
  *************************************/
 
 /**
- * Determines the platform of a video by analysing the URL
- * @param string $video The URL that should be embedded.
- */
-function jellypress_get_video_platform($video) {
-  $platform = false;
-  if (strpos($video, 'vimeo.com') !== false) {
-    $platform = 'vimeo';
-  } elseif (
-    strpos($video, 'youtube.com') !== false ||
-    strpos($video, 'youtu.be' !== false) ||
-    strpos($video, 'youtube-nocookie.com' !== false)
-  ) {
-    $platform = 'youtube';
-  }
-  return $platform;
-}
-
-/**
  * Prepares and displays an oembed video with play button
  * @param string $video The URL that should be embedded.
  */
-function jellypress_embed_video($video, $aspect_ratio = '16x9', $autoplay = false) {
+function jellypress_embed_video($video, $aspect_ratio = '16x9', $platform, $caption = null, $autoplay = false) {
 
   if (strpos($video, 'iframe') === false) {
     $oembed = wp_oembed_get($video); // Full oEmbed Code
@@ -306,7 +288,6 @@ function jellypress_embed_video($video, $aspect_ratio = '16x9', $autoplay = fals
   if (isset($oembed[1])) {
     $oembed[1] = explode('" ', $oembed[1]); // Put's the URL into [1]
     $oembed_url = $oembed[1][0]; // Get the URL from the array
-    $platform = jellypress_get_video_platform($oembed_url); // Finds the platform from the URL
 
     if ($platform === 'vimeo') {
 
@@ -362,14 +343,19 @@ function jellypress_embed_video($video, $aspect_ratio = '16x9', $autoplay = fals
       wp_enqueue_script('youtube-api');
     }
     if ($platform) { ?>
-      <figure class="video-wrapper<?php if ($autoplay) echo ' video-autoplay'; ?>">
-        <div class="video-overlay has-bg-img" style="background-image:url('<?php echo $video_thumbnail_lq; ?>')" data-bg-img="<?php echo $video_thumbnail_hq; ?>">
-          <button class="play platform-<?php esc_attr_e($platform); ?>" data-src="<?php echo esc_url($oembed_url); ?>" title="<?php _e('Play Video', 'jellypress'); ?>"><?php echo jellypress_icon('play'); ?></button>
+      <figure>
+        <div class="video-wrapper<?php if ($autoplay) echo ' video-autoplay'; ?>">
+          <div class="video-overlay has-bg-img" style="background-image:url('<?php echo $video_thumbnail_lq; ?>')" data-bg-img="<?php echo $video_thumbnail_hq; ?>">
+            <button class="play platform-<?php esc_attr_e($platform); ?>" data-src="<?php echo esc_url($oembed_url); ?>" title="<?php _e('Play Video', 'jellypress'); ?>"><?php echo jellypress_icon('play'); ?></button>
+          </div>
+          <div class="embed-container ratio-<?php echo $aspect_ratio; ?>">
+            <iframe width="640" height="390" type="text/html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="<?php echo $title; ?>"></iframe>
+          </div>
         </div>
-        <div class="embed-container ratio-<?php echo $aspect_ratio; ?>">
-          <iframe width="640" height="390" type="text/html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="<?php echo $title; ?>"></iframe>
-        </div>
+        <?php if ($caption) : ?>
+          <figcaption class="wp-element-caption"><?php echo $caption; ?></figcaption>
+        <?php endif; ?>
       </figure>
-<?php } // if ( $platform )
-  } // if ( isset( $oembed[1] ))
+<?php }
+  }
 }

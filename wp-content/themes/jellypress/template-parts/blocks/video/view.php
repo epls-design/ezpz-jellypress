@@ -23,7 +23,6 @@
 defined('ABSPATH') || exit;
 
 $block_attributes = jellypress_get_block_attributes($block);
-$fields = get_fields();
 
 $container_class = 'container';
 
@@ -32,13 +31,10 @@ if ($block_width == 'wide') $container_class .= ' is-wide';
 elseif ($block_width == 'full') $block_attributes['class'] .= ' is-full-width';
 elseif ($block_width === 'center') $justify = 'center';
 
-$blocks = array(
-  "ezpz/video-embed",
-);
-$allowed_blocks = jellypress_get_allowed_blocks($allowed_blocks);
+$allowed_blocks = jellypress_get_allowed_blocks(['core/embed']);
 $block_template = array(
   array(
-    'ezpz/video-embed', array()
+    'core/embed', array(), array()
   )
 );
 $block_template = jellypress_get_block_template($block_template);

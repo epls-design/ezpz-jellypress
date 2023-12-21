@@ -235,17 +235,14 @@ function javascriptLint(done) {
 }
 
 function compileGutenberg(done) {
-  return (
-    src(opts.src_dir + "/js/editor-block-filters.js")
-      .pipe(
-        babel({
-          presets: ["@babel/env", "@babel/preset-react"],
-        })
-      )
-      // .pipe(uglify({ mangle: true }))
-      .pipe(dest(opts.dist_dir))
-      .pipe(browsersync.reload({ stream: true }))
-  );
+  return src(opts.src_dir + "/js/editor-block-filters.js")
+    .pipe(
+      babel({
+        presets: ["@babel/env", "@babel/preset-react"],
+      })
+    )
+    .pipe(uglify({ mangle: true }))
+    .pipe(dest(opts.dist_dir));
 
   done();
 }

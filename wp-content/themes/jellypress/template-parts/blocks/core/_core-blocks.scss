@@ -1,0 +1,23 @@
+.wp-block-pullquote {
+  font-size: 1em;
+  p {
+    font-size: font-size(3);
+  }
+}
+
+.is-style-stripes {
+  table {
+    @extend .is-striped;
+  }
+}
+
+.wp-block-audio,
+.wp-block-embed__wrapper {
+  margin-bottom: $element-margin;
+}
+
+.wp-element-caption {
+  font-size: font-size(-1);
+  margin-top: $element-margin;
+  margin-bottom: $element-margin;
+}

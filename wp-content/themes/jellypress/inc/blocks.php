@@ -63,7 +63,7 @@ add_filter('acf/settings/load_json', 'jellypress_load_acf_block_fields');
 /**
  * Specify which blocks are exposed to Gutenberg Editor
  */
-add_filter('allowed_block_types_all', 'jellypress_allowed_blocks', 10, 2);
+// add_filter('allowed_block_types_all', 'jellypress_allowed_blocks', 10, 2);
 function jellypress_allowed_blocks($block_editor_context, $editor_context) {
   if (!empty($editor_context->post)) {
     $blocks = jellypress_get_blocks();
@@ -185,4 +185,42 @@ function jellypress_get_block_template($template = null) {
   }
 
   return esc_attr(wp_json_encode($template));
+}
+
+/**
+ * Hook into block render function to overwrite the output of core blocks
+ *
+ * @param string $block_content HTML content of the block.
+ * @param array $block Gutenberg block object.
+ * @return string $block_content HTML content of the block.
+ */
+add_filter('render_block', 'jellypress_core_block_overwrite_render', 20, 2);
+function jellypress_core_block_overwrite_render($block_content, $block) {
+  $block_name = $block['blockName'];
+
+  if ($block_name === 'core/embed') {
+
+    $attrs = $block['attrs'];
+    if ($attrs['providerNameSlug'] == 'youtube') {
+      $provider = 'youtube';
+    } elseif ($attrs['providerNameSlug'] == 'vimeo') {
+      $provider = 'vimeo';
+    } else {
+      $provider = null;
+    }
+
+    // Get the template part so it can be wrapped in a responsive div
+    if ($provider) {
+      ob_start();
+      $args = [
+        'block' => $block,
+        'block_content' => $block_content,
+        'provider' => $provider,
+      ];
+      get_template_part('template-parts/blocks/core/embed', null, $args);
+      return ob_get_clean();
+    }
+  }
+
+  return $block_content;
 }

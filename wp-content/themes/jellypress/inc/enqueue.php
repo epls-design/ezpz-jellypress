@@ -48,7 +48,7 @@ function jellypress_scripts() {
   wp_register_script(
     'youtube-api',
     '//www.youtube.com/iframe_api',
-    array(),
+    array('video-embed'),
     date('YW'),
     true
   );
@@ -56,7 +56,7 @@ function jellypress_scripts() {
   wp_register_script(
     'vimeo-api',
     '//player.vimeo.com/api/player.js',
-    array(),
+    array('video-embed'),
     date('YW'),
     true
   );
@@ -119,9 +119,9 @@ function jellypress_scripts() {
 
   wp_register_script(
     'video-embed',
-    get_template_directory_uri() . '/template-parts/blocks/video-embed/video-player.js',
+    get_template_directory_uri() . '/lib/video-player.js',
     array('jquery'),
-    filemtime(get_template_directory() . '/template-parts/blocks/video-embed/video-player.js'),
+    filemtime(get_template_directory() . '/lib/video-player.js'),
     true
   );
 

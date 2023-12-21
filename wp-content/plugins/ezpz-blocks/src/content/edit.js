@@ -18,6 +18,7 @@ export default function Edit() {
 		"core/paragraph",
 		"core/table",
 		"core/list",
+		"core/embed",
 		"ezpz/video-embed",
 		"ezpz/buttons",
 		"ezpz/accordion",
