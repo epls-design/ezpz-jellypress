@@ -127,16 +127,12 @@ function jellypress_add_rel_external_to_outbound_links($matches) {
   return $link;
 }
 
-/**
- * Restricts the maximum character count of Link Text to prevent massive buttons and links
- */
-add_action('admin_footer', 'jellypress_restrict_link_text_length');
-function jellypress_restrict_link_text_length() { ?>
-  <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function(event) {
-      var linkText = document.getElementById('wp-link-text'),
-        maxCharacters = 70;
-      linkText.setAttribute("maxlength", maxCharacters);
-    });
-  </script>
-<?php }
+add_action('enqueue_block_editor_assets', 'jellypress_block_editor_scripts');
+function jellypress_block_editor_scripts() {
+  wp_enqueue_script(
+    'jellypress-gutenberg-filters',
+    get_template_directory_uri() . '/dist/editor-block-filters.js',
+    array('react', 'react-dom', 'wp-data', 'wp-blocks', 'wp-dom-ready', 'wp-edit-post', 'wp-hooks', 'wp-element', 'wp-editor', 'wp-components', 'wp-i18n', 'lodash'),
+    filemtime(get_template_directory() . '/dist/editor-block-filters.js'),
+  );
+}

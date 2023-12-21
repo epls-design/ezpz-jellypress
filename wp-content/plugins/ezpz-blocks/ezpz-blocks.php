@@ -22,7 +22,6 @@ class ezpzBlocks {
 		add_filter('allowed_block_types_all', [$this, 'filter_allowed_blocks'], 20, 2);
 		add_filter('plugin_action_links', [$this, 'prevent_deactivation'], 10, 2);
 		add_filter('render_block', [$this, 'overwrite_render'], 20, 2);
-		add_action('enqueue_block_editor_assets', [$this, 'enqueue_js']);
 		add_action('admin_enqueue_scripts', [$this, 'admin_css']);
 	}
 
@@ -146,18 +145,6 @@ class ezpzBlocks {
 		}
 
 		return $block_content;
-	}
-
-	/**
-	 * Enqueue the JS for the block editor
-	 */
-	function enqueue_js() {
-		wp_enqueue_script(
-			'ezpz-blocks',
-			plugin_dir_url(__FILE__) . 'editor/plugin.js',
-			array('react', 'react-dom', 'wp-data', 'wp-blocks', 'wp-dom-ready', 'wp-edit-post', 'wp-hooks'),
-			filemtime(plugin_dir_path(__FILE__) . 'editor/plugin.js'),
-		);
 	}
 
 	/**

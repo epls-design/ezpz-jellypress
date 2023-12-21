@@ -36,11 +36,13 @@
   ],
   "browserslist": "last 5 versions",
   "devDependencies": {
+    "@babel/preset-env": "^7.23.6",
     "autoprefixer": "^10.4.13",
     "browser-sync": "^2.27.11",
     "del": "^6.1.1",
     "es6-promise": "^4.2.8",
     "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
     "gulp-banner": "^0.1.3",
     "gulp-changed-in-place": "^2.3.0",
     "gulp-concat": "^2.6.1",
@@ -62,6 +64,7 @@
     "sass": "^1.57.1"
   },
   "dependencies": {
+    "@babel/preset-react": "^7.23.3",
     "@splidejs/splide": "^4.1.4",
     "a11y_accordions": "^3.2.1",
     "cssnano": "^6.0.1",
