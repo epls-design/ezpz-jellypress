@@ -22,6 +22,8 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
+// TODO: REPLACE WITH GUTENBERG BUTTONS
+
 $block_attributes = jellypress_get_block_attributes($block);
 $fields = get_fields();
 

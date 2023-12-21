@@ -18,13 +18,19 @@ export default function Edit() {
 		"core/paragraph",
 		"core/table",
 		"core/list",
+		"core/quote",
+		"core/audio",
+		"core/pullquote",
 		"core/embed",
+		"core/separator",
 		"core/html",
-
-		"ezpz/buttons",
-		"ezpz/accordion",
-		"ezpz/image-zoom",
+		"core/shortcode",
+		"core/code",
 		"gravityforms/form",
+
+		//"ezpz/buttons",
+		//"ezpz/accordion",
+		//"ezpz/image-zoom",
 	];
 	const TEMPLATE = [
 		[

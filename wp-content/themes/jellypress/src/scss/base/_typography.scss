@@ -7,3 +7,22 @@ body {
     --wp--preset--font-size--large: #{font-size(3)} !important;
   }
 }
+
+// TODO: HOW TO MAKE THIS CASE SENSITIVE
+ol {
+  &[type="a"] {
+    list-style-type: lower-alpha;
+  }
+  &[type="A"] {
+    list-style-type: upper-alpha;
+  }
+  &[type="i"] {
+    list-style-type: lower-roman;
+  }
+  &[type="I"] {
+    list-style-type: upper-roman;
+  }
+  &[type="1"] {
+    list-style-type: decimal;
+  }
+}

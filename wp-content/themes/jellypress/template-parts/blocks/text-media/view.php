@@ -45,6 +45,7 @@ if ($media_align == 'left') {
   $media_class .= ' order-md-2';
 }
 
+// TODO: THIS NEEDS REWORKING TO USE SOME KIND OF COLUMN APPROACH, SO WE CAN SET VIDEO ONE SIDE AND TEXT THE OTHER - MAYBE ALSO USE VARIATION
 ?>
 
 <section class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
@@ -79,6 +80,7 @@ if ($media_align == 'left') {
           echo '</figure>';
         } elseif ($fields['media_type'] == 'video') {
           $autoplay = $fields['autoplay'] ? true : false;
+          // TODO: DEPRECATE
           jellypress_embed_video($fields['video'], $fields['aspect_ratio'], $autoplay);
         }
         ?>

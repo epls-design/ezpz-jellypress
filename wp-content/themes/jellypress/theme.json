@@ -47,6 +47,29 @@
       ]
     },
     "blocks": {
+      "core/heading": {
+        "align": false,
+        "color": {
+          "background": false,
+          "gradients": [],
+          "palette": [],
+          "text": false,
+          "custom": false,
+          "customGradient": false
+        },
+        "typography": {
+          "customFontSize": false,
+          "lineHeight": false,
+          "dropCap": false,
+          "fontStyle": false,
+          "fontWeight": false,
+          "letterSpacing": false,
+          "textDecoration": false,
+          "textTransform": false,
+          "fontSizes": [],
+          "fontFamilies": []
+        }
+      },
       "core/paragraph": {
         "color": {
           "background": false,
@@ -68,20 +91,25 @@
           "fontFamilies": []
         }
       },
-      "ezpz/cover": {
+      "core/table": {
         "color": {
-          "palette": [
-            {
-              "slug": "black",
-              "color": "#000000",
-              "name": "Black"
-            },
-            {
-              "slug": "white",
-              "color": "#ffffff",
-              "name": "White"
-            }
-          ]
+          "background": false,
+          "gradients": [],
+          "palette": [],
+          "text": false,
+          "custom": false,
+          "customGradient": false
+        },
+        "typography": {
+          "customFontSize": false,
+          "fontSizes": [],
+          "lineHeight": false,
+          "dropCap": false,
+          "fontStyle": false,
+          "fontWeight": false,
+          "letterSpacing": false,
+          "textDecoration": false,
+          "textTransform": false
         }
       },
       "core/list": {
@@ -107,29 +135,6 @@
         }
       },
       "core/list-item": {
-        "typography": {
-          "customFontSize": false,
-          "lineHeight": false,
-          "dropCap": false,
-          "fontStyle": false,
-          "fontWeight": false,
-          "letterSpacing": false,
-          "textDecoration": false,
-          "textTransform": false,
-          "fontSizes": [],
-          "fontFamilies": []
-        }
-      },
-      "core/heading": {
-        "align": false,
-        "color": {
-          "background": false,
-          "gradients": [],
-          "palette": [],
-          "text": false,
-          "custom": false,
-          "customGradient": false
-        },
         "typography": {
           "customFontSize": false,
           "lineHeight": false,
@@ -197,6 +202,53 @@
           "radius": false,
           "style": false,
           "width": false
+        }
+      },
+      "core/code": {
+        "color": {
+          "background": false,
+          "gradients": [],
+          "palette": [],
+          "text": false,
+          "custom": false,
+          "customGradient": false
+        },
+        "typography": {
+          "customFontSize": false,
+          "fontSizes": [],
+          "lineHeight": false,
+          "dropCap": false,
+          "fontStyle": false,
+          "fontWeight": false,
+          "letterSpacing": false,
+          "textDecoration": false,
+          "textTransform": false
+        }
+      },
+      "core/separator": {
+        "color": {
+          "background": false,
+          "gradients": [],
+          "palette": [],
+          "text": false,
+          "custom": false,
+          "customGradient": false
+        }
+      },
+      "ezpz/cover": {
+        "color": {
+          "palette": [
+            {
+              "slug": "black",
+              "color": "#000000",
+              "name": "Black"
+            },
+            {
+              "slug": "white",
+              "color": "#ffffff",
+              "name": "White"
+            }
+          ]
         }
       }
     }

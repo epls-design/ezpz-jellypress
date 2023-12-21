@@ -1,2 +1,10 @@
 Interesting to note that innerblocks can be nested in other inner blocks
 FIXME: Block JS being enqurued even when not needed
+
+TODO: Custom core/gallery style block to replace the ACF one
+TODO: MAKE TABLES RESPONSIVE
+
+TODO: Add prism.js to core/code block
+
+TODO: core/image
+TODO: core/footnotes

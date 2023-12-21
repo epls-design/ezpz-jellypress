@@ -51,3 +51,5 @@ if ($fields['image']) { ?>
     </figure>
   </div>
 <?php }
+
+// TODO: OVERWRITE THE CORE IMAGE BLOCK WITH THIS ONE

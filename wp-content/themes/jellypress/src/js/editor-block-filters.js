@@ -6,6 +6,8 @@ const { InspectorControls } = wp.blockEditor;
 const { PanelBody } = wp.components;
 const { __ } = wp.i18n;
 const { RadioControl } = wp.components;
+const { unregisterBlockStyle } = wp.blocks;
+const { unregisterFormatType } = wp.richText;
 
 /**
  * Adds custom Aspect Ratio attribute to core/embed block
@@ -107,7 +109,15 @@ addFilter(
   "blocks.registerBlockType",
   "ezpz/core/remove-align",
   function (settings, name) {
-    let removeFrom = ["core/embed"];
+    let removeFrom = [
+      "core/heading",
+      "core/code",
+      "core/pullquote",
+      "core/table",
+      "core/audio",
+      "core/separator",
+      "core/embed",
+    ];
     if (removeFrom.includes(name)) {
       return lodash.assign({}, settings, {
         supports: lodash.assign({}, settings.supports, {
@@ -119,14 +129,31 @@ addFilter(
   }
 );
 
-/***** TODO NEED TO REVIEW FROM HERE  ********/
-
-// Removes additional formatting options from the Gutenberg editor (used in core/paragraph)
+/**
+ * Filter out various block styles and formats from core blocks
+ **/
 window.wp.domReady(function () {
-  wp.richText.unregisterFormatType("core/image");
-  wp.richText.unregisterFormatType("core/text-color");
-  wp.richText.unregisterFormatType("core/keyboard");
-  wp.richText.unregisterFormatType("core/code");
+  unregisterFormatType("core/image"); // Prevents the user adding inline images
+  unregisterFormatType("core/text-color"); // TODO: It would be nice to allow this but it needs more work
+  unregisterFormatType("core/language");
+  // unregisterFormatType("core/keyboard");
+  // unregisterFormatType("core/code");
+  // unregisterFormatType("core/superscript");
+  // unregisterFormatType("core/subscript");
+  // unregisterFormatType("core/underline");
+  // unregisterFormatType("core/strikethrough");
+  // unregisterFormatType("core/bold");
+  // unregisterFormatType("core/italic");
+  // unregisterFormatType("core/footnote");
+
+  // Unregister Styles from core blocks
+  unregisterBlockStyle("core/quote", "default");
+  unregisterBlockStyle("core/quote", "plain");
+  unregisterBlockStyle("core/image", "default");
+  unregisterBlockStyle("core/image", "rounded");
+  unregisterBlockStyle("core/separator", "default");
+  unregisterBlockStyle("core/separator", "wide");
+  unregisterBlockStyle("core/separator", "dots");
 });
 
 /**
@@ -136,13 +163,19 @@ window.wp.domReady(function () {
  * @see https://nickdiego.com/how-to-modify-block-supports-using-client-side-filters/
  */
 
-function filterBlockParents(settings, name) {
+function jellypressFilterBlockParents(settings, name) {
   let childBlocks = [
-    // "core/paragraph",
     "core/heading",
-    "core/list",
-    "core/shortcode",
     "core/table",
+    "core/list",
+    "core/quote",
+    "core/audio",
+    "core/pullquote",
+    "core/embed",
+    "core/separator",
+    "core/html",
+    "core/shortcode",
+    "core/code",
     "gravityforms/form",
   ];
 
@@ -158,10 +191,11 @@ function filterBlockParents(settings, name) {
 wp.hooks.addFilter(
   "blocks.registerBlockType",
   "ezpz/content",
-  filterBlockParents
+  jellypressFilterBlockParents
 );
 
 /**
  * TODOS
  * - Add option for autoplay on core/block
+ * - GET RID OF ALL IMAGE FILTER STUFF
  */

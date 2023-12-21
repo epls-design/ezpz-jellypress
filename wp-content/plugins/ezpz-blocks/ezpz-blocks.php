@@ -18,11 +18,24 @@
 class ezpzBlocks {
 
 	function __construct() {
+		add_filter('block_categories_all', [$this, 'register_layout_category'], 10, 1);
 		add_action('init', [$this, 'register_blocks']);
 		add_filter('allowed_block_types_all', [$this, 'filter_allowed_blocks'], 20, 2);
 		add_filter('plugin_action_links', [$this, 'prevent_deactivation'], 10, 2);
 		add_filter('render_block', [$this, 'overwrite_render'], 20, 2);
-		add_action('admin_enqueue_scripts', [$this, 'admin_css']);
+	}
+
+	/**
+	 * Registers a new category for 'Layout' and moves it to the top
+	 */
+	function register_layout_category($block_categories) {
+		$layout = array(
+			'slug' => 'ezpz-layout',
+			'title' => 'Layout'
+		);
+		// Push to top of array
+		array_unshift($block_categories, $layout);
+		return $block_categories;
 	}
 
 	/**
@@ -66,20 +79,30 @@ class ezpzBlocks {
 	}
 
 	/**
-	 * Filters these blocks into the array of allowed blocks
+	 * Filters these blocks into the array of allowed blocks because in the theme we filter to
+	 * only include theme blocks. This will put back in core blocks we want, and those
+	 * registered in this plugin.
 	 */
 	function filter_allowed_blocks($block_editor_context, $editor_context) {
 		if (!empty($editor_context->post)) {
 
 			$plugin_blocks = $this->get_plugin_blocks('ezpz/');
 			$additional_blocks =  [
-				'core/paragraph',
-				'core/heading',
-				'core/list',
-				'core/list-item',
-				'core/shortcode',
-				'core/table',
-				'core/image',
+				"core/heading",
+				"core/paragraph",
+				"core/table",
+				"core/list",
+				"core/quote",
+				"core/audio",
+				"core/pullquote",
+				"core/embed",
+				"core/separator",
+				"core/html",
+				"core/shortcode",
+				"core/code",
+				"gravityforms/form",
+				// "core/group", // TODO: Add support for group, but by default its doing row/stack which we dont want
+				"core/block"
 			];
 
 			// Merge $additional_blocks with $plugin_blocks
@@ -107,9 +130,7 @@ class ezpzBlocks {
 		$block_name = $block['blockName'];
 
 		// Strip class from heading
-		if ($block_name == 'core/heading') {
-			$block_content = str_replace('<h2 class="wp-block-heading"', '<h2', $block_content);
-		} elseif ($block_name == 'ezpz/content') {
+		if ($block_name == 'ezpz/content') {
 			$block_content = str_replace('<div class="wp-block-ezpz-content"', '<div class="inner-content"', $block_content);
 		} elseif ($block_name == 'ezpz/section' || $block_name == 'ezpz/columns') {
 
@@ -131,32 +152,9 @@ class ezpzBlocks {
 
 			// Add the classes to the block
 			$block_content = str_replace('<section', '<section class="' . implode(" ", $classes) . '"', $block_content);
-		} elseif ($block_name == 'core/paragraph') {
-			/**
-			 * We use a placeholder in ezpz/content and ezpz/content-preamble, so we know that
-			 * if it doesn't have this it's top level and must not be displayed on the front
-			 * end. We only enable it at the top level, so that the editor can use '/' to insert
-			 * blocks, and also 'insert before' and 'insert after;
-			 *
-			 */
-			if (!isset($block['attrs']['placeholder'])) {
-				return; // Return so nothing is displayed
-			}
 		}
 
 		return $block_content;
-	}
-
-	/**
-	 * Enqueue the CSS for the block editor
-	 */
-	function admin_css() {
-		wp_enqueue_style(
-			'ezpz-blocks',
-			plugin_dir_url(__FILE__) . 'editor/plugin.css',
-			array(),
-			filemtime(plugin_dir_path(__FILE__) . 'editor/plugin.css'),
-		);
 	}
 
 	/**
@@ -177,5 +175,3 @@ class ezpzBlocks {
 	}
 }
 new ezpzBlocks();
-
-// TODO: How to remove ' Media' tab in block editor
