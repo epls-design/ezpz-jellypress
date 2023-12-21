@@ -11,6 +11,8 @@ const browsersync = require("browser-sync").create();
 const fs = require("fs");
 const path = require("path");
 const del = require("del");
+const gulp = require("gulp");
+const babel = require("gulp-babel");
 
 var eslint = require("gulp-eslint");
 var phplint = require("gulp-phplint");
@@ -145,9 +147,16 @@ function watchTask(done) {
   watch(opts.src_dir + "/acf-json/*.json", moveBlockJson);
 
   watch(
-    [opts.src_dir + "/js/**/*.js"],
+    // ignore the editor-block-filters.js file as we transpile this separately
+    [
+      opts.src_dir + "/js/**/*.js",
+      "!" + opts.src_dir + "/js/editor-block-filters.js",
+    ],
     series(javascriptLint, javascriptProcess)
   );
+
+  watch(opts.src_dir + "/js/editor-block-filters.js", compileGutenberg);
+
   done();
 }
 
@@ -225,6 +234,22 @@ function javascriptLint(done) {
   done();
 }
 
+function compileGutenberg(done) {
+  return (
+    src(opts.src_dir + "/js/editor-block-filters.js")
+      .pipe(
+        babel({
+          presets: ["@babel/env", "@babel/preset-react"],
+        })
+      )
+      // .pipe(uglify({ mangle: true }))
+      .pipe(dest(opts.dist_dir))
+      .pipe(browsersync.reload({ stream: true }))
+  );
+
+  done();
+}
+
 function moveBlockJson(done) {
   /** Get All files within the acf-json folder
    * Loop through each file, and look for the property location.value
@@ -269,6 +294,7 @@ function javascriptProcess() {
     src([
       opts.src_dir + "/js/01-breakpoints.js",
       opts.src_dir + "/js/*.*",
+      "!" + opts.src_dir + "/js/editor-block-filters.js", // IGNORE GUTENBERG AS WE TRANSPILE THIS SEPARATELY
       "node_modules/jellyfish-ui/dist/js/jellyfish.min.js",
     ])
       // .pipe(sourcemaps.init())
