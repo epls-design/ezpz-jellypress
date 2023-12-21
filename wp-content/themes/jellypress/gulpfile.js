@@ -81,16 +81,6 @@ function browsersyncReload(done) {
 
 // Copy libraries from Node Modules so that they can be compiled into the project's codebase
 function copyLibs() {
-  var magnificJS = src(
-    "node_modules/magnific-popup/dist/jquery.magnific-popup.min.js"
-  )
-    .pipe(rename("magnific-popup.min.js"))
-    .pipe(dest("./lib/"));
-
-  var magnificCSS = src("node_modules/magnific-popup/dist/magnific-popup.css")
-    .pipe(rename("_magnific-popup.scss"))
-    .pipe(dest(opts.src_dir + "/scss/vendors/"));
-
   var splideJS = src(
     "node_modules/@splidejs/splide/dist/js/splide.min.js"
   ).pipe(dest("./lib/"));
@@ -119,8 +109,6 @@ function copyLibs() {
     .pipe(dest(opts.src_dir + "/scss/vendors/"));
 
   return merge(
-    magnificJS,
-    magnificCSS,
     splideJS,
     splideCSS,
     accordionJS,
@@ -227,7 +215,10 @@ function imagesMinify() {
 
 // eslint all first party JS
 function javascriptLint(done) {
-  return src([opts.src_dir + "/js/**/*.*"])
+  return src([
+    opts.src_dir + "/js/**/*.js",
+    "!" + opts.src_dir + "/js/editor-block-filters.js",
+  ])
     .pipe(eslint())
     .pipe(eslint.format());
 

@@ -7,19 +7,19 @@ $block-padding: (
 
 // COVER BLOCK
 $cover-heading: (
-  "root": font-size(4),
-  "md": font-size(4),
-  "lg": font-size(5),
+  "root": v(font-size-4),
+  "md": v(font-size-4),
+  "lg": v(font-size-5),
 );
 
 $cover-text: (
-  "root": font-size(2),
-  "md": font-size(2),
-  "lg": font-size(4),
+  "root": v(font-size-2),
+  "md": v(font-size-2),
+  "lg": v(font-size-4),
 );
 
 // TESTIMONIALS
-$testimonial-font-size: font-size(4);
+$testimonial-font-size: v(font-size-4);
 $testimonial-font-weight: $weight-light;
 $testimonial-font-style: normal;
 $testimonial-color: get-color(neutral);
@@ -53,7 +53,7 @@ $social-channels: (
 
 // ACCORDION
 $accordion-heading-color: v(color-headings-preferred);
-$accordion-heading-font-size: font-size(2);
+$accordion-heading-font-size: v(font-size-2);
 $accordion-heading-font-weight: $weight-bold;
 $accordion-heading-background-color: get-color(primary, 50);
 $accordion-heading-arrow-color: $accordion-heading-color;
@@ -80,22 +80,6 @@ $countdown-value-weight: $weight-xbold;
 $countdown-value-color: v(color-white);
 $countdown-desc-weight: $weight-semibold;
 
-// MODAL
-$modal-overlay-color: v(color-black);
-$modal-overlay-opacity: 0.95;
-$modal-close-color: v(color-white); // Close button outside of container
-$modal-close-color-in: get-color(
-  neutral,
-  700
-); // Close button inside of container
-$modal_caption_color: get-color(
-  neutral,
-  300
-); // Image Captions for modal type 'image'
-$modal-border-radius: 0px;
-$modal-bg-color: v(color-white);
-$modal-max-width: 800px;
-
 // SLIDER
 $slider-arrow-background: rgba(get-color(neutral), 0.9);
 $slider-arrow-color: v(color-white);
@@ -104,7 +88,7 @@ $slider-arrow-hover-color: v(color-white);
 $slider-arrow-border-radius: 50%;
 $slider-arrow-size: 2em;
 
-$slider-pagination-font-size: font-size(-1);
+$slider-pagination-font-size: v(font-size--1);
 $slider-pagination-color: get-color(neutral, 400);
 $slider-pagination-hover-color: get-color(neutral, 700);
 $slider-pagination-active-color: get-color(neutral, 600);

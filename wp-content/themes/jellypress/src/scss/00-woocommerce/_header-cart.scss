@@ -16,7 +16,7 @@
   }
 
   h2 {
-    font-size: font-size(4);
+    font-size: v(font-size-4);
     margin-bottom: $element-margin;
     color: $color-headings-preferred;
   }
@@ -76,7 +76,7 @@
   }
 
   .woocommerce-mini-cart {
-    //font-size: font-size(-1);
+    //font-size: v(font-size--1);
     line-height: 1.3;
   }
   .mini_cart_item {
@@ -84,7 +84,7 @@
     padding: 0.5em 0 0.5em 2em;
     border-bottom: $borders;
     .quantity {
-      font-size: font-size(-1);
+      font-size: v(font-size--1);
     }
   }
   a.remove {

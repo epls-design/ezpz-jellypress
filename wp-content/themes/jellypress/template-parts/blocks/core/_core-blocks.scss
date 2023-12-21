@@ -1,7 +1,7 @@
 .wp-block-pullquote {
   font-size: 1em;
   p {
-    font-size: font-size(3);
+    font-size: v(font-size-3);
   }
 }
 
@@ -17,7 +17,7 @@
 }
 
 .wp-element-caption {
-  font-size: font-size(-1);
+  font-size: v(font-size--1);
   margin-top: $element-margin;
   margin-bottom: $element-margin;
 }

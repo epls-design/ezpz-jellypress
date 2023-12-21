@@ -1,7 +1,5 @@
 .single-product {
-
   div.product {
-
     .stock {
       font-weight: bold;
       //margin: 0;
@@ -47,11 +45,9 @@
       all: unset;
       display: table-cell;
       padding-top: 1em;
-
     }
 
     form.cart {
-
       &:not(.grouped_form):not(.variations_form),
       .variations_button {
         display: flex;
@@ -77,13 +73,12 @@
     }
 
     del {
-      opacity: .5;
-      font-size: font-size(-1);
+      opacity: 0.5;
+      font-size: v(font-size--1);
     }
 
     .product_meta {
-
-      font-size: font-size(-1);
+      font-size: v(font-size--1);
       .sku_wrapper,
       .posted_in {
         display: block;
@@ -91,7 +86,6 @@
     }
 
     div.woocommerce-product-gallery {
-
       .flex-viewport {
         //margin-bottom: .5em;
         margin-bottom: $element-margin;

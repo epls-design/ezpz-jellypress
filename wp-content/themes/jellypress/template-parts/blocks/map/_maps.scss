@@ -10,7 +10,7 @@
 
 // Fixes potential theme css conflict.
 .google-map img {
- max-width: inherit !important;
+  max-width: inherit !important;
 }
 
 .gm-style {
@@ -27,6 +27,6 @@
     }
   }
   .address {
-    font-size: font-size(-1);
+    font-size: v(font-size--1);
   }
 }

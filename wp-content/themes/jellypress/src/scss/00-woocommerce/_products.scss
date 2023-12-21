@@ -4,10 +4,10 @@
 
     li.product {
       // (Product Card)
-      margin-bottom: $element-margin*2;
+      margin-bottom: $element-margin * 2;
 
       .woocommerce-loop-product__title {
-        font-size: font-size(1);
+        font-size: v(font-size-1);
       }
 
       a img {
@@ -37,7 +37,6 @@
           margin-bottom: auto;
         }
       }
-
     }
   }
 
@@ -48,5 +47,4 @@
     display: block;
     order: 1;
   }
-
 }

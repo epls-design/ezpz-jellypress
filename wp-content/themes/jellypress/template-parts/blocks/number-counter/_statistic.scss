@@ -1,7 +1,7 @@
 .card-statistic {
   .small {
     display: inline-block;
-    font-size: font-size(-2);
+    font-size: v(font-size--2);
   }
   .number {
     font-family: $font-secondary;
@@ -9,35 +9,34 @@
     line-height: 1;
 
     &.size-xsmall {
-      font-size: font-size(3);
+      font-size: v(font-size-3);
       @include above(sm) {
-        font-size: font-size(5);
+        font-size: v(font-size-5);
       }
       @include above(lg) {
-        font-size: font-size(6);
+        font-size: v(font-size-6);
       }
     }
 
     &.size-small {
-      font-size: font-size(4);
+      font-size: v(font-size-4);
       @include above(sm) {
-        font-size: font-size(6);
+        font-size: v(font-size-6);
       }
       @include above(lg) {
-        font-size: font-size(8);
+        font-size: v(font-size-8);
       }
     }
 
-    &, &.size-regular {
-      font-size: font-size(5);
+    &,
+    &.size-regular {
+      font-size: v(font-size-5);
       @include above(sm) {
-        font-size: font-size(7);
+        font-size: v(font-size-7);
       }
       @include above(lg) {
-        font-size: font-size(8);
+        font-size: v(font-size-8);
       }
     }
-
   }
-
 }
