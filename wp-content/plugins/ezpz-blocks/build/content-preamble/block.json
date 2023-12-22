@@ -11,6 +11,15 @@
     "html": false,
     "customClassName": false
   },
+  "attributes": {
+    "allowResize": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "providesContext": {
+    "allowResize": "allowResize"
+  },
   "textdomain": "ezpz-content-preamble",
   "editorScript": "file:./index.js"
 }

@@ -192,41 +192,48 @@ function jellypress_get_block_template($template = null) {
  * @param array $block Gutenberg block object.
  * @return string $block_content HTML content of the block.
  */
-add_filter('render_block', 'jellypress_core_block_overwrite_render', 20, 2);
-function jellypress_core_block_overwrite_render($block_content, $block) {
-  $block_name = $block['blockName'];
 
-  if ($block_name === 'core/embed') {
+add_filter('render_block_core/embed', 'jellypress_filter_block_core_footnotes', 20, 2);
+function jellypress_filter_block_core_footnotes($block_content,  $block) {
+  ob_start();
+  $args = [
+    'block' => $block,
+    'block_content' => $block_content,
+  ];
+  get_template_part('template-parts/blocks/core/footnotes', null, $args);
+  return ob_get_clean();
+}
 
-    $attrs = $block['attrs'];
-    if ($attrs['providerNameSlug'] == 'youtube') {
-      $provider = 'youtube';
-    } elseif ($attrs['providerNameSlug'] == 'vimeo') {
-      $provider = 'vimeo';
-    } else {
-      $provider = null;
-    }
-
-    // Get the template part so it can be wrapped in a responsive div
-    if ($provider) {
-      ob_start();
-      $args = [
-        'block' => $block,
-        'block_content' => $block_content,
-        'provider' => $provider,
-      ];
-      get_template_part('template-parts/blocks/core/embed', null, $args);
-      return ob_get_clean();
-    }
-  } elseif ($block_name == 'core/footnotes') {
+add_filter('render_block_core/embed', 'jellypress_filter_block_core_embed', 20, 2);
+function jellypress_filter_block_core_embed($block_content,  $block) {
+  $attrs = $block['attrs'];
+  if ($attrs['providerNameSlug'] == 'youtube') {
+    $provider = 'youtube';
+  } elseif ($attrs['providerNameSlug'] == 'vimeo') {
+    $provider = 'vimeo';
+  } else {
+    $provider = null;
+  }
+  if ($provider) {
     ob_start();
     $args = [
       'block' => $block,
       'block_content' => $block_content,
+      'provider' => $provider,
     ];
-    get_template_part('template-parts/blocks/core/footnotes', null, $args);
+    get_template_part('template-parts/blocks/core/embed', null, $args);
     return ob_get_clean();
   }
-
   return $block_content;
+}
+
+add_filter('render_block_core/image', 'jellypress_filter_block_core_image', 20, 2);
+function jellypress_filter_block_core_image($block_content,  $block) {
+  ob_start();
+  $args = [
+    'block' => $block,
+    'block_content' => $block_content,
+  ];
+  get_template_part('template-parts/blocks/core/image', null, $args);
+  return ob_get_clean();
 }

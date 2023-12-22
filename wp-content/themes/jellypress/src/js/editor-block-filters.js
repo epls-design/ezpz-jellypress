@@ -103,7 +103,7 @@ addFilter(
 );
 
 /**
- * Removes the align option from core blocks
+ * Removes supports from core blocks
  */
 addFilter(
   "blocks.registerBlockType",
@@ -117,8 +117,17 @@ addFilter(
       "core/audio",
       "core/separator",
       "core/embed",
+      "core/image",
     ];
     if (removeFrom.includes(name)) {
+      if (name == "core/image") {
+        return lodash.assign({}, settings, {
+          supports: lodash.assign({}, settings.supports, {
+            align: false,
+            filter: false, // NOTE: HAVE TO TURN IT OFF HERE because theme.json doesn't work
+          }),
+        });
+      }
       return lodash.assign({}, settings, {
         supports: lodash.assign({}, settings.supports, {
           align: false,
@@ -195,12 +204,6 @@ wp.hooks.addFilter(
   jellypressFilterBlockParents
 );
 
-/**
- * TODOS
- * - Add option for autoplay on core/block
- * - GET RID OF ALL IMAGE FILTER STUFF
- */
-
+// TODO: Add option for autoplay on core/block
 // TODO: NAtive support for details block for FAQs
 // TODO: How to make tables responsive
-// TODO: Remvoe options to resize on core/image

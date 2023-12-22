@@ -28,10 +28,6 @@ export default function Edit() {
 		"core/shortcode",
 		"core/code",
 		"gravityforms/form",
-
-		//"ezpz/buttons",
-		//"ezpz/accordion",
-		//"ezpz/image-zoom",
 	];
 	const TEMPLATE = [
 		[

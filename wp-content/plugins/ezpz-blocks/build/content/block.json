@@ -14,6 +14,15 @@
     "html": false,
     "customClassName": false
   },
+  "attributes": {
+    "allowResize": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "providesContext": {
+    "allowResize": "allowResize"
+  },
   "textdomain": "ezpz-content",
   "editorScript": "file:./index.js"
 }
