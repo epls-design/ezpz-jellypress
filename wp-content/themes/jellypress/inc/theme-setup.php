@@ -85,6 +85,17 @@ function jellypress_setup() {
 }
 
 /**
+ * Adds any custom image sizes to the Gutenberg editor image size selector
+ */
+add_filter('image_size_names_choose', 'jellypress_add_image_sizes_to_editor');
+function jellypress_add_image_sizes_to_editor($sizes) {
+  $sizes = array_merge($sizes, array(
+    'medium_landscape' => __('Medium Landscape', 'jellypress'),
+  ));
+  return $sizes;
+}
+
+/**
  * Adds ACF options pages
  */
 if (function_exists('acf_add_options_page')) {
