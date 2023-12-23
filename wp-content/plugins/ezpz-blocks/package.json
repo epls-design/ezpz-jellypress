@@ -1,6 +1,6 @@
 {
 	"name": "ezpz-blocks",
-	"version": "0.1.0",
+	"version": "0.2.1",
 	"description": "Registers blocks for use with Gutenberg, using @create-block. This plugin supports the theme by creating a generic 'content' block for text",
 	"author": "EPLS Design",
 	"license": "GPL-2.0-or-later",

@@ -7,7 +7,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: EPLS Design <theteam@epls.design>\n"
 "Last-Translator: EPLS Design <theteam@epls.design>\n"
-"POT-Creation-Date: 2023-12-22 13:16+0000\n"
+"POT-Creation-Date: 2023-12-23 09:02+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -118,31 +118,23 @@ msgstr ""
 msgid "Primary"
 msgstr ""
 
-#: inc/theme-setup.php:92
+#: inc/theme-setup.php:93
 msgid "Medium Landscape"
 msgstr ""
 
-#: inc/theme-setup.php:93
-msgid "Small"
-msgstr ""
-
-#: inc/theme-setup.php:94
-msgid "Icon"
-msgstr ""
-
-#: inc/theme-setup.php:106, inc/theme-setup.php:107
+#: inc/theme-setup.php:104, inc/theme-setup.php:105
 msgid "Theme Options"
 msgstr ""
 
-#: inc/theme-setup.php:114
+#: inc/theme-setup.php:112
 msgid "Successfully updated Theme options"
 msgstr ""
 
-#: inc/theme-setup.php:125
+#: inc/theme-setup.php:123
 msgid "Sidebar"
 msgstr ""
 
-#: inc/theme-setup.php:127
+#: inc/theme-setup.php:125
 msgid "Add your widgets here."
 msgstr ""
 
@@ -220,10 +212,6 @@ msgstr ""
 
 #: template-parts/blocks/countdown/view.php:70
 msgid "Seconds"
-msgstr ""
-
-#: template-parts/blocks/image/view.php:64, template-parts/blocks/image-zoom/view.php:32
-msgid "Please add an image to this block - click here to get started."
 msgstr ""
 
 #: template-parts/blocks/image-gallery/view.php:59

@@ -5,7 +5,7 @@
  * Description:       Registers blocks for use with Gutenberg, using @create-block. This plugin supports the theme by creating a generic 'content' block for text
  * Requires at least: 6.1
  * Requires PHP:      7.0
- * Version:           0.2.0
+ * Version:           0.2.1
  * Author:            EPLS
  * Author URI:        https://epls.design
  * License:           GPL-2.0-or-later
@@ -104,7 +104,8 @@ class ezpzBlocks {
 				"core/footnotes",
 				"gravityforms/form",
 				// "core/group", // TODO: Add support for group, but by default its doing row/stack which we dont want
-				"core/block"
+				"core/block",
+				"ezpz/text-media"
 			];
 
 			// Merge $additional_blocks with $plugin_blocks

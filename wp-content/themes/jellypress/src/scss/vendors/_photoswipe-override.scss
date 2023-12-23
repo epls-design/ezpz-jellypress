@@ -4,9 +4,11 @@
   position: relative;
   img {
     width: 100%;
+    margin-bottom: 0 !important;
   }
   a {
     display: block;
+    margin-bottom: $element-margin;
     &::before,
     &::after {
       @include pseudo("", block, absolute);

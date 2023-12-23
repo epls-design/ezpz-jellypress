@@ -22,13 +22,19 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
+
 $block_attributes = jellypress_get_block_attributes($block);
+
 $allowed_blocks = jellypress_get_allowed_blocks();
-$block_template = jellypress_get_block_template();
+$block_template = array(
+  array(
+    'core/image', array()
+  )
+);
+$block_template =  jellypress_get_block_template($block_template);
 
 $fields = get_fields();
 $container_class = 'container';
-$text_align = $block_attributes['text_align'];
 
 $block_width = isset($block_attributes['align']) ? $block_attributes['align'] : '';
 if ($block_width == 'wide') $container_class .= ' is-wide';
@@ -38,50 +44,18 @@ elseif ($block_width === 'center') $justify = 'center';
 
 <section class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
 
-  <?php if ($content || $is_preview) : ?>
-    <div class="container">
-      <header class="row justify-center">
-        <div class="col md-10 lg-8">
-          <InnerBlocks templateLock="all" className="<?php echo $text_align; ?>" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
-        </div>
-      </header>
-    </div>
-  <?php endif; ?>
+  <div class="<?php echo $container_class; ?>">
+    <?php
+    if ($block_width === 'full') echo '<div class="vw-100">';
+    elseif ($block_width === 'center') echo '<div class="row justify-' . $justify . '"><div class="col md-10 lg-8">';
 
-  <figure>
-    <div class="<?php echo $container_class; ?>">
-      <?php
-      if ($block_width === 'full') echo '<div class="vw-100">';
-      elseif ($block_width === 'center') echo '<div class="row justify-' . $justify . '"><div class="col md-10 lg-8">';
-
-      if ($block_width === 'full') $size = 'full';
-      else $size = 'large';
-
-      jellypress_acf_placeholder(
-        $fields['image'],
-        __('Please add an image to this block - click here to get started.', 'jellypress'),
-        $is_preview
-      );
-
-      echo wp_get_attachment_image($fields['image'], $size);
-
-      if ($block_width === 'full') echo '</div>';
-      elseif ($block_width === 'center') echo '</div></div>'; ?>
-    </div>
-
-    <?php if ($fields['caption']) :
-      if (!$block_title && !$justify) {
-        $justify = 'start';
-      }
+    if ($block_width === 'full') $size = 'full';
+    else $size = 'large';
     ?>
-      <figcaption class="caption container">
-        <div class="row justify-<?php echo $justify; ?>">
-          <div class="col md-10 lg-8 <?php echo $text_align; ?>">
-            <?php echo $fields['caption']; ?>
-          </div>
-        </div>
-      </figcaption>
-    <?php endif; ?>
-  </figure>
+    <InnerBlocks templateLock="all" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
+    <?php
+    if ($block_width === 'full') echo '</div>';
+    elseif ($block_width === 'center') echo '</div></div>'; ?>
+  </div>
 
 </section>

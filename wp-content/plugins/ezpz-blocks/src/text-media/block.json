@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ezpz/text-media",
+	"version": "0.2.1",
+	"title": "Text & Media",
+	"category": "media",
+	"description": "Allows you to add a two column layout with text / media (video / image)",
+	"supports": {
+		"html": false,
+		"customClassName": true,
+		"anchor": true,
+		"color": {
+			"background": true,
+			"text": false
+		}
+	},
+	"attributes": {
+		"allowResize": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"providesContext": {
+		"allowResize": "allowResize"
+	},
+	"textdomain": "ezpz-textmedia",
+	"editorScript": "file:./index.js"
+}

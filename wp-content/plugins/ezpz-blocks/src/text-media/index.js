@@ -8,8 +8,7 @@
  * WordPress dependencies
  */
 import { registerBlockType } from "@wordpress/blocks";
-import { columns as icon } from "@wordpress/icons";
-
+import { mediaAndText as icon } from "@wordpress/icons";
 /**
  * Internal dependencies
  */
@@ -28,6 +27,5 @@ registerBlockType(metadata.name, {
 	edit,
 	save,
 });
-// TODO: Add an example
 
 // TODO: ADD VERTICAL ALIGNMENT

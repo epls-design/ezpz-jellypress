@@ -6,7 +6,7 @@
 	"title": "Column",
 	"category": "layout",
 	"description": "A single column containing content.",
-	"parent": ["ezpz/columns"],
+	"parent": ["ezpz/columns", "ezpz/text-media"],
 	"supports": {
 		"html": false,
 		"customClassName": false,
@@ -20,6 +20,10 @@
 		"width": {
 			"type": "string",
 			"default": "50%"
+		},
+		"defaultContent": {
+			"type": "array",
+			"default": []
 		}
 	},
 	"textdomain": "ezpz-column",

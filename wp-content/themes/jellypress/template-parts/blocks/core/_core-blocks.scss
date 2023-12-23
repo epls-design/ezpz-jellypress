@@ -21,3 +21,6 @@
   margin-top: $element-margin;
   margin-bottom: $element-margin;
 }
+a + .wp-element-caption {
+  margin-top: 0;
+}

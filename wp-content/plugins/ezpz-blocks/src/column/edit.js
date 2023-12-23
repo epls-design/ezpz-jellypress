@@ -19,9 +19,23 @@ import { colWidthToClassName } from "../column";
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({ attributes: { width } }) {
-	const ALLOWED_BLOCKS = ["ezpz/content"];
-	const TEMPLATE = [["ezpz/content", {}]];
+export default function Edit({ attributes: { width, defaultContent } }) {
+	let ALLOWED_BLOCKS;
+	let TEMPLATE;
+
+	if (defaultContent && defaultContent.length > 0) {
+		// Include locked template block if defaultContent is not empty
+		TEMPLATE = defaultContent.map(([blockName, blockAttributes]) => [
+			blockName,
+			// { ...blockAttributes },
+		]);
+		// Push the template to ALLOWED BLOCKS
+		ALLOWED_BLOCKS = [...TEMPLATE.map(([blockName]) => blockName)];
+	} else {
+		// Include unlocked ezpz/content block if defaultContent is empty
+		TEMPLATE = [["ezpz/content", {}]];
+		ALLOWED_BLOCKS = ["ezpz/content"];
+	}
 
 	// Get blockProps
 	const blockProps = useBlockProps();

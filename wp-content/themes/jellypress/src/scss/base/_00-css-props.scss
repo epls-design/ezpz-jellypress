@@ -1,0 +1,17 @@
+:root {
+  @each $point, $i in $breakpoints {
+    // for each breakpoint defined...
+    --container-width: #{calc(100% - (#{$base-container-gutter} * 2))};
+    --container-max-width: none;
+    @include above($point) {
+      --container-width: #{map-deep-get($breakpoints, $point, "container-width")};
+      @if map-has-key($breakpoints, $point, "container-max-width") {
+        --container-max-width: #{map-deep-get(
+            $breakpoints,
+            $point,
+            "container-max-width"
+          )};
+      }
+    }
+  }
+}

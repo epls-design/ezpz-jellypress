@@ -39,7 +39,7 @@ $block_template = array(
 );
 $block_template = jellypress_get_block_template($block_template);
 
-// TODO: CHECK WHAT HAPPENS IF IT HAS A CAPTION AND IS WIDE
+// TODO: CHECK WHAT HAPPENS IF IT HAS A CAPTION AND IS WIDE - SHOULD BE LIKE IMAGE
 ?>
 
 <section class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>

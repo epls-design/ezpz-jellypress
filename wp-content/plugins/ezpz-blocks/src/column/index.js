@@ -36,6 +36,9 @@ export function colWidthToClassName(width) {
 		case "50%":
 			className = " md-6";
 			break;
+		case "40%":
+			className = " md-5";
+			break;
 		case "33.33%":
 			className = " md-4";
 			break;
