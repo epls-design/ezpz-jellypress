@@ -26,8 +26,6 @@ $block_id = str_replace('block_', '', $block['id']);
 $block_attributes = jellypress_get_block_attributes($block);
 $fields = get_fields();
 
-// TODO: Add option for left / right align
-
 if ($display_arrows = $fields['display_arrows']) $display_arrows = 'slider';
 else $display_arrows = 'false';
 
@@ -65,10 +63,10 @@ $show_progress_bar = false; // Progress Bar is an option in php rather than the 
         30
       );
     ?>
-      <div class="splide slider" id="<?php echo $slider_id; ?>">
-        <div class="splide__track">
-          <div class="splide__list">
-            <?php
+    <div class="splide slider" id="<?php echo $slider_id; ?>">
+      <div class="splide__track">
+        <div class="splide__list">
+          <?php
             foreach ($slides as $slide) :
               $slide_params = array(
                 'slide' => $slide,
@@ -79,15 +77,15 @@ $show_progress_bar = false; // Progress Bar is an option in php rather than the 
               get_template_part('template-parts/blocks/slider/slide-template', null, $slide_params);
             endforeach;
             ?>
-          </div>
         </div>
-        <?php if ($show_progress_bar) : ?>
-          <div class="splide__progress">
-            <div class="splide__progress__bar">
-            </div>
-          </div>
-        <?php endif; ?>
       </div>
+      <?php if ($show_progress_bar) : ?>
+      <div class="splide__progress">
+        <div class="splide__progress__bar">
+        </div>
+      </div>
+      <?php endif; ?>
+    </div>
     <?php endif; ?>
 
   </div>

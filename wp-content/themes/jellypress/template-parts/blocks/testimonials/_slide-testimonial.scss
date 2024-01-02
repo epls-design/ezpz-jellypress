@@ -1,6 +1,10 @@
 .testimonial-link {
   display: block;
-  &, &:link, &:active, &:hover, &:focus {
+  &,
+  &:link,
+  &:active,
+  &:hover,
+  &:focus {
     color: inherit !important;
     text-decoration: none;
   }

@@ -30,4 +30,4 @@ if (isset($matches[1])) {
 
 jellypress_embed_video($video_url, $aspect_ratio, $provider, $figcaption);
 
-// TODO: There are some errors rendering in the admin when this block is used, because the JS edit.js view is different to this render
+// FIXME: There are some errors rendering in the admin when this block is used, because the JS edit.js view is different to this render

@@ -109,7 +109,7 @@ a.acf-button.button-primary,
 }
 
 // And the same for sliders...
-// TODO: Be nice if this worked a bit better
+// TODO: Be nice if this worked a bit better and actually loaded the JS for the slider
 .acf-block-preview .splide__slider::before {
   visibility: visible;
   content: "Your slider will display correctly on the front end. Please preview the page to see it.";

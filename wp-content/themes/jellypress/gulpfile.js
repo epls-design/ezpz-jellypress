@@ -129,7 +129,7 @@ function watchTask(done) {
   watch(["**/*.php", "*.php", "!node_modules/**"], parallel(phpLint, makePot));
   watch(["**/*.html", "*.html", "!node_modules/**"], browsersyncReload);
 
-  watch(opts.src_dir + "/**/*.scss", sassTasks);
+  watch([opts.src_dir + "/**/*.scss", "template-parts/**/*.scss"], sassTasks);
 
   // Watch for changes to acf-json
   watch(opts.src_dir + "/acf-json/*.json", moveBlockJson);
