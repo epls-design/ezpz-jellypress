@@ -13,6 +13,8 @@ import {
 	useInnerBlocksProps,
 	__experimentalBlockVariationPicker as BlockVariationPicker,
 	useBlockProps,
+	BlockControls,
+	BlockVerticalAlignmentToolbar,
 	store as blockEditorStore,
 } from "@wordpress/block-editor";
 
@@ -25,7 +27,7 @@ import {
 
 const ALLOWED_BLOCKS = ["ezpz/column"];
 
-function EditColumns() {
+function EditColumns({ attributes, setAttributes }) {
 	const blockProps = useBlockProps({});
 	const innerBlocksProps = useInnerBlocksProps(blockProps, {
 		allowedBlocks: ALLOWED_BLOCKS,
@@ -55,10 +57,28 @@ function EditColumns() {
 	// Set the new classes
 	blockProps.className = classes.join(" ");
 
+	// Push align class to row
+	let rowClasses = ["row"];
+	if (attributes.verticalAlign) {
+		// Change 'center' to 'middle' to match the theme class
+		if (attributes.verticalAlign === "center") {
+			attributes.verticalAlign = "middle";
+		}
+		rowClasses.push("align-" + attributes.verticalAlign);
+	}
+
 	return (
 		<section {...blockProps}>
+			<BlockControls>
+				<BlockVerticalAlignmentToolbar
+					value={attributes.verticalAlign}
+					onChange={(value) => {
+						setAttributes({ verticalAlign: value });
+					}}
+				/>
+			</BlockControls>
 			<div className="container">
-				<div className="row">{innerBlocksProps.children}</div>
+				<div className={rowClasses.join(" ")}>{innerBlocksProps.children}</div>
 			</div>
 		</section>
 	);
@@ -122,7 +142,7 @@ function Placeholder({ clientId, name, setAttributes }) {
 
 const Edit = (props) => {
 	// Check if this block has inner blocks.
-	const { clientId } = props;
+	const { clientId, attributes } = props;
 	const hasInnerBlocks = useSelect(
 		(select) => select(blockEditorStore).getBlocks(clientId).length > 0,
 		[clientId]

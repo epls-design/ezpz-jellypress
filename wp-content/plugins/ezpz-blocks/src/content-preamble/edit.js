@@ -18,6 +18,11 @@ export default function Edit() {
 		"core/paragraph",
 		"core/list",
 		"ezpz/buttons",
+		"core/quote",
+		"core/pullquote",
+		"core/shortcode",
+		"core/code",
+		"gravityforms/form",
 	];
 	const TEMPLATE = [
 		[

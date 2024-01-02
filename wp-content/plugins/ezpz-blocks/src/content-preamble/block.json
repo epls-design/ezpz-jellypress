@@ -1,9 +1,9 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "ezpz/content-preamble",
+	"name": "ezpz/content-restricted",
 	"version": "0.1.0",
-	"title": "Content",
+	"title": "Content (restricted)",
 	"category": "text",
 	"description": "A restricted content block that can display simple text and buttons.",
 	"parent": [],
@@ -20,6 +20,6 @@
 	"providesContext": {
 		"allowResize": "allowResize"
 	},
-	"textdomain": "ezpz-content-preamble",
+	"textdomain": "ezpz-content-restricted",
 	"editorScript": "file:./index.js"
 }

@@ -161,14 +161,14 @@ add_action('init', 'jellypress_block_templates', 20);
 function jellypress_get_allowed_blocks($blocks = null) {
   if (!$blocks) {
     $blocks = array(
-      "ezpz/content-preamble",
+      "ezpz/content-restricted",
     );
   }
   return esc_attr(wp_json_encode($blocks));
 }
 
 /**
- * Returns the standard block template which is the 'ezpz/content-pramble' block defined in the ezpz/blocks plugin
+ * Returns the standard block template which is the 'ezpz/content-restricted' block defined in the ezpz/blocks plugin
  * @param array $template The block template to use if the default is not required
  * @return array The block template, json encoded
  *
@@ -177,7 +177,7 @@ function jellypress_get_block_template($template = null) {
   if (!$template) {
     $template = array(
       array(
-        'ezpz/content-preamble', array(),
+        'ezpz/content-restricted', array(),
       )
     );
   }

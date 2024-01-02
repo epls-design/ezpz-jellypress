@@ -27,5 +27,3 @@ registerBlockType(metadata.name, {
 	edit,
 	save,
 });
-
-// TODO: ADD VERTICAL ALIGNMENT

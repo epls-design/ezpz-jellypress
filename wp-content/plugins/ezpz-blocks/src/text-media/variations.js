@@ -30,6 +30,7 @@ const variations = [
 				"ezpz/column",
 				{
 					width: "50%",
+					restrictContent: true,
 				},
 			],
 		],
@@ -52,6 +53,7 @@ const variations = [
 				"ezpz/column",
 				{
 					width: "50%",
+					restrictContent: true,
 				},
 			],
 		],

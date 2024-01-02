@@ -19,7 +19,9 @@ import { colWidthToClassName } from "../column";
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({ attributes: { width, defaultContent } }) {
+export default function Edit({
+	attributes: { width, defaultContent, restrictContent },
+}) {
 	let ALLOWED_BLOCKS;
 	let TEMPLATE;
 
@@ -32,9 +34,14 @@ export default function Edit({ attributes: { width, defaultContent } }) {
 		// Push the template to ALLOWED BLOCKS
 		ALLOWED_BLOCKS = [...TEMPLATE.map(([blockName]) => blockName)];
 	} else {
-		// Include unlocked ezpz/content block if defaultContent is empty
-		TEMPLATE = [["ezpz/content", {}]];
-		ALLOWED_BLOCKS = ["ezpz/content"];
+		// Include ezpz/content or ezpz/content-restricted block if defaultContent is empty
+		if (restrictContent) {
+			TEMPLATE = [["ezpz/content-restricted", {}]];
+			ALLOWED_BLOCKS = ["ezpz/content-restricted"];
+		} else {
+			TEMPLATE = [["ezpz/content", {}]];
+			ALLOWED_BLOCKS = ["ezpz/content"];
+		}
 	}
 
 	// Get blockProps

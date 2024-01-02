@@ -16,11 +16,23 @@ import { InnerBlocks, useBlockProps } from "@wordpress/block-editor";
  * @return {WPElement} Element to render.
  */
 
-const Save = () => {
+const Save = (props) => {
+	const { attributes } = props;
+
+	// Push align class to row
+	let rowClasses = ["row", "justify-between"];
+	if (attributes.verticalAlign) {
+		// Change 'center' to 'middle' to match the theme class
+		if (attributes.verticalAlign === "center") {
+			attributes.verticalAlign = "middle";
+		}
+		rowClasses.push("align-" + attributes.verticalAlign);
+	}
+
 	return (
 		<section {...useBlockProps.save()}>
 			<div className="container">
-				<div className="row justify-between">
+				<div className={rowClasses.join(" ")}>
 					<InnerBlocks.Content />
 				</div>
 			</div>

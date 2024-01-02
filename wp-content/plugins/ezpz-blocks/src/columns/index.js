@@ -28,6 +28,3 @@ registerBlockType(metadata.name, {
 	edit,
 	save,
 });
-// TODO: Add an example
-
-// TODO: ADD VERTICAL ALIGNMENT

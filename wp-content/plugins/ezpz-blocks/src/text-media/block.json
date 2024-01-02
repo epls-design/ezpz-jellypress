@@ -4,8 +4,8 @@
 	"name": "ezpz/text-media",
 	"version": "0.2.1",
 	"title": "Text & Media",
-	"category": "media",
-	"description": "Allows you to add a two column layout with text / media (video / image)",
+	"category": "ezpz-layout",
+	"description": "Allows you to add a two column layout with text and media (video / image)",
 	"supports": {
 		"html": false,
 		"customClassName": true,
@@ -19,6 +19,10 @@
 		"allowResize": {
 			"type": "boolean",
 			"default": false
+		},
+		"verticalAlign": {
+			"type": "string",
+			"default": "top"
 		}
 	},
 	"providesContext": {

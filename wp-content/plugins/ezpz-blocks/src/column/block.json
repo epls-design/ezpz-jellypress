@@ -24,6 +24,10 @@
 		"defaultContent": {
 			"type": "array",
 			"default": []
+		},
+		"restrictContent": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"textdomain": "ezpz-column",
