@@ -6,5 +6,3 @@ TODO: MAKE TABLES RESPONSIVE
 
 TODO: Add prism.js to core/code block
 TODO: Need to qwatch in bloks/ and compile sass
-
-TODO: EDITOR STYLES NOT QNEUIIN PROPERLY, THE VBLOCKS ARE NOT COLLAPSING

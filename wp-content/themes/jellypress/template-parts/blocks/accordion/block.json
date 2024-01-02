@@ -16,7 +16,7 @@
   ],
   "version": "1.0.0",
   "textdomain": "jellypress",
-  "parent": ["ezpz/content"],
+  "parent": ["ezpz/content", "ezpz/content-restricted"],
   "script": ["aria-accordion"],
   "supports": {
     "align": false,
