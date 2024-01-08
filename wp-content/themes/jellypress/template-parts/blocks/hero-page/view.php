@@ -22,7 +22,7 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
-$block_attributes = jellypress_get_block_attributes($block);
+$block_attributes = jellypress_get_block_attributes($block, $context);
 $fields = get_fields();
 
 $block_attributes['class'] .= ' page-header';

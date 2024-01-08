@@ -22,7 +22,7 @@ function jellypress_register_blocks() {
   $blocks = jellypress_get_blocks();
   foreach ($blocks as $block) {
     if (file_exists(get_template_directory() . '/template-parts/blocks/' . $block . '/block.json')) {
-      register_block_type(get_template_directory() . '/template-parts/blocks/' . $block . '/block.json');
+      $reg = register_block_type(get_template_directory() . '/template-parts/blocks/' . $block . '/block.json');
     }
   }
 }
@@ -40,7 +40,6 @@ function jellypress_get_blocks() {
 
     // Remove unnecessary directories and files
     $blocks = array_values(array_diff($blocks, array('..', '.', '.DS_Store')));
-
     update_option('jellypress_blocks', $blocks);
     update_option('jellypress_blocks_version', $theme->get('Version'));
   }
@@ -53,12 +52,17 @@ function jellypress_get_blocks() {
 function jellypress_load_acf_block_fields($paths) {
   $blocks = jellypress_get_blocks();
   foreach ($blocks as $block) {
-    $paths[] = get_template_directory() . '/template-parts/blocks/' . $block;
+
+    $directory = get_template_directory() . '/template-parts/blocks/' . $block;
+
+    // Only proceed if directory is type 'dir'
+    if (is_dir($directory)) {
+      $paths[] = $directory;
+    }
   }
   return $paths;
 }
 add_filter('acf/settings/load_json', 'jellypress_load_acf_block_fields');
-
 
 /**
  * Specify which blocks are exposed to Gutenberg Editor
@@ -71,7 +75,13 @@ function jellypress_allowed_blocks($block_editor_context, $editor_context) {
     $allowed_blocks = [];
 
     foreach ($blocks as $block) {
-      $allowed_blocks[] = 'ezpz/' . $block;
+
+      $directory = get_template_directory() . '/template-parts/blocks/' . $block;
+
+      // Only proceed if directory is type 'dir'
+      if (is_dir($directory)) {
+        $allowed_blocks[] = 'ezpz/' . $block;
+      }
     }
 
     // Add a filter to allow plugins to add their own allowed blocks
@@ -85,7 +95,6 @@ function jellypress_allowed_blocks($block_editor_context, $editor_context) {
      * });
      */
 
-
     return $allowed_blocks;
   }
 
@@ -98,8 +107,9 @@ function jellypress_allowed_blocks($block_editor_context, $editor_context) {
  */
 add_action('acf/validate_save_post', 'jellypress_validate_acf_on_save', 5);
 function jellypress_validate_acf_on_save() {
-  // bail early if no $_POST
-  $acf = false;
+
+  if (!$_POST) return;
+
   foreach ($_POST as $key => $value) {
     if (strpos($key, 'acf') === 0) {
       if (!empty($_POST[$key])) {

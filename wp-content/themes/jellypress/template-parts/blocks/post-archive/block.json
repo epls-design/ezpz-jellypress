@@ -1,6 +1,6 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "ezpz/post-archive",
   "title": "Post Archive",
   "category": "widgets",
@@ -22,6 +22,20 @@
     "customClassName": true,
     "html": false,
     "multiple": false
+  },
+  "attributes": {
+    "outerContainer": {
+      "type": "string",
+      "default": "post-archive"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "transparent"
+    }
+  },
+  "providesContext": {
+    "ezpz/outerContainer": "outerContainer",
+    "ezpz/backgroundColor": "backgroundColor"
   },
   "styles": [],
   "acf": {

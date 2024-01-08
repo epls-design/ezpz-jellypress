@@ -1,6 +1,6 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "ezpz/hero-post",
   "title": "Post Hero",
   "category": "theme",
@@ -22,6 +22,20 @@
     "customClassName": false,
     "html": false,
     "multiple": false
+  },
+  "attributes": {
+    "outerContainer": {
+      "type": "string",
+      "default": "hero-page"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "transparent"
+    }
+  },
+  "providesContext": {
+    "ezpz/outerContainer": "outerContainer",
+    "ezpz/backgroundColor": "backgroundColor"
   },
   "acf": {
     "mode": "preview",

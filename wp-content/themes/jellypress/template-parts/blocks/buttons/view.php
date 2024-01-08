@@ -24,7 +24,7 @@ defined('ABSPATH') || exit;
 
 // TODO: REPLACE WITH GUTENBERG BUTTONS
 
-$block_attributes = jellypress_get_block_attributes($block);
+$block_attributes = jellypress_get_block_attributes($block, $context);
 $fields = get_fields();
 
 // Prevent clicks on the block if it's in the editor
@@ -40,4 +40,4 @@ jellypress_acf_placeholder(
   $is_preview
 );
 
-jellypress_display_cta_buttons($fields['buttons'], $block_attributes['bg_color'], $classes);
+jellypress_display_cta_buttons($fields['buttons'], $context['ezpz/backgroundColor'], $classes);

@@ -91,34 +91,6 @@ function jellypress_add_navbar_descriptions($item_output, $item, $depth, $args) 
   return $item_output;
 }
 
-/**
- * Loops through the ACF created Gutenberg posts on the current post
- * and returns any text based fields as a long string. This is used by
- * the jellypress_generate_excerpt function to create an excerpt from
- * the ACF content.
- * TODO: THIS CAN POTENTIALLY BE DEPRECATED IF WE USE THE NEW GUTENBERG EXCERPT THROUGHOUT
- */
-function jellypress_excerpt_from_acf_blocks() {
-  $blocks = parse_blocks(get_the_content());
-  $parsed_content = '';
-
-  // This array should match the field names of any ACF field containing text
-  $allowable_fields = [
-    'title', 'text'
-  ];
-
-  foreach ($blocks as $block) {
-    if (strpos($block['blockName'], 'ezpz/') !== false) {
-      foreach ($block['attrs']['data'] as $key => $value) {
-        if (in_array($key, $allowable_fields)) {
-          $parsed_content .= $value;
-        }
-      }
-    }
-  }
-  return $parsed_content;
-}
-
 // https://stackoverflow.com/questions/965235/how-can-i-truncate-a-string-to-the-first-20-words-in-php
 function jellypress_truncate_string($str, $chars, $to_space, $replacement = "...") {
   if ($chars > strlen($str)) return $str;
@@ -144,6 +116,7 @@ function jellypress_generate_excerpt($trim = null, $ellipses = false) {
   if (has_excerpt()) {
     $post_excerpt = get_the_excerpt();
   } else {
+    // TODO: IN the long run, we may need to factor in ACF here for instances where the first item is not using innerblocks
 
     $content = get_the_content();
     $content = apply_filters('the_content', $content);
@@ -156,6 +129,7 @@ function jellypress_generate_excerpt($trim = null, $ellipses = false) {
 
     // Remove any tags from content except <p> and <br>
     $content = strip_tags($content, '<p><br>');
+
 
     $post_excerpt = $content;
   }
@@ -188,47 +162,4 @@ function jellypress_replace_menu_hash($menu_item) {
     $menu_item = str_replace('href="#"', 'href="javascript:void(0);"', $menu_item);
   }
   return $menu_item;
-}
-
-
-/**
- * Hook into pre render block to get the attributes
- * from the parent block and pass them to the child
- * Currently, this only passes through to ezpz/buttons and ezpz/content
- * as these are the only required ones for this theme.
- * Note: this can probably be made a little more DRY later
- * @link https://developer.wordpress.org/reference/hooks/render_block_data/
- * @since 5.9.0
- */
-
-add_filter('render_block_data', 'jellypress_inherit_block_attrs', 10, 3);
-function jellypress_inherit_block_attrs($parsed_block, $source_block, $parent_block) {
-
-  if ($source_block['blockName'] === 'ezpz/buttons') {
-
-    // Bail if no parent block - it should always have one but this is a safety net
-    if (!isset($parent_block->parsed_block))
-      return $parsed_block;
-
-    $parsed_parent = $parent_block->parsed_block;
-    if (isset($parsed_parent['attrs'])) {
-
-      // Merge parent attributes with child attributes
-      $parsed_block['attrs'] = array_merge($parsed_block['attrs'], $parsed_parent['attrs']);
-    }
-  } elseif ($source_block['blockName'] === 'ezpz/content') {
-
-    // Bail if no parent block - it should always have one but this is a safety net
-    if (!isset($parent_block->parsed_block))
-      return $parsed_block;
-
-    $parsed_parent = $parent_block->parsed_block;
-
-    if (isset($parsed_parent['attrs'])) {
-      // Set these attributes to the child block
-      $parsed_block['attrs']['parent'] = $parsed_parent['attrs'];
-    }
-  }
-
-  return $parsed_block;
 }

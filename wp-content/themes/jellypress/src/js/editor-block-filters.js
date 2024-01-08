@@ -204,6 +204,6 @@ wp.hooks.addFilter(
   ezpzFilterBlockParents
 );
 
-// TODO: Add option for autoplay on core/block
+// TODO: Add option for autoplay on core/embed
 // TODO: NAtive support for details block for FAQs
 // TODO: How to make tables responsive

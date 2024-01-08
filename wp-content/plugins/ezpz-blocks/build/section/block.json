@@ -20,6 +20,19 @@
       "text": false
     }
   },
+  "attributes": {
+    "outerContainer": {
+      "type": "string",
+      "default": "section"
+    },
+    "backgroundColor": {
+      "type": "string"
+    }
+  },
+  "providesContext": {
+    "ezpz/outerContainer": "outerContainer",
+    "ezpz/backgroundColor": "backgroundColor"
+  },
   "textdomain": "ezpz-section",
   "editorScript": "file:./index.js"
 }

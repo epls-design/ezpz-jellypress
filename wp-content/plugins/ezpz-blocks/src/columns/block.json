@@ -19,7 +19,18 @@
 		"verticalAlign": {
 			"type": "string",
 			"default": "top"
+		},
+		"outerContainer": {
+			"type": "string",
+			"default": "columns"
+		},
+		"backgroundColor": {
+			"type": "string"
 		}
+	},
+	"providesContext": {
+		"ezpz/outerContainer": "outerContainer",
+		"ezpz/backgroundColor": "backgroundColor"
 	},
 	"textdomain": "ezpz-columns",
 	"editorScript": "file:./index.js"

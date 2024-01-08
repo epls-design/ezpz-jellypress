@@ -24,7 +24,7 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
-$block_attributes = jellypress_get_block_attributes($block);
+$block_attributes = jellypress_get_block_attributes($block, $context);
 $allowed_blocks = jellypress_get_allowed_blocks();
 $block_template = jellypress_get_block_template();
 

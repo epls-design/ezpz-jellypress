@@ -1,6 +1,6 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "ezpz/buttons",
   "title": "Buttons",
   "category": "design",
@@ -24,6 +24,7 @@
     "customClassName": false,
     "html": false
   },
+  "usesContext": ["ezpz/outerContainer", "ezpz/backgroundColor"],
   "styles": [],
   "acf": {
     "mode": "preview",

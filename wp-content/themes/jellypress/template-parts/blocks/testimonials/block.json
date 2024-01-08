@@ -1,6 +1,6 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "ezpz/testimonials",
   "title": "Testimonials",
   "category": "widgets",
@@ -30,6 +30,20 @@
     },
     "customClassName": true,
     "html": false
+  },
+  "attributes": {
+    "outerContainer": {
+      "type": "string",
+      "default": "testimonials"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "transparent"
+    }
+  },
+  "providesContext": {
+    "ezpz/outerContainer": "outerContainer",
+    "ezpz/backgroundColor": "backgroundColor"
   },
   "styles": [],
   "acf": {

@@ -1,6 +1,6 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "ezpz/cover",
   "title": "Cover",
   "category": "media",
@@ -36,15 +36,23 @@
       "type": "string",
       "default": "full"
     },
+    "outerContainer": {
+      "type": "string",
+      "default": "cover"
+    },
     "backgroundColor": {
       "type": "string",
       "default": "black"
     }
   },
+  "providesContext": {
+    "ezpz/outerContainer": "outerContainer",
+    "ezpz/backgroundColor": "backgroundColor"
+  },
   "styles": [],
   "acf": {
     "mode": "preview",
     "renderTemplate": "view.php",
-    "postTypes": []
+    "postTypes": ["page"]
   }
 }

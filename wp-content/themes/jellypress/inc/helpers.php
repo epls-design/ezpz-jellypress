@@ -15,7 +15,7 @@ defined('ABSPATH') || exit;
  * @param array $block Gutenberg block
  * @return array $attributes Array of attributes for the block
  */
-function jellypress_get_block_attributes($block) {
+function jellypress_get_block_attributes($block, $context) {
   $block_classes = 'block block-' . sanitize_title($block['title']);
   $block_type = $block['name'];
 
@@ -39,17 +39,12 @@ function jellypress_get_block_attributes($block) {
 
   $bg_color = isset($block['backgroundColor']) ? $block['backgroundColor'] : 'white';
 
-  /**
-   * We are in a child block, so lets set the bg_color to the parent block's bg color
-   */
-  if (isset($block['parent'])) {
-
-    if ($block['parent']['name'] == 'ezpz/cover' && !isset($block['parent']['backgroundColor'])) {
-      // If bgColor is not set, it's because the user has left it as the default. So we need to set it to match whatever the value is in the block.json
+  if (isset($context['ezpz/outerContainer']) && $context['ezpz/outerContainer'] == 'cover') {
+    // Cover block and no background colour set, so set it to black to match block.json
+    if (!isset($context['ezpz/backgroundColor']))
       $bg_color = 'black';
-    } else {
-      isset($block['parent']['backgroundColor']) ? $bg_color = $block['parent']['backgroundColor'] : $bg_color;
-    }
+    else
+      $bg_color = $context['ezpz/backgroundColor'];
   }
 
   // Remove 'is-style- ' from the block classes
@@ -343,19 +338,19 @@ function jellypress_embed_video($video, $aspect_ratio = '16x9', $platform, $capt
       wp_enqueue_script('youtube-api');
     }
     if ($platform) { ?>
-      <figure>
-        <div class="video-wrapper<?php if ($autoplay) echo ' video-autoplay'; ?>">
-          <div class="video-overlay has-bg-img" style="background-image:url('<?php echo $video_thumbnail_lq; ?>')" data-bg-img="<?php echo $video_thumbnail_hq; ?>">
-            <button class="play platform-<?php esc_attr_e($platform); ?>" data-src="<?php echo esc_url($oembed_url); ?>" title="<?php _e('Play Video', 'jellypress'); ?>"><?php echo jellypress_icon('play'); ?></button>
-          </div>
-          <div class="embed-container ratio-<?php echo $aspect_ratio; ?>">
-            <iframe width="640" height="390" type="text/html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="<?php echo $title; ?>"></iframe>
-          </div>
-        </div>
-        <?php if ($caption) : ?>
-          <figcaption class="wp-element-caption"><?php echo $caption; ?></figcaption>
-        <?php endif; ?>
-      </figure>
+<figure>
+  <div class="video-wrapper<?php if ($autoplay) echo ' video-autoplay'; ?>">
+    <div class="video-overlay has-bg-img" style="background-image:url('<?php echo $video_thumbnail_lq; ?>')" data-bg-img="<?php echo $video_thumbnail_hq; ?>">
+      <button class="play platform-<?php esc_attr_e($platform); ?>" data-src="<?php echo esc_url($oembed_url); ?>" title="<?php _e('Play Video', 'jellypress'); ?>"><?php echo jellypress_icon('play'); ?></button>
+    </div>
+    <div class="embed-container ratio-<?php echo $aspect_ratio; ?>">
+      <iframe width="640" height="390" type="text/html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="<?php echo $title; ?>"></iframe>
+    </div>
+  </div>
+  <?php if ($caption) : ?>
+  <figcaption class="wp-element-caption"><?php echo $caption; ?></figcaption>
+  <?php endif; ?>
+</figure>
 <?php }
   }
 }

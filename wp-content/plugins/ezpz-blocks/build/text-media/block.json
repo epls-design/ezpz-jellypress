@@ -23,10 +23,19 @@
     "verticalAlign": {
       "type": "string",
       "default": "top"
+    },
+    "outerContainer": {
+      "type": "string",
+      "default": "text-media"
+    },
+    "backgroundColor": {
+      "type": "string"
     }
   },
   "providesContext": {
-    "allowResize": "allowResize"
+    "allowResize": "allowResize",
+    "ezpz/outerContainer": "outerContainer",
+    "ezpz/backgroundColor": "backgroundColor"
   },
   "textdomain": "ezpz-textmedia",
   "editorScript": "file:./index.js"

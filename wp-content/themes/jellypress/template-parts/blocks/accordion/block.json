@@ -1,6 +1,6 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "ezpz/accordion",
   "title": "Accordion",
   "category": "text",
@@ -33,6 +33,7 @@
     "html": false
   },
   "styles": [],
+  "usesContext": ["ezpz/outerContainer", "ezpz/backgroundColor"],
   "acf": {
     "mode": "preview",
     "renderTemplate": "view.php",
