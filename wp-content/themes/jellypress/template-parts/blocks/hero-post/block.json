@@ -1,17 +1,16 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "ezpz/post-hero",
+  "name": "ezpz/hero-post",
   "title": "Post Hero",
   "category": "theme",
-  "icon": "heading",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M6 5V18.5911L12 13.8473L18 18.5911V5H6Z\"></path></svg>",
   "description": "The main hero section for a post. Cannot be removed or used more than once per post.",
-  "keywords": ["hero", "heading", "title", "header"],
+  "keywords": ["hero", "heading", "title", "header", "post"],
   "version": "1.0.0",
   "textdomain": "jellypress",
   "supports": {
     "align": false,
-    "alignContent": false,
     "alignText": false,
     "anchor": false,
     "color": {

@@ -131,23 +131,24 @@ add_filter('block_editor_settings_all', 'jellypress_restrict_locking_ui', 10, 2)
 function jellypress_block_templates() {
   $post_type_object = get_post_type_object('page');
   $post_type_object->template = array(
-    array('ezpz/page-hero', array(
+    array('ezpz/hero-page', array(
       'lock' => array(
         'move'   => true,
         'remove' => true,
       ),
     )),
+    array('ezpz/section', array()),
   );
+
   $post_type_object = get_post_type_object('post');
   $post_type_object->template = array(
-    array(
-      'ezpz/post-hero', array(
-        'lock' => array(
-          'move'   => true,
-          'remove' => true,
-        )
+    array('ezpz/hero-post', array(
+      'lock' => array(
+        'move'   => true,
+        'remove' => true,
       ),
-    )
+    )),
+    array('ezpz/section', array()),
   );
 }
 add_action('init', 'jellypress_block_templates', 20);

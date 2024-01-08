@@ -134,7 +134,7 @@ class ezpzBlocks {
 		// Strip class from heading
 		if ($block_name == 'ezpz/content') {
 			$block_content = str_replace('<div class="wp-block-ezpz-content"', '<div class="inner-content"', $block_content);
-		} elseif ($block_name == 'ezpz/section' || $block_name == 'ezpz/columns') {
+		} elseif ($block_name == 'ezpz/section' || $block_name == 'ezpz/columns' || $block_name == 'ezpz/text-media') {
 
 			// Strip ezpz/ from the block name
 			$block_name = str_replace('ezpz/', '', $block_name);

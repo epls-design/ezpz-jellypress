@@ -12,7 +12,7 @@ const { unregisterFormatType } = wp.richText;
 /**
  * Adds custom Aspect Ratio attribute to core/embed block
  */
-function jellypressAddAttributesCoreEmbed(settings, name) {
+function ezpzAddAttributesCoreEmbed(settings, name) {
   if (name === "core/embed") {
     return lodash.assign({}, settings, {
       attributes: lodash.merge(settings.attributes, {
@@ -28,8 +28,8 @@ function jellypressAddAttributesCoreEmbed(settings, name) {
 
 addFilter(
   "blocks.registerBlockType",
-  "jellypress/core/embed/attributes",
-  jellypressAddAttributesCoreEmbed
+  "ezpz/core/embed/attributes",
+  ezpzAddAttributesCoreEmbed
 );
 
 /**
@@ -37,7 +37,7 @@ addFilter(
  * @see https://css-tricks.com/a-crash-course-in-wordpress-block-filters/
  * @see https://developer.wordpress.org/block-editor/developers/filters/block-filters/#using-filters
  */
-const jellypressAddInspectorControlCoreEmbed = createHigherOrderComponent(
+const ezpzAddInspectorControlCoreEmbed = createHigherOrderComponent(
   (BlockEdit) => {
     return (props) => {
       const {
@@ -93,13 +93,13 @@ const jellypressAddInspectorControlCoreEmbed = createHigherOrderComponent(
       );
     };
   },
-  "jellypressAddInspectorControlCoreEmbed"
+  "ezpzAddInspectorControlCoreEmbed"
 );
 
 addFilter(
   "editor.BlockEdit",
-  "jellypress/core/embed/inspector-controls",
-  jellypressAddInspectorControlCoreEmbed
+  "ezpz/core/embed/inspector-controls",
+  ezpzAddInspectorControlCoreEmbed
 );
 
 /**
@@ -172,7 +172,7 @@ window.wp.domReady(function () {
  * @see https://nickdiego.com/how-to-modify-block-supports-using-client-side-filters/
  */
 
-function jellypressFilterBlockParents(settings, name) {
+function ezpzFilterBlockParents(settings, name) {
   let childBlocks = [
     "core/heading",
     "core/table",
@@ -201,7 +201,7 @@ function jellypressFilterBlockParents(settings, name) {
 wp.hooks.addFilter(
   "blocks.registerBlockType",
   "ezpz/content",
-  jellypressFilterBlockParents
+  ezpzFilterBlockParents
 );
 
 // TODO: Add option for autoplay on core/block

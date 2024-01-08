@@ -96,6 +96,7 @@ function jellypress_add_navbar_descriptions($item_output, $item, $depth, $args) 
  * and returns any text based fields as a long string. This is used by
  * the jellypress_generate_excerpt function to create an excerpt from
  * the ACF content.
+ * TODO: THIS CAN POTENTIALLY BE DEPRECATED IF WE USE THE NEW GUTENBERG EXCERPT THROUGHOUT
  */
 function jellypress_excerpt_from_acf_blocks() {
   $blocks = parse_blocks(get_the_content());
@@ -143,11 +144,15 @@ function jellypress_generate_excerpt($trim = null, $ellipses = false) {
   if (has_excerpt()) {
     $post_excerpt = get_the_excerpt();
   } else {
+
     $content = get_the_content();
     $content = apply_filters('the_content', $content);
 
     // Remove any classes from teh content
     $content = preg_replace('/ class=".*?"/', '', $content);
+
+    // Remove any <header></header> blocks - this is the .hero block which we don't want to appear in the excerpt
+    $content = preg_replace('/<header.*?header>/s', '', $content);
 
     // Remove any tags from content except <p> and <br>
     $content = strip_tags($content, '<p><br>');

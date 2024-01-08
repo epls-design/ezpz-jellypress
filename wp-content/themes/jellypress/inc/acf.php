@@ -126,3 +126,11 @@ function jellypress_acf_placeholder($field, $placeholder, $is_preview) {
       echo '<p class="acf-placeholder">' . $placeholder . '</p>';
   }
 }
+
+/**
+ * Removes ACF Inner Blocks wrapper
+ */
+add_filter('acf/blocks/wrap_frontend_innerblocks', 'jellypress_remove_acf_innerblock_wrapper', 10, 2);
+function jellypress_remove_acf_innerblock_wrapper($wrap, $name) {
+  return false;
+}

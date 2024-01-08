@@ -26,8 +26,8 @@ function jellypress_get_block_attributes($block) {
   // Example of how to override the background colour for a specific block
 
   $excluded_blocks = [
-    'ezpz/page-hero',
-    'ezpz/post-hero',
+    'ezpz/hero-page',
+    'ezpz/hero-post'
   ];
   if (in_array($block_type, $excluded_blocks)) {
     // Do nothing as it's set in the view.php
