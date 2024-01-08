@@ -74,7 +74,20 @@ class ezpzBlocks {
 		if (empty($blocks)) return;
 
 		foreach ($blocks as $block) {
-			register_block_type(__DIR__ . '/build/' . $block);
+
+			$args = [];
+
+			// If it's post title block, we are using a dynamic callback rather than js to render the block
+			if ($block == 'post-title') {
+				$args['render_callback'] = function () {
+					ob_start();
+					// Include the template
+					include(__DIR__ . '/src/post-title/view.php');
+					return ob_get_clean();
+				};
+			}
+
+			register_block_type(__DIR__ . '/build/' . $block, $args);
 		}
 	}
 

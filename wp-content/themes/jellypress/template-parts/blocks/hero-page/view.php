@@ -25,16 +25,21 @@ defined('ABSPATH') || exit;
 $block_attributes = jellypress_get_block_attributes($block, $context);
 $fields = get_fields();
 
+$allowed_blocks = jellypress_get_allowed_blocks(['ezpz/post-title']);
+$block_template = array(
+  array(
+    'ezpz/post-title', array(), array()
+  )
+);
+$block_template = jellypress_get_block_template($block_template);
+
 $block_attributes['class'] .= ' page-header';
 ?>
 <header class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
   <div class="container">
     <div class="row">
       <div class="col md-10 lg-8">
-        <?php
-        // TODO: Add inner block for core/post-title, will need to strip out all the styling
-        the_title('<h1 class="page-title">', '</h1>');
-        ?>
+        <InnerBlocks templateLock="all" allowedBlocks="<?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
       </div>
     </div>
   </div>

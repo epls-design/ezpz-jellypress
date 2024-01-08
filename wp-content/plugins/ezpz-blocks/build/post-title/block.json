@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ezpz/post-title",
+  "version": "0.1.0",
+  "title": "Title",
+  "category": "theme",
+  "description": "Displays the title of a post, page, or any other content-type.",
+  "keywords": [
+    "title",
+    "post",
+    "page",
+    "content-type"
+  ],
+  "usesContext": [
+    "postId",
+    "postType",
+    "ezpz/outerContainer",
+    "ezpz/backgroundColor"
+  ],
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "anchor": false,
+    "color": {
+      "background": false,
+      "text": false
+    }
+  },
+  "attributes": {},
+  "textdomain": "ezpz-post-title",
+  "editorScript": "file:./index.js"
+}
