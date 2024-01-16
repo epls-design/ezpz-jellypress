@@ -22,7 +22,8 @@
 			"default": "section"
 		},
 		"backgroundColor": {
-			"type": "string"
+			"type": "string",
+			"default": "transparent"
 		}
 	},
 	"providesContext": {

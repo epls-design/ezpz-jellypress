@@ -29,7 +29,8 @@
 			"default": "text-media"
 		},
 		"backgroundColor": {
-			"type": "string"
+			"type": "string",
+			"default": "transparent"
 		}
 	},
 	"providesContext": {

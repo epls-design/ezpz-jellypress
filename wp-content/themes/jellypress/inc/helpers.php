@@ -318,8 +318,20 @@ function jellypress_embed_video($video, $aspect_ratio = '16x9', $platform, $capt
           $video_id = $match[1];
         }
         $video_thumbnail_lq = 'https://i.ytimg.com/vi/' . $video_id . '/mqdefault.jpg'; // Get a mid res thumbnail
+        $video_thumbnail_sq = 'https://i.ytimg.com/vi/' . $video_id . '/sddefault.jpg'; // Get a standard res thumbnail
         $video_thumbnail_hq = 'https://i.ytimg.com/vi/' . $video_id . '/maxresdefault.jpg'; // Get a high res thumbnail
 
+        // If the file size of the HQ thumbnail is 1097 bytes, then the high res thumbnail doesn't exist, so use the mid res one instead
+        $hq_headers = get_headers($video_thumbnail_hq, 1);
+        $sq_headers = get_headers($video_thumbnail_sq, 1);
+
+        if ($hq_headers['Content-Length'] == '1097') {
+          if ($sq_headers['Content-Length'] != '1097') {
+            $video_thumbnail_hq = $video_thumbnail_sq;
+          } else {
+            $video_thumbnail_hq = $video_thumbnail_lq;
+          }
+        }
       }
 
       // YouTube params
@@ -338,19 +350,19 @@ function jellypress_embed_video($video, $aspect_ratio = '16x9', $platform, $capt
       wp_enqueue_script('youtube-api');
     }
     if ($platform) { ?>
-<figure>
-  <div class="video-wrapper<?php if ($autoplay) echo ' video-autoplay'; ?>">
-    <div class="video-overlay has-bg-img" style="background-image:url('<?php echo $video_thumbnail_lq; ?>')" data-bg-img="<?php echo $video_thumbnail_hq; ?>">
-      <button class="play platform-<?php esc_attr_e($platform); ?>" data-src="<?php echo esc_url($oembed_url); ?>" title="<?php _e('Play Video', 'jellypress'); ?>"><?php echo jellypress_icon('play'); ?></button>
-    </div>
-    <div class="embed-container ratio-<?php echo $aspect_ratio; ?>">
-      <iframe width="640" height="390" type="text/html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="<?php echo $title; ?>"></iframe>
-    </div>
-  </div>
-  <?php if ($caption) : ?>
-  <figcaption class="wp-element-caption"><?php echo $caption; ?></figcaption>
-  <?php endif; ?>
-</figure>
+      <figure>
+        <div class="video-wrapper<?php if ($autoplay) echo ' video-autoplay'; ?>">
+          <div class="video-overlay has-bg-img" style="background-image:url('<?php echo $video_thumbnail_lq; ?>')" data-bg-img="<?php echo $video_thumbnail_hq; ?>">
+            <button class="play platform-<?php esc_attr_e($platform); ?>" data-src="<?php echo esc_url($oembed_url); ?>" title="<?php _e('Play Video', 'jellypress'); ?>"><?php echo jellypress_icon('play'); ?></button>
+          </div>
+          <div class="embed-container ratio-<?php echo $aspect_ratio; ?>">
+            <iframe width="640" height="390" type="text/html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="<?php echo $title; ?>"></iframe>
+          </div>
+        </div>
+        <?php if ($caption) : ?>
+          <figcaption class="wp-element-caption"><?php echo $caption; ?></figcaption>
+        <?php endif; ?>
+      </figure>
 <?php }
   }
 }

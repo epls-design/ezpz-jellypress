@@ -25,7 +25,8 @@
       "default": "columns"
     },
     "backgroundColor": {
-      "type": "string"
+      "type": "string",
+      "default": "transparent"
     }
   },
   "providesContext": {
