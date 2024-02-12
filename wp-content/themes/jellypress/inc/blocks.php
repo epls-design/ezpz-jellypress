@@ -204,7 +204,7 @@ function jellypress_get_block_template($template = null) {
  * @return string $block_content HTML content of the block.
  */
 
-add_filter('render_block_core/embed', 'jellypress_filter_block_core_footnotes', 20, 2);
+add_filter('render_block_core/footnotes', 'jellypress_filter_block_core_footnotes', 20, 2);
 function jellypress_filter_block_core_footnotes($block_content,  $block) {
   ob_start();
   $args = [

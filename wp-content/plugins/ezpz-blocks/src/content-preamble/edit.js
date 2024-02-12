@@ -17,6 +17,7 @@ export default function Edit() {
 		"core/heading",
 		"core/paragraph",
 		"core/list",
+		"core/list-item",
 		"ezpz/buttons",
 		"core/quote",
 		"core/pullquote",

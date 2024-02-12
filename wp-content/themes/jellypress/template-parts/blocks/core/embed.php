@@ -2,7 +2,7 @@
 
 /**
  * Rewrites the output of core/embed on the front end to use a custom template which allows it to be responsive and deferred loading
- * This is called from jellypress_core_block_overwrite_render() if the embed is Vimeo or YouTube
+ * This is called from jellypress_filter_block_core_embed() if the embed is Vimeo or YouTube
  *
  * @param array $args['block'] The block settings and attributes.
  * @param string $args['block_content'] The block content.

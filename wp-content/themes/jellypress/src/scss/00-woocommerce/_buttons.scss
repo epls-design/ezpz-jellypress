@@ -4,7 +4,7 @@
   button.button,
   input.button {
     // Make consistent with Jellyfish...
-    padding: $button-padding;
+    // padding: $button-padding-y $button-padding-x;
     text: {
       decoration: none;
       transform: $button-text-transform;

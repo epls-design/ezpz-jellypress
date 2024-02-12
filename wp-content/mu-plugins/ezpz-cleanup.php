@@ -24,7 +24,12 @@ if (!class_exists('ezpzCleanUp')) {
       add_action('init', array($this, 'limit_post_revisions'));
       add_action('init', array($this, 'disable_trackbacks_and_smilies'));
       add_action('after_setup_theme', array($this, 'after_theme_setup'));
-      add_action('add_attachment', array($this, 'auto_alt_tags'));
+      add_action('send_headers', array($this, 'block_iframes'), 10);
+    }
+
+    // Prevents site from being loaded in an iframe
+    function block_iframes() {
+      header('X-FRAME-OPTIONS: SAMEORIGIN');
     }
 
     // Disallow file edit

@@ -106,6 +106,7 @@ class ezpzBlocks {
 				"core/table",
 				"core/image",
 				"core/list",
+				"core/list-item",
 				"core/quote",
 				"core/audio",
 				"core/pullquote",

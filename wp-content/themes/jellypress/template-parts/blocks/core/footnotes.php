@@ -2,7 +2,7 @@
 
 /**
  * Rewrites the output of core/footnotes on the front end
- * This is called from jellypress_core_block_overwrite_render()
+ * This is called from jellypress_filter_block_core_footnotes()
  *
  * @param array $args['block'] The block settings and attributes.
  * @param string $args['block_content'] The block content.

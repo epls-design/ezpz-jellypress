@@ -18,6 +18,7 @@ export default function Edit() {
 		"core/paragraph",
 		"core/table",
 		"core/list",
+		"core/list-item",
 		"core/image",
 		"core/quote",
 		"core/audio",
