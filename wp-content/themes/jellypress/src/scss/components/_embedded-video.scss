@@ -88,3 +88,18 @@ $transition-delay: 0.5s;
     transform: scale(1);
   }
 }
+
+.modal.gdpr {
+  .modal-content {
+    overflow: visible;
+  }
+  .button-list .button {
+    margin-bottom: 0;
+  }
+  .button.neutral {
+    margin-left: auto;
+    text-decoration: none;
+    --button-color-theme: var(--color-neutral-200);
+    --button-hover-color-theme: var(--color-neutral-500);
+  }
+}

@@ -53,6 +53,6 @@
   "acf": {
     "mode": "preview",
     "renderTemplate": "view.php",
-    "postTypes": ["page"]
+    "postTypes": []
   }
 }

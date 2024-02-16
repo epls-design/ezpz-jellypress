@@ -332,7 +332,8 @@ function jellypress_get_video_information($video, $platform = null) {
         'portrait'      => 0,
         'title'         => 0,
         'autoplay'      => 0,
-        'color'         => '#ff0000'
+        'color'         => '#ff0000',
+        'dnt'           => 1,
       );
       $oembed_url = add_query_arg($params, $oembed_url);
     } elseif ($platform === 'youtube') {
