@@ -16,16 +16,16 @@ blockquote.testimonial {
   font-style: normal;
   font-size: 1em;
   p {
-    font-size: $testimonial-font-size;
-    font-weight: $testimonial-font-weight;
-    font-style: $testimonial-font-style;
-    color: $testimonial-color;
+    font-size: v(font-size-4);
+    font-weight: $weight-light;
+    font-style: normal;
+    color: get-color(neutral);
   }
   cite {
-    font-size: $testimonial-cite-font-size;
-    font-weight: $testimonial-cite-font-weight;
-    font-style: $testimonial-cite-font-style;
-    color: $testimonial-cite-color;
+    font-size: 1em;
+    font-weight: $weight-bold;
+    font-style: normal;
+    color: get-color(neutral, 700);
     text-align: left;
   }
 }

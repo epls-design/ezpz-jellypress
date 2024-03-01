@@ -1,3 +1,10 @@
+// SETTINGS
+$block-padding: (
+  "root": get-size(2),
+  "sm": get-size(4),
+  "md": get-size(6),
+);
+
 section.block,
 header.block {
   @each $point, $size in $block-padding {

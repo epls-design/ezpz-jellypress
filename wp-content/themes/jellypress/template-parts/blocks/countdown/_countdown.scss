@@ -2,6 +2,18 @@
   COUNTDOWN
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+// SETTINGS
+$countdown-value-background: linear-gradient(
+  180deg,
+  get-color(neutral, 800) 0%,
+  get-color(neutral, 800) 50%,
+  get-color(neutral, 600) 50%,
+  get-color(neutral, 600) 100%
+);
+$countdown-value-weight: $weight-xbold;
+$countdown-value-color: v(color-white);
+$countdown-desc-weight: $weight-semibold;
+
 .countdown {
   display: inline-flex;
   flex: 1 1;

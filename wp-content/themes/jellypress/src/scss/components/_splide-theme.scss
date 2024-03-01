@@ -2,6 +2,34 @@
   SPLIDE THEME
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+// SETTINGS
+$slider-arrow-background: rgba(get-color(neutral), 0.9);
+$slider-arrow-color: v(color-white);
+$slider-arrow-hover-background: rgba(get-color(neutral, 700), 1);
+$slider-arrow-hover-color: v(color-white);
+$slider-arrow-border-radius: 50%;
+$slider-arrow-size: 2em;
+
+$slider-pagination-font-size: v(font-size--1);
+$slider-pagination-color: get-color(neutral, 400);
+$slider-pagination-hover-color: get-color(neutral, 700);
+$slider-pagination-active-color: get-color(neutral, 600);
+$slider-pagination-active-transform: scale(1.15);
+
+$slider-dots-size: get-size(0.75);
+$slider-dots-border-radius: 50%;
+$slider-dots-background-color: $slider-pagination-color;
+$slider-dots-border-color: $slider-dots-background-color;
+$slider-dots-border-width: 1px;
+$slider-dots-hover-background-color: $slider-pagination-hover-color;
+$slider-dots-hover-border-color: $slider-dots-hover-background-color;
+$slider-dots-active-background-color: $slider-pagination-active-color;
+$slider-dots-active-border-color: $slider-dots-active-background-color;
+
+$slider-progress-bar-color: get-color(neutral, 200);
+$slider-progress-bar-height: get-size(0.25);
+$slider-progress-bar-border-radius: 0px;
+
 .slider {
   margin-bottom: $element-margin;
   img {
@@ -29,7 +57,8 @@
   background: $slider-arrow-background;
   border: 1px solid $slider-arrow-background;
   @include smooth(background, color, border, transform);
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     outline: none;
     color: $slider-arrow-hover-color;
     box-shadow: none;
@@ -65,7 +94,7 @@
     left: calc(-#{$slider-arrow-size} - #{get-size(4)});
   }
   svg {
-  transform: scaleX(-1)
+    transform: scaleX(-1);
   }
 }
 .splide__arrow--next {
@@ -83,10 +112,10 @@
 
 .has-inner-arrows {
   .splide__arrow--prev {
-    left: 1em !important
+    left: 1em !important;
   }
   .splide__arrow--next {
-    right: 1em !important
+    right: 1em !important;
   }
 }
 
@@ -110,7 +139,8 @@
   background-color: $slider-dots-background-color;
   border: $slider-dots-border-width solid $slider-dots-border-color;
   @include smooth(background, transform, border);
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     cursor: pointer;
     outline: none;
     box-shadow: none;
@@ -141,7 +171,8 @@
       color: $slider-pagination-color;
       font-size: $slider-pagination-font-size;
     }
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background-color: transparent;
       &::after {
         color: $slider-pagination-hover-color;
@@ -167,72 +198,72 @@
   width: 0;
 }
 
-.splide--nav>.splide__track>.splide__list>.splide__slide {
-  border: 3px solid transparent
+.splide--nav > .splide__track > .splide__list > .splide__slide {
+  border: 3px solid transparent;
 }
 
-.splide--nav>.splide__track>.splide__list>.splide__slide.is-active {
-  border-color: #000
+.splide--nav > .splide__track > .splide__list > .splide__slide.is-active {
+  border-color: #000;
 }
 
-.splide--nav>.splide__track>.splide__list>.splide__slide:focus {
-  outline: none
+.splide--nav > .splide__track > .splide__list > .splide__slide:focus {
+  outline: none;
 }
 
-.splide--rtl>.splide__arrows .splide__arrow--prev,
-.splide--rtl>.splide__track>.splide__arrows .splide__arrow--prev {
+.splide--rtl > .splide__arrows .splide__arrow--prev,
+.splide--rtl > .splide__track > .splide__arrows .splide__arrow--prev {
   right: 1em;
-  left: auto
+  left: auto;
 }
 
-.splide--rtl>.splide__arrows .splide__arrow--prev svg,
-.splide--rtl>.splide__track>.splide__arrows .splide__arrow--prev svg {
-  transform: scaleX(1)
+.splide--rtl > .splide__arrows .splide__arrow--prev svg,
+.splide--rtl > .splide__track > .splide__arrows .splide__arrow--prev svg {
+  transform: scaleX(1);
 }
 
-.splide--rtl>.splide__arrows .splide__arrow--next,
-.splide--rtl>.splide__track>.splide__arrows .splide__arrow--next {
+.splide--rtl > .splide__arrows .splide__arrow--next,
+.splide--rtl > .splide__track > .splide__arrows .splide__arrow--next {
   left: 1em;
-  right: auto
+  right: auto;
 }
 
-.splide--rtl>.splide__arrows .splide__arrow--next svg,
-.splide--rtl>.splide__track>.splide__arrows .splide__arrow--next svg {
-  transform: scaleX(-1)
+.splide--rtl > .splide__arrows .splide__arrow--next svg,
+.splide--rtl > .splide__track > .splide__arrows .splide__arrow--next svg {
+  transform: scaleX(-1);
 }
 
-.splide--ttb>.splide__arrows .splide__arrow,
-.splide--ttb>.splide__track>.splide__arrows .splide__arrow {
+.splide--ttb > .splide__arrows .splide__arrow,
+.splide--ttb > .splide__track > .splide__arrows .splide__arrow {
   left: 50%;
-  transform: translate(-50%)
+  transform: translate(-50%);
 }
 
-.splide--ttb>.splide__arrows .splide__arrow--prev,
-.splide--ttb>.splide__track>.splide__arrows .splide__arrow--prev {
-  top: 1em
+.splide--ttb > .splide__arrows .splide__arrow--prev,
+.splide--ttb > .splide__track > .splide__arrows .splide__arrow--prev {
+  top: 1em;
 }
 
-.splide--ttb>.splide__arrows .splide__arrow--prev svg,
-.splide--ttb>.splide__track>.splide__arrows .splide__arrow--prev svg {
-  transform: rotate(-90deg)
+.splide--ttb > .splide__arrows .splide__arrow--prev svg,
+.splide--ttb > .splide__track > .splide__arrows .splide__arrow--prev svg {
+  transform: rotate(-90deg);
 }
 
-.splide--ttb>.splide__arrows .splide__arrow--next,
-.splide--ttb>.splide__track>.splide__arrows .splide__arrow--next {
+.splide--ttb > .splide__arrows .splide__arrow--next,
+.splide--ttb > .splide__track > .splide__arrows .splide__arrow--next {
   top: auto;
-  bottom: 1em
+  bottom: 1em;
 }
 
-.splide--ttb>.splide__arrows .splide__arrow--next svg,
-.splide--ttb>.splide__track>.splide__arrows .splide__arrow--next svg {
-  transform: rotate(90deg)
+.splide--ttb > .splide__arrows .splide__arrow--next svg,
+.splide--ttb > .splide__track > .splide__arrows .splide__arrow--next svg {
+  transform: rotate(90deg);
 }
 
-.splide--ttb>.splide__pagination {
+.splide--ttb > .splide__pagination {
   display: flex;
   flex-direction: column;
   bottom: 50%;
   left: auto;
-  right: .5em;
-  transform: translateY(50%)
+  right: 0.5em;
+  transform: translateY(50%);
 }

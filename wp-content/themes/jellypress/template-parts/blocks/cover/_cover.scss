@@ -1,3 +1,16 @@
+// SETTINGS
+$cover-heading: (
+  "root": v(font-size-4),
+  "md": v(font-size-4),
+  "lg": v(font-size-5),
+);
+
+$cover-text: (
+  "root": v(font-size-2),
+  "md": v(font-size-2),
+  "lg": v(font-size-4),
+);
+
 .block-cover {
   padding: 0 !important;
   .button-list {

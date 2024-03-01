@@ -1,0 +1,501 @@
+/**
+ * GRAVITY FORM VENDOR OVERRIDES
+ * Note: There is no support for layout of labels to be left/right. Only Above
+ */
+
+// Scope it to the form wrapper so the CSS overrides the plugin's CSS
+body .gform_wrapper.gravity-theme {
+  // FIELD LABELS
+  .gfield_label {
+    margin-bottom: get-size(0.5);
+    font-size: v(font-size-0);
+  }
+
+  // FIELDS
+  .gform_fields {
+    grid-row-gap: get-size(2);
+  }
+  .gfield_description {
+    color: get-color(neutral);
+    font-size: v(font-size--2);
+    line-height: 1.4;
+    padding-top: get-size(0.5);
+    margin-bottom: 0;
+  }
+
+  .field_description_above .gfield_description {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: get-size(0.5);
+  }
+
+  .field_description_above input + .gfield_description {
+    margin-bottom: 0;
+    padding-top: get-size(0.5);
+  }
+
+  input[type="color"],
+  input[type="date"],
+  input[type="datetime-local"],
+  input[type="datetime"],
+  input[type="email"],
+  input[type="month"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="time"],
+  input[type="url"],
+  input[type="week"],
+  select,
+  textarea {
+    padding: 0.75em;
+  }
+
+  // DATE PICKER
+  .ui-datepicker-trigger {
+    margin-bottom: 0;
+  }
+  // CHECKBOXES AND RADIOBOXES
+  .gchoice {
+    display: flex;
+    align-items: center;
+    input {
+      margin-bottom: 0;
+      margin-right: get-size(0.5);
+    }
+    & + .gchoice {
+      margin-top: get-size(0.25);
+    }
+  }
+  .gfield_checkbox .gchoice label,
+  .gfield_radio .gchoice label {
+    font-weight: $weight-normal;
+    font-size: v(font-size--1);
+  }
+
+  // MULTI UPLOAD
+  .gform_drop_area {
+    border: 1.5px dashed get-color(neutral, 100);
+    margin-bottom: get-size(0.5);
+    border-radius: $border-radius;
+    padding: get-size(2);
+    .button {
+      margin: 0;
+      font-size: var(--font-size--1);
+    }
+  }
+
+  // MULTI SELECT
+  select[multiple] {
+    background: $input-background;
+  }
+
+  // LISTS
+  .gfield_list_icons {
+    button {
+      margin-bottom: 0;
+    }
+  }
+
+  // ADDRESS COPY
+  .copy_values_option_container,
+  .ginput_container_consent {
+    display: flex;
+    input {
+      margin-right: get-size(0.5);
+    }
+    label {
+      font-weight: $weight-normal;
+    }
+  }
+  .copy_values_option_container {
+    margin: get-size(0.75) 0;
+  }
+
+  // READONLY
+  [type="text"][readonly] {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  // PRICE
+  .ginput_product_price,
+  .ginput_shipping_price,
+  .ginput_total {
+    color: $color-text;
+    font-weight: $weight-bold;
+    font-size: v(font-size-2) !important;
+  }
+
+  .ginput_total {
+    color: get-color(success, 700);
+    padding: 0 !important;
+  }
+
+  // SELECT 2 FIELD
+  .chosen-container {
+    ul.chosen-choices {
+      border-radius: $border-radius;
+      border: $borders;
+    }
+    .chosen-choices li.search-choice {
+      background: get-color(neutral, 25);
+      border: 1px solid get-color(neutral, 200);
+      box-shadow: none;
+      border-radius: $border-radius * 0.5;
+      color: $color-text;
+    }
+    &.chosen-container-active .chosen-choices {
+      box-shadow: none;
+      outline: $accessibility-focus-outline-width solid
+        $accessibility-focus-color;
+      outline-offset: $accessibility-focus-outline-offset;
+      border-color: $form-focus-border-color;
+      box-shadow: $form-focus-shadow-inner, $form-focus-shadow-outer;
+    }
+    .chosen-results {
+      color: get-color(neutral, 700);
+    }
+    .chosen-container-multi .chosen-drop .result-selected {
+      color: get-color(neutral, 300);
+    }
+    .chosen-results li.highlighted {
+      background: get-color(primary);
+    }
+    a.chosen-single {
+      border: $borders;
+      border-radius: $border-radius !important;
+      color: v(color-text);
+      padding: 0.75em;
+      background: $input-background;
+      background-size: 0.75em;
+      display: flex;
+      align-items: center;
+
+      span {
+        line-height: 1.4;
+        margin-right: 0;
+      }
+      div {
+        b {
+          display: none;
+        }
+        // Replace the native arrow with our theme one
+        background-image: url("data:image/svg+xml;charset=utf-8,<svg width='41' height='26' viewBox='0 0 41 26' xmlns='http://www.w3.org/2000/svg'><path fill='#{$placeholder-color}' d='M0 5.382l19.983 19.983L40.14 5.208 34.932 0 19.869 15.062 4.84.032z' fill-rule='evenodd'/></svg>");
+        background-repeat: no-repeat;
+        background-size: 0.75em;
+        background-position: center right 10px;
+        width: 1.5em;
+      }
+    }
+    &.chosen-with-drop a.chosen-single {
+      a.chosen-single {
+      }
+      div {
+        transform: rotate(180deg);
+      }
+    }
+    .chosen-drop {
+      border: $borders;
+      border-radius: $border-radius;
+      box-shadow: none;
+      margin-top: get-size(0.5);
+    }
+  }
+
+  // FIELD WIDTHS
+  .gfield--width-half.gfield,
+  .gfield--width-third.gfield,
+  .gfield--width-quarter.gfield {
+    input.medium,
+    input.small,
+    select.medium,
+    select.small,
+    textarea.medium,
+    textarea.small,
+    .gfield_select.small + div.chosen-container-single[style],
+    .gfield_select.medium + div.chosen-container-single[style] {
+      width: 100% !important;
+    }
+  }
+
+  // REQUIRED
+  .gfield_required {
+    color: get-color(error, 800);
+    font-size: v(font-size--1);
+  }
+
+  // IMPORTANT TEXT
+  .charleft,
+  .instruction {
+    font-weight: $weight-medium;
+  }
+  // If the last child in ginput_container is a .charleft, add a top padding
+  .ginput_container:last-child .charleft {
+    padding-top: get-size(0.5);
+  }
+
+  // FORM DESCRIPTION
+  .gform_description {
+    color: v(color-text);
+    margin-bottom: get-size(3);
+  }
+
+  // STEPS
+  .gf_page_steps {
+    border-bottom: 1px solid get-color(neutral, 100);
+    margin-bottom: get-size(1);
+  }
+  .gf_step {
+    margin: get-size(0.5) get-size(1.5) get-size(0.5) 0;
+  }
+  .gf_step_label {
+    font-size: var(--font-size--1);
+    font-weight: $weight-semibold;
+    line-height: 1;
+    padding-left: get-size(0.5);
+  }
+  .gf_step_number {
+    font-size: var(--font-size--1);
+    font-weight: $weight-normal;
+    width: get-size(2);
+    height: get-size(2);
+    color: get-color(neutral, 800);
+    border: 2px solid get-color(neutral, 100);
+    border-radius: 999999px;
+  }
+  .gf_step_active .gf_step_number {
+    background: get-color(neutral, 100);
+    color: get-color(neutral, 900);
+  }
+  .gf_step_completed .gf_step_number:before {
+    width: get-size(2);
+    height: get-size(2);
+    background: get-color(primary);
+    border: 2px solid get-color(primary);
+    border-radius: 999999px;
+  }
+
+  // PROGRESS BAR
+  .gf_progressbar_title {
+    color: get-color(neutral, 300);
+    font-size: v(font-size--2);
+    margin-bottom: get-size(0.25);
+  }
+  .gf_progressbar {
+    background-color: get-color(neutral, 50);
+    margin-bottom: $element-margin;
+    border-radius: $progressbar-border-radius;
+    height: $progressbar-height;
+    min-height: 1.25rem;
+    display: flex;
+    align-items: center;
+    color: get-color(neutral, 400);
+
+    .percentbar_0 {
+      color: get-color(neutral, 400);
+    }
+    .gf_progressbar_percentage {
+      display: flex;
+      align-items: center;
+      background-color: get-color(primary);
+      span {
+        color: inherit;
+        margin-left: get-size(0.5);
+        margin-right: get-size(0.5);
+        font-size: v(font-size--2);
+        line-height: 1;
+      }
+    }
+  }
+
+  // SECTIONS
+  .gsection {
+    margin-top: get-size(2);
+    @include above(lg) {
+      margin-top: get-size(3);
+    }
+    padding: 0;
+    border-bottom-color: get-color(neutral, 100);
+  }
+  .gsection_title {
+    margin-bottom: 0;
+  }
+  .gsection_description {
+    color: v(color-text);
+    font-size: v(font-size-0);
+    padding: 0;
+  }
+  .top_label .gsection_description {
+    margin-bottom: get-size(1.5);
+    margin-top: get-size(0.75);
+  }
+
+  // WYSIWIG
+  .mce-tinymce {
+    .mce-toolbar {
+      button:hover,
+      button:focus {
+        color: #595959;
+        background: transparent;
+      }
+    }
+  }
+
+  // VALIDATION SUMMARY - Make them look more like Jellyfish UI Callouts
+  .gform_validation_errors {
+    background: var(--color-error-25);
+    border-color: var(--color-error-200);
+    border-style: $callout-border-style;
+    border-width: $callout-border-width;
+    border-radius: $callout-border-radius;
+    padding: $callout-padding;
+    margin: 0 0 $element-margin 0;
+    box-shadow: none;
+    h2 {
+      color: get-color(error, 800);
+      font-size: var(--font-size-1);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.5em;
+      text-transform: uppercase;
+      line-height: 1.2;
+      font-weight: $weight-bold;
+      margin-bottom: 0.5em;
+    }
+    ol {
+      padding-left: 0;
+      margin-left: get-size(1.5);
+      margin-bottom: 0;
+      li {
+        margin-bottom: 0;
+        &,
+        & > a {
+          font-size: var(--font-size-0);
+          color: get-color(error, 700);
+          // font-weight: $weight-bold;
+        }
+        & > a {
+          &:hover,
+          &:focus {
+            color: get-color(error, 900);
+          }
+        }
+        & + li {
+          margin-top: get-size(0.25);
+        }
+      }
+    }
+  }
+
+  .gfield_error .gfield_repeater_cell label,
+  .gfield_error label,
+  .gfield_error legend,
+  .gfield_validation_message,
+  .validation_message,
+  [aria-invalid="true"] + label,
+  label + [aria-invalid="true"] {
+    color: get-color(error, 800);
+  }
+
+  .gfield_error [aria-invalid="true"] {
+    border-color: get-color(error, 800);
+  }
+
+  .gfield_validation_message,
+  .validation_message {
+    border-color: get-color(error, 800);
+    padding: get-size(0.5) !important;
+    background: get-color(error, 25);
+  }
+
+  // SAVE AND CONTINUE BUTTON, PREV BUTTON
+  .gform_page_footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    input {
+      line-height: 1 !important;
+      min-height: none !important;
+    }
+  }
+  @include above(sm) {
+    .gform_save_link {
+      margin-left: auto !important;
+    }
+  }
+  .gform_previous_button.button,
+  .gform_save_link.button {
+    background-color: transparent;
+    color: var(--button-color-theme);
+    border-color: var(--button-color-theme);
+    path {
+      fill: currentColor;
+    }
+    &:hover,
+    &:focus {
+      background-color: var(--button-hover-color-theme);
+      border-color: var(--button-hover-color-theme);
+      color: var(--button-hover-color-text);
+    }
+  }
+}
+
+// DATE PICKER
+body {
+  .gravity-theme.ui-datepicker {
+    background: var(--color-white);
+    border: 1px solid get-color(neutral, 200);
+    font-size: var(--font-size--1);
+    color: $color-text;
+    padding: get-size(1);
+    margin: 0;
+    margin-top: get-size(0.5);
+  }
+
+  .gravity-theme.ui-datepicker .ui-datepicker-calendar td {
+    font-size: var(--font-size--1);
+  }
+
+  .gravity-theme.ui-datepicker .ui-datepicker-calendar th span {
+    font-size: var(--font-size-0);
+    color: $color-text;
+  }
+
+  .gravity-theme.ui-datepicker .ui-datepicker-calendar .ui-state-default {
+    color: get-color(neutral, 700);
+  }
+  .gravity-theme.ui-datepicker
+    .ui-datepicker-calendar
+    .ui-datepicker-current-day
+    .ui-state-default {
+    background: get-color(primary);
+    border-color: get-color(primary);
+  }
+  .gravity-theme.ui-datepicker .ui-datepicker-calendar .ui-state-default:focus,
+  .gravity-theme.ui-datepicker .ui-datepicker-calendar .ui-state-default:hover {
+    border-color: get-color(neutral, 700);
+  }
+  .gravity-theme.ui-datepicker .ui-datepicker-header select {
+    color: get-color(neutral, 700);
+  }
+  .gravity-theme.ui-datepicker .ui-datepicker-header .ui-datepicker-next,
+  .gravity-theme.ui-datepicker .ui-datepicker-header .ui-datepicker-prev {
+    color: get-color(neutral);
+    &:hover,
+    &:focus {
+      color: get-color(neutral, 700);
+    }
+  }
+  .gravity-theme.ui-datepicker
+    .ui-datepicker-calendar
+    .ui-state-disabled
+    .ui-state-default {
+    background: get-color(neutral, 25);
+    border: 1px solid get-color(neutral, 50);
+    box-shadow: none;
+    color: get-color(neutral, 500);
+  }
+}
