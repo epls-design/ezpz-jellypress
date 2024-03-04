@@ -23,21 +23,10 @@
 defined('ABSPATH') || exit;
 
 // TODO: REPLACE WITH GUTENBERG BUTTONS
+// Displays the block preview in the Gutenberg editor. Requires example to be set in block.json and a preview.png image file.
+if (jellypress_get_block_preview_image($block) == true) return;
 
 $block_attributes = jellypress_get_block_attributes($block, $context);
 $fields = get_fields();
 
-// Prevent clicks on the block if it's in the editor
-if ($is_preview) {
-  $classes = 'prevent-clicks';
-} else {
-  $classes = null;
-}
-
-jellypress_acf_placeholder(
-  $fields['buttons'],
-  __('Please add some buttons to this block - click here to get started.', 'jellypress'),
-  $is_preview
-);
-
-jellypress_display_cta_buttons($fields['buttons'], $context['ezpz/backgroundColor'], $classes);
+jellypress_display_cta_buttons($fields['buttons'], $context['ezpz/backgroundColor']);

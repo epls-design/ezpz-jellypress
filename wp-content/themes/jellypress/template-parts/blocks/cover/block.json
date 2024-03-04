@@ -49,9 +49,17 @@
     "ezpz/outerContainer": "outerContainer",
     "ezpz/backgroundColor": "backgroundColor"
   },
+  "example": {
+    "attributes": {
+      "mode": "preview",
+      "data": {
+        "previewImage": "preview.png"
+      }
+    }
+  },
   "styles": [],
   "acf": {
-    "mode": "preview",
+    "mode": "edit",
     "renderTemplate": "view.php",
     "postTypes": []
   }

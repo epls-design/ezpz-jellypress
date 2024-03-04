@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Columns",
 	"category": "ezpz-layout",
-	"description": "Allows you to add multiple columns to a section.",
+	"description": "Allows you to add multiple columns to a section which will stack on smaller screens.",
 	"supports": {
 		"html": false,
 		"customClassName": true,
@@ -28,6 +28,79 @@
 			"type": "string",
 			"default": "transparent"
 		}
+	},
+	"example": {
+		"attributes": {
+			"verticalAlign": "top",
+			"outerContainer": "columns",
+			"backgroundColor": "transparent"
+		},
+		"innerBlocks": [
+			{
+				"name": "ezpz/column",
+				"attributes": {
+					"width": "33.33%"
+				},
+				"innerBlocks": [
+					{
+						"name": "ezpz/content",
+						"innerBlocks": [
+							{
+								"name": "core/heading",
+								"attributes": {
+									"level": 4,
+									"content": "Your Song by Elton John"
+								}
+							},
+							{
+								"name": "core/paragraph",
+								"attributes": {
+									"content": "It's a little bit funny this feeling inside<br>I'm not one of those who can easily hide<br>I don't have much money but boy if I did<br>I'd buy a big house where we both could live"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"name": "ezpz/column",
+				"attributes": {
+					"width": "33.33%"
+				},
+				"innerBlocks": [
+					{
+						"name": "ezpz/content",
+						"innerBlocks": [
+							{
+								"name": "core/paragraph",
+								"attributes": {
+									"content": "If I was a sculptor, but then again, no<br>Or a man who makes potions in a travelling show<br>I know it's not much but it's the best I can do<br>My gift is my song and this one's for you"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"name": "ezpz/column",
+				"attributes": {
+					"width": "33.33%"
+				},
+				"innerBlocks": [
+					{
+						"name": "ezpz/content",
+						"innerBlocks": [
+							{
+								"name": "core/image",
+								"attributes": {
+									"url": "https://upload.wikimedia.org/wikipedia/en/6/6f/Elton_john_your_song_%282%29.jpg"
+								}
+							}
+						]
+					}
+				]
+			}
+		]
 	},
 	"providesContext": {
 		"ezpz/outerContainer": "outerContainer",

@@ -5,7 +5,7 @@
 	"version": "0.2.1",
 	"title": "Text & Media",
 	"category": "ezpz-layout",
-	"description": "Allows you to add a two column layout with text and media (video / image)",
+	"description": "Allows you to add a two column layout with text and media (video / image) which will stack on smaller screens.",
 	"supports": {
 		"html": false,
 		"customClassName": true,
@@ -32,6 +32,62 @@
 			"type": "string",
 			"default": "transparent"
 		}
+	},
+	"example": {
+		"attributes": {
+			"allowResize": false,
+			"verticalAlign": "top",
+			"outerContainer": "text-media",
+			"backgroundColor": "transparent"
+		},
+		"innerBlocks": [
+			{
+				"name": "ezpz/column",
+				"attributes": {
+					"width": "50%"
+				},
+				"innerBlocks": [
+					{
+						"name": "ezpz/content",
+						"innerBlocks": [
+							{
+								"name": "core/heading",
+								"attributes": {
+									"level": 4,
+									"content": "With a Little Help from My Friends by The Beatles"
+								}
+							},
+							{
+								"name": "core/paragraph",
+								"attributes": {
+									"fontSize": "large",
+									"content": "What would you think if I sang out of tune<br>Would you stand up and walk out on me?<br>Lend me your ears and I'll sing you a song<br>And I'll try not to sing out of key"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"name": "ezpz/column",
+				"attributes": {
+					"width": "40%"
+				},
+				"innerBlocks": [
+					{
+						"name": "ezpz/content",
+						"innerBlocks": [
+							{
+								"name": "core/image",
+								"attributes": {
+									"url": "https://pure-music.co.uk/wp-content/uploads/2019/02/Sgt-Pepper-Album-Cover.jpg"
+								}
+							}
+						]
+					}
+				]
+			}
+		]
 	},
 	"providesContext": {
 		"allowResize": "allowResize",

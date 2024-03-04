@@ -22,6 +22,9 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
+// Displays the block preview in the Gutenberg editor. Requires example to be set in block.json and a preview.png image file.
+if (jellypress_get_block_preview_image($block) == true) return;
+
 $block_id = str_replace('block_', '', $block['id']);
 
 $block_attributes = jellypress_get_block_attributes($block, $context);
@@ -61,11 +64,6 @@ $show_progress_bar = false; // Progress Bar is an option in php rather than the 
     <?php endif; ?>
 
     <?php
-    jellypress_acf_placeholder(
-      $$fields['testimonials'][0]['testimonial_text'],
-      __('Please add testimonials to this block - click here to get started.', 'jellypress'),
-      $is_preview
-    );
 
     if ($testimonials = $fields['testimonials']) :
       // Note: Apply class .has-pagination to the splide element to make the dots numbered instead of dots

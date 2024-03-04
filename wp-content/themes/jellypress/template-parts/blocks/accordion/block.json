@@ -17,7 +17,6 @@
   "version": "1.0.0",
   "textdomain": "jellypress",
   "parent": ["ezpz/content", "ezpz/content-restricted"],
-  "script": ["aria-accordion"],
   "supports": {
     "align": false,
     "alignContent": false,
@@ -34,8 +33,16 @@
   },
   "styles": [],
   "usesContext": ["ezpz/outerContainer", "ezpz/backgroundColor"],
+  "example": {
+    "attributes": {
+      "mode": "preview",
+      "data": {
+        "previewImage": "preview.png"
+      }
+    }
+  },
   "acf": {
-    "mode": "preview",
+    "mode": "edit",
     "renderTemplate": "view.php",
     "postTypes": []
   }

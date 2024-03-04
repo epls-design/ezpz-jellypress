@@ -5,21 +5,22 @@ $block-padding: (
   "md": get-size(6),
 );
 
-section.block,
-header.block {
+:root {
   @each $point, $size in $block-padding {
     @if $point == "root" {
-      padding-top: $size;
-      // Negates for the last element in a block, rather than using :last-of-type
-      padding-bottom: $size - $element-margin;
+      --block-padding: #{$size};
     } @else {
       @include above($point) {
-        padding-top: $size;
-        // Negates for the last element in a block, rather than using :last-of-type
-        padding-bottom: $size - $element-margin;
+        --block-padding: #{$size};
       }
     }
   }
+}
+
+section.block,
+header.block {
+  padding-top: var(--block-padding);
+  padding-bottom: calc(var(--block-padding) - #{$element-margin});
   position: relative;
 }
 

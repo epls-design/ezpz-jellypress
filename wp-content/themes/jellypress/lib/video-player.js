@@ -127,6 +127,7 @@ jQuery(document).on("click touch", ".video-wrapper", function () {
 
 /**
  * Autoplay video with class .video-autoplay when scroll into view, if browser supports it
+ * TODO: Check Cookies with Vimeo and only play if user has consented
  */
 function ezpzPlayVideoOnScroll(element) {
   let $element = jQuery(element); // Convert to jQuery element and get first result

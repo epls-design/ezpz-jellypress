@@ -17,7 +17,6 @@
   ],
   "version": "1.0.0",
   "textdomain": "jellypress",
-  "script": ["number-counter"],
   "supports": {
     "align": false,
     "alignText": true,
@@ -44,6 +43,14 @@
   "providesContext": {
     "ezpz/outerContainer": "outerContainer",
     "ezpz/backgroundColor": "backgroundColor"
+  },
+  "example": {
+    "attributes": {
+      "mode": "preview",
+      "data": {
+        "previewImage": "preview.png"
+      }
+    }
   },
   "styles": [],
   "acf": {

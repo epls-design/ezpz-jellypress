@@ -30,6 +30,67 @@
       "default": "transparent"
     }
   },
+  "example": {
+    "attributes": {
+      "outerContainer": "section",
+      "backgroundColor": "transparent"
+    },
+    "innerBlocks": [
+      {
+        "name": "ezpz/content",
+        "innerBlocks": [
+          {
+            "name": "core/heading",
+            "attributes": {
+              "level": 4,
+              "content": "Things that Rick Astley won't do:"
+            }
+          },
+          {
+            "name": "core/list",
+            "innerBlocks": [
+              {
+                "name": "core/list-item",
+                "attributes": {
+                  "content": "Give you up"
+                }
+              },
+              {
+                "name": "core/list-item",
+                "attributes": {
+                  "content": "Let you down"
+                }
+              },
+              {
+                "name": "core/list-item",
+                "attributes": {
+                  "content": "Run around and desert you"
+                }
+              },
+              {
+                "name": "core/list-item",
+                "attributes": {
+                  "content": "Make you cry"
+                }
+              },
+              {
+                "name": "core/list-item",
+                "attributes": {
+                  "content": "Say goodbye"
+                }
+              },
+              {
+                "name": "core/list-item",
+                "attributes": {
+                  "content": "Tell a lie and hurt you"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
   "providesContext": {
     "ezpz/outerContainer": "outerContainer",
     "ezpz/backgroundColor": "backgroundColor"

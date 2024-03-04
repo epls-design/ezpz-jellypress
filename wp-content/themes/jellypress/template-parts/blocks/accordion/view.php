@@ -22,16 +22,15 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
+// Displays the block preview in the Gutenberg editor. Requires example to be set in block.json and a preview.png image file.
+if (jellypress_get_block_preview_image($block) == true) return;
+
+wp_enqueue_script('aria-accordion');
+
 $fields = get_fields();
 
 $generate_schema = $fields['generate_schema'];
 $allow_multiple =  $fields['allow_multiple'] == 1 ? 'data-multi' : '';
-
-jellypress_acf_placeholder(
-  $fields['accordion_items'][0]['question'],
-  __('Please add accordion items to this block - click here to get started.', 'jellypress'),
-  $is_preview
-);
 
 if ($accordion_items = $fields['accordion_items']) {
 

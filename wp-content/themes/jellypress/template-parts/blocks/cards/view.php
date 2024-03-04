@@ -22,6 +22,8 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
+if (jellypress_get_block_preview_image($block) == true) return;
+
 $block_attributes = jellypress_get_block_attributes($block, $context);
 $allowed_blocks = jellypress_get_allowed_blocks();
 $block_template = jellypress_get_block_template();
@@ -35,6 +37,7 @@ else $justify = 'justify-start';
 
 // NOTE: Card may be better as a block pattern / inner block at some point in the future
 
+// TODO: Sort out WYSIWIG in Editor as buttons are broken
 ?>
 
 <section class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>

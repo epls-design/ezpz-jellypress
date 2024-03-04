@@ -9,7 +9,6 @@
   "keywords": ["map", "google", "marker", "location", "embed"],
   "version": "1.0.0",
   "textdomain": "jellypress",
-  "script": ["googlemaps-init"],
   "supports": {
     "align": ["center", "wide", "full"],
     "alignText": true,
@@ -37,6 +36,14 @@
   "providesContext": {
     "ezpz/outerContainer": "outerContainer",
     "ezpz/backgroundColor": "backgroundColor"
+  },
+  "example": {
+    "attributes": {
+      "mode": "preview",
+      "data": {
+        "previewImage": "preview.png"
+      }
+    }
   },
   "styles": [],
   "acf": {

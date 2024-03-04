@@ -26,8 +26,16 @@
   },
   "usesContext": ["ezpz/outerContainer", "ezpz/backgroundColor"],
   "styles": [],
+  "example": {
+    "attributes": {
+      "mode": "preview",
+      "data": {
+        "previewImage": "preview.png"
+      }
+    }
+  },
   "acf": {
-    "mode": "preview",
+    "mode": "edit",
     "renderTemplate": "view.php",
     "postTypes": []
   }

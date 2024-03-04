@@ -18,6 +18,10 @@
     "ezpz/outerContainer",
     "ezpz/backgroundColor"
   ],
+  "parent": [
+    "ezpz/hero-page",
+    "ezpz/hero-post"
+  ],
   "supports": {
     "html": false,
     "customClassName": false,
@@ -27,6 +31,7 @@
       "text": false
     }
   },
+  "multiple": false,
   "attributes": {},
   "textdomain": "ezpz-post-title",
   "editorScript": "file:./index.js"

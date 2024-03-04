@@ -22,6 +22,8 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
+// Displays the block preview in the Gutenberg editor. Requires example to be set in block.json and a preview.png image file.
+if (jellypress_get_block_preview_image($block) == true) return;
 
 $block_attributes = jellypress_get_block_attributes($block, $context);
 

@@ -225,6 +225,9 @@
           "textTransform": false
         }
       },
+      "core/image": {
+        "align": false
+      },
       "core/separator": {
         "color": {
           "background": false,

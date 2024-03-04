@@ -15,27 +15,16 @@ $countdown-value-color: v(color-white);
 $countdown-desc-weight: $weight-semibold;
 
 .countdown {
-  display: inline-flex;
-  flex: 1 1;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-direction: row;
+  display: grid;
   text-align: center;
-  margin: 0 n(get-size(0.5)) $element-margin n(get-size(0.5));
-  @include above(sm) {
-    margin-left: n(get-size(0.75));
-    margin-right: n(get-size(0.75));
-  }
-  .partial {
-    margin: get-size(1.5) get-size(0.5) 0px get-size(0.5);
-    @include above(sm) {
-      margin: get-size(2) get-size(0.75) 0px get-size(0.75);
-    }
-  }
+  // margin: 0 n(get-size(0.5)) $element-margin n(get-size(0.5));
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: get-size(1);
+
   .value {
     background: $countdown-value-background;
     padding: 0.4em 0;
-    width: 3.25ch; // Sized relative to the width of the digit '0' in this font.
+    width: 100%;
     font-weight: $countdown-value-weight;
     line-height: 1;
     color: $countdown-value-color;

@@ -22,6 +22,11 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
+// Displays the block preview in the Gutenberg editor. Requires example to be set in block.json and a preview.png image file.
+if (jellypress_get_block_preview_image($block) == true) return;
+
+wp_enqueue_script('number-counter');
+
 $block_attributes = jellypress_get_block_attributes($block, $context);
 $allowed_blocks = jellypress_get_allowed_blocks();
 $block_template = jellypress_get_block_template();
@@ -61,12 +66,6 @@ else $justify = 'justify-start';
     if ($stats_have_xlarge_numbers == true) $statistic_font_size = 'xsmall';
     elseif ($stats_have_large_numbers == true) $statistic_font_size = 'small';
     else $statistic_font_size = 'regular';
-
-    jellypress_acf_placeholder(
-      $fields['statistics'][0]['statistic_value'],
-      __('Please add statistics to this block - click here to get started.', 'jellypress'),
-      $is_preview
-    );
 
     if ($fields['statistics'][0]['statistic_value']) {
       echo '<div class="row ' . $justify . ' equal-height statistics">';
