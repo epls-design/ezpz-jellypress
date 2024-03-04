@@ -7,7 +7,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: EPLS Design <theteam@epls.design>\n"
 "Last-Translator: EPLS Design <theteam@epls.design>\n"
-"POT-Creation-Date: 2024-03-04 16:51+0000\n"
+"POT-Creation-Date: 2024-03-04 17:29+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -194,6 +194,18 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
+#: template-parts/blocks/buttons/view.php:38
+msgid "You need to add some buttons to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to \"edit\"."
+msgstr ""
+
+#: template-parts/blocks/cards/view.php:68
+msgid "You need to add some cards to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to \"edit\"."
+msgstr ""
+
+#: template-parts/blocks/countdown/view.php:83, template-parts/blocks/map/view.php:78, template-parts/blocks/number-counter/view.php:88
+msgid "You need to add some data to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to \"edit\"."
+msgstr ""
+
 #: template-parts/blocks/countdown/view.php:63
 msgid "Days"
 msgstr ""
@@ -210,8 +222,16 @@ msgstr ""
 msgid "Seconds"
 msgstr ""
 
-#: template-parts/blocks/linked-posts/view.php:107, template-parts/blocks/post-archive/view.php:89
+#: template-parts/blocks/image-gallery/view.php:86
+msgid "You need to add some images to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to \"edit\"."
+msgstr ""
+
+#: template-parts/blocks/linked-posts/view.php:111, template-parts/blocks/post-archive/view.php:89
 msgid "No posts matched your criteria."
+msgstr ""
+
+#: template-parts/blocks/linked-posts/view.php:108
+msgid "You need to add some posts to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to \"edit\"."
 msgstr ""
 
 #: template-parts/blocks/map/functions.php:42
@@ -226,9 +246,16 @@ msgstr ""
 msgid "To display Google Maps on your website, you need an API key. Please add it here."
 msgstr ""
 
-#. translators: %s link to theme options page.
-#: template-parts/blocks/map/view.php:68
+#: template-parts/blocks/map/view.php:70
 msgid "You need to <a href=\"%s\" class=\"callout-link\">add a Google Maps API key</a> in order to display a map on your website."
+msgstr ""
+
+#: template-parts/blocks/slider/view.php:88
+msgid "You need to add some slides to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to \"edit\"."
+msgstr ""
+
+#: template-parts/blocks/testimonials/view.php:109
+msgid "You need to add some testimonials to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to \"edit\"."
 msgstr ""
 
 #: template-parts/blocks/testimonials/view.php:84

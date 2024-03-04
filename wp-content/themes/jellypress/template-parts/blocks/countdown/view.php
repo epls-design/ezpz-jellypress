@@ -43,11 +43,11 @@ $complete_text = $fields['complete_text'];
   <div class="container">
 
     <?php if ($content || $is_preview) : ?>
-      <header class="row justify-center">
-        <div class="col md-10 lg-8">
-          <InnerBlocks className="<?php echo $text_align; ?>" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
-        </div>
-      </header>
+    <header class="row justify-center">
+      <div class="col md-10 lg-8">
+        <InnerBlocks className="<?php echo $text_align; ?>" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
+      </div>
+    </header>
     <?php endif; ?>
 
     <?php if ($countdown = $fields['countdown_to']) :
@@ -55,29 +55,33 @@ $complete_text = $fields['complete_text'];
       $countdown = $countdown . ' ' . $countdown_tz;
       // eg. 'November 4 2020 18:00:00 GMT+0000'
     ?>
-      <div class="row justify-center <?php echo $text_align; ?>">
-        <div class="col md-10 lg-8">
-          <div class="countdown<?php if ($complete_text) echo ' has-complete-text'; ?>" data-countdown-to="<?php echo $countdown; ?>">
-            <div class="partial">
-              <div class="value days">00</div>
-              <div class="small"><?php _e('Days', 'jellypress'); ?></div>
-            </div>
-            <div class="partial">
-              <div class="value hours">00</div>
-              <div class="small"><?php _e('Hours', 'jellypress'); ?></div>
-            </div>
-            <div class="partial">
-              <div class="value minutes">00</div>
-              <div class="small"><?php _e('Minutes', 'jellypress'); ?></div>
-            </div>
-            <div class="partial">
-              <div class="value seconds">00</div>
-              <div class="small"><?php _e('Seconds', 'jellypress'); ?></div>
-            </div>
-            <?php if ($complete_text) echo '<div class="partial complete-text">' . $complete_text . '</div>'; ?>
+    <div class="row justify-center <?php echo $text_align; ?>">
+      <div class="col md-10 lg-8">
+        <div class="countdown<?php if ($complete_text) echo ' has-complete-text'; ?>" data-countdown-to="<?php echo $countdown; ?>">
+          <div class="partial">
+            <div class="value days">00</div>
+            <div class="small"><?php _e('Days', 'jellypress'); ?></div>
           </div>
+          <div class="partial">
+            <div class="value hours">00</div>
+            <div class="small"><?php _e('Hours', 'jellypress'); ?></div>
+          </div>
+          <div class="partial">
+            <div class="value minutes">00</div>
+            <div class="small"><?php _e('Minutes', 'jellypress'); ?></div>
+          </div>
+          <div class="partial">
+            <div class="value seconds">00</div>
+            <div class="small"><?php _e('Seconds', 'jellypress'); ?></div>
+          </div>
+          <?php if ($complete_text) echo '<div class="partial complete-text">' . $complete_text . '</div>'; ?>
         </div>
       </div>
+    </div>
+    <?php elseif ($is_preview) : ?>
+    <div class="acf-placeholder">
+      <div class="acf-placeholder-label"><?php _e('You need to add some data to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to "edit".', 'jellypress'); ?></div>
+    </div>
     <?php endif; ?>
 
   </div>

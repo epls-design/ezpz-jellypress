@@ -59,7 +59,7 @@
   },
   "styles": [],
   "acf": {
-    "mode": "edit",
+    "mode": "preview",
     "renderTemplate": "view.php",
     "postTypes": []
   }

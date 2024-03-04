@@ -1,6 +1,6 @@
 {
     "key": "group_646527f5972bb",
-    "title": "Block > Cards",
+    "title": "Block &gt; Cards",
     "fields": [
         {
             "key": "field_64662a5b04734",
@@ -9,7 +9,7 @@
             "aria-label": "",
             "type": "repeater",
             "instructions": "Please add your cards here.",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "100",
@@ -18,7 +18,7 @@
             },
             "layout": "block",
             "pagination": 0,
-            "min": 1,
+            "min": 0,
             "max": 12,
             "collapsed": "field_64662a7004737",
             "button_label": "Add a Card",
@@ -109,5 +109,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695242008
+    "modified": 1709573516
 }

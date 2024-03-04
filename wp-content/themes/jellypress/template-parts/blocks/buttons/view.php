@@ -29,4 +29,12 @@ if (jellypress_get_block_preview_image($block) == true) return;
 $block_attributes = jellypress_get_block_attributes($block, $context);
 $fields = get_fields();
 
-jellypress_display_cta_buttons($fields['buttons'], $context['ezpz/backgroundColor']);
+if (!empty($fields['buttons'])) :
+  jellypress_display_cta_buttons($fields['buttons'], $context['ezpz/backgroundColor']);
+elseif ($is_preview) :
+?>
+
+<div class="acf-placeholder">
+  <div class="acf-placeholder-label"><?php _e('You need to add some buttons to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to "edit".', 'jellypress'); ?></div>
+</div>
+<?php endif; ?>

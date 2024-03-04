@@ -56,11 +56,11 @@ $show_progress_bar = false; // Progress Bar is an option in php rather than the 
   <div class="container">
 
     <?php if ($content || $is_preview) : ?>
-      <header class="row justify-center">
-        <div class="col md-10 lg-8">
-          <InnerBlocks className="<?php echo $text_align; ?>" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
-        </div>
-      </header>
+    <header class="row justify-center">
+      <div class="col md-10 lg-8">
+        <InnerBlocks className="<?php echo $text_align; ?>" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
+      </div>
+    </header>
     <?php endif; ?>
 
     <?php
@@ -79,12 +79,12 @@ $show_progress_bar = false; // Progress Bar is an option in php rather than the 
       );
     ?>
 
-      <div class="row justify-center">
-        <div class="col md-10 lg-8">
-          <div class="splide slider slider-testimonials" id="<?php echo $slider_id; ?>" aria-label="<?php _e('Testimonials', 'jellypress'); ?>">
-            <div class="splide__track">
-              <div class="splide__list">
-                <?php
+    <div class="row justify-center">
+      <div class="col md-10 lg-8">
+        <div class="splide slider slider-testimonials" id="<?php echo $slider_id; ?>" aria-label="<?php _e('Testimonials', 'jellypress'); ?>">
+          <div class="splide__track">
+            <div class="splide__list">
+              <?php
                 foreach ($testimonials as $testimonial) :
                   $testimonial_params = array(
                     'testimonial' => $testimonial,
@@ -94,16 +94,21 @@ $show_progress_bar = false; // Progress Bar is an option in php rather than the 
                   get_template_part('template-parts/blocks/testimonials/slide-template', null, $testimonial_params);
                 endforeach;
                 ?>
-              </div>
             </div>
-            <?php if ($show_progress_bar) : ?>
-              <div class="splide__progress">
-                <div class="splide__progress__bar">
-                </div>
-              </div>
-            <?php endif; ?>
           </div>
-        <?php endif; ?>
+          <?php if ($show_progress_bar) : ?>
+          <div class="splide__progress">
+            <div class="splide__progress__bar">
+            </div>
+          </div>
+          <?php endif; ?>
         </div>
+
+        <?php elseif($is_preview): ?>
+        <div class="acf-placeholder">
+          <div class="acf-placeholder-label"><?php _e('You need to add some testimonials to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to "edit".', 'jellypress'); ?></div>
+        </div>
+        <?php endif; ?>
       </div>
+    </div>
 </section>

@@ -15,8 +15,6 @@ html .mceContentBody {
 
 .mce-caret {
   display: inline-block;
-  *display: inline;
-  *zoom: 1;
   width: 0;
   height: 0;
   vertical-align: top;
@@ -24,4 +22,9 @@ html .mceContentBody {
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
   content: "";
+}
+
+.mce-toolbar .mce-ico {
+  font-family: dashicons !important;
+  font-size: 20px !important;
 }

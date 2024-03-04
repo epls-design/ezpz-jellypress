@@ -259,8 +259,16 @@ function moveBlockJson(done) {
 
       // If jsonContent.title contains 'Blocks > ' then we know it's a block
       let acfTitle = jsonContent.title;
+
+      let blockName;
+
       if (acfTitle.includes("Block > ")) {
-        let blockName = acfTitle.split("Block > ")[1];
+        blockName = acfTitle.split("Block > ")[1];
+      } else if (acfTitle.includes("Block &gt; ")) {
+        blockName = acfTitle.split("Block &gt; ")[1];
+      }
+
+      if (blockName) {
         // Remove 'and' from the block name
         blockName = blockName.replace("and", "");
         // Replace whitespace with hyphens and make lowercase

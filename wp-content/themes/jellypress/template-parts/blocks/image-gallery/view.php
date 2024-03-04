@@ -44,13 +44,13 @@ $block_id = 'gallery-' . str_replace('block_', '', $block_attributes['block_id']
 <section class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
 
   <?php if ($content || $is_preview) : ?>
-    <div class="container">
-      <header class="row justify-center">
-        <div class="col md-10 lg-8">
-          <InnerBlocks className="<?php echo $block_attributes['text_align']; ?>" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
-        </div>
-      </header>
-    </div>
+  <div class="container">
+    <header class="row justify-center">
+      <div class="col md-10 lg-8">
+        <InnerBlocks className="<?php echo $block_attributes['text_align']; ?>" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
+      </div>
+    </header>
+  </div>
   <?php endif; ?>
 
   <div class="gallery" id="<?php echo $block_id; ?>">
@@ -72,16 +72,20 @@ $block_id = 'gallery-' . str_replace('block_', '', $block_attributes['block_id']
               $image_full_size = wp_get_attachment_image_src($gallery_image, 'full');
             }
         ?>
-            <div class="col xs-6 sm-4 lg-3">
-              <figure class="ratio-1x1 square-image lightbox-image">
-                <?php if ($fields['allow_zoom'] == true) echo '<a href="' . $image_full_size[0] . '" data-pswp-width="' . $image_full_size[1] . '" data-pswp-height="' . $image_full_size[2] . '" target="_blank">'; ?>
-                <?php echo wp_get_attachment_image($gallery_image, 'medium', null, array("class" => "gallery-image")); ?>
-                <?php if ($fields['allow_zoom'] == true) echo '</a>'; ?>
-              </figure>
-            </div>
-          <?php } ?>
+        <div class="col xs-6 sm-4 lg-3">
+          <figure class="ratio-1x1 square-image lightbox-image">
+            <?php if ($fields['allow_zoom'] == true) echo '<a href="' . $image_full_size[0] . '" data-pswp-width="' . $image_full_size[1] . '" data-pswp-height="' . $image_full_size[2] . '" target="_blank">'; ?>
+            <?php echo wp_get_attachment_image($gallery_image, 'medium', null, array("class" => "gallery-image")); ?>
+            <?php if ($fields['allow_zoom'] == true) echo '</a>'; ?>
+          </figure>
+        </div>
+        <?php } ?>
         <?php
-        } ?>
+        } elseif($is_preview){ ?>
+        <div class="acf-placeholder">
+          <div class="acf-placeholder-label"><?php _e('You need to add some images to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to "edit".', 'jellypress'); ?></div>
+        </div>
+        <?php } ?>
       </div>
       <?php if ($block_width === 'full') echo '</div>'; ?>
     </div>

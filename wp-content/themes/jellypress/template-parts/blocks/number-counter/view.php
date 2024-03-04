@@ -43,45 +43,51 @@ else $justify = 'justify-start';
   <div class="container">
 
     <?php if ($content || $is_preview) : ?>
-      <header class="row <?php echo $justify; ?>">
-        <div class="col md-10 lg-8">
-          <InnerBlocks className="<?php echo $text_align; ?>" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
-        </div>
-      </header>
+    <header class="row <?php echo $justify; ?>">
+      <div class="col md-10 lg-8">
+        <InnerBlocks className="<?php echo $text_align; ?>" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
+      </div>
+    </header>
     <?php endif; ?>
 
     <?php
-    $stats_have_large_numbers = false;
-    $stats_have_xlarge_numbers = false;
 
-    foreach ($fields['statistics'] as $statistic) {
-      // If any statistics are above 5 characters, we need to set a smaller font-size
-      if (strlen($statistic['statistic_value']) >= 7) {
-        $stats_have_xlarge_numbers = true;
-      } elseif (strlen($statistic['statistic_value']) >= 5) {
-        $stats_have_large_numbers = true;
+    if ($fields['statistics']) {
+      $stats_have_large_numbers = false;
+      $stats_have_xlarge_numbers = false;
+
+      foreach ($fields['statistics'] as $statistic) {
+        // If any statistics are above 5 characters, we need to set a smaller font-size
+        if (strlen($statistic['statistic_value']) >= 7) {
+          $stats_have_xlarge_numbers = true;
+        } elseif (strlen($statistic['statistic_value']) >= 5) {
+          $stats_have_large_numbers = true;
+        }
       }
-    }
 
-    if ($stats_have_xlarge_numbers == true) $statistic_font_size = 'xsmall';
-    elseif ($stats_have_large_numbers == true) $statistic_font_size = 'small';
-    else $statistic_font_size = 'regular';
+      if ($stats_have_xlarge_numbers == true) $statistic_font_size = 'xsmall';
+      elseif ($stats_have_large_numbers == true) $statistic_font_size = 'small';
+      else $statistic_font_size = 'regular';
 
-    if ($fields['statistics'][0]['statistic_value']) {
-      echo '<div class="row ' . $justify . ' equal-height statistics">';
-      foreach ($fields['statistics'] as $statistic) :
-        echo '<div class="col xs-6 md-4">';
-        $card_params = array(
-          'statistic' => $statistic,
-          'font_size' => $statistic_font_size,
-          'block_bg_color' => $args['block_bg_color']
-        );
-        get_template_part('template-parts/blocks/number-counter/statistic-template', null, $card_params);
+      if ($fields['statistics'][0]['statistic_value']) {
+        echo '<div class="row ' . $justify . ' equal-height statistics">';
+        foreach ($fields['statistics'] as $statistic) :
+          echo '<div class="col xs-6 md-4">';
+          $card_params = array(
+            'statistic' => $statistic,
+            'font_size' => $statistic_font_size,
+            'block_bg_color' => $args['block_bg_color']
+          );
+          get_template_part('template-parts/blocks/number-counter/statistic-template', null, $card_params);
+          echo '</div>';
+        endforeach;
         echo '</div>';
-      endforeach;
-      echo '</div>';
-    }
-    ?>
+      }
+    } elseif ($is_preview) { ?>
+    <div class="acf-placeholder">
+      <div class="acf-placeholder-label"><?php _e('You need to add some data to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to "edit".', 'jellypress'); ?></div>
+    </div>
+    <?php } ?>
 
   </div>
 </section>

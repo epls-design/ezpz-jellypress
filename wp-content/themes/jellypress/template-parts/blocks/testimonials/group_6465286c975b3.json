@@ -1,6 +1,6 @@
 {
     "key": "group_6465286c975b3",
-    "title": "Block > Testimonials",
+    "title": "Block &gt; Testimonials",
     "fields": [
         {
             "key": "field_646648a5a96c6",
@@ -77,10 +77,11 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
-            "min": 1,
-            "max": 12,
             "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 12,
+            "collapsed": "",
             "button_label": "Add Slide",
             "rows_per_page": 20,
             "sub_fields": [
@@ -190,5 +191,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695250055
+    "modified": 1709573208
 }

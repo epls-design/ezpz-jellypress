@@ -83,6 +83,10 @@ $show_progress_bar = false; // Progress Bar is an option in php rather than the 
           </div>
         <?php endif; ?>
       </div>
+    <?php elseif ($is_preview) : ?>
+      <div class="acf-placeholder">
+        <div class="acf-placeholder-label"><?php _e('You need to add some slides to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to "edit".', 'jellypress'); ?></div>
+      </div>
     <?php endif; ?>
 
   </div>

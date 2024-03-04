@@ -60,10 +60,20 @@
 }
 
 .acf-placeholder {
-  cursor: pointer;
-  padding: get-size(0.25);
-  color: red;
-  font-weight: $weight-bold;
+  min-height: 180px;
+  background-color: #f4f4f4;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 4rem !important;
+  text-align: center;
 }
 
 // TODO: Fixx display of full width video in editor
+
+// Dont allow clicks on the editor
+a {
+  user-select: none !important;
+  pointer-events: none !important;
+}

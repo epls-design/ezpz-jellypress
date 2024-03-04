@@ -103,7 +103,11 @@ $posts_array = array(); // Create an empty array to store posts ready for the lo
 
       endforeach;
       wp_reset_postdata();
-    else :
+    elseif ($is_preview) : ?>
+      <div class="acf-placeholder">
+        <div class="acf-placeholder-label"><?php _e('You need to add some posts to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to "edit".', 'jellypress'); ?></div>
+      </div>
+    <?php elseif (current_user_can('edit_posts')) :
       echo '<div class="col md-10 lg-8"><div class="callout error" role="alert">' . __('No posts matched your criteria.', 'jellypress') . '</div></div>';
     endif;
     echo '</div>';
