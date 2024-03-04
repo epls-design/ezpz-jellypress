@@ -180,61 +180,6 @@ function jellypress_display_cta_buttons($buttons, $bg_color, $classes = null) {
 }
 
 /**
- * Renders Markers onto a map element using data from ACF
- */
-function jellypress_display_map_markers($locations) {
-  if ($locations) :
-
-    wp_enqueue_script('googlemaps');
-
-    echo '<div class="google-map">';
-    foreach ($locations as $location) :
-
-      if ($location_group = $location['location_group']) :
-        $location_marker = $location_group['location_marker'];
-        $location_icon = $location_group['location_icon'];
-      endif;
-
-      if ($tooltip_information = $location['tooltip_information']) :
-        $location_tooltip_text = $tooltip_information['location_tooltip_text'];
-        $display_address = $tooltip_information['display_address'];
-      endif;
-
-      if ($location_icon) {
-        // Add an icon if the user has specified one
-        $thumb = wp_get_attachment_image_src($location_icon, 'icon');
-        $data_icon = 'data-icon="' . $thumb[0] . '"'; // Returns an array so get the first value
-      } else {
-        $data_icon = '';
-      }
-
-      // Construct Address HTML with valid schema.
-      $address = '<div class="address" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">';
-      if ($location_marker['street_number'] || $location_marker['street_name']) $address .= '<span itemprop="streetAddress">' . $location_marker['street_number'] . ' ' . $location_marker['street_name'] . '</span><br/>';
-      if ($location_marker['city']) $address .= '<span itemprop="addressLocality">' . $location_marker['city'] . '</span><br/>';
-      if ($location_marker['state']) $address .= '<span itemprop="addressRegion">' . $location_marker['state'] . '</span><br/>';
-      if ($location_marker['post_code']) $address .= '<span itemprop="postalCode">' . $location_marker['post_code'] . '</span><br/>';
-      if ($location_marker['country']) $address .= '<span itemprop="addressCountry">' . $location_marker['country'] . '</span>';
-      $address .= '</div>';
-
-      if ($location_tooltip_text || $display_address == 1) :
-        echo '<div class="marker" data-lat="' . $location_marker['lat'] . '" data-lng="' . $location_marker['lng'] . '" ' . $data_icon . '>';
-        if ($location_tooltip_text)
-          echo $location_tooltip_text;
-        if ($display_address == 1) {
-          echo $address;
-        }
-        echo '</div>';
-      else : // Needs to have no white space or an empty tooltip will render
-        echo '<div class="marker" data-lat="' . $location_marker['lat'] . '" data-lng="' . $location_marker['lng'] . '" ' . $data_icon . '></div>';
-      endif;
-
-    endforeach;
-    echo '</div>';
-  endif; // if ($locations)
-}
-
-/**
  * Loop through ACF repeater in the options page to display
  * the organisation's social media channels in an icon list
  *
@@ -405,19 +350,42 @@ function jellypress_embed_video($video, $aspect_ratio = '16x9', $platform = null
   }
 
 ?>
-<figure>
-  <div class="video-wrapper<?php if ($autoplay) echo ' video-autoplay'; ?>">
-    <div class="video-overlay has-bg-img" style="background-image:url('<?php echo $video_info['video_thumbnail_lq']; ?>')" data-bg-img="<?php echo $video_info['video_thumbnail_hq']; ?>">
-      <button class="play platform-<?php esc_attr_e($video_info['platform']); ?>" data-src="<?php echo esc_url($video_info['oembed_url']); ?>" title="<?php _e('Play Video', 'jellypress'); ?>"><?php echo jellypress_icon('play'); ?></button>
+  <figure>
+    <div class="video-wrapper<?php if ($autoplay) echo ' video-autoplay'; ?>">
+      <div class="video-overlay has-bg-img" style="background-image:url('<?php echo $video_info['video_thumbnail_lq']; ?>')" data-bg-img="<?php echo $video_info['video_thumbnail_hq']; ?>">
+        <button class="play platform-<?php esc_attr_e($video_info['platform']); ?>" data-src="<?php echo esc_url($video_info['oembed_url']); ?>" title="<?php _e('Play Video', 'jellypress'); ?>"><?php echo jellypress_icon('play'); ?></button>
+      </div>
+      <div class="embed-container ratio-<?php echo $aspect_ratio; ?>">
+        <iframe width="640" height="390" type="text/html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="<?php echo $video_info['title']; ?>"></iframe>
+      </div>
     </div>
-    <div class="embed-container ratio-<?php echo $aspect_ratio; ?>">
-      <iframe width="640" height="390" type="text/html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="<?php echo $video_info['title']; ?>"></iframe>
-    </div>
-  </div>
-  <?php if ($caption) : ?>
-  <figcaption class="wp-element-caption"><?php echo $caption; ?></figcaption>
-  <?php endif; ?>
-</figure>
+    <?php if ($caption) : ?>
+      <figcaption class="wp-element-caption"><?php echo $caption; ?></figcaption>
+    <?php endif; ?>
+  </figure>
 <?php
 
+}
+
+/**
+ * Displays a block preview image in the block inserter, if it exists (and the block has a previewImage attribute set)
+ * Note: in the longer term it might be nicer to render live ACF fields in the block inserter, but this is a quick and dirty way to get a preview image in there for now.
+ */
+function jellypress_get_block_preview_image($block) {
+  if (isset($block['data']['previewImage'])) {
+    // Remove 'ezpz' from the block name
+    $block['name'] = str_replace('ezpz/', '', $block['name']);
+
+    // Check if the preview image exists
+    $image_path = get_template_directory() . '/template-parts/blocks/' . $block['name'] . '/preview.png';
+    if (!file_exists($image_path)) return false;
+
+    // If it does, display it
+    $image_url = get_template_directory_uri() . '/template-parts/blocks/' . $block['name'] . '/preview.png';
+    echo '<img src="' . $image_url . '" style="width:100%; height:auto;">';
+    echo '<small>(' . __('Preview only - actual style may vary', 'jellypress') . ')</small>';
+    return true;
+  } else {
+    return false;
+  }
 }

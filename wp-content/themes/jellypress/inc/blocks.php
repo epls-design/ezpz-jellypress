@@ -29,6 +29,47 @@ function jellypress_register_blocks() {
 add_action('init', 'jellypress_register_blocks', 5);
 
 /**
+ * Scans the blocks directory for all blocks and returns an array of any functions.php files found
+ *
+ * @return array $partials An array of paths to functions.php files
+ */
+function jellypress_get_block_functions() {
+  $block_folders = glob(get_template_directory() . '/template-parts/blocks/*', GLOB_ONLYDIR);
+  $partials = [];
+  foreach ($block_folders as $folder) {
+    $block_functions = $folder . '/functions.php';
+    if (file_exists($block_functions)) $partials[] = $block_functions;
+  }
+  return $partials;
+}
+
+/**
+ * Stores an array of additional functions.php files to include, that are bundled with each block.
+ * This is used to include block specific functionality, such as custom fields, enqueues etc.
+ */
+function jellypress_register_block_functions() {
+  $theme   = wp_get_theme();
+  $blocks_with_functions  = get_option('jellypress_block_functions');
+  $version = get_option('jellypress_block_functions_version');
+  if (
+    empty($blocks_with_functions) ||
+    version_compare($theme->get('Version'), $version) ||
+    (function_exists('wp_get_environment_type') && 'production' !== wp_get_environment_type())
+  ) {
+    $blocks_with_functions = jellypress_get_block_functions();
+    update_option('jellypress_block_functions', $blocks_with_functions);
+    update_option('jellypress_block_functions_version', $theme->get('Version'));
+  }
+
+  // Require the files
+  if (!empty($blocks_with_functions)) {
+    foreach ($blocks_with_functions as $path_to_function) {
+      require_once $path_to_function;
+    }
+  }
+}
+
+/**
  * Get all block names from template-parts/blocks
  */
 function jellypress_get_blocks() {
@@ -226,8 +267,18 @@ function jellypress_filter_block_core_embed($block_content,  $block) {
   } elseif ($attrs['providerNameSlug'] == 'vimeo') {
     $provider = 'vimeo';
   } else {
-    $provider = null;
+    // If provider isn't set, can we get it from the URL
+    $url = $attrs['url'];
+
+    if (strpos($url, 'youtube') !== false) {
+      $provider = 'youtube';
+    } elseif (strpos($url, 'vimeo') !== false) {
+      $provider = 'vimeo';
+    } else {
+      $provider = null;
+    }
   }
+
   if ($provider) {
     ob_start();
     $args = [

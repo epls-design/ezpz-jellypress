@@ -32,6 +32,8 @@ foreach ($jellypress_includes as $file) {
   if (file_exists($filepath)) require_once $filepath;
 }
 
+jellypress_register_block_functions();
+
 if (class_exists('woocommerce')) {
   // Only include Woo Support if Woo Installed
   $woo_support = get_template_directory() . '/inc/woocommerce.php';

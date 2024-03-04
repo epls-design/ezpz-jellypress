@@ -49,16 +49,6 @@ function jellypress_restrict_acf_tinymce_opts($toolbars) {
   return $toolbars;
 }
 
-/**
- * Adds Google Maps API Key if the user has added one to the options page
- */
-add_action('acf/init', 'jellypress_google_maps_api_key');
-function jellypress_google_maps_api_key() {
-  $get_gmaps_api = get_global_option('google_maps_api_key');
-  if ($get_gmaps_api) {
-    acf_update_setting('google_api_key', $get_gmaps_api);
-  }
-}
 
 /**
  * Sanitizes ACF fields on save to prevent XSS.
@@ -109,23 +99,6 @@ if (!function_exists('get_global_option')) :
   }
 endif;
 
-/**
- * Displays a placeholder in Gutenberg editor if ACF field is empty
- * @param string|array $field The ACF field(s) to check.
- * @param string $placeholder The placeholder text to display.
- * @param bool $is_preview True during backend preview render.
- */
-function jellypress_acf_placeholder($field, $placeholder, $is_preview) {
-  if ($is_preview) {
-
-    if (is_array($field)) {
-      $field = array_filter($field);
-    }
-
-    if (empty($field))
-      echo '<p class="acf-placeholder">' . $placeholder . '</p>';
-  }
-}
 
 /**
  * Removes ACF Inner Blocks wrapper

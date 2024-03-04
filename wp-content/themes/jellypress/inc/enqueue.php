@@ -46,46 +46,6 @@ function jellypress_scripts() {
   );
 
   wp_register_script(
-    'youtube-api',
-    '//www.youtube.com/iframe_api',
-    array('video-embed'),
-    date('YW'),
-    true
-  );
-
-  wp_register_script(
-    'vimeo-api',
-    '//player.vimeo.com/api/player.js',
-    array('video-embed'),
-    date('YW'),
-    true
-  );
-
-  wp_register_script(
-    'aria-accordion',
-    get_template_directory_uri() . '/template-parts/blocks/accordion/aria.accordion.min.js',
-    array(),
-    filemtime(get_template_directory() . '/template-parts/blocks/accordion/aria.accordion.min.js'),
-    true
-  );
-
-  wp_register_script(
-    'countdown-init',
-    get_template_directory_uri() . '/template-parts/blocks/countdown/countdown-init.js',
-    array('jquery'),
-    filemtime(get_template_directory() . '/template-parts/blocks/countdown/countdown-init.js'),
-    true
-  );
-
-  wp_register_script(
-    'number-counter',
-    get_template_directory_uri() . '/template-parts/blocks/number-counter/counter.js',
-    array('jquery'),
-    filemtime(get_template_directory() . '/template-parts/blocks/number-counter/counter.js'),
-    true
-  );
-
-  wp_register_script(
     'splide-slider',
     get_template_directory_uri() . '/lib/splide.min.js',
     array(),
@@ -100,33 +60,6 @@ function jellypress_scripts() {
     filemtime(get_template_directory() . '/lib/photoswipe-init.js'),
     true
   );
-
-  wp_register_script(
-    'googlemaps-init',
-    get_template_directory_uri() . '/template-parts/blocks/map/embed-google-maps.js',
-    array('jquery', 'googlemaps'),
-    filemtime(get_template_directory() . '/template-parts/blocks/map/embed-google-maps.js'),
-    true
-  );
-
-  wp_register_script(
-    'video-embed',
-    get_template_directory_uri() . '/lib/video-player.js',
-    array('jquery'),
-    filemtime(get_template_directory() . '/lib/video-player.js'),
-    true
-  );
-
-  $get_gmaps_api = get_global_option('google_maps_api_key');
-  if ($get_gmaps_api) {
-    wp_register_script(
-      'googlemaps',
-      'https://maps.googleapis.com/maps/api/js?key=' . $get_gmaps_api . '"',
-      null,
-      null,
-      null
-    );
-  }
 
   /**
    * Enqueue Required scripts
