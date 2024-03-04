@@ -232,8 +232,10 @@ function jellypress_numeric_pagination($show_total = false, $range = 4, $query =
   if ($query == 'default') $search = $wp_query;
   else $search = $query; // This is so that we can use the numeric pagination on search and filter, because it uses $query and not $wp_query
 
+
   // How many pages do we have?
-  if (!$max_page) $max_page = $search->max_num_pages;
+  $max_page = $search->max_num_pages;
+
 
   // We need the pagination only if there is more than 1 page
   if ($max_page > 1) {

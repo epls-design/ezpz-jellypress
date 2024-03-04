@@ -218,6 +218,9 @@ function jellypress_filter_block_core_footnotes($block_content,  $block) {
 add_filter('render_block_core/embed', 'jellypress_filter_block_core_embed', 20, 2);
 function jellypress_filter_block_core_embed($block_content,  $block) {
   $attrs = $block['attrs'];
+
+  if (empty($attrs)) return $block_content;
+
   if ($attrs['providerNameSlug'] == 'youtube') {
     $provider = 'youtube';
   } elseif ($attrs['providerNameSlug'] == 'vimeo') {

@@ -15,7 +15,7 @@
 defined('ABSPATH') || exit;
 
 $video_url = $args['block']['attrs']['url'];
-$aspect_ratio = $args['block']['attrs']['aspectRatio'];
+$aspect_ratio = isset($args['block']['attrs']['aspectRatio']) ? $args['block']['attrs']['aspectRatio'] : '16:9';
 $provider = $args['provider'];
 
 // See if there is a figcaption passed in the block content

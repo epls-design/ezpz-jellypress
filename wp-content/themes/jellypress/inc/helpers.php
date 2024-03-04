@@ -313,7 +313,7 @@ function jellypress_get_video_information($video, $platform = null) {
 
     if ($platform === 'vimeo') {
 
-      if (!$video_thumbnail_lq) {
+      if (!isset($video_thumbnail_lq)) {
 
         if (preg_match('%^https?:\/\/(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)(?:[?]?.*)$%im', $oembed_url, $match)) {
           // Strip out the video ID
@@ -338,7 +338,7 @@ function jellypress_get_video_information($video, $platform = null) {
       $oembed_url = add_query_arg($params, $oembed_url);
     } elseif ($platform === 'youtube') {
 
-      if (!$video_thumbnail_lq) {
+      if (!isset($video_thumbnail_lq)) {
 
         if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/\s]{11})%i', $oembed_url, $match)) {
           // Strip out the video ID
