@@ -103,25 +103,25 @@ function jellypress_scripts_add_atts($tag, $handle, $src) {
 
 /**
  * Hook Favicons into wp_head() using a range of sizes and specifications
- * TODO: Visit https://realfavicongenerator.net/ to generate the pack, replace the below with the latest standards as these often change
+ * TODO: Visit https://realfavicongenerator.net/ to generate the pack, replace the below files and note the colours also
  */
 add_action('wp_head', 'jellypress_favicon_script');
 function jellypress_favicon_script() {
-  echo '
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="/favicon/favicon.ico">
-    <meta name="msapplication-config" content="browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    ';
+  if (file_exists(ABSPATH . '/favicon.ico'))                   echo '<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">';
+  if (file_exists(ABSPATH . '/favicon/favicon-194x194.png'))   echo '<link rel="icon" type="image/png" href="/favicon/favicon-194x194.png" sizes="194x194">';
+  if (file_exists(ABSPATH . '/favicon/favicon-96x96.png'))     echo '<link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">';
+  if (file_exists(ABSPATH . '/favicon/favicon-32x32.png'))     echo '<link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32">';
+  if (file_exists(ABSPATH . '/favicon/favicon-16x16.png'))     echo '<link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16">';
+  if (file_exists(ABSPATH . '/favicon/apple-touch-icon.png'))  echo '<link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">';
+  if (file_exists(ABSPATH . '/favicon/safari-pinned-tab.svg')) echo '<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">'; // Note: change the color to match your branding
+  if (file_exists(ABSPATH . '/site.webmanifest'))              echo '<link rel="manifest" href="/site.webmanifest">';
+  if (file_exists(ABSPATH . '/browserconfig.xml'))             echo '<meta name="msapplication-config" content="/browserconfig.xml">';
+  echo '<meta name="theme-color" content="#ffffff">';
 }
 
 // Add favicon to admin areas
 add_action('login_head', 'jellypress_add_favicon_to_admin');
 add_action('admin_head', 'jellypress_add_favicon_to_admin');
 function jellypress_add_favicon_to_admin() {
-  echo '<link rel="shortcut icon" href="/favicon.ico">';
+  if (file_exists(ABSPATH . '/favicon.ico')) echo '<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">';
 }

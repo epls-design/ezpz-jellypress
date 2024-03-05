@@ -73,7 +73,7 @@
 // TODO: Fixx display of full width video in editor
 
 // Dont allow clicks on the editor
-a {
+.block-editor-inner-blocks:not(:has(.acf-block-fields)) a {
   user-select: none !important;
   pointer-events: none !important;
 }

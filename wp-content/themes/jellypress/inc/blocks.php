@@ -302,3 +302,26 @@ function jellypress_filter_block_core_image($block_content,  $block) {
   get_template_part('template-parts/blocks/core/image', null, $args);
   return ob_get_clean();
 }
+
+/**
+ * Displays a block preview image in the block inserter, if it exists (and the block has a previewImage attribute set)
+ * Note: in the longer term it might be nicer to render live ACF fields in the block inserter, but this is a quick and dirty way to get a preview image in there for now.
+ */
+function jellypress_get_block_preview_image($block) {
+  if (isset($block['data']['previewImage'])) {
+    // Remove 'ezpz' from the block name
+    $block['name'] = str_replace('ezpz/', '', $block['name']);
+
+    // Check if the preview image exists
+    $image_path = get_template_directory() . '/template-parts/blocks/' . $block['name'] . '/preview.png';
+    if (!file_exists($image_path)) return false;
+
+    // If it does, display it
+    $image_url = get_template_directory_uri() . '/template-parts/blocks/' . $block['name'] . '/preview.png';
+    echo '<img src="' . $image_url . '" style="width:100%; height:auto;">';
+    echo '<small>(' . __('Preview only - actual style may vary', 'jellypress') . ')</small>';
+    return true;
+  } else {
+    return false;
+  }
+}
