@@ -24,12 +24,16 @@ if (!class_exists('ezpzCleanUp')) {
       add_action('init', array($this, 'limit_post_revisions'));
       add_action('init', array($this, 'disable_trackbacks_and_smilies'));
       add_action('after_setup_theme', array($this, 'after_theme_setup'));
-      add_action('send_headers', array($this, 'block_iframes'), 10);
+      add_action('send_headers', array($this, 'security_headers'), 10);
     }
 
-    // Prevents site from being loaded in an iframe
-    function block_iframes() {
-      header('X-FRAME-OPTIONS: SAMEORIGIN');
+    // TODO: EVENTUALLY THESE WOULD BE BEST ADDING TO .HTACCESS - and also https://content-security-policy.com
+
+    function security_headers() {
+      header('Strict-Transport-Security: max-age=31536000; preload'); // Enables the HTTP Strict Transport Security (HSTS) header
+      header('X-FRAME-OPTIONS: SAMEORIGIN'); // Prevents site from being loaded in an iframe
+      header('X-XSS-Protection: 1; mode=block'); // Enables the Cross-site scripting (XSS) filter built into most recent web browsers
+      header('X-Content-Type-Options: nosniff'); // Prevents the browser from trying to guess the MIME type of a file
     }
 
     // Disallow file edit
