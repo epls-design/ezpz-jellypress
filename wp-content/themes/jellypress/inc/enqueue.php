@@ -46,10 +46,18 @@ function jellypress_scripts() {
   );
 
   wp_register_script(
-    'splide-slider',
-    get_template_directory_uri() . '/lib/splide.min.js',
+    'swiper',
+    get_template_directory_uri() . '/lib/swiper-bundle.min.js',
     array(),
     $js_version,
+    true
+  );
+
+  wp_register_script(
+    'swiper-init',
+    get_template_directory_uri() . '/lib/swiper-init.js',
+    array('swiper'),
+    filemtime(get_template_directory() . '/lib/swiper-init.js'),
     true
   );
 

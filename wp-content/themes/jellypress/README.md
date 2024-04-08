@@ -41,8 +41,8 @@ REQUIRES php 7.4+
   - Map using Google Maps API
   - Number Counter
   - Post Archive
-  - Slider using Splide.js
-  - Testimonials using Splide.js
+  - Slider using [SwiperJS](https://swiperjs.com)
+  - Testimonials using [SwiperJS](https://swiperjs.com)
   - Text
   - Text Columns
   - Video

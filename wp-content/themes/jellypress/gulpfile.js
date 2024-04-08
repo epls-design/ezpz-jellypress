@@ -80,17 +80,11 @@ function browsersyncReload(done) {
 }
 
 // Copy libraries from Node Modules so that they can be compiled into the project's codebase
+// CSS Should be imported within the SCSS files themselves (see Swiper.scss for an example)
 function copyLibs() {
-  var splideJS = src(
-    "node_modules/@splidejs/splide/dist/js/splide.min.js"
-  ).pipe(dest("./lib/"));
-
-  //
-  var splideCSS = src(
-    "node_modules/@splidejs/splide/dist/css/splide-core.min.css"
-  )
-    .pipe(rename("_splide-core.scss"))
-    .pipe(dest(opts.src_dir + "/scss/vendors/"));
+  var swiperJS = src("node_modules/swiper/swiper-bundle.min.js").pipe(
+    dest("./lib/")
+  );
 
   var accordionJS = src(
     "node_modules/a11y_accordions/assets/js/aria.accordion.min.js"
@@ -104,18 +98,7 @@ function copyLibs() {
     "node_modules/photoswipe/dist/photoswipe-lightbox.esm.min.js"
   ).pipe(dest("./lib/"));
 
-  var photoswipeCSS = src("node_modules/photoswipe/dist/photoswipe.css")
-    .pipe(rename("_photoswipe.scss"))
-    .pipe(dest(opts.src_dir + "/scss/vendors/"));
-
-  return merge(
-    splideJS,
-    splideCSS,
-    accordionJS,
-    photoswipeJS,
-    photoswipeLightboxJS,
-    photoswipeCSS
-  );
+  return merge(swiperJS, accordionJS, photoswipeJS, photoswipeLightboxJS);
 }
 
 // Tasks which watch for changes in specified files/dirs and run tasks based on filetypes edited
