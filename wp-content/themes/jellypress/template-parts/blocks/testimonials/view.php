@@ -62,9 +62,9 @@ $text_align = $block_attributes['text_align'];
       $swiper_opts = array(
         'slidesPerView' => 1,
         'slidesSM' => 1,
-        'slidesMD' => 3,
-        'slidesLG' => 3,
-        'slidesXL' => 3,
+        'slidesMD' => 1,
+        'slidesLG' => 1,
+        'slidesXL' => 1,
         'delay' =>  $fields['slider_duration'] * 1000,
         'effect' => 'fade',
       );

@@ -120,10 +120,15 @@ function watchTask(done) {
   watch(
     // ignore the editor-block-filters.js file as we transpile this separately
     [
-      opts.src_dir + "/js/**/*.js",
+      opts.src_dir + "/js/*.js",
       "!" + opts.src_dir + "/js/editor-block-filters.js",
     ],
     series(javascriptLint, javascriptProcess)
+  );
+
+  watch(
+    [opts.src_dir + "/js/lib/*.js"],
+    series(javascriptLibraryLint, javascriptLibraryProcess)
   );
 
   watch(opts.src_dir + "/js/editor-block-filters.js", compileGutenberg);
@@ -199,12 +204,30 @@ function imagesMinify() {
 // eslint all first party JS
 function javascriptLint(done) {
   return src([
-    opts.src_dir + "/js/**/*.js",
+    opts.src_dir + "/js/*.js",
     "!" + opts.src_dir + "/js/editor-block-filters.js",
   ])
     .pipe(eslint())
     .pipe(eslint.format());
 
+  done();
+}
+
+// eslint all first party JS
+function javascriptLibraryLint(done) {
+  return src([opts.src_dir + "/js/lib/*.js"])
+    .pipe(
+      eslint({
+        parserOptions: {
+          ecmaVersion: 6,
+          sourceType: "module",
+        },
+        rules: {
+          semi: "error",
+        },
+      })
+    )
+    .pipe(eslint.format());
   done();
 }
 
@@ -288,6 +311,14 @@ function javascriptProcess() {
       .pipe(dest(opts.dist_dir))
       .pipe(browsersync.reload({ stream: true }))
   );
+}
+
+// Process any library JS files
+function javascriptLibraryProcess() {
+  return src([opts.src_dir + "/js/lib/*.js"])
+    .pipe(uglify({ mangle: true }))
+    .pipe(dest("./lib/"))
+    .pipe(browsersync.reload({ stream: true }));
 }
 
 // Make translation file in /languages
@@ -390,7 +421,8 @@ const buildScripts = series(
     series(iconsClean, iconsMinify, iconsSpritesheet),
     series(imagesClean, imagesMinify),
     sassTasks,
-    series(javascriptLint, javascriptProcess)
+    series(javascriptLint, javascriptProcess),
+    series(javascriptLibraryLint, javascriptLibraryProcess)
   ),
   makePot
 );

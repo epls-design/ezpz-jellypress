@@ -10,27 +10,14 @@
 defined('ABSPATH') || exit;
 
 $slide = $args['slide'];
-$slide_class = $args['slide_class'];
-$block_bg_color = isset($args['block_bg_color']) ? $args['block_bg_color'] : null;
-
-// Determine what button color to use
-switch ($block_bg_color) {
-    //case 'white':
-    //  $button_color = ' primary';
-    //  break;
-  default:
-    $button_color = '';
-}
-
-$slide_link = $slide['slide_link'];
 
 ?>
 
-<div class="<?php echo $slide_class; ?>">
+<div class="swiper-slide">
   <div class="row <?php echo $args['row_align']; ?> justify-between">
     <div class="col sm-6 md-4 lg-6 slide-media">
       <?php
-      if ($slide_link) echo '<a href="' . $slide_link['url'] . '" title="' . $slide_link['title'] . '" target="' . $slide_link['target'] . '">';
+      if ($slide_link = $slide['slide_link']) echo '<a href="' . $slide_link['url'] . '" title="' . $slide_link['title'] . '" target="' . $slide_link['target'] . '">';
       echo wp_get_attachment_image($slide['slide_image'], 'medium', '',  array("class" => "slide-image"));
       if ($slide_link) echo '</a>';
       ?>
