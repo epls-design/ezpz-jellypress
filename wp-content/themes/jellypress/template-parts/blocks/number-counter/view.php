@@ -25,8 +25,6 @@ defined('ABSPATH') || exit;
 // Displays the block preview in the Gutenberg editor. Requires example to be set in block.json and a preview.png image file.
 if (jellypress_get_block_preview_image($block) == true) return;
 
-wp_enqueue_script('number-counter');
-
 $block_attributes = jellypress_get_block_attributes($block, $context);
 $allowed_blocks = jellypress_get_allowed_blocks();
 $block_template = jellypress_get_block_template();

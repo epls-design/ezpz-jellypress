@@ -33,7 +33,7 @@
       height: $size - $padding * 2;
       top: $padding;
       right: $padding;
-      mask: url(dist/icons/zoom-in.svg) no-repeat 50% 50%;
+      mask: url($assets_folder + "icons/zoom-in.svg") no-repeat 50% 50%;
       mask-size: cover;
       background: v(color-white);
     }

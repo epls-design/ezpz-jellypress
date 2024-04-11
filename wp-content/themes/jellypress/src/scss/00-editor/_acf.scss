@@ -112,20 +112,6 @@ a.acf-button.button-primary,
   }
 }
 
-// Accordions also don't render in preview mode, so display a message
-.acf-block-preview [data-aria-accordion]::before {
-  content: "Your accordion will display with collapsible functionality on the front end. Please preview the page to see it.";
-  display: block;
-  position: relative;
-  padding: 1rem;
-  background-color: #f4f4f4;
-  color: #999;
-  margin-bottom: $element-margin;
-}
-.acf-block-preview .accordion .answer {
-  display: none;
-}
-
 // --------------------------------------------------------------------------
 //  ENHANCE THE ACF UI
 // --------------------------------------------------------------------------

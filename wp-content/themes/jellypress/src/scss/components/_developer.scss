@@ -4,7 +4,7 @@
   text-decoration: none;
   white-space: nowrap;
   a {
-    background-image: url("dist/img/epls/epls-design.svg");
+    background-image: url($assets_folder + "img/epls/epls-design.svg");
     background-position: center center;
     background-repeat: no-repeat;
     display: inline-block;
@@ -13,7 +13,7 @@
     text-indent: -9999px;
     width: 100px;
     &:hover {
-      background-image: url("dist/img/epls/epls-design-hover.svg");
+      background-image: url($assets_folder + "img/epls/epls-design-hover.svg");
     }
   }
 }

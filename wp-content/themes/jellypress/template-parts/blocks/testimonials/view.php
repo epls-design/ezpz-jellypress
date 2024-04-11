@@ -51,7 +51,6 @@ $text_align = $block_attributes['text_align'];
     <?php
 
     if ($testimonials = $fields['testimonials']) :
-      wp_enqueue_script('swiper-init');
 
       /**
        * Set up the Swiper options - these will be passed to the swiper-init.js script.

@@ -53,6 +53,8 @@
     }
   },
   "styles": [],
+  "viewScript": ["number-counter"],
+  "editorScript": ["number-counter"],
   "acf": {
     "mode": "preview",
     "renderTemplate": "view.php",

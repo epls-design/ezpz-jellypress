@@ -187,18 +187,12 @@ function ezpzInitializeSwiper() {
 
 // If we are in the editor, run on render_block_preview
 if (window.acf) {
-  window.acf.addAction(
-    "render_block_preview",
-    window.acf.addAction(
-      "render_block_preview",
-      function ($elem, blockDetails) {
-        // Check if $elem[0].innerHTML contains "swiper-container" and if it does reinitialize Swiper
-        if ($elem[0].innerHTML.includes("swiper-container")) {
-          ezpzInitializeSwiper();
-        }
-      }
-    )
-  );
+  window.acf.addAction("render_block_preview", function ($elem, blockDetails) {
+    // Check if $elem[0].innerHTML contains "swiper-container" and if it does reinitialize Swiper
+    if ($elem[0].innerHTML.includes("swiper-container")) {
+      ezpzInitializeSwiper();
+    }
+  });
 } else {
   // Otherwise run on DOMContentLoaded for the front end
   document.addEventListener("DOMContentLoaded", function () {

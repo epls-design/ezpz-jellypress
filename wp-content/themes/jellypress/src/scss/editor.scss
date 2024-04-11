@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+$assets_folder: "";
+
 @import "jellyfish-ui/src/scss/abstracts/01-tools/__all";
 @import "abstracts/**/*.scss";
 @import "jellyfish-ui/src/scss/abstracts/02-settings/__all";
