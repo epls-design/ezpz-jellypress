@@ -36,7 +36,6 @@ $fields = get_fields();
 
     <?php
     if ($slides = $fields['slides']) :
-      wp_enqueue_script('swiper-init');
 
       $row_class = isset($block_attributes['align_content']) ? 'align-' . $block_attributes['align_content'] : 'align-top';
       $row_class = str_replace('center', 'middle', $row_class);

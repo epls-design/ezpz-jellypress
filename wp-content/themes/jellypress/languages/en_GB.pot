@@ -7,7 +7,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: EPLS Design <theteam@epls.design>\n"
 "Last-Translator: EPLS Design <theteam@epls.design>\n"
-"POT-Creation-Date: 2024-04-11 13:35+0000\n"
+"POT-Creation-Date: 2024-04-11 14:02+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -246,7 +246,7 @@ msgstr ""
 msgid "You need to <a href=\"%s\" class=\"callout-link\">add a Google Maps API key</a> in order to display a map on your website."
 msgstr ""
 
-#: template-parts/blocks/slider/view.php:85
+#: template-parts/blocks/slider/view.php:84
 msgid "You need to add some slides to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to \"edit\"."
 msgstr ""
 

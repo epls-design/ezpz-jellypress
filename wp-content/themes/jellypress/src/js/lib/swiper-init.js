@@ -9,8 +9,7 @@
  * @see https://swiperjs.com/swiper-api
  */
 
-// Wait until doc is ready
-document.addEventListener("DOMContentLoaded", function () {
+function ezpzInitializeSwiper() {
   // Get all elems with .swiper
   const swipers = document.querySelectorAll(".swiper");
   if (swipers.length > 0) {
@@ -174,4 +173,25 @@ document.addEventListener("DOMContentLoaded", function () {
       const swiperInstance = new Swiper(swiper, swiperOpts);
     });
   }
-});
+}
+
+// If we are in the editor, run on render_block_preview
+if (window.acf) {
+  window.acf.addAction(
+    "render_block_preview",
+    window.acf.addAction(
+      "render_block_preview",
+      function ($elem, blockDetails) {
+        // Check if $elem[0].innerHTML contains "swiper-container" and if it does reinitialize Swiper
+        if ($elem[0].innerHTML.includes("swiper-container")) {
+          ezpzInitializeSwiper();
+        }
+      }
+    )
+  );
+} else {
+  // Otherwise run on DOMContentLoaded for the front end
+  document.addEventListener("DOMContentLoaded", function () {
+    ezpzInitializeSwiper();
+  });
+}

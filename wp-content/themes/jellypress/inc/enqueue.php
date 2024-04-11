@@ -13,6 +13,14 @@ defined('ABSPATH') || exit;
  * Enqueue scripts and styles.
  */
 add_action('wp_enqueue_scripts', 'jellypress_scripts');
+add_action('wp_enqueue_scripts', 'jellypress_block_scripts');
+add_action('admin_enqueue_scripts', 'jellypress_block_scripts');
+
+/**
+ * Hooks scripts and styles into the front end only (not the admin)
+ *
+ * @return void
+ */
 function jellypress_scripts() {
   $theme_version = wp_get_theme()->get('Version'); // Get current version of theme
   $css_version = $theme_version . ':' . filemtime(get_template_directory() . '/style.css'); // Appends time stamp to help with cache busting
@@ -45,6 +53,28 @@ function jellypress_scripts() {
     true
   );
 
+
+  /**
+   * Enqueue Required scripts
+   */
+  wp_enqueue_script('jellypress-scripts');
+  if (is_singular() && comments_open() && get_option('thread_comments')) {
+    wp_enqueue_script('comment-reply');
+  }
+
+  /**
+   * Move jQuery to footer to reduce render-blocking
+   */
+  wp_scripts()->add_data('jquery', 'group', 1);
+  wp_scripts()->add_data('jquery-core', 'group', 1);
+  wp_scripts()->add_data('jquery-migrate', 'group', 1);
+}
+
+/**
+ * Hooks assets that can run on the front end or the block editor
+ */
+function jellypress_block_scripts() {
+
   wp_register_script(
     'swiper',
     get_template_directory_uri() . '/lib/swiper-bundle.min.js',
@@ -68,21 +98,6 @@ function jellypress_scripts() {
     filemtime(get_template_directory() . '/lib/photoswipe-init.js'),
     true
   );
-
-  /**
-   * Enqueue Required scripts
-   */
-  wp_enqueue_script('jellypress-scripts');
-  if (is_singular() && comments_open() && get_option('thread_comments')) {
-    wp_enqueue_script('comment-reply');
-  }
-
-  /**
-   * Move jQuery to footer to reduce render-blocking
-   */
-  wp_scripts()->add_data('jquery', 'group', 1);
-  wp_scripts()->add_data('jquery-core', 'group', 1);
-  wp_scripts()->add_data('jquery-migrate', 'group', 1);
 }
 
 /**
