@@ -22,6 +22,8 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
+// TODO: Run in Editor.
+
 // Displays the block preview in the Gutenberg editor. Requires example to be set in block.json and a preview.png image file.
 if (jellypress_get_block_preview_image($block) == true) return;
 
@@ -45,8 +47,8 @@ if ($accordion_items = $fields['accordion_items']) {
   };
 
 ?>
-  <div data-aria-accordion data-transition data-default <?php echo $allow_multiple; ?>>
-    <?php foreach ($accordion_items as $item) :
+<div data-aria-accordion data-transition data-default <?php echo $allow_multiple; ?>>
+  <?php foreach ($accordion_items as $item) :
 
       if ($generate_schema) {
         // Push data to schema array
@@ -64,5 +66,5 @@ if ($accordion_items = $fields['accordion_items']) {
       echo '<h4 class="question" data-aria-accordion-heading>' . $item['question'] . '</h4>';
       echo '<div class="answer" data-aria-accordion-panel>' . $item['answer'] . '</div>';
     endforeach; ?>
-  </div>
+</div>
 <?php } ?>

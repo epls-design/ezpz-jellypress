@@ -53,8 +53,6 @@ $text_align = $block_attributes['text_align'];
     if ($testimonials = $fields['testimonials']) :
       wp_enqueue_script('swiper-init');
 
-      // TODO: HOW TO GET IT SHOWING IN THE EDITOR, would be nice if the block could show the slides in the editor.
-
       /**
        * Set up the Swiper options - these will be passed to the swiper-init.js script.
        * @see https://swiperjs.com/swiper-api for all available options

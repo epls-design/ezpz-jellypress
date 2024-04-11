@@ -40,8 +40,6 @@ $fields = get_fields();
       $row_class = isset($block_attributes['align_content']) ? 'align-' . $block_attributes['align_content'] : 'align-top';
       $row_class = str_replace('center', 'middle', $row_class);
 
-      // TODO: HOW TO GET IT SHOWING IN THE EDITOR, would be nice if the block could show the slides in the editor.
-
       /**
        * Set up the Swiper options - these will be passed to the swiper-init.js script.
        * @see https://swiperjs.com/swiper-api for all available options
