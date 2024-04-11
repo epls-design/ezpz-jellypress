@@ -2,3 +2,74 @@
 @import "swiper/swiper-bundle";
 
 // OVERRIDES
+
+:root {
+  /****** GLOBAL PROPERTIES ******/
+  --swiper-theme-color: #{get-color(primary)};
+  --swiper-theme-color-hover: #{get-color(primary, 600)};
+  /****** PAGINATION PROPERTIES ******/
+  // --swiper-pagination-color: var(--swiper-theme-color);
+  // --swiper-pagination-left: auto;
+  // --swiper-pagination-right: 8px;
+  --swiper-pagination-bottom: calc(var(--swiper-pagination-bullet-size) * -2);
+  // --swiper-pagination-top: auto;
+  // --swiper-pagination-fraction-color: inherit;
+  // --swiper-pagination-progressbar-bg-color: rgba(0,0,0,0.25);
+  // --swiper-pagination-progressbar-size: 4px;
+  // --swiper-pagination-bullet-width: 8px;
+  // --swiper-pagination-bullet-height: 8px;
+  // --swiper-pagination-bullet-border-radius: 50%;
+  // --swiper-pagination-bullet-vertical-gap: 6px;
+  --swiper-pagination-bullet-inactive-color: #{get-color(neutral, 200)};
+  --swiper-pagination-bullet-inactive-opacity: 1;
+  --swiper-pagination-bullet-opacity: 1;
+  --swiper-pagination-bullet-horizontal-gap: 2px;
+  --swiper-pagination-bullet-size: 12px;
+
+  /****** NAVIGATION PROPERTIES ******/
+  // --swiper-navigation-size: 44px;
+  // --swiper-navigation-top-offset: 50%;
+  // --swiper-navigation-color: var(--swiper-theme-color);
+
+  @include above(md) {
+    // Offsets the arrows outside of the container
+    --swiper-navigation-sides-offset: calc(var(--swiper-navigation-size) * -1);
+  }
+
+  /****** SCROLLBAR PROPERTIES ******/
+  // --swiper-scrollbar-border-radius: 10px;
+  // --swiper-scrollbar-top: auto;
+  // --swiper-scrollbar-bottom: 4px;
+  // --swiper-scrollbar-left: auto;
+  // --swiper-scrollbar-right: 4px;
+  // --swiper-scrollbar-sides-offset: 1%;
+  --swiper-scrollbar-bg-color: #{get-color(neutral, 50)};
+  --swiper-scrollbar-drag-bg-color: var(--swiper-theme-color);
+  // --swiper-scrollbar-size: 4px;
+}
+
+// Add in hover states for navigation and pagination
+.swiper-button-next,
+.swiper-button-prev {
+  &:not(.swiper-button-disabled) {
+    &:hover,
+    &:focus {
+      color: var(--swiper-theme-color-hover);
+    }
+  }
+}
+
+.swiper-pagination-bullet {
+  &:hover,
+  &:focus {
+    background: var(--swiper-theme-color-hover);
+  }
+}
+
+// Due to the .swiper-wrapper and .swiper having overflow:hidden, we need to use .swiper-container to include the navigation elements
+.swiper-container {
+  position: relative;
+  display: block;
+  // Ensures we have a space for the pagination
+  margin-bottom: calc(var(--swiper-pagination-bullet-size) * 2);
+}

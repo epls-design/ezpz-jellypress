@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
           delay: 3000,
           pauseOnMouseEnter: true,
         },
+        // TODO:  direction: "vertical" breaks the layout
         speed: 400,
         slidesPerView: 1,
         spaceBetween: 16,
@@ -97,12 +98,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
 
+      // If container is not found set the container to be the swiper element
+      let closestContainer = swiper.closest(".swiper-container") || swiper;
+
       /**
        * If the swiper has a .swiper-pagination elem, add pagination options
        * @see https://swiperjs.com/swiper-api#pagination
        */
 
-      const swiperPagination = swiper.querySelector(".swiper-pagination");
+      const swiperPagination =
+        closestContainer.querySelector(".swiper-pagination");
       if (swiperPagination) {
         swiperOpts.pagination = {
           el: swiperPagination,
@@ -120,8 +125,12 @@ document.addEventListener("DOMContentLoaded", function () {
        * If the swiper has .swiper-button-prev and .swiper-button-next elems, add navigation options
        * @see https://swiperjs.com/swiper-api#navigation
        */
-      const swiperButtonPrev = swiper.querySelector(".swiper-button-prev");
-      const swiperButtonNext = swiper.querySelector(".swiper-button-next");
+      const swiperButtonPrev = closestContainer.querySelector(
+        ".swiper-button-prev"
+      );
+      const swiperButtonNext = closestContainer.querySelector(
+        ".swiper-button-next"
+      );
       if (swiperButtonPrev && swiperButtonNext) {
         swiperOpts.navigation = {
           nextEl: swiperButtonNext,
@@ -133,7 +142,8 @@ document.addEventListener("DOMContentLoaded", function () {
        * If the swiper has .swiper-scrollbar elem, add scrollbar options
        * @see https://swiperjs.com/swiper-api#scrollbar
        */
-      const swiperScrollbar = swiper.querySelector(".swiper-scrollbar");
+      const swiperScrollbar =
+        closestContainer.querySelector(".swiper-scrollbar");
       if (swiperScrollbar) {
         swiperOpts.scrollbar = {
           el: swiperScrollbar,

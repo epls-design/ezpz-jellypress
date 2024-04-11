@@ -18,7 +18,7 @@ $slide = $args['slide'];
     <div class="col sm-6 md-4 lg-6 slide-media">
       <?php
       if ($slide_link = $slide['slide_link']) echo '<a href="' . $slide_link['url'] . '" title="' . $slide_link['title'] . '" target="' . $slide_link['target'] . '">';
-      echo wp_get_attachment_image($slide['slide_image'], 'medium', '',  array("class" => "slide-image"));
+      echo wp_get_attachment_image($slide['slide_image'], 'medium', '',  array("class" => "slide-image mb-0"));
       if ($slide_link) echo '</a>';
       ?>
     </div>

@@ -69,12 +69,14 @@ $text_align = $block_attributes['text_align'];
         'effect' => 'fade',
       );
     ?>
+    <div class="swiper-container">
 
-    <div class="swiper" data-swiper-options="<?php echo htmlspecialchars(json_encode($swiper_opts), ENT_QUOTES, 'UTF-8'); ?>">
-      <div class="swiper-wrapper">
-        <?php foreach ($testimonials as $testimonial) {
-            get_template_part('template-parts/blocks/testimonials/slide-template', null, array('testimonial' => $testimonial));
-          } ?>
+      <div class="swiper" data-swiper-options="<?php echo htmlspecialchars(json_encode($swiper_opts), ENT_QUOTES, 'UTF-8'); ?>">
+        <div class="swiper-wrapper">
+          <?php foreach ($testimonials as $testimonial) {
+              get_template_part('template-parts/blocks/testimonials/slide-template', null, array('testimonial' => $testimonial));
+            } ?>
+        </div>
       </div>
       <?php
         if ($fields['display_arrows']) {

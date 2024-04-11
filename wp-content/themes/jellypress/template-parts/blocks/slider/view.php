@@ -57,18 +57,18 @@ $fields = get_fields();
         'effect' => 'fade',
       );
     ?>
-
-    <div class="swiper" data-swiper-options="<?php echo htmlspecialchars(json_encode($swiper_opts), ENT_QUOTES, 'UTF-8'); ?>">
-      <div class="swiper-wrapper">
-        <?php foreach ($slides as $slide) {
-            $slide_args = [
-              'text_align' => $block_attributes['text_align'],
-              'row_align' => $row_class,
-              'slide' => $slide
-            ];
-
-            get_template_part('template-parts/blocks/slider/slide-template', null, $slide_args);
-          } ?>
+    <div class="swiper-container">
+      <div class="swiper" data-swiper-options="<?php echo htmlspecialchars(json_encode($swiper_opts), ENT_QUOTES, 'UTF-8'); ?>">
+        <div class="swiper-wrapper">
+          <?php foreach ($slides as $slide) {
+              $slide_args = [
+                'text_align' => $block_attributes['text_align'],
+                'row_align' => $row_class,
+                'slide' => $slide
+              ];
+              get_template_part('template-parts/blocks/slider/slide-template', null, $slide_args);
+            } ?>
+        </div>
       </div>
       <?php
         if ($fields['display_arrows']) {
