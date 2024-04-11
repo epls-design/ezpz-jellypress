@@ -21,7 +21,6 @@ function ezpzInitializeSwiper() {
           delay: 3000,
           pauseOnMouseEnter: true,
         },
-        // TODO:  direction: "vertical" breaks the layout
         speed: 400,
         slidesPerView: 1,
         spaceBetween: 16,
@@ -167,6 +166,17 @@ function ezpzInitializeSwiper() {
         swiperOpts.flipEffect = {
           slideShadows: false,
         };
+      }
+
+      // If vertical, force to one slide per view. Note: all slides need to be the same height - enforced by CSS
+      if (swiperOpts.direction === "vertical") {
+        swiperOpts.slidesPerView = 1;
+        swiperOpts.spaceBetween = 0;
+        swiperOpts.autoHeight = true;
+        swiperOpts.breakpoints[600].slidesPerView = 1;
+        swiperOpts.breakpoints[900].slidesPerView = 1;
+        swiperOpts.breakpoints[1200].slidesPerView = 1;
+        swiperOpts.breakpoints[1800].slidesPerView = 1;
       }
 
       // instantiate swiper

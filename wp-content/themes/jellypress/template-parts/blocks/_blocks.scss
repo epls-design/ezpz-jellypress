@@ -63,7 +63,8 @@ header.block {
   }
 }
 
-.block.bg-white + .block.bg-white {
+.block.bg-white + .block.bg-white,
+.block.bg-transparent + .block.bg-transparent {
   padding-top: 0; // Remove padding top if it follows a block with the same bg color
 }
 
