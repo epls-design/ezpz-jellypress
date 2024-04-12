@@ -66,12 +66,12 @@
   "dependencies": {
     "@babel/core": "^7.24.4",
     "@babel/preset-react": "^7.23.3",
-    "@splidejs/splide": "^4.1.4",
     "a11y_accordions": "^3.2.1",
     "cssnano": "^6.0.1",
     "gulp-sass-glob": "^1.1.0",
     "jellyfish-ui": "^4.2.4",
     "photoswipe": "^5.4.1",
-    "postcss": "^8.4.38"
+    "postcss": "^8.4.38",
+    "swiper": "^11.0.7"
   }
 }

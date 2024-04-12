@@ -46,6 +46,8 @@
     }
   },
   "styles": [],
+  "viewScript": ["countdown-init"],
+  "editorScript": ["countdown-init"],
   "acf": {
     "mode": "preview",
     "renderTemplate": "view.php",

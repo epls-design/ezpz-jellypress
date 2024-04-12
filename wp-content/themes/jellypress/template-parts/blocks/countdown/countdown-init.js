@@ -4,7 +4,8 @@
     countDownMinutes,
     countDownSeconds,
     countDownEndtime,
-    countDownInterval;
+    countDownInterval,
+    countdownClock;
 
   function jfGetTimeRemaining(countDownEndtime) {
     countDownTotal = Date.parse(countDownEndtime) - Date.parse(new Date());
@@ -41,9 +42,26 @@
     }
   }
 
-  let countdownClock = document.querySelector(".countdown");
-  if (countdownClock) {
-    countDownEndtime = countdownClock.dataset.countdownTo;
-    setInterval(jfUpdateClock, 1000);
+  function initCountdown() {
+    countdownClock = document.querySelector(".countdown");
+    if (countdownClock) {
+      countDownEndtime = countdownClock.dataset.countdownTo;
+
+      setInterval(jfUpdateClock, 1000);
+    }
+  }
+
+  // Initialise in Editor, or on page load
+  if (window.acf) {
+    window.acf.addAction(
+      "render_block_preview/type=ezpz/countdown",
+      function () {
+        initCountdown();
+      }
+    );
+  } else {
+    document.addEventListener("DOMContentLoaded", function () {
+      initCountdown();
+    });
   }
 })(jQuery);

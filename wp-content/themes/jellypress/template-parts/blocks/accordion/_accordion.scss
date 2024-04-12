@@ -54,7 +54,7 @@ h4.accordion__heading {
     transform-origin: center center;
     width: 1.2em;
     height: 1.2em;
-    mask: url(dist/icons/arrow-right.svg) no-repeat 50% 50%;
+    mask: url($assets_folder + "icons/arrow-right.svg") no-repeat 50% 50%;
     mask-size: cover;
     background: $accordion-heading-arrow-color;
     right: 0.4em;

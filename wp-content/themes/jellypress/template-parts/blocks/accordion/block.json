@@ -41,6 +41,8 @@
       }
     }
   },
+  "viewScript": ["aria-accordion-init"],
+  "editorScript": ["aria-accordion-init"],
   "acf": {
     "mode": "edit",
     "renderTemplate": "view.php",

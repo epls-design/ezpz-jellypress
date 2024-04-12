@@ -23,7 +23,6 @@ $jellypress_includes = array(
   'inc/template-tags.php',           // Custom template tags for this theme.
   'inc/template-functions.php',      // Functions which enhance the theme by hooking into WordPress.
   'inc/loadmore.php',                // Uses Wordpress AJAX to lazyload more posts.
-  'inc/js-init.php',                 // PHP Wrappers for Javascript functions
 );
 
 foreach ($jellypress_includes as $file) {

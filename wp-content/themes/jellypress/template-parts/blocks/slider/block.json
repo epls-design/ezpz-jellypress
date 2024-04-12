@@ -46,6 +46,8 @@
     }
   },
   "styles": [],
+  "viewScript": ["swiper-init"],
+  "editorScript": ["swiper-init"],
   "acf": {
     "mode": "preview",
     "renderTemplate": "view.php",

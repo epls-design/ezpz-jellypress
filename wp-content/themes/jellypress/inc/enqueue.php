@@ -13,6 +13,14 @@ defined('ABSPATH') || exit;
  * Enqueue scripts and styles.
  */
 add_action('wp_enqueue_scripts', 'jellypress_scripts');
+add_action('wp_enqueue_scripts', 'jellypress_block_scripts');
+add_action('admin_enqueue_scripts', 'jellypress_block_scripts');
+
+/**
+ * Hooks scripts and styles into the front end only (not the admin)
+ *
+ * @return void
+ */
 function jellypress_scripts() {
   $theme_version = wp_get_theme()->get('Version'); // Get current version of theme
   $css_version = $theme_version . ':' . filemtime(get_template_directory() . '/style.css'); // Appends time stamp to help with cache busting
@@ -45,21 +53,6 @@ function jellypress_scripts() {
     true
   );
 
-  wp_register_script(
-    'splide-slider',
-    get_template_directory_uri() . '/lib/splide.min.js',
-    array(),
-    $js_version,
-    true
-  );
-
-  wp_register_script(
-    'photoswipe-init',
-    get_template_directory_uri() . '/lib/photoswipe-init.js',
-    array('jquery'),
-    filemtime(get_template_directory() . '/lib/photoswipe-init.js'),
-    true
-  );
 
   /**
    * Enqueue Required scripts
@@ -75,6 +68,36 @@ function jellypress_scripts() {
   wp_scripts()->add_data('jquery', 'group', 1);
   wp_scripts()->add_data('jquery-core', 'group', 1);
   wp_scripts()->add_data('jquery-migrate', 'group', 1);
+}
+
+/**
+ * Hooks assets that can run on the front end or the block editor
+ */
+function jellypress_block_scripts() {
+
+  wp_register_script(
+    'swiper',
+    get_template_directory_uri() . '/lib/swiper-bundle.min.js',
+    array(),
+    $js_version,
+    true
+  );
+
+  wp_register_script(
+    'swiper-init',
+    get_template_directory_uri() . '/lib/swiper-init.js',
+    array('swiper'),
+    filemtime(get_template_directory() . '/lib/swiper-init.js'),
+    true
+  );
+
+  wp_register_script(
+    'photoswipe-init',
+    get_template_directory_uri() . '/lib/photoswipe-init.js',
+    array('jquery'),
+    filemtime(get_template_directory() . '/lib/photoswipe-init.js'),
+    true
+  );
 }
 
 /**
