@@ -1,7 +1,9 @@
 <?php
 
 /**
- * Functions necessary for the number counter block
+ * Functions to help with embedding videos
+ *
+ * @package jellypress
  */
 
 // Exit if accessed directly.
@@ -18,7 +20,11 @@ defined('ABSPATH') || exit;
  */
 function jellypress_get_video_platform($url) {
   // Check if the URL is for YouTube
-  if (strpos($url, 'youtube') !== false || strpos($url, 'youtu.be') !== false) {
+  if (
+    strpos($video, 'youtube.com') !== false ||
+    strpos($video, 'youtu.be' !== false) ||
+    strpos($video, 'youtube-nocookie.com' !== false)
+  ) {
     return 'youtube';
   }
   // Check if the URL is for Vimeo
@@ -38,7 +44,6 @@ function jellypress_get_video_information($video, $platform = null) {
 
   // Store the data for return later
   $data = [];
-
 
   if (strpos($video, 'iframe') === false) {
     $oembed = wp_oembed_get($video); // Full oEmbed Code
@@ -85,9 +90,8 @@ function jellypress_get_video_information($video, $platform = null) {
         'byline'        => 0,
         'portrait'      => 0,
         'title'         => 0,
-        'autoplay'      => 0,
-        'color'         => '#ff0000',
-        'dnt'           => 1,
+        'autoplay'      => 1,
+        'dnt'           => 1
       );
       $oembed_url = add_query_arg($params, $oembed_url);
     } elseif ($platform === 'youtube') {
@@ -118,17 +122,14 @@ function jellypress_get_video_information($video, $platform = null) {
       // YouTube params
       $params = array(
         'rel'            => 0,
-        'autoplay'       => 0,
-        'color'          => 'white',
+        'autoplay'       => 1,
         'modestbranding' => 1,
         'enablejsapi'    => 1,
         'controls'       => 1,
         'version'        => 3,
-        'origin'         => str_replace(array('http://', 'https://'), '', get_option('home'))
+        'origin'         => get_option('home')
       );
-      $oembed_url = str_replace(array('youtube.com', 'youtu.be'), "youtube-nocookie.com", $oembed_url); // Use No Cookie version of YouTube
       $oembed_url = add_query_arg($params, $oembed_url); // Add query vars to URL
-
     }
   }
 
@@ -147,7 +148,7 @@ function jellypress_get_video_information($video, $platform = null) {
  * Prepares and displays an oembed video with play button
  * @param string $video The URL that should be embedded.
  */
-function jellypress_embed_video($video, $aspect_ratio = '16x9', $platform = null, $caption = null, $autoplay = false) {
+function jellypress_embed_video($video, $aspect_ratio = '16x9', $platform = null, $caption = null) {
 
   $video_info = jellypress_get_video_information($video, $platform);
 
@@ -160,12 +161,36 @@ function jellypress_embed_video($video, $aspect_ratio = '16x9', $platform = null
 
 ?>
   <figure>
-    <div class="video-wrapper<?php if ($autoplay) echo ' video-autoplay'; ?>">
+    <div class="video-wrapper">
       <div class="video-overlay has-bg-img" style="background-image:url('<?php echo $video_info['video_thumbnail_lq']; ?>')" data-bg-img="<?php echo $video_info['video_thumbnail_hq']; ?>">
-        <button class="play platform-<?php esc_attr_e($video_info['platform']); ?>" data-src="<?php echo esc_url($video_info['oembed_url']); ?>" title="<?php _e('Play Video', 'jellypress'); ?>"><?php echo jellypress_icon('play'); ?></button>
+
+        <?php
+        $has_marketing_consent = false;
+        if (class_exists('COMPLIANZ')) {
+          $has_marketing_consent = cmplz_has_consent('marketing');
+        } else {
+          // FALLBACK IF COMPLIANZ IS NOT INSTALLED
+          $has_marketing_consent = isset($_COOKIE['youtubeEmbedConsent']) && $_COOKIE['youtubeEmbedConsent'] === 'true';
+        }
+
+        if (!$has_marketing_consent && $video_info['platform'] === 'youtube') {
+          $button = [
+            'class' => 'requires-consent play platform-' . $video_info['platform'],
+            'title' => __('Confirm marketing consent to play this video', 'esher'),
+            'text' => __('Throughout our website we use YouTube to host video content. By playing this video, you agree to allow YouTube to set marketing cookies on your device. Please see our cookie policy for more information or click here to play.', 'esher')
+          ];
+        } else {
+          $button = [
+            'class' => 'play platform-' . $video_info['platform'],
+            'title' => __('Play Video', 'jellypress'),
+            'text' => jellypress_icon('play')
+          ];
+        }
+        ?>
+        <button class="<?php echo $button['class']; ?>" title="<?php echo $button['title']; ?>"><?php echo $button['text']; ?></button>
       </div>
       <div class="embed-container ratio-<?php echo $aspect_ratio; ?>">
-        <iframe width="640" height="390" type="text/html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="<?php echo $video_info['title']; ?>"></iframe>
+        <iframe width="640" height="390" type="text/html" frameborder="0" src="<?php echo esc_url($video_info['oembed_url']); ?>" srcdoc="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="<?php echo $video_info['title']; ?>"></iframe>
       </div>
     </div>
     <?php if ($caption) : ?>
