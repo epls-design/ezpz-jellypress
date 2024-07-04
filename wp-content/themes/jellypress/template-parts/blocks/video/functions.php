@@ -21,9 +21,9 @@ defined('ABSPATH') || exit;
 function jellypress_get_video_platform($url) {
   // Check if the URL is for YouTube
   if (
-    strpos($video, 'youtube.com') !== false ||
-    strpos($video, 'youtu.be' !== false) ||
-    strpos($video, 'youtube-nocookie.com' !== false)
+    strpos($url, 'youtube.com') !== false ||
+    strpos($url, 'youtu.be' !== false) ||
+    strpos($url, 'youtube-nocookie.com' !== false)
   ) {
     return 'youtube';
   }
