@@ -29,6 +29,7 @@ export default function Edit() {
 		"core/shortcode",
 		"core/code",
 		"gravityforms/form",
+		"core/separator",
 	];
 	const TEMPLATE = [
 		[

@@ -156,7 +156,7 @@ add_action('wp_enqueue_scripts', function () {
   if ($get_gmaps_api) {
     wp_register_script(
       'googlemaps',
-      'https://maps.googleapis.com/maps/api/js?key=' . $get_gmaps_api . '"',
+      'https://maps.googleapis.com/maps/api/js?key=' . $get_gmaps_api . '&libraries=marker',
       null,
       null,
       null

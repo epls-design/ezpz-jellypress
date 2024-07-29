@@ -32,7 +32,12 @@
     }
   },
   "multiple": false,
-  "attributes": {},
+  "attributes": {
+    "titleText": {
+      "type": "string",
+      "default": ""
+    }
+  },
   "textdomain": "ezpz-post-title",
   "editorScript": "file:./index.js"
 }

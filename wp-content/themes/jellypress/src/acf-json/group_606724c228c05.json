@@ -1,11 +1,12 @@
 {
     "key": "group_606724c228c05",
-    "title": "Theme Options",
+    "title": "Website Options",
     "fields": [
         {
             "key": "field_606724c23052e",
             "label": "Social Media Channels",
             "name": "social_channels",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "Add all of the social media channels you are on here. These can be displayed by your developers within the theme.",
             "required": 0,
@@ -15,7 +16,6 @@
                 "class": "",
                 "id": ""
             },
-            "aria-label": "",
             "collapsed": "",
             "min": 0,
             "max": 0,
@@ -27,6 +27,7 @@
                     "key": "field_606724c2bd5cb",
                     "label": "Network",
                     "name": "network",
+                    "aria-label": "",
                     "type": "select",
                     "instructions": "Please select the network",
                     "required": 1,
@@ -59,12 +60,14 @@
                     "ui": 1,
                     "ajax": 0,
                     "return_format": "value",
-                    "placeholder": ""
+                    "placeholder": "",
+                    "parent_repeater": "field_606724c23052e"
                 },
                 {
                     "key": "field_606724c2bd5d4",
                     "label": "URL",
                     "name": "url",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "Please add the <b>full URL<\/b> for your profile on this social channel.",
                     "required": 1,
@@ -74,7 +77,6 @@
                         "class": "",
                         "id": ""
                     },
-                    "aria-label": "",
                     "default_value": "",
                     "placeholder": "",
                     "prepend": "",
@@ -83,6 +85,31 @@
                     "parent_repeater": "field_606724c23052e"
                 }
             ]
+        },
+        {
+            "key": "field_66a7b2190b676",
+            "label": "404 page",
+            "name": "404_page",
+            "aria-label": "",
+            "type": "page_link",
+            "instructions": "Page to be used for the 404 page (page not found). You can use the short code [requested-page] to display the title on the page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
+            "allow_archives": 0,
+            "multiple": 0,
+            "allow_null": 0
         }
     ],
     "location": [
@@ -102,5 +129,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Available options to enhance your website theme.",
-    "modified": 1712848205
+    "show_in_rest": 0,
+    "modified": 1722266242
 }

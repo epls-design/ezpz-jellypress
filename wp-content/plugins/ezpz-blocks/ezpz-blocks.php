@@ -79,7 +79,7 @@ class ezpzBlocks {
 
 			// If it's post title block, we are using a dynamic callback rather than js to render the block
 			if ($block == 'post-title') {
-				$args['render_callback'] = function () {
+				$args['render_callback'] = function ($attributes) {
 					ob_start();
 					// Include the template
 					include(__DIR__ . '/src/post-title/view.php');
@@ -117,6 +117,7 @@ class ezpzBlocks {
 				"core/code",
 				"core/footnotes",
 				"gravityforms/form",
+				"core/separator",
 				// "core/group", // TODO: Add support for group, but by default its doing row/stack which we dont want
 				"core/block",
 			];

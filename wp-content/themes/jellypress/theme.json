@@ -6,6 +6,9 @@
       "contentSize": "1140px",
       "wideSize": "1280px"
     },
+    "shadow": {
+      "defaultPresets": false
+    },
     "color": {
       "custom": false,
       "defaultGradients": false,

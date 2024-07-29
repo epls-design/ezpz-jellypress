@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-import { PlainText } from "@wordpress/block-editor";
+import { useBlockProps, RichText } from "@wordpress/block-editor";
 import { __ } from "@wordpress/i18n";
 import { useEntityProp } from "@wordpress/core-data";
 
@@ -13,7 +13,11 @@ import { useEntityProp } from "@wordpress/core-data";
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({ context: { postType, postId } }) {
+export default function Edit({
+	context: { postType, postId },
+	attributes,
+	setAttributes,
+}) {
 	const [rawTitle = "", setTitle, fullTitle] = useEntityProp(
 		"postType",
 		postType,
@@ -21,16 +25,30 @@ export default function Edit({ context: { postType, postId } }) {
 		postId,
 	);
 
-	// INITIAL STATE BEFORE LOAD
+	const blockProps = useBlockProps();
+
+	const { titleText } = attributes;
+
+	const settitleText = (value) => {
+		console.log(value);
+		setAttributes({ titleText: value });
+	};
+
+	// Default to rawTitle if titleText is empty
+	const displayTitle = titleText || rawTitle;
+
 	let titleElement = <h1>{__("Title", "ezpz-post-title")}</h1>;
 
 	if (postType && postId) {
 		titleElement = (
-			<PlainText
+			<RichText
+				{...blockProps}
+				identifier="title"
 				tagName="h1"
 				placeholder={__("No Title", "ezpz-post-title")}
-				value={rawTitle}
-				onChange={setTitle}
+				value={displayTitle}
+				onChange={settitleText}
+				allowedFormats={["core/bold"]}
 				__experimentalVersion={2}
 			/>
 		);

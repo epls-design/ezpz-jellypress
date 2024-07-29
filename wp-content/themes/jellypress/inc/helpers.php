@@ -150,3 +150,13 @@ function jellypress_display_socials() {
     return $social_links_formatted;
   endif;
 }
+
+/**
+ * Displays the page URL that was requested, for use on a 404 page
+ */
+add_shortcode('requested-page', function () {
+  if (isset($_GET['request'])) {
+    return '<span class="bold">' . $_GET['request'] . '</span>';
+  }
+  return '';
+});

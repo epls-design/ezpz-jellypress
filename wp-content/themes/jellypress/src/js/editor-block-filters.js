@@ -107,7 +107,7 @@ addFilter(
  */
 addFilter(
   "blocks.registerBlockType",
-  "ezpz/core/remove-align",
+  "ezpz/core/remove-supports",
   function (settings, name) {
     let removeFrom = [
       "core/heading",

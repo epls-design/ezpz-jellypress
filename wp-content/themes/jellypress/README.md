@@ -21,7 +21,6 @@ REQUIRES php 7.4+
 ### Included in `Jellypress`...
 
 - A just right amount of lean, well-commented, modern, HTML5 templates using the Wordpress templating engine and best practices
-- A helpful 404 template.
 - Custom template tags in `inc/template-tags.php` and `inc/dry.php` that keep your templates clean and neat and prevent code duplication.
 - AJAX loading of posts in archives.
 - Full support for `WooCommerce plugin` integration with hooks in `inc/woocommerce.php`, styling override woocommerce.css with product gallery features (zoom, swipe, lightbox) enabled.

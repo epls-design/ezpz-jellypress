@@ -11,8 +11,10 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
-if (get_field('redirect_404', 'options')) :
-  wp_safe_redirect(home_url()); // Redirect to home page
+if (get_field('404_page', 'options')) :
+  $current_url = $_SERVER['REQUEST_URI'];
+  $redir = get_field('404_page', 'options') . '?request=' . $current_url;
+  wp_safe_redirect($redir);
   exit;
 endif;
 
