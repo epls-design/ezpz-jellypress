@@ -292,6 +292,9 @@ function jellypress_filter_block_core_embed($block_content,  $block) {
   return $block_content;
 }
 
+/**
+ * Rewrites the output of core/image on the front end
+ */
 add_filter('render_block_core/image', 'jellypress_filter_block_core_image', 20, 2);
 function jellypress_filter_block_core_image($block_content,  $block) {
   ob_start();
@@ -303,6 +306,19 @@ function jellypress_filter_block_core_image($block_content,  $block) {
   return ob_get_clean();
 }
 
+/**
+ * Rewrites the output of core/table on the front end
+ */
+add_filter('render_block_core/table', 'jellypress_filter_block_core_table', 20, 2);
+function jellypress_filter_block_core_table($block_content,  $block) {
+  ob_start();
+  $args = [
+    'block' => $block,
+    'block_content' => $block_content,
+  ];
+  get_template_part('template-parts/blocks/core/table', null, $args);
+  return ob_get_clean();
+}
 /**
  * Displays a block preview image in the block inserter, if it exists (and the block has a previewImage attribute set)
  * Note: in the longer term it might be nicer to render live ACF fields in the block inserter, but this is a quick and dirty way to get a preview image in there for now.

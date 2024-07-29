@@ -229,7 +229,11 @@
         }
       },
       "core/image": {
-        "align": false
+        "align": false,
+        "lightbox": {
+          "allowEditing": true,
+          "enabled": false
+        }
       },
       "core/separator": {
         "color": {

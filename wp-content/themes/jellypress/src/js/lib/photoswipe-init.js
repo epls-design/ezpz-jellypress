@@ -10,6 +10,13 @@ let galleries = document.querySelectorAll(".gallery");
 
 // If there are singleGalleries on the page, initialize PhotoSwipe
 if (galleries.length > 0) {
+  // FORCIBLY HIDE THE WORDPRESS LIGHTBOX STYLES
+  // This is because we use our own, and Wordpress does not provide a way to disable their lightbox styles
+  let lightboxOverlay = document.querySelector(".wp-lightbox-overlay");
+  if (lightboxOverlay) {
+    lightboxOverlay.remove();
+  }
+
   galleries.forEach((item) => {
     let id = item.id;
     id = "#" + id;
