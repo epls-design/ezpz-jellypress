@@ -1,19 +1,8 @@
-.eplsdesign {
-  height: 18px;
-  line-height: 18px;
-  text-decoration: none;
-  white-space: nowrap;
-  a {
-    background-image: url($assets_folder + "img/epls/epls-design.svg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    display: inline-block;
-    height: 24px;
-    line-height: 24px;
-    text-indent: -9999px;
-    width: 100px;
-    &:hover {
-      background-image: url($assets_folder + "img/epls/epls-design-hover.svg");
-    }
-  }
+.developer {
+  mask: url($assets_folder + "img/epls-design.svg") no-repeat 0% 50%;
+  text-indent: -9999px;
+  background-color: currentColor;
+  display: inline-block;
+  width: 11ch;
+  mask-size: contain;
 }
