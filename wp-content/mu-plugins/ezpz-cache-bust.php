@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
   exit;
 }
 
-class ezpzCacheBust() {
+class ezpzCacheBust {
 
   function __construct() {
     add_action('save_post', array($this, 'clear_cache'), 10, 1);
@@ -24,7 +24,7 @@ class ezpzCacheBust() {
 
   private function clear_cache($post_id) {
     $post_type = get_post_type($post_id);
-    if($post_type == 'post') {
+    if ($post_type == 'post') {
       do_action('breeze_clear_all_cache');
       do_action('breeze_clear_varnish');
     }
