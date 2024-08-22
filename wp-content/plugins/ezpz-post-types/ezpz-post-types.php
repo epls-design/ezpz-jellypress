@@ -22,7 +22,7 @@ if (!class_exists('ezpzPostTypes')) {
 
     // Initialize the class
     function __construct() {
-      add_action('init', array($this, 'register_post_types'), 0);
+      $this->register_post_types();
     }
 
     function register_post_types() {
