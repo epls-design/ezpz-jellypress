@@ -30,6 +30,7 @@ export default function Edit() {
 		"core/code",
 		"gravityforms/form",
 		"core/separator",
+		"complianz/document",
 	];
 	const TEMPLATE = [
 		[

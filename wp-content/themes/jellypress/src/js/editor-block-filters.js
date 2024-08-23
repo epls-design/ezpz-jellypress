@@ -187,6 +187,7 @@ function ezpzFilterBlockParents(settings, name) {
     "core/shortcode",
     "core/code",
     "gravityforms/form",
+    "complianz/document",
   ];
 
   // Bail if not in array of child blocks
