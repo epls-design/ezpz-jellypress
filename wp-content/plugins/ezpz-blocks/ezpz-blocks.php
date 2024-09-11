@@ -120,7 +120,6 @@ class ezpzBlocks {
 				"core/separator",
 				// "core/group", // TODO: Add support for group, but by default its doing row/stack which we dont want
 				"core/block",
-				"complianz/document"
 			];
 
 			// Merge $additional_blocks with $plugin_blocks

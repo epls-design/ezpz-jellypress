@@ -1,0 +1,4 @@
+#cmplz-document {
+  margin: var(--block-padding) auto
+    calc(var(--block-padding) - #{$element-margin}) auto;
+}
