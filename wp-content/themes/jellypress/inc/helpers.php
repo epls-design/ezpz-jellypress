@@ -97,6 +97,7 @@ function jellypress_trimpara($text, $maxchar, $end = '...') {
 
 /**
  * Display an SVG icon from the spritesheet
+ * TODOL REOLACE WITH DEVE ICONS FROM SOMEWHERE ELSE
  */
 function jellypress_icon($icon, $class = '') {
   // Define SVG sprite file.

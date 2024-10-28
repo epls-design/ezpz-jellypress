@@ -1,6 +1,6 @@
 {
     "key": "group_6465280cdfe3b",
-    "title": "Block > Cover",
+    "title": "Block &gt; Cover",
     "fields": [
         {
             "key": "field_64677a2a2f26a",
@@ -12,12 +12,11 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "30",
+                "width": "",
                 "class": "",
                 "id": ""
             },
             "return_format": "id",
-            "preview_size": "thumbnail",
             "library": "all",
             "min_width": 1920,
             "min_height": 1080,
@@ -25,7 +24,8 @@
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": ""
+            "mime_types": "",
+            "preview_size": "thumbnail"
         },
         {
             "key": "field_64677a302f26b",
@@ -37,15 +37,35 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "20",
+                "width": "",
                 "class": "",
                 "id": ""
             },
             "message": "",
             "default_value": 1,
-            "ui": 1,
             "ui_on_text": "",
-            "ui_off_text": ""
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_671fd7f820680",
+            "label": "Desaturate?",
+            "name": "desaturate",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Would you like to desaturate the image? Works best if adding a coloured overlay.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
         },
         {
             "key": "field_64677a392f26c",
@@ -57,7 +77,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "20",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -78,7 +98,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "20",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -108,5 +128,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695224966
+    "modified": 1730140290
 }

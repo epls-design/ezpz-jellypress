@@ -76,14 +76,14 @@ function jellypress_get_blocks() {
   $theme   = wp_get_theme();
   $blocks  = get_option('jellypress_blocks');
   $version = get_option('jellypress_blocks_version');
-  if (empty($blocks) || version_compare($theme->get('Version'), $version) || (function_exists('wp_get_environment_type') && 'production' !== wp_get_environment_type())) {
-    $blocks = scandir(get_template_directory() . '/template-parts/blocks/');
+  // if (empty($blocks) || version_compare($theme->get('Version'), $version) || (function_exists('wp_get_environment_type') && 'production' !== wp_get_environment_type())) {
+  $blocks = scandir(get_template_directory() . '/template-parts/blocks/');
 
-    // Remove unnecessary directories and files
-    $blocks = array_values(array_diff($blocks, array('..', '.', '.DS_Store')));
-    update_option('jellypress_blocks', $blocks);
-    update_option('jellypress_blocks_version', $theme->get('Version'));
-  }
+  // Remove unnecessary directories and files
+  $blocks = array_values(array_diff($blocks, array('..', '.', '.DS_Store')));
+  update_option('jellypress_blocks', $blocks);
+  update_option('jellypress_blocks_version', $theme->get('Version'));
+  // }
   return $blocks;
 }
 
@@ -229,7 +229,8 @@ function jellypress_get_block_template($template = null) {
   if (!$template) {
     $template = array(
       array(
-        'ezpz/content-restricted', array(),
+        'ezpz/content-restricted',
+        array(),
       )
     );
   }

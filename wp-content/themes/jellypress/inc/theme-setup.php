@@ -79,7 +79,7 @@ function jellypress_setup() {
   );
 
   // Register Image Sizes
-  add_image_size('icon', 40, 40, true); // Used by Google Maps
+  add_image_size('icon', 90, 90, true); // Used by Google Maps
   add_image_size('small', 350, 350);
   add_image_size('medium_landscape', 400, 300, true);
 }

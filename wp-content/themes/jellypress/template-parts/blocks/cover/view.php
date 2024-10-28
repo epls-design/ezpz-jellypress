@@ -27,15 +27,20 @@ if (jellypress_get_block_preview_image($block) == true) return;
 
 $block_attributes = jellypress_get_block_attributes($block, $context);
 
+// TODO: Refactor to use the desaturate toggle
+
 $block_template = array(
   array(
-    'ezpz/content', array(), array(
+    'ezpz/content',
+    array(),
+    array(
       array('core/heading', array(
         'placeholder' => 'Sub Title',
         'level' => 2,
       )),
       array(
-        'core/paragraph', array(
+        'core/paragraph',
+        array(
           'placeholder' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rhoncus neque nisl, a malesuada sapien cursus a. Aliquam metus mi, vestibulum venenatis ligula et, mollis laoreet quam. Aenean sed ultrices ex, a vulputate urna. Integer tellus arcu, placerat sit amet erat et, feugiat malesuada erat. Nulla nunc metus, tempus eu nibh sit amet, tincidunt fringilla massa.',
         )
       ),
@@ -107,7 +112,7 @@ $block_attributes['class'] .= ' is-width-full';
       <div class="<?php echo $block_attributes['class']; ?>" data-bg-img="<?php echo wp_get_attachment_image_url($background_image, 'large'); ?>" <?php echo $block_styles; ?>>
         <div class="<?php echo $row_class; ?>">
           <div class="col md-7 lg-6">
-            <InnerBlocks className="<?php echo $block_attributes['text_align']; ?>" templateLock="all" allowedBlocks="<?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
+            <InnerBlocks className="<?php echo $block_attributes['text_align']; ?>" allowedBlocks="<?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
           </div>
         </div>
       </div>
