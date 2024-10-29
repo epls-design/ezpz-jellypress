@@ -79,7 +79,7 @@ function jellypress_block_scripts() {
     'swiper',
     get_template_directory_uri() . '/lib/swiper-bundle.min.js',
     array(),
-    $js_version,
+    filemtime(get_template_directory() . '/lib/swiper-bundle.min.js'),
     true
   );
 

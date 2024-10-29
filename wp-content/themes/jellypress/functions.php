@@ -12,6 +12,11 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
+if (!is_admin() && !function_exists('get_field')) {
+  echo 'Please install and activate Advanced Custom Fields Pro';
+  die();
+}
+
 $jellypress_includes = array(
   'inc/helpers.php',                 // Useful helper functions
   'inc/theme-setup.php',             // Basic theme setup
