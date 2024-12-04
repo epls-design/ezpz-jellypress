@@ -45,6 +45,10 @@ export function colWidthToClassName(width) {
 		case "25%":
 			className = " md-3";
 			break;
+		// WARNING: THIS SHOULD ONLY BE USED IN EXCEPTIONAL CIRCUMSTANCES AND IS NOT EXPOSED BY DEFAULT
+		case "20%":
+			className = " md-fifth";
+			break;
 		case "16.66%":
 			className = " md-4 lg-2";
 			break;
