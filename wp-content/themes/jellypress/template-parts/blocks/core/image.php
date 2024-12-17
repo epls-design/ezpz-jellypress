@@ -33,6 +33,8 @@ if (isset($atts['lightbox']['enabled']) && $atts['lightbox']['enabled'] && $atts
 
 // Get the original block content.
 $output = $args['block_content'];
+if ($output == '') return $output; // Bail early if there is no content.
+
 
 /**
  * Create a WP_HTML_Tag_Processor instance for manipulating HTML tags.
