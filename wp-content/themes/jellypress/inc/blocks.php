@@ -342,3 +342,13 @@ function jellypress_get_block_preview_image($block) {
     return false;
   }
 }
+
+/**
+ * Wraps the password form in a container
+ * @param string $output The password form
+ * @return string The password form wrapped in a container
+ */
+add_filter('the_password_form', 'jellypress_password_filter', 9999);
+function jellypress_password_filter(string $output) {
+  return '<section class="block bg-white"><div class="container">' . $output . '</div></section>';
+}

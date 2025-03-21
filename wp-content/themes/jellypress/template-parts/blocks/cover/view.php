@@ -111,8 +111,8 @@ $block_attributes['class'] .= ' is-width-full';
     <div class="vw-100">
       <div class="<?php echo $block_attributes['class']; ?>" data-bg-img="<?php echo wp_get_attachment_image_url($background_image, 'large'); ?>" <?php echo $block_styles; ?>>
         <div class="<?php echo $row_class; ?>">
-          <div class="col md-7 lg-6">
-            <InnerBlocks className="<?php echo $block_attributes['text_align']; ?>" allowedBlocks="<?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
+          <div class="col md-7 lg-6 <?php echo $block_attributes['text_align']; ?>">
+            <InnerBlocks allowedBlocks="<?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
           </div>
         </div>
       </div>

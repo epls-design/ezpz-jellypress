@@ -17,7 +17,7 @@ defined('ABSPATH') || exit;
 </div><?php //#content .site-content
       ?>
 
-<footer class="site-footer">
+<footer class="site-footer bg-white">
   <div class="container">
     <div class="row">
       <div class="site-info col" id="colophon">

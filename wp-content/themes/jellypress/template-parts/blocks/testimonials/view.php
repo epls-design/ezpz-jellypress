@@ -41,11 +41,11 @@ $text_align = $block_attributes['text_align'];
   <div class="container">
 
     <?php if ($content || $is_preview) : ?>
-    <header class="row justify-center">
-      <div class="col md-10 lg-8">
-        <InnerBlocks className="<?php echo $text_align; ?>" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
-      </div>
-    </header>
+      <header class="row justify-center">
+        <div class="col md-10 lg-8 <?php echo $text_align; ?>">
+          <InnerBlocks allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
+        </div>
+      </header>
     <?php endif; ?>
 
     <?php
@@ -66,16 +66,16 @@ $text_align = $block_attributes['text_align'];
         'effect' => 'fade',
       );
     ?>
-    <div class="swiper-container">
+      <div class="swiper-container">
 
-      <div class="swiper" data-swiper-options="<?php echo htmlspecialchars(json_encode($swiper_opts), ENT_QUOTES, 'UTF-8'); ?>">
-        <div class="swiper-wrapper">
-          <?php foreach ($testimonials as $testimonial) {
+        <div class="swiper" data-swiper-options="<?php echo htmlspecialchars(json_encode($swiper_opts), ENT_QUOTES, 'UTF-8'); ?>">
+          <div class="swiper-wrapper">
+            <?php foreach ($testimonials as $testimonial) {
               get_template_part('template-parts/blocks/testimonials/slide-template', null, array('testimonial' => $testimonial));
             } ?>
+          </div>
         </div>
-      </div>
-      <?php
+        <?php
         if ($fields['display_arrows']) {
           echo '<div class="swiper-button-prev"></div>';
           echo '<div class="swiper-button-next"></div>';
@@ -84,12 +84,12 @@ $text_align = $block_attributes['text_align'];
           echo '<div class="swiper-pagination"></div>';
         }
         ?>
-    </div>
+      </div>
 
     <?php elseif ($is_preview) : ?>
-    <div class="acf-placeholder">
-      <div class="acf-placeholder-label"><?php _e('You need to add some testimonials to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to "edit".', 'jellypress'); ?></div>
-    </div>
+      <div class="acf-placeholder">
+        <div class="acf-placeholder-label"><?php _e('You need to add some testimonials to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to "edit".', 'jellypress'); ?></div>
+      </div>
     <?php endif; ?>
   </div>
   </div>

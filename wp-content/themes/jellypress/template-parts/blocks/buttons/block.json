@@ -24,7 +24,11 @@
     "customClassName": false,
     "html": false
   },
-  "usesContext": ["ezpz/outerContainer", "ezpz/backgroundColor"],
+  "usesContext": [
+    "ezpz/outerContainer",
+    "ezpz/backgroundColor",
+    "ezpz/alignText"
+  ],
   "styles": [],
   "example": {
     "attributes": {

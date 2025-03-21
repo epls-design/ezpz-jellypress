@@ -42,7 +42,8 @@
   },
   "providesContext": {
     "ezpz/outerContainer": "outerContainer",
-    "ezpz/backgroundColor": "backgroundColor"
+    "ezpz/backgroundColor": "backgroundColor",
+    "ezpz/alignText": "alignText"
   },
   "example": {
     "attributes": {

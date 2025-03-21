@@ -30,11 +30,17 @@ $block_attributes = jellypress_get_block_attributes($block, $context);
 $fields = get_fields();
 
 if (!empty($fields['buttons'])) :
-  jellypress_display_cta_buttons($fields['buttons'], $context['ezpz/backgroundColor']);
+
+  $justify = isset($context['ezpz/alignText']) ? $context['ezpz/alignText'] : 'start';
+
+  if ($justify == 'left') $justify = 'start';
+  if ($justify == 'right') $justify = 'end';
+
+  jellypress_display_cta_buttons($fields['buttons'], $context['ezpz/backgroundColor'], 'justify-' . $justify);
 elseif ($is_preview) :
 ?>
 
-<div class="acf-placeholder">
-  <div class="acf-placeholder-label"><?php _e('You need to add some buttons to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to "edit".', 'jellypress'); ?></div>
-</div>
+  <div class="acf-placeholder">
+    <div class="acf-placeholder-label"><?php _e('You need to add some buttons to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to "edit".', 'jellypress'); ?></div>
+  </div>
 <?php endif; ?>

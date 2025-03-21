@@ -46,8 +46,8 @@ $loading_type = $fields['loading_type'];
 
     <?php if ($content || $is_preview) : ?>
       <header class="row <?php echo $justify; ?>">
-        <div class="col md-10 lg-8">
-          <InnerBlocks className="<?php echo $text_align; ?>" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
+        <div class="col md-10 lg-8 <?php echo $text_align; ?>">
+          <InnerBlocks allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
         </div>
       </header>
     <?php endif; ?>

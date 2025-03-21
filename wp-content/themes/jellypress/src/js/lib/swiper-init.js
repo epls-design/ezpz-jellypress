@@ -64,6 +64,9 @@ function ezpzInitializeSwiper() {
         "delay",
       ];
 
+      // If container is not found set the container to be the swiper element
+      let closestContainer = swiper.closest(".swiper-container") || swiper;
+
       if (hasDataOpts) {
         const swiperDataOpts = JSON.parse(
           swiper.getAttribute("data-swiper-options")
@@ -93,11 +96,12 @@ function ezpzInitializeSwiper() {
           } else {
             swiperOpts[key] = swiperDataOpts[key];
           }
+
+          if (key == "container") {
+            closestContainer = swiper.closest(swiperOpts[key]);
+          }
         }
       }
-
-      // If container is not found set the container to be the swiper element
-      let closestContainer = swiper.closest(".swiper-container") || swiper;
 
       /**
        * If the swiper has a .swiper-pagination elem, add pagination options

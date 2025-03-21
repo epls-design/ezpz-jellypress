@@ -44,16 +44,16 @@ else $justify = 'justify-start';
   <div class="container">
 
     <?php if ($content || $is_preview) : ?>
-    <header class="row <?php echo $justify; ?>">
-      <div class="col md-10 lg-8">
-        <InnerBlocks className="<?php echo $block_attributes['text_align']; ?>" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
-      </div>
-    </header>
+      <header class="row <?php echo $justify; ?>">
+        <div class="col md-10 lg-8 <?php echo $block_attributes['text_align']; ?>">
+          <InnerBlocks allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
+        </div>
+      </header>
     <?php endif; ?>
 
     <?php if ($cards = $fields['cards']) : ?>
-    <div class="row <?php echo $justify; ?> cards equal-height">
-      <?php foreach ($cards as $card) {
+      <div class="row <?php echo $justify; ?> cards equal-height">
+        <?php foreach ($cards as $card) {
           echo '<div class="col xs-6 md-4 lg-3">';
           $card_params = array(
             'card' => $card
@@ -62,11 +62,11 @@ else $justify = 'justify-start';
           echo '</div>';
         }
         ?>
-    </div>
+      </div>
     <?php elseif ($is_preview) : ?>
-    <div class="acf-placeholder">
-      <div class="acf-placeholder-label"><?php _e('You need to add some cards to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to "edit".', 'jellypress'); ?></div>
-    </div>
+      <div class="acf-placeholder">
+        <div class="acf-placeholder-label"><?php _e('You need to add some cards to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to "edit".', 'jellypress'); ?></div>
+      </div>
     <?php endif; ?>
 
   </div>

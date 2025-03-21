@@ -118,6 +118,7 @@ class ezpzBlocks {
 				"core/footnotes",
 				"gravityforms/form",
 				"core/separator",
+				"core/rss",
 				// "core/group", // TODO: Add support for group, but by default its doing row/stack which we dont want
 				"core/block",
 			];
@@ -146,9 +147,9 @@ class ezpzBlocks {
 
 		$block_name = $block['blockName'];
 
-		// Strip class from heading
-		if ($block_name == 'ezpz/content') {
-			$block_content = str_replace('<div class="wp-block-ezpz-content"', '<div class="inner-content"', $block_content);
+		// Strip ezpz-content-restricted and ezpz-content blocks to rename 'inner-content'
+		if ($block_name == 'ezpz/content' || $block_name == 'ezpz/content-restricted') {
+			$block_content = str_replace(['<div class="wp-block-ezpz-content-restricted"', '<div class="wp-block-ezpz-content"'], '<div class="inner-content"', $block_content);
 		} elseif ($block_name == 'ezpz/section' || $block_name == 'ezpz/columns' || $block_name == 'ezpz/text-media') {
 
 			// Strip ezpz/ from the block name
@@ -159,6 +160,11 @@ class ezpzBlocks {
 				'block',
 				'block-' . $block_name,
 			];
+
+			// Add the outerContainer class if it exists (this would be stripped otherwise)
+			if ($block_name == 'text-media' && isset($block['attrs']['outerContainer'])) {
+				$classes[] = 'is-' . $block['attrs']['outerContainer'];
+			}
 
 			$background = isset($block['attrs']['backgroundColor']) ? 'bg-' . $block['attrs']['backgroundColor'] : 'bg-white';
 

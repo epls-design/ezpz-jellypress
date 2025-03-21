@@ -57,6 +57,10 @@ function EditColumns({ attributes, setAttributes }) {
 	// Set the new classes
 	blockProps.className = classes.join(" ");
 
+	if (attributes.outerContainer) {
+		blockProps.className += " is-" + attributes.outerContainer;
+	}
+
 	// Push align class to row
 	let rowClasses = ["row", "justify-between"];
 	if (attributes.verticalAlign) {
@@ -125,13 +129,19 @@ function Placeholder({ clientId, name, setAttributes }) {
 				instructions="What type of media element are you embedding?"
 				onSelect={(nextVariation = defaultVariation) => {
 					if (nextVariation.attributes) {
-						setAttributes(nextVariation.attributes);
+						setAttributes(...nextVariation.attributes);
+					}
+					// Save the variation as a block attribute
+					if (nextVariation.name) {
+						setAttributes({
+							outerContainer: nextVariation.name,
+						});
 					}
 					if (nextVariation.innerBlocks) {
 						replaceInnerBlocks(
 							clientId,
 							createBlocksFromInnerBlocksTemplate(nextVariation.innerBlocks),
-							true
+							true,
 						);
 					}
 				}}
@@ -145,7 +155,7 @@ const Edit = (props) => {
 	const { clientId, attributes } = props;
 	const hasInnerBlocks = useSelect(
 		(select) => select(blockEditorStore).getBlocks(clientId).length > 0,
-		[clientId]
+		[clientId],
 	);
 
 	// Determines which component to render based on whether the block has inner blocks or not.

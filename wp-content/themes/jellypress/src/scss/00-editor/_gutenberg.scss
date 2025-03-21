@@ -77,3 +77,10 @@
   user-select: none !important;
   pointer-events: none !important;
 }
+
+// Gutenberg has a .card component
+.card {
+  min-width: 0px !important;
+  max-width: none !important;
+  width: 100% !important;
+}

@@ -54,10 +54,10 @@ $fields = get_fields();
         'effect' => 'fade',
       );
     ?>
-    <div class="swiper-container">
-      <div class="swiper" data-swiper-options="<?php echo htmlspecialchars(json_encode($swiper_opts), ENT_QUOTES, 'UTF-8'); ?>">
-        <div class="swiper-wrapper">
-          <?php foreach ($slides as $slide) {
+      <div class="swiper-container">
+        <div class="swiper" data-swiper-options="<?php echo htmlspecialchars(json_encode($swiper_opts), ENT_QUOTES, 'UTF-8'); ?>">
+          <div class="swiper-wrapper">
+            <?php foreach ($slides as $slide) {
               $slide_args = [
                 'text_align' => $block_attributes['text_align'],
                 'row_align' => $row_class,
@@ -65,9 +65,9 @@ $fields = get_fields();
               ];
               get_template_part('template-parts/blocks/slider/slide-template', null, $slide_args);
             } ?>
+          </div>
         </div>
-      </div>
-      <?php
+        <?php
         if ($fields['display_arrows']) {
           echo '<div class="swiper-button-prev"></div>';
           echo '<div class="swiper-button-next"></div>';
@@ -76,11 +76,11 @@ $fields = get_fields();
           echo '<div class="swiper-pagination"></div>';
         }
         ?>
-    </div>
+      </div>
     <?php elseif ($is_preview) : ?>
-    <div class="acf-placeholder">
-      <div class="acf-placeholder-label"><?php _e('You need to add some slides to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to "edit".', 'jellypress'); ?></div>
-    </div>
+      <div class="acf-placeholder">
+        <div class="acf-placeholder-label"><?php _e('You need to add some slides to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to "edit".', 'jellypress'); ?></div>
+      </div>
     <?php endif; ?>
 
   </div>

@@ -46,8 +46,8 @@ elseif ($block_width === 'center') $justify = 'center';
   <?php if ($content || $is_preview) : ?>
     <div class="container">
       <header class="row justify-center">
-        <div class="col md-10 lg-8">
-          <InnerBlocks className="<?php echo $text_align; ?>" allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
+        <div class="col md-10 lg-8 <?php echo $text_align; ?>">
+          <InnerBlocks allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
         </div>
       </header>
     </div>
