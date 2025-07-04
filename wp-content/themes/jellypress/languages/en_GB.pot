@@ -7,7 +7,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: EPLS Design <theteam@epls.design>\n"
 "Last-Translator: EPLS Design <theteam@epls.design>\n"
-"POT-Creation-Date: 2025-03-21 16:49+0000\n"
+"POT-Creation-Date: 2025-07-04 14:15+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -60,12 +60,8 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: inc/blocks.php:339
+#: inc/blocks.php:361
 msgid "Preview only - actual style may vary"
-msgstr ""
-
-#: inc/helpers.php:148
-msgid "Visit us on "
 msgstr ""
 
 #. translators: %s: post date.
@@ -130,11 +126,11 @@ msgstr ""
 msgid "Successfully updated Theme options"
 msgstr ""
 
-#: inc/theme-setup.php:123
+#: inc/widgets.php:18
 msgid "Sidebar"
 msgstr ""
 
-#: inc/theme-setup.php:125
+#: inc/widgets.php:20
 msgid "Add your widgets here."
 msgstr ""
 
@@ -256,4 +252,16 @@ msgstr ""
 
 #: template-parts/blocks/video/functions.php:183
 msgid "Play Video"
+msgstr ""
+
+#: template-parts/widgets/menu/view.php:48
+msgid "No menu items found. Widget will not display on front-end."
+msgstr ""
+
+#: template-parts/widgets/socials/view.php:37
+msgid "No social links added. Widget will not display on front-end."
+msgstr ""
+
+#: template-parts/widgets/socials/view.php:61
+msgid "Follow us on %s"
 msgstr ""

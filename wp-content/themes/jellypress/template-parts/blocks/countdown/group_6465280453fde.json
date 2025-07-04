@@ -82,7 +82,9 @@
             "ui": 1,
             "ajax": 0,
             "return_format": "value",
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_64664a38c62a4",
@@ -123,5 +125,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695249151
+    "modified": 1751637447
 }

@@ -20,7 +20,7 @@ import { colWidthToClassName } from "../column";
  * @return {WPElement} Element to render.
  */
 export default function Edit({
-	attributes: { width, defaultContent, restrictContent },
+	attributes: { width, defaultContent, restrictContent, columnContent },
 }) {
 	let ALLOWED_BLOCKS;
 	let TEMPLATE;
@@ -50,6 +50,9 @@ export default function Edit({
 	// Merge into blockProps.className
 	blockProps.className =
 		blockProps.className + " " + colWidthToClassName(width);
+
+	// Add the type
+	blockProps.className += " type-" + columnContent;
 
 	return (
 		<div {...blockProps}>

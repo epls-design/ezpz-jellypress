@@ -24,6 +24,7 @@ $jellypress_includes = array(
   'inc/editor.php',                  // Customise editor
   'inc/acf.php',                     // Functions which hook into ACF to add additional functionality to the site.
   'inc/blocks.php',                  // Set up the blocks used by this theme
+  'inc/widgets.php',                 // Widgets
   'inc/seo.php',                     // SEO filters, hooks and functions for Rank Math SEO Plugin and the theme
   'inc/template-tags.php',           // Custom template tags for this theme.
   'inc/template-functions.php',      // Functions which enhance the theme by hooking into WordPress.

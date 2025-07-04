@@ -92,46 +92,17 @@ class ezpzBlocks {
 	}
 
 	/**
-	 * Filters these blocks into the array of allowed blocks because in the theme we filter to
-	 * only include theme blocks. This will put back in core blocks we want, and those
-	 * registered in this plugin.
+	 * Filters these blocks into the array of allowed blocks.
 	 */
-	function filter_allowed_blocks($block_editor_context, $editor_context) {
+	function filter_allowed_blocks($allowed_block_types, $editor_context) {
 		if (!empty($editor_context->post)) {
-
 			$plugin_blocks = $this->get_plugin_blocks('ezpz/');
-			$additional_blocks =  [
-				"core/heading",
-				"core/paragraph",
-				"core/table",
-				"core/image",
-				"core/list",
-				"core/list-item",
-				"core/quote",
-				"core/audio",
-				"core/pullquote",
-				"core/embed",
-				"core/separator",
-				"core/html",
-				"core/shortcode",
-				"core/code",
-				"core/footnotes",
-				"gravityforms/form",
-				"core/separator",
-				"core/rss",
-				// "core/group", // TODO: Add support for group, but by default its doing row/stack which we dont want
-				"core/block",
-			];
-
-			// Merge $additional_blocks with $plugin_blocks
-			$additional_blocks = array_merge($additional_blocks, $plugin_blocks);
-
 			if (is_array($block_editor_context))
-				$block_editor_context = array_merge($block_editor_context, $additional_blocks);
+				$allowed_block_types = array_merge($allowed_block_types, $plugin_blocks);
 			else
-				$block_editor_context = $additional_blocks;
+				$allowed_block_types = $plugin_blocks;
 		}
-		return $block_editor_context;
+		return $allowed_block_types;
 	}
 
 	/**
@@ -176,6 +147,11 @@ class ezpzBlocks {
 			// Add the classes to the block
 			$block_content = str_replace('<section', '<section class="' . implode(" ", $classes) . '"', $block_content);
 		}
+		// Filter out 'wp-block-ezpz-column' from ezpz/column
+		elseif ($block_name == 'ezpz/column') {
+			$block_content = str_replace('wp-block-ezpz-column ', '', $block_content);
+		}
+
 
 		return $block_content;
 	}

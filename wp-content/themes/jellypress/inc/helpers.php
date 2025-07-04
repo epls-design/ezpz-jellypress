@@ -27,7 +27,6 @@ function jellypress_get_block_attributes($block, $context) {
 
   $excluded_blocks = [
     'ezpz/hero-page',
-    'ezpz/hero-post'
   ];
   if (in_array($block_type, $excluded_blocks)) {
     // Do nothing as it's set in the view.php
@@ -133,26 +132,6 @@ function is_link_external($url) {
 }
 
 /**
- * Loop through ACF repeater in the options page to display
- * the organisation's social media channels in an icon list
- *
- * @return string Formatted HTML list of icons with anchor links
- */
-add_shortcode('jellypress-socials', 'jellypress_display_socials');
-function jellypress_display_socials() {
-  if (have_rows('social_channels', 'option')) :
-    $social_links_formatted = '<ul class="social-channels">';
-    while (have_rows('social_channels', 'option')) : the_row();
-      $socialnetwork = get_sub_field('network');
-      $socialUrl = get_sub_field('url');
-      $social_links_formatted .= '<li class="social-icon"><a href="' . $socialUrl . '" rel="noopener" title="' . __('Visit us on ', 'jellypress') . ucfirst($socialnetwork) . ' ">' . jellypress_icon($socialnetwork) . '</a></li>';
-    endwhile;
-    $social_links_formatted .= '</ul>';
-    return $social_links_formatted;
-  endif;
-}
-
-/**
  * Displays the page URL that was requested, for use on a 404 page
  */
 add_shortcode('requested-page', function () {
@@ -161,3 +140,135 @@ add_shortcode('requested-page', function () {
   }
   return '';
 });
+
+
+/**
+ * Consumes a social channel URL and returns the channel name and icon
+ *
+ * @param string $url URL of the social channel
+ * @return array Array containing the URL, icon, and channel name
+ */
+function jellypress_get_social_channel($url) {
+  $url = strtolower(trim($url));
+  $icon = '';
+  $channel_name = '';
+
+  // Extract domain from URL
+  $domain = '';
+  if (preg_match('/^(?:https?:\/\/)?(?:www\.)?([^\/]+)/', $url, $matches)) {
+    $domain = $matches[1];
+  }
+
+  switch (true) {
+    case strpos($domain, 'facebook.com') !== false:
+      $icon = 'facebook';
+      $channel_name = 'Facebook';
+      break;
+
+    case strpos($domain, 'twitter.com') !== false || strpos($domain, 'x.com') !== false:
+      $icon = 'x';
+      $channel_name = 'Twitter/X';
+      break;
+
+    case strpos($domain, 'instagram.com') !== false:
+      $icon = 'instagram';
+      $channel_name = 'Instagram';
+      break;
+
+    case strpos($domain, 'linkedin.com') !== false:
+      $icon = 'linkedin';
+      $channel_name = 'LinkedIn';
+      break;
+
+    case strpos($domain, 'youtube.com') !== false || strpos($domain, 'youtu.be') !== false:
+      $icon = 'youtube';
+      $channel_name = 'YouTube';
+      break;
+
+    case strpos($domain, 'pinterest.com') !== false:
+      $icon = 'pinterest';
+      $channel_name = 'Pinterest';
+      break;
+
+    case strpos($domain, 'tiktok.com') !== false:
+      $icon = 'tiktok';
+      $channel_name = 'TikTok';
+      break;
+
+    case strpos($domain, 'snapchat.com') !== false:
+      $icon = 'snapchat';
+      $channel_name = 'Snapchat';
+      break;
+
+    case strpos($domain, 'reddit.com') !== false:
+      $icon = 'reddit';
+      $channel_name = 'Reddit';
+      break;
+
+    case strpos($domain, 'tumblr.com') !== false:
+      $icon = 'tumblr';
+      $channel_name = 'Tumblr';
+      break;
+
+    case strpos($domain, 'whatsapp.com') !== false:
+      $icon = 'whatsapp';
+      $channel_name = 'WhatsApp';
+      break;
+
+    case strpos($domain, 'telegram.org') !== false || strpos($domain, 't.me') !== false:
+      $icon = 'telegram';
+      $channel_name = 'Telegram';
+      break;
+
+    case strpos($domain, 'threads.net') !== false:
+      $icon = 'threads';
+      $channel_name = 'Threads';
+      break;
+
+    case strpos($domain, 'discord.com') !== false || strpos($domain, 'discord.gg') !== false:
+      $icon = 'discord';
+      $channel_name = 'Discord';
+      break;
+
+    case strpos($domain, 'medium.com') !== false:
+      $icon = 'medium';
+      $channel_name = 'Medium';
+      break;
+
+    case strpos($domain, 'vimeo.com') !== false:
+      $icon = 'vimeo';
+      $channel_name = 'Vimeo';
+      break;
+
+    case strpos($domain, 'flickr.com') !== false:
+      $icon = 'flickr';
+      $channel_name = 'Flickr';
+      break;
+
+    case strpos($domain, 'twitch.tv') !== false:
+      $icon = 'twitch';
+      $channel_name = 'Twitch';
+      break;
+
+    case strpos($domain, 'github.com') !== false:
+      $icon = 'github';
+      $channel_name = 'GitHub';
+      break;
+
+    case strpos($domain, 'mastodon') !== false:
+      $icon = 'mastodon';
+      $channel_name = 'Mastodon';
+      break;
+
+    default:
+      $icon = 'website';
+      $channel_name = 'Website';
+      break;
+  }
+
+  return [
+    'url' => $url,
+    'icon' => $icon,
+    'name' => $channel_name,
+  ];
+}

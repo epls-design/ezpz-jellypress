@@ -3,6 +3,10 @@
  */
 import { __ } from "@wordpress/i18n";
 import { InnerBlocks, useBlockProps } from "@wordpress/block-editor";
+import blockMetadata from "./block.json";
+
+const ALLOWED_BLOCKS_EZPZCONTENTRESTRICTED =
+	blockMetadata.allowedInnerBlocks || ["core/heading", "core/paragraph"];
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -12,20 +16,7 @@ import { InnerBlocks, useBlockProps } from "@wordpress/block-editor";
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
-	const ALLOWED_BLOCKS = [
-		"core/heading",
-		"core/paragraph",
-		"core/list",
-		// "core/list-item",
-		"ezpz/buttons",
-		"core/quote",
-		"core/pullquote",
-		"core/shortcode",
-		"core/code",
-		"gravityforms/form",
-		"core/separator",
-	];
+function Edit() {
 	const TEMPLATE = [
 		[
 			"core/heading",
@@ -43,10 +34,14 @@ export default function Edit() {
 	return (
 		<div {...blockProps}>
 			<InnerBlocks
-				allowedBlocks={ALLOWED_BLOCKS}
+				allowedBlocks={ALLOWED_BLOCKS_EZPZCONTENTRESTRICTED}
 				template={TEMPLATE}
 				templateLock={false}
 			/>
 		</div>
 	);
 }
+
+Edit.allowedBlocks = ALLOWED_BLOCKS_EZPZCONTENTRESTRICTED;
+
+export default Edit;

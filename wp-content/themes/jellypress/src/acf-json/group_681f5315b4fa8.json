@@ -1,0 +1,53 @@
+{
+    "key": "group_681f5315b4fa8",
+    "title": "Widget > All",
+    "fields": [
+        {
+            "key": "field_681f59b314c28",
+            "label": "Widget Title",
+            "name": "widget_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 80,
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "ezpz/menu"
+            }
+        ],
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "ezpz/socials"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1746892145
+}

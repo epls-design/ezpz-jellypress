@@ -17,6 +17,8 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
+// FIXME: this is no longer working
+
 // Extract block attributes from the arguments.
 $atts = $args['block']['attrs'];
 

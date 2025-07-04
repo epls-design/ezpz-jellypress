@@ -113,19 +113,3 @@ if (function_exists('acf_add_options_page')) {
     )
   );
 }
-
-/**
- * Register widget areas
- */
-add_action('widgets_init', 'jellypress_widgets_init');
-function jellypress_widgets_init() {
-  register_sidebar(array(
-    'name'          => esc_html__('Sidebar', 'jellypress'),
-    'id'            => 'default-sidebar',
-    'description'   => esc_html__('Add your widgets here.', 'jellypress'),
-    'before_widget' => '<section id="%1$s" class="widget %2$s">',
-    'after_widget'  => '</section>',
-    'before_title'  => '<h4 class="widget-title">',
-    'after_title'   => '</h4>',
-  ));
-}

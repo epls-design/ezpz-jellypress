@@ -1,0 +1,12 @@
+.widget-menu {
+  ul {
+    list-style: none;
+    margin-left: 0;
+  }
+  a {
+    text-decoration: none;
+  }
+  li + li {
+    margin-top: get-size(0.75);
+  }
+}

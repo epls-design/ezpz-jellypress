@@ -24,6 +24,7 @@ const variations = [
 				{
 					width: "40%",
 					defaultContent: [["core/embed"]],
+					columnContent: "media",
 				},
 			],
 			[
@@ -31,6 +32,7 @@ const variations = [
 				{
 					width: "50%",
 					restrictContent: true,
+					columnContent: "text",
 				},
 			],
 		],
@@ -47,6 +49,7 @@ const variations = [
 				{
 					width: "40%",
 					defaultContent: [["core/image"]],
+					columnContent: "media",
 				},
 			],
 			[
@@ -54,6 +57,7 @@ const variations = [
 				{
 					width: "50%",
 					restrictContent: true,
+					columnContent: "text",
 				},
 			],
 		],

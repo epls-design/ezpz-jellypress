@@ -229,10 +229,15 @@
         }
       },
       "core/image": {
+        "color": {
+          "duotone": [],
+          "customDuotone": false,
+          "defaultDuotone": false
+        },
         "align": false,
         "lightbox": {
           "allowEditing": true,
-          "enabled": false
+          "enabled": true
         }
       },
       "core/separator": {

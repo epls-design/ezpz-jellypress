@@ -27,6 +27,9 @@ const Save = (props) => {
 	// Append the width class to the blockProps
 	blockProps.className += " " + colWidthToClassName(columnWidth);
 
+	// Add the type
+	blockProps.className += " type-" + props.attributes.columnContent;
+
 	return (
 		<div {...blockProps}>
 			<InnerBlocks.Content />

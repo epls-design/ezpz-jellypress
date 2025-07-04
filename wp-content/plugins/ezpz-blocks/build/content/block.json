@@ -23,6 +23,23 @@
   "providesContext": {
     "allowResize": "allowResize"
   },
+  "allowedInnerBlocks": [
+    "core/heading",
+    "core/paragraph",
+    "core/table",
+    "core/list",
+    "core/image",
+    "core/quote",
+    "core/audio",
+    "core/pullquote",
+    "core/embed",
+    "core/separator",
+    "core/html",
+    "core/shortcode",
+    "core/code",
+    "gravityforms/form",
+    "core/separator"
+  ],
   "textdomain": "ezpz-content",
   "editorScript": "file:./index.js"
 }

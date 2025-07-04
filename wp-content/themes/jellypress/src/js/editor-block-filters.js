@@ -6,8 +6,25 @@ const { InspectorControls } = wp.blockEditor;
 const { PanelBody } = wp.components;
 const { __ } = wp.i18n;
 const { RadioControl } = wp.components;
-const { unregisterBlockStyle } = wp.blocks;
+const { unregisterBlockStyle, getBlockType } = wp.blocks;
 const { unregisterFormatType } = wp.richText;
+
+// Helper to get allowed blocks for a block name
+function ezpzGetAllowedBlocks(blockName) {
+  const block = getBlockType(blockName);
+  if (!block || !block.edit) return [];
+  try {
+    return block.edit.allowedBlocks || [];
+  } catch (e) {
+    return [];
+  }
+}
+
+// Combine allowed blocks from both content blocks
+const allowedInContent = ezpzGetAllowedBlocks("ezpz/content");
+const allowedInContentPreamble = ezpzGetAllowedBlocks(
+  "ezpz/content-restricted"
+);
 
 /**
  * Adds custom Aspect Ratio attribute to core/embed block
@@ -120,14 +137,7 @@ addFilter(
       "core/image",
     ];
     if (removeFrom.includes(name)) {
-      if (name == "core/image") {
-        return lodash.assign({}, settings, {
-          supports: lodash.assign({}, settings.supports, {
-            align: false,
-            filter: false, // NOTE: HAVE TO TURN IT OFF HERE because theme.json doesn't work
-          }),
-        });
-      }
+      // Remove all supports
       return lodash.assign({}, settings, {
         supports: lodash.assign({}, settings.supports, {
           align: false,
@@ -173,29 +183,67 @@ window.wp.domReady(function () {
  */
 
 function ezpzFilterBlockParents(settings, name) {
-  let childBlocks = [
-    "core/heading",
-    "core/table",
-    "core/list",
-    "core/image",
-    "core/quote",
-    "core/audio",
-    "core/pullquote",
-    "core/embed",
-    "core/separator",
-    "core/html",
-    "core/shortcode",
-    "core/code",
-    "gravityforms/form",
-  ];
+  // Widget editor screen
+  if (window.pagenow === "widgets") {
+    let childBlocks = [
+      "core/heading",
+      "core/list",
+      "core/image",
+      "core/paragraph",
+    ];
 
-  // Bail if not in array of child blocks
-  if (!childBlocks.includes(name)) return settings;
+    // Bail if not in array of child blocks
+    if (!childBlocks.includes(name)) return settings;
 
-  // Return the block with a forced parent block, and the updated supports
-  return lodash.assign({}, settings, {
-    parent: ["ezpz/content"],
-  });
+    // Return the block with a forced parent block, and the updated supports
+    return lodash.assign({}, settings, {
+      parent: ["ezpz/widget-content"],
+    });
+  }
+
+  // If we're on the post editor screen and the parent is one of our wrapper blocks, remove it - this allows us to
+  // use the block in the post editor without it being wrapped in a ezpz/content or ezpz/content-restricted block
+  if (window.pagenow == "post") {
+    if (
+      settings.parent &&
+      (settings.parent.includes("ezpz/content") ||
+        settings.parent.includes("ezpz/content-restricted"))
+    ) {
+      return lodash.assign({}, settings, {
+        parent: undefined,
+      });
+    }
+    // Otherwise, return settings unchanged
+    return settings;
+  }
+
+  // If it's core/paragraph, return - this is so we can use paragraph to add new blocks
+  if (name === "core/paragraph") {
+    return settings;
+  }
+
+  let blockParents = settings.parent || [];
+
+  // If the name is in the allowedInContent array, it can be used in ezpz/content
+  if (allowedInContent.includes(name)) {
+    if (!blockParents.includes("ezpz/content")) {
+      blockParents.push("ezpz/content");
+    }
+  }
+  if (allowedInContentPreamble.includes(name)) {
+    if (!blockParents.includes("ezpz/content-restricted")) {
+      blockParents.push("ezpz/content-restricted");
+    }
+  }
+
+  // If no parents are set, return the settings unchanged
+  if (blockParents.length === 0) {
+    return settings;
+  }
+  // Otherwise, assign the parents to the settings and return
+  settings.parent = blockParents;
+
+  return lodash.assign({}, settings, {});
 }
 
 wp.hooks.addFilter(

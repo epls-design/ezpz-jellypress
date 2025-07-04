@@ -252,7 +252,7 @@ function jellypress_numeric_pagination($show_total = false, $range = 4, $query =
 
       // On the first page, don't put the First page link
       if ($paged != 1)
-        echo '<li class="nav-first"><a href="' . get_pagenum_link(1) . '" title="' . __('First Page', 'jellypress') . '">' . jellypress_icon('caret-left') . ' </a></li>';
+        echo '<li class="nav-first"><a href="' . get_pagenum_link(1) . '" title="' . __('First Page', 'jellypress') . '">' . jellypress_icon('chevron-left') . ' </a></li>';
 
       // To the previous page
       //echo '<li class="nav-next">';
@@ -289,7 +289,7 @@ function jellypress_numeric_pagination($show_total = false, $range = 4, $query =
       //echo '</li>';
 
       // On the last page, don't put the Last page link
-      if ($paged != $max_page) echo '<li class="nav-last"><a href="' . get_pagenum_link($max_page) . '" title="' . __('Last Page', 'jellypress') . '"> ' . jellypress_icon('caret-right') . '</a></li>';
+      if ($paged != $max_page) echo '<li class="nav-last"><a href="' . get_pagenum_link($max_page) . '" title="' . __('Last Page', 'jellypress') . '"> ' . jellypress_icon('chevron-right') . '</a></li>';
     } else {
       // Less pages than the range, no sliding effect needed
       for ($i = 1; $i <= $max_page; $i++) {

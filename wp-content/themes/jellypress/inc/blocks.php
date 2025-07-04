@@ -108,38 +108,66 @@ add_filter('acf/settings/load_json', 'jellypress_load_acf_block_fields');
 /**
  * Specify which blocks are exposed to Gutenberg Editor
  */
-add_filter('allowed_block_types_all', 'jellypress_allowed_blocks', 10, 2);
-function jellypress_allowed_blocks($block_editor_context, $editor_context) {
+add_filter('allowed_block_types_all', 'jellypress_allowed_blocks', 99, 2);
+function jellypress_allowed_blocks($allowed_block_types, $editor_context) {
   if (!empty($editor_context->post)) {
     $blocks = jellypress_get_blocks();
 
-    $allowed_blocks = [];
+    $post_type = $editor_context->post->post_type;
 
+    $theme_blocks = [
+      "core/heading",
+      "core/paragraph",
+      "core/table",
+      "core/image",
+      "core/list",
+      "core/list-item",
+      "core/quote",
+      "core/audio",
+      "core/pullquote",
+      "core/embed",
+      "core/separator",
+      "core/html",
+      "core/shortcode",
+      "core/code",
+      "core/footnotes",
+      "gravityforms/form",
+      "core/separator",
+      // "core/rss",
+      // "core/group", // TODO: Add support for group, but by default its doing row/stack which we dont want
+      "core/block",
+    ];
+
+
+    if ($post_type == 'post') {
+      $disallowed_block_types = [
+        "core/block",
+        "ezpz/section",
+        "ezpz/columns",
+        "ezpz/text-media"
+      ];
+      $theme_blocks = array_diff($theme_blocks, $disallowed_block_types);
+
+      // This way no other blocks will get merged into posts
+      return $theme_blocks;
+    }
+
+    // Get blocks from the theme
     foreach ($blocks as $block) {
-
       $directory = get_template_directory() . '/template-parts/blocks/' . $block;
-
       // Only proceed if directory is type 'dir'
       if (is_dir($directory)) {
-        $allowed_blocks[] = 'ezpz/' . $block;
+        $theme_blocks[] = 'ezpz/' . $block;
       }
     }
 
-    // Add a filter to allow plugins to add their own allowed blocks
-    $allowed_blocks = apply_filters('ezpz_allowed_blocks', $allowed_blocks);
-
-    /**
-     * You can use the filter to add blocks, eg. from a plugin. Like this:
-     * add_filter('ezpz_allowed_blocks', function($allowed_blocks) {
-     *  $allowed_blocks[] = 'core/image';
-     * return $allowed_blocks;
-     * });
-     */
-
-    return $allowed_blocks;
+    if (is_array($allowed_block_types))
+      $allowed_block_types = array_merge($allowed_block_types, $theme_blocks);
+    else
+      $allowed_block_types = $theme_blocks;
   }
 
-  return $block_editor_context;
+  return $allowed_block_types;
 }
 
 /**
@@ -193,13 +221,7 @@ function jellypress_block_templates() {
 
   $post_type_object = get_post_type_object('post');
   $post_type_object->template = array(
-    array('ezpz/hero-post', array(
-      'lock' => array(
-        'move'   => true,
-        'remove' => true,
-      ),
-    )),
-    array('ezpz/section', array()),
+    array('core/paragraph', array()),
   );
 }
 add_action('init', 'jellypress_block_templates', 20);

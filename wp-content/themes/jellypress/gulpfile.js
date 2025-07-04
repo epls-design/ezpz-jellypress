@@ -246,48 +246,62 @@ function compileGutenberg(done) {
 
 function moveBlockJson(done) {
   /** Get All files within the acf-json folder
-   * Loop through each file, and look for the property location.value
-   * If location.param == 'block' then search in value for the text after the character '/'
-   * Save this value as a variable and then check if a folder exists in template-parts/blocks
-   * with the same name. If it does, move the file to that folder.
+   * Loop through each file, and look for the title property
+   * If title includes 'Block >' then move to blocksFolder
+   * If title includes 'Widget >' then move to widgetsFolder
+   * Otherwise, leave the file as is
    */
   // Get all files in acf-json
   files = fs.readdirSync(opts.src_dir + "/acf-json");
   let blocksFolder = "template-parts/blocks";
+  let widgetsFolder = "template-parts/widgets";
 
   files.forEach(function (stream, file) {
     // Get the absolute path to the acf json file
     // Get relative path to the acf json file
     file = opts.src_dir + "/acf-json/" + stream;
+
     if (stream != ".DS_Store") {
       // Convert the file into a json object
       var jsonContent = JSON.parse(fs.readFileSync(file));
-
-      // If jsonContent.title contains 'Blocks > ' then we know it's a block
+      // Get the title from the JSON content
       let acfTitle = jsonContent.title;
+      let folderName;
+      let targetFolder;
 
-      let blockName;
-
+      // Check if it's a Block
       if (acfTitle.includes("Block > ")) {
-        blockName = acfTitle.split("Block > ")[1];
+        folderName = acfTitle.split("Block > ")[1];
+        targetFolder = blocksFolder;
       } else if (acfTitle.includes("Block &gt; ")) {
-        blockName = acfTitle.split("Block &gt; ")[1];
+        folderName = acfTitle.split("Block &gt; ")[1];
+        targetFolder = blocksFolder;
+      }
+      // Check if it's a Widget
+      else if (acfTitle.includes("Widget > ")) {
+        folderName = acfTitle.split("Widget > ")[1];
+        targetFolder = widgetsFolder;
+      } else if (acfTitle.includes("Widget &gt; ")) {
+        folderName = acfTitle.split("Widget &gt; ")[1];
+        targetFolder = widgetsFolder;
       }
 
-      if (blockName) {
-        // Remove 'and' from the block name
-        blockName = blockName.replace("and", "");
+      // If we found a valid folder name and target folder
+      if (folderName && targetFolder) {
+        // Remove 'and' from the name
+        folderName = folderName.replace("and", "");
         // Replace whitespace with hyphens and make lowercase
-        blockName = blockName.replace(/\s+/g, "-").toLowerCase();
-        // Check if the block folder exists
-        if (fs.existsSync(blocksFolder + "/" + blockName)) {
-          // Move the file to the block folder
-          fs.renameSync(file, blocksFolder + "/" + blockName + "/" + stream);
+        folderName = folderName.replace(/\s+/g, "-").toLowerCase();
+        // Check if the folder exists
+        if (fs.existsSync(targetFolder + "/" + folderName)) {
+          // Move the file to the appropriate folder
+          fs.renameSync(file, targetFolder + "/" + folderName + "/" + stream);
         }
       }
     }
-    done();
   });
+
+  done();
 }
 
 // Tasks which process the core javascript files

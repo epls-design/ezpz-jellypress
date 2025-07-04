@@ -3,90 +3,6 @@
     "title": "Website Options",
     "fields": [
         {
-            "key": "field_606724c23052e",
-            "label": "Social Media Channels",
-            "name": "social_channels",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "Add all of the social media channels you are on here. These can be displayed by your developers within the theme.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "Add Channel",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_606724c2bd5cb",
-                    "label": "Network",
-                    "name": "network",
-                    "aria-label": "",
-                    "type": "select",
-                    "instructions": "Please select the network",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "40",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "facebook": "Facebook",
-                        "instagram": "Instagram",
-                        "linkedin": "Linkedin",
-                        "pinterest": "Pinterest",
-                        "twitter": "Twitter",
-                        "snapchat": "Snapchat",
-                        "vimeo": "Vimeo",
-                        "youtube": "YouTube",
-                        "whatsapp": "WhatsApp",
-                        "microsoftteams": "MS Teams",
-                        "wikipedia": "Wikipedia",
-                        "skype": "Skype",
-                        "zoom": "Zoom",
-                        "github": "Github",
-                        "threads": "Threads"
-                    },
-                    "default_value": false,
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "ui": 1,
-                    "ajax": 0,
-                    "return_format": "value",
-                    "placeholder": "",
-                    "parent_repeater": "field_606724c23052e"
-                },
-                {
-                    "key": "field_606724c2bd5d4",
-                    "label": "URL",
-                    "name": "url",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Please add the <b>full URL<\/b> for your profile on this social channel.",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "60",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "parent_repeater": "field_606724c23052e"
-                }
-            ]
-        },
-        {
             "key": "field_66a7b2190b676",
             "label": "404 page",
             "name": "404_page",
@@ -130,5 +46,5 @@
     "active": true,
     "description": "Available options to enhance your website theme.",
     "show_in_rest": 0,
-    "modified": 1722266242
+    "modified": 1750961832
 }

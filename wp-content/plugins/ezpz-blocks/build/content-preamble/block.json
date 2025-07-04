@@ -20,6 +20,18 @@
   "providesContext": {
     "allowResize": "allowResize"
   },
+  "allowedInnerBlocks": [
+    "core/heading",
+    "core/paragraph",
+    "core/list",
+    "ezpz/buttons",
+    "core/quote",
+    "core/pullquote",
+    "core/shortcode",
+    "core/code",
+    "gravityforms/form",
+    "core/separator"
+  ],
   "textdomain": "ezpz-content-restricted",
   "editorScript": "file:./index.js"
 }

@@ -31,6 +31,10 @@
     "restrictContent": {
       "type": "boolean",
       "default": false
+    },
+    "columnContent": {
+      "type": "string",
+      "default": "text"
     }
   },
   "textdomain": "ezpz-column",

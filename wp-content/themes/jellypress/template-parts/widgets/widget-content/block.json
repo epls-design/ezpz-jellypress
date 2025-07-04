@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "ezpz/widget-content",
+  "title": "Content",
+  "category": "text",
+  "icon": "<svg xmlns=\"https://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M4 6h12V4.5H4V6Zm16 4.5H4V9h16v1.5ZM4 15h16v-1.5H4V15Zm0 4.5h16V18H4v1.5Z\"></path></svg>",
+  "description": "Allows for the addition of a content widget which can contain text and images.",
+  "keywords": ["content", "widget", "text"],
+  "version": "1.0.0",
+  "textdomain": "jellypress",
+  "supports": {
+    "align": false,
+    "alignContent": false,
+    "alignText": false,
+    "anchor": false,
+    "color": {
+      "background": false,
+      "gradients": false,
+      "link": false,
+      "text": false
+    },
+    "customClassName": true,
+    "html": false
+  },
+  "styles": [],
+  "example": {
+    "attributes": {
+      "mode": "preview",
+      "data": {
+        "previewImage": "preview.png"
+      }
+    }
+  },
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "view.php",
+    "postTypes": []
+  }
+}

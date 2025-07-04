@@ -1,0 +1,29 @@
+.social-channels {
+  margin-left: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  li {
+    display: inline-block;
+  }
+  li + li {
+    margin-top: 0;
+  }
+  .icon {
+    margin-right: $inline-icon-margin;
+    width: 1.4em;
+    height: 1.4em;
+    @include smooth(color, transform);
+  }
+
+  a {
+    color: inherit;
+  }
+  a:hover,
+  a:focus,
+  a:active {
+    .icon {
+      transform: scale(1.05);
+    }
+  }
+}

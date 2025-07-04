@@ -1,0 +1,52 @@
+{
+  "key": "group_681f595e86a12",
+  "title": "Widget > Menu",
+  "fields": [
+    {
+      "key": "field_681f595eacbd0",
+      "label": "Navigation Menus",
+      "name": "navigation_menus",
+      "aria-label": "",
+      "type": "select",
+      "instructions": "",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "menu-primary": "Primary",
+        "footer-menu": "Footer Menu"
+      },
+      "default_value": false,
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 1,
+      "allow_in_bindings": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "ezpz/menu"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1746886808
+}

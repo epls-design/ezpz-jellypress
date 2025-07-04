@@ -1,0 +1,23 @@
+header + .cards {
+  margin-top: max(
+    min(calc(var(--block-padding) - $element-margin), get-size(3)),
+    get-size(2)
+  );
+}
+
+.block-cards {
+  .card {
+    --card-padding-x: 0px;
+  }
+}
+
+.animation {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+
+  .card & {
+    width: 240px;
+    margin: 0 auto;
+  }
+}
