@@ -148,3 +148,30 @@ add_action('admin_head', 'jellypress_add_favicon_to_admin');
 function jellypress_add_favicon_to_admin() {
   if (file_exists(ABSPATH . '/favicon.ico')) echo '<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">';
 }
+
+/**
+ * Register and enqueue custom JS for core blocks
+ *
+ * @return void
+ */
+add_action('init', 'jellypress_register_block_assets');
+function jellypress_register_block_assets() {
+  // Register the script
+  wp_register_script(
+    'prismjs',
+    get_template_directory_uri() . '/lib/prism.js',
+    array('jquery'),
+    filemtime(get_template_directory() . '/lib/prism.js'),
+    true
+  );
+}
+add_filter('render_block', 'jellypress_enqueue_on_block_render', 10, 2);
+
+function jellypress_enqueue_on_block_render($block_content, $block) {
+  // Check if it's the block you want to target
+  if ($block['blockName'] === 'core/code') {
+    wp_enqueue_script('prismjs');
+  }
+
+  return $block_content;
+}

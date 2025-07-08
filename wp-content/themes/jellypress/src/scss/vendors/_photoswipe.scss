@@ -33,7 +33,7 @@
       height: $size - $padding * 2;
       top: $padding;
       right: $padding;
-      mask: url($assets_folder + "icons/zoom-in.svg") no-repeat 50% 50%;
+      mask: url($assets_folder + "icons/maximise.svg") no-repeat 50% 50%;
       mask-size: cover;
       background: v(color-white);
     }
@@ -46,10 +46,38 @@
   }
 }
 
-.pswp__button {
+.pswp__icn {
+}
+
+.pswp__top-bar {
+  padding: get-size(0.5);
+}
+
+button.pswp__button {
   padding: 0 !important;
-  background: none !important;
+  background: transparent !important;
   border: none !important;
+  margin: 0 !important;
+  position: relative;
+  &:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    mask: url($assets_folder + "icons/close.svg") no-repeat 50% 50%;
+    background: $color-white;
+    top: 0;
+  }
+  width: 1.75rem;
+  height: 1.75rem;
+  filter: drop-shadow(0 0 0.25rem rgba(0, 0, 0, 0.5));
+  &.pswp__button--zoom:before {
+    mask-image: url($assets_folder + "icons/zoom-in.svg");
+    .pswp--zoomed-in & {
+      mask-image: url($assets_folder + "icons/zoom-out.svg");
+    }
+  }
 }
 
 .pswp__img {

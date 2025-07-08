@@ -26,6 +26,8 @@ if (galleries.length > 0) {
       pswpModule: PhotoSwipe,
       bgOpacity: 0.9,
       wheelToZoom: true,
+      closeSVG: "",
+      zoomSVG: "",
     }).init();
   });
 }

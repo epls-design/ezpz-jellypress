@@ -279,6 +279,17 @@ function jellypress_filter_block_core_footnotes($block_content,  $block) {
   return ob_get_clean();
 }
 
+add_filter('render_block_core/code', 'jellypress_filter_block_core_code', 20, 2);
+function jellypress_filter_block_core_code($block_content,  $block) {
+  ob_start();
+  $args = [
+    'block' => $block,
+    'block_content' => $block_content,
+  ];
+  get_template_part('template-parts/blocks/core/code', null, $args);
+  return ob_get_clean();
+}
+
 add_filter('render_block_core/embed', 'jellypress_filter_block_core_embed', 20, 2);
 function jellypress_filter_block_core_embed($block_content,  $block) {
   $attrs = $block['attrs'];

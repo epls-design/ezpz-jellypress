@@ -3,9 +3,8 @@ const { addFilter } = wp.hooks;
 const { createHigherOrderComponent } = wp.compose;
 const { Fragment } = wp.element;
 const { InspectorControls } = wp.blockEditor;
-const { PanelBody } = wp.components;
+const { PanelBody, SelectControl, RadioControl } = wp.components;
 const { __ } = wp.i18n;
-const { RadioControl } = wp.components;
 const { unregisterBlockStyle, getBlockType } = wp.blocks;
 const { unregisterFormatType } = wp.richText;
 
@@ -27,9 +26,9 @@ const allowedInContentPreamble = ezpzGetAllowedBlocks(
 );
 
 /**
- * Adds custom Aspect Ratio attribute to core/embed block
+ * Adds custom Aspect Ratio attributes to core blocks
  */
-function ezpzAddAttributesCoreEmbed(settings, name) {
+function ezpzAddAttributesCoreBlocks(settings, name) {
   if (name === "core/embed") {
     return lodash.assign({}, settings, {
       attributes: lodash.merge(settings.attributes, {
@@ -39,34 +38,39 @@ function ezpzAddAttributesCoreEmbed(settings, name) {
         },
       }),
     });
+  } else if (name === "core/code") {
+    return lodash.assign({}, settings, {
+      attributes: lodash.merge(settings.attributes, {
+        codeLanguage: {
+          type: "string",
+          default: "plaintext",
+        },
+      }),
+    });
   }
   return settings;
 }
 
 addFilter(
   "blocks.registerBlockType",
-  "ezpz/core/embed/attributes",
-  ezpzAddAttributesCoreEmbed
+  "ezpz/core/attributes",
+  ezpzAddAttributesCoreBlocks
 );
 
 /**
- * Adds settings panel for custom attribute AspectRatio on core/embed block
+ * Adds settings panel for custom attributes to core blocks
  * @see https://css-tricks.com/a-crash-course-in-wordpress-block-filters/
  * @see https://developer.wordpress.org/block-editor/developers/filters/block-filters/#using-filters
  */
-const ezpzAddInspectorControlCoreEmbed = createHigherOrderComponent(
-  (BlockEdit) => {
-    return (props) => {
-      const {
-        attributes: { aspectRatio },
-        setAttributes,
-        name,
-      } = props;
+const ezpzAddInspectorControlsCore = createHigherOrderComponent((BlockEdit) => {
+  return (props) => {
+    const {
+      attributes: { aspectRatio, codeLanguage },
+      setAttributes,
+      name,
+    } = props;
 
-      if (name !== "core/embed") {
-        return <BlockEdit {...props} />;
-      }
-
+    if (name === "core/embed") {
       return (
         <Fragment>
           <BlockEdit {...props} />
@@ -108,15 +112,44 @@ const ezpzAddInspectorControlCoreEmbed = createHigherOrderComponent(
           </InspectorControls>
         </Fragment>
       );
-    };
-  },
-  "ezpzAddInspectorControlCoreEmbed"
-);
+    } else if (name === "core/code") {
+      return (
+        <Fragment>
+          <BlockEdit {...props} />
+          <InspectorControls>
+            <PanelBody title={__("Language", "jellypress")} initialOpen={true}>
+              <SelectControl
+                label="Language"
+                value={codeLanguage}
+                options={[
+                  { label: "Plain Text", value: "plain" },
+                  { label: "HTML", value: "html" },
+                  { label: "PHP", value: "php" },
+                  { label: "JavaScript", value: "javascript" },
+                  { label: "SCSS", value: "scss" },
+                  { label: "JSON", value: "json" },
+                  { label: "Markup", value: "markup" },
+                  { label: "AppleScript", value: "applescript" },
+                ]}
+                onChange={(value) =>
+                  props.setAttributes({ codeLanguage: value })
+                }
+                help="Choose the language for syntax highlighting."
+              />
+            </PanelBody>
+          </InspectorControls>
+        </Fragment>
+      );
+    }
+
+    return <BlockEdit {...props} />;
+  };
+}, "ezpzAddInspectorControlsCore");
 
 addFilter(
   "editor.BlockEdit",
   "ezpz/core/embed/inspector-controls",
-  ezpzAddInspectorControlCoreEmbed
+  ezpzAddInspectorControlsCore
 );
 
 /**

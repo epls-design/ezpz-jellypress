@@ -17,13 +17,13 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
-// FIXME: this is no longer working
-
 // Extract block attributes from the arguments.
 $atts = $args['block']['attrs'];
 
-// Check if lightbox is enabled and link destination is set to 'none'. If so, enable zoom.
-if (isset($atts['lightbox']['enabled']) && $atts['lightbox']['enabled'] && $atts['linkDestination'] == 'none') {
+$lightbox_settings = block_core_image_get_lightbox_settings($args['block']);
+$has_lightbox = isset($lightbox_settings['enabled']) && $lightbox_settings['enabled'];
+
+if ($has_lightbox) {
   $zoom = true;
   // Get the full-size image URL.
   $image_size_full = wp_get_attachment_image_src($atts['id'], 'full');
@@ -79,6 +79,7 @@ $xpath = new DOMXPath($dom);
 
 // Remove all <button> elements from the DOM -> this was added by WP for the lightbox.
 $buttons = $xpath->query('//button');
+
 foreach ($buttons as $button) {
   $button->parentNode->removeChild($button);
 }
