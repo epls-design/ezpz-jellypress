@@ -12,24 +12,25 @@ defined('ABSPATH') || exit;
  * Adds ACF options pages
  */
 if (function_exists('acf_add_options_page')) {
-
-  // If Options Page doesnt exist, create it...
-  $pages = acf_get_options_pages();
-  if (!key_exists('theme-options', $pages)) {
-    acf_add_options_page(
-      array(
-        'page_title'   => __('Theme Options', 'jellypress'),
-        'menu_title'  => __('Theme Options', 'jellypress'),
-        'menu_slug'   => 'theme-options',
-        'capability'  => 'edit_posts',
-        //'redirect'    => true,
-        'icon_url' => 'dashicons-info',
-        'position' => 90,
-        'autoload' => true, // Speeds up load times
-        'updated_message' => __("Successfully updated Theme options", 'jellypress'),
-      )
-    );
-  }
+  add_action('init', function () {
+    // If Options Page doesnt exist, create it...
+    $pages = acf_get_options_pages();
+    if (!key_exists('theme-options', $pages)) {
+      acf_add_options_page(
+        array(
+          'page_title'   => __('Theme Options', 'jellypress'),
+          'menu_title'  => __('Theme Options', 'jellypress'),
+          'menu_slug'   => 'theme-options',
+          'capability'  => 'edit_posts',
+          //'redirect'    => true,
+          'icon_url' => 'dashicons-info',
+          'position' => 90,
+          'autoload' => true, // Speeds up load times
+          'updated_message' => __("Successfully updated Theme options", 'jellypress'),
+        )
+      );
+    }
+  });
 }
 
 add_action('acf/include_fields', function () {
