@@ -1,61 +1,103 @@
 let ezpzVideoWrapper; // Temporary variable to store the video wrapper that was clicked
 
 /**
- * Function to play Vimeo video
+ * Platform-specific configuration
  */
-function ezpzPlayVimeo() {
-  event.target.play();
-  //vimeoPlayer.play();
+const PLATFORM_CONFIG = {
+  vimeo: {
+    cookieName: "embeddedVimeoConsent",
+    className: "platform-vimeo",
+  },
+  youtube: {
+    cookieName: "embeddedYoutubeConsent",
+    className: "platform-youtube",
+  },
+};
+
+/**
+ * Set a cookie with 1 year expiration
+ */
+function setConsentCookie(cookieName) {
+  const date = new Date();
+  date.setTime(date.getTime() + 365 * 24 * 60 * 60 * 1000);
+  document.cookie = `${cookieName}=true; expires=${date.toUTCString()}; path=/`;
 }
 
+/**
+ * Handle GDPR consent for embedded videos
+ */
+function handleConsent(platform) {
+  // Check if Complianz GDPR plugin is available
+  if (typeof cmplz_has_consent === "function") {
+    if (cmplz_has_consent("marketing")) {
+      return true;
+    }
+
+    // Request consent and grant it
+    cmplz_set_consent("marketing", "allow");
+    cmplz_fire_categories_event();
+    cmplz_track_status();
+    return true;
+  }
+
+  // Fallback: set platform-specific cookie
+  setConsentCookie(PLATFORM_CONFIG[platform].cookieName);
+  return true;
+}
+
+/**
+ * Check if video can play based on consent requirements
+ */
+function canPlayVideo($button, platform) {
+  // If no consent required, allow playback
+  if (!$button.hasClass("requires-consent")) {
+    return true;
+  }
+  return handleConsent(platform);
+}
+
+/**
+ * Start video playback
+ */
+function startVideoPlayback($wrapper, $iframe) {
+  $wrapper.addClass("playing");
+  $iframe.removeAttr("srcdoc");
+}
+
+/**
+ * Function to play video (Vimeo or YouTube)
+ */
 function ezpzPlayVideo(videoWrapper) {
-  let $ = jQuery;
+  const $ = jQuery;
   ezpzVideoWrapper = videoWrapper;
-  var $wrapper = videoWrapper,
-    $button = $wrapper.find(".play"),
-    $iframe = $wrapper.find("iframe"),
-    iframe = $iframe[0];
 
-  if ($button.hasClass("platform-vimeo")) {
-    // No need to check for GDPR compliance for Vimeo videos as DNT is set to 1
-    $wrapper.addClass("playing");
-    $iframe.removeAttr("srcdoc");
-  } else if ($button.hasClass("platform-youtube")) {
-    let canPlay = false;
-    // Does the button have a class of .requires-consent?
-    if ($button.hasClass("requires-consent")) {
-      // Does this site have compliance installed? If so, we need to check if the user has consented to marketing cookies
-      if (typeof cmplz_has_consent === "function") {
-        if (cmplz_has_consent("marketing")) {
-          canPlay = true;
-        } else {
-          cmplz_set_consent("marketing", "allow");
-          cmplz_fire_categories_event();
-          cmplz_track_status();
-          canPlay = true;
-        }
-      } else {
-        // otherwise, set a cookie youtubeEmbedConsent to true for 1 year
-        let date = new Date();
-        date.setTime(date.getTime() + 365 * 24 * 60 * 60 * 1000);
-        document.cookie =
-          "youtubeEmbedConsent=true; expires=" +
-          date.toUTCString() +
-          "; path=/";
-        canPlay = true;
-      }
-    } else {
-      // GDPR is accepted already, play the video
-      canPlay = true;
-    }
+  const $wrapper = videoWrapper;
+  const $button = $wrapper.find(".play");
+  const $iframe = $wrapper.find("iframe");
 
-    if (canPlay) {
-      $wrapper.addClass("playing"); // Fades out the overlay
-      $iframe.removeAttr("srcdoc");
-    }
+  // Determine platform
+  let platform = null;
+  if ($button.hasClass(PLATFORM_CONFIG.vimeo.className)) {
+    platform = "vimeo";
+  } else if ($button.hasClass(PLATFORM_CONFIG.youtube.className)) {
+    platform = "youtube";
+  }
+
+  // Exit if platform not recognized
+  if (!platform) {
+    console.warn("Unknown video platform");
+    return;
+  }
+
+  // Check consent and play if allowed
+  if (canPlayVideo($button, platform)) {
+    startVideoPlayback($wrapper, $iframe);
   }
 }
 
+/**
+ * Event listeners
+ */
 jQuery(document).on("click touch", ".video-wrapper .play", function () {
   ezpzPlayVideo(jQuery(this).closest(".video-wrapper"));
 });

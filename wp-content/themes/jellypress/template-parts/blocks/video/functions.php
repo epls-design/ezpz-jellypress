@@ -9,6 +9,8 @@
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 
+// NOTE: WORDPRESS BY DEFAULT ADDS DNT=1 to Vimeo embeds, so tracking is disabled unless we explicitly allow it
+const ALLOW_VIMEO_TRACKING = true;
 
 /*************************************
  * FUNCTIONS TO HELP WITH EMBEDDING
@@ -67,31 +69,63 @@ function jellypress_get_video_information($video, $platform = null) {
     if (!$platform) {
       $platform = jellypress_get_video_platform($oembed_url);
     }
-
     if ($platform === 'vimeo') {
 
       if (!isset($video_thumbnail_lq)) {
-
         if (preg_match('%^https?:\/\/(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)(?:[?]?.*)$%im', $oembed_url, $match)) {
-          // Strip out the video ID
           $video_id = $match[3];
         }
 
-        $vimeo_data = unserialize(file_get_contents("http://vimeo.com/api/v2/video/$video_id.php")); // Use Vimeo API to get video information
-        $video_thumbnail_lq = $vimeo_data[0]['thumbnail_medium']; // Get a mid res thumbnail
-        $video_thumbnail_hq = $vimeo_data[0]['thumbnail_large']; // Get a high res thumbnail
-
+        try {
+          $curl_req = curl_init();
+          curl_setopt($curl_req, CURLOPT_URL, 'https://vimeo.com/api/oembed.json?url=https://vimeo.com/' . $video_id);
+          curl_setopt($curl_req, CURLOPT_RETURNTRANSFER, 1);
+          $vimeo_data = curl_exec($curl_req);
+          curl_close($curl_req);
+          $vimeo_data = json_decode($vimeo_data, true);
+          $video_thumbnail_lq = $vimeo_data['thumbnail_url'];
+          $video_thumbnail_hq = str_replace('295x166', '885x498', $vimeo_data['thumbnail_url']);
+        } catch (Exception $e) {
+          $video_thumbnail_lq = '';
+          $video_thumbnail_hq = '';
+        }
       }
 
-      // Vimeo params
+      // Convert &amp; to &
+      $oembed_url = str_replace('&amp;', '&', $oembed_url);
+
+      // Extract existing query parameters
+      $existing_params = array();
+      $parsed_url = parse_url($oembed_url);
+
+      if (isset($parsed_url['query'])) {
+        parse_str($parsed_url['query'], $existing_params);
+        unset($parsed_url['query']);
+      }
+
+      // Rebuild parsed URL without query
+      $oembed_url = strtok($oembed_url, '?');
+
+      // YouTube params
       $params = array(
-        'byline'        => 0,
-        'portrait'      => 0,
-        'title'         => 0,
-        'autoplay'      => 1,
-        'dnt'           => 1
+        'autoplay'       => 1,
+        // 'airplay'        => 1,
+        // 'chromecast'     => 1,
+        'badge'          => 0,
+        'byline'         => 0,
+        // 'controls'       => 0,
       );
-      $oembed_url = add_query_arg($params, $oembed_url);
+
+      $params = array_merge($existing_params, $params);
+
+      if (!ALLOW_VIMEO_TRACKING) {
+        $params['dnt'] = 1; // Do Not Track
+      } elseif (isset($params['dnt'])) {
+        unset($params['dnt']); // Remove Do Not Track if tracking is allowed
+      }
+
+      $oembed_url = add_query_arg($params, $oembed_url); // Add query vars to URL
+
     } elseif ($platform === 'youtube') {
 
       if (!isset($video_thumbnail_lq)) {
@@ -127,6 +161,7 @@ function jellypress_get_video_information($video, $platform = null) {
         'version'        => 3,
         'origin'         => get_option('home')
       );
+
       $oembed_url = add_query_arg($params, $oembed_url); // Add query vars to URL
     }
   }
@@ -156,6 +191,13 @@ function jellypress_embed_video($video, $aspect_ratio = '16x9', $platform = null
   } elseif ($video_info['platform'] == 'vimeo') {
     wp_enqueue_script('vimeo-api');
   }
+  $has_marketing_consent = false;
+  if (class_exists('COMPLIANZ')) {
+    $has_marketing_consent = cmplz_has_consent('marketing');
+  } else {
+    // FALLBACK IF COMPLIANZ IS NOT INSTALLED
+    $has_marketing_consent = isset($_COOKIE['embedded' . ucfirst($video_info['platform']) . 'Consent']) && $_COOKIE['embedded' . ucfirst($video_info['platform']) . 'Consent'] == 'true';
+  }
 
 ?>
   <figure>
@@ -168,14 +210,17 @@ function jellypress_embed_video($video, $aspect_ratio = '16x9', $platform = null
           $has_marketing_consent = cmplz_has_consent('marketing');
         } else {
           // FALLBACK IF COMPLIANZ IS NOT INSTALLED
-          $has_marketing_consent = isset($_COOKIE['youtubeEmbedConsent']) && $_COOKIE['youtubeEmbedConsent'] === 'true';
+          $has_marketing_consent = isset($_COOKIE['embedded' . ucfirst($video_info['platform']) . 'Consent']) && $_COOKIE['embedded' . ucfirst($video_info['platform']) . 'Consent'] == 'true';
         }
 
-        if (!$has_marketing_consent && $video_info['platform'] === 'youtube') {
+        if (
+          (!$has_marketing_consent && $video_info['platform'] === 'youtube')
+          || (ALLOW_VIMEO_TRACKING === true && $video_info['platform'] === 'vimeo' && !$has_marketing_consent)
+        ) {
           $button = [
             'class' => 'requires-consent play platform-' . $video_info['platform'],
-            'title' => __('Confirm marketing consent to play this video', 'esher'),
-            'text' => __('Throughout our website we use YouTube to host video content. By playing this video, you agree to allow YouTube to set marketing cookies on your device. Please see our cookie policy for more information or click here to play.', 'esher')
+            'title' => __('Confirm marketing consent to play this video', 'jellypress'),
+            'text' => sprintf(__('Throughout our website we use %s to host video content. By playing this video, you agree to allow %s to set marketing and analytics cookies on your device. Please see our cookie policy for more information or click here to play.', 'jellypress'), ucfirst($video_info['platform']), ucfirst($video_info['platform']))
           ];
         } else {
           $button = [
