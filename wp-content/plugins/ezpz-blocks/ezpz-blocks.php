@@ -97,7 +97,7 @@ class ezpzBlocks {
 	function filter_allowed_blocks($allowed_block_types, $editor_context) {
 		if (!empty($editor_context->post)) {
 			$plugin_blocks = $this->get_plugin_blocks('ezpz/');
-			if (is_array($block_editor_context))
+			if (is_array($editor_context))
 				$allowed_block_types = array_merge($allowed_block_types, $plugin_blocks);
 			else
 				$allowed_block_types = $plugin_blocks;
@@ -126,23 +126,45 @@ class ezpzBlocks {
 			// Strip ezpz/ from the block name
 			$block_name = str_replace('ezpz/', '', $block_name);
 
-			// Redefine the classes
-			$classes = [
-				'block',
-				'block-' . $block_name,
-			];
+			// Get all existing classes between class=""
+			preg_match('/class="([^"]+)"/', $block_content, $matches);
+
+			$classes = ['block'];
+
+			if (isset($matches[1])) {
+				$existing_classes = $matches[1];
+
+				$existing_classes = explode(' ', $existing_classes);
+
+				// Loop through, and replace any 'wp-block-ezpz-*' with 'block block-*'
+				foreach ($existing_classes as $key => &$class) {
+					if (strpos($class, 'wp-block-ezpz-') === 0) {
+						$class = str_replace('wp-block-ezpz-', 'block-', $class);
+					}
+
+					// Remove the class if it contains '-background-color' as we are adding these ourselves
+					if (strpos($class, '-background-color') !== false || strpos($class, 'has-background') === 0) {
+						unset($existing_classes[$key]);
+					}
+				}
+
+				$classes = array_merge($classes, $existing_classes);
+			}
 
 			// Add the outerContainer class if it exists (this would be stripped otherwise)
 			if ($block_name == 'text-media' && isset($block['attrs']['outerContainer'])) {
 				$classes[] = 'is-' . $block['attrs']['outerContainer'];
 			}
 
-			$background = isset($block['attrs']['backgroundColor']) ? 'bg-' . $block['attrs']['backgroundColor'] : 'bg-white';
+			$background = isset($block['attrs']['backgroundColor']) ? 'bg-' . $block['attrs']['backgroundColor'] : 'bg-transparent';
 
 			$classes[] = $background;
 
 			// Check if any have been added by the user
 			isset($block['attrs']['className']) && $classes[] = $block['attrs']['className'];
+
+			// Remove any duplicates
+			$classes = array_unique($classes);
 
 			// Add the classes to the block
 			$block_content = str_replace('<section', '<section class="' . implode(" ", $classes) . '"', $block_content);
@@ -151,7 +173,6 @@ class ezpzBlocks {
 		elseif ($block_name == 'ezpz/column') {
 			$block_content = str_replace('wp-block-ezpz-column ', '', $block_content);
 		}
-
 
 		return $block_content;
 	}
