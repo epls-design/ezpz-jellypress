@@ -17,6 +17,9 @@
 		}
 	},
 	"attributes": {
+		"anchor": {
+			"type": "string"
+		},
 		"outerContainer": {
 			"type": "string",
 			"default": "section"

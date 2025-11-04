@@ -78,11 +78,12 @@ class ezpzBlocks {
 			$args = [];
 
 			// If it's post title block, we are using a dynamic callback rather than js to render the block
-			if ($block == 'post-title') {
-				$args['render_callback'] = function ($attributes) {
+			if ($block == 'post-title' || $block == 'section') {
+				$block_name = $block;
+				$args['render_callback'] = function ($attributes, $content, $block) use ($block_name) {
 					ob_start();
 					// Include the template
-					include(__DIR__ . '/src/post-title/view.php');
+					include(__DIR__ . '/src/' . $block_name . '/view.php');
 					return ob_get_clean();
 				};
 			}
@@ -159,9 +160,8 @@ class ezpzBlocks {
 			$background = isset($block['attrs']['backgroundColor']) ? 'bg-' . $block['attrs']['backgroundColor'] : 'bg-transparent';
 
 			$classes[] = $background;
-
 			// Check if any have been added by the user
-			isset($block['attrs']['className']) && $classes[] = $block['attrs']['className'];
+			// isset($block['attrs']['className']) && $classes[] = $block['attrs']['className'];
 
 			// Remove any duplicates
 			$classes = array_unique($classes);
