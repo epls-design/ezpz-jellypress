@@ -7,7 +7,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: EPLS Design <theteam@epls.design>\n"
 "Last-Translator: EPLS Design <theteam@epls.design>\n"
-"POT-Creation-Date: 2025-09-04 15:22+0000\n"
+"POT-Creation-Date: 2025-11-06 17:02+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -60,8 +60,20 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: inc/blocks.php:372
+#: inc/blocks.php:347
 msgid "Preview only - actual style may vary"
+msgstr ""
+
+#: inc/blocks.php:493, inc/blocks.php:494
+msgid "Select a Block Pattern"
+msgstr ""
+
+#: inc/blocks.php:545
+msgid "Select a %s Template to get started"
+msgstr ""
+
+#: inc/blocks.php:561
+msgid "Select this template"
 msgstr ""
 
 #. translators: %s: post date.
@@ -145,6 +157,22 @@ msgid_plural "%d items"
 msgstr[0] ""
 msgstr[1] ""
 
+#: patterns/page-default.php:17, patterns/post-default.php:17
+msgid "Default"
+msgstr ""
+
+#: patterns/page-default.php:18
+msgid "A default page layout with a hero section and content area."
+msgstr ""
+
+#: patterns/post-default.php:18
+msgid "A default layout for posts, with just the content area."
+msgstr ""
+
+#: patterns/post-default.php:23
+msgid "Start writing your post content here..."
+msgstr ""
+
 #: template-parts/partials/card-search.php:30
 msgid "Last updated "
 msgstr ""
@@ -226,15 +254,15 @@ msgstr ""
 msgid "You need to add some posts to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to \"edit\"."
 msgstr ""
 
-#: template-parts/blocks/map/functions.php:42
+#: template-parts/blocks/map/functions.php:43
 msgid "Maps API Key"
 msgstr ""
 
-#: template-parts/blocks/map/functions.php:46
+#: template-parts/blocks/map/functions.php:47
 msgid "Google Maps API Key"
 msgstr ""
 
-#: template-parts/blocks/map/functions.php:50
+#: template-parts/blocks/map/functions.php:51
 msgid "To display Google Maps on your website, you need an API key. Please add it here."
 msgstr ""
 
@@ -250,8 +278,16 @@ msgstr ""
 msgid "You need to add some testimonials to this block. Please click here to edit the fields in the block sidebar, alternatively change the block view mode to \"edit\"."
 msgstr ""
 
-#: template-parts/blocks/video/functions.php:183
+#: template-parts/blocks/video/functions.php:228
 msgid "Play Video"
+msgstr ""
+
+#: template-parts/blocks/video/functions.php:222
+msgid "Confirm marketing consent to play this video"
+msgstr ""
+
+#: template-parts/blocks/video/functions.php:223
+msgid "Throughout our website we use %s to host video content. By playing this video, you agree to allow %s to set marketing and analytics cookies on your device. Please see our cookie policy for more information or click here to play."
 msgstr ""
 
 #: template-parts/widgets/menu/view.php:48
