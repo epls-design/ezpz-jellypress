@@ -35,12 +35,13 @@ $text_align = $block_attributes['text_align'];
 if ($text_align == 'text-center') $justify = 'justify-center';
 elseif ($text_align == 'text-right') $justify = 'justify-end';
 else $justify = 'justify-start';
+$has_content = jellypress_has_inner_content($content);
 
 ?>
 <section class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
   <div class="container">
 
-    <?php if ($content || $is_preview) : ?>
+    <?php if ($has_content || $is_preview) : ?>
       <header class="row <?php echo $justify; ?>">
         <div class="col md-10 lg-8 <?php echo $text_align; ?>">
           <InnerBlocks allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />

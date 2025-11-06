@@ -38,13 +38,14 @@ else $justify = 'justify-start';
 
 $query_post_type = $fields['query_post_type'];
 $loading_type = $fields['loading_type'];
+$has_content = jellypress_has_inner_content($content);
 
 ?>
 
 <section class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
   <div class="container">
 
-    <?php if ($content || $is_preview) : ?>
+    <?php if ($has_content || $is_preview) : ?>
       <header class="row <?php echo $justify; ?>">
         <div class="col md-10 lg-8 <?php echo $text_align; ?>">
           <InnerBlocks allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />

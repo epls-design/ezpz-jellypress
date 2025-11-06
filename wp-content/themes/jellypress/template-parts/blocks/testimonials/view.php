@@ -30,6 +30,7 @@ $block_id = str_replace('block_', '', $block['id']);
 $block_attributes = jellypress_get_block_attributes($block, $context);
 $allowed_blocks = jellypress_get_allowed_blocks();
 $block_template = jellypress_get_block_template();
+$has_content = jellypress_has_inner_content($content);
 
 $fields = get_fields();
 
@@ -40,7 +41,7 @@ $text_align = $block_attributes['text_align'];
 <section class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
   <div class="container">
 
-    <?php if ($content || $is_preview) : ?>
+    <?php if ($has_content || $is_preview) : ?>
       <header class="row justify-center">
         <div class="col md-10 lg-8 <?php echo $text_align; ?>">
           <InnerBlocks allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />

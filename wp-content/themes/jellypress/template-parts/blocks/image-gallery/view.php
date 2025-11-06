@@ -28,6 +28,7 @@ if (jellypress_get_block_preview_image($block) == true) return;
 $block_attributes = jellypress_get_block_attributes($block, $context);
 $allowed_blocks = jellypress_get_allowed_blocks();
 $block_template = jellypress_get_block_template();
+$has_content = jellypress_has_inner_content($content);
 
 $fields = get_fields();
 
@@ -43,7 +44,7 @@ $block_id = 'gallery-' . str_replace('block_', '', $block_attributes['block_id']
 
 <section class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
 
-  <?php if ($content || $is_preview) : ?>
+  <?php if ($has_content || $is_preview) : ?>
     <div class="container">
       <header class="row justify-center">
         <div class="col md-10 lg-8 <?php echo $block_attributes['text_align']; ?>">

@@ -541,3 +541,16 @@ function jellypress_render_block_pattern_selector() {
     </div>
   <?php
 }
+
+/**
+ * Simple helper function to determine if $content passed to an ACF block has any actual text.
+ * This is useful because without this, any placeholder text in the editor will cause the block to think it has content and display empty tags.
+ *
+ * @param string $content The block content
+ * @return bool True if the block has inner content, false otherwise
+ */
+function jellypress_has_inner_content($content) {
+  $text_content = trim(strip_tags($content));
+  $has_inner_blocks = strlen($text_content) > 0;
+  return $has_inner_blocks;
+}

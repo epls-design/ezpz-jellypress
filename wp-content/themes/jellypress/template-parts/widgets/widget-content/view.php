@@ -47,10 +47,11 @@ $block_template = jellypress_get_block_template(
 );
 
 $fields = get_fields();
-
+$has_content = jellypress_has_inner_content($content);
 
 ?>
-
-<div class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
-  <InnerBlocks allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
-</div>
+<?php if ($has_content || $is_preview) : ?>
+  <div class="<?php echo $block_attributes['class']; ?>" <?php echo $block_attributes['anchor']; ?>>
+    <InnerBlocks allowedBlocks=" <?php echo $allowed_blocks; ?>" template="<?php echo $block_template; ?>" />
+  </div>
+<?php endif; ?>
