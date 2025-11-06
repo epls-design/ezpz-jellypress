@@ -21,70 +21,42 @@ defined('ABSPATH') || exit;
 function jellypress_register_blocks() {
   $blocks = jellypress_get_blocks();
   foreach ($blocks as $block) {
-    if (file_exists(get_template_directory() . '/template-parts/blocks/' . $block . '/block.json')) {
-      $reg = register_block_type(get_template_directory() . '/template-parts/blocks/' . $block . '/block.json');
+    $block_json = get_template_directory() . '/template-parts/blocks/' . $block . '/block.json';
+    if (file_exists($block_json)) {
+      register_block_type($block_json);
     }
   }
 }
 add_action('init', 'jellypress_register_blocks', 5);
 
 /**
- * Scans the blocks directory for all blocks and returns an array of any functions.php files found
- *
- * @return array $partials An array of paths to functions.php files
- */
-function jellypress_get_block_functions() {
-  $block_folders = glob(get_template_directory() . '/template-parts/blocks/*', GLOB_ONLYDIR);
-  $partials = [];
-  foreach ($block_folders as $folder) {
-    $block_functions = $folder . '/functions.php';
-    if (file_exists($block_functions)) $partials[] = $block_functions;
-  }
-  return $partials;
-}
-
-/**
- * Stores an array of additional functions.php files to include, that are bundled with each block.
- * This is used to include block specific functionality, such as custom fields, enqueues etc.
- */
-function jellypress_register_block_functions() {
-  $theme   = wp_get_theme();
-  $blocks_with_functions  = get_option('jellypress_block_functions');
-  $version = get_option('jellypress_block_functions_version');
-  if (
-    empty($blocks_with_functions) ||
-    version_compare($theme->get('Version'), $version) ||
-    (function_exists('wp_get_environment_type') && 'production' !== wp_get_environment_type())
-  ) {
-    $blocks_with_functions = jellypress_get_block_functions();
-    update_option('jellypress_block_functions', $blocks_with_functions);
-    update_option('jellypress_block_functions_version', $theme->get('Version'));
-  }
-
-  // Require the files
-  if (!empty($blocks_with_functions)) {
-    foreach ($blocks_with_functions as $path_to_function) {
-      require_once $path_to_function;
-    }
-  }
-}
-
-/**
  * Get all block names from template-parts/blocks
  */
 function jellypress_get_blocks() {
-  $theme   = wp_get_theme();
-  $blocks  = get_option('jellypress_blocks');
-  $version = get_option('jellypress_blocks_version');
-  // if (empty($blocks) || version_compare($theme->get('Version'), $version) || (function_exists('wp_get_environment_type') && 'production' !== wp_get_environment_type())) {
-  $blocks = scandir(get_template_directory() . '/template-parts/blocks/');
 
-  // Remove unnecessary directories and files
+  static $blocks = null;
+
+  if (null !== $blocks) {
+    return $blocks;
+  }
+
+  $blocks = scandir(get_template_directory() . '/template-parts/blocks/');
   $blocks = array_values(array_diff($blocks, array('..', '.', '.DS_Store')));
-  update_option('jellypress_blocks', $blocks);
-  update_option('jellypress_blocks_version', $theme->get('Version'));
-  // }
+
   return $blocks;
+}
+
+/**
+ * Load block-specific functions
+ */
+function jellypress_register_block_functions() {
+  $blocks = jellypress_get_blocks();
+  foreach ($blocks as $block) {
+    $functions_file = get_template_directory() . "/template-parts/blocks/{$block}/functions.php";
+    if (file_exists($functions_file)) {
+      require_once $functions_file;
+    }
+  }
 }
 
 /**
