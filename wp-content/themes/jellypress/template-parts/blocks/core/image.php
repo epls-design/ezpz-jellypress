@@ -74,7 +74,7 @@ $body_content = $markup->get_updated_html();
 // Convert $body_content to an HTML DOM so we can manipulate it.
 $dom = new DOMDocument();
 libxml_use_internal_errors(true);
-$dom->loadHTML($body_content);
+$dom->loadHTML(mb_convert_encoding($body_content, 'HTML-ENTITIES', 'UTF-8'));
 $xpath = new DOMXPath($dom);
 
 // Remove all <button> elements from the DOM -> this was added by WP for the lightbox.
