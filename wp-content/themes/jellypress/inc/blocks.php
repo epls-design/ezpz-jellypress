@@ -351,7 +351,7 @@ function jellypress_get_block_patterns() {
     return $jellypress_block_patterns;
   }
 
-  $block_patterns = glob(get_template_directory() . '/patterns/*.php', GLOB_BRACE);
+  $block_patterns = glob(get_stylesheet_directory() . '/patterns/*.php', GLOB_BRACE);
   if (!$block_patterns) {
     return [];
   }
